@@ -163,7 +163,7 @@ yarn create vuepress-theme-hope hope-blog
 git init
 ```
 
-在项目中添加 gitee 远程仓库地址
+在项目中添加gitee远程仓库地址
 
 ```bash
 git remote add gitee git@gitee.com:Trezedo/trezedo.git
