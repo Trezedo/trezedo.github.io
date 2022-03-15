@@ -50,7 +50,7 @@ export default defineThemeConfig({
         config: {
             "/guide/encrypt.html": ["1234"],
             "/zh/guide/encrypt.html": ["1234"],
-            "/math/%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%AE%97%E5%AD%90%E6%B3%95.html": ["1962234583"]
+            "/note/math/differential-operator.html": ["1962234583"]
         },
     },
     plugins: {

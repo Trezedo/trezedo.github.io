@@ -9,7 +9,7 @@ category:
 tag:
   - Java
   - 后端开发
-permalink: /article/vertx-learning.html
+# permalink: /article/vertx-learning.html
 ---
 
 # vert.x学习

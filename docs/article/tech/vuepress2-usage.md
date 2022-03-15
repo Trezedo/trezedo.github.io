@@ -9,7 +9,6 @@ category:
   - VuePress
 tag:
   - VuePress
-permalink: /article/VuePress2.html
 ---
 
 # Vuepress2使用
