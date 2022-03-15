@@ -1,6 +1,7 @@
 ---
 icon: tex
 date: 2022-01-26
+title: KaTeX插件配置
 category:
   - VuePress
 tag:
@@ -9,13 +10,13 @@ tag:
   - VuePress
 ---
 
-# KaTeX插件配置
-
 ::: warning 提示
 
 本文内容基于`vuepress2`的默认主题。
 
 :::
+
+<!-- more -->
 
 ## 基本使用
 

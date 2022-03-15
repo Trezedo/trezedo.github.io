@@ -68,8 +68,6 @@ const clickPop = () => {
 }
 clickPop()
 /**
- * 执行脚本，编译并压缩代码
- * tsc docs/.vuepress/public/assets/js/pop.ts # --removeComments 移除注释
- * uglifyjs docs/.vuepress/public/assets/js/pop.js -o docs/.vuepress/public/assets/js/pop.js -m
- * 其中 m 是 minify，可重命名变量、去除注释
+ tsc docs/.vuepress/public/assets/js/pop.ts
+ uglifyjs docs/.vuepress/public/assets/js/pop.js -o docs/.vuepress/public/assets/js/pop.js -m
  */

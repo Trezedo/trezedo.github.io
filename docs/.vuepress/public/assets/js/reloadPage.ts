@@ -22,7 +22,6 @@ onMounted(() => {
 ```
  */
 /**
- * cd ./docs/.vuepress/public/assets/js
- * tsc reloadPage.ts
- * uglifyjs reloadPage.js -o reloadPage.js -m
+ tsc docs/.vuepress/public/assets/js/reloadPage.ts
+ uglifyjs docs/.vuepress/public/assets/js/reloadPage.js -o docs/.vuepress/public/assets/js/reloadPage.js -m
  */
