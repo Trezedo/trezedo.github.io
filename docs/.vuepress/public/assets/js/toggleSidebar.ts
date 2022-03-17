@@ -13,11 +13,12 @@ function init() {
     /**
      * 由于 vue-router 不会刷新页面，但是 head 会执行该 js 文件，因此需要判断 <br>
      *
-     * 1. 页面显示侧边栏，且没有 加载按钮： 增加按钮
-     * 2. 页面显示侧边栏，且已有 加载按钮： 不变
-     * 3. 页面不显示侧边栏，且没有 加载按钮： 不变
-     * 4. 页面不显示侧边栏，且已有 加载按钮： 移除
+     * 1. 页面存在侧边栏，且没有 加载按钮： 增加按钮
+     * 2. 页面存在侧边栏，且已有 加载按钮： 不变 - 但切换页面后 要判断 sidebar 是否被隐藏
+     * 3. 页面不存在侧边栏，且没有 加载按钮： 不变
+     * 4. 页面不存在侧边栏，且已有 加载按钮： 移除
      */
+    let isHide = () => localStorage.getItem('sidebar') === 'hide'; // 用 false 作为初始值的辅助变量
     if (links() && !button()) {
         const tButton = document.createElement("button");
         tButton.className = "toggle-sidebar";
@@ -31,21 +32,28 @@ function init() {
         document.body.appendChild(tButton)
     } else if (!links() && button()) {
         document.body.removeChild(button())
+    } else if (links() && button()) {
+        // 切换页面时，page会恢复初始状态，而 sidebar 不会
+        // 因此当从关闭 sidebar 的页面切换到其他页面时，sidebar隐藏且page不是全屏的
+        // 此时是新页面了，因此为了判断需要用到 localStorage
+        // 显示被隐藏的侧边栏
+        sidebar().classList.remove('hide');
+        if (isHide()) localStorage.setItem('sidebar', 'show')
     }
 
-    let isShow: boolean = true; // 辅助变量
     function toggle() {
-        if (isShow) {
-            // 通过 hide 类改变 left 的值
+        if (!isHide()) {
+            // 通过 hide 类改变 left 的值，实现隐藏侧边栏
             sidebar().classList.add('hide');
             mainPage().style.paddingLeft = '0';
+            localStorage.setItem('sidebar', 'hide')
         } else {
             sidebar().classList.remove('hide');
             mainPage().removeAttribute('style');
             // sidebar().style.left = 'var(--sidebar-width)'
             // mainPage.style.paddingLeft = ''; // var(--sidebar-width)
+            localStorage.setItem('sidebar', 'show')
         }
-        isShow = !isShow
     }
 }
 
