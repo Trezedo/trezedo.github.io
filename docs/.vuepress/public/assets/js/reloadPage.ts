@@ -1,6 +1,6 @@
 (() => {
     const header = document.querySelector("header")
-    header.addEventListener("dblclick", () => {
+    header?.addEventListener("dblclick", () => {
         location.reload();
     })
 })()

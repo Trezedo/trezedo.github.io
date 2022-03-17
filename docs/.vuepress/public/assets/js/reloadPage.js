@@ -1,1 +1,1 @@
-(function(){var e=document.querySelector("header");e.addEventListener("dblclick",function(){location.reload()})})();
+(function(){var e=document.querySelector("header");e===null||e===void 0?void 0:e.addEventListener("dblclick",function(){location.reload()})})();
