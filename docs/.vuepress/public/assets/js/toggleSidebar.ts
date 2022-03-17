@@ -3,7 +3,11 @@
     const sidebar = document.querySelector("aside.sidebar") as HTMLElement;
 
     // 用 links 来判断页面是否有侧边栏
-    const links = () => document.querySelector("ul.sidebar-links")
+    const links = () => {
+        const ul = document.querySelector("ul.sidebar-links")
+        // 如果元素存在，且它的子节点个数为正，则判断为存在侧边栏
+        return ul && ul?.childElementCount > 0
+    }
     const button = () => document.querySelector("button.toggle-sidebar")
     /**
      * 由于 vue-router 不会刷新页面，但是 head 会执行该 js 文件，因此需要判断 <br>
@@ -23,7 +27,7 @@
         let isShow = true;
         setTimeout(() => {
             document.body.appendChild(tButton)
-        }, 200)
+        }, 300)
         tButton.addEventListener('click', () => {
             if (isShow) {
                 sidebar.classList.add('hide')
