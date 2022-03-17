@@ -1,4 +1,4 @@
-(() => {
+function init() {
     const mainPage = () => document.querySelector("main.page#main-content") as HTMLElement;
     const sidebar = () => document.querySelector("aside.sidebar") as HTMLElement;
 
@@ -24,28 +24,32 @@
         tButton.setAttribute("aria-label", "隐藏/显示侧边栏");
         tButton.setAttribute("data-balloon-pos", "left");
 
-        let isShow = true;
-        setTimeout(() => {
-            document.body.appendChild(tButton)
-        }, 300)
-        tButton.addEventListener('click', () => {
-            if (isShow) {
-                sidebar().classList.add('hide')
-                // var(--sidebar-width)
-                mainPage().style.paddingLeft = '0';
-            } else {
-                // sidebar.style.left = 'var(--sidebar-width)'
-                sidebar().classList.remove('hide')
-                // var(--sidebar-width)
-                mainPage().removeAttribute('style')
-                // mainPage.style.paddingLeft = ''; // var(--sidebar-width)
-            }
-            isShow = !isShow
-        })
+        // 非 hover 状态时，取消焦点
+        tButton.addEventListener('mouseout', () => tButton.blur());
+        tButton.addEventListener('click', toggle)
+        document.body.appendChild(tButton)
     } else if (!links() && button()) {
         document.body.removeChild(button())
     }
-})()
+
+    let isShow: boolean = true; // 辅助变量
+    function toggle() {
+        if (isShow) {
+            sidebar().classList.add('hide')
+            // var(--sidebar-width)
+            mainPage().style.paddingLeft = '0';
+        } else {
+            // sidebar.style.left = 'var(--sidebar-width)'
+            sidebar().classList.remove('hide')
+            // var(--sidebar-width)
+            mainPage().removeAttribute('style')
+            // mainPage.style.paddingLeft = ''; // var(--sidebar-width)
+        }
+        isShow = !isShow
+    }
+}
+
+setTimeout(() => init(), 300)
 
 /**
  tsc docs/.vuepress/public/assets/js/toggleSidebar.ts
