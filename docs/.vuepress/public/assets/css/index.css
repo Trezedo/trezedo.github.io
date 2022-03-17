@@ -56,7 +56,6 @@ particle {
 }
 
 .toggle-sidebar {
-    background-color: transparent;
     border-width: 0;
     cursor: pointer;
     position: fixed !important;
@@ -72,3 +71,16 @@ particle {
     color: var(--c-brand, #3eaf7c);
 }
 
+/* toggle 侧边栏的过渡动画 */
+aside.sidebar {
+    transition: left 0.3s;
+}
+
+main.page#main-content {
+    transition: padding-left 0.3s;
+}
+
+/* 通过调整 left “隐藏” 侧边栏 */
+aside.sidebar.hide {
+    left: calc(0px - var(--sidebar-width));
+}
