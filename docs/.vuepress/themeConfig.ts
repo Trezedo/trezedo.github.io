@@ -30,6 +30,7 @@ export default defineThemeConfig({
         roundAvatar: true, // 首页右侧的头像
     },
     lastUpdated: true,
+    // navbar, // 似乎失败了
     locales: {
         "/": {
             navbar: navbar,

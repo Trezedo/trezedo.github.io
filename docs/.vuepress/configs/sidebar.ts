@@ -16,22 +16,17 @@ export default defineSidebarConfig({
             children: ["page.md", "markdown.md", "disable.md", "encrypt.md"],
         },
         {
-            text: "文章", icon: "note", prefix: "article/",
+            text: "文章", icon: "note",
             children: [
                 {
                     text: "软件", icon: "note", collapsable: true,
-                    prefix: "",
-                    children: [
-                        "git-usage.md",
-                        "markdown基本使用.md",
-                        "miktex-installation.md",
-                        "nodejs-installation.md",
-                    ]
+                    prefix: "software/",
+                    children: "structure"
                 },
                 {
-                    text: "技术", icon: "note", prefix: "tech/", collapsable: true,
-                    // children: "structure"
-                    children: [
+                    text: "技术", icon: "note", prefix: "article/tech/", collapsable: true,
+                    children: "structure"
+                    /*children: [
                         "vert.x-learning.md",
                         "VuePress2使用.md",
                         "katex-plugin-vuepress.md",
@@ -40,7 +35,7 @@ export default defineSidebarConfig({
                         "/article/使用Vue(组件).md",
                         "/article/免费接口.md",
                         "/article/tbs.md",
-                    ]
+                    ]*/
                 },
             ],
         }

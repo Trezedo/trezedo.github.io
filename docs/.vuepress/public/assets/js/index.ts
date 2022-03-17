@@ -1,5 +1,6 @@
 let scripts = [
     "/assets/js/reloadPage.js",
+    "/assets/js/toggleSidebar.js",
     // "pop"
 ];
 
@@ -12,11 +13,12 @@ let scripts = [
         return /\.js$/.test(base) ? base : base + ".js"
     }
     let count = 0;
+    let defer = 200; // 延迟执行时间
     if (!window['__c_script__']) {
         for (let key in scripts) {
             const script = document.createElement("script")
             script.src = naming(scripts[key])
-            setTimeout(() => document.body.appendChild(script), 1000)
+            setTimeout(() => document.body.appendChild(script), defer)
             count++;
         }
         if (count == scripts.length) {
