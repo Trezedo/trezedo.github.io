@@ -1,7 +1,19 @@
 (() => {
     const mainPage = document.querySelector("main.page#main-content") as HTMLElement;
     const sidebar = document.querySelector("aside.sidebar") as HTMLElement;
-    if (sidebar) {
+
+    // 用 links 来判断页面是否有侧边栏
+    const links = () => document.querySelector("ul.sidebar-links")
+    const button = () => document.querySelector("button.toggle-sidebar")
+    /**
+     * 由于 vue-router 不会刷新页面，但是 head 会执行该 js 文件，因此需要判断 <br>
+     *
+     * 1. 页面显示侧边栏，且没有 加载按钮： 增加按钮
+     * 2. 页面显示侧边栏，且已有 加载按钮： 不变
+     * 3. 页面不显示侧边栏，且没有 加载按钮： 不变
+     * 4. 页面不显示侧边栏，且已有 加载按钮： 移除
+     */
+    if (links() && !button()) {
         const tButton = document.createElement("button");
         tButton.className = "toggle-sidebar";
         tButton.innerHTML = `<i class="icon iconfont icon-sidebar" style="font-size: 28px"></i>`
@@ -26,6 +38,8 @@
             }
             isShow = !isShow
         })
+    } else if (!links() && button()) {
+        document.body.removeChild(button())
     }
 })()
 

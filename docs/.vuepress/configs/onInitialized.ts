@@ -6,6 +6,7 @@ export default async (app: App) => {
         path: "/test",
         markdown: `# 欢迎来到 ${app.options.title}\n这是默认主页`
     })
+    app.pluginApi
 };
 
 type DefaultPageOption = {

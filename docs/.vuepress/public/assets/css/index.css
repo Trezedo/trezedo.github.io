@@ -72,7 +72,7 @@ particle {
 }
 
 /* toggle 侧边栏的过渡动画 */
-aside.sidebar {
+.sidebar {
     transition: left 0.3s;
 }
 
@@ -81,6 +81,6 @@ main.page#main-content {
 }
 
 /* 通过调整 left “隐藏” 侧边栏 */
-aside.sidebar.hide {
+.sidebar.hide {
     left: calc(0px - var(--sidebar-width));
 }

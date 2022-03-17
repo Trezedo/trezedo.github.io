@@ -1,6 +1,7 @@
+// 进入网页时执行，且只执行一次
 let scripts = [
     "/assets/js/reloadPage.js",
-    "/assets/js/toggleSidebar.js",
+    // "toggleSidebar.js" // 只会执行一次；不会更新，但又需要动态检测
     // "pop"
 ];
 
@@ -14,7 +15,7 @@ let scripts = [
     }
     let count = 0;
     let defer = 200; // 延迟执行时间
-    if (!window['__c_script__']) {
+    if (!window['__script_once__']) {
         for (let key in scripts) {
             const script = document.createElement("script")
             script.src = naming(scripts[key])
@@ -22,7 +23,7 @@ let scripts = [
             count++;
         }
         if (count == scripts.length) {
-            window['__c_script__'] = 1
+            window['__script_once__'] = 1
         }
     }
 })()

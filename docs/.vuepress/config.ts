@@ -20,6 +20,7 @@ export default defineHopeConfig<ViteBundlerOptions | WebpackBundlerOptions>({
         // ["style", {}, `img.logo,img.hero-logo{border-radius: 50%;}`]
         // ["script", {src: "/assets/js/pop.js"}]
         ["script", {src: "/assets/js/notiflix-confirm-aio-3.2.4.min.js"}],
+        ["script", {src: "/assets/js/toggleSidebar.js"}],
         ["script", {src: "/assets/js/index.js"}],
     ],
     locales: {
