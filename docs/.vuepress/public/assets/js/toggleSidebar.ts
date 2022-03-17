@@ -1,14 +1,15 @@
 function init() {
-    const mainPage = () => document.querySelector("main.page#main-content") as HTMLElement;
-    const sidebar = () => document.querySelector("aside.sidebar") as HTMLElement;
+    const mainPage = () => document.querySelector(".page") as HTMLElement;
+    const sidebar = () => document.querySelector(".sidebar") as HTMLElement;
 
+    // 实际上这个按钮是我们创建的
+    const button = () => document.querySelector("button.toggle-sidebar")
     // 用 links 来判断页面是否有侧边栏
     const links = () => {
         const ul = document.querySelector("ul.sidebar-links")
         // 如果元素存在，且它的子节点个数为正，则判断为存在侧边栏
         return ul && ul?.childElementCount > 0
     }
-    const button = () => document.querySelector("button.toggle-sidebar")
     /**
      * 由于 vue-router 不会刷新页面，但是 head 会执行该 js 文件，因此需要判断 <br>
      *
@@ -25,8 +26,8 @@ function init() {
         tButton.setAttribute("data-balloon-pos", "left");
 
         // 非 hover 状态时，取消焦点
-        tButton.addEventListener('mouseout', () => tButton.blur());
-        tButton.addEventListener('click', toggle)
+        tButton.onmouseout = () => tButton.blur();
+        tButton.onclick = toggle
         document.body.appendChild(tButton)
     } else if (!links() && button()) {
         document.body.removeChild(button())
@@ -35,14 +36,13 @@ function init() {
     let isShow: boolean = true; // 辅助变量
     function toggle() {
         if (isShow) {
-            sidebar().classList.add('hide')
-            // var(--sidebar-width)
+            // 通过 hide 类改变 left 的值
+            sidebar().classList.add('hide');
             mainPage().style.paddingLeft = '0';
         } else {
-            // sidebar.style.left = 'var(--sidebar-width)'
-            sidebar().classList.remove('hide')
-            // var(--sidebar-width)
-            mainPage().removeAttribute('style')
+            sidebar().classList.remove('hide');
+            mainPage().removeAttribute('style');
+            // sidebar().style.left = 'var(--sidebar-width)'
             // mainPage.style.paddingLeft = ''; // var(--sidebar-width)
         }
         isShow = !isShow
