@@ -1,6 +1,6 @@
 (() => {
-    const mainPage = document.querySelector("main.page#main-content") as HTMLElement;
-    const sidebar = document.querySelector("aside.sidebar") as HTMLElement;
+    const mainPage = () => document.querySelector("main.page#main-content") as HTMLElement;
+    const sidebar = () => document.querySelector("aside.sidebar") as HTMLElement;
 
     // 用 links 来判断页面是否有侧边栏
     const links = () => {
@@ -30,14 +30,14 @@
         }, 300)
         tButton.addEventListener('click', () => {
             if (isShow) {
-                sidebar.classList.add('hide')
+                sidebar().classList.add('hide')
                 // var(--sidebar-width)
-                mainPage.style.paddingLeft = '0';
+                mainPage().style.paddingLeft = '0';
             } else {
                 // sidebar.style.left = 'var(--sidebar-width)'
-                sidebar.classList.remove('hide')
+                sidebar().classList.remove('hide')
                 // var(--sidebar-width)
-                mainPage.removeAttribute('style')
+                mainPage().removeAttribute('style')
                 // mainPage.style.paddingLeft = ''; // var(--sidebar-width)
             }
             isShow = !isShow
