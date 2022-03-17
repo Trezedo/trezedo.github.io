@@ -76,8 +76,10 @@ particle {
     transition: left 0.3s;
 }
 
-main.page#main-content {
-    transition: padding-left 0.3s;
+.page {
+    /* 会覆盖切换页面之间的过度动画 */
+    /*transition: padding-left 0.3s;*/
+    transition: all 0.3s;
 }
 
 /* 通过调整 left “隐藏” 侧边栏 */
