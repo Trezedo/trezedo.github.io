@@ -6,24 +6,26 @@ import {ViteBundlerOptions} from "vuepress";
 import {WebpackBundlerOptions} from "@vuepress/bundler-webpack";
 import {path} from '@vuepress/utils';
 
+// 这里的时间是构建时间，因为当前处于 nodejs 环境，其实也是可以做到 “不缓存” 的
+const date = new Date().getTime();
+
 // noinspection JSUnusedGlobalSymbols,SpellCheckingInspection
 export default defineHopeConfig<ViteBundlerOptions | WebpackBundlerOptions>({
     base: "/",
     dest: "./dist",
     head: [
-        ["link", {rel: "stylesheet", href: "//at.alicdn.com/t/font_2410206_mfj6e1vbwo.css"}],
-        ["link", {rel: "stylesheet", href: "/assets/css/index.css"}],
+        ["link", {rel: "stylesheet", href: "//at.alicdn.com/t/font_2410206_mfj6e1vbwo.css" + date}],
+        ["link", {rel: "stylesheet", href: "/assets/css/index.css?" + date}],
         // ["link", {rel: "shortcut icon", href: "/favicon.ico",type:"image/x-icon"}],
         ["link", {
             rel: "icon", type: "image/jpeg",
-            href: "https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=3"
+            href: "https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=3&t=" + date
         }],
         // ["style", {}, `img.logo,img.hero-logo{border-radius: 50%;}`]
         // ["script", {src: "/assets/js/pop.js"}]
         ["script", {src: "/assets/js/notiflix-confirm-aio-3.2.4.min.js"}],
-        // 这里的时间是构建时间，因为当前处于 nodejs 环境，其实也是可以做到 “不缓存” 的
-        // ["script", {src: "/assets/js/toggleSidebar.js?" + new Date().getTime()}],
-        ["script", {src: '/assets/js/index.js?' + new Date().getTime()}],
+        // ["script", {src: "/assets/js/toggleSidebar.js?" + date}],
+        ["script", {src: '/assets/js/index.js?' + date}],
     ],
     locales: {
         "/": {
