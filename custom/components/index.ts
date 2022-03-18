@@ -6,7 +6,6 @@ import AxmathFixer from './AxmathFixer'
 import BlogPageDos from './BlogPageDos.vue'
 import TTS from "./TTS.vue"
 import CommonFriend from "./QQ/CommonFriend.vue"
-import ToggleSideBarButton from "./client/ToggleSideBarButton.vue";
 
 export default {
     // CurrentPageData,
@@ -17,6 +16,5 @@ export default {
     BlogPageDos,
     TTS,
     CommonFriend,
-    ToggleSideBarButton
 }
 
