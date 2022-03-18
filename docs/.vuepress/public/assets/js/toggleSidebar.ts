@@ -45,11 +45,11 @@ function init() {
         if (!isHide()) {
             // 通过 hide 类改变 left 的值，实现隐藏侧边栏
             sidebar().classList.add('hide');
-            mainPage().style.paddingLeft = '0';
+            mainPage().classList.add('full');
             localStorage.setItem('sidebar', 'hide')
         } else {
             sidebar().classList.remove('hide');
-            mainPage().removeAttribute('style');
+            mainPage().classList.remove('full');
             // sidebar().style.left = 'var(--sidebar-width)'
             // mainPage.style.paddingLeft = ''; // var(--sidebar-width)
             localStorage.setItem('sidebar', 'show')

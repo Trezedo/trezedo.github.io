@@ -4,6 +4,7 @@ import onInitialized from "./configs/onInitialized";
 import bundlerConfig from "./configs/bundlerConfig";
 import {ViteBundlerOptions} from "vuepress";
 import {WebpackBundlerOptions} from "@vuepress/bundler-webpack";
+import {path} from '@vuepress/utils';
 
 // noinspection JSUnusedGlobalSymbols,SpellCheckingInspection
 export default defineHopeConfig<ViteBundlerOptions | WebpackBundlerOptions>({
@@ -20,8 +21,9 @@ export default defineHopeConfig<ViteBundlerOptions | WebpackBundlerOptions>({
         // ["style", {}, `img.logo,img.hero-logo{border-radius: 50%;}`]
         // ["script", {src: "/assets/js/pop.js"}]
         ["script", {src: "/assets/js/notiflix-confirm-aio-3.2.4.min.js"}],
-        ["script", {src: "/assets/js/toggleSidebar.js"}],
-        ["script", {src: "/assets/js/index.js"}],
+        // 这里的时间是构建时间，因为当前处于 nodejs 环境，其实也是可以做到 “不缓存” 的
+        // ["script", {src: "/assets/js/toggleSidebar.js?" + new Date().getTime()}],
+        ["script", {src: '/assets/js/index.js?' + new Date().getTime()}],
     ],
     locales: {
         "/": {
@@ -45,6 +47,9 @@ export default defineHopeConfig<ViteBundlerOptions | WebpackBundlerOptions>({
     ],
     bundler: bundler(),
     bundlerConfig,
+    clientAppSetupFiles: [
+        path.resolve(__dirname, './configs/setupFiles/toggleSidebar.ts')
+    ]
     // port: 8888
 });
 

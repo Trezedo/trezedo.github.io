@@ -86,3 +86,7 @@ particle {
 .sidebar.hide {
     left: calc(0px - var(--sidebar-width));
 }
+
+.page.full {
+    padding-left: 0;
+}
