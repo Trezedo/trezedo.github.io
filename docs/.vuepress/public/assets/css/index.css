@@ -1,6 +1,6 @@
 :root {
-    /* 滚动到目标的顶部偏移距离 */
-    --offset-top: 4.5em;
+    /* 滚动到目标的顶部偏移距离 3.75rem + 0.75rem = 4.5rem */
+    --offset-top: calc(var(--navbar-height) + 0.75rem);
 }
 
 /* https://github.com/vuepress/vuepress-next/issues/359 */
@@ -73,7 +73,9 @@ particle {
 
 /* toggle 侧边栏的过渡动画 */
 .sidebar {
-    transition: left 0.3s;
+    /*transition: left 0.3s;*/
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
 }
 
 .page {
@@ -82,9 +84,16 @@ particle {
     transition: all 0.3s;
 }
 
-/* 通过调整 left “隐藏” 侧边栏 */
+/**
+ 原先通过调整 left “隐藏” 侧边栏，但明显感觉到性能不太好
+ https://blog.csdn.net/weixin_45689946/article/details/122167495
+ transform 比 margin 性能好 50%~70%
+ */
 .sidebar.hide {
-    left: calc(0px - var(--sidebar-width));
+    /* 使用 transform 代替直接 修改 left */
+    /*left: calc(0px - var(--sidebar-width));*/
+    -webkit-transform: translateX(calc(0px - var(--sidebar-width)));
+    transform: translateX(calc(0px - var(--sidebar-width)));
 }
 
 .page.full {
