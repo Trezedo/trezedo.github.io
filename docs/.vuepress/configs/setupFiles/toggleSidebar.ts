@@ -56,11 +56,11 @@ export default defineClientAppSetup(() => {
         // 检测当前状态，false 为隐藏
         if (barState.value === false) {
             // 通过 hide 类改变 left 的值，实现隐藏侧边栏
-            sidebar.classList.add('hide');
-            mainPage.classList.add('full');
+            sidebar?.classList.add('hide');
+            mainPage?.classList.add('full');
         } else if (barState.value === true) {
-            sidebar.classList.remove('hide');
-            mainPage.classList.remove('full');
+            sidebar?.classList.remove('hide');
+            mainPage?.classList.remove('full');
         }
     };
     // 检测到 barState 变化时，更新状态
@@ -69,5 +69,4 @@ export default defineClientAppSetup(() => {
     watch(() => route.path, () => {
         setTimeout(updateBarState, 700)
     });
-
 })

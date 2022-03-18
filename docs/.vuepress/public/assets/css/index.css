@@ -71,6 +71,12 @@ particle {
     color: var(--c-brand, #3eaf7c);
 }
 
+@media screen and (max-width: 719px) {
+    .toggle-sidebar {
+        visibility: hidden !important;
+    }
+}
+
 /* toggle 侧边栏的过渡动画 */
 .sidebar {
     /*transition: left 0.3s;*/
