@@ -20,11 +20,6 @@ projects:
     desc: 用来生成随机数据
     link: https://gitee.com/Trezedo/data-generator
 
-#  - icon: book
-#    name: 书籍名称
-#    desc: 书籍详细描述
-#    link: https://你的书籍链接
-
   - icon: link
     name: 图床
     desc: 
@@ -36,6 +31,10 @@ projects:
     desc: 小众且不太实用
     link: /tool/
 
+  - icon: book
+    name: 数学笔记
+    desc: 佛系记录
+    link: /note/math/
 # footer: customize your footer text
 ---
 
