@@ -64,6 +64,7 @@ export default defineThemeConfig({
         //     type: "waline",
         //     serverURL: "https://vuepress-theme-hope-comment.vercel.app",
         // },
+        comment: false,
         mdEnhance: {
             enableAll: true,
             presentation: {

@@ -50,7 +50,8 @@ export default defineHopeConfig<ViteBundlerOptions | WebpackBundlerOptions>({
     bundler: bundler(),
     bundlerConfig,
     clientAppSetupFiles: [
-        path.resolve(__dirname, './configs/setupFiles/toggleSidebar.ts')
+        // beta.18 加入了隐藏侧边栏，取消自己写的
+        // path.resolve(__dirname, './configs/setupFiles/toggleSidebar.ts')
     ]
     // port: 8888
 });
