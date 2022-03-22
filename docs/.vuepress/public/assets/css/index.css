@@ -112,6 +112,13 @@ particle {
     margin: 1rem auto;
 }
 
+/* 选中文字美化。似乎无需 ::-moz-selection */
+*::selection {
+    color: var(--theme-color);
+    /* ----theme-color 15% 透明度 */
+    background-color: var(--theme-color-mask);
+}
+
 /**
 压缩 uglifycss docs/.vuepress/public/assets/css/index.css > docs/.vuepress/public/assets/css/index.min.css
  */

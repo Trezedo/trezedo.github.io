@@ -1,7 +1,6 @@
 ---
 date: 2022-03-13
 title: C语言基础
-description: ""
 ---
 
 ## 数据类型

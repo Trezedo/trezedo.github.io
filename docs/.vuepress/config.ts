@@ -15,7 +15,11 @@ export default defineHopeConfig<ViteBundlerOptions | WebpackBundlerOptions>({
     dest: "./dist",
     head: [
         ["link", {rel: "stylesheet", href: "//at.alicdn.com/t/font_2410206_mfj6e1vbwo.css" + date}],
-        ["link", {rel: "stylesheet", href: "/assets/css/index.min.css" + date}],
+        ["link", {
+            rel: "stylesheet", href: (isDev()
+                ? "/assets/css/index.css"
+                : "/assets/css/index.min.css") + date
+        }],
         // ["link", {rel: "shortcut icon", href: "/favicon.ico",type:"image/x-icon"}],
         ["link", {
             rel: "icon", type: "image/jpeg",
@@ -58,9 +62,13 @@ export default defineHopeConfig<ViteBundlerOptions | WebpackBundlerOptions>({
     // port: 8888
 });
 
-export function bundler() {
+export function isDev(): boolean {
+    return process.env.NODE_ENV == "development"
+}
+
+export function bundler(): string {
     return '@vuepress/bundler-vite';
-    // return process.env.NODE_ENV == "development"
+    // return isDev()
     //     ? '@vuepress/bundler-vite'
     //     : "@vuepress/bundler-webpack"; // 使用 webpack 打包
 }

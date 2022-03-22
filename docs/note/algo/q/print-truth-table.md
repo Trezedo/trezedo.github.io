@@ -260,7 +260,7 @@ import java.util.logging.Level
 import java.util.logging.Logger
 import kotlin.math.pow
 
-class Table2(argsCount: Int, var handler: (args: Array<Boolean>) -> String, vararg argNames: String) {
+class Table(argsCount: Int, var handler: (args: Array<Boolean>) -> String, vararg argNames: String) {
     private var cols: Int
     private var rows: Int
     private var argNames: Array<out String>
@@ -276,20 +276,13 @@ class Table2(argsCount: Int, var handler: (args: Array<Boolean>) -> String, vara
      */
     private fun fillTableValue(): Array<Array<Boolean>> {
         // 每列元素对应的周期，依次是 2^(cols - 1) 到 2^0
-        val period = IntArray(cols)
-        period[cols - 1] = 1
-        for (i in cols - 1 downTo 1) {
-            period[i - 1] = period[i] * 2
-        }
-
-        val table = Array(rows) { Array(cols) { false } }
+        val period = IntArray(cols) { 2.0.pow(cols - it - 1).toInt() }
         // 除以周期，根据商取值，偶数为 false ，奇数为 true
-        for (row in 0 until rows) {
-            for (col in 0 until cols) {
-                table[row][col] = row / period[col] % 2 != 0
+        return Array(rows) { row ->
+            Array(cols) { col ->
+                row / period[col] % 2 != 0
             }
         }
-        return table
     }
 
     /**
@@ -301,7 +294,7 @@ class Table2(argsCount: Int, var handler: (args: Array<Boolean>) -> String, vara
         get() {
             val title = StringBuilder()
             for (i in 0 until cols) {
-                title.append(if (i < argNames.size) argNames[i] else i + 1).append("\t")
+                title.append("${if (i < argNames.size) argNames[i] else i + 1}\t")
             }
             title.append(if (argNames.size > cols) argNames[cols] else "")
             return title.toString()
@@ -311,18 +304,18 @@ class Table2(argsCount: Int, var handler: (args: Array<Boolean>) -> String, vara
         get() {
             val table = fillTableValue()
             val body = StringBuilder()
-            for (i in 0 until rows) {
-                val row = StringBuilder("\n")
-                for (j in 0 until cols) {
-                    row.append(if (table[i][j]) 1 else 0).append("\t")
+            table.forEach { row ->
+                val sb = StringBuilder("\n")
+                row.forEach { col ->
+                    sb.append("${if (col) 1 else 0}\t")
                 }
                 try {
-                    row.append(handler(table[i]))
+                    sb.append(handler(row))
                 } catch (e: ArrayIndexOutOfBoundsException) {
                     e.printStackTrace()
                     logger.log(Level.SEVERE, "handler 下标超出指定变元个数范围")
                 }
-                body.append(row)
+                body.append(sb)
             }
             return body.toString()
         }
@@ -333,10 +326,10 @@ class Table2(argsCount: Int, var handler: (args: Array<Boolean>) -> String, vara
     }
 
     companion object {
-        var logger: Logger = Logger.getLogger(Table2::javaClass.name)
+        var logger: Logger = Logger.getLogger(Table::javaClass.name)
 
         @JvmStatic
-        fun main(args: Array<String>) = Table2(
+        fun main(args: Array<String>) = Table(
             4,
             { if (!(it[0] || it[1]) && (it[0] || it[2] || it[3])) "1" else "0" },
             "p", "q", "r", "s", "A"
@@ -347,5 +340,5 @@ class Table2(argsCount: Int, var handler: (args: Array<Boolean>) -> String, vara
 
 > 这里给出 kotlin 版本的代码纯粹为笔者个人的练习 :slightly_smiling_face: 。
 
-因为 kotlin 自身就支持类似 `callback` 的类型（高阶函数），所以就没有使用 Java 版本的 `Handler` 接口也能实现形如 `lambda` 表达式的参数。
+因为 kotlin 自身就支持类似 `callback` 的类型（高阶函数），所以没有使用 Java 版本的 `Handler` 接口也能实现形如 `lambda` 表达式的参数。
 
