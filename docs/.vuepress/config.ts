@@ -4,7 +4,7 @@ import onInitialized from "./configs/onInitialized";
 import bundlerConfig from "./configs/bundlerConfig";
 import {ViteBundlerOptions} from "vuepress";
 import {WebpackBundlerOptions} from "@vuepress/bundler-webpack";
-import {path} from '@vuepress/utils';
+import components from "./configs/components";
 
 // 这里的时间是构建时间，因为当前处于 nodejs 环境，其实也是可以做到 “不缓存” 的
 const date: string = '?' + new Date().getTime();
@@ -46,13 +46,15 @@ export default defineHopeConfig<ViteBundlerOptions | WebpackBundlerOptions>({
                 '/en/': {placeholder: 'Search',},
             },
         }],
+        // 使用插件，而不是在 clientAppEnhance.ts 手动导入，因为会增大 app.xxx.js 打包的体积
+        ['@vuepress/register-components', {components}]
     ],
     bundler: bundler(),
     bundlerConfig,
     clientAppSetupFiles: [
         // beta.18 加入了隐藏侧边栏，取消自己写的
         // path.resolve(__dirname, './configs/setupFiles/toggleSidebar.ts')
-    ]
+    ],
     // port: 8888
 });
 

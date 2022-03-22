@@ -13,6 +13,7 @@
     },
     "devDependencies": {
         "@vuepress/bundler-webpack": "^2.0.0-beta.36",
+        "@vuepress/plugin-register-components": "^2.0.0-beta.36",
         "@vuepress/plugin-search": "^2.0.0-beta.36",
         "axios": "^0.26.0",
         "uglify-js": "^3.15.2",
