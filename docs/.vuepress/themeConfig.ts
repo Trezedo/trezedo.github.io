@@ -16,7 +16,7 @@ export default defineThemeConfig({
     navbarAutoHide: "mobile", // "always" 容易卡顿
     darkmode: "switch",
     blog: {
-        articlePerPage: 6,
+        articlePerPage: 8,
         medias: {
             QQ: "https://res.abeim.cn/api/qq/?qq=1962234583",
             Qzone: "https://1962234583.qzone.qq.com",
@@ -57,7 +57,7 @@ export default defineThemeConfig({
     },
     plugins: {
         blog: {
-            autoExcerpt: true,
+            autoExcerpt: false,
             article: "/article",
             // slides:undefined
         },
