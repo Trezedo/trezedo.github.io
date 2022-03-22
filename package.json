@@ -17,6 +17,6 @@
         "axios": "^0.26.0",
         "uglify-js": "^3.15.2",
         "vuepress": "^2.0.0-beta.36",
-        "vuepress-theme-hope": "^2.0.0-beta.22"
+        "vuepress-theme-hope": "^2.0.0-beta.24"
     }
 }

@@ -42,10 +42,7 @@ export default defineSidebarConfig({
     ],
     "/tool/": "structure", // 空数组可以关闭
     "/note/math/": [
-        {
-            text: "如何使用", prefix: "", collapsable: true,
-            children: "structure",
-        },
+        // {text: "如何使用", prefix: "", collapsable: true, children: "structure"},
         {
             text: "练习题", prefix: "q/", collapsable: true,
             children: "structure"
