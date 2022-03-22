@@ -1,6 +1,8 @@
 ---
 date: 2022-03-21
 title: 命题公式真值表输出
+category:
+  - 算法
 tag:
   - 真值表
   - C
@@ -8,13 +10,13 @@ tag:
   - Kotlin
 ---
 
-## 题目
-
-::: info 命题公式真值表输出
+::: info 题目
 
 已知命题公式 $A=\lnot (p\lor q) \land (( p\lor r) \lor s)$ ，用 JAVA 或 C/C++ 语言编写程序构造该命题公式的真值表，真值表输出样式自己设计（变量值可以不手工输入）。
 
 :::
+
+<!-- more --> 
 
 ## 思路
 
@@ -54,11 +56,12 @@ $$
 
 直接对这 4 个变元循环也是可以的：
 
-```c {9}
+```c {10}
 #include "stdio.h"
 
 int main() {
     int p, q, r, s, A;
+    printf("p q r s A\n");
     for (p = 0; p < 2; p++) {
         for (q = 0; q < 2; q++) {
             for (r = 0; r < 2; r++) {
@@ -72,6 +75,30 @@ int main() {
     return 0;
 }
 ```
+
+::: details 运行结果
+
+```
+p q r s A
+0 0 0 0 0
+0 0 0 1 1
+0 0 1 0 1
+0 0 1 1 1
+0 1 0 0 0
+0 1 0 1 0
+0 1 1 0 0
+0 1 1 1 0
+1 0 0 0 0
+1 0 0 1 0
+1 0 1 0 0
+1 0 1 1 0
+1 1 0 0 0
+1 1 0 1 0
+1 1 1 0 0
+1 1 1 1 0
+```
+
+:::
 
 还是挺容易的吧，不过需要注意的是 `!(p + q) * (p + r + s)` 可能大于1，所以用三目运算符将其限定在 0-1 之间。
 
@@ -218,7 +245,7 @@ p	q	r	s	A
 这里的代码实现也不会限制变元的个数，完全取决于用户的输入：
 
 ```java
- Table(int argsCount, Handler handler, String... argNames);
+Table(int argsCount, Handler handler, String... argNames);
 ```
 
 打印数据分为两部分，即 `Title` 和 `Body` ， `Title` 由构造方法中的 `argNames` 控制，而 `Body` 是对由 `fillTableValue` 方法填充的二维 `Boolean` 数组执行 `Handler` 中的逻辑运算，并拼接而成的字符串。

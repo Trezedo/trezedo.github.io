@@ -35,7 +35,8 @@ export default defineThemeConfig({
         "/": {
             navbar: navbar,
             sidebar: sidebar,
-            footer: "Powered by <a href=\"https://v2.vuepress.vuejs.org/\">Vuepress</a>",
+            footer: `Powered by <a href="https://v2.vuepress.vuejs.org/" target="_blank">VuePress</a>`
+                + ` and <a href="https://vuepress-theme-hope.github.io/" target="_blank">vuepress-theme-hope</a>`,
             displayFooter: true,
             blog: {
                 description: "三分之一半吊子",

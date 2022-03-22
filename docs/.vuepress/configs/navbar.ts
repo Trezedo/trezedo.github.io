@@ -22,6 +22,7 @@ export default defineNavbarConfig([
                 ]
             },
             {text: "标签", icon: "tag", link: "/tag/", activeMatch: "^/tag/$"},
+            {text: "笔记", icon: "note", link: "/note/", activeMatch: "^/note/$"},
             {text: "时间线", icon: "time", link: "/timeline/"}
         ],
     }
