@@ -329,8 +329,7 @@ class Table(argsCount: Int, var handler: (args: Array<Boolean>) -> String, varar
         var logger: Logger = Logger.getLogger(Table::javaClass.name)
 
         @JvmStatic
-        fun main(args: Array<String>) = Table(
-            4,
+        fun main(args: Array<String>) = Table(4,
             { if (!(it[0] || it[1]) && (it[0] || it[2] || it[3])) "1" else "0" },
             "p", "q", "r", "s", "A"
         ).print()
