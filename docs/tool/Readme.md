@@ -11,5 +11,7 @@ category:
 
 - [QQ相关工具](qq-utils.md)
 
+- [Axmath工具](axmath-fixer.md)
+
 - [graphviz绘图](graphviz-tool.md)
 

@@ -105,3 +105,13 @@ particle {
 .page.full {
     padding-left: 0;
 }
+
+/* 表格对齐方式 */
+.custom-container.center > table, .custom-container.right > table {
+    display: inline;
+    margin: 1rem auto;
+}
+
+/**
+压缩 uglifycss docs/.vuepress/public/assets/css/index.css > docs/.vuepress/public/assets/css/index.min.css
+ */

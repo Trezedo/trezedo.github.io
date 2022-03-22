@@ -5,9 +5,9 @@ const resolve = (path: string) => {
 }
 
 export default {
-    BlogPageDos: resolve("BlogPageDos.vue"),
+    BlogPageDos: resolve("client/BlogPageDos.vue"),
     List4Hope: resolve("client/List4Hope.vue"),
-    AxmathFixer: resolve("BlogPageDos.vue"),
+    AxmathFixer: resolve("AxmathFixer"),
     TTS: resolve("TTS.vue"),
     CommonFriend: resolve("QQ/CommonFriend.vue"),
     // CustomLayout,

@@ -15,7 +15,7 @@ export default defineHopeConfig<ViteBundlerOptions | WebpackBundlerOptions>({
     dest: "./dist",
     head: [
         ["link", {rel: "stylesheet", href: "//at.alicdn.com/t/font_2410206_mfj6e1vbwo.css" + date}],
-        ["link", {rel: "stylesheet", href: "/assets/css/index.css" + date}],
+        ["link", {rel: "stylesheet", href: "/assets/css/index.min.css" + date}],
         // ["link", {rel: "shortcut icon", href: "/favicon.ico",type:"image/x-icon"}],
         ["link", {
             rel: "icon", type: "image/jpeg",
