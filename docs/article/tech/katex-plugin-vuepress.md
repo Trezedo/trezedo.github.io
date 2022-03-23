@@ -61,7 +61,7 @@ head: [
 ]
 ```
 
-此外，如果你是用的是默认的markdown-it解析器，作者还推荐使用 [github stylesheet](https://github.com/sindresorhus/github-markdown-css)：
+此外，如果你是用的是默认的 markdown-it 解析器，作者还推荐使用 [github stylesheet](https://github.com/sindresorhus/github-markdown-css)：
 
 ```ts
 ['link', {
@@ -270,13 +270,15 @@ export default defineUserConfig<DefaultThemeOptions>({
 添加 `katex options`：
 
 ```json
-katexOptions: {
-    macros: {
-        "\\eqref": "\\href{##tag#1}{(\\text{#1})}",
-        "\\ref": "\\href{##tag#1}{\\text{#1}}",
-        "\\label": "\\htmlId{tag#1}{}"
-    },
-    trust: (context) => ['\\htmlId', '\\href'].includes(context.command)
+{
+    katexOptions: {
+        macros: {
+            "\\eqref": "\\href{##tag#1}{(\\text{#1})}",
+            "\\ref": "\\href{##tag#1}{\\text{#1}}",
+            "\\label": "\\htmlId{tag#1}{}"
+        },
+        trust: (context) => ['\\htmlId', '\\href'].includes(context.command)
+    }
 }
 ```
 
