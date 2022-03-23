@@ -269,16 +269,14 @@ export default defineUserConfig<DefaultThemeOptions>({
 
 添加 `katex options`：
 
-```json
-{
-    katexOptions: {
-        macros: {
-            "\\eqref": "\\href{##tag#1}{(\\text{#1})}",
-            "\\ref": "\\href{##tag#1}{\\text{#1}}",
-            "\\label": "\\htmlId{tag#1}{}"
-        },
-        trust: (context) => ['\\htmlId', '\\href'].includes(context.command)
-    }
+```json lines
+katexOptions: {
+    macros: {
+        "\\eqref": "\\href{##tag#1}{(\\text{#1})}",
+        "\\ref": "\\href{##tag#1}{\\text{#1}}",
+        "\\label": "\\htmlId{tag#1}{}"
+    },
+    trust: (context) => ['\\htmlId', '\\href'].includes(context.command)
 }
 ```
 
