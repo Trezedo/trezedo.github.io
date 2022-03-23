@@ -5,10 +5,12 @@ const resolve = (path: string) => {
 }
 
 export default {
-    BlogPageDos: resolve("client/BlogPageDos.vue"),
-    List4Hope: resolve("client/List4Hope.vue"),
     AxmathFixer: resolve("AxmathFixer"),
-    TTS: resolve("TTS.vue"),
+    BlogPageDos: resolve("client/BlogPageDos.vue"),
+    CurrentPageData: resolve("client/CurrentPageData.vue"),
+    // client/CustomLayout.vue,
+    List4Hope: resolve("client/List4Hope.vue"),
+    // client/LocalList.vue,
     CommonFriend: resolve("QQ/CommonFriend.vue"),
-    // CustomLayout,
+    TTS: resolve("TTS.vue"),
 }

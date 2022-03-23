@@ -7,25 +7,22 @@
 import {usePageData, usePageFrontmatter, useSiteData, usePagesData, resolvers, useRouter} from "@vuepress/client";
 import {onMounted} from 'vue';
 
-console.log(useRouter().getRoutes())
-// console.log(usePageData().value)
-// console.log(usePageFrontmatter().value)
-// console.log(useSiteData().value)
-
-// for (let valueKey in usePagesData().value) {
-//     resolvePageData(valueKey).then(pageData => {
-//         console.log(decodeURI(pageData.path))
-//     })
-// }
-
-
-// @ts-ignore
-import page from '@temp/pages'
-import {Page} from "vuepress";
-
 onMounted(() => {
-    console.log(page)
+    console.log(useRouter().getRoutes())
+    console.log(usePageData().value)
+    console.log(usePageFrontmatter().value)
+    console.log(useSiteData().value)
 })
+
+for (let valueKey in usePagesData().value) {
+    resolvers.resolvePageData(valueKey).then(pageData => {
+        console.log(decodeURI(pageData.path))
+    })
+}
+
+// 默认主题使用的 temp
+// @ts-ignore
+// import page from '@temp/pages'
 </script>
 
 <style scoped>

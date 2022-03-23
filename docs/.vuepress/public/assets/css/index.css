@@ -55,7 +55,7 @@ particle {
     z-index: 999;
 }
 
-.toggle-sidebar {
+.refresh-page {
     border-width: 0;
     cursor: pointer;
     position: fixed !important;

@@ -3,7 +3,7 @@
         <!-- <NInput v-model:value="text" type="textarea" placeholder="粘贴代码"-->
         <!--         :autosize="{minRows: 6,maxRows: 6}" @change="saveText"-->
         <!-- />-->
-        <textarea v-model="text" @input="saveText" aria-placeholder="粘贴代码"/>
+        <textarea v-model="text" @input="saveText" aria-placeholder="粘贴代码" :class="{dark: isDark}"/>
     </div>
     <div>
         <button @click="convert">转换</button>
@@ -12,27 +12,26 @@
         <label>提取出公式、中文，预处理</label>
         <button @click="test">测试</button>
         <button @click="beautify">美化</button>
-        <textarea v-model="output1" aria-placeholder="输出代码"/>
+        <textarea v-model="output1" aria-placeholder="输出代码" :class="{dark: isDark}"/>
     </div>
     <div>
         <div>
             <label>公式块内无换行，清理两块公式间的换行符，还原预处理的大括号</label>
             <button @click="showRaw()">显示原生字符</button>
         </div>
-        <textarea v-model="output2" aria-placeholder="输出代码"/>
+        <textarea v-model="output2" aria-placeholder="输出代码" :class="{dark: isDark}"/>
     </div>
     <div>
         <div>
             <label>在output1的基础上，处理中文 加上 $...$</label>
         </div>
-        <textarea v-model="output3" aria-placeholder="输出代码"/>
+        <textarea v-model="output3" aria-placeholder="输出代码" :class="{dark: isDark}"/>
     </div>
 </template>
 
 <script lang="ts" setup>
 import {ref, onMounted} from "vue";
 
-// noinspection ES6UnusedImports
 import {AxTexBuilder} from "./lib/axUtils";
 import {FormatKit, Regularize} from "./lib/vocab";
 import {ArrayStringify} from "./lib/utils";
@@ -41,10 +40,17 @@ const text = ref("")
 const output1 = ref("")
 const output2 = ref("")
 const output3 = ref("")
+const isDark = ref<boolean>(false);
+
+let button: HTMLButtonElement;
 
 onMounted(() => {
-    text.value = window.localStorage.getItem("orgText");
+    text.value = window.localStorage.getItem("orgText") || "";
     convert();
+    // button = document.querySelector("#appearance-switch");
+    // button.addEventListener('click', () => {
+    //     isDark.value = localStorage.getItem("vuepress-theme-hope-scheme") === "dark"
+    // })
 })
 
 function saveText() {
@@ -111,6 +117,10 @@ textarea {
     font-family: "微软雅黑", Courier, monospace;
     height: 140px;
     width: 90%;
+}
+
+textarea.dark {
+    background-color: #363b46;
 }
 
 label {

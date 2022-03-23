@@ -12,6 +12,8 @@ tag:
 
 <AxmathFixer/>
 
-<ClientOnly>
-    <CurrentPageData/>
-</ClientOnly>
+[comment]: <> (<ClientOnly>)
+
+[comment]: <> (    <CurrentPageData/>)
+
+[comment]: <> (</ClientOnly>)

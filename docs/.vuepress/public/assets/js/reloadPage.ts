@@ -1,8 +1,22 @@
 (() => {
-    const header = document.querySelector("header")
-    header?.addEventListener("dblclick", () => {
-        location.reload();
-    })
+    const createButton = () => {
+        const button = document.createElement("button");
+        button.className = "refresh-page";
+        button.innerHTML = `<i class="icon iconfont icon-refresh" style="font-size: 28px"></i>`
+        button.setAttribute("aria-label", "刷新页面");
+        button.setAttribute("data-balloon-pos", "left");
+
+        // 非 hover 状态时，取消焦点
+        button.onmouseout = () => button.blur();
+        return button;
+    }
+    if (/\bQQ\b|Wechat/.test(navigator.userAgent)) {
+        const button = createButton();
+        document.body.appendChild(button);
+        button.addEventListener("click", (e) => {
+            location.reload();
+        })
+    }
 })()
 
 /*
