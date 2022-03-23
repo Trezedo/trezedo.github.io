@@ -55,25 +55,33 @@ particle {
     z-index: 999;
 }
 
+/* @mr-hope/vuepress-plugin-components/lib/client/styles/back-to-top.scss */
 .refresh-page {
-    border-width: 0;
-    cursor: pointer;
-    position: fixed !important;
-    right: 1rem;
-    bottom: 8rem;
-    z-index: 100;
-    width: 3rem;
-    height: 3rem;
-    padding: 0.5rem;
-    border-radius: 1rem;
     background-color: var(--c-bg, #fff);
+    border-radius: 1rem;
+    border-width: 0;
+    bottom: 8rem;
     box-shadow: 2px 2px 10px 0 var(--card-shadow);
     color: var(--c-brand, #3eaf7c);
+    cursor: pointer;
+    height: 3rem;
+    width: 3rem;
+    position: fixed !important;
+    right: 1rem;
+    padding: 0.5rem;
+    z-index: 100;
 }
 
 @media screen and (max-width: 719px) {
-    .toggle-sidebar {
+    /*.toggle-sidebar {
         visibility: hidden !important;
+    }*/
+    .refresh-page {
+        bottom: 7rem;
+        width: 2.25rem;
+        height: 2.25rem;
+        padding: 0.25rem;
+        border-radius: 0.5rem;
     }
 }
 

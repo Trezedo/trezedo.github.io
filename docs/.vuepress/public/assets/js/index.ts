@@ -16,6 +16,7 @@ let scripts = [
     let count = 0;
     let defer = 200; // 延迟执行时间
     if (!window['__script_once__']) {
+        const date = "?" + new Date().getTime() / 1000
         for (let key in scripts) {
             const script = document.createElement("script")
             script.src = naming(scripts[key])

@@ -2,7 +2,7 @@
     const createButton = () => {
         const button = document.createElement("button");
         button.className = "refresh-page";
-        button.innerHTML = `<i class="icon iconfont icon-refresh" style="font-size: 28px"></i>`
+        button.innerHTML = `<i class="icon iconfont icon-refresh" style="font-size: 27px"></i>`
         button.setAttribute("aria-label", "刷新页面");
         button.setAttribute("data-balloon-pos", "left");
 
@@ -10,13 +10,13 @@
         button.onmouseout = () => button.blur();
         return button;
     }
-    if (/\bQQ\b|Wechat/.test(navigator.userAgent)) {
+    // if (/\bQQ\b|Wechat/.test(navigator.userAgent)) {
         const button = createButton();
         document.body.appendChild(button);
-        button.addEventListener("click", (e) => {
+        button.addEventListener("click", () => {
             location.reload();
         })
-    }
+    // }
 })()
 
 /*
