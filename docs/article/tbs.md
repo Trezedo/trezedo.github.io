@@ -102,6 +102,10 @@ onMounted(() => {
 
 最终，我的解决方案是：==添加刷新按钮==来执行刷新操作：
 
-<img src="C:\Users\Trezedo\AppData\Roaming\Typora\typora-user-images\image-20220324220911884.png" alt="image-20220324220911884" style="zoom:50%;" />
+::: center
+
+<img src="https://gitee.com/Trezedo/img/raw/master/image-20220324221949233.png" alt="image-20220324221949233" style="zoom:50%;" />
+
+:::
 
 可以发现在右下角多了一个按钮，点它就可以刷新啦~
