@@ -10,13 +10,13 @@
         button.onmouseout = () => button.blur();
         return button;
     }
-    // if (/\bQQ\b|Wechat/.test(navigator.userAgent)) {
+    if (/\bQQ\b|Wechat/.test(navigator.userAgent) || /debug/.test(location.search)) {
         const button = createButton();
         document.body.appendChild(button);
         button.addEventListener("click", () => {
             location.reload();
         })
-    // }
+    }
 })()
 
 /*

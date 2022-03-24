@@ -19,7 +19,7 @@ let scripts = [
         const date = "?" + new Date().getTime() / 1000
         for (let key in scripts) {
             const script = document.createElement("script")
-            script.src = naming(scripts[key])
+            script.src = naming(scripts[key]) + date
             setTimeout(() => document.body.appendChild(script), defer)
             count++;
         }

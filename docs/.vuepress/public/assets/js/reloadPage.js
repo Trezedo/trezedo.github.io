@@ -9,13 +9,13 @@
         button.onmouseout = function () { return button.blur(); };
         return button;
     };
-    // if (/\bQQ\b|Wechat/.test(navigator.userAgent)) {
-    var button = createButton();
-    document.body.appendChild(button);
-    button.addEventListener("click", function () {
-        location.reload();
-    });
-    // }
+    if (/\bQQ\b|Wechat/.test(navigator.userAgent) || /debug/.test(location.search)) {
+        var button = createButton();
+        document.body.appendChild(button);
+        button.addEventListener("click", function () {
+            location.reload();
+        });
+    }
 })();
 /*
 QQ内打开链接，location.href 和 vue-router 等均正常，但是分享时链接只能是打开时的，因此通过强制刷新来解决
