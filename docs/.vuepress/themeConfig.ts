@@ -9,7 +9,8 @@ export default defineThemeConfig({
         url: "https://Trezedo.club",
     },
     iconPrefix: "iconfont icon-",
-    logo: "https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=3",// "/favicon.ico",
+    // 左上角，以及首页右侧
+    logo: "https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=4",// "/favicon.ico",
 
     // repo: "https://gitee.com/trezedo/trezedo",
     docsDir: "demo/src",
