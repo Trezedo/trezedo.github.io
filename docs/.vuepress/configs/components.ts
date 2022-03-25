@@ -5,7 +5,7 @@ const resolve = (path: string) => {
 }
 
 export default {
-    AxmathFixer: resolve("AxmathFixer"),
+    // AxmathFixer: resolve("AxmathFixer"),
     BlogPageDos: resolve("client/BlogPageDos.vue"),
     CurrentPageData: resolve("client/CurrentPageData.vue"),
     // client/CustomLayout.vue,
