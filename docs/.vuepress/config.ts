@@ -26,10 +26,9 @@ export default defineHopeConfig<ViteBundlerOptions | WebpackBundlerOptions>({
             href: "https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=3&t=" + new Date().getTime()
         }],
         // ["style", {}, `img.logo,img.hero-logo{border-radius: 50%;}`]
-        // ["script", {src: "/assets/js/pop.js"}]
-        ["script", {src: "/assets/js/notiflix-confirm-aio-3.2.4.min.js"}],
-        // ["script", {src: "/assets/js/toggleSidebar.js" + date}],
-        ["script", {src: '/assets/js/index.js' + date}],
+        // https://www.cnblogs.com/jiasm/p/7683930.html
+        ["script", {defer: true, src: "/assets/js/notiflix-confirm-aio-3.2.4.min.js"}],
+        ["script", {defer: true, src: '/assets/js/index.js' + date}],
     ],
     locales: {
         "/": {

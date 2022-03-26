@@ -9,13 +9,13 @@ permalink: /article/gitee-image-hosting.html
 
 # 使用gitee搭建图床
 
-![](https://gitee.com/Trezedo/img/raw/master/20220127215621.png)
+![20220127215621.png](https://trezedo.gitee.io/img/20220127215621.png)
 
 填写`repo`，`branch`，`token` 即可，`origin`选择`gitee`.
 
 ### token获取方法
 
-![](https://gitee.com/Trezedo/img/raw/master/20220127215053.png)
+![20220127215053.png](https://trezedo.gitee.io/img/20220127215053.png)
 
 
 
@@ -26,6 +26,20 @@ permalink: /article/gitee-image-hosting.html
 [PicGo官网](https://picgo.github.io/PicGo-Doc/zh/guide/)
 
 [插件GitHub链接](https://github.com/zWingz/picgo-plugin-github-plus)
+
+最近似乎不能直接用 `img src` 引用了，不过没事，只需要开启 gitee pages ，之后修改图片链接即可。例如：
+
+```
+https://gitee.com/Trezedo/img/raw/master/20220127215053.png
+```
+
+修改成
+
+```
+https://trezedo.gitee.io/img/20220127215053.png
+```
+
+
 
 
 

@@ -75,7 +75,7 @@ msgbox vlist,64,"List"
 
 ::: center
 
-![img](https://gitee.com/Trezedo/img/raw/master/20220225090022.png)
+![20220225090022.png](https://trezedo.gitee.io/img/20220225090022.png)
 
 :::
 
@@ -85,7 +85,7 @@ msgbox vlist,64,"List"
 
 微软的Edge浏览器自带了很多种不同语言的（在线）语音包，如Windows版本：
 
-![Windows上的Edge浏览器语音包](https://gitee.com/Trezedo/img/raw/master/image-20220313091116003.png)
+![Windows上的Edge浏览器语音包](https://trezedo.gitee.io/img/image-20220313091116003.png)
 
 :::
 
@@ -93,7 +93,7 @@ msgbox vlist,64,"List"
 
 Windows 10默认安装了两个不同语言的 TTS 引擎，实际上会有一些已经安装的语音，但是并没有显示在以上[查询语音包](#查询语音包)的列表中显示，可以打开设置查看：
 
-![image-20220225210747140](https://gitee.com/Trezedo/img/raw/master/image-20220225210747140.png)
+![image-20220225210747140](https://trezedo.gitee.io/img/image-20220225210747140.png)
 
 可以发现，这里比之前的列表多了几个：
 
@@ -113,7 +113,7 @@ Windows 10默认安装了两个不同语言的 TTS 引擎，实际上会有一�
 
 比如我们的电脑应该会是`zh-CN`和`en-US`两个文件夹，里面的内容就是语音引擎。打开`zh-CN`目录查看是否存在`Hongyu`等语音：
 
-![image-20220225221825312](https://gitee.com/Trezedo/img/raw/master/image-20220225221825312.png)
+![image-20220225221825312](https://trezedo.gitee.io/img/image-20220225221825312.png)
 
 由于实测发现需要增加的注册表项太多才能生效，因此以下仅给出`Hongyu`的代码（64位浏览器）：
 
@@ -169,7 +169,7 @@ foreach($voice in $listVoices) {
 
 ::: center
 
-![image-20220226142839950](https://gitee.com/Trezedo/img/raw/master/image-20220226142839950.png)
+![image-20220226142839950](https://trezedo.gitee.io/img/image-20220226142839950.png)
 
 :::
 
@@ -183,9 +183,9 @@ windows 10系统可以通过：
 
 来增加语音包：
 
-![image-20220225210541297](https://gitee.com/Trezedo/img/raw/master/image-20220225210541297.png)
+![image-20220225210541297](https://trezedo.gitee.io/img/image-20220225210541297.png)
 
-![image-20220225210630475](https://gitee.com/Trezedo/img/raw/master/image-20220225210630475.png)
+![image-20220225210630475](https://trezedo.gitee.io/img/image-20220225210630475.png)
 
 
 
@@ -213,7 +213,7 @@ https://fanyi.baidu.com/gettts?lan=zh&spd=5&source=web&text=文本
 
 :::
 
-可以发现，以上是无法直接播放的。如果我们直接打开这个[链接](https://fanyi.baidu.com/gettts?lan=zh&spd=5&source=web&text=%E7%99%BE%E5%BA%A6TTS%E6%B5%8B%E8%AF%95)，会发现它会让我们下载一个`mp3`文件。但是在当前页面，通过查看网络请求记录可以发现，它返回的MIME类型为`text/html`，而手动打开时它才是下载`mp3`文件，导致`audio`无法播放。
+可以发现，以上是无法直接播放的。如果我们直接打开这个[链接](https://fanyi.baidu.com/gettts?lan=zh&spd=5&source=web&text=%E7%99%BE%E5%BA%A6TTS%E6%B5%8B%E8%AF%95)，会发现它会让我们下载一个`mp3`文件，通过查看网络请求记录可以发现，它返回的MIME类型为`text/html`，而手动打开时它才是下载`mp3`文件，导致`audio`无法播放。
 
 针对这个问题，可以使用在[免费接口](/article/免费接口.md)中介绍的免费api，这里直接给出：
 
