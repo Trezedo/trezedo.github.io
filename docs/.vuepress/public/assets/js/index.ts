@@ -14,13 +14,15 @@ let scripts = [
         return /\.js$/.test(base) ? base : base + ".js"
     }
     let count = 0;
-    let defer = 200; // 延迟执行时间
     if (!window['__script_once__']) {
         const date = "?" + new Date().getTime() / 1000
         for (let key in scripts) {
             const script = document.createElement("script")
             script.src = naming(scripts[key]) + date
-            setTimeout(() => document.body.appendChild(script), defer)
+            // 使用 script defer，而不是自己延迟执行
+            script.defer = true
+            // setTimeout(() => document.body.appendChild(script), 200)
+            document.body.appendChild(script)
             count++;
         }
         if (count == scripts.length) {

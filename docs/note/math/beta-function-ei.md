@@ -5,3 +5,4 @@ article: false
 password: abc1234
 ---
 
+故 $f\left( x \right)$ 以 $T=\pi$ 为最小正周期

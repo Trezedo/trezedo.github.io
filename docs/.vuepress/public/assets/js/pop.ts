@@ -1,3 +1,4 @@
+// 不依赖文档是否渲染完毕，因为是脚本自己创建的
 // https://css-tricks.com/playing-with-particles-using-the-web-animations-api/
 const clickPop = () => {
     const el: Element = document.body;
