@@ -104,7 +104,7 @@ onMounted(() => {
 
 ::: center
 
-<img src="https://gitee.com/Trezedo/img/raw/master/image-20220324221949233.png" alt="image-20220324221949233" style="zoom:50%;" />
+<img src="https://trezedo.gitee.io/img/image-20220324221949233.png" alt="image-20220324221949233" style="zoom:50%;" />
 
 :::
 

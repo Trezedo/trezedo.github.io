@@ -205,7 +205,7 @@ vertx.deployVerticle(MainVerticle.class.getName(), result -> {
 
 添加这个`main`方法后，就可以运行了，可以通过浏览器打开 <http://localhost:8888> 查看是否成功：
 
-![image-20220216154721553](https://gitee.com/Trezedo/img/raw/master/image-20220216154721553.png)
+![image-20220216154721553](https://trezedo.gitee.io/img/image-20220216154721553.png)
 
 这和我们在[上面](#demo)所说的结果看上去是一致的。
 

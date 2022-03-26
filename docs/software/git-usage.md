@@ -65,9 +65,9 @@ The key's randomart image is:
 
 在生成SSH Key时，如果不小心设置了passphrase，使用SSH协议克隆远程仓库时，在每次git pull和git push时都会提示`Enter passphrase for key ‘/Users/zhangxiaoxue/.ssh/id_rsa‘`，每次都要手动输入密码才能继续操作，可以在命令行输入`sh-keygen -p`进行重新设置，直接回车输入为空，就没有密码了。
 
-![](https://gitee.com/Trezedo/img/raw/master/20220128193519.png)
+![](https://trezedo.gitee.io/img/20220128193519.png)
 
-![](https://gitee.com/Trezedo/img/raw/master/20220128193543.png)
+![](https://trezedo.gitee.io/img/20220128193543.png)
 
 点击确定，输入密码
 
