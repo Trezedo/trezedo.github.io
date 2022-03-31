@@ -423,6 +423,22 @@ h1 {
 
 ### 使用gravizo
 
+```html
+<img src='https://g.gravizo.com/svg?
+digraph G {
+   main -> parse -> execute;
+   main -> init;
+   main -> cleanup;
+   execute -> make_string;
+   execute -> printf
+   init -> make_string;
+   main -> 是的;
+   execute -> compare;
+}'/>
+```
+
+结果：
+
 <img src='https://g.gravizo.com/svg?
 digraph G {
    main -> parse -> execute;
@@ -435,8 +451,9 @@ digraph G {
    execute -> compare;
 }'/>
 
+此外，还可以使用 `embed` 、`iframe` 等嵌入。但如果不指定宽度，其在手机端会超过屏幕宽度。
 
-
+```html
 <embed src="https://g.gravizo.com/svg?
  digraph G {
    main -> parse -> execute;
@@ -448,23 +465,91 @@ digraph G {
    main -> 是的;
    execute -> compare;
  }" type="image/svg+xml"/>
+```
+
+
+
+```html
+<img src='https://g.gravizo.com/svg?
+@startuml;
+;
+actor User;
+participant "First Class" as A;
+participant "Second Class" as B;
+participant "Last Class" as C;
+;
+User -> A: DoWork;
+activate A;
+;
+A -> B: Create Request;
+activate B;
+;
+B -> C: DoWork;
+activate C;
+;
+C --> B: WorkDone;
+destroy C;
+;
+B --> A: Request Created;
+deactivate B;
+;
+A --> User: Done;
+deactivate A;
+;
+@enduml
+'>
+```
+
+
+
+<img src='https://g.gravizo.com/svg?
+@startuml;
+;
+actor User;
+participant "First Class" as A;
+participant "Second Class" as B;
+participant "Last Class" as C;
+;
+User -> A: DoWork;
+activate A;
+;
+A -> B: Create Request;
+activate B;
+;
+B -> C: DoWork;
+activate C;
+;
+C --> B: WorkDone;
+destroy C;
+;
+B --> A: Request Created;
+deactivate B;
+;
+A --> User: Done;
+deactivate A;
+;
+@enduml
+'>
 
 ### 流程图
 
 ```flow
-  start=>start: 接收到消息
-  info=>operation: 读取信息
-  setCache=>operation: 更新缓存
-  end=>end: 处理结束
-  start->info->setCache->end
+start=>start: 接收到消息
+info=>operation: 读取信息
+setCache=>operation: 更新缓存
+end=>end: 处理结束
+start->info->setCache->end
 ```
 
 ```flow
-  st=>start: Start
-  op=>operation: Your Operation
-  cond=>condition: Yes or No?
-  e=>end
-  st->op->cond
-  cond(yes)->e
-  cond(no)->op
+st=>start: Start
+op=>operation: Your Operation
+cond=>condition: Yes or No?
+e=>end
+st->op->cond
+cond(yes)->e
+cond(no)->op
 ```
+
+
+

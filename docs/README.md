@@ -8,7 +8,8 @@ heroImage: https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=5
 heroText: Trezedo's Blog
 heroFullScreen: true
 bgImage: https://w.wallhaven.cc/full/72/wallhaven-72rd8e.jpg
-tagline: 人可以无知，但不可以白痴。 ——苗条俊
+# tagline: 人可以无知，但不可以白痴。 ——苗条俊
+tagline: 强中更有强中手，莫向人前满自夸。
 projects:
   - icon: article
     name: 杂七杂八
