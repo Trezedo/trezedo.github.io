@@ -192,6 +192,30 @@ $ git branch
 git log --oneline
 ```
 
+
+
+放弃本地修改，全部使用远端代码：
+
+```sh
+# 拉取所有更新，不同步
+git fetch --all
+
+# 本地代码同步远端最新版本（覆盖本地所有与远程仓库上同名的文件）
+# git reset 指令把 HEAD 指向 master 最新版本
+git reset --hard origin/mastergit pull
+
+# 再更新一次（其实也可以不用，第二步命令做过了）
+git pull
+```
+
+git强制覆盖本地命令(单条执行)∶
+
+```sh
+git fetch --all && git reset --hard origin/master && git pull
+```
+
+
+
 ## 问题总结
 
 [fatal: refusing to merge unrelated histories](https://blog.csdn.net/weixin_44708045/article/details/121592567)
