@@ -3,7 +3,7 @@ import navbar from "./configs/navbar";
 import sidebar from "./configs/sidebar";
 
 export default defineThemeConfig({
-    hostname: "https://Trezedo.club",
+    hostname: "https://trezedo.gitee.io",
     author: {
         name: "Trezedo",
         url: "https://Trezedo.club",
@@ -87,6 +87,12 @@ export default defineThemeConfig({
                 // https://github.com/KaTeX/KaTeX/issues/2003
                 trust: context => ['\\htmlId', '\\href'].includes(context.command)
             },
+        },
+        copyright: {
+            global: true,
+            author: 'Trezedo',
+            license: 'MIT',
+            triggerWords: 100,
         },
         pwa: false
     }
