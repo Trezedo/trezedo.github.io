@@ -21,10 +21,10 @@ export default defineHopeConfig<ViteBundlerOptions | WebpackBundlerOptions>({
                 : "/assets/css/index.min.css") + date
         }],
         // ["link", {rel: "shortcut icon", href: "/favicon.ico",type:"image/x-icon"}],
-        ["link", {
+        /*["link", {
             rel: "icon", type: "image/jpeg",
             href: "https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=3&t=" + new Date().getTime()
-        }],
+        }],*/
         // ["style", {}, `img.logo,img.hero-logo{border-radius: 50%;}`]
         // https://www.cnblogs.com/jiasm/p/7683930.html
         ["script", {defer: true, src: "/assets/js/notiflix-confirm-aio-3.2.4.min.js"}],
