@@ -15,3 +15,23 @@ img.logo, img.hero-image {
 //  // https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1920
 //  background: url("https://w.wallhaven.cc/full/9m/wallhaven-9meo78.jpg") no-repeat center;
 //}
+
+.blogger-name, .blogger-description {
+  background-image: linear-gradient(90deg,
+          #ffa745, #fe869f, #ef7ac8, #a083ed,
+          #43aeff,
+          #a083ed, #ef7ac8, #fe869f, #ffa745);
+  background-size: 200%;
+  animation: t-anim 4s linear infinite;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@keyframes t-anim {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
