@@ -7,6 +7,7 @@
         "docs:dev": "vuepress dev docs",
         "docs:clean-dev": "vuepress dev docs --clean-cache",
         "docs:build": "vuepress build docs",
+        "preview": "vite preview",
         "git": "git add . && git commit -m",
         "push": "git push gitee master:theme-hope",
         "deploy": "git checkout pages && deploy.cmd"

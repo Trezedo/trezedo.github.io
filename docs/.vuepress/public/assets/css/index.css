@@ -127,6 +127,36 @@ particle {
     background-color: var(--theme-color-mask);
 }
 
+/* https://www.jb51.net/article/220293.htm */
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+}
+
+table td, table th {
+    border: 1px solid #cad9ea;
+    color: #666;
+    height: 30px;
+}
+
+table thead th {
+    background-color: #CCE8EB;
+    width: 100px;
+}
+
+table thead th span {
+    font-weight: bold;
+}
+
+table tr:nth-child(odd) {
+    background: #fff;
+}
+
+table tr:nth-child(even) {
+    background: #F5FAFA;
+}
+
 /**
 压缩 uglifycss docs/.vuepress/public/assets/css/index.css > docs/.vuepress/public/assets/css/index.min.css
  */
