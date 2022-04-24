@@ -184,6 +184,20 @@ $ git branch
 * master
 ```
 
+### 合并分支
+
+将名为 branchname 的分支合并到 master 分支：
+
+```sh
+# 先切换到主分支
+git checkout master
+git merge branchname
+```
+
+
+
+
+
 ## 查看提交历史
 
 简洁版：
