@@ -14,7 +14,7 @@ tag:
 ---
 
 
-
+<CurrentPageData/>
 # Markdown基本使用
 
 # 1号标题

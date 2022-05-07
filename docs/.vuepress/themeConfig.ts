@@ -1,8 +1,8 @@
-import {defineThemeConfig} from "vuepress-theme-hope";
+import { hopeTheme } from "vuepress-theme-hope";
 import navbar from "./configs/navbar";
 import sidebar from "./configs/sidebar";
 
-export default defineThemeConfig({
+export default hopeTheme({
     hostname: "https://trezedo.gitee.io",
     author: {
         name: "Trezedo",
@@ -10,7 +10,7 @@ export default defineThemeConfig({
     },
     iconPrefix: "iconfont icon-",
     // 左上角，以及首页右侧
-    logo: "https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=4",// "/favicon.ico",
+    logo: "https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=4", // "/favicon.ico",
 
     // repo: "https://gitee.com/trezedo/trezedo",
     docsDir: "demo/src",
@@ -36,8 +36,9 @@ export default defineThemeConfig({
         "/": {
             navbar: navbar,
             sidebar: sidebar,
-            footer: `Powered by <a href="https://v2.vuepress.vuejs.org/" target="_blank">VuePress</a>`
-                + ` and <a href="https://vuepress-theme-hope.github.io/" target="_blank">vuepress-theme-hope</a>`,
+            footer:
+                `Powered by <a href="https://v2.vuepress.vuejs.org/" target="_blank">VuePress</a>` +
+                ` and <a href="https://vuepress-theme-hope.github.io/" target="_blank">vuepress-theme-hope</a>`,
             displayFooter: true,
             blog: {
                 description: "三分之一半吊子",
@@ -53,7 +54,7 @@ export default defineThemeConfig({
         config: {
             "/guide/encrypt.html": ["1234"],
             "/zh/guide/encrypt.html": ["1234"],
-            "/note/math/differential-operator.html": ["1962234583"]
+            "/note/math/differential-operator.html": ["1962234583"],
         },
     },
     plugins: {
@@ -73,7 +74,7 @@ export default defineThemeConfig({
                 plugins: ["highlight", "math", "search", "notes", "zoom"],
             },
             tex: {
-                output: 'html',
+                output: "html",
                 // mathml 相当于 tex 源码
                 macros: {
                     "\\d": "\\text{d}",
@@ -82,18 +83,19 @@ export default defineThemeConfig({
                     "\\ds": "\\displaystyle",
                     "\\eqref": "\\href{##tag#1}{(\\text{#1})}",
                     "\\ref": "\\href{##tag#1}{\\text{#1}}",
-                    "\\label": "\\htmlId{tag#1}{}"
+                    "\\label": "\\htmlId{tag#1}{}",
                 },
                 // https://github.com/KaTeX/KaTeX/issues/2003
-                trust: context => ['\\htmlId', '\\href'].includes(context.command)
+                trust: (context) =>
+                    ["\\htmlId", "\\href"].includes(context.command),
             },
         },
         copyright: {
             global: true,
-            author: 'Trezedo',
-            license: 'MIT',
+            author: "Trezedo",
+            license: "MIT",
             triggerWords: 100,
         },
-        pwa: false
-    }
+        pwa: false,
+    },
 });

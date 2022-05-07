@@ -1,6 +1,6 @@
 // noinspection SpellCheckingInspection
 
-import {onMounted} from "vue";
+import { onMounted } from "vue";
 import useConfirm from "../composables/useConfirm";
 
 export default function detectTbs() {
@@ -10,20 +10,22 @@ export default function detectTbs() {
         let env = /\bQQ\b|WeChat/g.exec(navigator.userAgent);
         let browser = /Chrome|Firefox|Safari/gi.exec(navigator.userAgent);
         confirm.show({
-            title: '检测到环境异常', message: `当前为 ${env || browser} 环境，点击确定查看详情`,
-            okText: '确定', cancelText: "取消",
+            title: "检测到环境异常",
+            message: `当前为 ${env || browser} 环境，点击确定查看详情`,
+            okText: "确定",
+            cancelText: "取消",
             onOkClick: () => {
                 window.open(`/article/tbs.html?t=${new Date().getTime()}`);
             },
-            options: {titleColor: "#eebf31", okButtonBackground: "#eebf31"}
-        })
+            options: { titleColor: "#eebf31", okButtonBackground: "#eebf31" },
+        });
     }
 
     onMounted(() => {
         if (/\bQQ\b|WeChat/g.test(navigator.userAgent)) {
-            initNotiflix()
+            initNotiflix();
         }
-    })
+    });
 }
 
 /*import {onMounted, ref, watch} from "vue";

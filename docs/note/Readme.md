@@ -5,3 +5,5 @@ article: false
 ---
 
 <List4Hope prefix="/note/"/>
+
+<!-- <CurrentPageData /> -->

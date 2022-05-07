@@ -11,9 +11,10 @@ tag:
 
 ## 缓存问题
 
-<script setup>
-import {ref, onMounted, computed} from "vue";
-import { useRoute } from "@vuepress/client";
+<script setup lang="ts">
+import { ref, onMounted, computed } from "vue";
+import { useRoute } from "vue-router";
+
 const env = ref("");
 onMounted(() => {
     let ua = /\bQQ\b|WeChat/g.exec(navigator.userAgent);
@@ -28,9 +29,9 @@ onMounted(() => {
     const header = document.querySelector("#clear");
     header?.addEventListener("dblclick", () => {
         show.value = !show.value;
-    })
-    href.value = decodeURI(location.href.replace(location.origin,""))
-})
+    });
+    href.value = decodeURI(location.href.replace(location.origin, ""));
+});
 </script>
 
 在QQ、微信环境下，Gitee Pages的网页文件数据会被强制缓存，此后有几率==无法自动更新==。

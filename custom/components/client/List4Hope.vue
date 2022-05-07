@@ -1,50 +1,38 @@
 <template>
     <!-- <ArticleItem v-for="r in routes" :path="r.path" info="123"/>-->
     <ul>
-        <li v-for="r in routes">
+        <li v-for="(r, idx) in routes" :key="idx">
             <router-link :to="r.path">{{ computeTitle(r) }}</router-link>
         </li>
     </ul>
-
 </template>
 
-<script lang="ts">
-import {defineComponent} from "vue";
-import {getSimpleRoutes} from "../../composables/getSimpleRoutes";
-import {RouteRecordNormalized} from "vue-router"
+<script lang="ts" setup>
+import { getSimpleRoutes } from "../../composables/getSimpleRoutes";
+import type { RouteRecordNormalized } from "vue-router";
 
-export default defineComponent({
-    name: "ArticleList",
-    props: {
-        prefix: {
-            type: String,
-            required: false,
-            default: "/"
-        },
-        removeRoot: {
-            type: Boolean,
-            required: false,
-            default: true
-        }
+const props = defineProps({
+    prefix: {
+        type: String,
+        required: false,
+        default: "/",
     },
-    setup(props) {
-        // let pages: PageData[] = await getResolvedPages(); // async setup()
-        // console.log(pages)
+    removeRoot: {
+        type: Boolean,
+        required: false,
+        default: true,
+    },
+});
 
-        const routes = getSimpleRoutes(props.prefix, props.removeRoot);
+// let pages: PageData[] = await getResolvedPages(); // async setup()
+// console.log(pages)
 
-        function computeTitle(route: RouteRecordNormalized) {
-            return route.meta["title"] || /[^/]*?(?=\.html$)/.exec(decodeURI(route.path))[0]
-        }
+const routes = getSimpleRoutes(props.prefix, props.removeRoot);
 
-        return {
-            routes,
-            computeTitle
-        }
-    }
-})
+function computeTitle(route: RouteRecordNormalized) {
+    return (
+        route.meta["title"] ||
+        /[^/]*?(?=\.html$)/.exec(decodeURI(route.path))[0]
+    );
+}
 </script>
-
-<style scoped>
-
-</style>

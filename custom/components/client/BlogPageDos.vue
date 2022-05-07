@@ -1,9 +1,7 @@
-<template>
-
-</template>
+<template></template>
 
 <script lang="ts" setup>
-import {onMounted} from "vue";
+import { onMounted } from "vue";
 import detectTbs from "../../composables/detectTbs";
 
 /**
@@ -15,11 +13,11 @@ detectTbs();
  * 关闭页面事件
  */
 onMounted(() => {
-    window.onbeforeunload = ev => {
-        console.log(ev)
+    window.onbeforeunload = (ev) => {
+        console.log(ev);
         // localStorage.removeItem("show-warning")
-    }
-})
+    };
+});
 
 /**
  * 在博客首页，取消以 <a href=""/> 的方式滚动（会改变 hash）

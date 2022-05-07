@@ -26,20 +26,20 @@ pre::-webkit-scrollbar-thumb {
 
 /* 有用但是作用在了其他元素 https://developer.mozilla.org/zh-CN/docs/Web/CSS/scroll-margin-top */
 /*html {scroll-padding-top: 4.5em;}*/
-.base > span.enclosing {
+.base>span.enclosing {
     /* https://stackoverflow.com/questions/4086107#26214572 */
     padding-top: var(--offset-top);
     margin-top: calc(0 - var(--offset-top));
 }
 
 /* 滚动到自定义上下文锚点，上边距 */
-p > a[name] {
+p>a[name] {
     padding-top: var(--offset-top);
     margin-top: calc(0 - var(--offset-top));
     visibility: hidden;
 }
 
-p > a[name]:before {
+p>a[name]:before {
     margin-left: -1em;
     content: "m";
 }
@@ -73,6 +73,7 @@ particle {
 }
 
 @media screen and (max-width: 719px) {
+
     /*.toggle-sidebar {
         visibility: hidden !important;
     }*/
@@ -99,9 +100,9 @@ particle {
 }
 
 /**
- 原先通过调整 left “隐藏” 侧边栏，但明显感觉到性能不太好
- https://blog.csdn.net/weixin_45689946/article/details/122167495
- transform 比 margin 性能好 50%~70%
+    原先通过调整 left “隐藏” 侧边栏，但明显感觉到性能不太好
+    https://blog.csdn.net/weixin_45689946/article/details/122167495
+    transform 比 margin 性能好 50%~70%
  */
 .sidebar.hide {
     /* 使用 transform 代替直接 修改 left */
@@ -115,7 +116,8 @@ particle {
 }
 
 /* 表格对齐方式 */
-.custom-container.center > table, .custom-container.right > table {
+.custom-container.center>table,
+.custom-container.right>table {
     display: inline;
     margin: 1rem auto;
 }
@@ -134,7 +136,8 @@ table {
     text-align: center;
 }
 
-table td, table th {
+table td,
+table th {
     border: 1px solid #cad9ea;
     color: #666;
     height: 30px;
