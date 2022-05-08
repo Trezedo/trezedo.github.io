@@ -1,6 +1,5 @@
 import { hopeTheme } from "vuepress-theme-hope";
-import navbar from "./configs/navbar";
-import sidebar from "./configs/sidebar";
+import { navbar, sidebar } from "./configs";
 
 export default hopeTheme({
     hostname: "https://trezedo.gitee.io",
@@ -57,6 +56,7 @@ export default hopeTheme({
             "/note/math/differential-operator.html": ["1962234583"],
         },
     },
+
     plugins: {
         blog: {
             autoExcerpt: false,
@@ -90,6 +90,7 @@ export default hopeTheme({
                     ["\\htmlId", "\\href"].includes(context.command),
             },
         },
+
         copyright: {
             global: true,
             author: "Trezedo",
