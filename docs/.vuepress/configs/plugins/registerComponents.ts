@@ -1,4 +1,4 @@
-import registerComponentsPlugin from "@vuepress/plugin-register-components";
+import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
 import { path as Path } from "@vuepress/utils";
 
 const resolve = (path: string) => {

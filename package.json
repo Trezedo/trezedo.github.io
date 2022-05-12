@@ -1,6 +1,6 @@
 {
     "name": "trezedo-blog",
-    "version": "2.0.0",
+    "version": "2.2.0",
     "description": "Blog project of vuepress-theme-hope",
     "license": "MIT",
     "scripts": {
@@ -17,9 +17,9 @@
         "@vuepress/plugin-register-components": "^2.0.0-beta.43",
         "@vuepress/plugin-search": "^2.0.0-beta.43",
         "axios": "^0.27.2",
-        "uglify-js": "^3.15.4",
+        "uglify-js": "^3.15.5",
         "uglifycss": "^0.0.29",
         "vuepress": "^2.0.0-beta.43",
-        "vuepress-theme-hope": "^2.0.0-beta.53"
+        "vuepress-theme-hope": "^2.0.0-beta.55"
     }
 }
