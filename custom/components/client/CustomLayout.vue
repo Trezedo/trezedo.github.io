@@ -4,9 +4,11 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter, Content } from "@vuepress/client";
+import { Content } from "@vuepress/client";
+import { useRouter } from "vue-router";
 
 const router = useRouter();
+
 const pages = router
     .getRoutes()
     .filter(

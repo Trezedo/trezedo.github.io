@@ -23,13 +23,12 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import {
     usePageData,
     usePagesData,
     usePageFrontmatter,
     useSiteData,
-    useRoute,
-    useRouter,
     resolvers,
 } from "@vuepress/client";
 

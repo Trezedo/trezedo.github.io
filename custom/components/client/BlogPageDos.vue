@@ -13,9 +13,8 @@ detectTbs();
  * 关闭页面事件
  */
 onMounted(() => {
-    window.onbeforeunload = (ev) => {
-        console.log(ev);
-        // localStorage.removeItem("show-warning")
+    window.onbeforeunload = (e: BeforeUnloadEvent) => {
+        console.log(e);
     };
 });
 
@@ -24,14 +23,26 @@ onMounted(() => {
  *
  * 新版取消了这种方式，因此不需要自己实现
  */
-/*onMounted(() => {
-    const button = document.querySelector(".slide-down-wrapper") as HTMLLinkElement;
-    const heroBottom = document.querySelector("#hero-bottom") as HTMLDivElement;
+/* onMounted(() => {
+    const button = document.querySelector<HTMLLinkElement>(
+        ".slide-down-wrapper"
+    );
+    const heroBottom = document.querySelector<HTMLDivElement>("#hero-bottom");
     button?.removeAttribute("href");
     button?.addEventListener("click", () => {
-        heroBottom?.scrollIntoView({behavior: 'smooth'})
-    })
-})*/
+        heroBottom?.scrollIntoView({ behavior: "smooth" });
+    });
+}); */
+
+// 初始化打字机效果
+onMounted(() => {
+    const p = document.querySelector<HTMLParagraphElement>("p.description");
+    p.classList.add("typing");
+    // 中文要 * 2
+    const length = (p.innerText.length + 1) * 2;
+    document.documentElement.style.setProperty("--p-width", `${length}ch`);
+    document.documentElement.style.setProperty("--p-step", `${length / 2}`);
+});
 </script>
 
 <!--suppress CssUnusedSymbol -->
