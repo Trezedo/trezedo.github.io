@@ -10,7 +10,7 @@ export default async function getResolvedPages() {
     const pageResolver = resolvers.resolvePageData;
     const pagesByKey = usePagesData();
 
-    const pages = [] as PageData[];
+    const pages = <PageData[]>[];
     for (let pageKey in pagesByKey.value) {
         let page = await pageResolver(pageKey);
         pages.push(page);

@@ -17,9 +17,9 @@
         "@vuepress/plugin-register-components": "^2.0.0-beta.46",
         "@vuepress/plugin-search": "^2.0.0-beta.46",
         "axios": "^0.27.2",
-        "uglify-js": "^3.15.5",
+        "uglify-js": "^3.16.0",
         "uglifycss": "^0.0.29",
         "vuepress": "^2.0.0-beta.46",
-        "vuepress-theme-hope": "^2.0.0-beta.72"
+        "vuepress-theme-hope": "^2.0.0-beta.79"
     }
 }

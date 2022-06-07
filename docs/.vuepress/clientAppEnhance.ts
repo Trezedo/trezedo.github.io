@@ -1,10 +1,16 @@
-import {defineClientAppEnhance} from '@vuepress/client'
+import { defineClientConfig } from "@vuepress/client";
 
-// noinspection JSUnusedGlobalSymbols
-export default defineClientAppEnhance(({app, router, siteData}) => {
-    // app.config.globalProperties
-    // 全局注册组件会被打包进 app.xxx.js
-    // for (let com in Components) {
-    //     app.component(com, Components[com])
-    // }
-})
+// https://v2.vuepress.vuejs.org/zh/advanced/cookbook/usage-of-client-config.html
+export default defineClientConfig({
+    enhance({ app, router, siteData }) {
+        // app.config.globalProperties
+        // 全局注册组件会被打包进 app.xxx.js
+        // for (let com in Components) {
+        //     app.component(com, Components[com])
+        // }
+    },
+    setup() {
+        console.log("114514 ".repeat(10));
+    },
+    rootComponents: [],
+});

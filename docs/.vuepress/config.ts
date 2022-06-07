@@ -57,10 +57,9 @@ export default defineUserConfig({
 
     bundler: bundler("vite"),
 
-    clientAppSetupFiles: [
-        // beta.18 加入了隐藏侧边栏，取消自己写的
-        // path.resolve(__dirname, './configs/setupFiles/toggleSidebar.ts')
-    ],
+    // clientAppSetupFiles beta.18 加入了隐藏侧边栏，取消自己写的
+    // path.resolve(__dirname, './configs/setupFiles/toggleSidebar.ts')
+    clientConfigFile: path.resolve(__dirname, "./clientAppEnhance.ts"),
     // port: 8888
 });
 

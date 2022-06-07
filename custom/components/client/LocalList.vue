@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute, useRouter, RouterLink } from "vue-router";
 import {
     usePageData,
     usePagesData,
@@ -36,7 +36,7 @@ import {
 import _pages from "@temp/pages";
 import { Page } from "vuepress";
 
-const pagesTemp = computed(() => _pages as Page[]);
+const pagesTemp = computed(() => <Page[]>_pages);
 
 const pagesData = usePagesData();
 // console.log(usePageData().value)
@@ -69,7 +69,7 @@ function extractFilename(path: string): string {
 }
 
 pages.forEach((p) =>
-    resolvers.resolvePageData(p.name as string).then((page) => {
+    resolvers.resolvePageData(<string>p.name).then((page) => {
         console.log(page.frontmatter);
     })
 );
