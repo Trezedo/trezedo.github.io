@@ -14,7 +14,7 @@ export default hopeTheme({
     // repo: "https://gitee.com/trezedo/trezedo",
     docsDir: "demo/src",
     navbarAutoHide: "mobile", // "always" 容易卡顿
-    darkmode: "switch",
+    darkmode: "toggle",
     blog: {
         articlePerPage: 8,
         medias: {
