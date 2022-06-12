@@ -75,4 +75,6 @@ pages.forEach((p) =>
 );
 </script>
 
-<style scoped></style>
+<style lang="scss">
+//
+</style>

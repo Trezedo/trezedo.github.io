@@ -2,7 +2,7 @@
     <div>CurrentPageData.vue</div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 // https://github.com/vuepress/vuepress-next/pull/504
 import {
     usePageData,

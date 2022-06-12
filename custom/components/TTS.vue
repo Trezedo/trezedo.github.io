@@ -61,7 +61,7 @@
     </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 // 电池 https://blog.csdn.net/qq_33302253/article/details/113790474
 import { onMounted, ref, watch } from "vue";
 

@@ -1,4 +1,5 @@
-import { Bundler, defineUserConfig } from "vuepress";
+import { defineUserConfig } from "vuepress";
+import { Bundler } from "@vuepress/core";
 import { path } from "@vuepress/utils";
 
 import { onInitialized, bundlerConfig } from "./configs/";
@@ -33,6 +34,13 @@ export default defineUserConfig({
             href: "https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=3&t=" + new Date().getTime()
         }],*/
         // https://www.cnblogs.com/jiasm/p/7683930.html
+        /* [
+            "script", // 会导致标题栏图片闪烁
+            {
+                defer: true,
+                src: "https://unpkg.com/smoothscroll-for-websites@1.4.10/SmoothScroll.js",
+            },
+        ], */
         [
             "script",
             {
