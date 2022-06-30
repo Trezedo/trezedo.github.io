@@ -31,25 +31,25 @@ function init() {
         tButton.onclick = toggle;
         document.body.appendChild(tButton);
     } else if (!links() && button()) {
-        document.body.removeChild(button());
+        document.body.removeChild(button()!);
     } else if (links() && button()) {
         // 切换页面时，page会恢复初始状态，而 sidebar 不会
         // 因此当从关闭 sidebar 的页面切换到其他页面时，sidebar隐藏且page不是全屏的
         // 此时是新页面了，因此为了判断需要用到 localStorage
         // 显示被隐藏的侧边栏
-        sidebar().classList.remove("hide");
+        sidebar()?.classList.remove("hide");
         if (isHide()) localStorage.setItem("sidebar", "show");
     }
 
     function toggle() {
         if (!isHide()) {
             // 通过 hide 类改变 left 的值，实现隐藏侧边栏
-            sidebar().classList.add("hide");
-            mainPage().classList.add("full");
+            sidebar()?.classList.add("hide");
+            mainPage()?.classList.add("full");
             localStorage.setItem("sidebar", "hide");
         } else {
-            sidebar().classList.remove("hide");
-            mainPage().classList.remove("full");
+            sidebar()?.classList.remove("hide");
+            mainPage()?.classList.remove("full");
             // sidebar().style.left = 'var(--sidebar-width)'
             // mainPage.style.paddingLeft = ''; // var(--sidebar-width)
             localStorage.setItem("sidebar", "show");

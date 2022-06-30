@@ -21,13 +21,6 @@ export default defineUserConfig({
                 href: "//at.alicdn.com/t/font_2410206_mfj6e1vbwo.css" + date,
             },
         ],
-        [
-            "link",
-            {
-                rel: "stylesheet",
-                href: `/assets/css/index${!isDev() ? ".min" : ""}.css` + date,
-            },
-        ],
         // ["link", {rel: "shortcut icon", href: "/favicon.ico",type:"image/x-icon"}],
         /*["link", {
             rel: "icon", type: "image/jpeg",
@@ -59,8 +52,7 @@ export default defineUserConfig({
         // "/zh/": {},
     },
     theme: themeConfig,
-    // clientAppEnhanceFiles: "",
-    onInitialized,
+    onInitialized: onInitialized,
     plugins: pluginConfig,
 
     bundler: bundler("vite"),
@@ -68,7 +60,6 @@ export default defineUserConfig({
     // clientAppSetupFiles beta.18 加入了隐藏侧边栏，取消自己写的
     // path.resolve(__dirname, './configs/setupFiles/toggleSidebar.ts')
     clientConfigFile: path.resolve(__dirname, "./clientAppEnhance.ts"),
-    // port: 8888
 });
 
 export function isDev(): boolean {

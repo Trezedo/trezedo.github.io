@@ -27,11 +27,3 @@ export default {
     }),
     webpack: webpackBundler({}),
 };
-
-function assetType(ext: string): string {
-    if (ext.endsWith(".css")) return "css";
-    else if (ext.endsWith(".js") || ext.includes(".js.")) return "js";
-    else if (/\.(jpg|png|svg|jpeg|gif|ico)$/i.test(ext)) return "img";
-    else if (/.(woff|woff2|ttf|eot)$/.test(ext)) return "font";
-    else return "other";
-}

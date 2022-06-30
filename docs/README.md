@@ -11,33 +11,32 @@ bgImage: https://w.wallhaven.cc/full/72/wallhaven-72rd8e.jpg
 # tagline: 人可以无知，但不可以白痴。 ——苗条俊
 tagline: 强中更有强中手，莫向人前满自夸。
 projects:
-  - icon: article
-    name: 杂七杂八
-    desc: 零散的记录
-    link: /article/tbs.html
+    - icon: article
+      name: 杂七杂八
+      desc: 零散的记录
+      link: /article/tbs.html
 
-  - icon: project
-    name: 数据生成器
-    desc: 用来生成随机数据
-    link: https://gitee.com/zedo/data-generator
+    - icon: project
+      name: 数据生成器
+      desc: 用来生成随机数据
+      link: https://gitee.com/zedo/data-generator
 
-  - icon: link
-    name: 图床
-    desc: 
-    link: https://gitee.com/zedo/img
+    - icon: link
+      name: 图床
+      desc:
+      link: https://gitee.com/zedo/img
 
-# - icon: /icon.svg
-  - icon: tool
-    name: 小工具
-    desc: 小众且不太实用
-    link: /tool/
+    # - icon: /icon.svg
+    - icon: tool
+      name: 小工具
+      desc: 小众且不太实用
+      link: /tool/
 
-  - icon: book
-    name: 数学笔记
-    desc: 佛系记录
-    link: /note/math/
+    - icon: book
+      name: 数学笔记
+      desc: 佛系记录
+      link: /note/math/
 # footer: customize your footer text
 ---
 
 <BlogPageDos/>
-

@@ -1,18 +1,12 @@
-import onInitialized from "./onInitialized";
-import bundlerConfig from "./bundlerConfig";
+// 打包设置
+export { default as bundlerConfig } from "./bundlerConfig";
+
+// 钩子设置
+export { default as onInitialized } from "./onInitialized";
 
 // 主题设置
-import navbar from "./navbar";
-import sidebar from "./sidebar";
+export { default as navbar } from "./navbar";
+export { default as sidebar } from "./sidebar";
 
 // 插件设置
-import { pluginConfig } from "./plugins";
-
-export {
-    //
-    onInitialized,
-    bundlerConfig,
-    navbar,
-    sidebar,
-    pluginConfig,
-};
+export * from "./plugins";
