@@ -14,11 +14,11 @@ tag:
 
 可以在此尝试：
 
-<iframe src="https://trezedo.gitee.io/untils" title="untils" width="100%" height="300" style="border: solid var(--theme-color); border-radius:6px">
+<iframe src="https://zedo.gitee.io/untils" title="untils" width="100%" height="300" style="border: solid var(--theme-color); border-radius:6px">
   <p>Your browser does not support iframes.</p>
 </iframe>
 
-如果加载不出，可以前往 [Untils](https://trezedo.gitee.io/untils) 体验。
+如果加载不出，可以前往 [Untils](https://zedo.gitee.io/untils) 体验。
 
 <br>
 

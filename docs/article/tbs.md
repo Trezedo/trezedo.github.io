@@ -63,11 +63,11 @@ onMounted(() => {
 
 然后勾选 **“文件缓存”** ，然后点击“**清除**”
 
-<img src="https://trezedo.gitee.io/data-generator/img/step1.1fe16f82.png" alt="step1" style="max-width:360px;margin:0 auto;display:block" />
+<img src="https://zedo.gitee.io/data-generator/img/step1.1fe16f82.png" alt="step1" style="max-width:360px;margin:0 auto;display:block" />
 
 显示如下则清理完成：
 
-<img src="https://trezedo.gitee.io/data-generator/img/step2.2eb30822.png" alt="step2" style="max-width:360px;display:block;margin:0 auto">
+<img src="https://zedo.gitee.io/data-generator/img/step2.2eb30822.png" alt="step2" style="max-width:360px;display:block;margin:0 auto">
 
 然后重新打开所要访问的页面即可。
 
@@ -89,7 +89,7 @@ onMounted(() => {
 
 在部署博客的时候，发现 QQ 内打开链接的在操作 **分享**、**收藏**、**复制链接** 等行为时出现了问题：它提取的摘要、链接都是打开时的 URL 链接，而经过 vue 的路由切换的路径不能改变它分享的链接地址。
 
-也就是说，比如你在QQ内打开的链接为 <https://trezedo.gitee.io/> ，在里面打开任意的文章，当你选择在右上角分享给好友时，不论你当前浏览的文章的链接是什么，分享出去（或复制）的链接都将是 <https://trezedo.gitee.io/>。
+也就是说，比如你在QQ内打开的链接为 <https://zedo.gitee.io/> ，在里面打开任意的文章，当你选择在右上角分享给好友时，不论你当前浏览的文章的链接是什么，分享出去（或复制）的链接都将是 <https://zedo.gitee.io/>。
 
 ::: tip
 
@@ -105,7 +105,7 @@ onMounted(() => {
 
 ::: center
 
-<img src="https://trezedo.gitee.io/img/image-20220324221949233.png" alt="image-20220324221949233" style="zoom:50%;" />
+<img src="https://zedo.gitee.io/img/image-20220324221949233.png" alt="image-20220324221949233" style="zoom:50%;" />
 
 :::
 

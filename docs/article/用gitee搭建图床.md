@@ -9,13 +9,13 @@ permalink: /article/gitee-image-hosting.html
 
 # 使用gitee搭建图床
 
-![20220127215621.png](https://trezedo.gitee.io/img/20220127215621.png)
+![20220127215621.png](https://zedo.gitee.io/img/20220127215621.png)
 
 填写`repo`，`branch`，`token` 即可，`origin`选择`gitee`.
 
 ### token获取方法
 
-![20220127215053.png](https://trezedo.gitee.io/img/20220127215053.png)
+![20220127215053.png](https://zedo.gitee.io/img/20220127215053.png)
 
 
 
@@ -36,13 +36,13 @@ GET https://assets.gitee.com/favicon.ico 403
 发现已经部署在 gitee pages 的博客能正常使用图床，而本地开发的浏览器环境中无法显示。不过没事，只需要开启 gitee pages ，之后修改图片链接即可。例如：
 
 ```
-https://trezedo.gitee.io/img/20220127215053.png
+https://zedo.gitee.io/img/20220127215053.png
 ```
 
 修改成：
 
 ```
-https://trezedo.gitee.io/img/20220127215053.png
+https://zedo.gitee.io/img/20220127215053.png
 ```
 
 

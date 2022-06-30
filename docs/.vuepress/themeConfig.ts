@@ -1,8 +1,9 @@
 import { hopeTheme } from "vuepress-theme-hope";
 import { navbar, sidebar } from "./configs";
+import type { TrustContext } from "katex";
 
 export default hopeTheme({
-    hostname: "https://trezedo.gitee.io",
+    hostname: "https://zedo.gitee.io",
     author: {
         name: "Trezedo",
         url: "https://Trezedo.club",
@@ -11,7 +12,7 @@ export default hopeTheme({
     // 左上角，以及首页右侧
     logo: "https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=4", // "/favicon.ico",
 
-    // repo: "https://gitee.com/trezedo/trezedo",
+    // repo: "https://gitee.com/zedo/zedo",
     docsDir: "demo/src",
     navbarAutoHide: "mobile", // "always" 容易卡顿
     darkmode: "toggle",
@@ -23,7 +24,7 @@ export default hopeTheme({
             Wechat: "https://wx.shanglala.cn/wap/url_scheme.php?id=NjYw", //"https://u.wechat.com/MMPIhfjElaxLw0gmEeUn8rI",
             Zhihu: "https://www.zhihu.com/people/0Chenky",
             Email: "mailto:trezedo@qq.com",
-            Gitee: "https://gitee.com/Trezedo",
+            Gitee: "https://gitee.com/zedo",
             // GitHub: "https://example.com",
             // Gmail: "https://example.com",
         },
@@ -86,7 +87,7 @@ export default hopeTheme({
                     "\\label": "\\htmlId{tag#1}{}",
                 },
                 // https://github.com/KaTeX/KaTeX/issues/2003
-                trust: (context) =>
+                trust: (context: TrustContext) =>
                     ["\\htmlId", "\\href"].includes(context.command),
             },
         },

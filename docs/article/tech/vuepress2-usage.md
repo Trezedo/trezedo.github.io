@@ -165,7 +165,7 @@ git init
 在项目中添加gitee远程仓库地址
 
 ```bash
-git remote add gitee git@gitee.com:Trezedo/trezedo.git
+git remote add gitee git@gitee.com:zedo/zedo.git
 ```
 
 拉取远程仓库的代码

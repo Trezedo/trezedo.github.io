@@ -75,7 +75,7 @@ msgbox vlist,64,"List"
 
 ::: center
 
-![20220225090022.png](https://trezedo.gitee.io/img/20220225090022.png)
+![20220225090022.png](https://zedo.gitee.io/img/20220225090022.png)
 
 :::
 
@@ -85,7 +85,7 @@ msgbox vlist,64,"List"
 
 微软的Edge浏览器自带了很多种不同语言的（在线）语音包，如Windows版本：
 
-![Windows上的Edge浏览器语音包](https://trezedo.gitee.io/img/image-20220313091116003.png)
+![Windows上的Edge浏览器语音包](https://zedo.gitee.io/img/image-20220313091116003.png)
 
 :::
 
@@ -93,7 +93,7 @@ msgbox vlist,64,"List"
 
 Windows 10默认安装了两个不同语言的 TTS 引擎，实际上会有一些已经安装的语音，但是并没有显示在以上[查询语音包](#查询语音包)的列表中显示，可以打开设置查看：
 
-![image-20220225210747140](https://trezedo.gitee.io/img/image-20220225210747140.png)
+![image-20220225210747140](https://zedo.gitee.io/img/image-20220225210747140.png)
 
 可以发现，这里比之前的列表多了几个：
 
@@ -113,7 +113,7 @@ Windows 10默认安装了两个不同语言的 TTS 引擎，实际上会有一�
 
 比如我们的电脑应该会是`zh-CN`和`en-US`两个文件夹，里面的内容就是语音引擎。打开`zh-CN`目录查看是否存在`Hongyu`等语音：
 
-![image-20220225221825312](https://trezedo.gitee.io/img/image-20220225221825312.png)
+![image-20220225221825312](https://zedo.gitee.io/img/image-20220225221825312.png)
 
 由于实测发现需要增加的注册表项太多才能生效，因此以下仅给出`Hongyu`的代码（64位浏览器）：
 
@@ -169,7 +169,7 @@ foreach($voice in $listVoices) {
 
 ::: center
 
-![image-20220226142839950](https://trezedo.gitee.io/img/image-20220226142839950.png)
+![image-20220226142839950](https://zedo.gitee.io/img/image-20220226142839950.png)
 
 :::
 
@@ -183,9 +183,9 @@ windows 10系统可以通过：
 
 来增加语音包：
 
-![image-20220225210541297](https://trezedo.gitee.io/img/image-20220225210541297.png)
+![image-20220225210541297](https://zedo.gitee.io/img/image-20220225210541297.png)
 
-![image-20220225210630475](https://trezedo.gitee.io/img/image-20220225210630475.png)
+![image-20220225210630475](https://zedo.gitee.io/img/image-20220225210630475.png)
 
 
 

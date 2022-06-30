@@ -193,7 +193,7 @@ ncu -u  # ncu 是 npm-check-updates 简写
 
 终端会展示可更新的依赖：
 
-<img src="https://trezedo.gitee.io/img/image-20220509190222090.png" alt="image-20220509190222090" style="zoom:67%; display: block; margin: auto;"/>
+<img src="https://zedo.gitee.io/img/image-20220509190222090.png" alt="image-20220509190222090" style="zoom:67%; display: block; margin: auto;"/>
 
 然后用 npm 更新即可：
 
@@ -211,7 +211,7 @@ yarn upgrade-interactive
 
 使用空格选择即可：
 
-![image-20220509191023391](https://trezedo.gitee.io/img/image-20220509191023391.png)
+![image-20220509191023391](https://zedo.gitee.io/img/image-20220509191023391.png)
 
 但是它不会修改 `package.json` ，可以使用 [yarn-upgrade-all](https://github.com/tylerlong/yarn-upgrade-all)。
 

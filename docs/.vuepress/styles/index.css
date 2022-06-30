@@ -1,53 +1,65 @@
 @charset "UTF-8";
 img.logo,
 img.hero-image {
-  border-radius: 50%;
+    border-radius: 50%;
 }
 
 .blogger-name,
 .blogger-description {
-  background-image: linear-gradient(90deg, #ffa745, #fe869f, #ef7ac8, #a083ed, #43aeff, #a083ed, #ef7ac8, #fe869f, #ffa745);
-  background-size: 200%;
-  animation: t-anim 4s linear infinite;
-  background-clip: text;
-  color: transparent;
+    background-image: linear-gradient(
+        90deg,
+        #ffa745,
+        #fe869f,
+        #ef7ac8,
+        #a083ed,
+        #43aeff,
+        #a083ed,
+        #ef7ac8,
+        #fe869f,
+        #ffa745
+    );
+    background-size: 200%;
+    animation: t-anim 4s linear infinite;
+    background-clip: text;
+    color: transparent;
 }
 
 @keyframes t-anim {
-  0% {
-    background-position: 0;
-  }
-  100% {
-    background-position: 200%;
-  }
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 200%;
+    }
 }
 
 /* 打字机效果 */
 :root {
-  --p-width: 40ch;
-  --p-step: 20;
-  --p-duration: 8s;
+    --p-width: 40ch;
+    --p-step: 20;
+    --p-duration: 8s;
 }
 
 @keyframes typing {
-  from {
-    width: 0;
-  }
+    from {
+        width: 0;
+    }
 }
 
 @keyframes caret {
-  50% {
-    border-right-color: currentColor;
-  }
+    50% {
+        border-right-color: currentColor;
+    }
 }
 
 .typing {
-  display: inline-block;
-  width: var(--p-width);
-  /* font: bold 200% Consolas, Monaco, monospace; */
-  overflow: hidden;
-  white-space: nowrap;
-  font-weight: 500;
-  border-right: 2px solid transparent;
-  animation: typing var(--p-duration) steps(var(--p-step)) alternate infinite, caret 0.5s steps(1) infinite;
+    display: inline-block;
+    width: var(--p-width);
+    /* font: bold 200% Consolas, Monaco, monospace; */
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: 500;
+    border-right: 2px solid transparent;
+    animation: typing var(--p-duration) steps(var(--p-step)) alternate infinite,
+        caret 0.5s steps(1) infinite;
 }

@@ -19,12 +19,12 @@ projects:
   - icon: project
     name: 数据生成器
     desc: 用来生成随机数据
-    link: https://gitee.com/Trezedo/data-generator
+    link: https://gitee.com/zedo/data-generator
 
   - icon: link
     name: 图床
     desc: 
-    link: https://gitee.com/Trezedo/img
+    link: https://gitee.com/zedo/img
 
 # - icon: /icon.svg
   - icon: tool
