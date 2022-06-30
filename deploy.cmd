@@ -1,7 +1,4 @@
 (
-    @REM 删除 pages 分支
-    git branch -D pages
-) && (
     @REM 建立独立的 pages 分支
     git checkout --orphan pages
 ) && (
@@ -12,13 +9,16 @@
     echo node_modules > .gitignore
     echo docs >> .gitignore
     echo yarn.lock >> .gitignore
-)
-
-git add .
-@REM git add dist
-git commit -m "build"
-(
+) && (
+    git add .
+    @REM git add dist
+    git commit -m "publish:rocket::  build"
+) && (
+    @REM 强制推送
     git push origin pages -f
 ) && (
     git checkout theme-hope
+) && (
+    @REM 删除本地 pages 分支
+    git branch -D pages
 )

@@ -9,9 +9,8 @@
         "docs:clean-dev": "vuepress dev docs --clean-cache",
         "docs:build": "vuepress build docs",
         "preview": "vite preview",
-        "git": "git add . && git commit -m",
-        "push": "git push gitee master:theme-hope",
-        "deploy": "git checkout pages && deploy.cmd"
+        "push": "git push gitee theme-hope",
+        "deploy": "./deploy.cmd"
     },
     "devDependencies": {
         "@vuepress/bundler-webpack": "2.0.0-beta.48",
