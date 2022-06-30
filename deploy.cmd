@@ -12,7 +12,7 @@
 ) && (
     git add .
     @REM git add dist
-    git commit -m "publish:rocket::  build"
+    git commit -m "publish :rocket: :  build"
 ) && (
     @REM 强制推送
     git push origin pages -f
