@@ -11,7 +11,7 @@ tag:
 
 ## 缓存问题
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { ref, onMounted, computed } from "vue";
 import { useRoute } from "vue-router";
 

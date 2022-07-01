@@ -1,5 +1,3 @@
-// noinspection SpellCheckingInspection
-
 import { onMounted } from "vue";
 import useConfirm from "../composables/useConfirm";
 

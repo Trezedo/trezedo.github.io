@@ -3,7 +3,7 @@
     <Content></Content>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { Content } from "@vuepress/client";
 import { useRouter } from "vue-router";
 

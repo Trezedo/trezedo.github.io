@@ -21,7 +21,7 @@
     <div>{{ pagesList }}</div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed, ref } from "vue";
 import { useRoute, useRouter, RouterLink } from "vue-router";
 import {

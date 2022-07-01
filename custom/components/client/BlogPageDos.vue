@@ -2,7 +2,7 @@
     <!--  -->
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { onMounted } from "vue";
 import detectTbs from "../../composables/detectTbs";
 

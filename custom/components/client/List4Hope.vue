@@ -7,7 +7,7 @@
     </ul>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { getSimpleRoutes } from "../../composables/getSimpleRoutes";
 import type { RouteRecordNormalized } from "vue-router";
 
