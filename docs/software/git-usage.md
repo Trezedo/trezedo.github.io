@@ -196,6 +196,33 @@ git merge branchname
 
 
 
+### 重命名分支
+
+本地分支重命名(还没有推送到远程)
+
+```sh
+# 将 oldName 分支重命名为 newName
+git branch -m oldName newName
+```
+
+远程分支重命名
+
+> 重命名的分支不能是默认分支
+
+```sh
+# 先重命名本地分支
+git branch -m oldName newName
+
+# 删除远程分支
+git push --delete origin oldName
+
+# 上传到新分支
+git push origin newName
+
+# 关联修改后的本地分支与远程分支
+git branch --set-upstream-to origin/newName
+```
+
 
 
 ## 查看提交历史

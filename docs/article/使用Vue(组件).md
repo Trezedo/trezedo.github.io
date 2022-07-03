@@ -2,15 +2,15 @@
 icon: vue
 slug: vue-usage
 date: 2022-01-23
-categroy:
-  - VuePress
+category:
+    - VuePress
 tag:
-  - vue
-  - VuePress
+    - vue
+    - VuePress
 permalink: /article/sfc-in-vuepress.html
 ---
 
-# 使用Vue组件
+# 使用 Vue 组件
 
 ## 示例展示
 
