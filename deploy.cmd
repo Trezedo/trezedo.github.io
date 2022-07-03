@@ -15,7 +15,7 @@
     git commit -m "publish :rocket: : build"
 ) && (
     @REM 强制推送，会覆盖历史提交记录，不过该分支不需要记录
-    git push origin pages -f
+    git push gitee pages -f
 ) && (
     git checkout theme-hope
 ) && (
