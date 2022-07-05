@@ -57,7 +57,6 @@ export default hopeTheme({
             "/note/math/differential-operator.html": ["1962234583"],
         },
     },
-
     plugins: {
         blog: {
             autoExcerpt: false,
@@ -70,6 +69,7 @@ export default hopeTheme({
         // },
         comment: false,
         mdEnhance: {
+            attrs: false, // 开启后行内公式不能以 '}' 结尾
             enableAll: true,
             presentation: {
                 plugins: ["highlight", "math", "search", "notes", "zoom"],
