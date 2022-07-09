@@ -159,9 +159,7 @@ f4 = 0.003256
 这里`3e2f` 和 `32.56e-4f` 都是以`IEEE754`标准，类似“科学计数法”，即：
 
 -   `3e2` $=3\times 10^2 = 300$
--   `32.56e-4` $=32.56\times 10^{-4}\,$
-<!-- todo 这里有 bug，公式不能以 } 结尾
-https://github.com/vuepress-theme-hope/vuepress-theme-hope/issues/2048  -->
+-   `32.56e-4` $=32.56\times 10^{-4}$
 
 ::: warning
 
