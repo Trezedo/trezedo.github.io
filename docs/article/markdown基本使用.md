@@ -9,21 +9,20 @@ description: Markdown基本使用
 lastUpdated: 2022-02-24
 category: 使用指南
 tag:
-  - markdown
+    - markdown
 # layout: CustomLayout
 ---
-
 
 <CurrentPageData/>
 # Markdown基本使用
 
-# 1号标题
+# 1 号标题
 
-简单介绍Markdown的基本使用以及在VuePress中的拓展
+简单介绍 Markdown 的基本使用以及在 VuePress 中的拓展
 
 <!-- more -->
 
-::: info INFO
+::: info 相关信息
 
 s
 
@@ -35,9 +34,7 @@ s
 
 #### 四号
 
-
-
-# 1号标题
+# 1 号标题
 
 ## 二号标题
 
@@ -45,32 +42,30 @@ s
 
 #### 四号
 
-
-
 ### 数学公式
 
 $$ \frac 12 \int_a^b f(x)dx $$
 
-## Vuepress中的特殊用法
+## Vuepress 中的特殊用法
 
 ### 导入代码
 
 @[code vue](../../custom/components/client/CurrentPageData.vue)
 
-:::: code-group
-::: code-group-item linux
+::: code-tabs
+@tab linux
+
 ```bash
 mkdir docs && echo '# Hello VitePress' > docs/index.md
 ```
-:::
-::: code-group-item windows
+
+@tab windows
+
 ```bash
 md docs && echo # Hello VitePress > docs/index.md
 ```
+
 :::
-::::
-
-
 
 ::: tip
 这是一个提示
@@ -88,9 +83,7 @@ md docs && echo # Hello VitePress > docs/index.md
 这是一个 details 标签
 :::
 
-
-
-## 使用Vue SFC
+## 使用 Vue SFC
 
 #### 使用 `$page`：
 
@@ -126,19 +119,17 @@ md docs && echo # Hello VitePress > docs/index.md
 
 :::
 
-
-
 ## 一键启用
 
-你可以设置 `themeconfig.mdEnhance.enableAll` 启用 [md-enhance](https://vuepress-theme-hope.github.io/md-enhance) 插件的所有功能。
+你可以设置 `plugins.mdEnhance.enableAll` 启用 [md-enhance](https://vuepress-theme-hope.github.io/md-enhance/zh/) 插件的所有功能。
 
 ```js {3-5}
 module.exports = {
-  themeConfig: {
-    mdEnhance: {
-      enableAll: true,
+    themeConfig: {
+        mdEnhance: {
+            enableAll: true,
+        },
     },
-  },
 };
 ```
 
@@ -182,29 +173,7 @@ $$
 
 ### 代码案例
 
-
-
-```html
-<h1>Mr.Hope</h1>
-<p><span id="very">十分</span> 帅</p>
-```
-
-```js
-document.querySelector("#very").addEventListener("click", () => {
-  alert("十分帅");
-});
-```
-
-```css
-span {
-  color: red;
-}
-```
-
-
-
-````md
-::: demo 一个普通 Demo
+::: normal-demo
 
 ```html
 <h1>Mr.Hope</h1>
@@ -213,157 +182,203 @@ span {
 
 ```js
 document.querySelector("#very").addEventListener("click", () => {
-  alert("十分帅");
+    alert("十分帅");
 });
 ```
 
 ```css
 span {
-  color: red;
-}
-```
-
-:::
-````
-
-
-
-```js
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { message: "十分帅" };
-  }
-  render() {
-    return (
-      <div className="box-react">
-        Mr.Hope <span>{this.state.message}</span>
-      </div>
-    );
-  }
-}
-```
-
-```css
-.box-react span {
-  color: red;
-}
-```
-
-
-
-::: details 代码
-
-````md
-::: demo [react] 一个 React Demo
-
-```js
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { message: "十分帅" };
-  }
-  render() {
-    return (
-      <div className="box-react">
-        Mr.Hope <span>{this.state.message}</span>
-      </div>
-    );
-  }
-}
-```
-
-```css
-.box-react span {
-  color: red;
-}
-```
-
-:::
-````
-
-:::
-
-```vue
-<template>
-  <div class="box">
-    Mr.Hope <span>{{ message }}</span>
-  </div>
-</template>
-<script>
-export default {
-  data: () => ({ message: "十分帅" }),
-};
-</script>
-<style>
-.box span {
-  color: red;
-}
-</style>
-```
-
-
-
-````md
-::: demo [vue] 一个 Vue Demo
-
-```vue
-<template>
-  <div class="box">
-    Mr.Hope <span>{{ message }}</span>
-  </div>
-</template>
-<script>
-export default {
-  data: () => ({ message: "十分帅" }),
-};
-</script>
-<style>
-.box span {
-  color: red;
-}
-</style>
-```
-
-:::
-````
-
-
-
-```md
-# 标题
-
-十分帅
-```
-
-```ts
-const message: string = "Mr.Hope";
-
-document.querySelector("h1").innerHTML = message;
-```
-
-```scss
-h1 {
-  font-style: italic;
-
-  + p {
     color: red;
-  }
 }
 ```
 
+:::
 
+:::: details 代码
+
+````md
+::: normal-demo 一个普通 Demo
+
+```html
+<h1>Mr.Hope</h1>
+<p><span id="very">十分</span> 帅</p>
+```
+
+```js
+document.querySelector("#very").addEventListener("click", () => {
+    alert("十分帅");
+});
+```
+
+```css
+span {
+    color: red;
+}
+```
+
+:::
+````
+
+::::
+
+::: react-demo 一个 React Demo
+
+```js
+export default class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { message: "十分帅" };
+    }
+    render() {
+        return (
+            <div className="box-react">
+                Mr.Hope <span>{this.state.message}</span>
+            </div>
+        );
+    }
+}
+```
+
+```css
+.box-react span {
+    color: red;
+}
+```
+
+:::
+
+:::: details 代码
+
+````md
+::: react-demo 一个 React Demo
+
+```js
+export default class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { message: "十分帅" };
+    }
+    render() {
+        return (
+            <div className="box-react">
+                Mr.Hope <span>{this.state.message}</span>
+            </div>
+        );
+    }
+}
+```
+
+```css
+.box-react span {
+    color: red;
+}
+```
+
+:::
+````
+
+::::
+
+```vue
+<template>
+    <div class="box">
+        Mr.Hope <span>{{ message }}</span>
+    </div>
+</template>
+<script>
+export default {
+    data: () => ({ message: "十分帅" }),
+};
+</script>
+<style>
+.box span {
+    color: red;
+}
+</style>
+```
+
+::: vue-demo 一个 Vue Composition 演示
+
+```vue
+<template>
+    <div class="box">
+        <code>vuepress-theme-hope</code> is
+        <span @click="handler">{{ message }}</span
+        >!
+    </div>
+</template>
+<script>
+const { ref } = Vue;
+
+export default {
+    setup() {
+        const message = ref("powerful");
+
+        const handler = () => {
+            message.value = "very " + message.value;
+        };
+
+        return {
+            message,
+            handler,
+        };
+    },
+};
+</script>
+<style>
+.box span {
+    color: red;
+}
+</style>
+```
+
+:::
+
+````md
+::: vue-demo 一个 Vue Composition 演示
+
+```vue
+<template>
+    <div class="box">
+        <code>vuepress-theme-hope</code> is
+        <span @click="handler">{{ message }}</span
+        >!
+    </div>
+</template>
+<script>
+const { ref } = Vue;
+
+export default {
+    setup() {
+        const message = ref("powerful");
+
+        const handler = () => {
+            message.value = "very " + message.value;
+        };
+
+        return {
+            message,
+            handler,
+        };
+    },
+};
+</script>
+<style>
+.box span {
+    color: red;
+}
+</style>
+```
+
+:::
+````
 
 [点击查看](https://vuepress-theme-hope.github.io/zh/guide/markdown/demo/)
 
-
-
-- 列表 1
-- 列表 2
+-   列表 1
+-   列表 2
 
 ---
-
-
 
 ## 其他语法
 
@@ -421,10 +436,11 @@ h1 {
 
 ::::
 
-### 使用gravizo
+### 使用 gravizo
 
 ```html
-<img src='https://g.gravizo.com/svg?
+<img
+    src="https://g.gravizo.com/svg?
 digraph G {
    main -> parse -> execute;
    main -> init;
@@ -434,7 +450,8 @@ digraph G {
    init -> make_string;
    main -> 是的;
    execute -> compare;
-}'/>
+}"
+/>
 ```
 
 结果：
@@ -454,7 +471,8 @@ digraph G {
 此外，还可以使用 `embed` 、`iframe` 等嵌入。但如果不指定宽度，其在手机端会超过屏幕宽度。
 
 ```html
-<embed src="https://g.gravizo.com/svg?
+<embed
+    src="https://g.gravizo.com/svg?
  digraph G {
    main -> parse -> execute;
    main -> init;
@@ -464,13 +482,14 @@ digraph G {
    init -> make_string;
    main -> 是的;
    execute -> compare;
- }" type="image/svg+xml"/>
+ }"
+    type="image/svg+xml"
+/>
 ```
 
-
-
 ```html
-<img src='https://g.gravizo.com/svg?
+<img
+    src='https://g.gravizo.com/svg?
 @startuml;
 ;
 actor User;
@@ -497,10 +516,9 @@ A --> User: Done;
 deactivate A;
 ;
 @enduml
-'>
+'
+/>
 ```
-
-
 
 <img src='https://g.gravizo.com/svg?
 @startuml;
@@ -551,5 +569,6 @@ cond(yes)->e
 cond(no)->op
 ```
 
+```
 
-
+```
