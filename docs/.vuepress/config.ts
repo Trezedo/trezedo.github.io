@@ -56,7 +56,7 @@ export default defineUserConfig({
             },
         ],
         ["script", { defer: true, src: "/assets/js/index.js" + date }],
-        // ["script", { defer: true, src: "/assets/js/love-me.js" }],
+        ["script", { defer: true, src: "/assets/js/love-me.js" }],
     ],
     locales: {
         "/": {

@@ -3,7 +3,9 @@
         "composables",
         "darkmode",
         "frontmatter",
+        "iconfont",
         "Notiflix",
-        "uglifyjs"
+        "uglifyjs",
+        "Waline"
     ]
 }

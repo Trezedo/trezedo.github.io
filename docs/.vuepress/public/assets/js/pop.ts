@@ -2,7 +2,7 @@
 // https://css-tricks.com/playing-with-particles-using-the-web-animations-api/
 const clickPop = () => {
     const el: Element = document.body;
-    if (document.body.animate && !window["pop"]) {
+    if (!window["pop"]) {
         // document.body &&
         el.addEventListener("click", pop);
         window["pop"] = 1;
