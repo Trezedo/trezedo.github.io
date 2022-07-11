@@ -18,9 +18,23 @@ export default defineUserConfig({
             "link",
             {
                 rel: "stylesheet",
-                href: "//at.alicdn.com/t/font_2410206_mfj6e1vbwo.css" + date,
+                href: "//at.alicdn.com/t/font_2410206_a0xb9hku9iu.css" + date,
             },
         ],
+        /* [
+            "link",
+            { rel: "preload", as: "style", href: "/assets/font/iconfont.css" },
+        ],
+        // 不提供 cdn 之后没了 Cache-Control，只加下面的会抖动
+        [
+            "link",
+            {
+                rel: "stylesheet",
+                href: "/assets/font/iconfont.css" + date,
+                // media: "print",
+                // onload: "this.media='all'",
+            },
+        ], */
         // ["link", {rel: "shortcut icon", href: "/favicon.ico",type:"image/x-icon"}],
         /*["link", {
             rel: "icon", type: "image/jpeg",
@@ -42,6 +56,7 @@ export default defineUserConfig({
             },
         ],
         ["script", { defer: true, src: "/assets/js/index.js" + date }],
+        // ["script", { defer: true, src: "/assets/js/love-me.js" }],
     ],
     locales: {
         "/": {
