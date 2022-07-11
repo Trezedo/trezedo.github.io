@@ -23,8 +23,6 @@ const ceil = (n: number) => Math.ceil(n);
 // Math.ceil("1.25")
 ```
 
-
-
 ### 保留指定的小数位
 
 ```ts
@@ -37,8 +35,6 @@ toFixed(25.198726354, 5); // 25.19872
 toFixed(25.198726354, 6); // 25.198726
 ```
 
-
-
 ### 获取所有参数的平均值
 
 可以使用 `reduce()` 函数来计算所有参数的平均值
@@ -49,19 +45,17 @@ average(1, 2, 3, 4);
 // Result: 2.5
 ```
 
-
-
 ## 字符串
 
-### 重复n次
+### 重复 n 次
 
 1. 递归，结合三元表达式
 
 ```ts
 function repeat1(str: string, num: number): string {
-    return num > 1 ? str += repeat1(str, --num) : str;
+    return num > 1 ? (str += repeat1(str, --num)) : str;
 }
-console.log(repeat1('abc', 3));
+console.log(repeat1("abc", 3));
 ```
 
 2. 数组的 `join` 方法
@@ -70,33 +64,33 @@ console.log(repeat1('abc', 3));
 function repeat2(str: string, num: number) {
     return new Array(num + 1).join(str);
 }
-console.log(repeat2('abc', 3));
+console.log(repeat2("abc", 3));
 ```
 
-3. ES6的 `repeat` 方法
+3. ES6 的 `repeat` 方法
 
 ```ts
 // ES6 String.repeat
 function repeat3(str: string, num: number) {
     return num > 1 ? str.repeat(num) : str;
 }
-console.log(repeat3('abc', 3));
+console.log(repeat3("abc", 3));
 ```
 
-### 格式化JSON
+### 格式化 JSON
 
 ```ts
 // obj 可以是个对象、数组
-JSON.stringify(obj, null, " ".repeat(4))
+JSON.stringify(obj, null, " ".repeat(4));
 ```
 
 ### 反转字符串
 
 ```ts
-function reverse(str: string){
-    return str.split('').reverse().join('');
+function reverse(str: string) {
+    return str.split("").reverse().join("");
 }
-reverse('hello world');     
+reverse("hello world");
 // Result: 'dlrow olleh'
 ```
 
@@ -114,8 +108,6 @@ console.log(new Date(2022, 4, 26, 12, 30, 15));
 // Thu May 26 2022 12:30:15 GMT+0800 (中国标准时间)
 ```
 
-
-
 ## 界面
 
 ### 滚动至页面顶部
@@ -127,8 +119,6 @@ const goToTop = () => window.scrollTo(0, 0);
 goToTop();
 // Result: 将会滚动至顶部
 ```
-
-
 
 ### 判断标签页是否激活
 
@@ -144,8 +134,8 @@ isTabActive();
 可以使用 `document.activeElement` 来判断元素是否处于聚焦状态
 
 ```js
-const elementIsInFocus = (el) => (el === document.activeElement);
-elementIsInFocus(anyElement)
+const elementIsInFocus = (el) => el === document.activeElement;
+elementIsInFocus(anyElement);
 // Result: 如果处于焦点状态会返回 True 否则返回 False
 ```
 
@@ -153,8 +143,9 @@ elementIsInFocus(anyElement)
 
 ```js
 const touchSupported = () => {
-  ('ontouchstart' in window || window.DocumentTouch && document instanceof window.DocumentTouch);
-}
+    "ontouchstart" in window ||
+        (window.DocumentTouch && document instanceof window.DocumentTouch);
+};
 console.log(touchSupported());
 // Result: 如果支持触摸事件会返回 True 否则返回 False
 ```

@@ -3,12 +3,12 @@ icon: vue
 article: false
 date: 2021-07-20
 category:
-  - 小工具
+    - 小工具
 tag:
-  - Axmath
+    - Axmath
 ---
 
-# AxMath工具
+# AxMath 工具
 
 目前笔者已经对其进行了重构，优化、修改了部分逻辑。使用了组件库 [NaiveUI](https://www.naiveui.com/)、增加了可配置项。
 
@@ -23,4 +23,3 @@ tag:
 <br>
 
 过程中大量使用了 [正则表达式测试工具](https://tool.lu/regex/) ，在此表示感谢。
-

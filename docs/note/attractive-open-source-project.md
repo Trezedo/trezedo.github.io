@@ -4,13 +4,13 @@ title: 感兴趣的开源项目
 article: false
 ---
 
-oneStar博客 <https://github.com/oneStarLR/myblog-page>
+oneStar 博客 <https://github.com/oneStarLR/myblog-page>
 
 蘑菇博客 <https://github.com/moxi624/mogu_blog_v2>
 
 iBlog <https://github.com/eshengsky/iBlog>
 
-基于Springboot + Vue 开发的前后端分离博客 <https://github.com/X1192176811/blog>
+基于 Springboot + Vue 开发的前后端分离博客 <https://github.com/X1192176811/blog>
 
 Hi-Dream-Blog <https://github.com/dateolive/Hi-Dream-Blog>
 
@@ -42,17 +42,14 @@ Building RESTful APIs with Eclipse Vertx <https://itnext.io/building-restful-api
 
 VBlog <https://github.com/GitHub-Laziji/VBlog>
 
-
-
 <https://github.com/sineava/vue-mall>
 
 <https://github.com/qianzhaoy/vant--mobile-mall>
 
 <https://github.com/yucccc/vue-mall>
 
-<https://github.com/Exrick/xmall-front> 基于Vue开发的XMall商城前台页面
+<https://github.com/Exrick/xmall-front> 基于 Vue 开发的 XMall 商城前台页面
 
 <https://github.com/Exrick/xmall>
 
 <https://gitee.com/youlaitech/youlai-mall>
-

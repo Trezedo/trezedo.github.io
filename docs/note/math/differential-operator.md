@@ -2,10 +2,10 @@
 icon: function
 date: 2022-02-09
 category:
-  - 数学
+    - 数学
 tag:
-  - 微分方程
-  - 算子
+    - 微分方程
+    - 算子
 description: （加锁是因为没整理好hhh）介绍算子法在求解二阶线性微分方程中的应用及其部分性质的证明
 ---
 
@@ -50,7 +50,7 @@ description: （加锁是因为没整理好hhh）介绍算子法在求解二阶�
 	a_0=2,\\
 	a_1=4,\\
 	a_n=\left( 2+\sqrt{3} \right) ^n+\left( 2-\sqrt{3} \right) ^n\\
-\end{array} \right. 
+\end{array} \right.
 \]
 \[
 a_n\text{是整数序列，因此}
@@ -71,7 +71,7 @@ a_n\text{是整数序列，因此}
 \text{则}\left( 2+\sqrt{3} \right) ^n=a_n+b_n,\left( 2-\sqrt{3} \right) ^n=a_n-b_n
 \]
 \[
-\therefore \left\{ \left( 2+\sqrt{3} \right) ^n \right\} =\left\{ a_n+b_n \right\} =a_n+b_n-\lfloor a_n+b_n \rfloor =b_n-\lfloor b_n \rfloor 
+\therefore \left\{ \left( 2+\sqrt{3} \right) ^n \right\} =\left\{ a_n+b_n \right\} =a_n+b_n-\lfloor a_n+b_n \rfloor =b_n-\lfloor b_n \rfloor
 \]
 \[
 =\left( 2+\sqrt{3} \right) ^n-a_n-\lfloor \left( 2+\sqrt{3} \right) ^n-a_n \rfloor =
@@ -82,7 +82,7 @@ a_n\text{是整数序列，因此}
 %https://baike.baidu.com/item/小数部分函数
 ```
 
-***
+---
 
 $$
 \begin{aligned}
@@ -97,33 +97,36 @@ $$
 \end{aligned}
 $$
 
-
-
 利用重复积分的柯西公式，可知
 
 $$
 \frac{1}{D^n}f=\frac{1}{(n-1)!}\int_0^x{(x-t)^{n-1}f\d t}
 $$
+
 从而$\lambda ^n\e ^{\lambda x}\int{\e ^{-\lambda x}\frac{1}{D^n}f\d x}\to 0,n\to \infty$
 
 从而对$I$取极限可得
+
 $$
 I=\sum_{m=0}^{\infty}{\frac{\lambda ^m}{D^{m+1}}f}=\frac{1}{D-\lambda}f
 $$
+
 即
+
 $$
 \frac{1}{D}\e ^{-\lambda x}f=\e ^{-\lambda x}\frac{1}{D-\lambda}f
 $$
+
 由于 $\lambda$ 是任意的，可以在上式中使用 $-\lambda$ 代替，因此
+
 $$
 \frac{1}{D}\e ^{\lambda x}f=\e ^{\lambda x}\frac{1}{D+\lambda}f
 $$
 
-***
-
-
+---
 
 求 $y^{(5)}+2y^{(3)}+y=16(\sin x+\text{e}^{-x}+x)$ 的通解.
+
 $$
 \begin{aligned}
 	y&=\frac{16}{D^5+2D^3+D}\left( \sin x+\text{e}^{-x}+x \right)\\
@@ -137,8 +140,7 @@ $$
 \end{aligned}
 $$
 
-
-浙江大学2021数学分析
+浙江大学 2021 数学分析
 
 ```tex
 $1.(1)\lim_{x\to 0}\frac{(1+\sin ^2x)^{2022}-(\cos x)^{2022}}{\ln (1+x^2)}$.
@@ -183,4 +185,3 @@ $\varphi =f^n(x)-x$
 
 (2)证明：$\forall x\in \mathbb{R},\lim_{n\to \infty}\frac{\varphi _n(x)}{n}$的极限值与$x$的取值无关.
 ```
-
