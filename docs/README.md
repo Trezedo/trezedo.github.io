@@ -12,19 +12,9 @@ bgImage: https://w.wallhaven.cc/full/72/wallhaven-72rd8e.jpg
 tagline: 强中更有强中手，莫向人前满自夸。
 projects:
     - icon: article
-      name: 杂七杂八
+      name: 文章
       desc: 零散的记录
-      link: /article/tbs.html
-
-    - icon: project
-      name: 数据生成器
-      desc: 用来生成随机数据
-      link: https://gitee.com/zedo/data-generator
-
-    - icon: link
-      name: 图床
-      desc:
-      link: https://gitee.com/zedo/img
+      link: /article/
 
     # - icon: /icon.svg
     - icon: tool
@@ -36,6 +26,31 @@ projects:
       name: 数学笔记
       desc: 佛系记录
       link: /note/math/
+
+    - icon: project
+      name: 家居助手
+      desc: 基于 JS 的鸿蒙应用，仅用于学习界面开发
+      link: https://gitee.com/zedo/hamony-os-app
+
+    - icon: vue
+      name: 个人博客 - 前端
+      desc: 采用 Nuxt3 开发的博客前端项目，服务端渲染
+      link: https://gitee.com/zedo/hamony-os-app
+
+    - icon: java
+      name: 个人博客 - 后端
+      desc: 采用 SpringBoot + Mybatis + Swagger + PostgreSQL 数据库开发的博客后端接口
+      link: https://gitee.com/zedo/hamony-os-app
+
+    - icon: vue
+      name: 数据生成器
+      desc: 用来生成随机数据
+      link: https://gitee.com/zedo/data-generator
+
+    - icon: link
+      name: 图床
+      desc:
+      link: https://gitee.com/zedo/img
 # footer: customize your footer text
 ---
 
