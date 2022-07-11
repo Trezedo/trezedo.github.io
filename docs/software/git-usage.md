@@ -2,10 +2,10 @@
 icon: git
 date: 2022-01-27
 tag:
-  - git
+    - git
 ---
 
-# Git的使用
+# Git 的使用
 
 ## 安装
 
@@ -13,9 +13,9 @@ tag:
 
 打开后按默认设置继续下去就可以了
 
-## git初始化
+## git 初始化
 
-这里假设目前所使用的git仓库都是同一个账号（全局）
+这里假设目前所使用的 git 仓库都是同一个账号（全局）
 
 ```bash
 git config --global user.email "注册时的邮箱"
@@ -28,7 +28,7 @@ git config --global user.name "你的用户名"
 git config --list
 ```
 
-### ssh公钥
+### ssh 公钥
 
 ```bash
 ssh-keygen -t rsa -C "注册时的邮箱"
@@ -61,9 +61,9 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-在本地Git仓库和gitHub仓库建立连接，创建SSH 时，可以输入**passphrase**（可以默认不输入）。如果在一开始没有输入的话，后面就不好整了，需要重新进行连接，输入**passphrase**
+在本地 Git 仓库和 gitHub 仓库建立连接，创建 SSH 时，可以输入**passphrase**（可以默认不输入）。如果在一开始没有输入的话，后面就不好整了，需要重新进行连接，输入**passphrase**
 
-在生成SSH Key时，如果不小心设置了passphrase，使用SSH协议克隆远程仓库时，在每次git pull和git push时都会提示`Enter passphrase for key ‘/Users/zhangxiaoxue/.ssh/id_rsa‘`，每次都要手动输入密码才能继续操作，可以在命令行输入`sh-keygen -p`进行重新设置，直接回车输入为空，就没有密码了。
+在生成 SSH Key 时，如果不小心设置了 passphrase，使用 SSH 协议克隆远程仓库时，在每次 git pull 和 git push 时都会提示`Enter passphrase for key ‘/Users/zhangxiaoxue/.ssh/id_rsa‘`，每次都要手动输入密码才能继续操作，可以在命令行输入`sh-keygen -p`进行重新设置，直接回车输入为空，就没有密码了。
 
 ![](https://zedo.gitee.io/img/20220128193519.png)
 
@@ -81,9 +81,7 @@ Enter passphrase for key 'C:\Users\Trezedo/.ssh/id_rsa':
 Hi ?[36;01mTrezedo?[0m! You've ?[32msuccessfully?[0m authenticated, but GITEE.COM does not provide shell access.
 ```
 
-
-
-在项目中添加gitee远程仓库地址
+在项目中添加 gitee 远程仓库地址
 
 ```bash
 git remote add gitee git@gitee.com:zedo/zedo.git
@@ -96,8 +94,6 @@ git remote add gitee git@gitee.com:zedo/zedo.git
 ```bash
 git remote rm gitee
 ```
-
-
 
 ```bash
 git config --global credential.helper store # 长期存储密码，似乎没用
@@ -136,7 +132,7 @@ git branch
 如果我们要手动创建一个分支。执行以下命令即可：
 
 ```sh
- git branch branchname
+git branch branchname
 ```
 
 其中 **branchname** 是分支名。
@@ -194,8 +190,6 @@ git checkout master
 git merge branchname
 ```
 
-
-
 ### 重命名分支
 
 本地分支重命名(还没有推送到远程)
@@ -223,8 +217,6 @@ git push origin newName
 git branch --set-upstream-to origin/newName
 ```
 
-
-
 ## 查看提交历史
 
 简洁版：
@@ -232,8 +224,6 @@ git branch --set-upstream-to origin/newName
 ```sh
 git log --oneline
 ```
-
-
 
 放弃本地修改，全部使用远端代码：
 
@@ -249,17 +239,14 @@ git reset --hard origin/mastergit pull
 git pull
 ```
 
-git强制覆盖本地命令(单条执行)∶
+git 强制覆盖本地命令(单条执行)∶
 
 ```sh
 git fetch --all && git reset --hard origin/master && git pull
 ```
-
-
 
 ## 问题总结
 
 [fatal: refusing to merge unrelated histories](https://blog.csdn.net/weixin_44708045/article/details/121592567)
 
 [error: failed to push some refs to 'git@gitee.com:xxx/xxx.git'](https://www.cnblogs.com/makalochen/p/12652239.html)
-

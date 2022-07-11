@@ -4,10 +4,10 @@ icon: question
 date: 2022-02-21
 description: 关于在QQ内打开Gitee Pages的缓存问题
 tag:
-  - gitee
+    - gitee
 ---
 
-# QQ的WebView问题
+# QQ 的 WebView 问题
 
 ## 缓存问题
 
@@ -34,11 +34,11 @@ onMounted(() => {
 });
 </script>
 
-在QQ、微信环境下，Gitee Pages的网页文件数据会被强制缓存，此后有几率==无法自动更新==。
+在 QQ、微信环境下，Gitee Pages 的网页文件数据会被强制缓存，此后有几率==无法自动更新==。
 
 因此建议在其他浏览器内打开，或者手动清除缓存。
 
-> 之前QQ甚至可以不需要网络就能够访问打开过的页面，最近（2022年3月）发现这个问题似乎修复了。
+> 之前 QQ 甚至可以不需要网络就能够访问打开过的页面，最近（2022 年 3 月）发现这个问题似乎修复了。
 
 <details class="custom-block details" v-if="show">
     <summary>当前页面链接</summary>
@@ -49,7 +49,7 @@ onMounted(() => {
 
 {{ env }} 清理 WebView 缓存方法如下：
 
-首先需要打开X5调试页面：
+首先需要打开 X5 调试页面：
 
 <div v-if="env!=='QQ、微信'">
     <p>{{ env }}内不支持通过 <code>a</code> 标签从本文打开调试页面，但可以扫描以下二维码打开：</p>
@@ -58,8 +58,6 @@ onMounted(() => {
 <div v-else>
     <p><a href="http://debugx5.qq.com">http://debugx5.qq.com</a>，注意一定是 <code>http</code> 协议。</p>
 </div>
-
-
 
 然后勾选 **“文件缓存”** ，然后点击“**清除**”
 
@@ -73,7 +71,7 @@ onMounted(() => {
 
 :::: tip 提示
 
-在微信内需要先开启X5内核：
+在微信内需要先开启 X5 内核：
 
 ::: center
 
@@ -85,15 +83,15 @@ onMounted(() => {
 
 ::::
 
-## vue路由问题
+## vue 路由问题
 
 在部署博客的时候，发现 QQ 内打开链接的在操作 **分享**、**收藏**、**复制链接** 等行为时出现了问题：它提取的摘要、链接都是打开时的 URL 链接，而经过 vue 的路由切换的路径不能改变它分享的链接地址。
 
-也就是说，比如你在QQ内打开的链接为 <https://zedo.gitee.io/> ，在里面打开任意的文章，当你选择在右上角分享给好友时，不论你当前浏览的文章的链接是什么，分享出去（或复制）的链接都将是 <https://zedo.gitee.io/>。
+也就是说，比如你在 QQ 内打开的链接为 <https://zedo.gitee.io/> ，在里面打开任意的文章，当你选择在右上角分享给好友时，不论你当前浏览的文章的链接是什么，分享出去（或复制）的链接都将是 <https://zedo.gitee.io/>。
 
 ::: tip
 
-实际上，通过 `history.pushState` 改变网页地址，webview分享时获取的地址是初次访问时的url，这是本质问题，也应该是个 bug。
+实际上，通过 `history.pushState` 改变网页地址，webview 分享时获取的地址是初次访问时的 url，这是本质问题，也应该是个 bug。
 
 :::
 

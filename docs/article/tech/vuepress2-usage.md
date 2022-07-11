@@ -6,12 +6,12 @@ description: 使用Vuepress2搭建静态文档分享类站点
 date: 2022-01-23
 # layout: CustomLayout
 category:
-  - VuePress
+    - VuePress
 tag:
-  - VuePress
+    - VuePress
 ---
 
-# Vuepress2使用
+# Vuepress2 使用
 
 ::: details 点击查看 $frontmatter
 
@@ -23,7 +23,6 @@ tag:
 
 ~~删除线~~
 
-
 ## 创建文件夹
 
 ```bash
@@ -31,68 +30,69 @@ yarn init
 yarn add --dev vitepress
 ```
 
-:::: code-group
-::: code-group-item linux
+::: code-tabs
+@tab linux
+
 ```bash
 mkdir docs && echo '# Hello VitePress' > docs/index.md
 ```
-:::
-::: code-group-item windows
+
+@tab windows
+
 ```bash
-md docs && echo # Hello VitePress > docs/index.md
+mkdir docs && echo # Hello VitePress > docs/index.md
+# windows 系统 md 或者 mkdir 都是创建目录
 ```
+
 :::
-::::
-
-
 
 ## 起步
 
-本节将帮助您从头构建一个基本的VitePress文档站点。如果您已经有一个现有项目，并且希望将文档保存在项目中，请从步骤3开始。
+本节将帮助您从头构建一个基本的 VitePress 文档站点。如果您已经有一个现有项目，并且希望将文档保存在项目中，请从步骤 3 开始。
 
-- **Step. 1:** 创建并更改为新目录。
+-   **Step. 1:** 创建并更改为新目录。
 
 ```bash
 mkdir vitepress-starter && cd vitepress-starter
 ```
 
-- **Step. 2:** 使用您喜欢的包管理器进行初始化。
+-   **Step. 2:** 使用您喜欢的包管理器进行初始化。
 
 ```bash
 yarn init
 ```
 
-- **Step. 3:** 本地安装VitePress。
+-   **Step. 3:** 本地安装 VitePress。
 
-  ```bash
-  yarn add --dev vitepress
-  ```
+    ```bash
+    yarn add --dev vitepress
+    ```
 
-- **Step. 4:** 创建您的第一个文档。
+-   **Step. 4:** 创建您的第一个文档。
 
-  ```bash
-  mkdir docs && echo '# Hello VitePress' > docs/index.md
-  ```
+    ```bash
+    mkdir docs && echo '# Hello VitePress' > docs/index.md
+    ```
 
-- **Step. 5:** 添加一些脚本到 `package.json`.
+-   **Step. 5:** 添加一些脚本到 `package.json`.
 
-  ```json
-  {
-    "scripts": {
-      "docs:dev": "vitepress dev docs",
-      "docs:build": "vitepress build docs",
-      "docs:serve": "vitepress serve docs"
+    ```json
+    {
+        "scripts": {
+            "docs:dev": "vitepress dev docs",
+            "docs:build": "vitepress build docs",
+            "docs:serve": "vitepress serve docs"
+        }
     }
-  }
-  ```
+    ```
 
-- **Step. 6:** Serve the documentation site in the local server.
+-   **Step. 6:** Serve the documentation site in the local server.
 
-  ```bash
-  yarn docs:dev
-  ```
+    ```bash
+    yarn docs:dev
+    ```
 
-  VitePress will start a hot-reloading development server at `http://localhost:3000`.
+    VitePress will start a hot-reloading development server at `http://localhost:3000`.
 
 By now, you should have a basic but functional VitePress documentation site.
 
@@ -101,8 +101,6 @@ When your documentation site starts to take shape, be sure to read the
 ```
  [deployment guide](./deploy).
 ```
-
-
 
 ```bash
 yarn add -D vuepress@next
@@ -140,21 +138,19 @@ classDiagram
       }
 ```
 
-
-
 yarn create vuepress-theme-hope hope-blog
 
 简单配置
 
-## 使用Git
+## 使用 Git
 
-可以使用git并部署到Gitee Pages（Github Pages也可以，但国内访问速度比较慢）
+可以使用 git 并部署到 Gitee Pages（Github Pages 也可以，但国内访问速度比较慢）
 
 ### 建立仓库
 
-首先在gitee建立仓库
+首先在 gitee 建立仓库
 
-### 初始化git
+### 初始化 git
 
 在本地项目中
 
@@ -162,7 +158,7 @@ yarn create vuepress-theme-hope hope-blog
 git init
 ```
 
-在项目中添加gitee远程仓库地址
+在项目中添加 gitee 远程仓库地址
 
 ```bash
 git remote add gitee git@gitee.com:zedo/zedo.git
@@ -212,17 +208,17 @@ git rm -rf --cached .
 
 https://www.runoob.com/git/git-pull.html
 
-执行`commit`后，还没执行`push`时，想要撤销这次的commit
+执行`commit`后，还没执行`push`时，想要撤销这次的 commit
 
 ```bash
 git reset --soft HEAD^
 ```
 
-[git commit后，如何撤销commit](https://www.jianshu.com/p/a9f327da3562)
+[git commit 后，如何撤销 commit](https://www.jianshu.com/p/a9f327da3562)
 
 [git push 的 -u 参数具体适合含义？](https://www.zhihu.com/question/20019419)
 
-## markdown-it相关
+## markdown-it 相关
 
 <https://github.com/markdown-it/markdown-it/blob/master/docs/architecture.md>
 
@@ -234,7 +230,7 @@ git reset --soft HEAD^
 
 [从零实现一个 VuePress 插件](https://github.com/mqyqingfeng/Blog/issues/250)
 
-## 一些v2主题
+## 一些 v2 主题
 
 [vuepress-theme-hope](https://github.com/vuepress-theme-hope/vuepress-theme-hope)
 
