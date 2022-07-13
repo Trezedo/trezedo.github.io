@@ -3,18 +3,19 @@ icon: nodeJS
 date: 2022-02-04
 title: NodeJs安装及使用
 tag:
- - nodejs
- - 环境配置
+    - nodejs
+    - 环境配置
 ---
 
-在官网选择合适系统的安装包并下载，官网地址：[https://nodejs.org/zh-cn/download/](https://nodejs.org/zh-cn/download/)
+在官网选择合适系统的安装包并下载，官网地址：<https://nodejs.org/zh-cn/download/>
 
 推荐下载**偶数**版本，且是**长期维护版(LTS)**。
 
-::: tip 
+::: tip
 
-如果官网下载比较慢，也可以在淘宝镜像找到对应的版本：[https://npm.taobao.org/mirrors/node/](https://npm.taobao.org/mirrors/node/)
+如果官网下载比较慢，也可以在淘宝镜像找到对应的版本：[https://npm.taobao.org/mirrors/node/](https://registry.npmmirror.com/binary.html?path=node/)
 
+注意：淘宝镜像的域名已经从 `npm.taobao.org` 重定向至 `npmmirror.com` 了。
 :::
 
 下载 msi 安装包后，按默认的配置继续即可（可调整安装路径），这里选择的路径是`E:\Envs\nodejs`。
@@ -42,7 +43,7 @@ npm -v  # 查看 npm 版本
 ```bash
 npm config set prefix "E:\Envs\node\node_global"
 npm config set cache "E:\Envs\node\node_cache"
-npm config set registry https://registry.npm.taobao.org/ # 国内淘宝镜像
+npm config set registry https://registry.npmmirror.com/ # 国内淘宝镜像
 ```
 
 ::: danger
@@ -51,9 +52,9 @@ npm config set registry https://registry.npm.taobao.org/ # 国内淘宝镜像
 
 本文中：
 
-nodejs安装路径：`E:\envs\nodejs`
+nodejs 安装路径：`E:\envs\nodejs`
 
-nodejs环境路径：`E:\envs\node`
+nodejs 环境路径：`E:\envs\node`
 
 :::
 
@@ -65,7 +66,7 @@ npm config get prefix
 npm config get registry
 ```
 
-## 使用yarn
+## 使用 yarn
 
 ### 下载
 
@@ -79,7 +80,7 @@ npm install --global yarn
 
 由于新的包管理工具 yarn 在 `E:\envs\node\node_global` 下，直接在命令行使用 `yarn` 会提示**不是内部或外部命令**，需要配置环境变量。
 
-::: tip 
+::: tip
 
 快速打开环境变量设置界面的方法，按下快捷键 `win`+`R`，输入`SystemPropertiesAdvanced`后回车，然后在最下方选择`环境变量`即可。
 
@@ -118,7 +119,7 @@ yarn config set cache-folder "E:\Envs\node\yarn_cache"
 
 ::: info
 
-yarn_global等文件路径可能需要和nodejs路径在同一盘符，参看[创建vite错误](https://blog.csdn.net/weixin_43824526/article/details/121319955)。
+yarn_global 等文件路径可能需要和 nodejs 路径在同一盘符，参看[创建 vite 错误](https://blog.csdn.net/weixin_43824526/article/details/121319955)。
 
 :::
 
@@ -136,7 +137,7 @@ Done in 3.19s.
 
 接着使用 `tsc`，会发现它提示**'tsc' 不是内部或外部命令**。
 
-查看yarn的全局安装包路径：
+查看 yarn 的全局安装包路径：
 
 ```bash
 $ yarn global bin
@@ -171,13 +172,11 @@ yarn upgrade-interactive --latest # 检查项目依赖更新
 
 ### 参考
 
-[Node.js安装及环境配置之Windows篇](https://www.cnblogs.com/zhouyu2017/p/6485265.html)
+[Node.js 安装及环境配置之 Windows 篇](https://www.cnblogs.com/zhouyu2017/p/6485265.html)
 
-[yarn和npm的区别、--save和--save-dev的区别](https://www.jianshu.com/p/467182102e43)
+[yarn 和 npm 的区别、--save 和--save-dev 的区别](https://www.jianshu.com/p/467182102e43)
 
-
-
-## 更新并修改package.json中的依赖
+## 更新并修改 package.json 中的依赖
 
 安装 `npm-check-updates`
 
@@ -217,15 +216,11 @@ yarn upgrade-interactive
 
 :::
 
-
-
 ### 参考
 
 <https://stackoverflow.com/questions/16073603/>
 
 <https://stackoverflow.com/questions/62650640/>
-
-
 
 ## 小技巧
 
@@ -239,9 +234,7 @@ yarn add package-name@^
 
 我们都知道可以用 `@` 来指定版本，当我们指定的版本不存在时，就会让用户自行选择版本。
 
-
-
-## nodejs直接运行typescript文件
+## nodejs 直接运行 typescript 文件
 
 通常情况下，ts 文件需要用 tsc 编译成 js 文件再运行，这里通过使用 `ts-node`，直接运行 ts 文件，省去了手动编译的过程。
 
@@ -261,15 +254,15 @@ yarn global add @types/node --dev
 yarn global add ts-node
 ```
 
-安装完成后就可以不用手动去编译成js文件，可以直接运行ts文件
+安装完成后就可以不用手动去编译成 js 文件，可以直接运行 ts 文件
 
 ```js
-//foo.ts
+// foo.ts
 let foo = {
-  baz: {
-    a: 1
-  }
-}
+    baz: {
+        a: 1,
+    },
+};
 console.log(foo);
 ```
 
@@ -279,20 +272,15 @@ console.log(foo);
 ts-node foo.ts
 ```
 
-作者：涅槃快乐是金
-链接：https://www.jianshu.com/p/8b893b37276b
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+参考：[ts-node 直接运行 typescript 文件](https://www.jianshu.com/p/8b893b37276b)
 
-### 清空npm缓存
+### 清空 npm 缓存
 
 ```bash
 npm cache clean -f
 ```
 
-
-
-## 卸载NodeJS 
+## 卸载 NodeJS
 
 按照正常方式卸载 nodejs 后，系统盘中还会存在一些残留的数据，还需要删除`AppData\Roaming`下的配置文件和临时文件：
 

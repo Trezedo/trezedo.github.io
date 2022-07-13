@@ -2,7 +2,10 @@
 date: 2022-02-27
 article: false
 title: windows 常用软件
-description: 好用或者好玩的软件
+description: windows 系统下常用、好用的软件
+tag:
+    - 软件
+    - windows
 ---
 
 360 压缩： <https://yasuo.360.cn/>
@@ -19,6 +22,24 @@ FireFox 浏览器：<https://www.mozilla.org/zh-CN/firefox/all>
 
 :::
 
+VS Code：<https://code.visualstudio.com/Download> ~~这个应该不用多说~~
+
 SumatraPDF：<https://www.sumatrapdfreader.org/download-free-pdf-viewer>
 
 轻量、快速的 pdf 阅读器，曾经使用过 LaTeX 的朋友应该不会陌生。
+
+Snipaste：<https://www.snipaste.com/> 截图工具
+
+MobaXterm <https://mobaxterm.mobatek.net/download-home-edition.html> 通过 ssh 连接远程服务器，支持文件上传
+
+Geek Uninstaller <https://geekuninstaller.com/download> 卸载软件很方便
+
+Everything <https://www.voidtools.com/zh-cn/> 快速定位文件和文件夹
+
+Git：[windows 镜像](https://registry.npmmirror.com/binary.html?path=git-for-windows/)
+
+万能联播：<https://static-s.iqiyi.com/wnbf/get.html> 之前叫爱奇艺万能播放器，支持视频、图片播放
+
+Duplicate File Finder Plus：查找重复文件（自行搜索）
+
+导入书签 <chrome://settings/importData>
