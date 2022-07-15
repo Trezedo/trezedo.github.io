@@ -7,5 +7,9 @@
         "Notiflix",
         "uglifyjs",
         "Waline"
-    ]
+    ],
+    "markdownlint.config": {
+        // 允许嵌入 html 标签
+        "MD033": false
+    }
 }
