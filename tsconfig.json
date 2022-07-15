@@ -1,5 +1,10 @@
 {
     "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "@zedo": ["custom/"],
+            "@zedo/*": ["custom/*"]
+        },
         "module": "commonjs",
         "target": "es5",
         "sourceMap": true,
@@ -8,5 +13,6 @@
         "skipLibCheck": true,
         "jsx": "preserve"
     },
+    "include": ["custom/**/*.ts", "custom/**/*.vue"],
     "exclude": ["node_modules"]
 }
