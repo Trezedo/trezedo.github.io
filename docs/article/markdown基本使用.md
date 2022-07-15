@@ -1,10 +1,9 @@
 ---
 icon: markdown
-title: Markdown基本使用
 slug: markdown-intro
 date: 2022-01-22
-# permalinkPattern: :year/:month/:day/markdown-intro.html
 permalink: /article/markdown-intro.html
+# permalinkPattern: :year/:month/:day/markdown-intro.html
 description: Markdown基本使用
 lastUpdated: 2022-02-24
 category: 使用指南
@@ -13,34 +12,23 @@ tag:
 # layout: CustomLayout
 ---
 
-<CurrentPageData/>
-# Markdown基本使用
+# Markdown 基本使用
 
-# 1 号标题
+<CurrentPageData/>
 
 简单介绍 Markdown 的基本使用以及在 VuePress 中的拓展
 
 <!-- more -->
 
 ::: info 相关信息
-
-s
-
+相关信息
 :::
 
 ## 二号标题
 
-### 三号
+### 三号标题
 
-#### 四号
-
-# 1 号标题
-
-## 二号标题
-
-### 三号
-
-#### 四号
+#### 四号标题
 
 ### 数学公式
 
@@ -85,7 +73,7 @@ md docs && echo # Hello VitePress > docs/index.md
 
 ## 使用 Vue SFC
 
-#### 使用 `$page`：
+### 使用 `$page`
 
 ```md
 {{ $page }}
@@ -375,54 +363,40 @@ export default {
 
 [点击查看](https://vuepress-theme-hope.github.io/zh/guide/markdown/demo/)
 
--   列表 1
--   列表 2
+- 列表 1
+- 列表 2
 
 ---
-
-## 其他语法
 
 ::: tip 自定义标题
 提示容器
 :::
 
 ::: warning 自定义标题
-
 警告容器
-
 :::
 
 ::: danger 自定义标题
-
 危险容器
-
 :::
 
 ::: details 自定义标题
-
 详情容器
-
 :::
 
 :::: details 代码
 
 ```md
 ::: info 自定义标题
-
 信息容器
-
 :::
 
 ::: tip 自定义标题
-
 提示容器
-
 :::
 
 ::: warning 自定义标题
-
 警告容器
-
 :::
 
 ::: danger 自定义标题
@@ -569,6 +543,6 @@ cond(yes)->e
 cond(no)->op
 ```
 
-```
+```text
 
 ```

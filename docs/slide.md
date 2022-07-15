@@ -86,9 +86,9 @@ layout: Slide
 
 列表默认为 `inline-block`
 
--   项目
--   项目
--   项目
+- 项目
+- 项目
+- 项目
 
 1. 项目 1
 1. 项目 2
@@ -200,32 +200,32 @@ $$
 
 ### 动画 class
 
--   `fade-in`
+- `fade-in`
 <!-- .element: class="fragment fade-in" -->
 
--   `fade-out`
+- `fade-out`
 <!-- .element: class="fragment fade-out" -->
 
--   `fade-up`
+- `fade-up`
 <!-- .element: class="fragment fade-up" -->
 
 <!-- list break -->
 
--   `fade-down`
+- `fade-down`
 <!-- .element: class="fragment fade-down" -->
 
--   `fade-left`
+- `fade-left`
 <!-- .element: class="fragment fade-left" -->
 
--   `fade-right`
+- `fade-right`
 <!-- .element: class="fragment fade-right" -->
 
 <!-- list break -->
 
--   `fade-in-then-out`
+- `fade-in-then-out`
 <!-- .element: class="fragment fade-in-then-out" -->
 
--   `fade-in-then-semi-out`
+- `fade-in-then-semi-out`
 <!-- .element: class="fragment fade-in-then-semi-out" -->
 
 --
@@ -236,35 +236,35 @@ $$
 
 ### 动画 class
 
--   `grow`
+- `grow`
 <!-- .element: class="fragment grow" -->
 
--   `shrink`
+- `shrink`
 <!-- .element: class="fragment shrink" -->
 
--   `strike`
+- `strike`
 <!-- .element: class="fragment strike" -->
 
 <!-- list break -->
 
--   `highlight-red`
+- `highlight-red`
 <!-- .element: class="fragment highlight-red" -->
 
--   `highlight-green`
+- `highlight-green`
 <!-- .element: class="fragment highlight-green" -->
 
--   `highlight-blue`
+- `highlight-blue`
 <!-- .element: class="fragment highlight-blue" -->
 
 <!-- list break -->
 
--   `highlight-current-red`
+- `highlight-current-red`
 <!-- .element: class="fragment highlight-current-red" -->
 
--   `highlight-current-green`
+- `highlight-current-green`
 <!-- .element: class="fragment highlight-current-green" -->
 
--   `highlight-current-blue`
+- `highlight-current-blue`
 <!-- .element: class="fragment highlight-current-blue" -->
 
 --
@@ -297,18 +297,18 @@ $$
 
 不同元素可以有相同的动画顺序。
 
--   最后显示
+- 最后显示
 <!-- .element: class="fragment" data-fragment-index="3"-->
 
--   第二个显示
+- 第二个显示
 <!-- .element: class="fragment" data-fragment-index="2"-->
 
 <!-- list break -->
 
--   第一个显示
+- 第一个显示
 <!-- .element: class="fragment" data-fragment-index="1"-->
 
--   第二个显示
+- 第二个显示
 <!-- .element: class="fragment" data-fragment-index="2"-->
 
 ---
@@ -331,15 +331,15 @@ Transition 可以通过配置中的 `transition` 选项全局设置，也可以�
 
 可能的值:
 
--   none
--   fade
--   slide
+- none
+- fade
+- slide
 
 <!-- list break -->
 
--   convex
--   concave
--   zoom
+- convex
+- concave
+- zoom
 
 --
 

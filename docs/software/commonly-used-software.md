@@ -22,7 +22,7 @@ FireFox 浏览器：<https://www.mozilla.org/zh-CN/firefox/all>
 
 :::
 
-IntelliJ Idea：<https://www.jetbrains.com/zh-cn/idea/download/> 强大的 Java IDE
+IntelliJ Idea：<https://www.jetbrains.com/zh-cn/idea/download/> 强大的 Java IDE
 
 SumatraPDF：<https://www.sumatrapdfreader.org/download-free-pdf-viewer>
 
