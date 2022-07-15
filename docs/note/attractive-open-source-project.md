@@ -10,7 +10,7 @@ oneStar 博客 <https://github.com/oneStarLR/myblog-page>
 
 iBlog <https://github.com/eshengsky/iBlog>
 
-基于 Springboot + Vue 开发的前后端分离博客 <https://github.com/X1192176811/blog>
+基于 SpringBoot + Vue 开发的前后端分离博客 <https://github.com/X1192176811/blog>
 
 Hi-Dream-Blog <https://github.com/dateolive/Hi-Dream-Blog>
 

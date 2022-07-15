@@ -61,11 +61,12 @@ onMounted(() => {
 
 然后勾选 **“文件缓存”** ，然后点击“**清除**”
 
-<img src="https://zedo.gitee.io/data-generator/img/step1.1fe16f82.png" alt="step1" style="max-width:360px;margin:0 auto;display:block" />
+<!-- todo 修改图片位置 -->
+<img src="https://gitee.com/zedo/data-generator/raw/vue2/src/assets/step1.png" alt="step1" style="max-width:360px;margin:0 auto;display:block" />
 
 显示如下则清理完成：
 
-<img src="https://zedo.gitee.io/data-generator/img/step2.2eb30822.png" alt="step2" style="max-width:360px;display:block;margin:0 auto">
+<img src="https://gitee.com/zedo/data-generator/raw/vue2/src/assets/step2.png" alt="step2" style="max-width:360px;display:block;margin:0 auto">
 
 然后重新打开所要访问的页面即可。
 

@@ -138,10 +138,10 @@ git branch
 如果我们要手动创建一个分支。执行以下命令即可：
 
 ```sh
-git branch branchname
+git branch branch-name
 ```
 
-其中 **branchname** 是分支名。
+其中 **branch-name** 是分支名。
 
 ```sh
 $ git branch testing
@@ -157,13 +157,13 @@ $ git branch
 如果要切换到我们要修改的分支，使用 `checkout`：
 
 ```sh
-git checkout branchname
+git checkout branch-name
 ```
 
 也可以使用以下命令来创建新分支并立即切换到该分支下：
 
 ```sh
-git checkout -b branchname
+git checkout -b branch-name
 ```
 
 ### 删除分支
@@ -171,7 +171,7 @@ git checkout -b branchname
 删除分支的命令如下：
 
 ```sh
-git branch -d branchname
+git branch -d branch-name
 ```
 
 例如我们要删除 testing 分支：
@@ -188,12 +188,12 @@ $ git branch
 
 ### 合并分支
 
-将名为 branchname 的分支合并到 master 分支：
+将名为 branch-name 的分支合并到 master 分支：
 
 ```sh
 # 先切换到主分支
 git checkout master
-git merge branchname
+git merge branch-name
 ```
 
 ### 重命名分支
@@ -239,7 +239,7 @@ git fetch --all
 
 # 本地代码同步远端最新版本（覆盖本地所有与远程仓库上同名的文件）
 # git reset 指令把 HEAD 指向 master 最新版本
-git reset --hard origin/mastergit pull
+git reset --hard origin/master git pull
 
 # 再更新一次（其实也可以不用，第二步命令做过了）
 git pull

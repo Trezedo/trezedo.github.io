@@ -21,7 +21,7 @@ permalink: /article/gitee-image-hosting.html
 
 其中 repo 是你的用户名 + 仓库名，仓库默认的分支是 “master”。
 
-### token 获取方法
+## token 获取方法
 
 PicGo 中要填写的 token 是 gitee 中的私人令牌。
 
@@ -45,7 +45,7 @@ PicGo 中要填写的 token 是 gitee 中的私人令牌。
 
 最近（2022-03-27）似乎不能直接用 `img src` 引用了，会重定向至 <https://assets.gitee.com/favicon.ico> 并且返回 `403` ：
 
-```
+```text
 GET https://assets.gitee.com/favicon.ico 403
 ```
 
