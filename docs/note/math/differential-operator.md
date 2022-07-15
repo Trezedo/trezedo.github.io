@@ -47,9 +47,9 @@ description: （加锁是因为没整理好hhh）介绍算子法在求解二阶�
 \]
 \[
 \text{取}C_1=C_2=1\text{，则}\left\{ \begin{array}{l}
-	a_0=2,\\
-	a_1=4,\\
-	a_n=\left( 2+\sqrt{3} \right) ^n+\left( 2-\sqrt{3} \right) ^n\\
+    a_0=2,\\
+    a_1=4,\\
+    a_n=\left( 2+\sqrt{3} \right) ^n+\left( 2-\sqrt{3} \right) ^n\\
 \end{array} \right.
 \]
 \[
@@ -86,14 +86,14 @@ a_n\text{是整数序列，因此}
 
 $$
 \begin{aligned}
-	I&=\e ^{\lambda x}\frac{1}{D}\e ^{-\lambda x}f=\e ^{\lambda x}\int{\e ^{-\lambda x}f\d x}=\e ^{\lambda x}\int{\e ^{-\lambda x}\d \left( \frac{1}{D}f \right)}\\
-	&=\frac{1}{D}f+\e ^{\lambda x}\int{\lambda \e ^{-\lambda x}\left( \frac{1}{D}f \right) \d x}\\
-	&=\frac{1}{D}f+\lambda \e ^{\lambda x}\int{\e ^{-\lambda x}\d \left( \frac{1}{D^2}f \right)}\\
-	&=\frac{1}{D}f+\lambda \frac{1}{D^2}f+\lambda ^2\e ^{\lambda x}\int{\e ^{-\lambda x}\frac{1}{D^2}f\d x}\\
-	&=\frac{1}{D}f+\lambda \frac{1}{D^2}f+\lambda ^2\frac{1}{D^3}f+\lambda ^3\e ^{\lambda x}\int{\e ^{-\lambda x}\frac{1}{D^3}f\d x}\\
-	&=\sum_{m=0}^{n-1}{\frac{\lambda ^m}{D^{m+1}}f}+\lambda ^n\e ^{\lambda x}\int{\e ^{-\lambda x}\frac{1}{D^n}f\d x}\\
-	&=\sum_{m=0}^{\infty}{\frac{\lambda ^m}{D^{m+1}}f}\\
-	&=\frac{1}{D-\lambda}f
+    I&=\e ^{\lambda x}\frac{1}{D}\e ^{-\lambda x}f=\e ^{\lambda x}\int{\e ^{-\lambda x}f\d x}=\e ^{\lambda x}\int{\e ^{-\lambda x}\d \left( \frac{1}{D}f \right)}\\
+    &=\frac{1}{D}f+\e ^{\lambda x}\int{\lambda \e ^{-\lambda x}\left( \frac{1}{D}f \right) \d x}\\
+    &=\frac{1}{D}f+\lambda \e ^{\lambda x}\int{\e ^{-\lambda x}\d \left( \frac{1}{D^2}f \right)}\\
+    &=\frac{1}{D}f+\lambda \frac{1}{D^2}f+\lambda ^2\e ^{\lambda x}\int{\e ^{-\lambda x}\frac{1}{D^2}f\d x}\\
+    &=\frac{1}{D}f+\lambda \frac{1}{D^2}f+\lambda ^2\frac{1}{D^3}f+\lambda ^3\e ^{\lambda x}\int{\e ^{-\lambda x}\frac{1}{D^3}f\d x}\\
+    &=\sum_{m=0}^{n-1}{\frac{\lambda ^m}{D^{m+1}}f}+\lambda ^n\e ^{\lambda x}\int{\e ^{-\lambda x}\frac{1}{D^n}f\d x}\\
+    &=\sum_{m=0}^{\infty}{\frac{\lambda ^m}{D^{m+1}}f}\\
+    &=\frac{1}{D-\lambda}f
 \end{aligned}
 $$
 
@@ -129,14 +129,14 @@ $$
 
 $$
 \begin{aligned}
-	y&=\frac{16}{D^5+2D^3+D}\left( \sin x+\text{e}^{-x}+x \right)\\
-	&=\left( \frac{16}{D}-\frac{8}{D-\text{i}}-\frac{8}{D+\text{i}}+\frac{4\text{i}}{\left( D-\text{i} \right) ^2}-\frac{4\text{i}}{\left( D+\text{i} \right) ^2} \right) \left( \sin x+\text{e}^{-x}+x \right)\\
-	&=\left[ \left( 16\int{} \right) -\left( 8\text{e}^{\text{i}x}\int{\text{e}^{-\text{i}x}} \right) -\left( 8\text{e}^{-\text{i}x}\int{\text{e}^{\text{i}x}} \right) +\left( 4\text{ie}^{\text{i}x}\iint{\text{e}^{-\text{i}x}} \right) -\left( 4\text{ie}^{-\text{i}x}\iint{\text{e}^{\text{i}x}} \right) \right] \left( \sin x+\text{e}^{-x}+x \right) \text{d}x\\
-	&=\left( 8x^2-16\text{e}^{-x}-16\cos x+C_1 \right)\\
-	&\quad-\left( 8x\sin x-8\text{e}^{-x}-4\cos x+C_2\text{e}^{\text{i}x}+C_3\text{e}^{-\text{i}x} \right)\\
-	&\quad+\left( -\cos x-4\text{e}^{-x}-2x^2\cos x+c_2\text{e}^{\text{i}x}+c_3\text{e}^{-\text{i}x}+C_4x\text{e}^{\text{i}x}+C_5x\text{e}^{-\text{i}x} \right)\\
-	&=8x^2-4\text{e}^{-x}-11\cos x-8x\sin x+2x^2\cos x\\
-	&\quad+C_1'+\sin x\left( C_2'+C_3'x \right) +\cos x\left( C_4'+C_5'x \right)\\
+    y&=\frac{16}{D^5+2D^3+D}\left( \sin x+\text{e}^{-x}+x \right)\\
+    &=\left( \frac{16}{D}-\frac{8}{D-\text{i}}-\frac{8}{D+\text{i}}+\frac{4\text{i}}{\left( D-\text{i} \right) ^2}-\frac{4\text{i}}{\left( D+\text{i} \right) ^2} \right) \left( \sin x+\text{e}^{-x}+x \right)\\
+    &=\left[ \left( 16\int{} \right) -\left( 8\text{e}^{\text{i}x}\int{\text{e}^{-\text{i}x}} \right) -\left( 8\text{e}^{-\text{i}x}\int{\text{e}^{\text{i}x}} \right) +\left( 4\text{ie}^{\text{i}x}\iint{\text{e}^{-\text{i}x}} \right) -\left( 4\text{ie}^{-\text{i}x}\iint{\text{e}^{\text{i}x}} \right) \right] \left( \sin x+\text{e}^{-x}+x \right) \text{d}x\\
+    &=\left( 8x^2-16\text{e}^{-x}-16\cos x+C_1 \right)\\
+    &\quad-\left( 8x\sin x-8\text{e}^{-x}-4\cos x+C_2\text{e}^{\text{i}x}+C_3\text{e}^{-\text{i}x} \right)\\
+    &\quad+\left( -\cos x-4\text{e}^{-x}-2x^2\cos x+c_2\text{e}^{\text{i}x}+c_3\text{e}^{-\text{i}x}+C_4x\text{e}^{\text{i}x}+C_5x\text{e}^{-\text{i}x} \right)\\
+    &=8x^2-4\text{e}^{-x}-11\cos x-8x\sin x+2x^2\cos x\\
+    &\quad+C_1'+\sin x\left( C_2'+C_3'x \right) +\cos x\left( C_4'+C_5'x \right)\\
 \end{aligned}
 $$
 
@@ -147,7 +147,7 @@ $1.(1)\lim_{x\to 0}\frac{(1+\sin ^2x)^{2022}-(\cos x)^{2022}}{\ln (1+x^2)}$.
 
 (2)求积分$\int_{y\ge x^2+1}{\frac{\d x\d y}{y^2+x^4}}$.
 
-(3)求$f(x)=\e ^{-f^2}$的Maclaurin公式，并求出$f^{(2022)}(0),f^{(2021)}(0)$.
+(3)求 $f(x)=\e ^{-f^2}$ 的 Maclaurin 公式，并求出 $f^{(2022)}(0),f^{(2021)}(0)$.
 
 (4)曲面积分$\int_S{\frac{x\d y\d z+y\d z\d x+z\d x\d y}{(x^2+y^2+z^2)^{3/2}}}$
 

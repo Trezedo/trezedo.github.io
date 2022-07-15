@@ -27,11 +27,11 @@ function speak(text: string) {
 
 以下是一个文本转语音（Text to Speech, TTS）的实例，您可以做出以下调整：
 
--   选择一门语言；
+- 选择一门语言；
 
--   选择一种音色（有些语言只有一种选择）；
--   修改语速；
--   修改音调；
+- 选择一种音色（有些语言只有一种选择）；
+- 修改语速；
+- 修改音调；
 
 <TTS/>
 
@@ -39,8 +39,8 @@ function speak(text: string) {
 
 TTS 仅支持以下浏览器：
 
--   PC：Chrome, Edge, Firefox, Opera, Safari
--   移动设备：Chrome Android，Firefox Android，Safari on iOS，Samsung Internet
+- PC：Chrome, Edge, Firefox, Opera, Safari
+- 移动设备：Chrome Android，Firefox Android，Safari on iOS，Samsung Internet
 
 ==不支持 WebView Android==。请查看：[SpeechSynthesis](https://developer.mozilla.org/zh-CN/docs/Web/API/SpeechSynthesis#浏览器兼容)。
 
@@ -60,7 +60,7 @@ For Each Voice In VObj.getvoices
     i = i + 1
     vlist = vlist & "   " & (i - 1) & " - " & Voice.GetDescription & vbcrlf
 Next
-msgbox vlist,64,"List"
+msgbox vList,64,"List"
 ```
 
 ::: tip
@@ -97,9 +97,9 @@ Windows 10 默认安装了两个不同语言的 TTS 引擎，实际上会有一�
 
 可以发现，这里比之前的列表多了几个：
 
--   Microsoft Yaoyao
--   Microsoft Kangkang
--   Microsoft Mark
+- Microsoft Yaoyao
+- Microsoft Kangkang
+- Microsoft Mark
 
 以下是激活隐藏语音库的方法。
 
@@ -107,8 +107,8 @@ Windows 10 默认安装了两个不同语言的 TTS 引擎，实际上会有一�
 
 其实可以通过注册表来**激活**隐藏的语音库，但在此之前，需要在本地查询是否下载有相关语音库，路径如下：
 
-```
-%windir%\Speech_OneCore\Engines\TTS\
+```text
+%WinDir%\Speech_OneCore\Engines\TTS\
 ```
 
 比如我们的电脑应该会是 `zh-CN` 和 `en-US` 两个文件夹，里面的内容就是语音引擎。打开 `zh-CN` 目录查看是否存在 `Hongyu` 等语音：
@@ -122,8 +122,8 @@ Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SPEECH\Voices\Tokens\TTS_MS_ZH-CN_HONGYU_11.0]
 @="Microsoft Hongyu Mobile - Chinese (Simplified)"
-"LangDataPath"="%windir%\\Speech_OneCore\\Engines\\TTS\\zh-CN\\MSTTSLoczhCN.dat"
-"VoicePath"="%windir%\\Speech_OneCore\\Engines\\TTS\\zh-CN\\M2052Hongyu"
+"LangDataPath"="%WinDir%\\Speech_OneCore\\Engines\\TTS\\zh-CN\\MSTTSLoczhCN.dat"
+"VoicePath"="%WinDir%\\Speech_OneCore\\Engines\\TTS\\zh-CN\\M2052Hongyu"
 "804"="Microsoft Hongyu Mobile - Chinese (Simplified)"
 "CLSID"="{179F3D56-1B0B-42B2-A962-59B7EF59FE1B}"
 
@@ -163,7 +163,7 @@ foreach($voice in $listVoices) {
 }
 ```
 
-需要使用管理员身份运行以上`PowerShell`脚本，然后重启电脑即可生效（32、64 位浏览器）。
+需要使用管理员身份运行以上 `PowerShell` 脚本，然后重启电脑即可生效（32、64 位浏览器）。
 
 值得注意的是，运行上述脚本之后会有重复的语音，因为注册表目录的名称不一样。这时再次查询就会发现：
 
@@ -173,7 +173,7 @@ foreach($voice in $listVoices) {
 
 :::
 
-上图可以看到多出来`6`个语音，其中三个是重复的，仅仅是名称不一样而已。
+上图可以看到多出来 6 个语音，其中三个是重复的，仅仅是名称不一样而已。
 
 ### 添加语音包
 
@@ -191,7 +191,7 @@ windows 10 系统可以通过：
 
 来自百度翻译的语音朗读：
 
-```
+```text
 https://fanyi.baidu.com/gettts?lan=zh&spd=5&source=web&text=文本
 ```
 
@@ -213,11 +213,11 @@ https://fanyi.baidu.com/gettts?lan=zh&spd=5&source=web&text=文本
 
 :::
 
-可以发现，以上是无法直接播放的。如果我们直接打开这个[链接](https://fanyi.baidu.com/gettts?lan=zh&spd=5&source=web&text=%E7%99%BE%E5%BA%A6TTS%E6%B5%8B%E8%AF%95)，会发现它会让我们下载一个`mp3`文件，通过查看网络请求记录可以发现，它返回的 MIME 类型为`text/html`，而手动打开时它才是下载`mp3`文件，导致`audio`无法播放。
+可以发现，以上是无法直接播放的。如果我们直接打开这个[链接](https://fanyi.baidu.com/gettts?lan=zh&spd=5&source=web&text=%E7%99%BE%E5%BA%A6TTS%E6%B5%8B%E8%AF%95)，会发现它会让我们下载一个 `mp3` 文件，通过查看网络请求记录可以发现，它返回的 MIME 类型为 `text/html`，而手动打开时它才是下载 `mp3` 文件，导致 `audio` 无法播放。
 
 针对这个问题，可以使用在[免费接口](/article/免费接口.md)中介绍的免费 api，这里直接给出：
 
--   <http://api.weijieyue.cn/api/?id=46> （19 种音色）
--   <https://yuanxiapi.cn/api/voice/voice.php> （6 种音色）
--   <https://api.vvhan.com/song.html> （6 种音色）
--   <http://w20.cc/api/suo.php?nr=tts> （加载较慢）
+- <http://api.weijieyue.cn/api/?id=46> 19 种音色
+- <https://yuanxiapi.cn/api/voice/voice.php> 6 种音色
+- <https://api.vvhan.com/song.html> 6 种音色
+- <http://w20.cc/api/suo.php?nr=tts> 加载较慢

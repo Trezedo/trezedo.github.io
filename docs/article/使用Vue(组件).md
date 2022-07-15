@@ -23,15 +23,16 @@ permalink: /article/sfc-in-vuepress.html
 <script setup>
 import { h, ref } from 'vue';
 const RedDiv = (_, ctx) => h(
-  'div',
-  {
-    class: 'red-div',
-  },
-  ctx.slots.default()
+    'div',
+    {
+        class: 'red-div',
+    },
+    ctx.slots.default()
 );
 const msg = 'Markdown 中的 Vue';
 const count = ref(0)
 </script>
+
 <style>
 .red-div {
   color: red;

@@ -82,7 +82,7 @@ vert.x 官方提供了一个生成代码的在线工具：<https://start.vertx.i
 
 根据刚才我的配置，生成的项目中`src`目录的结构是这样的：
 
-```
+```text
 .
 └─src
     ├─main
@@ -129,7 +129,7 @@ public class MainVerticle extends AbstractVerticle {
 
 通过阅读这段代码，我们大致可以知道：
 
-<a name="demo"></a>`vertx` 实例创建了一个 `Http` 服务，它对一个请求（`request`）的处理（`handle`）是，响应（`responese`）一段内容类型（`content-type`）为普通文本（`text/plain`），以 `"Hello from Vert.x!"` 结束这个请求。并且这个 `vertx` 实例会监听（`listen`）`8888` 号端口，如果成功启动服务，则会打印 `"HTTP server started on port 8888"`。
+<a name="demo"></a>`vertx` 实例创建了一个 `Http` 服务，它对一个请求（`request`）的处理（`handle`）是，响应（`response`）一段内容类型（`content-type`）为普通文本（`text/plain`），以 `"Hello from Vert.x!"` 结束这个请求。并且这个 `vertx` 实例会监听（`listen`）`8888` 号端口，如果成功启动服务，则会打印 `"HTTP server started on port 8888"`。
 
 为了验证以上是否正确，最好的办法当然是把这个项目跑起来。在根目录下，其实有个 `README.adoc` 文件，它说：
 
@@ -249,11 +249,11 @@ public void start(Promise<Void> startPromise) {
 
 简单说下代码的含义：
 
--   第 4 行： 创建了一个类型为 `JsonObject` 的对象，这个是 `vert.x core` 中提供的类，除此之外还提供了 `JsonArray` ，这两个想必不用太多解释；
--   5-7 行：对刚刚创建的对象添加键值对（和 `Map` 类类似），这里用了 `JsonArray` 的构造方法：`JsonArray(String json)`；
--   9-12 行：创建一个字符串列表并添加数据；
--   第 13 行：在上面的 `json` 对象中添加一个键值对，这里用了 `JsonArray` 的构造方法：`JsonArray(List list)`；
--   14-16 行：响应一个请求，设置 `MIME Type`（互联网媒体类型）为 `application/json`，`charset` 为 `utf-8`，并返回之前创建的 `JsonObject` 对象。
+- 第 4 行： 创建了一个类型为 `JsonObject` 的对象，这个是 `vert.x core` 中提供的类，除此之外还提供了 `JsonArray` ，这两个想必不用太多解释；
+- 5-7 行：对刚刚创建的对象添加键值对（和 `Map` 类类似），这里用了 `JsonArray` 的构造方法：`JsonArray(String json)`；
+- 9-12 行：创建一个字符串列表并添加数据；
+- 第 13 行：在上面的 `json` 对象中添加一个键值对，这里用了 `JsonArray` 的构造方法：`JsonArray(List list)`；
+- 14-16 行：响应一个请求，设置 `MIME Type`（互联网媒体类型）为 `application/json`，`charset` 为 `utf-8`，并返回之前创建的 `JsonObject` 对象。
 
 另外，第 15 行是有必要的。实际上如果没有该行同样能够响应，但是由于我们返回的内容中包含中文，缺少该行会变成乱码！同时，由于没有设置 `MIME` 类型，部分浏览器的相关插件可能不会正常运作，感兴趣的读者可以自己尝试。
 
@@ -342,9 +342,9 @@ java -jar xxx-fat.jar
 
 否则会抛出异常：
 
-```
+```text
 io.vertx.core.json.DecodeException: Mapping XXX is
-	not available without Jackson Databind on the classpath
+ not available without Jackson Databind on the classpath
 ```
 
 既然需要用到 [Jackson Databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)，那就添加依赖：
@@ -462,9 +462,9 @@ System.out.println(new JsonArray(Arrays.asList(users)));
 
 Jackson 提供了一系列注解，方便对 JSON 序列化和反序列化进行控制，下面介绍一些常用的注解。
 
--   @JsonProperty：用于属性，作用是把该属性的名称序列化为另外一个名称，例如 `@JsonProperty("user_id")` 会把 `userId` 属性序列化为 `user_id`。
--   @JsonFormat：用于属性，作用是格式化 `Date` 类型数据，如 `@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")`。
--   @JsonIgnore：用于属性，作用是进行 JSON 操作时忽略该属性。
+- @JsonProperty：用于属性，作用是把该属性的名称序列化为另外一个名称，例如 `@JsonProperty("user_id")` 会把 `userId` 属性序列化为 `user_id`。
+- @JsonFormat：用于属性，作用是格式化 `Date` 类型数据，如 `@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")`。
+- @JsonIgnore：用于属性，作用是进行 JSON 操作时忽略该属性。
 
 为 `User.java` 类的属性添加注解：
 
@@ -558,7 +558,7 @@ void testJson2Java(VertxTestContext testContext) {
 
 ::: details 查看输出结果
 
-```
+```text
 User(userId=1, loginName=user1, password=pwd_user1, loginDate=Thu Feb 17 21:32:37 CST 2022)
 1
 user1
@@ -585,7 +585,7 @@ System.out.println(userList);
 
 到这里为止，估计你会认为没有什么问题，因为它的输出是这样的：
 
-```
+```js
 [{password=pwd_user1, user_id=1, login_name=user1, login_date=2022-02-18 13:17:59}, {password=pwd_user2, user_id=2, login_name=user2, login_date=2022-02-18 13:17:59}, {password=pwd_user3, user_id=3, login_name=user3, login_date=2022-02-18 13:17:59}]
 ```
 
@@ -597,7 +597,7 @@ userList.forEach(System.out::println);
 
 果然，报错了：
 
-```
+```text
 java.lang.ClassCastException: java.util.LinkedHashMap cannot be cast to trezedo.demo.VertxStarter.entity.User
 ```
 
@@ -642,7 +642,7 @@ try {
 
 测试结果如下：
 
-```
+```text
 User(userId=1, loginName=user1, password=pwd_user1, loginDate=Fri Feb 18 13:17:59 CST 2022)
 User(userId=2, loginName=user2, password=pwd_user2, loginDate=Fri Feb 18 13:17:59 CST 2022)
 User(userId=3, loginName=user3, password=pwd_user3, loginDate=Fri Feb 18 13:17:59 CST 2022)
@@ -876,7 +876,7 @@ pool.getConnection().compose(conn -> {
         .query("SELECT * FROM users WHERE id='julien'")
         .execute()
         .compose(res -> conn
-                 .query("SELECT * FROM users WHERE id='emad'")
+                 .query("SELECT * FROM users WHERE id='1'")
                  .execute())
         .onComplete(ar -> {
             // 完成后将其放回连接池
@@ -913,7 +913,7 @@ client
 
 ### Prepared Query
 
-Prepared Query 和 `jdbc` 中的 Prepared Statement 类似。`vertx-pg-client` 允许对准备好的查询执行相同的操作。SQL 字符串可以按位置引用参数，使用数据库语法`$1`、`$2` 等：
+Prepared Query 和 `jdbc` 中的 Prepared Statement 类似。`vertx-pg-client` 允许对准备好的查询执行相同的操作。SQL 字符串可以按位置引用参数，使用数据库语法 `$1`、`$2` 等：
 
 ```java
 client
@@ -980,15 +980,15 @@ public static JsonArray parseJsonArray(RowSet<Row> rows) {
 
 初步使用体验：
 
--   官方的在线工具生成的代码有时不能直接运行，有些需要小调整，有些得自行添加；
--   没有 `Spring` 中 `mvc`，`dao` 等等之类的概念，而是 `Verticle`、`router`；
--   目前为止像 `Mybatis` 之类的 `orm`，数据库相关的操作需要自己封装，用惯了 `orm` 框架，`vert.x` 官方也只是把 `jdbc` 封装成异步；
--   如果和 `SpringBoot` 相比，`Vert.x` 的封装度还是特别浅的，是 `HttpResponse` 级别的，`vert.x` 需要开发者自己写的业务逻辑代码要多得多；
--   对含有中文的 `json` 接口需要手动改 `content-type` 为 `utf-8` 编码；
--   目前 `vert.x` 的生态没有 `Spring` 的好，能搜到的问题远没有像 `SpringBoot` 的那么多；
--   打包体积倒是小了很多，体积在 `6.16MB` 以上（当然正式项目的打包体积会随着依赖的增加而增加），本人使用的 `SpringBoot` 项目打包之后通常在 `35Mb` 以上；
--   但是第一次打包可能会遇到问题，不像 `SpringBoot` 那样顺利（例如需要先关掉运行中的主类）；
--   和 `swagger-ui` 等在 `SpringBoot` 中常用的一些库的整合不方便，在 `SpringBoot` 中只需要加入一个依赖；
+- 官方的在线工具生成的代码有时不能直接运行，有些需要小调整，有些得自行添加；
+- 没有 `Spring` 中 `mvc`，`dao` 等等之类的概念，而是 `Verticle`、`router`；
+- 目前为止像 `Mybatis` 之类的 `orm`，数据库相关的操作需要自己封装，用惯了 `orm` 框架，`vert.x` 官方也只是把 `jdbc` 封装成异步；
+- 如果和 `SpringBoot` 相比，`Vert.x` 的封装度还是特别浅的，是 `HttpResponse` 级别的，`vert.x` 需要开发者自己写的业务逻辑代码要多得多；
+- 对含有中文的 `json` 接口需要手动改 `content-type` 为 `utf-8` 编码；
+- 目前 `vert.x` 的生态没有 `Spring` 的好，能搜到的问题远没有像 `SpringBoot` 的那么多；
+- 打包体积倒是小了很多，体积在 `6.16MB` 以上（当然正式项目的打包体积会随着依赖的增加而增加），本人使用的 `SpringBoot` 项目打包之后通常在 `35Mb` 以上；
+- 但是第一次打包可能会遇到问题，不像 `SpringBoot` 那样顺利（例如需要先关掉运行中的主类）；
+- 和 `swagger-ui` 等在 `SpringBoot` 中常用的一些库的整合不方便，在 `SpringBoot` 中只需要加入一个依赖；
 
 **用 `Vert.X` 来构造系统中有高并发要求的微服务，其它复杂或者是没什么要求的部分还是采取传统方案。**
 

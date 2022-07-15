@@ -129,7 +129,7 @@ const a = 1;
 
 ::::
 
--   [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/container.html)
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/container.html)
 
 ### 代码块
 
@@ -149,7 +149,7 @@ npm i -D vuepress-theme-hope
 
 :::
 
--   [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/code-group.html)
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/code-group.html)
 
 ### 自定义对齐
 
@@ -165,13 +165,13 @@ npm i -D vuepress-theme-hope
 
 :::
 
--   [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/align.html)
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/align.html)
 
 ### 上下角标
 
 19^th^ H~2~O
 
--   [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/sup-sub.html)
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/sup-sub.html)
 
 ### 脚注
 
@@ -179,20 +179,20 @@ npm i -D vuepress-theme-hope
 
 [^first]: 这是脚注内容
 
--   [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/footnote.html)
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/footnote.html)
 
 ### 标记
 
 你可以标记 ==重要的内容== 。
 
--   [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/mark.html)
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/mark.html)
 
 ### 任务列表
 
--   [x] 计划 1
--   [ ] 计划 2
+- [x] 计划 1
+- [ ] 计划 2
 
--   [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/tasklist.html)
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/tasklist.html)
 
 ### 流程图
 
@@ -205,7 +205,7 @@ cond(yes)->process->e
 cond(no)->e
 ```
 
--   [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/flowchart.html)
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/flowchart.html)
 
 ## Mermaid
 
@@ -226,7 +226,7 @@ flowchart TB
     two --> c2
 ```
 
--   [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/mermaid.html)
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/mermaid.html)
 
 ### Tex 语法
 
@@ -235,7 +235,7 @@ $$
 = \left(\frac {y^{\omega}} {\omega}\right) \left\{(\log y)^r + \sum_{i=1}^r \frac {(-1)^i r \cdots (r-i+1) (\log y)^{r-i}} {\omega^i} \right\}
 $$
 
--   [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/tex.html)
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/tex.html)
 
 ### 代码演示
 
@@ -260,7 +260,7 @@ span {
 
 :::
 
--   [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/demo.html)
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/demo.html)
 
 ### 幻灯片
 
@@ -274,8 +274,8 @@ span {
 
 ## 幻灯片 2
 
--   项目 1
--   项目 2
+- 项目 1
+- 项目 2
 
 ---
 
@@ -295,4 +295,4 @@ $$
 
 @slideend
 
--   [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/presentation.html)
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/presentation.html)

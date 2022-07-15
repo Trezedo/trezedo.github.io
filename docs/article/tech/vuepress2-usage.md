@@ -11,8 +11,6 @@ tag:
     - VuePress
 ---
 
-# Vuepress2 使用
-
 ::: details 点击查看 $frontmatter
 
 ```md :no-v-pre :no-line-numbers
@@ -50,31 +48,31 @@ mkdir docs && echo # Hello VitePress > docs/index.md
 
 本节将帮助您从头构建一个基本的 VitePress 文档站点。如果您已经有一个现有项目，并且希望将文档保存在项目中，请从步骤 3 开始。
 
--   **Step. 1:** 创建并更改为新目录。
+- **Step. 1:** 创建并更改为新目录。
 
 ```bash
 mkdir vitepress-starter && cd vitepress-starter
 ```
 
--   **Step. 2:** 使用您喜欢的包管理器进行初始化。
+- **Step. 2:** 使用您喜欢的包管理器进行初始化。
 
 ```bash
 yarn init
 ```
 
--   **Step. 3:** 本地安装 VitePress。
+- **Step. 3:** 本地安装 VitePress。
 
     ```bash
     yarn add --dev vitepress
     ```
 
--   **Step. 4:** 创建您的第一个文档。
+- **Step. 4:** 创建您的第一个文档。
 
     ```bash
     mkdir docs && echo '# Hello VitePress' > docs/index.md
     ```
 
--   **Step. 5:** 添加一些脚本到 `package.json`.
+- **Step. 5:** 添加一些脚本到 `package.json`.
 
     ```json
     {
@@ -86,7 +84,7 @@ yarn init
     }
     ```
 
--   **Step. 6:** Serve the documentation site in the local server.
+- **Step. 6:** Serve the documentation site in the local server.
 
     ```bash
     yarn docs:dev
@@ -98,8 +96,8 @@ By now, you should have a basic but functional VitePress documentation site.
 
 When your documentation site starts to take shape, be sure to read the
 
-```
- [deployment guide](./deploy).
+```text
+[deployment guide](./deploy).
 ```
 
 ```bash
@@ -160,34 +158,30 @@ git init
 
 在项目中添加 gitee 远程仓库地址
 
-```bash
+```sh
 git remote add gitee git@gitee.com:zedo/zedo.git
 ```
 
 拉取远程仓库的代码
 
-```bash
+```sh
 git pull gitee master
 ```
 
 将临时目录和缓存目录添加到 `.gitignore` 文件中
 
-```bash
+```sh
 echo 'node_modules' >> .gitignore
 echo '.temp' >> .gitignore
 echo '.cache' >> .gitignore
 ```
 
 ::: tip 提示
-
-可以通过`git status -sb`查看当前纳入版本管理的文件，检测当前`.gitignore` 文件是否生效
-
+可以通过 `git status -sb` 查看当前纳入版本管理的文件，检测当前 `.gitignore` 文件是否生效
 :::
 
 ::: warning 注意
-
-如果是 Windows 系统，还需要检查`.gitignore`文件是否为`UTF-8`格式，否则`.gitignore`文件中不会生效。
-
+如果是 Windows 系统，还需要检查 `.gitignore` 文件是否为 `UTF-8` 格式，否则 `.gitignore` 文件中不会生效。
 :::
 
 ### 提交和推送
@@ -202,15 +196,15 @@ git push gitee master
 
 清理本地缓存，如已经 `git add` 的文件
 
-```bash
+```sh
 git rm -rf --cached .
 ```
 
-https://www.runoob.com/git/git-pull.html
+<https://www.runoob.com/git/git-pull.html>
 
-执行`commit`后，还没执行`push`时，想要撤销这次的 commit
+执行 `commit` 后，还没执行 `push` 时，想要撤销这次的 commit
 
-```bash
+```sh
 git reset --soft HEAD^
 ```
 

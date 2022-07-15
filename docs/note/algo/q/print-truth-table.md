@@ -2,12 +2,12 @@
 date: 2022-03-21
 title: 命题公式真值表
 category:
-  - 离散数学
+    - 离散数学
 tag:
-  - 真值表
-  - C
-  - Java
-  - Kotlin
+    - 真值表
+    - C
+    - Java
+    - Kotlin
 ---
 
 ::: info 题目
@@ -16,11 +16,12 @@ tag:
 
 :::
 
-<!-- more --> 
+<!-- more -->
 
 ## 思路
 
 我们不妨先对 $A$ 化简：
+
 $$
 \begin{aligned}
 A&=\lnot \left( p\lor q \right) \land \left( \left( p\lor r \right) \lor s \right)\\
@@ -29,32 +30,33 @@ A&=\lnot \left( p\lor q \right) \land \left( \left( p\lor r \right) \lor s \righ
 &=\lnot p\land \lnot q\land \left( r\lor s \right)\\
 \end{aligned}
 $$
+
 可以得知，当且仅当 $p,q$ 为假， $r$ 或 $s$ 为真时，$A$ 为真，即：
 
 ::: center
 
-|  p   |  q   |  r   |  s   |  A   |
-| :--: | :--: | :--: | :--: | :--: |
-|  0   |  0   |  0   |  0   |  0   |
-|  0   |  0   |  0   |  1   |  1   |
-|  0   |  0   |  1   |  0   |  1   |
-|  0   |  0   |  1   |  1   |  1   |
-|  0   |  1   |  0   |  0   |  0   |
-|  0   |  1   |  0   |  1   |  0   |
-|  0   |  1   |  1   |  0   |  0   |
-|  0   |  1   |  1   |  1   |  0   |
-|  1   |  0   |  0   |  0   |  0   |
-|  1   |  0   |  0   |  1   |  0   |
-|  1   |  0   |  1   |  0   |  0   |
-|  1   |  0   |  1   |  1   |  0   |
-|  1   |  1   |  0   |  0   |  0   |
-|  1   |  1   |  0   |  1   |  0   |
-|  1   |  1   |  1   |  0   |  0   |
-|  1   |  1   |  1   |  1   |  0   |
+|  p  |  q  |  r  |  s  |  A  |
+| :-: | :-: | :-: | :-: | :-: |
+|  0  |  0  |  0  |  0  |  0  |
+|  0  |  0  |  0  |  1  |  1  |
+|  0  |  0  |  1  |  0  |  1  |
+|  0  |  0  |  1  |  1  |  1  |
+|  0  |  1  |  0  |  0  |  0  |
+|  0  |  1  |  0  |  1  |  0  |
+|  0  |  1  |  1  |  0  |  0  |
+|  0  |  1  |  1  |  1  |  0  |
+|  1  |  0  |  0  |  0  |  0  |
+|  1  |  0  |  0  |  1  |  0  |
+|  1  |  0  |  1  |  0  |  0  |
+|  1  |  0  |  1  |  1  |  0  |
+|  1  |  1  |  0  |  0  |  0  |
+|  1  |  1  |  0  |  1  |  0  |
+|  1  |  1  |  1  |  0  |  0  |
+|  1  |  1  |  1  |  1  |  0  |
 
 :::
 
-### C实现
+### C 实现
 
 直接对这 4 个变元循环也是可以的：
 
@@ -80,7 +82,7 @@ int main() {
 
 ::: details 运行结果
 
-```
+```text
 p q r s A
 0 0 0 0 0
 0 0 0 1 1
@@ -102,14 +104,13 @@ p q r s A
 
 :::
 
-还是挺容易的吧，不过需要注意的是 `!(p + q) * (p + r + s)` 可能大于1，所以用三目运算符将其限定在 0-1 之间。
+还是挺容易的吧，不过需要注意的是 `!(p + q) * (p + r + s)` 可能大于 1，所以用三目运算符将其限定在 0-1 之间。
 
-### Java实现
+### Java 实现
 
 这里我们不再用以上直接循环的思路，而是实现一个**可扩展**的功能。
 
 完整的 Java 代码如下：
-
 
 ```java
 import java.util.logging.Level;
@@ -208,25 +209,25 @@ public class Table {
 
 ::: details 运行结果
 
-```
-p	q	r	s	A
+```text
+p q r s A
 
-0	0	0	0	0
-0	0	0	1	1
-0	0	1	0	1
-0	0	1	1	1
-0	1	0	0	0
-0	1	0	1	0
-0	1	1	0	0
-0	1	1	1	0
-1	0	0	0	0
-1	0	0	1	0
-1	0	1	0	0
-1	0	1	1	0
-1	1	0	0	0
-1	1	0	1	0
-1	1	1	0	0
-1	1	1	1	0
+0 0 0 0 0
+0 0 0 1 1
+0 0 1 0 1
+0 0 1 1 1
+0 1 0 0 0
+0 1 0 1 0
+0 1 1 0 0
+0 1 1 1 0
+1 0 0 0 0
+1 0 0 1 0
+1 0 1 0 0
+1 0 1 1 0
+1 1 0 0 0
+1 1 0 1 0
+1 1 1 0 0
+1 1 1 1 0
 ```
 
 :::
@@ -252,8 +253,7 @@ Table(int argsCount, Handler handler, String... argNames);
 
 打印数据分为两部分，即 `Title` 和 `Body` ， `Title` 由构造方法中的 `argNames` 控制，而 `Body` 是对由 `fillTableValue` 方法填充的二维 `Boolean` 数组执行 `Handler` 中的逻辑运算，并拼接而成的字符串。
 
-### Kotlin版本
-
+### Kotlin 版本
 
 ```kotlin
 import java.util.logging.Level
@@ -340,4 +340,3 @@ class Table(argsCount: Int, var handler: (args: Array<Boolean>) -> String, varar
 > 这里给出 kotlin 版本的代码纯粹为笔者个人的练习 :slightly_smiling_face: 。
 
 因为 kotlin 自身就支持类似 `callback` 的类型（高阶函数），所以没有使用 Java 版本的 `Handler` 接口也能实现形如 `lambda` 表达式的参数。
-

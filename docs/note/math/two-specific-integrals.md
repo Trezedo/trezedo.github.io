@@ -136,8 +136,8 @@ $$
 
 $$
 \begin{aligned}
-	\int_0^p{\frac{\ln (x+A)}{x^2+Bx+C}\d x}&\xlongequal{x\mapsto A\frac{p-x}{x+A}}\int_0^p{\frac{\ln \left( A(p+A)\right) -\ln (x+A)}{x^2+Bx+C}\d x}\\
-	&=\frac{\ln \left( A(p+A)\right)}{2}\int_0^p{\frac{1}{x^2+Bx+C}\d x}
+    \int_0^p{\frac{\ln (x+A)}{x^2+Bx+C}\d x}&\xlongequal{x\mapsto A\frac{p-x}{x+A}}\int_0^p{\frac{\ln \left( A(p+A)\right) -\ln (x+A)}{x^2+Bx+C}\d x}\\
+    &=\frac{\ln \left( A(p+A)\right)}{2}\int_0^p{\frac{1}{x^2+Bx+C}\d x}
 \end{aligned}
 $$
 
@@ -149,11 +149,11 @@ $$
 
 $$
 \begin{aligned}
-	\int_2^6{\frac{\ln x}{x^2+2x+12}\d x}&\xlongequal{t=x-2}\int_0^4{\frac{\ln (t+2)}{t^2+6t+20}\d t}=\frac{\ln \left( 2\cdot (2+4)\right)}{2}\int_0^4{\frac{1}{t^2+6t+20}\d t}\\
-	&=\frac{\ln 12}{2}\int_0^4{\frac{1}{(t+3)^2+11}\d t}=\frac{\ln 12}{2}\left[ \frac{1}{\sqrt{11}}\arctan \frac{t+3}{\sqrt{11}} \right] _{0}^{4}\\
-	&=\frac{\ln 12}{2\sqrt{11}}\left[ \arctan \frac{7}{\sqrt{11}}-\arctan \frac{3}{\sqrt{11}} \right]\\
-	&=\frac{\ln 12}{2\sqrt{11}}\arctan \frac{\frac{7-3}{\sqrt{11}}}{1+\frac{7}{\sqrt{11}}\cdot \frac{3}{\sqrt{11}}}\\
-	&=\frac{\ln 12}{2\sqrt{11}}\arctan \frac{\sqrt{11}}{8}
+    \int_2^6{\frac{\ln x}{x^2+2x+12}\d x}&\xlongequal{t=x-2}\int_0^4{\frac{\ln (t+2)}{t^2+6t+20}\d t}=\frac{\ln \left( 2\cdot (2+4)\right)}{2}\int_0^4{\frac{1}{t^2+6t+20}\d t}\\
+    &=\frac{\ln 12}{2}\int_0^4{\frac{1}{(t+3)^2+11}\d t}=\frac{\ln 12}{2}\left[ \frac{1}{\sqrt{11}}\arctan \frac{t+3}{\sqrt{11}} \right] _{0}^{4}\\
+    &=\frac{\ln 12}{2\sqrt{11}}\left[ \arctan \frac{7}{\sqrt{11}}-\arctan \frac{3}{\sqrt{11}} \right]\\
+    &=\frac{\ln 12}{2\sqrt{11}}\arctan \frac{\frac{7-3}{\sqrt{11}}}{1+\frac{7}{\sqrt{11}}\cdot \frac{3}{\sqrt{11}}}\\
+    &=\frac{\ln 12}{2\sqrt{11}}\arctan \frac{\sqrt{11}}{8}
 \end{aligned}
 $$
 

@@ -11,10 +11,10 @@ tag:
 
 为了使用 `LaTeX`，需要 `TeX` 系统例如 `TeXLive`、`MiKTeX`、`MacTeX` 等等。通常 `TeXLive` 每年更新一次，兼容性强，并且保持跨操作系统的一致性。集成了几乎所有宏包，安装后即可直接使用，对新手还是非常友好的。然而正是因为它默认带有大量宏包，导致体积太大（超过 4G），本人才考虑使用 `MikTeX`，几乎所有宏包只有在使用时才会安装。这里给出国内的 `TeXLive` 镜像：
 
--   [中科大镜像](https://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/)
--   [清华镜像](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/)
--   [阿里云镜像](https://mirrors.aliyun.com/CTAN/systems/texlive/Images/)
--   [华为云镜像](https://repo.huaweicloud.com/CTAN/systems/texlive/Images/)。
+- [中科大镜像](https://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/)
+- [清华镜像](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/)
+- [阿里云镜像](https://mirrors.aliyun.com/CTAN/systems/texlive/Images/)
+- [华为云镜像](https://repo.huaweicloud.com/CTAN/systems/texlive/Images/)。
 
 ## 下载
 
