@@ -1,4 +1,6 @@
 import { defineClientConfig } from "@vuepress/client";
+// @ts-ignore 暂时没法“正确”设置别名
+import { useIconfont } from "@zedo";
 
 // https://v2.vuepress.vuejs.org/zh/advanced/cookbook/usage-of-client-config.html
 export default defineClientConfig({
@@ -10,7 +12,7 @@ export default defineClientConfig({
         // }
     },
     setup() {
-        console.log("114514 ".repeat(10));
+        useIconfont();
     },
     rootComponents: [],
 });

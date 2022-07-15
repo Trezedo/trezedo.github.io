@@ -8,12 +8,16 @@ export default hopeTheme({
         name: "Trezedo",
         url: "https://Trezedo.club",
     },
+    iconAssets: "iconfont",
     iconPrefix: "iconfont icon-",
     // 左上角，以及首页右侧
     logo: "https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=4", // "/favicon.ico",
 
     // repo: "https://gitee.com/zedo/zedo",
-    docsDir: "demo/src",
+    docsDir: "zedo/docs",
+
+    pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
+
     navbarAutoHide: "mobile", // "always" 容易卡顿
     darkmode: "toggle",
     blog: {
@@ -42,6 +46,7 @@ export default hopeTheme({
             displayFooter: true,
             blog: {
                 description: "三分之一半吊子",
+                intro: "/intro.html",
             },
             metaLocales: {
                 editLink: "编辑此页",

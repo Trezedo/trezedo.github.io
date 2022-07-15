@@ -14,26 +14,10 @@ export default defineUserConfig({
     base: "/",
     dest: "./dist",
     head: [
-        [
-            "link",
-            {
-                rel: "stylesheet",
-                href: "//at.alicdn.com/t/font_2410206_a0xb9hku9iu.css" + date,
-            },
-        ],
+        // ! 此处引入的 css、js，当 hash 变化时也会重复加载
         /* [
             "link",
-            { rel: "preload", as: "style", href: "/assets/font/iconfont.css" },
-        ],
-        // 不提供 cdn 之后没了 Cache-Control，只加下面的会抖动
-        [
-            "link",
-            {
-                rel: "stylesheet",
-                href: "/assets/font/iconfont.css" + date,
-                // media: "print",
-                // onload: "this.media='all'",
-            },
+            { rel: "stylesheet", href: "/assets/font/iconfont.css" + date },
         ], */
         // ["link", {rel: "shortcut icon", href: "/favicon.ico",type:"image/x-icon"}],
         /*["link", {
@@ -58,6 +42,9 @@ export default defineUserConfig({
         ["script", { defer: true, src: "/assets/js/index.js" + date }],
         ["script", { defer: true, src: "/assets/js/love-me.js" }],
     ],
+    alias: {
+        "@zedo": path.resolve(__dirname, "../../custom/"),
+    },
     locales: {
         "/": {
             lang: "zh-CN",
