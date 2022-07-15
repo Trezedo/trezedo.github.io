@@ -13,9 +13,9 @@
     </div>
 
     <div>使用 @temp/pages.js 获取页面</div>
-    <div v-for="page in pagesTemp">
+    <!-- <div v-for="page in pagesTemp">
         {{ page }}
-    </div>
+    </div> -->
 
     <div>根据 usePagesData Api 获取页面(可能会移除)</div>
     <div>{{ pagesList }}</div>
@@ -33,10 +33,10 @@ import {
 } from "@vuepress/client";
 
 // @ts-ignore
-import _pages from "@temp/pages";
-import { Page } from "vuepress";
+// import _pages from "@temp/pages";
+// import type { Page } from "vuepress";
 
-const pagesTemp = computed(() => <Page[]>_pages);
+// const pagesTemp = computed(() => <Page[]>_pages);
 
 const pagesData = usePagesData();
 // console.log(usePageData().value)
