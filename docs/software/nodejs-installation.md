@@ -13,12 +13,18 @@ tag:
 
 ::: tip
 
-如果官网下载比较慢，也可以在淘宝镜像找到对应的版本：[https://npm.taobao.org/mirrors/node/](https://registry.npmmirror.com/binary.html?path=node/)
+如果官网下载比较慢，也可以在国内镜像找到对应的版本：
+
+- 淘宝镜像 [https://npm.taobao.org/mirrors/node/](https://registry.npmmirror.com/binary.html?path=node/)
+- 华为镜像 <https://repo.huaweicloud.com/nodejs/>
+- 清华镜像 <https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/>
+- 北外镜像 <https://mirrors.bfsu.edu.cn/nodejs-release/>
 
 注意：淘宝镜像的域名已经从 `npm.taobao.org` 重定向至 `npmmirror.com` 了。
+
 :::
 
-下载 msi 安装包后，按默认的配置继续即可（可调整安装路径），这里选择的路径是`E:\Envs\nodejs`。
+下载 msi 安装包后，按默认的配置继续即可（可调整安装路径），这里选择的路径是 `E:\Envs\nodejs`。
 
 nodejs 默认的包管理工具是 npm，安装完成后可以使用以下命令检测是否成功：
 
@@ -41,9 +47,10 @@ npm -v  # 查看 npm 版本
 下面修改以上的默认值：
 
 ```bash
-npm config set prefix "E:\Envs\node\node_global"
-npm config set cache "E:\Envs\node\node_cache"
-npm config set registry https://registry.npmmirror.com/ # 国内淘宝镜像
+npm config set prefix "E:/Envs/node/node_global"
+npm config set cache "E:/Envs/node/node_cache"
+# 设置国内淘宝镜像，可不加引号
+npm config set registry "https://registry.npmmirror.com/"
 ```
 
 ::: danger
@@ -66,6 +73,37 @@ npm config get prefix
 npm config get registry
 ```
 
+::: details 使用 npm 命令后有警告的解决方法
+在安装 node v16 后使用 `npm -v` 后警告：
+
+```ps1
+npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
+```
+
+直接 `npm i -g npm` 升级是不行的，因为它并没有更改 nodejs 安装目录下的 npm ，可以使用 [`npm-windows-upgrade`](https://www.npmjs.com/package/npm-windows-upgrade) 来升级：
+
+首先需要以管理员权限运行 powershell，然后执行：
+
+```ps1
+Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
+```
+
+> 如果不执行，可能会提示
+>
+> ```ps1
+> npm-windows-upgrade v6.0.1
+>
+> Scripts cannot be executed on this system.
+> To fix, run the command below as Administrator in > PowerShell and try again:
+> Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
+> ```
+>
+> 然后执行 `npm-windows-upgrade` 就可以升级了。
+
+:::
+
+<br/>
+
 ## 使用 yarn
 
 ### 下载
@@ -82,7 +120,7 @@ npm install --global yarn
 
 ::: tip
 
-快速打开环境变量设置界面的方法，按下快捷键 `win`+`R`，输入`SystemPropertiesAdvanced`后回车，然后在最下方选择`环境变量`即可。
+快速打开环境变量设置界面的方法，按下快捷键 `win`+`R`，输入 `SystemPropertiesAdvanced` 后回车，然后在最下方选择`环境变量`即可。
 
 :::
 
@@ -111,8 +149,8 @@ yarn config -h # 查看帮助
 可以看到有 `global-folder`、`cache-folder` 两个项，获取它们得到的是 `undefined`，现修改其默认值：
 
 ```bash
-yarn config set global-folder "E:\Envs\node\yarn_global"
-yarn config set cache-folder "E:\Envs\node\yarn_cache"
+yarn config set global-folder "E:/Envs/node/yarn_global"
+yarn config set cache-folder "E:/Envs/node/yarn_cache"
 ```
 
 在修改 `global-folder` 后，可以发现使用 `yarn global dir` 也随之更改了。
@@ -135,7 +173,7 @@ success Installed "typescript@4.5.5" with binaries:
 Done in 3.19s.
 ```
 
-接着使用 `tsc`，会发现它提示**'tsc' 不是内部或外部命令**。
+接着使用 `tsc`，会发现它提示 **'tsc' 不是内部或外部命令**。
 
 查看 yarn 的全局安装包路径：
 
@@ -155,11 +193,11 @@ yarn          # 安装所有包
 yarn install  # 安装所有包
 yarn init     # 初始化一个项目
 
-yarn add packagename        # 装包
-yarn add packagename --dev  # 装包，作为开发依赖
+yarn add package-name        # 装包
+yarn add package-name --dev  # 装包，作为开发依赖
 
-yarn upgrade packagename    # 更新包
-yarn remove packagename     # 删除包
+yarn upgrade package-name    # 更新包
+yarn remove package-name     # 删除包
 
 yarn publish   # 发布包
 
@@ -176,7 +214,7 @@ yarn upgrade-interactive --latest # 检查项目依赖更新
 
 [yarn 和 npm 的区别、--save 和--save-dev 的区别](https://www.jianshu.com/p/467182102e43)
 
-## 更新并修改 package.json 中的依赖
+## 更新依赖版本并保存 {#dependency}
 
 安装 `npm-check-updates`
 
@@ -192,7 +230,7 @@ ncu -u  # ncu 是 npm-check-updates 简写
 
 终端会展示可更新的依赖：
 
-<img src="https://zedo.gitee.io/img/image-20220509190222090.png" alt="image-20220509190222090" style="zoom:67%; display: block; margin: auto;"/>
+![image-20220509190222090](https://zedo.gitee.io/img/image-20220509190222090.png#w67)
 
 然后用 npm 更新即可：
 
@@ -210,17 +248,17 @@ yarn upgrade-interactive
 
 使用空格选择即可：
 
-![image-20220509191023391](https://zedo.gitee.io/img/image-20220509191023391.png)
+![image-20220509191023391-w150](https://zedo.gitee.io/img/image-20220509191023391.png#w66)
 
-但是它不会修改 `package.json` ，可以使用 [yarn-upgrade-all](https://github.com/tylerlong/yarn-upgrade-all)。
+但是它不会修改 `package.json` ，如有需要，可以使用 [yarn-upgrade-all](https://github.com/tylerlong/yarn-upgrade-all)。
 
 :::
 
-### 参考
-
-<https://stackoverflow.com/questions/16073603/>
-
-<https://stackoverflow.com/questions/62650640/>
+> 参考
+>
+> <https://stackoverflow.com/questions/16073603/>
+>
+> <https://stackoverflow.com/questions/62650640/>
 
 ## 小技巧
 
@@ -234,13 +272,13 @@ yarn add package-name@^
 
 我们都知道可以用 `@` 来指定版本，当我们指定的版本不存在时，就会让用户自行选择版本。
 
-## nodejs 直接运行 typescript 文件
+## 直接运行 ts 文件
 
 通常情况下，ts 文件需要用 tsc 编译成 js 文件再运行，这里通过使用 `ts-node`，直接运行 ts 文件，省去了手动编译的过程。
 
 ### 安装
 
-全局安装`typescript`和`ts-node`
+全局安装 `typescript` 和 `ts-node`
 
 ```bash
 npm install -g typescript
@@ -248,7 +286,7 @@ npm install -g typescript
 npm install -g ts-node # typescript@>=2.7
 ```
 
-```bash
+```powershell
 yarn global add typescript
 yarn global add @types/node --dev
 yarn global add ts-node
@@ -266,7 +304,7 @@ let foo = {
 console.log(foo);
 ```
 
-### 执行命令`ts-node xxx.ts`
+### 执行命令 `ts-node xxx.ts`
 
 ```powershell
 ts-node foo.ts
@@ -282,10 +320,10 @@ npm cache clean -f
 
 ## 卸载 NodeJS
 
-按照正常方式卸载 nodejs 后，系统盘中还会存在一些残留的数据，还需要删除`AppData\Roaming`下的配置文件和临时文件：
+按照正常方式卸载 nodejs 后，系统盘中还会存在一些残留的数据，还需要删除 `AppData\Roaming` 下的配置文件和临时文件：
 
-1. 按下`win`+`R`，输入`%appdata%`；
-2. 找到并删除`npm`、`npm-cache`两个文件夹。
-3. 检查环境变量确保没有`Nodejs`相关值存在：`echo %PATH% | findstr "node"`
+1. 按下 `win`+`R`，输入 `%AppData%`；
+2. 找到并删除 `npm`、`npm-cache` 两个文件夹。
+3. 检查环境变量确保没有 `Nodejs` 相关值存在：`echo %PATH% | findstr "node"`
 
-在系统盘，当前用户名的目录下（如`C:\Users\Trezedo`），还存在如`.npmrc`，`.yarnrc`之类的文件，用记事本打开可以发现它里面包含了我们使用`npm config`设置的配置，如果下次安装不需要这些配置，则可以手动删除。
+在系统盘，当前用户名的目录下（如 `C:\Users\Trezedo`），还存在如 `.npmrc`，`.yarnrc` 之类的文件，用记事本打开可以发现它里面包含了我们使用 `npm config` 设置的配置，如果下次安装不需要这些配置，则可以手动删除。

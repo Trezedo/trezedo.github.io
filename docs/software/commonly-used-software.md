@@ -22,7 +22,7 @@ FireFox 浏览器：<https://www.mozilla.org/zh-CN/firefox/all>
 
 :::
 
-VS Code：<https://code.visualstudio.com/Download> ~~这个应该不用多说~~
+IntelliJ Idea：<https://www.jetbrains.com/zh-cn/idea/download/> 强大的 Java IDE
 
 SumatraPDF：<https://www.sumatrapdfreader.org/download-free-pdf-viewer>
 
@@ -35,8 +35,6 @@ MobaXterm <https://mobaxterm.mobatek.net/download-home-edition.html> 通过 ssh 
 Geek Uninstaller <https://geekuninstaller.com/download> 卸载软件很方便
 
 Everything <https://www.voidtools.com/zh-cn/> 快速定位文件和文件夹
-
-Git：[windows 镜像](https://registry.npmmirror.com/binary.html?path=git-for-windows/)
 
 万能联播：<https://static-s.iqiyi.com/wnbf/get.html> 之前叫爱奇艺万能播放器，支持视频、图片播放
 

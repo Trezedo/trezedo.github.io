@@ -7,15 +7,21 @@ tag:
 
 # Git 的使用
 
+本文适用于 windows 系统。
+
 ## 安装
 
-下载安装包
+下载安装包，这里给出一些国内镜像：
 
-打开后按默认设置继续下去就可以了
+- 华为镜像 <https://repo.huaweicloud.com/git-for-windows/>
+- 淘宝镜像 [git-for-windows](https://registry.npmmirror.com/binary.html?path=git-for-windows/)
+- 清华镜像 [git-for-windows](https://mirrors.tuna.tsinghua.edu.cn/github-release/git-for-windows/git/)
+
+下载 `.exe` 文件（例如 `Git-2.37.1-64-bit.exe`）后打开，按默认设置继续下去就可以了。
 
 ## git 初始化
 
-这里假设目前所使用的 git 仓库都是同一个账号（全局）
+这里假设目前所使用的 git 仓库都是同一个账号（全局）：
 
 ```bash
 git config --global user.email "注册时的邮箱"
@@ -61,13 +67,13 @@ The key's randomart image is:
 +----[SHA256]-----+
 ```
 
-在本地 Git 仓库和 gitHub 仓库建立连接，创建 SSH 时，可以输入**passphrase**（可以默认不输入）。如果在一开始没有输入的话，后面就不好整了，需要重新进行连接，输入**passphrase**
+在生成 SSH Key 时，如果设置了 passphrase，使用 SSH 协议克隆远程仓库时，在每次 git pull 和 git push 时都会提示 `Enter passphrase for key '/Users/Trezedo/.ssh/id_rsa'`，每次都要手动输入密码才能继续操作，可以在命令行输入 `sh-keygen -p` 进行重新设置，直接回车输入为空，就没有密码了。
 
-在生成 SSH Key 时，如果不小心设置了 passphrase，使用 SSH 协议克隆远程仓库时，在每次 git pull 和 git push 时都会提示`Enter passphrase for key ‘/Users/zhangxiaoxue/.ssh/id_rsa‘`，每次都要手动输入密码才能继续操作，可以在命令行输入`sh-keygen -p`进行重新设置，直接回车输入为空，就没有密码了。
+接下来在码云上添加 SSH 公钥。右上角打开设置，
 
-![](https://zedo.gitee.io/img/20220128193519.png)
+![20220128193519.png](https://zedo.gitee.io/img/20220128193519.png)
 
-![](https://zedo.gitee.io/img/20220128193543.png)
+![20220128193543.png](https://zedo.gitee.io/img/20220128193543.png)
 
 点击确定，输入密码
 
@@ -99,9 +105,9 @@ git remote rm gitee
 git config --global credential.helper store # 长期存储密码，似乎没用
 ```
 
-https://blog.csdn.net/yywan1314520/article/details/51566924
+<https://blog.csdn.net/yywan1314520/article/details/51566924>
 
-https://segmentfault.com/q/1010000012086638
+<https://segmentfault.com/q/1010000012086638>
 
 > git pull --rebase origin master
 >
@@ -119,7 +125,7 @@ git branch
 
 没有参数时，`git branch` 会列出你在本地的分支：
 
-```
+```text
 * master
 ```
 
