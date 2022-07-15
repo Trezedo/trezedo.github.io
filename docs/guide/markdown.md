@@ -1,51 +1,90 @@
 ---
+title: Markdown 展示
 icon: markdown
-title: Markdown 增强
+order: 2
 category:
     - 使用指南
 tag:
-    - markdown
+    - Markdown
 ---
 
-VuePress 的每个文档页面都是由 Markdown 渲染而成。所以你需要通过在相应路径创建编写 Markdown 建立你的文档或博客页面。
+VuePress 主要从 Markdown 文件生成页面。因此，你可以使用它轻松生成文档或博客站点。
+
+你应该创建和编写 Markdown 文件，以便 VuePress 可以根据文件结构将它们转换为不同的页面。
 
 <!-- more -->
 
 ## Markdown 介绍
 
-如果你是一个新手，还不会编写 Markdown，请先阅读 [Markdown 介绍](https://vuepress-theme-hope.github.io/v2/zh/basic/markdown/README.html) 和 [Markdown 演示](https://vuepress-theme-hope.github.io/v2/zh/basic/markdown/demo.html)。
+如果你是一个新手，还不会编写 Markdown，请先阅读 [Markdown 介绍](https://vuepress-theme-hope.github.io/v2/zh/cookbook/markdown/) 和 [Markdown 演示](https://vuepress-theme-hope.github.io/v2/zh/cookbook/markdown/demo.html)。
 
-::: info Frontmatter
+## Markdown 配置
 
-Frontmatter 是 VuePress 中很重要的一个概念，如果你不了解它，你需要阅读 [Frontmatter 介绍](https://vuepress-theme-hope.github.io/v2/zh/basic/vuepress/page.html#front-matter)。
+VuePress 通过 Frontmatter 为每个 Markdown 页面引入配置。
+
+::: info
+
+Frontmatter 是 VuePress 中很重要的一个概念，如果你不了解它，你需要阅读 [Frontmatter 介绍](https://vuepress-theme-hope.github.io/v2/zh/cookbook/vuepress/page.html#front-matter)。
 
 :::
 
-## VuePress 扩展
+## Markdown 扩展
+
+VuePress 会使用 [markdown-it](https://github.com/markdown-it/markdown-it) 来解析 Markdown 内容，因此可以借助于 markdown-it 插件来实现 [语法扩展](https://github.com/markdown-it/markdown-it#syntax-extensions) 。
+
+### VuePress 扩展
 
 为了丰富文档写作，VuePress 对 Markdown 语法进行了扩展。
 
-关于这些扩展，请阅读 [VuePress 中的 Markdown 扩展](https://vuepress-theme-hope.github.io/v2/zh/basic/vuepress/markdown.html)。
+关于这些扩展，请阅读 [VuePress 中的 Markdown 扩展](https://vuepress-theme-hope.github.io/v2/zh/cookbook/vuepress/markdown.html)。
 
-## 主题扩展
+### 主题扩展
 
-### 一键启用
+通过 [`vuepress-plugin-md-enhance`][md-enhance]，主题扩展了更多 Markdown 语法，提供更加丰富的写作功能。
 
-你可以设置 `themeconfig.plugins.htmlEnhance.enableAll` 启用 [md-enhance](https://vuepress-theme-hope.github.io/v2/md-enhance) 插件的所有功能。
+:::: tip 一键启用
 
-```js {3-5}
-module.exports = {
-    themeConfig: {
-        plugins: {
-            mdEnhance: {
-                enableAll: true,
-            },
-        },
+你可以设置在主题选项中设置 `plugins.mdEnhance.enableAll: true` 启用 [md-enhance][md-enhance] 插件的所有功能。
+
+::: code-tabs#language
+
+@tab TS
+
+```ts
+import { hopeTheme } from "vuepress-theme-hope";
+
+export default {
+  theme: hopeTheme({
+    plugins: {
+      mdEnhance: {
+        enableAll: true,
+      },
     },
+  }),
 };
 ```
 
-### 自定义容器
+@tab JS
+
+```js
+const { hopeTheme } = require("vuepress-theme-hope");
+
+module.exports = {
+  theme: hopeTheme({
+    plugins: {
+      mdEnhance: {
+        enableAll: true,
+      },
+    },
+  }),
+};
+```
+
+:::
+
+::::
+
+#### 自定义容器
 
 ::: v-pre
 
@@ -131,9 +170,15 @@ const a = 1;
 
 - [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/container.html)
 
-### 代码块
+#### 代码块
 
 ::: code-tabs
+
+@tab pnpm
+
+```bash
+pnpm add -D vuepress-theme-hope
+```
 
 @tab yarn
 
@@ -149,9 +194,9 @@ npm i -D vuepress-theme-hope
 
 :::
 
-- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/code-group.html)
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/code-tabs.html)
 
-### 自定义对齐
+#### 自定义对齐
 
 ::: center
 
@@ -167,13 +212,13 @@ npm i -D vuepress-theme-hope
 
 - [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/align.html)
 
-### 上下角标
+#### 上下角标
 
 19^th^ H~2~O
 
 - [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/sup-sub.html)
 
-### 脚注
+#### 脚注
 
 此文字有脚注[^first].
 
@@ -181,20 +226,88 @@ npm i -D vuepress-theme-hope
 
 - [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/footnote.html)
 
-### 标记
+#### 标记
 
 你可以标记 ==重要的内容== 。
 
 - [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/mark.html)
 
-### 任务列表
+#### 任务列表
 
 - [x] 计划 1
 - [ ] 计划 2
 
 - [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/tasklist.html)
 
-### 流程图
+### 图片增强
+
+支持为图片设置颜色模式和大小
+
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/image.html)
+
+#### 图表
+
+::: chart 一个散点图案例
+
+```json
+{
+  "type": "scatter",
+  "data": {
+    "datasets": [
+      {
+        "label": "散点数据集",
+        "data": [
+          { "x": -10, "y": 0 },
+          { "x": 0, "y": 10 },
+          { "x": 10, "y": 5 },
+          { "x": 0.5, "y": 5.5 }
+        ],
+        "backgroundColor": "rgb(255, 99, 132)"
+      }
+    ]
+  },
+  "options": {
+    "scales": {
+      "x": {
+        "type": "linear",
+        "position": "bottom"
+      }
+    }
+  }
+}
+```
+
+:::
+
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/chart.html)
+
+#### Echarts
+
+::: echarts 一个折线图案例
+
+```json
+{
+  "xAxis": {
+    "type": "category",
+    "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+  },
+  "yAxis": {
+    "type": "value"
+  },
+  "series": [
+    {
+      "data": [150, 230, 224, 218, 135, 147, 260],
+      "type": "line"
+    }
+  ]
+}
+```
+
+:::
+
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/echarts.html)
+
+#### 流程图
 
 ```flow
 cond=>condition: 是否执行操作?
@@ -207,7 +320,7 @@ cond(no)->e
 
 - [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/flowchart.html)
 
-## Mermaid
+#### Mermaid
 
 ```mermaid
 flowchart TB
@@ -228,7 +341,7 @@ flowchart TB
 
 - [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/mermaid.html)
 
-### Tex 语法
+#### Tex 语法
 
 $$
 \frac {\partial^r} {\partial \omega^r} \left(\frac {y^{\omega}} {\omega}\right)
@@ -237,24 +350,30 @@ $$
 
 - [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/tex.html)
 
-### 代码演示
+#### 导入文件
+
+@include(./README.md{11-17})
+
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/include.html)
+
+#### 代码演示
 
 ::: normal-demo 一个普通 Demo
 
 ```html
-<h1>Mr.Hope</h1>
-<p><span id="very">十分</span> 帅</p>
+<h1>VuePress Theme Hope</h1>
+<p><span id="very">非常</span>强大!</p>
 ```
 
 ```js
 document.querySelector("#very").addEventListener("click", () => {
-    alert("十分帅");
+  alert("非常强大");
 });
 ```
 
 ```css
 span {
-    color: red;
+  color: red;
 }
 ```
 
@@ -262,7 +381,17 @@ span {
 
 - [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/demo.html)
 
-### 幻灯片
+#### 样式化
+
+<!-- markdownlint-disable MD033 -->
+
+设置它<span style="color:red">没有</span>任何效果，请<span style="color:red">不要</span>这样使用
+
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/stylize.html)
+
+<!-- markdownlint-enable MD033 -->
+
+#### 幻灯片
 
 @slidestart
 
@@ -296,3 +425,5 @@ $$
 @slideend
 
 - [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/presentation.html)
+
+[md-enhance]: <https://vuepress-theme-hope.github.io/v2/md-enhance/zh/>
