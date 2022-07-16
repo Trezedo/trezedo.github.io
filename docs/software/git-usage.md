@@ -34,7 +34,7 @@ git config --global user.name "你的用户名"
 git config --list
 ```
 
-### ssh 公钥
+### 添加 ssh 公钥
 
 ```bash
 ssh-keygen -t rsa -C "注册时的邮箱"
@@ -42,7 +42,7 @@ ssh-keygen -t rsa -C "注册时的邮箱"
 
 之后连续回车直至结束即可，结果类似以下内容：
 
-```bash
+```text
 $ ssh-keygen -t rsa -C "1962234583@qq.com"
 Generating public/private rsa key pair.
 Enter file in which to save the key (C:\Users\Trezedo/.ssh/id_rsa):
@@ -73,19 +73,11 @@ The key's randomart image is:
 
 ![20220128193519.png](https://zedo.gitee.io/img/20220128193519.png)
 
+找到 SSH 公钥
+
 ![20220128193543.png](https://zedo.gitee.io/img/20220128193543.png)
 
-点击确定，输入密码
-
-```bash
-ssh -T git@gitee.com
-The authenticity of host 'gitee.com (212.64.62.183)' can't be established.
-ECDSA key fingerprint is SHA256:FQGC9Kn/eye1W8icdBgrQp+KkGYoFgbVr17bmjey0Wc.
-Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
-Warning: Permanently added 'gitee.com,212.64.62.183' (ECDSA) to the list of known hosts.
-Enter passphrase for key 'C:\Users\Trezedo/.ssh/id_rsa':
-Hi ?[36;01mTrezedo?[0m! You've ?[32msuccessfully?[0m authenticated, but GITEE.COM does not provide shell access.
-```
+粘贴 `id_rsa.pub`  中的内容到以上文本框，点击确定，输入密码即可。
 
 在项目中添加 gitee 远程仓库地址
 
@@ -93,31 +85,27 @@ Hi ?[36;01mTrezedo?[0m! You've ?[32msuccessfully?[0m authenticated, but GITEE.CO
 git remote add gitee git@gitee.com:zedo/zedo.git
 ```
 
-**git remote -v** 查看远程库信息
+`git remote -v` 查看远程库信息
 
-删除已有的 GitHub 远程库：
+删除已有的远程库地址：
 
 ```bash
 git remote rm gitee
 ```
 
-```bash
-git config --global credential.helper store # 长期存储密码，似乎没用
-```
+[解决 git 每次都要输入用户名和密码问题](https://blog.csdn.net/yywan1314520/article/details/51566924)
 
-<https://blog.csdn.net/yywan1314520/article/details/51566924>
-
-<https://segmentfault.com/q/1010000012086638>
+[git 如何 add 全部而又忽略部分文件](https://segmentfault.com/q/1010000012086638)
 
 > git pull --rebase origin master
 >
 > 获取远程库与本地同步合并（如果远程库不为空必须做这一步，否则后面的提交会失败）
 
-## 分支管理
+## git 命令
 
 ### 列出分支
 
-列出分支基本命令：
+列出本地分支命令：
 
 ```sh
 git branch
@@ -131,7 +119,19 @@ git branch
 
 此例的意思就是，我们有一个叫做 `master` 的分支，并且该分支是当前分支。
 
-当执行 `git init` 的时候，默认情况下 Git 就会为我们创建 `master` 分支。
+当执行 `git init` 的时候，默认情况下 git 就会为我们创建 `master` 分支。
+
+列出远程源命令：
+
+```sh
+git remote
+```
+
+通常情况下，远程源的名称是 origin：
+
+```text
+* origin
+```
 
 ### 创建分支
 
@@ -198,40 +198,77 @@ git merge branch-name
 
 ### 重命名分支
 
-本地分支重命名(还没有推送到远程)
+#### 本地分支
+
+如果重命名当前分支：
 
 ```sh
-# 将 oldName 分支重命名为 newName
-git branch -m oldName newName
+git branch -m new_name
 ```
 
-远程分支重命名
+如果重命名任意本地分支：
 
-> 重命名的分支不能是默认分支
+```sh
+# 将 old_name 分支重命名为 new_name
+git branch -m old_name new_name
+```
+
+#### 远程分支
+
+> 注意：重命名的远程分支不能是默认分支，如要修改默认分支的名称，可以先设置其他分支为默认分支。
+
+假设远程分支与本地分支的名称一致。
 
 ```sh
 # 先重命名本地分支
-git branch -m oldName newName
+git branch -m old_name new_name
 
 # 删除远程分支
-git push --delete origin oldName
+git push --delete origin old_name
 
 # 上传到新分支
-git push origin newName
+git push origin new_name
 
 # 关联修改后的本地分支与远程分支
-git branch --set-upstream-to origin/newName
+git branch --set-upstream-to origin/new_name
 ```
 
-## 查看提交历史
+### 查看提交历史
 
-简洁版：
+`git log` 可以查看提交历史。
+
+查看简洁版的记录可以使用：
 
 ```sh
 git log --oneline
 ```
 
-放弃本地修改，全部使用远端代码：
+如果有多条提交，命令行终端不会完全展示，这时按回车键可以继续往下查看，按 `Q` 键可以退出。
+
+#### 回退到某个版本
+
+```sh
+git reset --hard HEAD^ # 回退到上一版
+git reset --hard HEAD^^ # 回退到倒数第二版
+git rest --hard dc3dc8b # 回退到 commit id 为 dc3dc8b 的版本
+```
+
+commit id 可以通过以下命令查看：
+
+```sh
+git log --oneline
+git reflog
+```
+
+soft、mixed 和 hard 的区别：
+
+- soft：撤销 commit 的提交，但不撤销该提交包含的更改，保留工作区未提交的更改；
+- mixed：撤销暂存区的提交，工作区的更改同样也保留。
+- hard：彻底回退。工作区、暂存区、commit 提交都变为某个版本的内容。
+
+#### 放弃本地修改
+
+全部使用远端代码的方法如下：
 
 ```sh
 # 拉取所有更新，不同步

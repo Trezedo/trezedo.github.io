@@ -14,6 +14,8 @@ tag:
 
 # Markdown 基本使用
 
+markdown 基础可以参看：<https://markdown.com.cn/>
+
 <CurrentPageData/>
 
 简单介绍 Markdown 的基本使用以及在 VuePress 中的拓展
