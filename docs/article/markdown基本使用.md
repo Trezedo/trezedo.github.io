@@ -93,7 +93,7 @@ md docs && echo # Hello VitePress > docs/index.md
 
 #### 使用 `$frontmatter`
 
-`$frontmatter` 是 `$page.fontmatter` 的引用缩写
+`$frontmatter` 是 `$page.frontmatter` 的引用缩写
 
 输入：
 
