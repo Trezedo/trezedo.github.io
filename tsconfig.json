@@ -1,8 +1,9 @@
 {
+    // "extends": "./tsconfig.base.json",
     "compilerOptions": {
         "baseUrl": "./",
         "paths": {
-            "@zedo": ["custom/"],
+            "@zedo": ["custom"], // 注意末尾不能有斜杠
             "@zedo/*": ["custom/*"]
         },
         "module": "commonjs",
@@ -13,6 +14,6 @@
         "skipLibCheck": true,
         "jsx": "preserve"
     },
-    "include": ["custom/**/*.ts", "custom/**/*.vue"],
+    "include": ["./custom/**/*", "**/.vuepress/**/*"],
     "exclude": ["node_modules"]
 }
