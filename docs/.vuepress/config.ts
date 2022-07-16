@@ -32,15 +32,7 @@ export default defineUserConfig({
                 src: "https://unpkg.com/smoothscroll-for-websites@1.4.10/SmoothScroll.js",
             },
         ], */
-        [
-            "script",
-            {
-                defer: true,
-                src: "/assets/js/notiflix-confirm-aio-3.2.4.min.js",
-            },
-        ],
         ["script", { defer: true, src: "/assets/js/index.js" + date }],
-        ["script", { defer: true, src: "/assets/js/love-me.js" }],
     ],
     alias: {
         "@zedo": path.resolve(__dirname, "../../custom/"),

@@ -1,5 +1,5 @@
 import { defineClientConfig } from "@vuepress/client";
-import { useIconfont, useImageSize } from "@zedo";
+import { useIconfont, useImageSize, useLoveMe, useNotiflix } from "@zedo";
 
 // https://v2.vuepress.vuejs.org/zh/advanced/cookbook/usage-of-client-config.html
 export default defineClientConfig({
@@ -13,6 +13,8 @@ export default defineClientConfig({
     setup() {
         useIconfont();
         useImageSize();
+        useNotiflix();
+        useLoveMe();
     },
     rootComponents: [],
 });
