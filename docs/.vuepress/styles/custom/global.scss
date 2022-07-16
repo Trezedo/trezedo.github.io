@@ -1,14 +1,14 @@
 :root {
-    /* 滚动到目标的顶部偏移距离 3.75rem + 0.75rem = 4.5rem */
+    // 滚动到目标的顶部偏移距离 3.75rem + 0.75rem = 4.5rem
     --offset-top: calc(var(--navbar-height) + 0.75rem);
 }
 
-/* https://github.com/vuepress/vuepress-next/issues/359 */
+// https://github.com/vuepress/vuepress-next/issues/359
 :focus:not(:focus-visible) {
     outline: 0;
 }
 
-/* 代码块中的横向滚动条 */
+// 代码块中的横向滚动条
 pre::-webkit-scrollbar {
     height: 5px;
 }
@@ -18,21 +18,21 @@ pre::-webkit-scrollbar-track {
 }
 
 pre::-webkit-scrollbar-thumb {
-    background-color: rgba(149, 164, 167);
+    background-color: rgb(149, 164, 167);
     border-radius: 5px;
     transition: all 1s;
     -webkit-transition: all 1s;
 }
 
-/* 有用但是作用在了其他元素 https://developer.mozilla.org/zh-CN/docs/Web/CSS/scroll-margin-top */
-/*html {scroll-padding-top: 4.5em;}*/
+// 有用但是作用在了其他元素 https://developer.mozilla.org/zh-CN/docs/Web/CSS/scroll-margin-top
+// html {scroll-padding-top: 4.5em;}
 .base > span.enclosing {
-    /* https://stackoverflow.com/questions/4086107#26214572 */
+    // https://stackoverflow.com/questions/4086107#26214572
     padding-top: var(--offset-top);
     margin-top: calc(0 - var(--offset-top));
 }
 
-/* 滚动到自定义上下文锚点，上边距 */
+// 滚动到自定义上下文锚点，上边距
 p > a[name] {
     padding-top: var(--offset-top);
     margin-top: calc(0 - var(--offset-top));
@@ -44,57 +44,15 @@ p > a[name]:before {
     content: "m";
 }
 
-/*noinspection CssInvalidHtmlTagReference*/
-particle {
-    position: fixed;
-    left: 0;
-    top: 0;
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0;
-    z-index: 999;
-}
-
-/* @mr-hope/vuepress-plugin-components/lib/client/styles/back-to-top.scss */
-.refresh-page {
-    background-color: var(--c-bg, #fff);
-    border-radius: 1rem;
-    border-width: 0;
-    bottom: 8rem;
-    box-shadow: 2px 2px 10px 0 var(--card-shadow);
-    color: var(--c-brand, #3eaf7c);
-    cursor: pointer;
-    height: 3rem;
-    width: 3rem;
-    position: fixed !important;
-    right: 1rem;
-    padding: 0.5rem;
-    z-index: 100;
-}
-
-@media screen and (max-width: 719px) {
-    /*.toggle-sidebar {
-        visibility: hidden !important;
-    }*/
-    .refresh-page {
-        bottom: 7rem;
-        width: 2.25rem;
-        height: 2.25rem;
-        padding: 0.25rem;
-        border-radius: 0.5rem;
-    }
-}
-
-/* toggle 侧边栏的过渡动画 */
+// toggle 侧边栏的过渡动画
 .sidebar {
-    /*transition: left 0.3s;*/
-    -webkit-transition: 0.3s;
+    // transition: left 0.3s;
     transition: 0.3s;
 }
 
 .page {
-    /* 会覆盖切换页面之间的过度动画 */
-    /*transition: padding-left 0.3s;*/
+    // 会覆盖切换页面之间的过度动画
+    // transition: padding-left 0.3s;
     transition: all 0.3s;
 }
 
@@ -104,8 +62,8 @@ particle {
     transform 比 margin 性能好 50%~70%
  */
 .sidebar.hide {
-    /* 使用 transform 代替直接 修改 left */
-    /*left: calc(0px - var(--sidebar-width));*/
+    // 使用 transform 代替直接 修改 left
+    // left: calc(0px - var(--sidebar-width));
     -webkit-transform: translateX(calc(0px - var(--sidebar-width)));
     transform: translateX(calc(0px - var(--sidebar-width)));
 }
@@ -114,17 +72,22 @@ particle {
     padding-left: 0;
 }
 
-/* 表格对齐方式 */
+// 表格对齐方式
 .custom-container.center > table,
 .custom-container.right > table {
     display: inline;
     margin: 1rem auto;
 }
 
-/* 选中文字美化。似乎无需 ::-moz-selection */
+// 选中文字美化。似乎无需 ::-moz-selection
 *::selection {
     color: var(--theme-color);
     /* ----theme-color 15% 透明度 */
+    background-color: var(--theme-color-mask);
+}
+
+// 行内代码背景色跟随主题
+code {
     background-color: var(--theme-color-mask);
 }
 
@@ -159,6 +122,44 @@ table tr:nth-child(even) {
     background: #f5fafa;
 }
 
-/**
-压缩 uglifycss docs/.vuepress/public/assets/css/index.css > docs/.vuepress/public/assets/css/index.min.css
- */
+// todo 移动到其他文件
+
+// 自定义粒子
+particle {
+    position: fixed;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 999;
+}
+// @mr-hope/vuepress-plugin-components/lib/client/styles/back-to-top.scss
+.refresh-page {
+    background-color: var(--c-bg, #fff);
+    border-radius: 1rem;
+    border-width: 0;
+    bottom: 8rem;
+    box-shadow: 2px 2px 10px 0 var(--card-shadow);
+    color: var(--c-brand, #3eaf7c);
+    cursor: pointer;
+    height: 3rem;
+    width: 3rem;
+    position: fixed !important;
+    right: 1rem;
+    padding: 0.5rem;
+    z-index: 100;
+}
+
+@media screen and (max-width: 719px) {
+    /*.toggle-sidebar {
+        visibility: hidden !important;
+    }*/
+    .refresh-page {
+        bottom: 7rem;
+        width: 2.25rem;
+        height: 2.25rem;
+        padding: 0.25rem;
+        border-radius: 0.5rem;
+    }
+}
