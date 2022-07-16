@@ -1,5 +1,6 @@
 ---
 title: VS Code 使用
+icon: vscode
 ---
 
 下载地址：<https://code.visualstudio.com/Download>
@@ -11,7 +12,14 @@ Windows 系统下使用 vscode 内置终端可能会提示：
 所在位置 行:1 字符: 1
 ```
 
-根据上面的 [链接](https:/go.microsoft.com/fwlink/?LinkID=135170) ，以**管理员身份**打开 powershell，然后执行：
+这是由于 Windows PowerShell 自动阻止不信任的脚本执行 造成的，因此需要更改 Windows PowerShell 执行策略。
+
+```ps1
+# 查看当前的执行策略
+Get-ExecutionPolicy
+```
+
+根据上面的 [链接](https:/go.microsoft.com/fwlink/?LinkID=135170) ，以**管理员身份**打开 PowerShell，然后执行：
 
 ```ps1
 Set-ExecutionPolicy RemoteSigned

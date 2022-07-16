@@ -1,6 +1,6 @@
 ---
-date: 2022-02-27
-article: false
+date: 2022-03-27
+icon: windows
 title: windows 常用软件
 description: windows 系统下常用、好用的软件
 tag:

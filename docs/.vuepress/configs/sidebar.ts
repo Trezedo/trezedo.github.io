@@ -10,6 +10,7 @@ export default sidebar({
         },*/
         {
             text: "使用指南",
+            icon: "creative",
             collapsable: true,
             prefix: "guide/",
             // link: "/guide/README.md",
