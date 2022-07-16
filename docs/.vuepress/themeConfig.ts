@@ -26,8 +26,9 @@ export default hopeTheme({
         green: "#3eaf7c",
         orange: "#fb9b5f",
     },
+
     blog: {
-        articlePerPage: 8,
+        articlePerPage: 10,
         medias: {
             QQ: "https://res.abeim.cn/api/qq/?qq=1962234583",
             Qzone: "https://1962234583.qzone.qq.com",
@@ -41,6 +42,7 @@ export default hopeTheme({
         roundAvatar: true, // 首页右侧的头像
     },
     lastUpdated: true,
+
     // navbar, // 似乎失败了
     locales: {
         "/": {
@@ -48,7 +50,7 @@ export default hopeTheme({
             sidebar: sidebar,
             footer:
                 `Powered by <a href="https://v2.vuepress.vuejs.org/" target="_blank">VuePress</a>` +
-                ` and <a href="https://vuepress-theme-hope.github.io/" target="_blank">vuepress-theme-hope</a>`,
+                ` and <a href="https://vuepress-theme-hope.github.io/" target="_blank">VuePress Theme Hope</a>`,
             displayFooter: true,
             blog: {
                 description: "三分之一半吊子",
