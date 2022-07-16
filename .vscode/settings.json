@@ -26,6 +26,7 @@
         "npmrc",
         "ohos",
         "oneline",
+        "Qzone",
         "Schlömilch",
         "slideend",
         "slidestart",
@@ -38,7 +39,8 @@
         "userconfig",
         "Verticle",
         "Waline",
-        "winedt"
+        "winedt",
+        "Zhihu"
     ],
     "markdownlint.config": {
         // 允许嵌入 html 标签
