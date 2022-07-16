@@ -49,7 +49,7 @@ average(1, 2, 3, 4);
 
 ### 重复 n 次
 
-1. 递归，结合三元表达式
+1. 递归，结合三目运算符
 
     ```ts
     function repeat1(str: string, num: number): string {

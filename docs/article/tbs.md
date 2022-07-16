@@ -62,6 +62,7 @@ onMounted(() => {
 然后勾选 **“文件缓存”** ，然后点击“**清除**”
 
 <!-- todo 修改图片位置 -->
+
 <img src="https://gitee.com/zedo/data-generator/raw/vue2/src/assets/step1.png" alt="step1" style="max-width:360px;margin:0 auto;display:block" />
 
 显示如下则清理完成：
@@ -70,19 +71,15 @@ onMounted(() => {
 
 然后重新打开所要访问的页面即可。
 
-:::: tip 提示
+::: tip 提示
 
 在微信内需要先开启 X5 内核：
 
-::: center
-
 ![微信开启X5内核](https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://debugmm.qq.com/?forcex5=true)
-
-:::
 
 扫码后若提示 "**force use x5 switch is on**"，即开启成功。
 
-::::
+:::
 
 ## vue 路由问题
 
@@ -102,10 +99,6 @@ onMounted(() => {
 
 最终，我的解决方案是：==添加刷新按钮==来执行刷新操作：
 
-::: center
-
-<img src="https://zedo.gitee.io/img/image-20220324221949233.png" alt="image-20220324221949233" style="zoom:50%;" />
-
-:::
+![image-20220324221949233](https://zedo.gitee.io/img/image-20220324221949233.png#s-50)
 
 可以发现在右下角多了一个按钮，点它就可以刷新啦~

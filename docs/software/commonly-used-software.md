@@ -8,6 +8,8 @@ tag:
     - windows
 ---
 
+## 日常工具
+
 360 压缩： <https://yasuo.360.cn/>
 
 360 压缩(国际版)： <https://www.360totalsecurity.com/zh-cn/360zip/>
@@ -41,3 +43,25 @@ Everything <https://www.voidtools.com/zh-cn/> 快速定位文件和文件夹
 Duplicate File Finder Plus：查找重复文件（自行搜索）
 
 导入书签 <chrome://settings/importData>
+
+## 重装系统
+
+系统镜像下载：<https://next.itellyou.cn/Original/>
+
+PE 工具：[优启通](https://www.upe.net/)
+
+操作系统教程推荐：
+
+<!-- aid 可通过查看源码获得，实测 bvid 优先级高 -->
+
+<iframe
+    src="https://player.bilibili.com/player.html?bvid=BV1qf4y1776C&danmaku=1"
+    width="100%"
+    height="500"
+    allow="fullscreen"
+    style="border: none"
+    sandbox="allow-same-origin allow-scripts allow-popups"
+>
+    <!-- scrolling="no" 隐藏滚动条
+        https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/iframe -->
+</iframe>
