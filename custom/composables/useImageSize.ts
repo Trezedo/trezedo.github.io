@@ -3,17 +3,27 @@ import { useRoute } from "vue-router";
 
 export function useImageSize() {
     // 思路来源：https://www.zhihu.com/question/23378396/answer/402528770
+
+    // 检测是否支持 zoom
+    // MDN 建议用 transform scale 代替，但它不会重绘
+    const supportZoom: boolean = typeof document.body.style["zoom"] == "string";
+
     function initImageSize() {
         const images = document.querySelectorAll<HTMLImageElement>(
-            'img[src*="#w"]'
+            'img[src*="#s-"]'
         ) as unknown as HTMLImageElement[];
         console.log("list: ", images);
 
-        const reg = /#w([^#^ ]+)/; // 非空格或井号
+        const reg = /#s-(\d+)(px|%)?/;
         for (const img of images) {
-            const width = reg.exec(img.src)?.[1];
+            const exec = reg.exec(img.src);
+            const width = exec?.[1];
+            const unit = exec?.[2];
             console.log(img.src, width);
-            img.style.width = width + "%";
+            if (supportZoom) {
+                img.style["zoom"] = width + unit ?? "%";
+                return;
+            }
         }
     }
 

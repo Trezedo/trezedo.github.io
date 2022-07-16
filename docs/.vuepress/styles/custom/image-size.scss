@@ -1,0 +1,17 @@
+img[src*="#s"] {
+    width: auto;
+    height: auto;
+}
+
+@mixin image-size($size: 100) {
+    img[src*="#s-#{$size}"] {
+        // zoom: #{$size + "%"};
+        max-width: #{$size + "%"};
+    }
+}
+
+@for $i from 5 through 100 {
+    @if ($i % 5==0 or $i==66 or $i==67) {
+        @include image-size($i);
+    }
+}
