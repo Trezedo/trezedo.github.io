@@ -26,7 +26,7 @@ tag:
 
 下载完成后直接打开，按默认设置安装（可调整安装目录），
 
-<img src="https://zedo.gitee.io/img/image-20220204162706517.png" alt="image-20220204162706517" style="zoom:67%;" />
+![image-20220204162706517 center](https://zedo.gitee.io/img/image-20220204162706517.png#s-75)
 
 这个页面可以使用默认的，也可以将 **"Ask me first"** 改为 **"Yes"**，这样每当我们的文档需要安装宏包时，它会自己直接安装，而不是每次都询问。我们输出的`pdf` 通常是 `A4` 纸的页面大小，这里不做更改。接下来等待它安装完成即可。
 
@@ -34,21 +34,21 @@ tag:
 
 首次打开可能会提示存在问题，这只需要检查更新即可：
 
-<img src="https://zedo.gitee.io/img/image-20220204164300728.png" alt="image-20220204164300728" style="zoom:67%;" />
+![image-20220204164300728 center](https://zedo.gitee.io/img/image-20220204164300728.png#s-80)
 
 检查到更新后，点击左侧**更新**，然后**立即更新**即可。
 
-<img src="https://zedo.gitee.io/img/image-20220204164626595.png" alt="image-20220204164626595" style="zoom:67%;" />
+![image-20220204164626595 center](https://zedo.gitee.io/img/image-20220204164626595.png#s-80)
 
 更新完成后会提示重启：
 
-<img src="https://zedo.gitee.io/img/image-20220204164811386.png" alt="image-20220204164811386" style="zoom:67%;" />
+![image-20220204164811386 center](https://zedo.gitee.io/img/image-20220204164811386.png#s-80)
 
 ## 使用
 
 重新打开这个控制台，在界面中选择**启动 TexWorks 前端**：
 
-<img src="https://zedo.gitee.io/img/image-20220204165351295.png" alt="image-20220204165351295" style="zoom:67%;" />
+![image-20220204165351295 center](https://zedo.gitee.io/img/image-20220204165351295.png#s-80)
 
 打开后，输入以下基本的`latex`文档结构：
 
@@ -67,11 +67,11 @@ tag:
 
 上方选择 `pdfLaTeX`，然后点击**绿色**三角形按钮编译：
 
-<img src="https://zedo.gitee.io/img/image-20220204170446723.png" alt="image-20220204170446723" style="zoom: 80%;" />
+![image-20220204170446723 center](https://zedo.gitee.io/img/image-20220204170446723.png#s-60)
 
 首先该编辑器会让你保存文件，保存后再次点击绿色按钮，`MiKTeX` 可能会询问是否安装一些宏包（因为使用了 `ctex` 宏包，用于支持中文），编译完成会打开一个 `pdf`，这就是编译输出的产物：
 
-<img src="https://zedo.gitee.io/img/image-20220204170854221.png" alt="image-20220204170854221" style="zoom: 67%;" />
+![image-20220204170854221 center](https://zedo.gitee.io/img/image-20220204170854221.png#s-60)
 
 至此，我们已经完成了 latex 写作的最重要的一步。
 

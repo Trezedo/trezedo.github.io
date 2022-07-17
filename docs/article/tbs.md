@@ -53,7 +53,7 @@ onMounted(() => {
 
 <div v-if="env!=='QQ、微信'">
     <p>{{ env }}内不支持通过 <code>a</code> 标签从本文打开调试页面，但可以扫描以下二维码打开：</p>
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=http://debugx5.qq.com/" alt="debugX5" style="max-width:360px;margin:0 auto;display:block"/>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=http://debugx5.qq.com/" alt="debugX5 center 360px"/>
 </div>
 <div v-else>
     <p><a href="http://debugx5.qq.com">http://debugx5.qq.com</a>，注意一定是 <code>http</code> 协议。</p>

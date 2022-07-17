@@ -46,7 +46,7 @@ vert.x 官方提供了一个生成代码的在线工具：<https://start.vertx.i
 
 ### 配置文件
 
-**解压**刚才下载的压缩包到某个空目录，这样就是一个 `Vert.x` 项目了。然后用 `Java` 的 `IDE` 打开这个项目文件夹，这里我用的是 `IntelliJ IDEA`。首先需要打开的是根目录下的 `pom.xml` 文件，它是一个 `maven` 项目的配置文件，看看是否有报错，这个报错通常是正常的，因为我们还没有下载依赖。解决办法也很简单，只需要简单调整一下该文件的依赖顺序，然后右上角会出现这个按钮：<img src="https://zedo.gitee.io/img/image-20220216133937492.png" alt="image-20220216133937492" style="zoom: 67%;" />
+**解压**刚才下载的压缩包到某个空目录，这样就是一个 `Vert.x` 项目了。然后用 `Java` 的 `IDE` 打开这个项目文件夹，这里我用的是 `IntelliJ IDEA`。首先需要打开的是根目录下的 `pom.xml` 文件，它是一个 `maven` 项目的配置文件，看看是否有报错，这个报错通常是正常的，因为我们还没有下载依赖。解决办法也很简单，只需要简单调整一下该文件的依赖顺序，然后右上角会出现这个按钮：![image-20220216133937492 60px](https://zedo.gitee.io/img/image-20220216133937492.png)
 
 点击它就会**加载`maven`变更**，如果没有的依赖它就会自动从 `maven` 中心下载（当然，我们也可以剪切一部分依赖，然后加载变更，再把剪切掉的粘贴回来，再次加载变更即可）。
 
@@ -261,7 +261,7 @@ public void start(Promise<Void> startPromise) {
 
 现在重新运行项目，打开浏览器测试一下：
 
-<img src="https://zedo.gitee.io/img/image-20220216194353060.png" alt="image-20220216194353060" style="zoom:80%;" />
+![image-20220216194353060 center](https://zedo.gitee.io/img/image-20220216194353060.png#s-75)
 
 与我们的预期一致，尽管逻辑很简单，这就是我们的第一个接口！
 
@@ -314,7 +314,7 @@ router.route("/api/hello").handler(this::handleHello);
 
 将我们的 `vert.x` 项目打包成 `jar` 文件，这与 `SpringBoot` 项目的打包方式类似，只需要在 IDEA 右侧点击 `maven`，找到 `package`，双击即可。
 
-<img src="https://zedo.gitee.io/img/image-20220216210750646.png" alt="image-20220216210750646" style="zoom:80%;" />
+![image-20220216210750646 center](https://zedo.gitee.io/img/image-20220216210750646.png#s-60)
 
 ::: warning
 
