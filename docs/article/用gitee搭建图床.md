@@ -31,7 +31,7 @@ PicGo 中要填写的 token 是 gitee 中的私人令牌。
 
 提交后按提示操作即可。
 
-<img src="https://zedo.gitee.io/img/20220127215514.png" alt="20220127215514" style="zoom:67%;" />
+![20220127215514](https://zedo.gitee.io/img/20220127215514.png#s-60)
 
 注意复制生成的令牌。
 

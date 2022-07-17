@@ -5,13 +5,27 @@ img[src*="#s"] {
 
 @mixin image-size($size: 100) {
     img[src*="#s-#{$size}"] {
-        // zoom: #{$size + "%"};
-        max-width: #{$size + "%"};
+        max-width: #{$size + "%"}; // 或者用 zoom
     }
 }
 
 @for $i from 5 through 100 {
     @if ($i % 5==0 or $i==66 or $i==67) {
-        @include image-size($i);
+        #app {
+            @include image-size($i);
+        }
+    }
+}
+
+img[alt*="center"] {
+    display: block;
+    margin: 0 auto;
+}
+
+@for $i from 60 through 800 {
+    @if ($i % 20==0) {
+        img[alt*="#{$i}px"] {
+            width: #{$i}px;
+        }
     }
 }

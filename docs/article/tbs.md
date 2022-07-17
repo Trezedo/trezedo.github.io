@@ -59,15 +59,13 @@ onMounted(() => {
     <p><a href="http://debugx5.qq.com">http://debugx5.qq.com</a>，注意一定是 <code>http</code> 协议。</p>
 </div>
 
-然后勾选 **“文件缓存”** ，然后点击“**清除**”
+然后勾选 **“文件缓存”** ，然后点击“**清除**”：
 
-<!-- todo 修改图片位置 -->
-
-<img src="https://gitee.com/zedo/data-generator/raw/vue2/src/assets/step1.png" alt="step1" style="max-width:360px;margin:0 auto;display:block" />
+![step1 center 360px](https://zedo.gitee.io/data-generator/step1.png)
 
 显示如下则清理完成：
 
-<img src="https://gitee.com/zedo/data-generator/raw/vue2/src/assets/step2.png" alt="step2" style="max-width:360px;display:block;margin:0 auto">
+![step2 center 360px](https://zedo.gitee.io/data-generator/step2.png)
 
 然后重新打开所要访问的页面即可。
 
@@ -75,7 +73,7 @@ onMounted(() => {
 
 在微信内需要先开启 X5 内核：
 
-![微信开启X5内核](https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://debugmm.qq.com/?forcex5=true)
+![微信开启X5内核 center](https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://debugmm.qq.com/?forcex5=true)
 
 扫码后若提示 "**force use x5 switch is on**"，即开启成功。
 
@@ -99,6 +97,6 @@ onMounted(() => {
 
 最终，我的解决方案是：==添加刷新按钮==来执行刷新操作：
 
-![image-20220324221949233](https://zedo.gitee.io/img/image-20220324221949233.png#s-50)
+![image-20220324221949233 center](https://zedo.gitee.io/img/image-20220324221949233.png#s-50)
 
 可以发现在右下角多了一个按钮，点它就可以刷新啦~
