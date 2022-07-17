@@ -17,7 +17,7 @@
     @REM 强制推送，会覆盖历史提交记录，不过该分支不需要记录
     git push origin pages -f
 ) && (
-    git checkout theme-hope
+    git checkout master
 ) && (
     @REM 删除本地 pages 分支
     git branch -D pages
