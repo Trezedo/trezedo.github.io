@@ -1,7 +1,9 @@
-import { onMounted, watch } from "vue";
+import { onMounted, onUpdated, watch } from "vue";
 import { useRoute } from "vue-router";
 
+// todo 以 markdown-it 插件形式来处理
 export function useImageSize() {
+    if (typeof document == "undefined") return;
     // 思路来源：https://www.zhihu.com/question/23378396/answer/402528770
 
     // 检测是否支持 zoom
@@ -17,26 +19,35 @@ export function useImageSize() {
         const reg = /#s-(\d+)(px|%)?/;
         for (const img of images) {
             const exec = reg.exec(img.src);
-            const width = exec?.[1];
+            const size = exec?.[1]; // 数值大小
             const unit = exec?.[2];
-            console.log(img.src, width);
             if (supportZoom) {
-                img.style["zoom"] = width + unit ?? "%";
-                return;
+                if (size && unit !== "px") {
+                    img.style["zoom"] = size + "%";
+                }
+            } else {
+                // “兼容” Firefox，用图片原始高度处理
+                img.style.width =
+                    (img.naturalWidth * parseInt(size)) / 100 + "px";
             }
         }
     }
 
     const route = useRoute();
     onMounted(() => {
-        console.log("onMounted");
-        setTimeout(() => initImageSize(), 200);
+        setTimeout(() => initImageSize(), 500);
     });
     watch(
         () => route.path,
-        () => {
-            console.log(new Date().getTime());
-            setTimeout(() => initImageSize(), 200);
+        async (n) => {
+            console.log(n);
+            // await nextTick() 无效
+            setTimeout(() => {
+                initImageSize();
+            }, 500);
         }
     );
+    onUpdated(() => {
+        console.log("!!!");
+    });
 }
