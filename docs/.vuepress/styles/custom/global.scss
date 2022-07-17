@@ -163,3 +163,11 @@ particle {
         border-radius: 0.5rem;
     }
 }
+
+.sidebar,
+.breadcrumb,
+.page-title,
+.theme-hope-content,
+.blog-info-list {
+    font-family: var(--font-family-fancy);
+}
