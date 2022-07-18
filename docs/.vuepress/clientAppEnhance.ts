@@ -1,5 +1,5 @@
 import { defineClientConfig } from "@vuepress/client";
-import { useImageSize } from "@zedo";
+import { useBackground, useImageSize } from "@zedo";
 import { loadScripts, loadStyles } from "@zedo";
 
 // https://v2.vuepress.vuejs.org/zh/advanced/cookbook/usage-of-client-config.html
@@ -12,6 +12,7 @@ export default defineClientConfig({
         // }
     },
     setup() {
+        useBackground();
         useImageSize();
         loadStyles();
         loadScripts();
