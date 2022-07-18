@@ -38,7 +38,7 @@ onMounted(() => {
 
 // 初始化打字机效果
 onMounted(() => {
-    const p = document.querySelector<HTMLParagraphElement>("p.description");
+    const p = document.querySelector<HTMLParagraphElement>("p.description")!;
     p.classList.add("typing");
     // 中文要 * 2
     const length = (p.innerText.length + 1) * 2;

@@ -29,7 +29,7 @@ function viewFriend() {
 
     const url = encodeURIComponent(baseUrl + qq.value);
     if (/Windows\b/.test(navigator.userAgent)) {
-        confirm.show({
+        confirm?.show({
             message: "请在QQ内或装有QQ的移动端打开",
             onOkClick() {
                 window.open(qrCode + url);

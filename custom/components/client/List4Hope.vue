@@ -32,7 +32,7 @@ const routes = getSimpleRoutes(props.prefix, props.removeRoot);
 function computeTitle(route: RouteRecordNormalized) {
     return (
         route.meta["title"] ||
-        /[^/]*?(?=\.html$)/.exec(decodeURI(route.path))[0]
+        /[^/]*?(?=\.html$)/.exec(decodeURI(route.path))?.[0]
     );
 }
 </script>
