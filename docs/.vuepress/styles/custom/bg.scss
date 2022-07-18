@@ -34,11 +34,21 @@ body,
     backdrop-filter: saturate(150%) blur(12px);
 } */
 
-// 分页
-.pagination-wrapper:not(p) {
-    margin: 1.25rem 0 1.25rem;
+@mixin bg-border {
     border-radius: 0.4rem;
     background: var(--bg-color-blur);
+}
+
+// 分页
+.pagination-wrapper:not(p) {
+    margin-bottom: 1.25rem;
+    @include bg-border();
+}
+
+// 文章类型
+.article-type-wrapper:not(p) {
+    padding: 1rem;
+    @include bg-border();
 }
 
 // 去掉 tag 的“荧光”
