@@ -7,7 +7,7 @@ heroImage: https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=5
 # heroImageStyle: {border-radius: 50%}
 heroText: Trezedo's Blog
 heroFullScreen: true
-bgImage: https://w.wallhaven.cc/full/72/wallhaven-72rd8e.jpg
+bgImage: https://w.wallhaven.cc/full/z8/wallhaven-z8dg9y.png
 # tagline: 人可以无知，但不可以白痴。 ——苗条俊
 tagline: 强中更有强中手，莫向人前满自夸。
 projects:
