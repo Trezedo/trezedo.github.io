@@ -20,7 +20,7 @@ interface ConfirmOption extends ConfirmRequired {
  * 使用 Notiflix 的 Confirm <br>
  * 提供了 {@link show} 方法
  */
-export default function useConfirm() {
+export function useConfirm() {
     if (typeof window == "undefined") return;
     // @ts-ignore
     let Confirm = window.Notiflix.Confirm;

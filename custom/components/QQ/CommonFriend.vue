@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import { ref, watch } from "vue";
-import useConfirm from "../../composables/useConfirm";
+import { useConfirm } from "../../hooks";
 
 const confirm = useConfirm();
 const qq = ref<string>("");

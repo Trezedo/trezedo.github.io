@@ -1,7 +1,7 @@
 import { onMounted } from "vue";
-import useConfirm from "../composables/useConfirm";
+import { useConfirm } from "./useConfirm";
 
-export default function detectTbs() {
+export function detectTbs() {
     const confirm = useConfirm();
 
     function initNotiflix() {

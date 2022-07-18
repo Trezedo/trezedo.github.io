@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import { getSimpleRoutes } from "../../composables/getSimpleRoutes";
+import { getSimpleRoutes } from "../../hooks/";
 import type { RouteRecordNormalized } from "vue-router";
 
 const props = defineProps({

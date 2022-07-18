@@ -1,4 +1,4 @@
-import { useHeadCss, useHeadScript } from "./composables";
+import { useHeadCss, useHeadScript } from "./hooks";
 
 const styles: CustomElement[] = [
     { id: "zedo-iconfont", src: "/assets/font/iconfont.css" },

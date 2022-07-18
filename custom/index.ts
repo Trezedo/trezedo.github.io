@@ -1,3 +1,3 @@
 export * from "./components";
-export * from "./composables";
+export * from "./hooks";
 export * from "./plugins";

@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
 import { onMounted } from "vue";
-import detectTbs from "../../composables/detectTbs";
+import { detectTbs } from "../../hooks/";
 
 /**
  * 检测是否在 QQ 或 微信 内打开
