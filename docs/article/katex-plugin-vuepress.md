@@ -1,7 +1,7 @@
 ---
 icon: tex
 date: 2022-01-26
-title: KaTeX插件配置
+title: KaTeX 插件配置
 category:
     - VuePress
 tag:

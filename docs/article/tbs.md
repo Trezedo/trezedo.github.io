@@ -2,7 +2,7 @@
 icon: question
 # article: false
 date: 2022-02-21
-description: 关于在QQ内打开Gitee Pages的缓存问题
+description: 关于在 QQ 内打开 Gitee Pages 的缓存问题
 tag:
     - gitee
 ---

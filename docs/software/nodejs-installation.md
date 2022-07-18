@@ -1,7 +1,7 @@
 ---
 icon: nodeJS
 date: 2022-02-04
-title: NodeJs安装及使用
+title: NodeJs 安装及使用
 tag:
     - nodejs
     - 环境配置

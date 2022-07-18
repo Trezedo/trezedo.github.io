@@ -4,7 +4,7 @@ slug: markdown-intro
 date: 2022-01-22
 permalink: /article/markdown-intro.html
 # permalinkPattern: :year/:month/:day/markdown-intro.html
-description: Markdown基本使用
+description: Markdown 基本使用
 lastUpdated: 2022-02-24
 category: 使用指南
 tag:

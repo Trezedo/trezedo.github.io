@@ -41,7 +41,7 @@ export default defineUserConfig({
         "/": {
             lang: "zh-CN",
             title: "Trezedo",
-            description: "使用vuepress2搭建的博客",
+            description: "使用 vuepress2 搭建的博客",
         },
         // "/zh/": {},
     },
