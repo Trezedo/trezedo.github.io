@@ -16,15 +16,17 @@
     height: 100%;
     z-index: -1; // 如果插在所有可见元素前面（例如 body 第一个子节点），可以不设置
 
-    background: url(https://w.wallhaven.cc/full/72/wallhaven-72rd8e.jpg) center
-        center / cover no-repeat;
-
     pointer-events: none;
+
+    // background-position: center center;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    background: var(--bg-color-back) center center / cover no-repeat;
 }
 
 /* 清除默认设置的背景 */
 body,
-.theme-container .page.blog:not(p)/* :not 用于增加权重 */ {
+.theme-container .page.blog:not(p) /*:not 用于增加权重 */ {
     background: transparent;
 }
 
