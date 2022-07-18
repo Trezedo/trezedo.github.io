@@ -42,12 +42,12 @@ export function useBackground(
         document.body.insertBefore(bg, document.body.children[0]);
         document.head.appendChild(css);
 
-        test(route.path) && install();
+        test!(route.path) && install();
     });
     watch(
         () => route.path,
         (n) => {
-            test(n) ? install() : uninstall();
+            test!(n) ? install() : uninstall();
         }
     );
 }

@@ -7,7 +7,7 @@ export function detectTbs() {
     function initNotiflix() {
         let env = /\bQQ\b|WeChat/g.exec(navigator.userAgent);
         let browser = /Chrome|Firefox|Safari/gi.exec(navigator.userAgent);
-        confirm.show({
+        confirm?.show({
             title: "检测到环境异常",
             message: `当前为 ${env || browser} 环境，点击确定查看详情`,
             okText: "确定",

@@ -27,8 +27,9 @@ export function useImageSize() {
                 }
             } else {
                 // “兼容” Firefox，用图片原始高度处理
-                img.style.width =
-                    (img.naturalWidth * parseInt(size)) / 100 + "px";
+                size &&
+                    (img.style.width =
+                        (img.naturalWidth * parseInt(size)) / 100 + "px");
             }
         }
     }
