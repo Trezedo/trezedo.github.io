@@ -28,11 +28,12 @@ body,
     background: transparent;
 }
 
-/* .footer-wrapper {
-    通过测试得到，如果设置 z-index，还需要用这个黑魔法。。
-    值得注意的是，Firefox 不能很好支持该属性
-    backdrop-filter: saturate(150%) blur(12px);
-} */
+.footer-wrapper {
+    background: var(--bg-color-blur);
+    // 通过测试得到，如果设置 z-index，还需要用这个黑魔法。。
+    // 值得注意的是，Firefox 不能很好支持该属性
+    // backdrop-filter: saturate(150%) blur(12px);
+}
 
 @mixin bg-border {
     border-radius: 0.4rem;
