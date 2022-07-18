@@ -45,5 +45,16 @@
     "markdownlint.config": {
         // 允许嵌入 html 标签
         "MD033": false
-    }
+    },
+    "easysass.compileAfterSave": true,
+    "easysass.formats": [
+        {
+            "format": "expanded",
+            "extension": ".css"
+        },
+        {
+            "format": "compressed",
+            "extension": ".min.css"
+        }
+    ]
 }
