@@ -29,7 +29,7 @@ export function useBackground(test?: (path: string) => boolean) {
     test =
         test ??
         function (path: string) {
-            return /^\/(tag|category|article|star|slide|encrypted|$)/gm.test(
+            return /^\/(tag|category|star|slide|encrypted|article\/$|$)/gm.test(
                 path
             );
         };
