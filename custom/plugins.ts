@@ -34,3 +34,23 @@ export function loadScripts() {
         !js.disabled && useHeadScript(js);
     }
 }
+
+/**
+ * 关闭生产环境时的 console.log ，但可以通过 --debug 开启
+ */
+export function disableDebugLog() {
+    if (typeof window == "undefined") {
+        return;
+    }
+    if (process.env.NODE_ENV == "production") {
+        // development
+        // @ts-ignore
+        window.log = console.log;
+        console.log = (..._args: any) => {};
+
+        if (/--debug$/.test(location.search)) {
+            // @ts-ignore
+            window.console.log = window.log;
+        }
+    }
+}
