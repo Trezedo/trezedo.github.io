@@ -5,7 +5,7 @@ import type { TrustContext } from "katex";
 export default hopeTheme({
     hostname: "https://zedo.gitee.io",
     author: {
-        name: "Trezedo",
+        name: "机器不会学习",
         url: "https://Trezedo.club",
     },
     iconAssets: "iconfont",
