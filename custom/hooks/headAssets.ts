@@ -29,7 +29,7 @@ export const useHeadScript = (config: CustomElement) => {
         const el = document.createElement("script");
         el.id = config.id;
         el.src = config.src + date;
-        el.defer = true;
+        el.defer = true; // https://www.cnblogs.com/jiasm/p/7683930.html
         document.head.appendChild(el);
     });
 };
