@@ -46,8 +46,8 @@ body,
 }
 
 @mixin bg-border {
-    border-radius: 0.4rem;
     background: var(--bg-color-blur);
+    border-radius: 0.4rem;
 }
 
 // 分页
@@ -63,6 +63,12 @@ body,
 }
 
 // 去掉 tag 的“荧光”
-.tag-list-wrapper .tag:not(p) {
+/* .tag-list-wrapper .tag:not(p) {
     box-shadow: none;
+} */
+
+// 给标签容器加上背景
+.tag-list-wrapper {
+    padding: 0.4rem;
+    @include bg-border();
 }
