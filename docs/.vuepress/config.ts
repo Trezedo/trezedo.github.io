@@ -24,23 +24,19 @@ export default defineUserConfig({
             rel: "icon", type: "image/jpeg",
             href: "https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=3&t=" + new Date().getTime()
         }],*/
-        // https://www.cnblogs.com/jiasm/p/7683930.html
-        /* [
-            "script", // 会导致标题栏图片闪烁
-            {
-                defer: true,
-                src: "https://unpkg.com/smoothscroll-for-websites@1.4.10/SmoothScroll.js",
-            },
-        ], */
         ["script", { defer: true, src: "/assets/js/index.js" + date }],
     ],
     alias: {
         "@zedo": path.resolve(__dirname, "../../custom/"),
+        "@theme-hope/components/NormalPage": path.resolve(
+            __dirname,
+            "../../custom/components/views/NormalPage.vue"
+        ),
     },
     locales: {
         "/": {
             lang: "zh-CN",
-            title: "Trezedo",
+            title: "Zedo",
             description: "使用 vuepress2 搭建的博客",
         },
         // "/zh/": {},
