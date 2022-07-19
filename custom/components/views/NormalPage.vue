@@ -19,7 +19,7 @@
 // https://github.com/vuepress-theme-hope/vuepress-theme-hope/blob/main/packages/theme/src/client/components/NormalPage.ts
 // 修改 CommonWrapper.ts 会影响很多地方
 
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { usePageFrontmatter } from "@vuepress/client";
 
 import NormalPage from "vuepress-theme-hope/lib/client/components/NormalPage";
@@ -27,16 +27,17 @@ import { computed } from "@vue/reactivity";
 
 const frontmatter = usePageFrontmatter();
 
-console.log(frontmatter.value);
-
 const coverLink = ref(
     frontmatter.value.cover ||
         "https://w.wallhaven.cc/full/wq/wallhaven-wqve97.png"
 );
 
 const imgLink = computed(() => {
-    console.log(frontmatter.value.article == false);
     return (frontmatter.value.article !== false && coverLink.value) || "";
+});
+
+onMounted(() => {
+    console.log(frontmatter.value);
 });
 </script>
 
