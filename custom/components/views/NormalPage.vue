@@ -47,6 +47,7 @@ onMounted(() => {
 }
 
 $coverHeight: var(--cover-height);
+$navbarHeight: var(--navbar-height);
 
 .page-cover {
     position: absolute;
@@ -66,6 +67,11 @@ $coverHeight: var(--cover-height);
 
     &.has-cover {
         padding-top: $coverHeight; // var(--navbar-height);
+    }
+
+    // 加密页的上边距
+    & .password-layer.expand {
+        margin-top: calc($navbarHeight - $coverHeight);
     }
 }
 </style>
