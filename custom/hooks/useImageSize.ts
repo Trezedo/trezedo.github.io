@@ -3,7 +3,9 @@ import { useRoute } from "vue-router";
 
 // todo 以 markdown-it 插件形式来处理
 export function useImageSize() {
-    if (typeof document == "undefined") return;
+    if (typeof document == "undefined") {
+        return;
+    }
     // 思路来源：https://www.zhihu.com/question/23378396/answer/402528770
 
     // 检测是否支持 zoom
@@ -40,7 +42,7 @@ export function useImageSize() {
     });
     watch(
         () => route.path,
-        async (n) => {
+        (n) => {
             console.log(n);
             // await nextTick() 无效
             setTimeout(() => {
