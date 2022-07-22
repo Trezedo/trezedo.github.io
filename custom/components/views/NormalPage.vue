@@ -19,11 +19,10 @@
 // https://github.com/vuepress-theme-hope/vuepress-theme-hope/blob/main/packages/theme/src/client/components/NormalPage.ts
 // 修改 CommonWrapper.ts 会影响很多地方
 
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { usePageFrontmatter } from "@vuepress/client";
 
 import NormalPage from "vuepress-theme-hope/lib/client/components/NormalPage";
-import { computed } from "@vue/reactivity";
 
 const frontmatter = usePageFrontmatter();
 
