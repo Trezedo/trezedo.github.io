@@ -12,7 +12,10 @@ const date: string = "?" + new Date().getTime();
 // noinspection JSUnusedGlobalSymbols,SpellCheckingInspection
 export default defineUserConfig({
     base: "/",
+
     dest: "./dist",
+    public: "./public",
+
     head: [
         // ! 此处引入的 css、js，当 hash 变化时也会重复加载
         /* [
