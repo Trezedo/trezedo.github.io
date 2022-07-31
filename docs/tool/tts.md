@@ -115,7 +115,7 @@ Windows 10 默认安装了两个不同语言的 TTS 引擎，实际上会有一�
 
 ![image-20220225221825312](https://zedo.gitee.io/img/image-20220225221825312.png)
 
-由于实测发现需要增加的注册表项太多才能生效，因此以下仅给出`Hongyu`的代码（64 位浏览器）：
+由于实测发现需要增加的注册表项太多才能生效，因此以下仅给出 `Hongyu` 的代码（64 位浏览器）：
 
 ```ini
 Windows Registry Editor Version 5.00
