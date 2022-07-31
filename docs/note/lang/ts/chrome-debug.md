@@ -1,4 +1,5 @@
 ---
+icon: debug
 title: Chrome 控制台实用 API 参考
 author:
     - kaycebasques

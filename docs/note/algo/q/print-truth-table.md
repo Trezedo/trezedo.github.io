@@ -1,4 +1,5 @@
 ---
+icon: table
 date: 2022-03-21
 title: 命题公式真值表
 category:

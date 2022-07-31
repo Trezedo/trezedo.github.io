@@ -1,6 +1,11 @@
 ---
+icon: javascript
 date: 2022-03-26
 title: 记录 js 常用的函数
+category:
+    - JavaScript
+tag:
+    - javascript
 ---
 
 ## 数字
