@@ -10,7 +10,9 @@ tag:
 
 # BAT 命令整理
 
-判断系统位数
+## 系统相关
+
+### 判断系统位数
 
 ```batch
 @echo off
@@ -27,7 +29,7 @@ pause
 rem https://blog.csdn.net/yhcad/article/details/90199086
 ```
 
-获取系统信息
+### 获取系统信息
 
 ```batch
 @echo off
@@ -59,7 +61,7 @@ exit
 rem https://blog.csdn.net/fxziyu/article/details/85119225
 ```
 
-清理 C 盘（以前 XP 系统常用）
+### 清理 C 盘（以前 XP 系统常用）
 
 ```batch
 @echo off
@@ -85,7 +87,7 @@ echo 清除系统垃圾完成！
 echo. & pause
 ```
 
-查看连接过的 WiFi 密码
+### 查看连接过的 WiFi 密码
 
 ```batch
 @echo off
@@ -105,7 +107,7 @@ for /f "delims=: tokens=2-3" %%a in ('netsh wlan show profile name^="%*" key^=cl
 echo -------------------------------------
 ```
 
-打开声音面板
+### 打开声音面板
 
 ```batch
 @echo off
@@ -121,7 +123,7 @@ rundll32.exe user32.dll,LockWorkStation
 
 ## LaTeX 常用
 
-清理辅助文件
+### 清理辅助文件
 
 ```batch
 @echo off
@@ -130,7 +132,7 @@ del /q *.aux *.bbl *.blg *.log *.out *.toc *.bcf *.xml *.synctex *.nlo *.nls *.b
 del /q *.nav *.snm *.vrb *.fls *.xdv *.fdb_latexmk
 ```
 
-查看本机安装的字体
+### 查看本机安装的字体
 
 ```batch
 @echo off
@@ -141,7 +143,7 @@ ping -n 2 127.1>nul
 del d:zh-font.txt
 ```
 
-重启 explorer
+### 重启 explorer
 
 ```batch
 @echo off
@@ -150,7 +152,9 @@ ping -n 2 127.0.0.1 > nul ::这里相当于延时 1 秒再运行以下指令
 start explorer.exe
 ```
 
-将压缩包”藏“进图片
+## 小玩意儿
+
+### 将压缩包”藏“进图片
 
 合并后将后缀名改为 `.zip` 可以正常解压
 
@@ -161,7 +165,7 @@ title Pic Blender
 
 echo 拖入图片到此，然后回车&set /p pic=&cls
 echo 拖入压缩包到此，然后回车&set /p zip=&cls
-::图片和压缩包路径
+:: 图片和压缩包路径
 
 set bat=%temp%\temp.bat
 echo %pic%>%bat%
@@ -170,23 +174,23 @@ for /f "delims==" %%i in (%bat%) do (
 set pn=%%~ni
 set pt=%%~xi
 )
-::保留图片文件名和后缀
+:: 保留图片文件名和后缀
 
 copy %pic%/b+%zip%/b=%pn%_new%pt%>nul
-::核心所在
+:: 核心所在
 
 echo @echo off>%bat%
 echo %%1 start /min cmd.exe /c %%0 :^&exit>>%bat%
 echo mshta vbscript:msgbox^("完成，生成的图片在原图片所在文件夹",64,"完成"^)^(window.close^)>>%bat%
 echo del /f /q %%0>>%bat%
-::生成提示框的bat
+:: 生成提示框的bat
 
 call %bat%
 
-::choice /t 5 /d y /n >nul
+:: choice /t 5 /d y /n >nul
 ```
 
-关闭打开应用时的安全警告弹窗
+### 关闭打开应用时的安全警告弹窗
 
 ```batch
 @echo off

@@ -5,8 +5,8 @@ date: 2022-01-23
 category:
     - VuePress
 tag:
-    - vue
     - VuePress
+    - vue
 permalink: /article/sfc-in-vuepress.html
 ---
 
