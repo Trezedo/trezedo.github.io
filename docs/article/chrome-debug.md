@@ -11,7 +11,6 @@ category:
 tag:
     - 调试
     - chrome
-    - console
 ---
 
 > 原文链接：<https://developer.chrome.com/docs/devtools/console/utilities/>

@@ -26,7 +26,7 @@ export default navbar([
                         link: "/",
                         activeMatch: "^/category/$",
                     },
-                    { text: "数学", icon: "function", link: "/数学/" },
+                    { text: "数学", icon: "function", link: "/高等数学/" },
                     { text: "后端", icon: "stack", link: "/后端/" },
                 ],
             },

@@ -1,9 +1,12 @@
 ---
 icon: tex
 date: 2022-02-04
-tag:
-    - LaTeX
+category:
     - MiKTeX
+    - LaTeX
+tag:
+    - latex
+    - miktex
     - 环境配置
 ---
 
