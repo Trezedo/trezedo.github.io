@@ -6,7 +6,8 @@ permalink: /article/markdown-intro.html
 # permalinkPattern: :year/:month/:day/markdown-intro.html
 description: Markdown 基本使用
 lastUpdated: 2022-02-24
-category: 使用指南
+category: 
+    - Markdown
 tag:
     - markdown
 # layout: CustomLayout
@@ -331,8 +332,7 @@ export default {
 <template>
     <div class="box">
         <code>vuepress-theme-hope</code> is
-        <span @click="handler">{{ message }}</span
-        >!
+        <span @click="handler">{{ message }}</span>!
     </div>
 </template>
 <script>
@@ -444,7 +444,7 @@ digraph G {
    execute -> compare;
 }'/>
 
-此外，还可以使用 `embed` 、`iframe` 等嵌入。但如果不指定宽度，其在手机端会超过屏幕宽度。
+此外，还可以使用 `embed`、`iframe` 等嵌入。但如果不指定宽度，其在手机端会超过屏幕宽度。
 
 ```html
 <embed

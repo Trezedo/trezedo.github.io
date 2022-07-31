@@ -7,6 +7,7 @@ date: 2022-01-23
 # layout: CustomLayout
 category:
     - VuePress
+    - Markdown
 tag:
     - vuepress
     - markdown
