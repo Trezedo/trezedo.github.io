@@ -48,7 +48,15 @@
     ],
     "markdownlint.config": {
         // 允许嵌入 html 标签
-        "MD033": false
+        "MD033": false,
+        "MD012": {
+            // 最多两个连续空行
+            "maximum": 2
+        },
+        "MD024": {
+            // 不同标题下的子标题内容可以重复
+            "siblings_only": true
+        }
     },
     "easysass.compileAfterSave": true,
     "easysass.formats": [
