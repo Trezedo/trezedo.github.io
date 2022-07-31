@@ -4,10 +4,11 @@ date: 2022-01-26
 title: KaTeX 插件配置
 category:
     - VuePress
-tag:
-    - LaTeX
     - KaTeX
-    - VuePress
+tag:
+    - latex
+    - katex
+    - vuepress
 ---
 
 ::: warning 提示
@@ -366,4 +367,4 @@ $$
 }
 ```
 
-其中`4em`需要和`header`的高度相近。
+其中 `4em` 需要和 `header` 的高度相近。

@@ -4,9 +4,11 @@ slug: vue-usage
 date: 2022-01-23
 category:
     - VuePress
+    - Markdown
 tag:
-    - VuePress
+    - vuepress
     - vue
+    - markdown
 permalink: /article/sfc-in-vuepress.html
 ---
 

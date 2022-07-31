@@ -2,6 +2,10 @@
 icon: change
 description: 利用 Web Speech API 实现文本转语音，以及介绍了一些可方便使用的接口
 date: 2022-02-25
+category:
+    - JavaScript
+tag:
+    - 语音
 ---
 
 # 文本转语音
@@ -54,11 +58,11 @@ TTS 仅支持以下浏览器：
 
 ```vb
 '显示语音库列表
-dim vlist
+dim vList
 Set VObj = CreateObject("SAPI.SpVoice")
 For Each Voice In VObj.getvoices
     i = i + 1
-    vlist = vlist & "   " & (i - 1) & " - " & Voice.GetDescription & vbcrlf
+    vList = vList & "   " & (i - 1) & " - " & Voice.GetDescription & vbcrlf
 Next
 msgbox vList,64,"List"
 ```

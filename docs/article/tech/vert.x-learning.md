@@ -5,10 +5,11 @@ star: true
 sticky: true
 description: 学习异步后端框架 vert.x
 category:
+    - Java
     - 后端
 tag:
-    - Java
-    - 后端开发
+    - vert.x
+    - java
 # permalink: /article/vertx-learning.html
 ---
 

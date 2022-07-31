@@ -5,9 +5,9 @@ category:
     - Markdown
     - 小技巧
 tag:
-    - Markdown
-    - CSS
-    - JavaScript
+    - markdown
+    - css
+    - javascript
 ---
 
 # Markdown 中的图片

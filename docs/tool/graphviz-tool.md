@@ -2,8 +2,10 @@
 icon: tool
 date: 2022-02-17
 article: false
-tag:
+category:
     - 小工具
+tag:
+    - graphviz
 ---
 
 # Graphviz 工具

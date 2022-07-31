@@ -8,7 +8,8 @@ date: 2022-01-23
 category:
     - VuePress
 tag:
-    - VuePress
+    - vuepress
+    - markdown
 ---
 
 ::: details 点击查看 $frontmatter

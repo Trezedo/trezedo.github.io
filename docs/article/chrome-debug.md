@@ -6,6 +6,12 @@ date: 2022-07-24
 description: "A reference of convenience functions available in the Chrome DevTools Console.
 <br>
 Chrome DevTools 控制台中提供的易用功能参考"
+category:
+    - Debug
+tag:
+    - 调试
+    - chrome
+    - console
 ---
 
 > 原文链接：<https://developer.chrome.com/docs/devtools/console/utilities/>

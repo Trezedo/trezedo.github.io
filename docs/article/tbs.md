@@ -3,8 +3,11 @@ icon: question
 # article: false
 date: 2022-02-21
 description: 关于在 QQ 内打开 Gitee Pages 的缓存问题
+category:
+    - QQ
 tag:
     - gitee
+    - webview
 ---
 
 # QQ 的 WebView 问题

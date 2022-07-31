@@ -6,8 +6,8 @@ category:
 tag:
     - 真值表
     - C
-    - Java
-    - Kotlin
+    - java
+    - kotlin
 ---
 
 ::: info 题目

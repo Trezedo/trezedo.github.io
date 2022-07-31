@@ -5,7 +5,7 @@ date: 2021-07-20
 category:
     - 小工具
 tag:
-    - Axmath
+    - axmath
 ---
 
 # AxMath 工具

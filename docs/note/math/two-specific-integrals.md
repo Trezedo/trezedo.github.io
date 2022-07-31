@@ -5,7 +5,7 @@ date: 2022-01-24
 title: 两道特殊积分
 description: 一类分子为反正切函数、对数函数，分母为二次函数的定积分计算
 category:
-    - 数学
+    - 高等数学
 tag:
     - 积分
 star: true

@@ -2,7 +2,7 @@
 icon: function
 date: 2022-02-09
 category:
-    - 数学
+    - 高等数学
 tag:
     - 微分方程
     - 算子
