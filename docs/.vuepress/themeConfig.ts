@@ -13,8 +13,11 @@ export default hopeTheme({
     // 左上角，以及首页右侧
     logo: "https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=4", // "/favicon.ico",
 
-    // repo: "https://gitee.com/zedo/zedo",
-    docsDir: "zedo/docs",
+    repoDisplay: true,
+    repo: "https://github.com/trezedo/trezedo.github.io",
+    // docsRepo: this.repo,
+    docsBranch: "main",
+    docsDir: "docs", // "src/docs"
 
     pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
 
@@ -104,8 +107,7 @@ export default hopeTheme({
                     "\\label": "\\htmlId{tag#1}{}",
                 },
                 // https://github.com/KaTeX/KaTeX/issues/2003
-                trust: (context: TrustContext) =>
-                    ["\\htmlId", "\\href"].includes(context.command),
+                trust: (context: TrustContext) => ["\\htmlId", "\\href"].includes(context.command),
             },
         },
 
