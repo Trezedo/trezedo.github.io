@@ -82,7 +82,11 @@ export default hopeTheme({
         // },
         comment: false,
         mdEnhance: {
-            attrs: true, // https://github.com/vuepress-theme-hope/vuepress-theme-hope/issues/2048
+            /* 导致的问题：
+            1. 行高亮代码被认为是 text 
+            2. https://github.com/vuepress-theme-hope/vuepress-theme-hope/issues/2048
+            */
+            attrs: true,
             enableAll: true,
             presentation: {
                 plugins: ["highlight", "math", "search", "notes", "zoom"],
