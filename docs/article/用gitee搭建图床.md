@@ -17,7 +17,7 @@ permalink: /article/gitee-image-hosting.html
 
 ![20220127215621.png](https://zedo.gitee.io/img/20220127215621.png)
 
-填写`repo`，`branch`，`token` 即可，`origin`选择`gitee`.
+填写 `repo`，`branch`，`token` 即可，`origin` 选择 `gitee`.
 
 其中 repo 是你的用户名 + 仓库名，仓库默认的分支是 “master”。
 
