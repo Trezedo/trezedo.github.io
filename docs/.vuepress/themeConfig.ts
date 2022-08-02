@@ -85,15 +85,8 @@ export default hopeTheme({
         // },
         comment: false,
         mdEnhance: {
-            /* 导致的问题：
-            1. 行高亮代码被认为是 text 
-            2. https://github.com/vuepress-theme-hope/vuepress-theme-hope/issues/2048
-            */
-            attrs: true,
-            enableAll: true,
-            presentation: {
-                plugins: ["highlight", "math", "search", "notes", "zoom"],
-            },
+            // enableAll: true,
+
             tex: {
                 output: "html",
                 // mathml 相当于 tex 源码
@@ -106,9 +99,47 @@ export default hopeTheme({
                     "\\ref": "\\href{##tag#1}{\\text{#1}}",
                     "\\label": "\\htmlId{tag#1}{}",
                 },
+                // 似乎是 md-enhance 使用的 katex 版本较低的缘故
+                strict: "ignore" /* (errorCode: string, errorMsg: string, token: any) => {
+                    console.error(errorCode, errorMsg, token);
+                    if (errorCode === "htmlExtension") {
+                        return "ignore";
+                    }
+                    return "error";
+                } */,
                 // https://github.com/KaTeX/KaTeX/issues/2003
                 trust: (context: TrustContext) => ["\\htmlId", "\\href"].includes(context.command),
             },
+
+            chart: false,
+            echarts: false,
+            mermaid: true,
+            sub: true,
+            sup: true,
+            tabs: true, // 可以写 markdown，不仅仅是代码
+            codetabs: true, // 与 tabs 类似，但专门展示代码
+            tasklist: true,
+            imageMark: false,
+            imageSize: false,
+            include: false, // 可导入 markdown，而非以代码形式导入
+            /* attrs 导致的问题：
+            1. 行高亮代码被认为是 text 
+            2. https://github.com/vuepress-theme-hope/vuepress-theme-hope/issues/2048
+            */
+            attrs: true,
+            // 暂时启用
+            presentation: {
+                plugins: ["highlight", "math", "search", "notes", "zoom"],
+            },
+            mark: true, // 用 " == x ==" 高亮
+            // stylize: [], // 比较强大但是为了兼容性我不用
+            flowchart: true,
+            footnote: true,
+            demo: true,
+            container: true, // 默认开启
+            align: true, // 一定程度上还算方便
+            linkCheck: "dev",
+            vpre: false, // 这是兼容 v1 的功能
         },
 
         copyright: {

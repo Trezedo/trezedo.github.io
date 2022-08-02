@@ -4,6 +4,7 @@
         "androidhwext",
         "bigdata",
         "cleartext",
+        "codetabs",
         "composables",
         "cond",
         "darkmode",
@@ -42,6 +43,7 @@
         "untils",
         "userconfig",
         "Verticle",
+        "vpre",
         "Waline",
         "winedt",
         "Zhihu"
