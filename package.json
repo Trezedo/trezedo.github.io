@@ -9,7 +9,7 @@
         "docs:clean-dev": "vuepress dev docs --clean-cache",
         "docs:build": "vuepress build docs",
         "preview": "vite preview",
-        "push:ge": "git push gitee master",
+        "push:ge": "git push gitee main",
         "push:gh": "git push github main",
         "deploy": "./deploy.cmd"
     },
