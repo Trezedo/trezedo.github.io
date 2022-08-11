@@ -6,7 +6,7 @@ category:
     - 离散数学
 tag:
     - 真值表
-    - C
+    - C语言
     - java
     - kotlin
 ---
