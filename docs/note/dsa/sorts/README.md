@@ -1,6 +1,6 @@
 ---
 date: 2022-08-12
-prev:
+next: insertion-sort.md
 ---
 
 # 数据结构 - 排序
