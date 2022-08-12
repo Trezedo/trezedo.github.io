@@ -171,3 +171,9 @@ particle {
 .blog-info-list {
     font-family: var(--font-family-fancy);
 }
+
+// 边框
+iframe {
+    border: 2px var(--theme-color) solid;
+    border-radius: 6px;
+}
