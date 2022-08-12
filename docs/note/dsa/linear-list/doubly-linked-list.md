@@ -6,6 +6,8 @@ category:
 tag:
     - 链表
     - C语言
+prev: singly-linked-list.md
+next: ../stack-and-queue.md
 ---
 
 # 数据结构 - 双向链表(C 语言描述)

@@ -6,6 +6,7 @@ category:
 tag:
     - 顺序表
     - C语言
+next: singly-linked-list.md
 ---
 
 # 数据结构 - 顺序表(C 语言描述)

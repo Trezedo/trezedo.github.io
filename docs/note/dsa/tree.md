@@ -6,6 +6,8 @@ category:
 tag:
     - 树
     - C语言
+prev: stack-and-queue.md
+next: ./sorting/Readme.md
 ---
 
 # 数据结构 - 树(C 语言描述)
@@ -15,6 +17,19 @@ tag:
 ### 相关概念
 
 ![image-20220811141906216](C:\Users\zedo\AppData\Roaming\Typora\typora-user-images\image-20220811141906216.png)
+
+```graphviz
+digraph binaryTree {
+    node [shape = circle; color = red; fontcolor = blue; fontsize = 10;];
+    root [color = blue;fontcolor = black;fontsize = 20;];
+    root -> a [style = dotted;];
+    root -> b;
+    a -> c;
+    a -> d;
+    b -> e;
+    b -> f;
+}
+```
 
 节点的度：一个节点含有的子树的个数称为该节点的度； 如上图：A的为6
 
@@ -113,8 +128,54 @@ struct BinaryTreeNode{
 }
 ```
 
+其他的树常用三叉链，如：
+
+- AVL 树
+- 红黑树
+- B 树
+
 :::
 
+### 二叉树的遍历
+
+任何一颗二叉树都有3个部分：
+
+1. 根结点
+2. 左子树
+3. 右子树
+
+因此，根据不同部分的访问顺序，二叉树有3种遍历方式：
+
+1. 前序遍历（先根遍历）：根结点，左子树，右子树
+2. 中序遍历（中根遍历）：左子树，根结点，右子树
+3. 后序遍历（后根遍历）：左子树，右子树，根结点
+
+::: tip
+
+二叉树的遍历需要用到分治算法，将原问题分成若干小规模的类似子问题，直至子问题不可再分割。
+
+:::
+
+```graphviz
+digraph finite_state_machine {
+    rankdir=LR;
+    size="8,5"
+
+    node [shape = doublecircle]; S;
+    node [shape = point ]; qi
+
+    node [shape = circle];
+    qi -> S;
+    S  -> q1 [ label = "a" ];
+    S  -> S  [ label = "a" ];
+    q1 -> S  [ label = "a" ];
+    q1 -> q2 [ label = "ddb" ];
+    q2 -> q1 [ label = "b" ];
+    q2 -> q2 [ label = "b" ];
+}
+```
+
+二叉树的遍历序列中，如果没有中序遍历序列，则无法得知左右子树的界限，不能唯一确定一颗二叉树。
 
 ## OJ 练习题
 
@@ -123,4 +184,4 @@ struct BinaryTreeNode{
 3. [二叉树的后序遍历](https://leetcode.cn/problems/binary-tree-postorder-traversal/)
 4. [二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)
 5. [平衡二叉树](https://leetcode.cn/problems/balanced-binary-tree/)
-6. [二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal/)
+6. [二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal/) （此题建议用 C++ 实现，用 C 语言较复杂）
