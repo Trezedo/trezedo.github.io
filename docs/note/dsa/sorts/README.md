@@ -1,4 +1,5 @@
 ---
+article: false
 date: 2022-08-12
 next: insertion-sort.md
 ---
