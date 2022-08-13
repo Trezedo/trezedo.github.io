@@ -1,8 +1,9 @@
 ---
 icon: note
-title: 笔记
 article: false
 ---
+
+# 笔记
 
 <List4Hope prefix="/note/"/>
 

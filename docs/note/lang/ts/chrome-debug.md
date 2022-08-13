@@ -1,6 +1,5 @@
 ---
 icon: debug
-title: Chrome 控制台实用 API 参考
 author:
     - kaycebasques
 date: 2022-07-24
@@ -13,6 +12,8 @@ tag:
     - 调试
     - chrome
 ---
+
+# Chrome 控制台实用 API 参考
 
 > 原文链接：<https://developer.chrome.com/docs/devtools/console/utilities/>
 

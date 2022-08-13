@@ -1,11 +1,12 @@
 ---
 icon: nodeJS
 date: 2022-02-04
-title: NodeJs 安装及使用
 tag:
     - nodejs
     - 环境配置
 ---
+
+# NodeJs 安装及使用
 
 在官网选择合适系统的安装包并下载，官网地址：<https://nodejs.org/zh-cn/download/>
 

@@ -1,12 +1,13 @@
 ---
 date: 2022-03-27
 icon: windows
-title: windows 常用软件
 description: windows 系统下常用、好用的软件
 tag:
     - 软件
     - windows
 ---
+
+# windows 常用软件
 
 ## 日常工具
 

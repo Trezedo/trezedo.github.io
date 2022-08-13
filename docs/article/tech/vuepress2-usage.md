@@ -1,6 +1,5 @@
 ---
 icon: vue
-title: VuePress2 初体验
 lang: zh-CN
 description: 使用 Vuepress2 搭建静态文档分享类站点
 date: 2022-01-23
@@ -12,6 +11,8 @@ tag:
     - vuepress
     - markdown
 ---
+
+# VuePress2 初体验
 
 ::: details 点击查看 $frontmatter
 

@@ -1,12 +1,13 @@
 ---
 icon: javascript
 date: 2022-03-26
-title: 记录 js 常用的函数
 category:
     - JavaScript
 tag:
     - javascript
 ---
+
+# 记录 js 常用的函数
 
 ## 数字
 
@@ -148,8 +149,7 @@ elementIsInFocus(anyElement);
 
 ```js
 const touchSupported = () => {
-    "ontouchstart" in window ||
-        (window.DocumentTouch && document instanceof window.DocumentTouch);
+    "ontouchstart" in window || (window.DocumentTouch && document instanceof window.DocumentTouch);
 };
 console.log(touchSupported());
 // Result: 如果支持触摸事件会返回 True 否则返回 False

@@ -1,7 +1,6 @@
 ---
 icon: table
 date: 2022-03-21
-title: 命题公式真值表
 category:
     - 离散数学
 tag:
@@ -10,6 +9,8 @@ tag:
     - java
     - kotlin
 ---
+
+# 命题公式真值表
 
 ::: info 题目
 

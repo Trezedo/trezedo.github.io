@@ -1,8 +1,9 @@
 ---
 icon: function
-title: 数学
 article: false
 ---
+
+# 数学
 
 [概览](/category/高等数学/)
 

@@ -1,7 +1,6 @@
 ---
 icon: tex
 date: 2022-01-26
-title: KaTeX 插件配置
 category:
     - VuePress
     - KaTeX
@@ -10,6 +9,8 @@ tag:
     - katex
     - vuepress
 ---
+
+# KaTeX 插件配置
 
 ::: warning 提示
 本文内容基于 `vuepress2` 的默认主题。
