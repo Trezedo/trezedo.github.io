@@ -6,6 +6,7 @@ category:
 tag:
     - 直接插入排序
     - 希尔排序
+    - 折半插入排序
 prev: Readme.md
 next: selection-sort.md
 ---
@@ -15,3 +16,5 @@ next: selection-sort.md
 ## 直接插入排序
 
 ## 希尔排序
+
+## 折半插入排序

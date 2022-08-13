@@ -6,7 +6,9 @@ category:
 tag:
     - 归并排序
 prev: exchange-sort.md
-next: comparison.md
+next: other-sort.md
 ---
 
 # 数据结构 - 归并排序
+
+## 二路归并排序
