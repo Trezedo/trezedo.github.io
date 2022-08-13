@@ -1,0 +1,25 @@
+graph {
+    rankdir = LR;
+    
+    node [height = 0.1; width = 0.5;];
+    // 需要设置为 filled，fillcolor 才能生效
+    node [style = "filled"; fillcolor = "#333399"; fontcolor = "white";];
+    
+    // 文件夹形状
+    node [shape = folder;];
+    "/" -- {"test" "input" "output" "other"};
+    
+    node [shape = recored;];
+    "test" -- "test.txt":w;
+    "input" -- "tmp.txt":w;
+    "input" -- "myData.txt":w;
+    "output" -- "result.res":w;
+}
+// ```mermaid
+// graph LR;
+// A[ / ]--> B[test] --> C[test.txt]
+// A[ / ]--> D[input] --> E[myData.txt]
+// D[input] --> F[tmp.txt]
+// A[ / ]--> G[output] --> H[result.res]
+// A[ / ]--> I[other]
+// ```
