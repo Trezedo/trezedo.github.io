@@ -1,4 +1,5 @@
 ---
+date: 2022-03-15
 title: 主要功能与配置演示
 index: false
 icon: creative

@@ -1,7 +1,9 @@
 ---
-title: VS Code 使用
+date: 2022-07-15
 icon: vscode
 ---
+
+# VS Code 使用
 
 下载地址：<https://code.visualstudio.com/Download>
 
