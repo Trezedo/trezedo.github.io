@@ -6,7 +6,7 @@ permalink: /article/markdown-intro.html
 # permalinkPattern: :year/:month/:day/markdown-intro.html
 description: Markdown 基本使用
 lastUpdated: 2022-02-24
-category: 
+category:
     - Markdown
 tag:
     - markdown
@@ -293,9 +293,9 @@ export default {
 ```vue
 <template>
     <div class="box">
-        <code>vuepress-theme-hope</code> is
-        <span @click="handler">{{ message }}</span
-        >!
+        <code>vuepress-theme-hope</code>
+        is
+        <span @click="handler"> {{ message }} </span>!
     </div>
 </template>
 <script>
@@ -331,8 +331,9 @@ export default {
 ```vue
 <template>
     <div class="box">
-        <code>vuepress-theme-hope</code> is
-        <span @click="handler">{{ message }}</span>!
+        <code>vuepress-theme-hope</code>
+        is
+        <span @click="handler"> {{ message }} </span>!
     </div>
 </template>
 <script>
@@ -414,6 +415,8 @@ export default {
 
 ### 使用 gravizo
 
+::: normal-demo 使用 gravizo 演示
+
 ```html
 <img
     src="https://g.gravizo.com/svg?
@@ -430,24 +433,17 @@ digraph G {
 />
 ```
 
-结果：
+:::
 
-<img src='https://g.gravizo.com/svg?
-digraph G {
-   main -> parse -> execute;
-   main -> init;
-   main -> cleanup;
-   execute -> make_string;
-   execute -> printf
-   init -> make_string;
-   main -> 是的;
-   execute -> compare;
-}'/>
+结果：
 
 此外，还可以使用 `embed`、`iframe` 等嵌入。但如果不指定宽度，其在手机端会超过屏幕宽度。
 
+::: normal-demo embed 演示
+
 ```html
 <embed
+    type="image/svg+xml"
     src="https://g.gravizo.com/svg?
  digraph G {
    main -> parse -> execute;
@@ -459,71 +455,53 @@ digraph G {
    main -> 是的;
    execute -> compare;
  }"
-    type="image/svg+xml"
 />
 ```
+
+:::
+
+::: normal-demo gravizo uml 演示
 
 ```html
 <img
     src='https://g.gravizo.com/svg?
 @startuml;
-;
+\;
 actor User;
 participant "First Class" as A;
 participant "Second Class" as B;
 participant "Last Class" as C;
-;
+\;
 User -> A: DoWork;
 activate A;
-;
+\;
 A -> B: Create Request;
 activate B;
-;
+\;
 B -> C: DoWork;
 activate C;
-;
+\;
 C --> B: WorkDone;
 destroy C;
-;
+\;
 B --> A: Request Created;
 deactivate B;
-;
+\;
 A --> User: Done;
 deactivate A;
-;
+\;
 @enduml
 '
 />
 ```
 
-<img src='https://g.gravizo.com/svg?
-@startuml;
-;
-actor User;
-participant "First Class" as A;
-participant "Second Class" as B;
-participant "Last Class" as C;
-;
-User -> A: DoWork;
-activate A;
-;
-A -> B: Create Request;
-activate B;
-;
-B -> C: DoWork;
-activate C;
-;
-C --> B: WorkDone;
-destroy C;
-;
-B --> A: Request Created;
-deactivate B;
-;
-A --> User: Done;
-deactivate A;
-;
-@enduml
-'>
+:::
+
+::: tip
+
+gravizo 的 uml 画图本身是支持空行的，但此处为了避免不同 markdown 解析器对空行行为的差异，使用 `\;` 充当空行，增加“可读性”。
+
+:::
 
 ### 流程图
 
@@ -543,8 +521,4 @@ e=>end
 st->op->cond
 cond(yes)->e
 cond(no)->op
-```
-
-```text
-
 ```
