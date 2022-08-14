@@ -1,0 +1,55 @@
+digraph "链表示意图" {
+    rankdir = "LR";
+    // https://stackoverflow.com/questions/50494263/circular-list-in-graphviz-or-how-to-bend-the-edge
+    margin = 0;
+    label = "单链表、循环单链表";
+    
+    node [shape = record; height = 0.3;];
+    edge [tailclip = false; arrowsize = 0.6;];
+
+    subgraph "循环链表" {
+        label = "";
+        peripheries = 0;
+        
+        cnode1 [label = "{<data> d₁| <next> &#9679;}";];
+        cnode2 [label = "{<data> d₂ | <next> &#9679;}";];
+        cnode3 [label = "{<data> d₃ | <next> &#9679;}";];
+        
+        edge [tailclip = false; arrowsize = 0.6;];
+        
+        // cnode3:next:s -> cnode1:data:s;
+        // cnode3 -> cnode2 -> cnode1 [style=invis];
+        
+        subgraph {
+            node [shape = point; height = 0;];
+            pHead;
+            pTail;
+        }
+        pHead:n -> cnode1;
+        pHead:s -> pTail:s [dir = none;];
+        cnode1:next:c -> cnode2:data;
+        cnode2:next:c -> cnode3:data;
+        cnode3:next:c -> pTail:n [dir = none;];
+    }
+    
+    subgraph "单链表" {
+        peripheries = 0;
+        
+        node1 [label = "{<data> d₁| <next> &#9679;}";];
+        node2 [label = "{<data> d₂ | <next> &#9679;}";];
+        node3 [label = "{<data> d₃ | <next> &#9679;}";];
+        
+        null [label = "NULL";shape = plaintext;];
+        
+        node1:next:c -> node2:data;
+        node2:next:c -> node3:data;
+        node3:next:c-> null;
+    }
+    
+    // 对齐
+    subgraph {
+        rank = same;
+        cnode1;
+        node1;
+    }
+}

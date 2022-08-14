@@ -1,0 +1,74 @@
+digraph "常用链表" {
+    rankdir = "LR";
+    margin = 0;
+    
+    label = "带头双向循环链表";
+    
+    subgraph doubly {
+        peripheries = 0;
+        node [shape = record; height = 0.3;];
+        
+        head [label = "{<prev> | <data> head| <next> }";];
+        d1 [label = "{<prev> | <data> d₁| <next>}";];
+        d2 [label = "{<prev> | <data> d₂ | <next>}";];
+        d3 [label = "{<prev> | <data> d₃ | <next>}";];
+        
+        edge [tailclip = false; arrowtail = dot; dir = both; arrowsize = 0.6;];
+        
+        head:next:c -> d1:prev;
+        d1:next:c -> d2:prev:c;
+        d2:next:c -> d3:prev:c;
+        
+        // 多画一条看不见的线
+        d1:prev:c -> head:next:c;
+        d1:prev:c -> head:next [style=invis];
+        
+        d2:prev:c -> d1:next:c;
+        d2:prev:c -> d1:next [style=invis];
+        
+        // d3:prev:c -> d2:next:se;
+        d3:prev:c -> d2:next:c;
+        d3:prev:c -> d2:next [style=invis];
+        
+        // 环
+        subgraph {
+            node [shape = point; height = 0.01;];
+            pHead1;
+            pHead2;
+            pTail1;
+            pTail2;
+        }
+        
+        pHead1:s -> head:prev:c [dir=both;arrowhead=dot;arrowtail=none;headclip=false;];
+        pHead1:n -> pTail1:n [dir = none;];
+        d3:next:ne -> pTail1:s [arrowtail = normal;dir=back];
+        
+        pHead2:n -> head:prev:sw [arrowtail = none];
+        pHead2:s -> pTail2:s [dir = none;];
+        d3:next:c -> pTail2:n [arrowhead = none];
+    }
+    
+    subgraph cluster_singly {
+        label = "无头单向非循环链表\n\n";
+        labelloc = "b";
+        peripheries = 0;
+        node [shape = record; height = 0.3;];
+        
+        node1 [label = "{<data> d₁| <next> &#9679;}";];
+        node2 [label = "{<data> d₂ | <next> &#9679;}";];
+        node3 [label = "{<data> d₃ | <next> &#9679;}";];
+        
+        null [label = "NULL";shape = plaintext;];
+        
+        edge [tailclip = false; arrowsize = 0.6;];
+        node1:next:c -> node2:data;
+        node2:next:c -> node3:data;
+        node3:next:c -> null;
+    }
+    
+    subgraph {
+        rank = same;
+        null;
+        d3;
+    }
+}

@@ -1,0 +1,61 @@
+digraph "链表示意图" {
+    rankdir = "LR";
+    // https://stackoverflow.com/questions/13096640/how-do-you-set-the-html-font-size-in-graphviz
+    
+    margin = 0;
+    
+    subgraph cluster_main {
+        node [shape = plain; height = 0.4;];
+        peripheries = 0;
+        
+        // ₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎ₐₑₒₓₔ ₕ ₖ ₗ ₘ ₙ ₚ ₛ ₜ ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿº˙
+        // node1 [label = "<data> d₁| <next> &#160;&#160;";];
+        node1 [label = <
+            <table border="0" cellborder="1" cellspacing="0">
+            <tr>
+            <!-- <font point-size="10"><sub>n</sub></font> 效果不是很好 -->
+            <td width="16" height="16" port="data" bgcolor="coral" align="center">d₁</td>
+            <td width="16" height="16" port="next" bgcolor="lightblue" align="right">&#9679;</td>
+            </tr>
+            </table>>;];
+        
+        // node2 [label = "<data> d₂ | <next> &#160;&#160;";];
+        node2 [label = <
+            <table border="0" cellborder="1" cellspacing="0">
+            <tr>
+            <td width="16" height="16" port="data" bgcolor="coral">d₂</td>
+            <td width="16" height="16" port="next" bgcolor="lightblue">&#9679;</td>
+            </tr>
+            </table>>;];
+        
+        dots [label = "&#8226; &#8226; &#8226;";margin = 0;];
+        
+        node3 [label = <
+            <table border="0" cellborder="1" cellspacing="0">
+            <tr>
+            <td width="16" height="16" port="data" bgcolor="coral">dₙ</td>
+            <td width="16" height="16" port="next" bgcolor="lightblue"></td>
+            </tr>
+            </table>>;];
+        
+        null [label = "NULL";shape=plaintext];
+        
+        edge [tailclip = false; arrowsize = 0.6;];
+        node1:next:c -> node2:data;
+        node2:next:c -> dots:w;
+        edge [arrowtail = dot; dir = both;];
+        dots:e -> node3:w;
+        node3:next:c-> null;
+    }
+    
+    data [shape = plaintext;label = <
+        <table border="0" cellborder="0" cellspacing="">
+        <tr>
+        <td port="data"><font point-size="10">数据  </font></td>
+        <td port="next"><font point-size="10">  指针</font></td>
+        </tr>
+        </table>>;];
+    
+    data:data:c -> node1:data [constraint = false;];
+    data:next:c -> node1:next [constraint = false;];
+}

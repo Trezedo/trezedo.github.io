@@ -1,0 +1,14 @@
+digraph tree {
+    // https://forum.graphviz.org/t/how-to-draw-the-box-and-pointer-notation/812/3
+    node [shape = record; label = "<L>|<R>";];
+    root [shape = none;label = "12";];
+    root -> x;
+    
+    x:L:s -> xL:n;
+    x:R:s -> xR:n;
+    xL:L:s -> xLL:n;
+    
+    xL:R:s -> xLR:n;
+    xR:L:s -> xRL:n;
+    xR:R:s -> xRR:n;
+}

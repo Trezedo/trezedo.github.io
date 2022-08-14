@@ -1,0 +1,262 @@
+digraph lisp {
+    // https://forum.graphviz.org/t/how-to-draw-the-box-and-pointer-notation/812/3
+    graph [nodesep = .6; splines = line; newrank = true;];
+    // nodesep will help & hurt
+    node [shape = plain;];
+    edge [tailclip = false;];
+    // tail starts in the center
+    
+    subgraph clusterA {
+        node [shape = plain;];
+        graph [label = "figure 2.2"; labelloc = b;];
+        
+        // begin1 - pointer from the left
+        begin1 [style = invis;];
+        
+        // pair w/ left & right pointers (filled circle in center)
+        a [label = <<table border="0" cellborder="1" cellspacing="0">
+            <tr>
+            <td width="32" port="l">&#9679;</td>
+            <td width="32" height="32" port="r">&#9679;</td>
+            </tr>
+            </table>>;
+            ];
+        
+        // terminal
+        1 [label = "1",shape=record,height=.4,width=.4];
+        // terminal
+        2 [label = <<table border="0" cellborder="1" cellspacing="0">
+            <tr>
+            <td width="32" height="32" port="l">2</td>
+            <td width="32" height="32" border="0"></td>    
+            </tr>
+            </table>>;
+            ];
+        subgraph {
+            rank = "same";
+            begin1 -> a;
+        }
+        
+        a:l:c -> 1:l
+        subgraph {
+            rank = "same";
+            // a;
+            // 2;
+            a:r:c -> 2:w;
+        }
+    }
+
+
+
+    subgraph clusterB {
+        node [shape = plain;];
+        edge [tailclip = false;];
+        // tail starts in the center
+        graph [label = "figure 2.3 (part 1)"; labelloc = b;];
+        
+        // begin2 - pointer from the left
+        begin2 [style = invis;];
+        
+        // pair w/ left & right pointers (filled circle in center)
+        b1 [label = <<table border="0" cellborder="1" cellspacing="0">
+            <tr>
+            <td width="32" port="l">&#9679;</td>
+            <td width="32" height="32" port="r">&#9679;</td>
+            </tr>
+            </table>>;];
+        // pair w/ left & right pointers (filled circle in center)
+        b2 [label = <<table border="0" cellborder="1" cellspacing="0">
+            <tr>
+            <td width="32" port="l">&#9679;</td>
+            <td width="32" height="32" port="r">&#9679;</td>
+            </tr>
+            </table>>;];
+        // pair w/ left & right pointers (filled circle in center)
+        b3 [label = <<table border="0" cellborder="1" cellspacing="0">
+            <tr>
+            <td width="32" port="l">&#9679;</td>
+            <td width="32" height="32" port="r">&#9679;</td>
+            </tr>
+            </table>>;];
+        
+        { rank=same begin2 -> b1 }
+        {rank=same b1 b3}
+        b1:l:c -> b2
+        b1:r:c -> b3:w
+        
+        // two terminals represented by "split" table
+        bp1 [label = <<table border="0" cellborder="1" cellspacing="0"><tr>
+            <td width="32" height="32" port="l">1</td>
+            <td width="8" height="32" border="0"></td>
+            <td width="32" height="32" port="r">2</td></tr>
+            </table>>;];
+        b2:l:c -> bp1:l
+        b2:r:c -> bp1:r
+        
+        // two terminals represented by "split" table
+        bp2 [label = <<table border="0" cellborder="1" cellspacing="0"><tr>
+            <td width="32" height="32" port="l">3</td>
+            <td width="8" height="32" border="0"></td>
+            <td width="32" height="32" port="r">4</td></tr>
+            </table>>;];
+        b3:l:c -> bp2:l
+        b3:r:c -> bp2:r
+    }
+    
+    
+    
+    subgraph clusterC {
+        node [shape = plain;];
+        edge [tailclip = false;];
+        // tail starts in the center
+        graph [label = "figure 2.3 (part 2)"; labelloc = b;];
+        
+        // begin3 - pointer from the left
+        begin3 [style = invis;];
+        
+        // pair w/ left & right pointers (filled circle in center)
+        c1 [group = CG1;label = <<table border="0" cellborder="1" cellspacing="0">
+            <tr>
+            <td width="32" port="l">&#9679;</td>
+            <td width="32" height="32" port="r">&#9679;</td>
+            </tr>
+            </table>>;];
+        c2 [group = CG1;label = <<table border="0" cellborder="1" cellspacing="0">
+            <tr>
+            <td width="32" port="l">&#9679;</td>
+            <td width="32" height="32" port="r">&#9679;</td>
+            </tr>
+            </table>>;];
+        c3 [label = <<table border="0" cellborder="1" cellspacing="0">
+            <tr>
+            <td width="32" port="l">&#9679;</td>
+            <td width="32" height="32" port="r">&#9679;</td>
+            </tr>
+            </table>>;];
+        
+        // terminal - w/ 1 invisible cell
+        C1 [label = <<table border="0" cellborder="1" cellspacing="0">
+            <tr>
+            <td width="32" height="32" port="l">1</td>
+            <td width="32" height="32" border="0"></td>    
+            </tr>
+            </table>>;];
+        // terminal
+        C4 [group = CG1;label = <<table border="0" cellborder="1" cellspacing="0">
+            <tr>
+            <td width="32" height="32" port="l">4</td>
+            <td width="32" height="32" border="0"></td>    
+            </tr>
+            </table>>;];
+        
+        {rank = same c1 C4}
+        {rank = same c2 c3}
+        c1:l:c -> c2:l
+        c1:r:c -> C4:w
+        c2:l:c -> C1:l
+        c2:r:c -> c3:w
+        
+        // two terminals represented by "split" table
+        cp1 [label = <<table border="0" cellborder="1" cellspacing="0"><tr>
+            <td width="32" height="32" port="l">2</td>
+            <td  width="8" height="32" border="0"></td>
+            <td  width="32" height="32" port="r">3</td></tr>
+            </table>>;];
+        c3:l:c -> cp1:l
+        c3:r:c -> cp1:r
+        { rank=same begin3:e -> c1:l:w }
+    }
+
+    
+subgraph clusterD {
+        node [shape = plain;];
+        edge [tailclip = false;];
+        // tail starts in the center
+        graph [label = "figure 2.4"; labelloc = b;];
+        
+        // begin4 - pointer from the left
+        begin4 [style = invis;];
+        
+        // pair w/ left & right pointers (filled circle in center)
+        d1 [label = <<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+            <TD WIDTH="32" port="l">&#9679;</TD>
+            <TD WIDTH="32" height="32" PORT="r">&#9679;</TD>
+            </TR>
+            </TABLE>>;];
+        d2 [label = <<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+            <TD WIDTH="32" port="l">&#9679;</TD>
+            <TD WIDTH="32" height="32" PORT="r">&#9679;</TD>
+            </TR>
+            </TABLE>>;];
+        d3 [label = <<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+            <TD WIDTH="32" port="l">&#9679;</TD>
+            <TD WIDTH="32" height="32" PORT="r">&#9679;</TD>
+            </TR>
+            </TABLE>>;];
+        // black-out nil cdr
+        d4 [label = <<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+            <TD WIDTH="32" port="l">&#9679;</TD>
+            <TD WIDTH="32" height="32" PORT="r" BGCOLOR="black"></TD>
+            </TR>
+            </TABLE>>;];
+        
+        // terminal
+        D1 [label = <<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+            <TD WIDTH="32" HEIGHT="32" port="l">1</TD>
+            <TD WIDTH="32" HEIGHT="32" border="0"></TD>    
+            </TR>
+            </TABLE>>;];
+        // terminal
+        D2 [label = <<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+            <TD WIDTH="32" HEIGHT="32" port="l">2</TD>
+            <TD WIDTH="32" HEIGHT="32" border="0"></TD>    
+            </TR>
+            </TABLE>>;];
+        // terminal
+        D3 [label = <<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+            <TD WIDTH="32" HEIGHT="32" port="l">3</TD>
+            <TD WIDTH="32" HEIGHT="32" border="0"></TD>    
+            </TR>
+            </TABLE>>;];
+        // terminal
+        D4 [label = <<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+            <TR>
+            <TD WIDTH="32" HEIGHT="32" port="l">4</TD>
+            <TD WIDTH="32" HEIGHT="32" border="0"></TD>    
+            </TR>
+            </TABLE>>;];
+        
+        subgraph {
+            rank = same;
+            begin4:e -> d1:l:w;
+        }
+        subgraph {
+            rank = same;
+            d1;
+            d2;
+            d3;
+            d4;
+        }
+        subgraph {
+            rank = same;
+            D1;
+            D2;
+            D3;
+            D4;
+        }
+        d1:l:c -> D1:l
+        d1:r:c -> d2:w
+        d2:l:c -> D2:l
+        d2:r:c -> d3:w
+        d3:l:c -> D3:l
+        d3:r:c -> d4:w
+        d4:l:c -> D4:l
+    }
+}

@@ -1,0 +1,132 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="438pt" height="144pt" viewBox="0.00 0.00 437.93 144.00">
+<g id="graph0" class="graph" transform="translate(4,140) scale(1)" data-name="链表示意图">
+
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-140 433.93,-140 433.93,4 -4,4" style=""/>
+<g id="clust1" class="cluster" data-name="cluster_non">
+
+<text text-anchor="middle" x="237.93" y="-111.4" font-family="Times,serif" font-size="14.00" style="">不带头结点单链表</text>
+</g>
+<g id="clust2" class="cluster" data-name="cluster_head">
+
+<text text-anchor="middle" x="216.93" y="-16.2" font-family="Times,serif" font-size="14.00" style="">带头链表</text>
+</g>
+<!-- no1 -->
+<g id="node1" class="node" pointer-events="visible" data-name="no1">
+
+<polygon fill="none" stroke="black" points="97.93,-77.6 97.93,-102.4 151.93,-102.4 151.93,-77.6 97.93,-77.6" style=""/>
+<text text-anchor="middle" x="114.68" y="-85.8" font-family="Times,serif" font-size="14.00" style="">d₁</text>
+<polyline fill="none" stroke="black" points="131.43,-77.6 131.43,-102.4 " style=""/>
+<text text-anchor="middle" x="141.68" y="-85.8" font-family="Times,serif" font-size="14.00" style=""> </text>
+</g>
+<!-- no2 -->
+<g id="node2" class="node" pointer-events="visible" data-name="no2">
+
+<polygon fill="none" stroke="black" points="187.93,-77.6 187.93,-102.4 241.93,-102.4 241.93,-77.6 187.93,-77.6" style=""/>
+<text text-anchor="middle" x="204.68" y="-85.8" font-family="Times,serif" font-size="14.00" style="">d₂</text>
+<polyline fill="none" stroke="black" points="221.43,-77.6 221.43,-102.4 " style=""/>
+<text text-anchor="middle" x="231.68" y="-85.8" font-family="Times,serif" font-size="14.00" style=""> </text>
+</g>
+<!-- no1&#45;&gt;no2 -->
+<g id="edge1" class="edge" data-name="no1:c-&gt;no2:data" data-comment="no1-&gt;no2">
+
+<path fill="none" stroke="black" d="M146.76,-90C154.03,-90 168.36,-90 181.83,-90" style=""/>
+<ellipse fill="black" stroke="black" cx="144.33" cy="-90" rx="2.4" ry="2.4" style=""/>
+<polygon fill="black" stroke="black" points="181.93,-92.1 187.93,-90 181.93,-87.9 181.93,-92.1" style=""/>
+</g>
+<!-- node1 -->
+<g id="node6" class="node" pointer-events="visible" data-name="node1">
+
+<polygon fill="none" stroke="black" points="97.93,-33.6 97.93,-58.4 151.93,-58.4 151.93,-33.6 97.93,-33.6" style=""/>
+<text text-anchor="middle" x="114.68" y="-41.8" font-family="Times,serif" font-size="14.00" style="">d₁</text>
+<polyline fill="none" stroke="black" points="131.43,-33.6 131.43,-58.4 " style=""/>
+<text text-anchor="middle" x="141.68" y="-41.8" font-family="Times,serif" font-size="14.00" style=""> </text>
+</g>
+<!-- no3 -->
+<g id="node3" class="node" pointer-events="visible" data-name="no3">
+
+<polygon fill="none" stroke="black" points="277.93,-77.6 277.93,-102.4 331.93,-102.4 331.93,-77.6 277.93,-77.6" style=""/>
+<text text-anchor="middle" x="294.68" y="-85.8" font-family="Times,serif" font-size="14.00" style="">d₃</text>
+<polyline fill="none" stroke="black" points="311.43,-77.6 311.43,-102.4 " style=""/>
+<text text-anchor="middle" x="321.68" y="-85.8" font-family="Times,serif" font-size="14.00" style=""> </text>
+</g>
+<!-- no2&#45;&gt;no3 -->
+<g id="edge2" class="edge" data-name="no2:c-&gt;no3:data" data-comment="no2-&gt;no3">
+
+<path fill="none" stroke="black" d="M236.76,-90C244.03,-90 258.36,-90 271.83,-90" style=""/>
+<ellipse fill="black" stroke="black" cx="234.33" cy="-90" rx="2.4" ry="2.4" style=""/>
+<polygon fill="black" stroke="black" points="271.93,-92.1 277.93,-90 271.93,-87.9 271.93,-92.1" style=""/>
+</g>
+<!-- null -->
+<g id="node4" class="node" pointer-events="visible" data-name="null">
+
+<text text-anchor="middle" x="394.93" y="-85.8" font-family="Times,serif" font-size="14.00" style="">NULL</text>
+</g>
+<!-- no3&#45;&gt;null -->
+<g id="edge3" class="edge" data-name="no3:c-&gt;null" data-comment="no3-&gt;null">
+
+<path fill="none" stroke="black" d="M326.94,-90C334.18,-90 348.16,-90 361.48,-90" style=""/>
+<ellipse fill="black" stroke="black" cx="324.33" cy="-90" rx="2.4" ry="2.4" style=""/>
+<polygon fill="black" stroke="black" points="361.53,-92.1 367.53,-90 361.53,-87.9 361.53,-92.1" style=""/>
+</g>
+<!-- head -->
+<g id="node5" class="node" pointer-events="visible" data-name="head">
+
+<polygon fill="none" stroke="black" points="0,-33.6 0,-58.4 61.93,-58.4 61.93,-33.6 0,-33.6" style=""/>
+<text text-anchor="middle" x="21.21" y="-41.8" font-family="Times,serif" font-size="14.00" style="">head</text>
+<polyline fill="none" stroke="black" points="42.43,-33.6 42.43,-58.4 " style=""/>
+<text text-anchor="middle" x="52.18" y="-41.8" font-family="Times,serif" font-size="14.00" style=""> </text>
+</g>
+<!-- head&#45;&gt;node1 -->
+<g id="edge4" class="edge" data-name="head:c-&gt;node1" data-comment="head-&gt;node1">
+
+<path fill="none" stroke="black" d="M56.98,-46C64.21,-46 78.18,-46 91.49,-46" style=""/>
+<ellipse fill="black" stroke="black" cx="54.36" cy="-46" rx="2.4" ry="2.4" style=""/>
+<polygon fill="black" stroke="black" points="91.54,-48.1 97.54,-46 91.54,-43.9 91.54,-48.1" style=""/>
+</g>
+<!-- node2 -->
+<g id="node7" class="node" pointer-events="visible" data-name="node2">
+
+<polygon fill="none" stroke="black" points="187.93,-33.6 187.93,-58.4 241.93,-58.4 241.93,-33.6 187.93,-33.6" style=""/>
+<text text-anchor="middle" x="204.68" y="-41.8" font-family="Times,serif" font-size="14.00" style="">d₂</text>
+<polyline fill="none" stroke="black" points="221.43,-33.6 221.43,-58.4 " style=""/>
+<text text-anchor="middle" x="231.68" y="-41.8" font-family="Times,serif" font-size="14.00" style=""> </text>
+</g>
+<!-- node1&#45;&gt;node2 -->
+<g id="edge5" class="edge" data-name="node1:c-&gt;node2:data" data-comment="node1-&gt;node2">
+
+<path fill="none" stroke="black" d="M146.76,-46C154.03,-46 168.36,-46 181.83,-46" style=""/>
+<ellipse fill="black" stroke="black" cx="144.33" cy="-46" rx="2.4" ry="2.4" style=""/>
+<polygon fill="black" stroke="black" points="181.93,-48.1 187.93,-46 181.93,-43.9 181.93,-48.1" style=""/>
+</g>
+<!-- node3 -->
+<g id="node8" class="node" pointer-events="visible" data-name="node3">
+
+<polygon fill="none" stroke="black" points="277.93,-33.6 277.93,-58.4 331.93,-58.4 331.93,-33.6 277.93,-33.6" style=""/>
+<text text-anchor="middle" x="294.68" y="-41.8" font-family="Times,serif" font-size="14.00" style="">d₃</text>
+<polyline fill="none" stroke="black" points="311.43,-33.6 311.43,-58.4 " style=""/>
+<text text-anchor="middle" x="321.68" y="-41.8" font-family="Times,serif" font-size="14.00" style=""> </text>
+</g>
+<!-- node2&#45;&gt;node3 -->
+<g id="edge6" class="edge" data-name="node2:c-&gt;node3:data" data-comment="node2-&gt;node3">
+
+<path fill="none" stroke="black" d="M236.76,-46C244.03,-46 258.36,-46 271.83,-46" style=""/>
+<ellipse fill="black" stroke="black" cx="234.33" cy="-46" rx="2.4" ry="2.4" style=""/>
+<polygon fill="black" stroke="black" points="271.93,-48.1 277.93,-46 271.93,-43.9 271.93,-48.1" style=""/>
+</g>
+<!-- null2 -->
+<g id="node9" class="node" pointer-events="visible" data-name="null2">
+
+<text text-anchor="middle" x="394.93" y="-41.8" font-family="Times,serif" font-size="14.00" style="">NULL</text>
+</g>
+<!-- node3&#45;&gt;null2 -->
+<g id="edge7" class="edge" data-name="node3:c-&gt;null2" data-comment="node3-&gt;null2">
+
+<path fill="none" stroke="black" d="M326.94,-46C334.18,-46 348.16,-46 361.48,-46" style=""/>
+<ellipse fill="black" stroke="black" cx="324.33" cy="-46" rx="2.4" ry="2.4" style=""/>
+<polygon fill="black" stroke="black" points="361.53,-48.1 367.53,-46 361.53,-43.9 361.53,-48.1" style=""/>
+</g>
+<!-- rank1 -->
+<!-- rank2 -->
+</g>
+</svg>
