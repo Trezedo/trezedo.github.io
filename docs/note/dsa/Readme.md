@@ -1,5 +1,6 @@
 ---
 article: false
+next: ./linear-list/sequence-list.md
 ---
 
 # 数据结构与算法

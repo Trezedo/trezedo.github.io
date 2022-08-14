@@ -6,11 +6,11 @@ category:
 tag:
     - 树
     - C语言
-prev: stack-and-queue.md
-next: ./sorting/Readme.md
+order: 1
+next: ../sorts/readme.md
 ---
 
-# 数据结构 - 树(C 语言描述)
+# 数据结构 - 树
 
 ## 树的概念和结构
 
