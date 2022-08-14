@@ -1,0 +1,64 @@
+digraph "链表" {
+    rankdir = LR;
+    
+    /**
+     * 把节点的形状设置为 record，默认的是圆角矩形
+     */
+    node [shape = record;];
+    
+    // 边的样式
+    edge [style = "dashed"; arrowsize = 0.8;];
+    pad = "0";
+    
+    // subgraph 以 cluster 开头才会有边框，label 才会生效
+    subgraph cluster_linked_list {
+        margin = "0";
+        peripheries = 0;
+        // penwidth = 0; // 可加粗
+        // pencolor = transparent;
+        // style = invis;
+        // 去掉 cluster 的边框
+        // https://forum.graphviz.org/t/how-to-remove-border-around-subgraphs/397/2
+        // https://stackoverflow.com/questions/7357225/
+        
+        // gradientangle = 270;
+        // a0 -> a1 -> a2 -> a3;
+        
+        // 填充渐变色 fillcolor = "lightskyblue:darkcyan"
+        node1 [label = "<h>data|<n>next";];
+        node2 [label = "<h>data|<n>next";];
+        node3 [label = "<h>data|<n>next";];
+        node4 [label = "<h>data|<n>next";];
+        
+        label = "链表";
+        labelloc = "b";
+    }
+    
+    // 冒号后面是结点方位，可以是 n,s,w,e 及他们的组合
+    node1:n -> node2:h;
+    node2:n -> node3:h;
+    node3:n -> node4:h;
+}
+// 下面是另一种实现方式，参考了 https://stackoverflow.com/questions/70441786/
+// digraph "链表" {
+// rankdir = LR;
+// 
+// node [shape = record;];
+// 
+// node1 [label = "<h>data|<n>next";];
+// node2 [label = "<h>data|<n>next";];
+// node3 [label = "<h>data|<n>next";];
+// node4 [label = "<h>data|<n>next";];
+// 
+// label = "链表";
+// 
+// node1:n -> node2:h;
+// node2:n -> node3:h;
+// node3:n -> node4:h;
+// // dir = back; 反向箭头 arrowtail = odiamond; 箭头样式
+// 
+// // 使用不可见的箭头加 weight>=2 强行修正位置
+// node2:w -> node1:e [weight = 2; style = invis;];
+// node3:w -> node2:e [weight = 2; style = invis;];
+// node4:w -> node3:e [weight = 2; style = invis;];
+// }

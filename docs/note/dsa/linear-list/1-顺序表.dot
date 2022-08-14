@@ -1,0 +1,19 @@
+digraph "顺序表" {
+    /**
+     * bgcolor = "#16e3c4:#0cfb60";
+     * gradientangle = 90;
+     */
+    label = "顺序表";
+    labeljust = "c";
+    // 左中右调整
+    labelloc = "b";
+    // 调整 label 的位置为 bottom
+    
+    /**
+     * 把节点的形状设置为 record，默认的是圆角矩形
+     */
+    
+    node [shape = record; height = 0.1;];
+    
+    arr [label = "0|1|2|3|4|...|n";];
+}
