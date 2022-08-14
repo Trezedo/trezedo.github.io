@@ -15,10 +15,7 @@ type DefaultPageOption = {
     markdown: string;
 };
 
-async function createDefaultPage(
-    app: App,
-    { path, markdown, frontmatter }: DefaultPageOption
-) {
+async function createDefaultPage(app: App, { path, markdown, frontmatter }: DefaultPageOption) {
     if (path == "") return;
     if (app.pages.every((page) => page.path !== path)) {
         const homepage = await createPage(app, {
