@@ -41,8 +41,14 @@ export default sidebar({
                 {
                     text: "数学",
                     icon: "function",
-                    prefix: "math/",
-                    link: "README.md",
+                    prefix: "math/", // prefix 对 link 无效
+                    link: "math/Readme.md",
+                },
+                {
+                    text: "数据结构",
+                    icon: "computer",
+                    prefix: "dsa/",
+                    link: "dsa/Readme.md",
                 },
             ],
         },
@@ -62,6 +68,25 @@ export default sidebar({
             collapsable: true,
             children: "structure",
         },
+    ],
+    "/note/dsa/": [
+        // { prefix: "", icon: "", text: "数据结构与算法", link: "Readme.md" },
+        {
+            prefix: "linear-list/",
+            icon: "",
+            text: "线性表",
+            children: "structure",
+            collapsable: true,
+        },
+        {
+            prefix: "stack-queue/",
+            icon: "",
+            text: "栈和队列",
+            children: "structure",
+            collapsable: true,
+        },
+        { prefix: "tree/", icon: "tree", text: "树", children: "structure" },
+        { prefix: "sorts/", icon: "", text: "排序", children: "structure", collapsable: true },
     ],
     "/note/algo/": [
         { prefix: "", text: "随笔", icon: "semantic", children: "structure" },

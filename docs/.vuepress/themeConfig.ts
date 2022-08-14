@@ -65,6 +65,7 @@ export default hopeTheme({
         },
         // "/zh/": {},
     },
+    sidebarSorter: ["readme", "order", "title", "date"],
 
     encrypt: {
         config: {
