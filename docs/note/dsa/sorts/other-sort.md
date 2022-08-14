@@ -3,8 +3,7 @@ date: 2022-08-13
 category:
     - 数据结构
     - 排序
-prev: merge-sort.md
-next: comparison.md
+order: 6
 ---
 
 # 数据结构 - 其他排序算法

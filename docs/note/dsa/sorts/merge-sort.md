@@ -5,8 +5,7 @@ category:
     - 排序
 tag:
     - 归并排序
-prev: exchange-sort.md
-next: other-sort.md
+order: 4
 ---
 
 # 数据结构 - 归并排序

@@ -6,8 +6,7 @@ category:
 tag:
     - 冒泡排序
     - 快速排序
-prev: selection-sort.md
-next: merge-sort.md
+order: 3
 ---
 
 # 数据结构 - 交换排序

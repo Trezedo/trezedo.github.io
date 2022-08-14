@@ -6,8 +6,7 @@ category:
 tag:
     - 直接选择排序
     - 堆排序
-prev: insertion-sort.md
-next: exchange-sort.md
+order: 2
 ---
 
 # 数据结构 - 选择排序

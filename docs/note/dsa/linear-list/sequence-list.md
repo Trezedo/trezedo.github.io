@@ -6,10 +6,11 @@ category:
 tag:
     - 顺序表
     - C语言
-next: singly-linked-list.md
+order: 1
+prev: ../Readme.md
 ---
 
-# 数据结构 - 顺序表(C 语言描述)
+# 数据结构 - 顺序表
 
 ::: tip 建议
 
