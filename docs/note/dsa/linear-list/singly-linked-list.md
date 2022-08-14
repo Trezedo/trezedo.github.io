@@ -28,9 +28,9 @@ order: 2
 
 概念：链表是一种**物理存储结构上非连续**、非顺序的存储结构，数据元素的**逻辑顺序**是通过链表中的**指针链接次序**实现的 。
 
-![image-20220814112231167](C:\Users\zedo\AppData\Roaming\Typora\typora-user-images\image-20220814112231167.png)
+![链表示意图](./2.1-链表示意图.svg)
 
-![image-20220814112248911](C:\Users\zedo\AppData\Roaming\Typora\typora-user-images\image-20220814112248911.png)
+![image-20220814112248911](./image-20220814112248911.png)
 
 实际中要实现的链表的结构非常多样，以下情况组合起来就有 8 种链表结构：
 
@@ -38,15 +38,15 @@ order: 2
 2. 带头结点（哨兵位）、不带头结点
 3. 循环、非循环
 
-![image-20220814112336600](C:\Users\zedo\AppData\Roaming\Typora\typora-user-images\image-20220814112336600.png)
+![单双链表对比](./2.2-单双对比.svg)
 
-![image-20220814112344170](C:\Users\zedo\AppData\Roaming\Typora\typora-user-images\image-20220814112344170.png)
+![单链表带头对比](./2.3-带头对比.svg)
 
-![image-20220814112351367](C:\Users\zedo\AppData\Roaming\Typora\typora-user-images\image-20220814112351367.png)
+![循环对比](./2.4-循环对比.svg)
 
 虽然有这么多的链表的结构，但是我们实际中最常用还是两种结构：
 
-![image-20220814112406164](C:\Users\zedo\AppData\Roaming\Typora\typora-user-images\image-20220814112406164.png)
+![结构复杂度对比](./2.5-常用链表类型.svg)
 
 1. 无头单向非循环链表：**结构简单**，一般不会单独用来存数据。实际中更多是作为**其他数据结构的子结构**，如哈希桶、图的邻接表等等。这种结构在考试、笔试和面试中出现很多。
 2. 带头双向循环链表：**结构最复杂**，一般用在单独存储数据。实际中使用的链表数据结构，都
