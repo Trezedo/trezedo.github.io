@@ -1,0 +1,76 @@
+digraph "链表示意图" {
+    rankdir = "LR";
+    margin = 0;
+    
+    subgraph cluster_main {
+        node [shape = plain; height = 0.4;];
+        peripheries = 0;
+        
+        head [label = "head ";];
+        node1 [label = <
+            <table border="0" cellborder="1" cellspacing="0">
+            <tr>
+            <!-- <font point-size="10"><sub>n</sub></font> 效果不是很好 -->
+            <td width="16" height="16" port="data" bgcolor="lightblue" align="center">&nbsp;&nbsp;</td>
+            <td width="16" height="16" port="next" align="right">&#9679;</td>
+            </tr>
+            </table>>;];
+        
+        // node2 [label = "<data> d₂ | <next> &#160;&#160;";];
+        node2 [label = <
+            <table border="0" cellborder="1" cellspacing="0">
+            <tr>
+            <td width="16" height="16" port="data" bgcolor="lightblue">d₁</td>
+            <td width="16" height="16" port="next" >&#9679;</td>
+            </tr>
+            </table>>;];
+        
+        dots [label = "&#8226; &#8226; &#8226;";margin = 0;];
+        
+        node3 [label = <
+            <table border="0" cellborder="1" cellspacing="0">
+            <tr>
+            <td width="16" height="16" port="data" bgcolor="lightblue">dₙ</td>
+            <td width="16" height="16" port="next" >&#9679;</td>
+            </tr>
+            </table>>;];
+        
+        null [label = "NULL";shape = plaintext;];
+        
+        edge [tailclip = false; arrowsize = 0.6;];
+        head -> node1 [tailclip = true;];
+        node1:next:c -> node2:data;
+        node2:next:c -> dots:w;
+        dots:e -> node3:w [arrowtail = dot; dir = both;];
+        node3:next:c -> null;
+    }
+    
+    edge [arrowsize = 0.5; arrowhead = vee; color = "darksalmon";];
+    node [shape = plain;fontsize=11];
+    pHead [label = "  头指针";];
+    data [label = "头结点";];
+    firstNode [label = "首元结点";];
+    pDots [style = invis;];
+    pTail [label = "尾结点";];
+    
+    subgraph {
+        rank = same;
+        pHead -> head;
+    }
+    subgraph {
+        rank = same;
+        data -> node1;
+    }
+    subgraph {
+        rank = same;
+        firstNode -> node2;
+    }
+    subgraph {
+        rank = same;
+        pDots -> dots [style = invis;];
+    }
+    subgraph {
+        rank = same;
+        pTail -> node3;
+    }
+}
