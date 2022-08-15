@@ -209,11 +209,13 @@ yarn global remove   # 全局卸载包
 yarn upgrade-interactive --latest # 检查项目依赖更新
 ```
 
-### 参考
+> 参考
+>
+> [Node.js 安装及环境配置之 Windows 篇](https://www.cnblogs.com/zhouyu2017/p/6485265.html)
+>
+> [yarn 和 npm 的区别、--save 和--save-dev 的区别](https://www.jianshu.com/p/467182102e43)
 
-[Node.js 安装及环境配置之 Windows 篇](https://www.cnblogs.com/zhouyu2017/p/6485265.html)
-
-[yarn 和 npm 的区别、--save 和--save-dev 的区别](https://www.jianshu.com/p/467182102e43)
+<!-- -->
 
 ## 更新依赖版本并保存 {#dependency}
 
@@ -239,7 +241,7 @@ ncu -u  # ncu 是 npm-check-updates 简写
 npm install
 ```
 
-::: tip
+<!-- -->
 
 yarn 提供了一个命令来选择性升级依赖：
 
@@ -251,19 +253,7 @@ yarn upgrade-interactive
 
 ![image-20220509191023391](https://zedo.gitee.io/img/image-20220509191023391.png)
 
-但是它不会修改 `package.json` ，如有需要，可以使用 [yarn-upgrade-all](https://github.com/tylerlong/yarn-upgrade-all)。
-
-:::
-
-> 参考
->
-> <https://stackoverflow.com/questions/16073603/>
->
-> <https://stackoverflow.com/questions/62650640/>
-
-## 小技巧
-
-当想要安装某个依赖，并想手动选择某个版本时，只需要：
+但是它不会修改 `package.json` 中的版本号，如有需要，可以：
 
 ```sh
 yarn add package-name@^
@@ -271,7 +261,19 @@ yarn add package-name@^
 
 其中 `package-name` 是包名。
 
-我们都知道可以用 `@` 来指定版本，当我们指定的版本不存在时，就会让用户自行选择版本。
+::: tip
+
+我们都知道可以用 `@` 来指定版本，当我们指定的版本不存在时，就会让用户选择版本来确定。
+
+除了使用上面的方法外，还可以考虑 [yarn-upgrade-all]([https://www.npmjs.com/package/yarn-upgrade-all)。
+
+> 参考
+>
+> <https://stackoverflow.com/questions/16073603/>
+>
+> <https://stackoverflow.com/questions/62650640/>
+
+:::
 
 ## 直接运行 ts 文件
 

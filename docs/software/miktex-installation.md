@@ -27,6 +27,8 @@ tag:
 
 ## 安装
 
+官网也是有简易教程的，可以先看去一下 [Install MiKTeX on Windows](https://miktex.org/howto/install-miktex)。
+
 下载完成后直接打开，按默认设置安装（可调整安装目录），
 
 ![image-20220204162706517 center](https://zedo.gitee.io/img/image-20220204162706517.png#s-75)

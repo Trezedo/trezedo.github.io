@@ -11,6 +11,12 @@ tag:
 
 # BAT 命令整理
 
+[cmd 命令 - 微软](https://docs.microsoft.com/zh-cn/windows-server/administration/windows-commands/cmd)
+
+[powershell 命令 - 微软](https://docs.microsoft.com/zh-cn/windows-server/administration/windows-commands/powershell)
+
+[powershell 向导 - TutorialsPoint](https://www.tutorialspoint.com/powershell/index.htm)
+
 ::: danger 注意
 
 以下命令均需要保存为 `.bat` 或 `.cmd` 后缀的文件才能执行，并且使用 `ANSI` 编码（不能是 `UTF-8` 编码）。

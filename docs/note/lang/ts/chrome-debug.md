@@ -1,7 +1,7 @@
 ---
 icon: debug
 author:
-    - kaycebasques
+    - Kayce Basques
 date: 2022-07-24
 description: "A reference of convenience functions available in the Chrome DevTools Console.
 <br>
@@ -15,7 +15,7 @@ tag:
 
 # Chrome 控制台实用 API 参考
 
-> 原文链接：<https://developer.chrome.com/docs/devtools/console/utilities/>
+> 原文链接：[Console Utilities API reference](https://developer.chrome.com/docs/devtools/console/utilities/)
 
 <!-- The Console Utilities API contains a collection of convenience functions for performing common
 tasks: selecting and inspecting DOM elements, displaying data in readable format, stopping and
