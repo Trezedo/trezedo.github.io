@@ -30,6 +30,7 @@ digraph "链表示意图" {
         
         dots [label = "&#8226; &#8226; &#8226;";margin = 0;];
         
+        // <tspan font-size="10" dy="0">n</tspan>
         node3 [label = <
             <table border="0" cellborder="1" cellspacing="0">
             <tr>

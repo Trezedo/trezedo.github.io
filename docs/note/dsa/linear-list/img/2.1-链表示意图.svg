@@ -1,9 +1,9 @@
 <?xml version="1.0" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="401pt" height="96pt" viewBox="0.00 0.00 400.5 96">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="401pt" height="96pt" viewBox="0.00 0.00 400.50 96.00">
 <g id="graph0" class="graph" transform="translate(4,92) scale(1)" data-name="链表示意图">
 
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-92 396.5,-92 396.5,4 -4,4"/>
-<g id="clust1" class="cluster" data-name="cluster_mian">
+<g id="clust1" class="cluster" data-name="cluster_main">
 
 </g>
 <!-- node1 -->
@@ -48,7 +48,7 @@
 
 <polygon fill="coral" stroke="transparent" points="256,-12 256,-34 279,-34 279,-12 256,-12"/>
 <polygon fill="none" stroke="black" points="256,-12 256,-34 279,-34 279,-12 256,-12"/>
-<text text-anchor="start" x="258.75" y="-18.4" font-family="Times,serif" font-size="14.00">dₙ</text>
+<text text-anchor="start" x="258.75" y="-18.4" font-family="Times,serif" font-size="14.00">d<tspan font-size="10">n</tspan></text>
 <polygon fill="lightblue" stroke="transparent" points="279,-12 279,-34 295,-34 295,-12 279,-12"/>
 <polygon fill="none" stroke="black" points="279,-12 279,-34 295,-34 295,-12 279,-12"/>
 </g>
