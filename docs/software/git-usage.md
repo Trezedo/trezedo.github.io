@@ -288,6 +288,8 @@ git 强制覆盖本地命令(单条执行)∶
 git fetch --all && git reset --hard origin/master && git pull
 ```
 
+[.gitignore 规则](https://blog.csdn.net/zh854663752/article/details/83352285)
+
 ## 问题总结
 
 [fatal: refusing to merge unrelated histories](https://blog.csdn.net/weixin_44708045/article/details/121592567)
