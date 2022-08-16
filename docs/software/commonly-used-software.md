@@ -17,9 +17,9 @@ tag:
 
 ### 浏览器
 
-[百分浏览器](https://www.centbrowser.cn/) 基于 Chrome 内核86.0.4240.198，个人一直在使用，具体多出来的功能请看主页。不过它的作者很久没更新了，最后更新时间：2021-01-06。
+[百分浏览器](https://www.centbrowser.cn/) 基于 Chrome 内核 86.0.4240.198，个人一直在使用，具体多出来的功能请看主页。不过它的作者很久没更新了，最后更新时间：2021-01-06。
 
-[360 极速浏览器](https://browser.360.cn/ee/)：也是360出品的良心软件，基于Chrome内核，~~一般下载它都是为了打开 IE 页面吧~~。
+[360 极速浏览器](https://browser.360.cn/ee/)：也是 360 出品的良心软件，基于 Chrome 内核，~~一般下载它都是为了打开 IE 页面吧~~。
 
 [FireFox 浏览器](https://www.mozilla.org/zh-CN/firefox/all)：火狐浏览器，三大主流浏览器之一。
 
@@ -43,21 +43,23 @@ tag:
 
 :::: tip
 
-该软件不是免费的，有 30天免费试用。不过网上能搜到很多可用的注册码。此外，国人还做了绿色单文件版，但似乎对单文件版的设置不能持久化，如果需要做个性化设置（例如水印），建议下载安装版。
+该软件不是免费的，有 30 天免费试用。不过网上能搜到很多可用的注册码。此外，国人还做了绿色单文件版，但似乎对单文件版的设置不能持久化，如果需要做个性化设置（例如水印），建议下载安装版。
 
 ::: details 更多
 
 <https://www.cnblogs.com/QW-lzm/p/15307460.html> 亲测可用
 
-<https://xiazai.zol.com.cn/detail/21/203339.shtml> 未测试
+<https://xiazai.zol.com.cn/detail/21/203339.shtml>  未测试
 
-<https://www.423down.com/660.html> 未测试
+<https://www.423down.com/660.html>  未测试
 
-<https://www.yutu.cn/softhtml/showsoft_6496.html> 未测试
+<https://www.yutu.cn/softhtml/showsoft_6496.html>  未测试
 
 :::
 
 ::::
+
+[SVG Explorer Extension](https://github.com/tibold/svg-explorer-extension/releases) 在资源管理器中预览 svg 图片（缩略图），打不开 github 的也可以试下在[这里](https://download.cnet.com/SVG-Explorer-Extension/3000-2248_4-78237543.html)下载。
 
 ### 其他
 
@@ -89,7 +91,7 @@ Duplicate File Finder Plus：查找重复文件（非免费，自行搜索）。
 
 [微 PE 工具箱](https://www.wepe.com.cn/download.html)
 
-操作系统教程推荐：
+重装系统教程推荐：
 
 <!-- aid 可通过查看源码获得，实测 bvid 优先级高 -->
 

@@ -19,12 +19,12 @@ next: ./linear-list/sequence-list.md
 
 ## 栈和队列
 
-- [栈](stack-and-queue.md#栈)
-- [队列](stack-and-queue.md#队列)
+- [栈](./stack-queue/stack.md)
+- [队列](./stack-queue/queue.md)
 
 ## 树
 
-- [树与二叉树](tree.md)
+- [树与二叉树](./tree/README.mdd)
 
 ## 图
 
