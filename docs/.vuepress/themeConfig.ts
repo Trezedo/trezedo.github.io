@@ -31,7 +31,7 @@ export default hopeTheme({
     },
 
     blog: {
-        articlePerPage: 10,
+        articlePerPage: 12,
         medias: {
             QQ: "https://res.abeim.cn/api/qq/?qq=1962234583",
             Qzone: "https://1962234583.qzone.qq.com",
