@@ -25,5 +25,9 @@ pnpm-debug.log*
 logs
 *.log
 
+# 尽量不使用 svg 图片（转 png）
+docs/**/img/*.svg
+!docs/**/img/*.keep.svg
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
