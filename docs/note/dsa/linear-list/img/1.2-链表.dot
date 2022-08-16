@@ -7,12 +7,12 @@ digraph "链表" {
     node [shape = record;];
     
     // 边的样式
-    edge [style = "dashed"; arrowsize = 0.8;];
+    edge [style = "dashed"; arrowsize = 0.6;];
     pad = "0";
+    margin = 0;
     
     // subgraph 以 cluster 开头才会有边框，label 才会生效
     subgraph cluster_linked_list {
-        margin = "0";
         peripheries = 0;
         // penwidth = 0; // 可加粗
         // pencolor = transparent;
