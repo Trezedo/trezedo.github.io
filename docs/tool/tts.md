@@ -1,7 +1,7 @@
 ---
 icon: change
-description: 利用 Web Speech API 实现文本转语音，以及介绍了一些可方便使用的接口
 date: 2022-02-25
+description: 利用 Web Speech API 实现文本转语音，以及介绍了一些可方便使用的接口。
 category:
     - JavaScript
 tag:
@@ -219,7 +219,7 @@ https://fanyi.baidu.com/gettts?lan=zh&spd=5&source=web&text=文本
 
 可以发现，以上是无法直接播放的。如果我们直接打开这个[链接](https://fanyi.baidu.com/gettts?lan=zh&spd=5&source=web&text=%E7%99%BE%E5%BA%A6TTS%E6%B5%8B%E8%AF%95)，会发现它会让我们下载一个 `mp3` 文件，通过查看网络请求记录可以发现，它返回的 MIME 类型为 `text/html`，而手动打开时它才是下载 `mp3` 文件，导致 `audio` 无法播放。
 
-针对这个问题，可以使用在[免费接口](/article/免费接口.md)中介绍的免费 api，这里直接给出：
+针对这个问题，可以使用在[免费接口](../article/免费接口.md)中介绍的免费 api，这里直接给出：
 
 - <http://api.weijieyue.cn/api/?id=46> 19 种音色
 - <https://yuanxiapi.cn/api/voice/voice.php> 6 种音色
