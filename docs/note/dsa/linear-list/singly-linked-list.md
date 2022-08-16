@@ -88,7 +88,7 @@ typedef struct ListNode {
 
 有了头结点后，不论是首元结点还是普通结点，对它的删除和在它之前插入结点的操作统一起来了（下文会说明）。
 
-### 接口
+### 接口申明
 
 包括链表的创建、销毁和增删查改。
 
@@ -181,6 +181,220 @@ void Destroy(Node **ppHead);
 这里多数接口的名称和[上一篇文章](sequence-list.md)中顺序表的一致。没有加上前缀、后缀或命名空间限定。
 
 :::
+
+### 初始化
+
+```c
+inline Node *createNode(DataType x) {
+    // 申请空间
+    Node *newNode = (Node *) malloc(sizeof(Node));
+    if (newNode == NULL) {
+        // 实际上现在申请内容基本不会失败
+        printf("malloc failed !\n");
+        exit(-1);
+    }
+    newNode->data = x;
+    newNode->next = NULL;
+    return newNode;
+}
+```
+
+### 插入
+
+```c
+void Print(Node *head) {
+    Node *cur = head; // 当前指针
+    // 指向 null 时链表结束
+    while (cur != NULL) {
+        printf("%d-> ", cur->data);
+        cur = cur->next;
+    }
+    printf("NULL\n");
+}
+
+// 由于需要修改指针的指向，因此需要二级指针
+void PushBack(Node **ppHead, DataType x) {
+    // 先创建结点
+    Node *newNode = createNode(x);
+
+    if (*ppHead == NULL) {
+        // 若头指针为空，则直接使其指向申请的结点
+        *ppHead = newNode;
+    } else {
+        // 找到尾结点，之后将尾结点指向申请的结点
+        Node *tail = *ppHead;
+        while (tail->next != NULL) {// 也可写 while (tail->next)，隐式转换
+            tail = tail->next;
+        }
+        tail->next = newNode;
+    }
+}
+
+void PushFront(Node **ppHead, DataType x) {
+    Node *newNode = createNode(x);
+
+    // 不需要像尾插法那样判断 *ppHead == NULL
+
+    // 新结点的 next 指向头指针的指向，*ppHead 是首个结点的地址
+    newNode->next = *ppHead;
+    // 使头指针指向新结点，完成头插
+    *ppHead = newNode;
+}
+
+
+void InsertAfter(Node *pos, DataType x) {
+    assert(pos != NULL);
+
+    Node *newNode = createNode(x);
+    newNode->next = pos->next;
+    pos->next = newNode;
+}
+
+void InsertBefore(Node **ppHead, Node *pos, DataType x) {
+    assert(*ppHead != NULL);
+    assert(pos != NULL);
+
+    Node *newNode = createNode(x);
+
+    // 如果在第 1 个结点前插入，相当于头插
+    if (*ppHead == pos) {
+        // PushFront(ppHead, x); // 可调用函数，但申请结点的操作得放后面
+        newNode->next = pos;
+        *ppHead = newNode;
+        return;
+    }
+
+    // 有 2 个及以上结点，需要找到 pos 前一个位置
+    Node *prev = *ppHead;
+    while (prev->next != pos) {
+        prev = prev->next;
+    }
+    newNode->next = pos; // prev->next == pos
+    prev->next = newNode;
+}
+```
+
+### 删除
+
+```c
+// 实际上仅当删到只剩头指针时才需要二级指针，因为要将其指向 NULL
+void PopBack(Node **ppHead) {
+    // 至少有 1 个结点才能删
+    assert(*ppHead != NULL);
+
+    // 仅有 1 个结点的情况
+    if ((*ppHead)->next == NULL) {
+        free(*ppHead);
+        *ppHead = NULL;
+        return;
+    }
+
+    // 有 2 个及以上结点的情况
+    Node *prev = NULL; // 存放前一个结点的地址
+    Node *tail = *ppHead; // 找到尾结点
+    while (tail->next != NULL) {
+        prev = tail;
+        tail = tail->next;
+    }
+
+    free(tail); // 释放尾结点所占空间
+    tail = NULL; // 避免野指针
+
+    prev->next = NULL; // 尾结点的前一结点 next 域指向 NULL，完成尾删
+}
+
+// 另一种实现（主要是后面）
+void PopBack2(Node **ppHead) {
+    // 至少有 1 个结点才能删
+    assert(*ppHead != NULL);
+
+    // 仅有 1 个结点的情况
+    if ((*ppHead)->next == NULL) {
+        free(*ppHead);
+        *ppHead = NULL;
+        return;
+    }
+
+    // 有 2 个及以上结点的情况
+    Node *tail = *ppHead; // 找到倒数第 2 个结点，即尾结点的前一个
+    while (tail->next->next != NULL) {
+        tail = tail->next;
+    }
+
+    free(tail->next); // 释放尾结点
+    tail->next = NULL; // 倒数第 2 结点 next 域指向 NULL，完成尾删
+}
+
+void PopFront(Node **ppHead) {
+    // 不能为空
+    assert(*ppHead != NULL);
+
+    // 有 1 个及以上结点的情况
+    Node *next = (*ppHead)->next;
+    free(*ppHead);
+    *ppHead = next;
+}
+
+
+void Delete(Node **ppHead, Node *pos) {
+    assert(*ppHead != NULL);
+    assert(pos != NULL);
+
+    // 如果删头结点
+    if (*ppHead == pos) {
+        *ppHead = pos->next;
+        free(pos);
+        pos = NULL; // 可不置空，因为是形参
+        return;
+    }
+
+    // 删除其他结点，需要找到 pos 的前一个结点
+    Node *prev = *ppHead;
+    while (prev->next != pos) {
+        prev = prev->next;
+    }
+    prev->next = pos->next;
+    free(pos);
+}
+
+void DeleteAfter(Node *pos) {
+    assert(pos != NULL);
+    assert(pos->next != NULL);
+
+    Node *next = pos->next;
+    pos->next = next->next;
+    free(next);
+}
+```
+
+### 查找
+
+```c
+Node *Find(Node *ppHead, DataType val) {
+    Node *cur = ppHead;
+    while (cur != NULL) {
+        if (cur->data == val) {
+            return cur;
+        }
+        cur = cur->next;
+    }
+    return NULL;
+}
+```
+
+### 销毁
+
+```c
+void Destroy(Node **ppHead) {
+    Node *cur = *ppHead;
+    while (cur != NULL) {
+        Node *next = cur->next;
+        free(cur);
+        cur = next;
+    }
+    *ppHead = NULL;
+}
+```
 
 ## 顺序表和链表的对比
 
