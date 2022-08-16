@@ -41,11 +41,23 @@ tag:
 
 [FastStone Capture](https://www.faststone.org/FSCaptureDownload.htm)：老牌截图工具，支持滚动截图、添加水印、录制视频，还有简易、方便的图片编辑器。
 
-::: tip
+:::: tip
 
 该软件不是免费的，有 30天免费试用。不过网上能搜到很多可用的注册码。此外，国人还做了绿色单文件版，但似乎对单文件版的设置不能持久化，如果需要做个性化设置（例如水印），建议下载安装版。
 
+::: details 更多
+
+<https://www.cnblogs.com/QW-lzm/p/15307460.html> 亲测可用
+
+<https://xiazai.zol.com.cn/detail/21/203339.shtml> 未测试
+
+<https://www.423down.com/660.html> 未测试
+
+<https://www.yutu.cn/softhtml/showsoft_6496.html> 未测试
+
 :::
+
+::::
 
 ### 其他
 
@@ -61,7 +73,7 @@ tag:
 
 Duplicate File Finder Plus：查找重复文件（非免费，自行搜索）。
 
-[微信 markdown 编辑器](https://doocs.gitee.io/md/) 在线工具，可将 markdown 内容进行排版、美化，然后复制并发布到公众号文章。
+[微信 markdown 编辑器](https://doocs.gitee.io/md/) 在线工具，可将 markdown 内容进行排版、美化，然后复制并发布到公众号文章。
 
 导入书签 <chrome://settings/importData>
 
@@ -69,7 +81,7 @@ Duplicate File Finder Plus：查找重复文件（非免费，自行搜索）。
 
 ### 镜像
 
-原版系统镜像下载：<https://next.itellyou.cn/Original/> 需要注册登陆
+原版系统镜像下载：<https://next.itellyou.cn/Original/> 需要注册登陆
 
 ### PE 工具
 

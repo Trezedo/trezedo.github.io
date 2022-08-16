@@ -22,4 +22,10 @@ tag:
 
 <https://edotor.net/>
 
+免费的 <https://quickchart.io/documentation/graphviz-api/>
+
 <http://xn--dahlstrm-t4a.net/svg/html/get-embedded-svg-document-script.html>
+
+<http://dreampuf.github.io/GraphvizOnline/> 自带输出，支持较多引擎，且 png 格式的较清晰，和 vscode 插件功能差不多
+
+<https://sketchviz.com/> 手绘风格，
