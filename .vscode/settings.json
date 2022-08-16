@@ -1,6 +1,7 @@
 {
     "workbench.editorAssociations": {
-        "*.svg": "default"
+        // 开启则使用默认的 svg 查看器，否则使用 office viewer
+        // "*.svg": "default"
     },
     "svg.preview.background": "editor",
     "cSpell.words": [
