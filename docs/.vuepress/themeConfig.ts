@@ -99,6 +99,12 @@ export default hopeTheme({
                     "\\eqref": "\\href{##tag#1}{(\\text{#1})}",
                     "\\ref": "\\href{##tag#1}{\\text{#1}}",
                     "\\label": "\\htmlId{tag#1}{}",
+                    // 数据结构
+                    "\\mk": "\\mkern{#1mu}",
+                    "\\box": String.raw`\begin{array}{|c|c|}\hline \!#1\! & \!#2\!\\ \hline \end{array}`,
+                    "\\node": String.raw`\box{#1}{\bullet}`,
+                    // katex 不支持默认参数，\providecommand\pTo[1][-18]{\mkern{#1mu}\xrightarrow{\mkern24mu}\mkern-7mu}
+                    "\\pto": "\\mkern{-18mu}\\xrightarrow{\\mkern24mu}\\mkern-7mu",
                 },
                 // 似乎是 md-enhance 使用的 katex 版本较低的缘故
                 strict: "ignore" /* (errorCode: string, errorMsg: string, token: any) => {
