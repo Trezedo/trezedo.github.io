@@ -30,9 +30,10 @@ p > img:only-child {
     margin: 0 auto;
 }
 
+// todo 用 js onload 事件实现
 @for $i from 60 through 800 {
     @if ($i % 20==0) {
-        img[alt*="#{$i}px"] {
+        img[alt*="|#{$i}"] {
             width: #{$i}px;
         }
     }

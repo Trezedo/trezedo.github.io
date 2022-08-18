@@ -64,11 +64,11 @@ onMounted(() => {
 
 然后勾选 **“文件缓存”** ，然后点击“**清除**”：
 
-![step1 center 360px](https://zedo.gitee.io/data-generator/step1.png)
+![step1 center |360](https://zedo.gitee.io/data-generator/step1.png)
 
 显示如下则清理完成：
 
-![step2 center 360px](https://zedo.gitee.io/data-generator/step2.png)
+![step2 center |360](https://zedo.gitee.io/data-generator/step2.png)
 
 然后重新打开所要访问的页面即可。
 
@@ -100,6 +100,6 @@ onMounted(() => {
 
 最终，我的解决方案是：==添加刷新按钮==来执行刷新操作：
 
-![image-20220324221949233 center](https://zedo.gitee.io/img/image-20220324221949233.png#s-50)
+![image-20220324221949233 center |400](https://zedo.gitee.io/img/image-20220324221949233.png)
 
 可以发现在右下角多了一个按钮，点它就可以刷新啦~
