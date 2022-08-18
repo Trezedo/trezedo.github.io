@@ -134,6 +134,7 @@ particle {
     opacity: 0;
     z-index: 999;
 }
+
 // @mr-hope/vuepress-plugin-components/lib/client/styles/back-to-top.scss
 .refresh-page {
     background-color: var(--c-bg, #fff);
@@ -176,4 +177,25 @@ particle {
 iframe {
     border: 2px var(--theme-color) solid;
     border-radius: 6px;
+}
+
+// 代码高亮中的评论
+.token.comment {
+    font-style: normal !important;
+
+    html[data-theme="dark"] & {
+        color: #6a8759;
+    }
+}
+
+// 引用块
+blockquote {
+    border-color: #ddd;
+    border-left-width: 5px;
+    background-color: #f2f3f5;
+
+    html[data-theme="dark"] & {
+        border-color: #333;
+        background-color: #161616;
+    }
 }
