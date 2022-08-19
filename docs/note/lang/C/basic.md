@@ -1,6 +1,10 @@
 ---
 icon: c
 date: 2022-03-13
+category:
+	- 编程语言
+tag:
+	C语言
 ---
 
 # C 语言基础

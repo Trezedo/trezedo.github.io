@@ -2,6 +2,7 @@
 icon: javascript
 date: 2022-03-26
 category:
+	- 编程语言
     - JavaScript
 tag:
     - javascript
