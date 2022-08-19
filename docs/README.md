@@ -16,16 +16,21 @@ projects:
       desc: 零散的记录
       link: /article/
 
-    # - icon: /icon.svg
-    - icon: tool
-      name: 小工具
-      desc: 小众且不太实用
-      link: /tool/
+    - icon: book
+      name: 数据结构笔记
+      desc: 包括基础知识和练习题
+      link: /note/dsa/
 
     - icon: book
       name: 数学笔记
       desc: 佛系记录
       link: /note/math/
+
+    # - icon: /icon.svg
+    - icon: tool
+      name: 小工具
+      desc: 小众且不太实用
+      link: /tool/
 
     - icon: project
       name: 家居助手

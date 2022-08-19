@@ -70,20 +70,29 @@ export default sidebar({
         },
     ],
     "/note/dsa/": [
-        // { prefix: "", icon: "", text: "数据结构与算法", link: "Readme.md" },
+        { prefix: "", icon: "", text: "前言", link: "Readme.md" },
         {
             prefix: "linear-list/",
             icon: "",
             text: "线性表",
-            children: "structure",
-            collapsable: true,
+            children: [
+                { prefix: "", text: "基础知识", children: "structure", collapsable: true },
+                {
+                    prefix: "q/",
+                    text: "习题",
+                    children: "structure",
+                    collapsable: true,
+                },
+            ],
         },
         {
             prefix: "stack-queue/",
             icon: "",
             text: "栈和队列",
-            children: "structure",
-            collapsable: true,
+            children: [
+                { prefix: "", text: "基础知识", children: "structure", collapsable: true },
+                // {}
+            ],
         },
         { prefix: "tree/", icon: "tree", text: "树", children: "structure" },
         { prefix: "sorts/", icon: "", text: "排序", children: "structure", collapsable: true },

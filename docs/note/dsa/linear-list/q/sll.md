@@ -1,5 +1,5 @@
 ---
-date: 2022-08-08
+date: 2022-08-08 12:00:00
 category:
     - 数据结构
     - 线性表
@@ -9,19 +9,6 @@ tag:
 ---
 
 # 数据结构练习题 - 单链表
-
-$$
-\def\useless{\undefined}
-% katex 需要 \global 才能生效，但 mathjax 无法识别该命令
-% 第一条命令用 \def，后面的就可以用 \global，能兼容两个引擎
-% \def\box(#1,#2)
-\def\box#1#2{\begin{array}{|c|c|}\hline \!#1\! & \!#2\!\\ \hline \end{array}}
-\def\node#1{\box{#1}{\bullet}}
-% let 对 mathjax 全局生效，但 katex 不行(应使用 \def 或 \gdef)
-% katex 似乎不支持可选参数默认值
-\def\pto{\mkern{-18mu}\xrightarrow{\mkern24mu}\mkern-7mu}
-% pto stands for pointer to. \mkern18mu \pTo \mkern7mu b
-$$
 
 这里的单链表是无头非循环的，与 [数据结构 - 单链表](../singly-linked-list.md) 中介绍的一致，并使用到头文件：
 
@@ -37,9 +24,9 @@ $$
 
 $$
 \begin{gathered}
-\node1\pto \node2\pto \node3\pto \node4\pto \node5\pto\,\,\text{NULL} \\[4pt]
+\node1\pto \node2\pto \node3\pto \node4\pto \node5\pto \,\,\text{NULL} \\[4pt]
 \Downarrow \\[4pt]
-\node5\pto \node4\pto \node3\pto \node2\pto \node1\pto\,\,\text{NULL}
+\node5\pto \node4\pto \node3\pto \node2\pto \node1\pto \,\,\text{NULL}
 \end{gathered}
 $$
 
@@ -66,15 +53,6 @@ $$
 \end{aligned}
 $$
 
-$$
-\def\box(#1,#2){\begin{array}{|c|c|}\hline \!#1\! & \!#2\!\\ \hline \end{array}}
-\varnothing\leftarrow
-\box(a,b)
-\leftrightarrows
-\box(c,d)
-\to \varnothing
-$$
-
 该思想需要两个指针，用 `cur` 指向当前迭代到的结点，`next` 指向 `cur` 的下一结点，即 `cur->next`。迭代完成的条件是 `cur==NULL`。
 
 这里为了使代码更容易理解，避免使用 `->next->next` 这种容易含糊的形式，而是使用 3 个指针，假设连续的 3 个结点 `n1`,`n2`,`n3`。但实际上：
@@ -84,14 +62,16 @@ $$
 - `n3` 就是 `next`，即 `cur->next`。
 
 初始时，三个结点的位置如下所示：
+
 $$
-\begin{array}{cccccc}
-\text{NULL}&\mkern-16mu\dashrightarrow\mkern-5mu \node1 &\mkern{-10mu}\pto \node2 &\mkern{-10mu}\pto\node3&\mkern{-10mu}\pto \node4&\mkern{-10mu}\pto \node5\pto\,\,\text{NULL} \\
+\begin{array}{cccc}
+\text{NULL} & \mk{-16}\to\mk{-5} \node1 & \mk{-10}\pto \node2 &\mk{-10}\pto\node3\pto \node4\pto \node5\pto \,\,\text{NULL} \\
 \uparrow &\uparrow &\uparrow\\[-1pt]
-n_1 &n_2 &n_3
+n_1 &n_2 &n_3 &
 \end{array}
 $$
 
+接下来依次将 `n2` 的 `next` 域指向其上一结点 `n1`，然后三个结点往右移动即可。代码如下：
 
 ```c
 /**
@@ -135,6 +115,82 @@ Node *reverseList(Node *head) {
 
 > 虽然是“新建”，但操作的仍是原链表上的结点，空间复杂度为常数级。
 
+这里给出 4 个结点的链表演示（注意标记颜色的结点）：
+
+$$
+\begin{aligned}
+\text{step 1}&\\
+&\text{原链表：}
+\cnode{#9ff}1\pto
+\cnode{#cae}2\pto
+\cnode{#fc3}3\pto
+\cnode{#7d7}4\pto
+\,\,\text{NULL} \\[4pt]
+&\text{新链表：} \text{NULL}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\text{step2}&\\
+&\text{原链表：}
+\cnode{#cae}{2}\pto
+\cnode{#fc3}{3}\pto
+\cnode{#7d7}{4}\pto
+\,\,\text{NULL}
+\hphantom{cc\node0\pto}\\[4pt]
+&\text{新链表：}
+\cnode{#9ff}{1}\pto
+\text{NULL}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\text{step3}&\\
+&\text{原链表：}
+\cnode{#fc3}{3}\pto
+\cnode{#7d7}{4}\pto
+\,\,\text{NULL}
+\hphantom{cccc\node0\pto\node{0}\pto}\\[4pt]
+&\text{新链表：}
+\cnode{#cae}{2}\pto
+\cnode{#9ff}{1}\pto
+\,\,\text{NULL}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\text{step4}&\\
+&\text{原链表：}
+\cnode{#7d7}{4}\pto
+\,\,\text{NULL} \\[4pt]
+&\text{新链表：}
+\cnode{#fc3}{3}\pto
+\cnode{#cae}{2}\pto
+\cnode{#9ff}{1}\pto
+\,\,\text{NULL}
+\hphantom{cc\node0\pto}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\text{step5}&\\
+&\text{原链表：}
+\text{NULL} \\[4pt]
+&\text{新链表：}
+\cnode{#7d7}{4}\pto
+\cnode{#fc3}{3}\pto
+\cnode{#cae}{2}\pto
+\cnode{#9ff}{1}\pto
+\,\,\text{NULL}
+\end{aligned}
+$$
+
+代码实现：
+
 ```c
 /**
  * 取原链表中的结点，头插到新链表中
@@ -165,27 +221,90 @@ Node *reverseList(Node *head) {
 
 ## 找到中间结点
 
+<!-- https://leetcode.cn/problems/middle-of-the-linked-list/ -->
+
 ::: info 题目
 
 给定一个头结点为 `head` 的非空单链表，返回链表的中间结点。
 
 如果有两个中间结点，则返回第二个中间结点。
 
- ```text:no-line-numbers
+```text:no-line-numbers
 输入：[1,2,3,4,5]
 输出：3
- ```
+```
 
- ```text:no-line-numbers
+```text:no-line-numbers
 输入：[1,2,3,4,5,6]
 输出：4
- ```
+```
 
- :::
+:::
 
-思路：使用快慢指针。快指针的速度是慢指针的2倍，这样当快指针到达链表尾结点时，慢指针刚好到链表中间。
+思路：使用快慢指针。快指针的速度是慢指针的 2 倍，这样当快指针到达链表尾结点时，慢指针刚好到链表中间。 `slow` 指针每次右移1次，`fast` 每次右移2次。
 
-<https://leetcode.cn/problems/middle-of-the-linked-list/>
+1° 如果是奇数个结点，则当 `fast` 到达尾结点时，`slow` 恰好就是链表中间结点：
+
+$$
+\text{step1:}\quad\begin{array}{cccccc}
+\text{slow} & & & \\[-4pt]
+\downarrow & & & \\
+\node1
+&\mk{-5}\pto\node2
+&\mk{-5}\pto\node3
+&\mk{-5}\pto\node4
+&\mk{-5}\pto\node5
+&\mk{-5}\pto\text{NULL} \\
+\uparrow & & & & \\[-4pt]
+\text{fast} & & & &
+\end{array}
+$$
+
+$$
+\text{step2:}\quad\begin{array}{cccccc}
+ & \text{slow} & & \\[-4pt]
+ & \downarrow & & \\
+\node1
+&\mk{-5}\pto\node2
+&\mk{-5}\pto\node3
+&\mk{-5}\pto\node4
+&\mk{-5}\pto\node5
+&\mk{-5}\pto\text{NULL} \\
+ & & \uparrow & & \\[-4pt]
+ & & \text{fast} & &
+\end{array}
+$$
+
+$$
+\text{step3:}\quad\begin{array}{cccccc}
+ & & \text{slow} &\\[-4pt]
+ & & \downarrow &\\
+\node1
+&\mk{-5}\pto\node2
+&\mk{-5}\pto\node3
+&\mk{-5}\pto\node4
+&\mk{-5}\pto\node5
+&\mk{-5}\pto\text{NULL} \\
+ & & & &  \uparrow \\[-4pt]
+ & & & & \text{fast}
+\end{array}
+$$
+
+2° 如果是偶数个结点，则当快指针 `fast` 指向 `NULL` 时，慢指针 `slow` 恰好是第二个中间结点：
+
+$$
+\begin{array}{ccccc}
+ & & \text{slow} &\\[-4pt]
+ & & \downarrow &\\
+\node1
+&\mk{-5}\pto\node2
+&\mk{-5}\pto\node3
+&\mk{-5}\pto\node4
+&\mk{-5}\pto\,\text{NULL} \\
+ & & & &  \uparrow \\[-4pt]
+ & & & & \text{fast}
+\end{array}
+$$
 
 ```c
 /**
@@ -208,7 +327,6 @@ Node *middleNode(Node *head) {
     return slow;
 }
 ```
-
 
 ## 找到倒数第 k 个结点
 
@@ -250,10 +368,10 @@ Node *lastKNode(Node *head, int k) {
 ## 合并两个有序链表
 
 <https://leetcode.cn/problems/merge-two-sorted-lists/>
+
 $$
 \fcolorbox{black}{#bef}{$\,\mathstrut a\,$}\mkern-1mu \boxed{\diagdown}
 $$
-
 
 ```c
 /**
