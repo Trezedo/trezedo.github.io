@@ -103,8 +103,9 @@ export default hopeTheme({
                     "\\mk": "\\mkern{#1mu}",
                     "\\box": String.raw`\begin{array}{|c|c|}\hline \!#1\! & \!#2\!\\ \hline \end{array}`,
                     "\\node": String.raw`\box{#1}{\bullet}`,
-                    // katex 不支持默认参数，\providecommand\pTo[1][-18]{\mkern{#1mu}\xrightarrow{\mkern24mu}\mkern-7mu}
-                    "\\pto": "\\mkern{-18mu}\\xrightarrow{\\mkern24mu}\\mkern-7mu",
+                    "\\cnode": "\\colorbox{#1}{$\\node{#2}$}",
+                    // katex 不支持默认参数，\providecommand\pTo[1][-20]{\mkern{#1mu}\xrightarrow{\mkern24mu}\mkern-7mu}
+                    "\\pto": "\\mkern{-20mu}\\xrightarrow{\\mkern24mu}\\mkern-6mu",
                 },
                 // 似乎是 md-enhance 使用的 katex 版本较低的缘故
                 strict: "ignore" /* (errorCode: string, errorMsg: string, token: any) => {

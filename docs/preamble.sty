@@ -11,14 +11,15 @@
 
 % let 对 mathjax 全局生效，但 katex 不行(应使用 \def 或 \gdef)
 % katex 似乎不支持可选参数默认值
-%\def\pto{\mkern{-18mu}\xrightarrow{\mkern24mu}\mkern-7mu}
+%\def\pto{\mkern{-20mu}\xrightarrow{\mkern24mu}\mkern-7mu}
 % pto stands for pointer to. \mkern18mu \pTo \mkern7mu b
-\newcommand\pto[1][-18]{\mkern{#1mu}\xrightarrow{\mkern24mu}\mkern-7mu}
+\newcommand\pto[1][-20]{\mkern{#1mu}\xrightarrow{\mkern24mu}\mkern-7mu}
 
 % 第一种方式固然是比较好的，但是 katex 不支持
 %\def\box(#1,#2){\begin{array}{|c|c|}\hline \!#1\! & \!#2\!\\ \hline \end{array}}
 \def\box#1#2{\begin{array}{|c|c|}\hline \!#1\! & \!#2\!\\ \hline \end{array}}
 
 \def\node#1{\box{#1}{\bullet}}
+\def\cnode#1#2{\colorbox{#1}{$\node{#2}$}}
 \def\mk#1{\mkern{#1mu}}
 
