@@ -24,11 +24,9 @@ next: ./linear-list/sequence-list.md
 
 ## 树
 
-- [树与二叉树](./tree/README.mdd)
+- [树与二叉树](./tree/README.md)
 
-## 图
-
-待续
+## 查找
 
 ## 排序
 
@@ -37,4 +35,6 @@ next: ./linear-list/sequence-list.md
 - [交换排序](./sorts/exchange-sort.md)
 - [归并排序](./sorts/merge-sort.md)
 
-## 查找
+## 图
+
+待续
