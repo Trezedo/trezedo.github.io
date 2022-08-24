@@ -33,6 +33,8 @@ tag:
 
 [SumatraPDF](https://www.sumatrapdfreader.org/download-free-pdf-viewer)：轻量、快速的 pdf 阅读器，曾经使用过 LaTeX 的朋友应该不会陌生。
 
+[猎豹护眼大师](http://www.downxia.com/downinfo/175516.html) 此处是非官方精简版，无需安装（不建议官方版）。
+
 ### 图片相关
 
 [Snipaste](https://www.snipaste.com/)：开源、免费的截图工具，使用比较方便，支持贴图等功能。
@@ -61,6 +63,8 @@ tag:
 
 [SVG Explorer Extension](https://github.com/tibold/svg-explorer-extension/releases) 在资源管理器中预览 svg 图片（缩略图），打不开 github 的也可以试下在[这里](https://download.cnet.com/SVG-Explorer-Extension/3000-2248_4-78237543.html)下载。
 
+[compressor](https://compressor.io/) 图片压缩（在线工具）
+
 ### 其他
 
 [有道词典](https://cidian.youdao.com/)：桌面翻译软件。
@@ -74,6 +78,8 @@ tag:
 [万能联播](https://static-s.iqiyi.com/wnbf/get.html)：之前叫爱奇艺万能播放器，支持视频、图片播放。（存在关闭视频后进程不会关闭的问题）如果你只需要视频播放，也可以试试 [Pot Player](http://www.potplayercn.com/)。
 
 Duplicate File Finder Plus：查找重复文件（非免费，自行搜索）。
+
+[obsidian](https://obsidian.md/) 能当做 markdown 编辑器，还可以做知识管理
 
 [微信 markdown 编辑器](https://doocs.gitee.io/md/) 在线工具，可将 markdown 内容进行排版、美化，然后复制并发布到公众号文章。
 

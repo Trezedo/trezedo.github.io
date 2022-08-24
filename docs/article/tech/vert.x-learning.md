@@ -16,7 +16,10 @@ tag:
 # vert.x 学习
 
 ![image-20220216194353060 center|440](https://zedo.gitee.io/img/image-20220216194353060.png)
+
 <!--## 初步了解 ### 介绍-->
+
+<!-- todo https://lang-yu.gitbook.io/vert.x/ -->
 
 ## 动手实践
 
