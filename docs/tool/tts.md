@@ -152,7 +152,7 @@ Windows Registry Editor Version 5.00
 
 实际上，还有更简单的方法（实际上也是修改注册表）：
 
-[comment]: stackoverflow(https://stackoverflow.com/questions/47379725)：
+<!-- https://stackoverflow.com/questions/47379725 -->
 
 ```powershell
 $sourcePath = 'HKLM:\software\Microsoft\Speech_OneCore\Voices\Tokens'
