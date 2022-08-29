@@ -25,6 +25,13 @@ order: 4
 3. 空间复杂度：O(N)
 4. 稳定性：稳定
 
+
+快排思想类似二叉树的前序遍历
+
+归并排序的思想类似二叉树的后序遍历
+
+旧
+
 ```c
 /*
 本关任务：随机生成20个从1－100之间的随机数，用递归与分治法编程实现元素的查找算法。
@@ -41,7 +48,6 @@ int random(int min, int max) {
     return rand() % (max - min + 1) + min;
 }
 //https://blog.csdn.net/qqq_aaa_zzz1/article/details/79105190
-
 
 // 分&治 递归
 void merge_sort_conquer(int data[], int temp[], int start, int end) {
@@ -138,6 +144,8 @@ int main() {
 5
 */
 ```
+
+新
 
 ```c
 // #include <stdlib.h>

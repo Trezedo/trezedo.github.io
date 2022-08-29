@@ -138,13 +138,15 @@ void bubble_sort(int *arr, int n) {
 
 空间复杂度：仅使用了常数个辅助变量，故为 $O(1)$。
 
-稳定性：当 A[j-1]=A[j] 时并不会交换，故算法是稳定的，这个也可以从最开始的冒泡排序示例图体现出来。
+稳定性：当 $\rm arr[j-1]=arr[j]$ 时并不会交换，故算法是稳定的，这个也可以从最开始的冒泡排序示例图体现出来。
 
 ## 快速排序
 
 快速排序是 Hoare 于 1962 年提出的一种分治递归的交换排序方法，其基本思想为：任取待排序元素序列中的某元素作为基准值 (一般用 pivot 表示)，按照该排序码将待排序集合分割成两子序列，左子序列中所有元素均小于基准值，右子序列中所有元素均大于基准值，然后最左右子序列重复该过程，直到所有元素都排列在相应位置上为止。
 
-例如序列 $\{\textcolor{#e67700}{49},38,65,97,76,13,27,49^\ast\}$，选取 $\textcolor{#e67700}{49}$ 为基准，可以划分得到的如下区间：
+基准一般选取序列中两端的元素，当然若要选取其他位置的元素，只需要交换到两端就好了。
+
+例子：序列 $\{\textcolor{#e67700}{49},38,65,97,76,13,27,49^\ast\}$，选取 $\textcolor{#e67700}{49}$ 为基准，可以划分得到的如下区间：
 
 $$
 \{27,38,13\},\textcolor{#e67700}{49},\{76,97,65,49^\ast\}
@@ -152,96 +154,142 @@ $$
 
 其中 $\{27,38,13\}$ 中每个值都比 49 小，$\{76,97,65,49^\ast\}$ 中每个值都比 49 大(>=)。
 
-基准一般选取序列中两端的元素，当然若要选取其他位置的元素，只需要交换到两端就好了。
+接着，再对 49 左右两边的子序列再次划分：
+
+$$
+\underline{\{13\},{\color{red} 27},\{38\}},\textcolor{#e67700}{49},\underline{\{49^\ast,65\},{\color{cyan}76},\{97\}}
+$$
+
+此时该序列就已经有序了。
 
 将区间按照基准值划分为左右两半部分的常见方式有多种方法，这里给出常见的 3 种。
 
 ### 挖坑法
 
-设有两个指针，初始时，指针 begin 和 end 至少有一个是“坑”，因此它俩相遇时的位置就是坑。
+设有 3 个指针，`pivot` 始终指向“坑”的位置。初始时，指针 `begin` 和 `end` 分别在序列两端，选取首元素为“坑”，且首元素的值记为 `key`。
+
+`begin` 和 `end` 都要往“坑”的方向走，中途若 `begin` 碰到比坑大的，或 `end` 碰到比坑小的，就要在原地“挖”一个新的“坑”，并把当前的值填到旧坑里。当 `begin` 和 `end` 相遇时结束，且相遇的位置就是 `key` 值在排序后的最终位置。
+
+以上面给的序列为例子，初始时，首元素为 6，即 `key=49` ，带框的元素表示“坑”，**坑里面的值并不重要**：
+
+$$
+\begin{array}{cccc cccc}
+\text{pivot}\\[-2pt]
+\downarrow\\[-2pt]
+\boxed{49} & 38 & 65 & 97 & 76 & 13 & 27 & 49^\ast\\[-2pt]
+\uparrow &&&&&&& \uparrow \\[-2pt]
+\text{begin} &&&&&&& \text{end} \\
+\end{array}
+$$
+
+step1：坑在左边，`end` 指针往左边走，同时寻找比 `key` 小的值：
+
+$$
+\begin{array}{cccc cccc}
+\text{pivot}\\[-2pt]
+\downarrow\\[-2pt]
+\boxed{49} & 38 & 65 & 97 & 76 & 13 & 27 & 49^\ast\\[-2pt]
+\uparrow &&&&&& \uparrow \\[-2pt]
+\text{begin} &&&&&& \text{end} \\
+\end{array}
+$$
+
+step2：`end` 找到目标 27，在原地形成新坑（移动 `pivot` 指针），并把当前 `end` 处的值 27 填到旧坑里（`begin` 处）：
+
+$$
+\begin{array}{cccc cccc}
+&&&&&& \text{pivot}\\[-2pt]
+&&&&&& \downarrow\\[-2pt]
+\color{red}27 & 38 & 65 & 97 & 76 & 13 & \boxed{27} & 49^\ast\\[-2pt]
+\uparrow &&&&&& \uparrow \\[-2pt]
+\text{begin} &&&&&& \text{end} \\
+\end{array}
+$$
+
+step3：现在 `pivot = end`，指针 `begin` 往右找比 `key=49` 大的值；指针 `begin` 找到了目标 65，在原地新成新坑，并把目标 65 填到旧坑里（`end` 处）：
+
+$$
+\begin{array}{cccc cccc}
+&& \text{pivot} \\[-2pt]
+&& \downarrow \\[-2pt]
+27 & 38 & \boxed{65} & 97 & 76 & 13 & \color{red}65 & 49^\ast\\[-2pt]
+&& \uparrow &&&& \uparrow \\[-2pt]
+&& \text{begin} &&&& \text{end} \\
+\end{array}
+$$
+
+step4：`end` 往左边找比 `key=49` 大的值，找到了目标 13，在原地新成新坑并把目标 13 填进旧坑里：
+
+$$
+\begin{array}{cccc cccc}
+&&&&& \text{pivot} \\[-2pt]
+&&&&& \downarrow \\[-2pt]
+27 & 38 & \color{red}13 & 97 & 76 & \boxed{13} & 65 & 49^\ast\\[-2pt]
+&& \uparrow &&& \uparrow \\[-2pt]
+&& \text{begin} &&& \text{end} \\
+\end{array}
+$$
+
+重复以上步骤，可得：
+
+$$
+\begin{array}{cccc cccc}
+&&& \text{pivot} \\[-2pt]
+&&& \downarrow \\[-2pt]
+27 & 38 & 13 & \boxed{97} & 76 & \color{red}97 & 65 & 49^\ast\\[-2pt]
+&&& \uparrow && \uparrow \\[-2pt]
+&&& \text{begin} && \text{end} \\
+\end{array}
+$$
+最终，`begin` 和 `end` 相遇，此时把关键码 `key` 放到这个坑里
+$$
+\begin{array}{cccc cccc}
+&&& \text{pivot} \\[-2pt]
+&&& \downarrow \\[-2pt]
+27 & 38 & 13 & \boxed{\color{red}49} & 76 & 97 & 65 & 49^\ast\\[-2pt]
+&&& \uparrow ~\uparrow \\[-2pt]
+&&& \!\!\!\!\text{begin}~\text{end} \\
+\end{array}
+$$
+
+当 `begin` 和 `end` 相遇时，将 `key` 放入该位置，此时就完成了划分。
+
+到此为止，我们已经将区间按照基准值 `key` 划分为左右两半部分，且 `key` 所在位置就是最终位置，我们还需要将它两边的子序列变为有序，那么整个序列就有序了，这时容易想到递归：因为序列已经被分为 `[0, pivot-1]`, `pivot`, `[pivot+1, n-1]`，三个部分，且左右两个部分都是排序的子问题，只需要再对左右两部分递归使用本函数即可。
+
+#### 挖坑法代码实现
+
+为了方便整理逻辑以及代码的可读性，我们可以先抽离出来一个子函数：划分并获取 pivot 的最终位置，也就是上文所述的那些步骤。
 
 ```c
+// 用 '$' 开头的代表子函数
+
+// 快排挖坑法的划分逻辑（返回值为坑的新位置）
+int $partition_hole(int *arr, int begin, int end);
+
 /**
- * 快速排序
+ * 快速排序（挖坑法）
  *
- * 分治
- * @param arr
- * @param left 开始
- * @param right 结束
- * @param n
+ * @param arr 数组
+ * @param begin 开始
+ * @param end 结束
+ * @param n 数组长度
  */
-void quick_sort_1(int *arr, int left, int right) {
-    if (left >= right) return;
+void quick_sort_hole(int *arr, int begin, int end) {
+    if (begin >= end) return;
 
-    int begin = left, end = right;
-    int pivot = begin; // 一般选最左边或最右边
-    int key = arr[begin];
-    while (begin != end) { // begin < end
-        // 坑在左边，end 从右边过来找比 key 小的数
-        while (begin < end && arr[end] >= key) {
-            end--;
-        }
-        // 这时找到目标，把小的放到左边的坑里，自己形成新的坑位
-        arr[pivot] = arr[end];
-        pivot = end;
-
-        // 坑在右边，begin 从左到右找比 key 大的数
-        while (begin < end && arr[begin] <= key) {
-            begin++;
-        }
-        // 这时找到目标，把大的放到右边的坑里，自己形成新的坑位
-        arr[pivot] = arr[begin];
-        pivot = begin;
-    }
-    // 这里是相遇的位置
-    pivot = begin;
-    arr[pivot] = key;
+    int pivot = $partition_hole(arr, begin, end);
 
     // pivot 已经排到正确的位置了，如果它的左边、右边都排好序，那么整个数组就是有序的
-    // 此时 [left, right] 被分成了 [left, pivot-1], pivot, [pivot+1, right]
-    quick_sort_1(arr, left, pivot - 1);
-    quick_sort_1(arr, pivot + 1, right);
+    // 此时 [begin, end] 被分成了 [begin, pivot-1], pivot, [pivot+1, end]
+    quick_sort_hole(arr, begin, pivot - 1);
+    quick_sort_hole(arr, pivot + 1, end);
 }
 ```
 
-单趟排序是 $O(n)$
-
-三数取中
-
-快排思想类似二叉树的前序遍历
-
-归并排序的思想类似二叉树的后序遍历
+其中 `$partition_hole` 具体实现如下：
 
 ```c
-// 提取快排挖坑法的核心逻辑（返回坑的新位置）
-int $part_sort1(int *arr, int left, int right);
-
-/**
- * 快速排序
- *
- * 分治
- * @param arr
- * @param left 开始
- * @param right 结束
- * @param n
- */
-void quick_sort_1(int *arr, int left, int right) {
-    if (left >= right) return;
-
-    int pivot = $part_sort1(arr, left, right);
-
-    // pivot 已经排到正确的位置了，如果它的左边、右边都排好序，那么整个数组就是有序的
-    // 此时 [left, right] 被分成了 [left, pivot-1], pivot, [pivot+1, right]
-    quick_sort_1(arr, left, pivot - 1);
-    quick_sort_1(arr, pivot + 1, right);
-}
-
-// 三数取中，快排的一种优化方法
-int $get_middle(const int *arr, int left, int right);
-
-// 中间过程
-int $part_sort1(int *arr, int left, int right) {
-    int begin = left, end = right;
+int $partition_hole(int *arr, int begin, int end) {
     int pivot = begin; // 一般选最左边或最右边
     int key = arr[begin];
     while (begin != end) { // begin < end
@@ -270,123 +318,282 @@ int $part_sort1(int *arr, int left, int right) {
     // 返回该位置，用于分治
     return pivot;
 }
+```
 
+单趟排序是 $O(n)$
+
+### 快速排序的优化
+
+快排有一种名为“**三数取中**”的优化方法，该方法可以避免快排的极端情况。其中三数一般指序列两端以及中位数，如果两端的数是 arr[begin]，arr[end]，那么第三数就是 arr[(begin+end)/2]。
+
+> 该优化方法一般考试、考研不要求掌握。
+
+于是，在 `quick_sort_hole` 的基础上，只需要把三数取中得到的数与第一个数交换位置就实现了优化：
+
+```c
 // 三数取中，避免选到数组中最小的元素，导致快排是最坏情况
-int $get_middle(const int *arr, int left, int right) {
-    int mid = (left + right) >> 1; // 除 2
+int $get_middle(const int *arr, int begin, int end) {
+    int mid = (begin + end) >> 1; // 除 2
     // 选出三个数的中位数的下标
-    int a = arr[left], b = arr[mid], c = arr[right];
+    int a = arr[begin], b = arr[mid], c = arr[end];
     return a > b
            ? b > c
              ? mid
-             : (a > c ? right : left)
+             : (a > c ? end : begin)
            : a > c
-             ? left
-             : (b > c ? right : mid);
+             ? begin
+             : (b > c ? end : mid);
 }
 
-void quick_sort_2(int *arr, int left, int right) {
-    if (left >= right) return;
+// 快排挖坑法（三数取中优化）
+void quick_sort_hole2(int *arr, int begin, int end) {
+    if (begin >= end) return;
 
-    // 优化：三数取中，避免最坏情况
-    // 取到一个不可能是最小的数的下标，然后与第一个数交换
-    int index = $get_middle(arr, left, right);
-    swap(arr + left, arr + index);
+    // 三数取中后，与第一个数交换
+    int index = $get_middle(arr, begin, end);
+    swap(arr + begin, arr + index);
 
-    int pivot = $part_sort1(arr, left, right);
+    int pivot = $partition_hole(arr, begin, end);
 
-    // 下面与 quick_sort_1 大致相同，但可做小区间优化，当然，该优化效果不明显
-    quick_sort_2(arr, left, pivot - 1);
-    quick_sort_2(arr, pivot + 1, right);
+    // 下面与 quick_sort_hole 大致相同，但可做小区间优化，当然，该优化效果不明显
+    quick_sort_hole2(arr, begin, pivot - 1);
+    quick_sort_hole2(arr, pivot + 1, end);
 }
 ```
 
+快排最好情况是，`pivot` 每次都取到中位数，那么就相当于一颗满二叉树，复杂度为 $O(n\log n)$
+
 ### 左右指针法
+
+<!-- https://www.cnblogs.com/steveyu/p/11662266.html -->
+
+> 左右指针法也是经典快排，它基于 Hoare 提出的划分做了少许改进。这种方法是教材中最常见的。
+
+左右指针法可看做挖坑法的变形。通过观察可发现，`pivot` 指针每次都会指向“坑”的位置，同时它和 `begin` 或 `end` 的指向也是一致的，只是找到一个目标后 `pivot` 就是在 `begin` 和 `end` 之间切换一下。根据这个现象，我们不妨让两个指针同时找目标，都找到之后交换位置，来看例子：
+
+初始情况：
+
+$$
+\begin{array}{c|cccc cccc}
+\boxed{49} & 49 & 38 & 65 & 97 & 76 & 13 & 27 & 49^\ast\\[-2pt]
+&\uparrow &&&&&&& \uparrow \\[-2pt]
+\text{pivot} &\text{left} &&&&&&& \text{right} \\
+\end{array}
+$$
+
+step1：`left` 指针找比 `pivot` 大的、`right` 指针找比 `pivot` 小的；分别找到 65 和 27：
+
+$$
+\begin{array}{c|cccc cccc}
+\boxed{49} & 49 & 38 & 65 & 97 & 76 & 13 & 27 & 49^\ast\\[-2pt]
+&&&\uparrow &&&& \uparrow \\[-2pt]
+\text{pivot} &&&\text{left} &&&& \text{right} \\
+\end{array}
+$$
+
+step2：交换 `left` 和 `right` 指针指向的元素位置；此时两指针还未相遇，继续寻找：
+
+$$
+\begin{array}{c|cccc cccc}
+\boxed{49} & 49 & 38 & \color{red}27 & 97 & 76 & 13 & \color{red}65 & 49^\ast\\[-2pt]
+&&&\uparrow &&&& \uparrow \\[-2pt]
+\text{pivot} &&&\text{left} &&&& \text{right} \\
+\end{array}
+$$
+
+step3：两指针分别找到 97 和 13，交换位置；此时两指针还未相遇，继续寻找：
+
+$$
+\begin{array}{c|cccc cccc}
+\boxed{49} & 49 & 38 & 27 & \color{red}13 & 76 & \color{red}97 & 65 & 49^\ast\\[-2pt]
+&&&&\uparrow && \uparrow \\[-2pt]
+\text{pivot} &&&&\text{left} && \text{right} \\
+\end{array}
+$$
+
+step4：`right` 指针与 `left` 指向相遇，循环停止：
+
+$$
+\begin{array}{c|cccc cccc}
+\boxed{49} & 49 & 38 & 27 & 13 & 76 & 97 & 65 & 49^\ast\\[-2pt]
+&&&&\mk{-10}\nearrow~\nwarrow\mk{-10}  && \\[-2pt]
+\text{pivot} &&& \text{left}\mk{-30} && \mk{-30}\text{right} \\
+\end{array}
+$$
+
+step5：此时只要交换 `pivot` 所在位置和两个指针相遇的位置，划分就完成了：
+
+$$
+\begin{array}{c|cccc cccc}
+\boxed{49} & \color{red}13 & 38 & 27 & \color{red}49 & 76 & 97 & 65 & 49^\ast\\[-2pt]
+&&&&\mk{-10}\nearrow~\nwarrow\mk{-10}  && \\[-2pt]
+\text{pivot} &&& \text{left}\mk{-30} && \mk{-30}\text{right} \\
+\end{array}
+$$
+
+可见，这种方法的思想更加简单：同样是两个指针，`left` 找比 `pivot` 小的，`right` 找比 `pivot` 大的；两个同时找到时，交换指针的位置，重复以上操作，直至指针相遇。
+
+> 假设 `pivot` 是首元素，如果 `left` 和 `right` 一定要分先后顺序，那就让 `right` 比 `left` 优先。
+
+#### 左右指针法代码实现
+
+区别只在于如何划分，总体上还是使用分治思想：
 
 ```c
 /**
- * 左右指针法：挖坑法的变形
+ * 快排（左右指针法）
  *
- * 思想：同样是 begin, end 两个指针，begin 找比 key 小的，end 找比 key 大的
- * 两个同时找到时，交换指针的位置，重复以上操作，直至指针相遇
- * @param arr
- * @param left
- * @param right
- * @return
+ * @param arr 数组
+ * @param left 左指针
+ * @param right 右指针
+ * @return 基准值下标
  */
-int $part_sort2(int *arr, int left, int right) {
+int $partition_classic(int *arr, int left, int right) {
     // 这里默认做了三数取中的优化
     int index = $get_middle(arr, left, right);
     swap(arr + left, arr + index);
 
-    int begin = left, end = right;
-    int keyIdx = begin;
+    int keyIdx = left;
 
-    while (begin < end) {
-        // 找小
-        while (begin < end && arr[end] >= arr[keyIdx]) {
-            --end;
+    while (left < right) {
+        // right 指针找比 key 小的
+        while (left < right && arr[right] >= arr[keyIdx]) {
+            right--;
         }
-
-        // 找大
-        while (begin < end && arr[begin] <= arr[keyIdx]) {
-            ++begin;
+        // left 指针找比 key 大的
+        while (left < right && arr[left] <= arr[keyIdx]) {
+            left++;
         }
-        swap(arr + begin, arr + end);
+        swap(arr + left, arr + right);
     }
-    swap(arr + begin, arr + keyIdx);
+    swap(arr + left, arr + keyIdx);
 
     // 返回该位置，用于分治
-    return begin;
+    return left;
 }
 
-// 左右指针比挖坑法快一小丢丢
-void quick_sort_3(int *arr, int left, int right) {
-    if (left >= right) return;
+// 左右指针法，比挖坑法快一小丢丢
+void quick_sort_classic(int *arr, int begin, int end) {
+    if (begin >= end) return;
 
-    int pivot = $part_sort2(arr, left, right);
+    int pivot = $partition_classic(arr, begin, end);
 
-    quick_sort_3(arr, left, pivot - 1);
-    quick_sort_3(arr, pivot + 1, right);
+    quick_sort_classic(arr, begin, pivot - 1);
+    quick_sort_classic(arr, pivot + 1, end);
 }
 ```
 
 ### 前后指针法
 
+前后指针法也可以叫 Lomuto 划分。它只要进行一层循环的遍历，如果比首元素（选它为基准）小，则进行交换。然后继续进行寻找中轴。最后交换偏移的数和最左侧数
+
+它的思想是：用一个指针 `cur` 去寻找比关键码小的元素位置，如果找到了，那么 `[prev+1, cur-1]` 之间的元素一定是比关键码要大的，这样只要把 `prev` 右移，再交换位置，就把比关键码小的元素调整到左侧，大的调整到了右侧。
+
+还是一样的例子，初始情况如下（为了方便表示，如果指向同一位置，则会把 `prev` 放在上面）：
+
+$$
+\begin{array}{cccc cccc}
+\text{keyIdx}\\[-2pt]
+\downarrow\\[-2pt]
+49 & 38 & 65 & 97 & 76 & 13 & 27 & 49^\ast\\[-2pt]
+\uparrow & \uparrow \\[-2pt]
+\text{prev} & \text{cur} \\
+\end{array}
+$$
+
+step1：`cur` 寻找比 `arr[keyIdx]=49` 小的元素，每次遇到目标时，`cur` 停下来，`prev` 右移，再交换 `prev` 和 `cur` 的位置；此时 `cur` 所在位置恰好找到目标 38，移动 `prev` 并交换位置：
+
+$$
+\begin{array}{cccc cccc}
+\text{keyIdx} & \color{orange}\text{prev}\\[-3pt]
+\downarrow & \downarrow \\[-2pt]
+49 & \color{red}38 & 65 & 97 & 76 & 13 & 27 & 49^\ast\\[-2pt]
+ & \uparrow \\[-3pt]
+ & \text{cur} \\
+\end{array}
+$$
+
+step2：`cur` 继续寻找比 49 小的元素，找到目标 13：
+
+$$
+\begin{array}{cccc cccc}
+\text{keyIdx} & \text{prev}\\[-3pt]
+\downarrow & \downarrow \\[-2pt]
+49 & 38 & 65 & 97 & 76 & 13 & 27 & 49^\ast\\[-2pt]
+ &&&&& \uparrow \\[-3pt]
+ &&&&& \color{orange}\text{cur} \\
+\end{array}
+$$
+
+step3：`prev` 右移，然后交换 `prev` 和 `cur` 指向的元素的值：
+
+$$
+\begin{array}{cccc cccc}
+\text{keyIdx} && \color{orange}\text{prev}\\[-3pt]
+\downarrow && \downarrow \\[-2pt]
+49 & 38 & \color{red}13 & 97 & 76 & \color{red}65 & 27 & 49^\ast\\[-2pt]
+ &&&&& \uparrow \\[-3pt]
+ &&&&& \text{cur} \\
+\end{array}
+$$
+
+step4：`cur` 继续寻找比 49 小的元素，找到目标 27：
+
+$$
+\begin{array}{cccc cccc}
+\text{keyIdx} && \text{prev}\\[-3pt]
+\downarrow && \downarrow \\[-2pt]
+49 & 38 & 13 & 97 & 76 & 65 & 27 & 49^\ast\\[-2pt]
+ &&&&&& \uparrow \\[-3pt]
+ &&&&&& \color{orange}\text{cur} \\
+\end{array}
+$$
+
+step5：`prev` 右移，交换指针指向位置：
+
+$$
+\begin{array}{cccc cccc}
+\text{keyIdx} &&& \color{orange}\text{prev}\\[-3pt]
+\downarrow &&& \downarrow \\[-2pt]
+49 & 38 & 13 & \color{red}27 & 76 & 65 & \color{red}97 & 49^\ast\\[-2pt]
+ &&&&&& \uparrow \\[-3pt]
+ &&&&&& \text{cur} \\
+\end{array}
+$$
+
+step6：最后交换 `keyIdx` 和 `prev` 的指向位置，就完成了划分，且 `prev` 就是基准的位置：
+
+$$
+\begin{array}{cccc cccc}
+\text{keyIdx} &&& \text{prev}\\[-3pt]
+\downarrow &&& \downarrow \\[-2pt]
+\color{red}27 & 38 & 13 & \color{red}49 & 76 & 65 & 97 & 49^\ast\\[-2pt]
+ &&&&&& \uparrow \\[-3pt]
+ &&&&&& \text{cur} \\
+\end{array}
+$$
+
+其思想是：初始时，有两个指针 `prev` 和 `cur`，`cur` 每次遇到比 `key` 小的值，就停下来，让 `prev++`，然后交换 `prev` 和 `cur` 位置的值。当 `cur` 走完一趟，交换 `key` 和 `prev` 的位置的值。
+
 ```c
-
-
 /**
  * 前后指针法
  *
- * 性能比挖坑法差些：
- * 快排(挖坑法): 77
- * 快排(左右指针法): 69
- * 快排(前后指针法): 1686
- *
- * 初始时，有两个指针 prev 和 cur，cur 每次遇到比 key 小的值，就停下来，prev++，交换 prev 和 cur 位置的值
- * 当 cur 走完一趟，交换 key 和 prev 的位置的值
- *
- * @param arr
- * @param left
- * @param right
- * @return
+ * @param arr 数组
+ * @param begin 开始
+ * @param end 结束
+ * @return 基准下标
  */
-int $part_sort3(int *arr, int left, int right) {
+int $partition_fb(int *arr, int begin, int end) {
     // 两个指针间隔的都是比 key 大的，小的往左翻，大的往右推
+    int index = $get_middle(arr, begin, end);
+    swap(arr + begin, arr + index);
 
-    int index = $get_middle(arr, left, right);
-    swap(arr + left, arr + index);
-
-    int keyIdx = left;
-    int prev = left, cur = left + 1;
-    while (cur <= right) {
-        /*if (arr[cur] < arr[keyIdx]) {// 此处没必要用 <=
+    int keyIdx = begin;
+    int prev = begin, cur = begin + 1;
+    while (cur <= end) {
+        if (arr[cur] < arr[keyIdx]) {// 此处可不用 <=
             prev++;
-            swap(arr + cur, arr + keyIdx);
-        }*/
-        // 优化：相等时没必要交换
-        if (arr[cur] < arr[keyIdx] && ++prev != cur) {
             swap(arr + cur, arr + keyIdx);
         }
         cur++;
@@ -395,12 +602,69 @@ int $part_sort3(int *arr, int left, int right) {
     return prev;
 }
 
-void quick_sort_4(int *arr, int left, int right) {
-    if (left >= right) return;
+// 快排（前后指针法）
+void quick_sort_fb(int *arr, int begin, int end) {
+    if (begin >= end) return;
 
-    int pivot = $part_sort3(arr, left, right);
+    int pivot = $partition_fb(arr, begin, end);
 
-    quick_sort_4(arr, left, pivot - 1);
-    quick_sort_4(arr, pivot + 1, right);
+    quick_sort_fb(arr, begin, pivot - 1);
+    quick_sort_fb(arr, pivot + 1, end);
 }
 ```
+
+我们发现，step1 时，有 `prev == cur` ，发生了不必要的交换，这点是可以优化的：
+
+```diff
+- if (arr[cur] < arr[keyIdx]) {// 此处没必要用 <=
+-     prev++;
++ if (arr[cur] < arr[keyIdx] && ++prev != cur) {
+     swap(arr + cur, arr + keyIdx);
+  }
+```
+
+### 三种快排的性能比较
+
+我们取一百万个随机数来测试：
+
+```c
+void compare_3_Quick() {
+    int n = 1000000;
+    int *a = (int *) malloc(sizeof(int) * n);
+    int *b = (int *) malloc(sizeof(int) * n);
+    int *c = (int *) malloc(sizeof(int) * n);
+    for (int i = 0; i < n; i++) {
+        a[i] = rand();
+        b[i] = a[i];
+        c[i] = a[i];
+    }
+
+    int tick1 = clock();
+    quick_sort_hole2(a, 0, n - 1);
+    int tick2 = clock();
+    quick_sort_classic(b, 0, n - 1);
+    int tick3 = clock();
+    quick_sort_fb(c, 0, n - 1);
+    int tick4 = clock();
+
+    printf("快排(挖坑法): %d\n", tick2 - tick1);
+    printf("快排(左右指针法): %d\n", tick3 - tick2);
+    printf("快排(前后指针法): %d\n", tick4 - tick3);
+
+    free(a);
+    free(b);
+    free(c);
+}
+```
+
+输出结果：
+
+```text
+快排(挖坑法): 156
+快排(左右指针法): 155
+快排(前后指针法): 174
+```
+
+可见，三种方法差距不是很大，最优的是左右指针法（经典快排）。
+
+因为递归的时间和空间消耗比较大，当递归划分的区间比较小的时候，如果不再用递归去排序这个小区间，而是用其他排序对小区间处理（如插入排序），这样就能够减少很多递归次数，这就是**小区间优化**，这里不再详细介绍。
