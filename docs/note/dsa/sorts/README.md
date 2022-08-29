@@ -26,15 +26,15 @@ prev: ../tree/tree.md
 - [折半插入排序](insertion-sort.md#折半插入排序)
 - [希尔排序](insertion-sort.md#希尔排序)
 
-选择排序
-
-- [直接选择排序](selection-sort.md#直接选择排序)
-- [堆排序](selection-sort.md#堆排序)
-
 交换排序
 
 - [冒泡排序](exchange-sort.md#冒泡排序)
 - [快速排序](exchange-sort.md#快速排序)
+
+选择排序
+
+- [直接选择排序](selection-sort.md#直接选择排序)
+- [堆排序](selection-sort.md#堆排序)
 
 归并排序
 
