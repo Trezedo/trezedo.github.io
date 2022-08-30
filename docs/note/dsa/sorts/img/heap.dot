@@ -1,0 +1,31 @@
+digraph {
+    rankdir = TB;
+    margin = 0;
+    node [shape = circle;];
+    node [fixedsize = true; width = 0.4;];
+    edge [arrowsize = 0.6;];
+    a;
+    b;
+    c;
+    d;
+    e;
+    f;
+    g;
+    h;
+    i;
+    a -> {b c};
+    b -> {d e};
+    c -> {f g};
+    d -> {h i};
+    
+    // arr [label = "a|b|c|d|e|f|g|h|i";shape = record;fixedsize = false;height = 0.1;];
+    // arr -> a [style = invis;];
+    
+    // 辅助
+    edge [style = invis;];
+    node [style = invis;];
+    subgraph {
+        rank = same;
+        b -> 1 -> c;
+    }
+}
