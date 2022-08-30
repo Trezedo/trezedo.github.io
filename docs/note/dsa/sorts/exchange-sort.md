@@ -241,7 +241,9 @@ $$
 &&& \text{begin} && \text{end} \\
 \end{array}
 $$
+
 最终，`begin` 和 `end` 相遇，此时把关键码 `key` 放到这个坑里
+
 $$
 \begin{array}{cccc cccc}
 &&& \text{pivot} \\[-2pt]
@@ -291,7 +293,7 @@ void quick_sort_hole(int *arr, int begin, int end) {
 ```c
 int $partition_hole(int *arr, int begin, int end) {
     int pivot = begin; // 一般选最左边或最右边
-    int key = arr[begin];
+    int key = arr[pivot];
     while (begin != end) { // begin < end
         // 坑在左边，end 从右边过来找比 key 小的数
         // ! 如果 'arr[end] >= key' 没有等号，可能会死循环！
@@ -320,7 +322,23 @@ int $partition_hole(int *arr, int begin, int end) {
 }
 ```
 
-单趟排序是 $O(n)$
+思考：为什么我们代码中使用的是 `arr[right] >= arr[keyIdx]` 而非 `arr[right] > arr[keyIdx]`？
+
+来看这个例子：{3, 1, 2, 3}，我们不妨简单地试一下走读代码。
+
+$$
+\begin{array}{c|cccc}
+\boxed{3} & 3 & 1 & 2 & 3^\ast \\[-2pt]
+&\uparrow &&& \uparrow \\[-2pt]
+\text{key} &\text{begin} &&& \text{end} \\
+\end{array}
+$$
+
+这时候，代码会进行判断：
+
+```c
+while (begin < end && arr[end] > key)
+```
 
 ### 快速排序的优化
 
@@ -623,12 +641,126 @@ void quick_sort_fb(int *arr, int begin, int end) {
   }
 ```
 
+### 复杂度分析
+
+#### 时间复杂度
+
+假设我们要对有 $n$ 个元素的数组进行排序，将快排的时间复杂度写成一个函数  $T(n)$ 。那么:
+
+$$
+\begin{aligned}
+T(n)&=O(n)+T(k-1)+T(n−k) \\
+ &=cn+T(k-1)+T(n−k)
+\end{aligned}\tag{1}\label{1}
+$$
+
+其中  $k$  表示一趟划分中小于 pivot 的元素个数， $O(n)$  表示一趟划分（即确定基准的最终位置）的时间复杂度，$c$ 是常数。$T(0)=T(1)=0$，因为没有或仅有 1 个元素的数组无需排序。
+
+根据以上公式，我们可以知道快排的时间复杂度就是划分操作的时间复杂度加上对 pivot 左边元素进行快排的时间复杂度再加上对 pivot 右边进行快排的时间复杂度。
+
+快排的性能取决于 $k$ 的值以及 $k$ 与 $n$ 的关系，而又因为 $k$ 与 pivot 有关，其性能最终取决于 pivot 的选取。
+
+**最好情况**：每次选择的 pivot 恰好是序列中的中位数。此时原问题被划分成两个规模相等的子问题，满足递推方程：
+
+$$
+T(n)=\begin{cases}
+ 2T(n/2)+O(n), & n\ge1\\
+ 0, & n\le 1
+\end{cases}
+$$
+
+我们可以用**递归树**或者直接迭代的方法求解，这里我们采用后者：设 $n=2^k$，$O(n)=cn$，$c$ 是常数，则
+
+$$
+\begin{aligned}
+T(2^k) &=2T(2^{k-1}) +c2^k\\ &=2\left[ 2T(2^{k-2}) +c2^{k-1} \right] +c2^k\\
+&=2^2T(2^{k-2}) +2\cdot c2^k\\
+&=2^jT(2^{k-j}) +j\cdot c2^k
+\end{aligned}
+$$
+
+取 $j=k$ 得 $T(2^k) =2^kT(1)+c\cdot k2^k=0+ck\cdot 2^k$，即
+
+$$
+T(n)=cn\log _2n
+$$
+
+因此快排在最好情况下的时间复杂度为 $O(n\log n)$。
+
+**最坏情况**：每次划分得到的都是 n-1 个和 0 个元素，此时已经退化成标准版本的冒泡排序，复杂度为 $O(n^2)$。
+
+可见**快速排序不适用于原本有序或基本有序的序列排序**。
+
+**平均情况**：平均情况下的复杂度计算相对麻烦，其结论是 $O(n\log n)$。
+
+由于 $\ref{1}$ 式中 $k$ 的任意性，我们对 $T(n)$ 取平均值，可得
+
+$$
+\begin{aligned}
+ T_{{\rm avg}}\left( n \right) &=cn+\frac{1}{n}\sum_{k=1}^n{\left[ T_{{\rm avg}}\left( k-1 \right) +T_{{\rm avg}}\left( n-k \right) \right]}\\
+ &=cn+\frac{2}{n}\sum_{k=0}^{n-1}{T_{{\rm avg}}\left( k \right)}
+\end{aligned}
+$$
+
+作差分可得：
+
+$$
+\begin{gathered}
+\begin{cases}
+ nT_{{\rm avg}}\left( n \right) =cn^2+2\sum_{k=0}^{n-1}{T_{{\rm avg}}\left( k \right)}\\
+ \left( n-1 \right) T_{{\rm avg}}\left( n-1 \right) =c\left( n-1 \right) ^2+2\sum_{k=0}^{n-2}{T_{{\rm avg}}\left( k \right)}\\
+\end{cases} \\[4pt]
+\Rightarrow nT_{{\rm avg}}\left( n \right) =c\left( 2n-1 \right) +\left( n+1 \right) T_{{\rm avg}}\left( n-1 \right)
+\end{gathered}
+$$
+
+即求得递推方程：
+
+$$
+T_{{\rm avg}}\left( n \right) =\frac{n+1}{n}T_{{\rm avg}}\left( n-1 \right) +\frac{\left( 2n-1 \right) c}{n}
+$$
+
+于是
+
+$$
+\begin{aligned}
+ T_{{\rm avg}}\left( n \right) &<\frac{n+1}{n}T_{{\rm avg}}\left( n-1 \right) +2c\\
+ &<\frac{n+1}{n}\left[ \frac{n}{n-1}T_{{\rm avg}}\left( n-2 \right) +2c \right] +2c\\
+ &=\frac{n+1}{n-1}T_{{\rm avg}}\left( n-2 \right) +2c\left( n+1 \right) \left( \frac{1}{n+1}+\frac{1}{n-1} \right)\\
+ &<\frac{n+1}{n-1}T_{{\rm avg}}\left( n-2 \right) +2c\left( n+1 \right) \left( \frac{1}{n}+\frac{1}{n+1} \right)\\
+ &<\frac{n+1}{n-1}\left[ \frac{n-1}{n-2}T_{{\rm avg}}\left( n-3 \right) +2c \right] +2c\left( n+1 \right) \left( \frac{1}{n}+\frac{1}{n+1} \right)\\
+ &<\frac{n+1}{n-2}T_{{\rm avg}}\left( n-3 \right) +2c\left( n+1 \right) \left( \frac{1}{n-1}+\frac{1}{n}+\frac{1}{n+1} \right)\\
+ &<\cdots <\frac{n+1}{2}T_{{\rm avg}}\left( 1 \right) +2c\left( n+1 \right) \left( \frac{1}{3}+\cdots +\frac{1}{n}+\frac{1}{n+1} \right)
+\end{aligned}
+$$
+
+注意到 $\ds\frac{T_{{\rm avg}}\left( 1 \right)}{2}$ 为某常数，且
+
+$$
+\int_3^{n+1}{\frac{{\rm d}x}{x}}<\frac{1}{3}+\cdots +\frac{1}{n}+\frac{1}{n+1}<1+\int_3^{n+1}{\frac{{\rm d}x}{x}}=O\left( \ln \left( n+1 \right) \right)
+$$
+
+即 $\ds\frac{1}{3}+\cdots +\frac{1}{n}+\frac{1}{n+1}=O\left( \log n \right)$
+
+故 $T_{{\rm avg}}\left( n \right) \le O\left( n \right) +O\left( n\log n \right) =O\left( n\log n \right)$，这就是平均情况下快速排序的时间复杂度。
+
+#### 空间复杂度
+
+在每次递归中，只需要通过常数级个数的指针交换对应的值，空间复杂度为 $O(1)$；但真正消耗空间的是递归。
+
+平均和最优情况下：递归调用了 $\log n$ 层，所以空间复杂度为 $O(\log n)$。
+
+最差情况下：退化为冒泡排序，空间复杂度为 $O(n)$。
+
 ### 三种快排的性能比较
 
 我们取一百万个随机数来测试：
 
 ```c
-void compare_3_Quick() {
+// #include <stdlib.h>
+// #include <time.h>
+
+void compare_3_quick() {
     int n = 1000000;
     int *a = (int *) malloc(sizeof(int) * n);
     int *b = (int *) malloc(sizeof(int) * n);
