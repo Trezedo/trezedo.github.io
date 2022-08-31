@@ -503,7 +503,7 @@ void quick_sort_classic(int *arr, int begin, int end) {
 
 ### 前后指针法
 
-前后指针法也可以叫 Lomuto 划分。它只要进行一层循环的遍历，如果比首元素（选它为基准）小，则进行交换。然后继续进行寻找中轴。最后交换偏移的数和最左侧数
+前后指针法也可以叫 Lomuto 划分。它只要进行一层循环的遍历，如果比首元素（选它为基准）小，则进行交换。然后继续进行寻找中轴。最后交换偏移的数和最左侧数。
 
 它的思想是：用一个指针 `cur` 去寻找比关键码小的元素位置，如果找到了，那么 `[prev+1, cur-1]` 之间的元素一定是比关键码要大的，这样只要把 `prev` 右移，再交换位置，就把比关键码小的元素调整到左侧，大的调整到了右侧。
 
@@ -697,8 +697,8 @@ $$
 
 $$
 \begin{aligned}
- T_{{\rm avg}}\left( n \right) &=cn+\frac{1}{n}\sum_{k=1}^n{\left[ T_{{\rm avg}}\left( k-1 \right) +T_{{\rm avg}}\left( n-k \right) \right]}\\
- &=cn+\frac{2}{n}\sum_{k=0}^{n-1}{T_{{\rm avg}}\left( k \right)}
+ T_{\rm avg}(n)&=cn+\frac{1}{n}\sum_{k=1}^n{\left[ T_{\rm avg}(k-1)+T_{\rm avg}(n-k)\right]}\\
+ &=cn+\frac{2}{n}\sum_{k=0}^{n-1}{T_{\rm avg}(k)}
 \end{aligned}
 $$
 
@@ -707,42 +707,42 @@ $$
 $$
 \begin{gathered}
 \begin{cases}
- nT_{{\rm avg}}\left( n \right) =cn^2+2\sum_{k=0}^{n-1}{T_{{\rm avg}}\left( k \right)}\\
- \left( n-1 \right) T_{{\rm avg}}\left( n-1 \right) =c\left( n-1 \right) ^2+2\sum_{k=0}^{n-2}{T_{{\rm avg}}\left( k \right)}\\
+ nT_{\rm avg}(n)=cn^2+2\sum_{k=0}^{n-1}{T_{\rm avg}(k)}\\
+ (n-1)T_{\rm avg}(n-1)=c(n-1)^2+2\sum_{k=0}^{n-2}{T_{\rm avg}(k)}\\
 \end{cases} \\[4pt]
-\Rightarrow nT_{{\rm avg}}\left( n \right) =c\left( 2n-1 \right) +\left( n+1 \right) T_{{\rm avg}}\left( n-1 \right)
+\Rightarrow nT_{\rm avg}(n)=c(2n-1)+(n+1)T_{\rm avg}(n-1)
 \end{gathered}
 $$
 
 即求得递推方程：
 
 $$
-T_{{\rm avg}}\left( n \right) =\frac{n+1}{n}T_{{\rm avg}}\left( n-1 \right) +\frac{\left( 2n-1 \right) c}{n}
+T_{\rm avg}(n)=\frac{n+1}{n}T_{\rm avg}(n-1)+\frac{(2n-1)c}{n}
 $$
 
 于是
 
 $$
 \begin{aligned}
- T_{{\rm avg}}\left( n \right) &<\frac{n+1}{n}T_{{\rm avg}}\left( n-1 \right) +2c\\
- &<\frac{n+1}{n}\left[ \frac{n}{n-1}T_{{\rm avg}}\left( n-2 \right) +2c \right] +2c\\
- &=\frac{n+1}{n-1}T_{{\rm avg}}\left( n-2 \right) +2c\left( n+1 \right) \left( \frac{1}{n+1}+\frac{1}{n-1} \right)\\
- &<\frac{n+1}{n-1}T_{{\rm avg}}\left( n-2 \right) +2c\left( n+1 \right) \left( \frac{1}{n}+\frac{1}{n+1} \right)\\
- &<\frac{n+1}{n-1}\left[ \frac{n-1}{n-2}T_{{\rm avg}}\left( n-3 \right) +2c \right] +2c\left( n+1 \right) \left( \frac{1}{n}+\frac{1}{n+1} \right)\\
- &<\frac{n+1}{n-2}T_{{\rm avg}}\left( n-3 \right) +2c\left( n+1 \right) \left( \frac{1}{n-1}+\frac{1}{n}+\frac{1}{n+1} \right)\\
- &<\cdots <\frac{n+1}{2}T_{{\rm avg}}\left( 1 \right) +2c\left( n+1 \right) \left( \frac{1}{3}+\cdots +\frac{1}{n}+\frac{1}{n+1} \right)
+    T_{\rm avg}(n) &< \frac{n+1}{n}T_{\rm avg}(n-1)+2c\\
+    &< \frac{n+1}{n}\left[ \frac{n}{n-1}T_{\rm avg}(n-2)+2c \right] +2c\\
+    &= \frac{n+1}{n-1}T_{\rm avg}(n-2)+2c(n+1)\left( \frac{1}{n+1}+\frac{1}{n-1} \right)\\
+    &< \frac{n+1}{n-1}T_{\rm avg}(n-2)+2c(n+1)\left( \frac{1}{n}+\frac{1}{n+1} \right)\\
+    &< \frac{n+1}{n-1}\left[ \frac{n-1}{n-2}T_{\rm avg}(n-3)+2c \right] +2c(n+1)\left( \frac{1}{n}+\frac{1}{n+1} \right)\\
+    &< \frac{n+1}{n-2}T_{\rm avg}(n-3)+2c(n+1)\left( \frac{1}{n-1}+\frac{1}{n}+\frac{1}{n+1} \right)\\
+    &< \cdots <\frac{n+1}{2}T_{\rm avg}(1)+2c(n+1)\left( \frac{1}{3}+\cdots +\frac{1}{n}+\frac{1}{n+1} \right)
 \end{aligned}
 $$
 
-注意到 $\ds\frac{T_{{\rm avg}}\left( 1 \right)}{2}$ 为某常数，且
+注意到 $\ds\frac{T_{\rm avg}(1)}{2}$ 为某常数，且
 
 $$
-\int_3^{n+1}{\frac{{\rm d}x}{x}}<\frac{1}{3}+\cdots +\frac{1}{n}+\frac{1}{n+1}<1+\int_3^{n+1}{\frac{{\rm d}x}{x}}=O\left( \ln \left( n+1 \right) \right)
+\int_3^{n+1}{\frac{\d x}{x}}<\frac{1}{3}+\cdots +\frac{1}{n}+\frac{1}{n+1}<1+\int_3^{n+1}{\frac{\d x}{x}}=O(\ln( n+1))
 $$
 
-即 $\ds\frac{1}{3}+\cdots +\frac{1}{n}+\frac{1}{n+1}=O\left( \log n \right)$
+即 $\ds\frac{1}{3}+\cdots +\frac{1}{n}+\frac{1}{n+1}=O(\log n)$
 
-故 $T_{{\rm avg}}\left( n \right) \le O\left( n \right) +O\left( n\log n \right) =O\left( n\log n \right)$，这就是平均情况下快速排序的时间复杂度。
+故 $T_{\rm avg}(n) \le O(n) +O(n\log n) =O(n\log n)$，这就是平均情况下快速排序的时间复杂度。
 
 #### 空间复杂度
 
