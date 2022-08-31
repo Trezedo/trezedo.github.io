@@ -1,8 +1,6 @@
 import { useHeadCss, useHeadScript } from "./hooks";
 
-const styles: CustomElement[] = [
-    { id: "zedo-iconfont", src: "/assets/font/iconfont.css" },
-];
+const styles: CustomElement[] = [{ id: "zedo-iconfont", src: "/assets/font/iconfont.css" }];
 
 const scripts: CustomElement[] = [
     {
@@ -14,6 +12,7 @@ const scripts: CustomElement[] = [
         // 平滑滚动，文章内容较长时可能会比较卡
         id: "zedo-smooth",
         src: "https://unpkg.com/smoothscroll-for-websites@1.4.10/SmoothScroll.js",
+        disabled: true,
     },
     {
         // 点击特效，小爱心
