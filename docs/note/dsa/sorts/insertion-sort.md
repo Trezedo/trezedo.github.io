@@ -40,7 +40,7 @@ order: 1
 void insert_sort(int *arr, int n) {
     // 让 [0, end] 有序，end 范围是 [0, n-1)
     for (int i = 0; i < n - 1; i++) {
-        int end = i; // 也可以直接把 i 换成 end
+        int end = i; // 注意：直接用 end 替代 i 也能完成排序，但会降低效率
         int tmp = arr[end + 1]; // 把 end+1 存起来
 
         // 让 end+1 位置元素依次和它前面的数比较
@@ -166,7 +166,8 @@ void shell_sort(int *arr, int n) {
     for (int gap = n / 2; gap >= 1; gap = gap / 2) {
         // 把间隔为 gap 的多组数据同时进行直接插入排序
         // 代码与直接插入排序类似，只是把 1 换成了 gap
-        for (int end = 0; end < n - gap; end++) {
+        for (int i = 0; i < n - gap; i++) {
+            int end = i; // 与直接插入排序类似，不能直接用 end 替代 i
             int tmp = arr[end + gap];
             while (end >= 0) {
                 if (arr[end] > tmp) {
@@ -203,29 +204,190 @@ Sedgewick 增量序列
 - {1,5,19,41,109,...} =$\{k\mid (9(4^k-2^k)+1) \lor (4^k-3\cdot2^k+1)\}$
 - 猜想：$T_{\text{worst}}=O(n^{4/3})$，$T_{\text{avg}}=O(n^{7/6})$
 
-## 性能测试
+## 测试
+
+为了方便复用，我们将所有的排序函数都放在 `sort.h` 头文件中。同时，这里给出几个用于测试的函数（不放在头文件）以及主函数：
+
+```c
+#include <sort.h>
+#include <stdio.h>
+#include <stdlib.h> // malloc 等
+#include <time.h> // time, clock 等
+
+// 打印数组
+void print_array(int *arr, int n) {
+    for (int i = 0; i < n; ++i) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+// 生成在 [min,max] 内的随机数
+int random(int min, int max) {
+    return min + rand() % (max - min + 1); // NOLINT(cert-msc50-cpp)
+}
+
+/**
+ * 生成随机数组
+ * @param n 数组长度
+ * @param max_val 元素最大值
+ * @return 数组头指针
+ */
+int *gen_random_array(int n, int max_val) {
+    int *arr = (int *) malloc(sizeof(int) * n);
+    for (int i = 0; i < n; i++) {
+        arr[i] = random(0, max_val);
+    }
+    return arr;
+}
+
+/**
+ * 数组深拷贝
+ * @param arr 源数组
+ * @param size 数组大小
+ * @return 新数组头指针
+ */
+int *copy_arr(const int arr[], int size) {
+    int *b = (int *) malloc(sizeof(int) * size);
+    for (int i = 0; i < size; i++) {
+        b[i] = arr[i];
+    }
+    // 也可用 memcpy(b, a, sizeof(int) * size);
+    return b;
+}
+
+
+int main() {
+    // 给随机数播种
+    srand((unsigned) time(NULL));
+
+    // 我们要测试的函数就放在这
+}
+```
+
+我们当然也可以手动设置测试的数组，例如：
+
+```c
+void test() {
+    int a[] = {3, 8, 5, 4, 3, 2, 2, 6, 9, 1};
+    int n = sizeof(a) / sizeof(int);
+
+    print_array(a, n);
+    insert_sort(a, n); // 也可以是别的排序函数
+    print_array(a, n);
+}
+```
+
+但是，有些情况下可能当前测试用例是测不出问题的，它或许和的数组长度相关，因此上面的函数对数组长度也用了随机数。
+
+比较性能用的函数：
+
+```c
+// 取十万个数，使用不同排序算法，比较耗时
+int n = 1000000;
+int *a1 = (int *) malloc(sizeof(int) * n);
+int *a2 = (int *) malloc(sizeof(int) * n);
+int *a3 = (int *) malloc(sizeof(int) * n);
+for (int i = 0; i < n; i++) {
+    a1[i] = rand();
+    a2[i] = a1[i];
+    a3[i] = a1[i];
+}
+
+// 这里放排序算法
+
+free(a1);
+free(a2);
+free(a3);
+```
+
+上面的代码可能有些许长而且较为冗余，同样地，为了方便复用将其改写为一个更通用的函数：
+
+```c
+/**
+ * 批量初始化随机数组（用于大数据量的数组），所有数组的元素一一对应相等
+ * @param arrays 数组指针
+ * @param arrays_size 数组个数
+ * @param n 每个数组的长度
+ */
+void set_random_arrays(int **arrays[], int arrays_size, int n) {
+    if (arrays_size < 1) return;
+    // 初始化数组，因为要改变 *a 的指向，传入 a 的地址（类型 **int）
+    // 相应地就需要对 arrays[i] 解引用
+    for (int i = 0; i < arrays_size; i++) {
+        // *arrays[i] 与 *(arrays[i]) 是相等的
+        // 或者用 **(arrays + i)
+        *(arrays[i]) = (int *) malloc(sizeof(int) * n);
+    }
+
+    // 给数组赋值
+    for (int i = 0; i < n; i++) {
+        // 注意 (*arrays[j])[i] != *arrays[j][i]，因此不能直接这样写：*arrays[0][i]
+        (*(arrays[0]))[i] = random(0, 99999);
+        for (int j = 1; j < arrays_size; j++) {
+            // *(**(arrays + j) + i) = *(**(arrays + 0) + i);
+            (*arrays[j])[i] = (*(arrays[0]))[i];
+        }
+    }
+}
+```
+
+### 正确性验证
+
+测试直接插入排序、折半插入排序和希尔排序：
+
+```c
+void testInsertSorts() {
+    int n = random(10, 20);
+    int *a1 = gen_random_array(20, 100);
+    int *a2 = copy_arr(a1, n);
+    int *a3 = copy_arr(a1, n);
+
+    print_array(a1, n);
+    printf("直接插入排序:\n");
+    insert_sort(a1, n);
+    print_array(a1, n);
+
+    printf("折半插入排序:\n");
+    binary_insert_sort(a2, n);
+    print_array(a2, n);
+
+    printf("希尔排序:\n");
+    shell_sort(a3, n);
+    print_array(a3, n);
+}
+```
+
+输出结果（因为数据是随机的，每次运行都会不一样）：
+
+```text
+3 72 60 73 50 90 22 14 16 36 9 88 79 36 29 80 1 78
+直接插入排序:
+1 3 9 14 16 22 29 36 36 50 60 72 73 78 79 80 88 90
+折半插入排序:
+1 3 9 14 16 22 29 36 36 50 60 72 73 78 79 80 88 90
+希尔排序:
+1 3 9 14 16 22 29 36 36 50 60 72 73 78 79 80 88 90
+```
+
+### 性能对比
 
 这里我们使用 `time.h` 头文件的 [`clock`](https://cplusplus.com/reference/ctime/clock/) 函数测试耗时（单位：毫秒），它返回自程序启动起，处理器时钟所使用的时间。如果失败，则返回 -1 值。
 
-```c
-void compareInsertSort() {
-    int n = 100000; // 随机 十万 个数
-    int *a1 = (int *) malloc(sizeof(int) * n);
-    int *a2 = (int *) malloc(sizeof(int) * n);
-    int *a3 = (int *) malloc(sizeof(int) * n);
-    for (int i = 0; i < n; i++) {
-        a1[i] = rand();
-        a2[i] = a1[i];
-        a3[i] = a1[i];
-    }
-    int tick1 = clock();
+取十万个随机数
 
+```c
+void compareInsertionSorts() {
+    int n = 100000; // 随机 十万 个数
+    int *a1 = NULL, *a2 = NULL, *a3 = NULL;
+    // int **arrays[3] = {&a1, &a2, &a3};
+    set_random_arrays((int **[]){&a1, &a2, &a3}, 3, n);
+
+    int tick1 = clock(); // clock 函数可以获取运行到此处时的毫秒数
     insert_sort(a1, n);
     int tick2 = clock();
-
     binary_insert_sort(a2, n);
     int tick3 = clock();
-
     shell_sort(a3, n);
     int tick4 = clock();
 
@@ -239,15 +401,15 @@ void compareInsertSort() {
 }
 ```
 
-输出结果：
+输出结果（注意该运行结果情况并非每次都如此）：
 
 ```text
-直接插入排序: 11900
-折半插入排序: 4643
-希尔排序: 22
+直接插入排序: 5329
+折半插入排序: 3747
+希尔排序: 23
 ```
 
-注意该运行结果情况并非每次都如此。可见折半插入排序对直接插入排序的优化是很有效的；而经过预排序的希尔排序在耗时上的差距是十分明显的。
+可见折半插入排序对直接插入排序的优化提高了 $40\%$ 左右的效率；而经过预排序的希尔排序效率提高了 $23000\%$ 左右，差距是十分明显的。
 
 ## 不重要的话
 
@@ -261,7 +423,8 @@ void insert_sort(int *arr, int n) {
     // 假设 [0, end-1] 有序，将把 end 的值插入，让 [0, end] 有序
     // 我们要做的就是让 end 不断变大，然后重复以上过程
     // end 不能越界，范围是 [1, n)
-    for (int end = 1; end < n; end++) {
+    for (int i = 1; i < n; i++) {
+        int end = i;
         int tmp = arr[end];
         // 用 end-1 替换 end，此处省略
     }
@@ -274,7 +437,7 @@ void insert_sort(int *arr, int n) {
 void shell_sort(int *arr, int n) {
     for (int gap = n / 2; gap >= 1; gap = gap / 2) {
         // 范围变化：[0, n-gap) => [gap, n)
-        for (int end = gap; end < n; end++) {
+        for (int i = gap; i < n; i++) {
             // 用 end-gap 替换 end，此处省略
         }
     }

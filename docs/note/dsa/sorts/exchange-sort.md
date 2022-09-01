@@ -60,7 +60,7 @@ void swap(int *a, int *b) {
  * @param arr 数组
  * @param n 数组长度
  */
-void bubble_sort(int *arr, int n) {
+void bubble_sort_raw(int *arr, int n) {
     for (int end = 0; end < n; end++) {
         // 每次排序，最大元素都会在最右边
         for (int j = 1; j < n - end; j++) {
@@ -752,9 +752,200 @@ $$
 
 最差情况下：退化为冒泡排序，空间复杂度为 $O(n)$。
 
-### 三种快排的性能比较
+## 测试
 
-我们取一百万个随机数来测试：
+### 正确性验证
+
+```c
+void testExchangeSorts() {
+    int n = random(10, 20);
+    int *a1 = gen_random_array(n, 100);
+    int *a2 = copy_arr(a1, n);
+    int *a3 = copy_arr(a1, n);
+    int *a4 = copy_arr(a1, n);
+    print_array(a1, n);
+
+    printf("冒泡排序:\n");
+    bubble_sort(a1, n);
+    print_array(a1, n);
+
+    printf("快速排序(挖洞法):\n");
+    // quick_sort_hole(a1, 0, n - 1);
+    quick_sort_hole2(a2, 0, n - 1);
+    print_array(a2, n);
+
+    printf("快速排序(左右指针法):\n");
+    quick_sort_classic(a3, 0, n - 1);
+    print_array(a3, n);
+
+    printf("快速排序(前后指针法):\n");
+    quick_sort_fb(a4, 0, n - 1);
+    print_array(a4, n);
+}
+```
+
+这里的快排我们统一使用三数取中优化，输出结果：
+
+```text
+4 87 79 29 63 42 43 23 47 51 43 5 100 6 39 87 7
+冒泡排序:
+4 5 6 7 23 29 39 42 43 43 47 51 63 79 87 87 100
+快速排序(挖洞法):
+4 5 6 7 23 29 39 42 43 43 47 51 63 79 87 87 100
+快速排序(左右指针法):
+4 5 6 7 23 29 39 42 43 43 47 51 63 79 87 87 100
+快速排序(前后指针法):
+4 5 6 7 23 29 39 42 43 43 47 51 63 79 87 87 100
+```
+
+### 性能比较
+
+先用十万个数来比较冒泡排序和使用挖洞法的快速排序：
+
+```c
+void compareBubbleQuick() {
+    int n = 100000;
+    int *a1 = gen_random_array(n, 99999);
+    int *a2 = copy_arr(a1, n);
+    int *a3 = copy_arr(a1, n);
+
+    int tick1 = clock();
+    bubble_sort_raw(a2, n); // 冒泡无优化
+    int tick2 = clock();
+    bubble_sort(a1, n); // 冒泡，优化
+    int tick3 = clock();
+
+    // 快排挖洞法，无三数取中优化
+    quick_sort_hole(a3, 0, n - 1);
+    int tick4 = clock();
+
+    printf("冒泡排序: %d\n", tick2 - tick1);
+    printf("冒泡排序(优化): %d\n", tick3 - tick2);
+    printf("快速排序: %d\n", tick4 - tick3);
+
+    free(a1);
+    free(a2);
+    free(a3);
+}
+```
+
+输出结果：
+
+```text
+冒泡排序: 30601
+冒泡排序(优化): 29173
+快速排序: 11
+```
+
+可以发现，优化后的冒泡排序耗时居然比没有优化的还要高？
+
+我们用一个变量 `count` 来计算一下冒泡排序的趟数（代码省略），然后再看一下运行结果：
+
+```text
+bubble_sort_raw: 704982704
+bubble_sort: 704810126
+冒泡排序: 33363
+冒泡排序(优化): 32306
+快速排序: 11
+```
+
+可以发现，$704982704-704810126=172578$，即优化后的冒泡排序只比未优化之前少了十万多趟排序，然而它的基数有七亿之多。为了优化，每趟排序都要多执行一次 `int exchange = 0`，多趟需要执行 `exchange = 1`，这就导致增加了耗时。如果我们再对一个有序序列排序，显然排序趟数能减少很多，优化的效果就会很好：
+
+```c
+void compareBubble() {
+    int n = 100000;
+    int a1[n], a2[n];
+    for (int i = 0; i < n; i++) {
+        a1[i] = i;
+        a2[i] = i;
+    }
+
+    int tick1 = clock();
+    bubble_sort_raw(a2, n); // 冒泡无优化
+    int tick2 = clock();
+    bubble_sort(a1, n); // 冒泡，优化
+    int tick3 = clock();
+
+    printf("冒泡排序: %d\n", tick2 - tick1);
+    printf("冒泡排序(优化): %d\n", tick3 - tick2);
+}
+```
+
+输出结果：
+
+```text
+bubble_sort_raw: 704982704
+bubble_sort: 99999
+冒泡排序: 11549
+冒泡排序(优化): 1
+```
+
+可见，如果优化没有减少大量的趟数，耗时可能甚至不如不优化。
+
+### 三数取中效果测试
+
+我们再对比一下三数取中的优化效果：
+
+```c
+void compareQuickSorts1() {
+    int n = 100000;
+    int *a1, *a2;
+    set_random_arrays((int **[]) {&a1, &a2}, 2, n);
+
+    // 对无序数组排序
+    int tick1 = clock();
+    quick_sort_hole(a1, 0, n - 1);
+    int tick2 = clock();
+    quick_sort_hole2(a2, 0, n - 1);
+    int tick3 = clock();
+    printf("n: %d\n", n);
+    printf("快排(选首位数): %d\n", tick2 - tick1);
+    printf("快排(三数选中): %d\n", tick3 - tick2);
+}
+```
+
+```text
+n: 100000
+快排(选首位数): 12
+快排(三数选中): 15
+```
+
+可见差距不是很大，有时三数取中优化耗时还要小，它的优势主要是针对有序数组，可看下面这个例子：
+
+```c
+void compareQuickSorts2() {
+    int n = 10000;
+    int a1[n], a2[n];
+    for (int i = 0; i < n; i++) {
+        a1[i] = i;
+        a2[i] = a1[i];
+    }
+
+    // 对有序数组排序
+    int tick1 = clock();
+    quick_sort_hole(a1, 0, n - 1);
+    int tick2 = clock();
+    quick_sort_hole2(a2, 0, n - 1);
+    int tick3 = clock();
+    printf("n: %d\n", n);
+    printf("快排(选首位数): %d\n", tick2 - tick1);
+    printf("快排(三数选中): %d\n", tick3 - tick2);
+}
+```
+
+注意这里调整了 `n` 的值，因为此处快排是递归算法，并且待排序列处于“极端情况”，`n` 太大会导致内存溢出（未优化的快排）。输出结果：
+
+```text
+n: 10000
+快排(选首位数): 102
+快排(三数选中): 0
+```
+
+可见优化效果十分显著。
+
+### 三种快排的比较
+
+上面我们对比了冒泡及其优化，三数取中优化；下面我们对比三种不同方法实现的快速排序，我们取一百万个随机数来测试一下它们的差距：
 
 ```c
 // #include <stdlib.h>
@@ -789,14 +980,14 @@ void compare_3_quick() {
 }
 ```
 
-输出结果：
+这里的快排我们统一使用三数取中优化，输出结果：
 
 ```text
-快排(挖坑法): 156
-快排(左右指针法): 155
+快排(挖坑法): 158
+快排(左右指针法): 152
 快排(前后指针法): 174
 ```
 
-可见，三种方法差距不是很大，最优的是左右指针法（经典快排）。
+有时挖坑法耗时也会比左右指针法少。可见三种方法差距不是太大，但挖坑法和左右指针法（经典快排）的效率要比前后指针法的要高。
 
-因为递归的时间和空间消耗比较大，当递归划分的区间比较小的时候，如果不再用递归去排序这个小区间，而是用其他排序对小区间处理（如插入排序），这样就能够减少很多递归次数，这就是**小区间优化**，这里不再详细介绍。
+因为递归算法的时间和空间消耗比较大，当递归划分的区间比较小的时候，如果不再用递归去排序这个小区间，而是用其他排序对小区间处理（如插入排序），这样就能够减少很多递归次数，这就是**小区间优化**，这里不再详细介绍。

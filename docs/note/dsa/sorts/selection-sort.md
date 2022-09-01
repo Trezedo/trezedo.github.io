@@ -138,7 +138,7 @@ $$
 \begin{array}{ccccccccc}
 0&1 & 2 & 3 &4&5&6&7&8\\
 \end{array}\\[-4pt]
-\begin{array}{|c|c|c|c|c|c|c|c|}
+\begin{array}{|c|c|c|c|c|c|c|c|c|}
 \hline
 a & b & c & d & e & f & g & h & i \\
 \hline
@@ -152,8 +152,8 @@ $$
 
 可以发现，父子结点的下标之间有关系：
 
-1. leftChild = parent\*2+1
-2. rightChi1d = parent\*2+2
+1. leftChild = parent $\times$ 2+1
+2. rightChild = parent $\times$ 2+2
 3. parent = (child-1)/2
 
 如果有 $n$ 个元素，那么最后一个叶子结点下标为 $n-1$，其父结点（即最后一个非叶子结点）的下标为 $\lfloor(n-1-1)/2\rfloor=\lfloor n/2\rfloor-1$。从而我们可以得知叶子结点的下标是从 $\lfloor n/2\rfloor$ 开始的。
@@ -191,9 +191,9 @@ $$
  *
  * 前提：根的左右子树都是小堆
  * 选出左右孩子较小者，与父亲比较，如果比父亲小就交换，然后继续往下调整，调到叶子结点时终止
- * @param arr
- * @param n
- * @param root
+ * @param arr 数组
+ * @param n 数组长度
+ * @param root 根结点下标
  */
 void min_heapify(int *arr, int n, int root) {
     int parent = root;
@@ -296,23 +296,23 @@ for (int i = (n / 2) - 1; i >= 0; i--) {
 
 ![先摆放为完全二叉树|480](./img/3.2-maxHeap-1.png)
 
-![先摆放为完全二叉树|480](./img/3.2-maxHeap-2.png)
+![step1|480](./img/3.2-maxHeap-2.png)
 
-![先摆放为完全二叉树|480](./img/3.2-maxHeap-3.png)
+![step2|480](./img/3.2-maxHeap-3.png)
 
-![先摆放为完全二叉树|480](./img/3.2-maxHeap-4.png)
+![step3|480](./img/3.2-maxHeap-4.png)
 
-![先摆放为完全二叉树|480](./img/3.2-maxHeap-5.png)
+![step4|480](./img/3.2-maxHeap-5.png)
 
-![先摆放为完全二叉树|480](./img/3.2-maxHeap-6.png)
+![step5|480](./img/3.2-maxHeap-6.png)
 
-![先摆放为完全二叉树|480](./img/3.2-maxHeap-7.png)
+![step6|480](./img/3.2-maxHeap-7.png)
 
-![先摆放为完全二叉树|480](./img/3.2-maxHeap-8.png)
+![step7|480](./img/3.2-maxHeap-8.png)
 
-![先摆放为完全二叉树|480](./img/3.2-maxHeap-9.png)
+![step8|480](./img/3.2-maxHeap-9.png)
 
-![先摆放为完全二叉树|480](./img/3.2-maxHeap-10.png)
+![step9|480](./img/3.2-maxHeap-10.png)
 
 到此为止我们就完成了建堆的操作。
 
@@ -417,3 +417,79 @@ $$
 稳定性：不稳定，堆排序的交换是利用父子的大小关系，无法保证等值元素相对顺序不变。
 
 堆排序不适用于待排序元素个数较少的情况，但对于元素个数较大时是很有效的。
+
+## 测试
+
+> 测试用到的函数及 `main` 函数请看 [插入排序 - 测试](insertion-sort.md#测试) 部分。
+
+先验证一下代码运行结果是否符合预期
+
+```c
+void testSelectionSorts() {
+    int n = random(10, 20);
+    int *a1 = gen_random_array(n, 100);
+    int *a2 = copy_arr(a1, n);
+    int *a3 = copy_arr(a1, n);
+    print_array(a1, n);
+
+    printf("直接选择排序:\n");
+    select_sort_raw(a1, n);
+    print_array(a1, n);
+
+    printf("直接选择(优化):\n");
+    select_sort(a2, n);
+    print_array(a2, n);
+
+    printf("堆排序:\n");
+    heap_sort(a3, n);
+    print_array(a3, n);
+
+    free(a1);
+    free(a2);
+    free(a3);
+}
+```
+
+```text
+56 46 17 25 97 14 8 48 35 92 45 83 85
+直接选择排序:
+8 14 17 25 35 45 46 48 56 83 85 92 97
+直接选择(优化):
+8 14 17 25 35 45 46 48 56 83 85 92 97
+堆排序:
+8 14 17 25 35 45 46 48 56 83 85 92 97
+```
+
+我们取十万个随机数来测试性能：
+
+```c
+void compareSelectionSorts() {
+    int n = 100000;
+    int *a1, *a2, *a3;
+    set_random_arrays((int **[]) {&a1, &a2, &a3}, 3, n);
+
+    int tick1 = clock();
+    select_sort_raw(a1, n);
+    int tick2 = clock();
+    select_sort(a2, n);
+    int tick3 = clock();
+    heap_sort(a3, n);
+    int tick4 = clock();
+
+    printf("直接选择排序: %d\n", tick2 - tick1);
+    printf("直接选择排序(优化): %d\n", tick3 - tick2);
+    printf("堆排序: %d\n", tick4 - tick3);
+
+    free(a1);
+    free(a2);
+    free(a3);
+}
+```
+
+```text
+直接选择排序: 10466
+直接选择排序(优化): 6074
+堆排序: 19
+```
+
+可见直接选择排序的优化效果提升了 $70\%$ 左右，而堆排序的速度和[快速排序](exchange-sort.md)相当，毕竟两者的时间复杂度都是 $O(n\log n)$。
