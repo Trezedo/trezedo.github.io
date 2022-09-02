@@ -16,15 +16,22 @@ order: 4
 
 归并排序（MERGE-SORT）是建立在归并操作上的一种有效的排序算法,该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为二路归并。
 
-归并序核心步骤：
+归并排序过程示意：
+
+![归并排序示例1](img/4.1-merge-example.png)
+
+归并排序每次都把原数组分成两半，即分成 [0, n/2 - 1] 和 [n/2, n] 两部分，然后再对这两部分再次二分，这就是一个“分治”的过程。
+
+对于长度不是 $2^k,k\in \mathbb{N}$ 的序列，过程也是完全类似：
+
+![归并排序示例2](img/4.1-merge-example.png)
 
 归并排序的特性总结：
 
-1. 归并的缺点在于需要 O(N)的空间复杂度，归并排序的思考更多的是解决在磁盘中的外排序问题。
-2. 时间复杂度：O(N\*logN)
-3. 空间复杂度：O(N)
+1. 归并的缺点在于需要 $O(n)$ 的空间复杂度，归并排序的思考更多的是解决在磁盘中的外排序问题。
+2. 时间复杂度：$O(n\log n)$
+3. 空间复杂度：$O(n)$
 4. 稳定性：稳定
-
 
 快排思想类似二叉树的前序遍历
 
@@ -39,15 +46,6 @@ order: 4
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
-
-// 生成 [min,max) 之间的随机数
-int random(int min, int max) {
-    static unsigned int seed = 0;
-    seed++;
-    srand((unsigned) time(NULL) + seed * seed);
-    return rand() % (max - min + 1) + min;
-}
-//https://blog.csdn.net/qqq_aaa_zzz1/article/details/79105190
 
 // 分&治 递归
 void merge_sort_conquer(int data[], int temp[], int start, int end) {
