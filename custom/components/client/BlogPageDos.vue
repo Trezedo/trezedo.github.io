@@ -4,12 +4,12 @@
 
 <script lang="ts" setup>
 import { onMounted } from "vue";
-import { detectTbs } from "../../hooks/";
+// import { detectTbs } from "../../hooks/";
 
 /**
  * 检测是否在 QQ 或 微信 内打开
  */
-detectTbs();
+// detectTbs();
 
 /**
  * 关闭页面事件

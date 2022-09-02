@@ -7,8 +7,8 @@ const resolve = (path: string) => {
 
 const components = {
     BlogPageDos: resolve("client/BlogPageDos.vue"),
-    CurrentPageData: resolve("client/CurrentPageData.vue"),
-    List4Hope: resolve("client/List4Hope.vue"),
+    // CurrentPageData: resolve("client/CurrentPageData.vue"),
+    // List4Hope: resolve("client/List4Hope.vue"),
     CommonFriend: resolve("QQ/CommonFriend.vue"),
     TTS: resolve("TTS.vue"),
 };

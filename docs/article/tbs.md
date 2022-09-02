@@ -16,7 +16,6 @@ tag:
 
 <script lang="ts" setup>
 import { ref, onMounted, computed } from "vue";
-import { useRoute } from "vue-router";
 
 const env = ref("");
 onMounted(() => {
@@ -24,17 +23,18 @@ onMounted(() => {
     env.value = ua ? ua[0] : "QQ、微信";
 });
 //
-const route = useRoute();
-const routePath = computed(() => decodeURI(route.fullPath));
-const href = ref("");
-const show = ref(false);
-onMounted(() => {
-    const header = document.querySelector("#clear");
-    header?.addEventListener("dblclick", () => {
-        show.value = !show.value;
+if(typeof location != "undefined") {
+    const routePath = decodeURI(location.href);
+    const href = ref("");
+    const show = ref(false);
+    onMounted(() => {
+        const header = document.querySelector("#clear");
+        header?.addEventListener("dblclick", () => {
+            show.value = !show.value;
+        });
+        href.value = decodeURI(location.href.replace(location.origin, ""));
     });
-    href.value = decodeURI(location.href.replace(location.origin, ""));
-});
+}
 </script>
 
 在 QQ、微信环境下，Gitee Pages 的网页文件数据会被强制缓存，此后有几率==无法自动更新==。

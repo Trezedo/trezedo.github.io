@@ -1,5 +1,5 @@
 import { viteBundler } from "vuepress";
-// import { webpackBundler } from "@vuepress/bundler-webpack";
+import { webpackBundler } from "@vuepress/bundler-webpack";
 
 export default {
     vite: viteBundler({
@@ -20,5 +20,5 @@ export default {
             },
         },
     }),
-    // webpack: webpackBundler({}),
+    webpack: webpackBundler({}),
 };
