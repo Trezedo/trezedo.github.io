@@ -49,7 +49,7 @@ export default defineUserConfig({
 
     bundler: bundler("vite"),
 
-    // clientConfigFile: path.resolve(__dirname, "./clientAppEnhance.ts"),
+    clientConfigFile: path.resolve(__dirname, "./clientAppEnhance.ts"),
 });
 
 export function isDev(): boolean {

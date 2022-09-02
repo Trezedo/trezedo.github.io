@@ -38,10 +38,10 @@ export function loadScripts() {
  * 关闭生产环境时的 console.log ，但可以通过 --debug 开启
  */
 export function disableDebugLog() {
-    if (typeof window == "undefined") {
+    if (/* typeof window == "undefined" */ __VUEPRESS_SSR__) {
         return;
     }
-    if (process.env["NODE_ENV"] == "production") {
+    if (/* process.env["NODE_ENV"] == "production" */ !__VUEPRESS_DEV__) {
         // development
         // @ts-ignore
         window.log = console.log;

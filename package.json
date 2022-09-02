@@ -5,6 +5,8 @@
     "author": "Trezedo",
     "license": "MIT",
     "scripts": {
+        "build:all": "pnpm build:lib && pnpm docs:build",
+        "build:lib": "pnpm --filter \"vuepress-plugin-deco\" run build",
         "docs:build": "vuepress build docs",
         "docs:clean-dev": "vuepress dev docs --clean-cache",
         "docs:dev": "vuepress dev docs",
@@ -18,9 +20,10 @@
         "@vuepress/plugin-register-components": "2.0.0-beta.51",
         "@vuepress/plugin-search": "2.0.0-beta.51",
         "@vuepress/utils": "2.0.0-beta.51",
+        "vite": "^3.0.9",
         "vue": "^3.2.38",
+        "vue-router": "^4.1.5",
         "vuepress": "2.0.0-beta.51",
-        "vuepress-plugin-deco": "workspace:*",
         "vuepress-theme-hope": "2.0.0-beta.97"
     }
 }

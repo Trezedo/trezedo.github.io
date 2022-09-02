@@ -21,7 +21,7 @@
         "lib"
     ],
     "scripts": {
-        "build": "tsc -b tsconfig.build.json"
+        "build": "tsc -b tsconfig.build.json --clean && tsc -b tsconfig.build.json"
     },
     "dependencies": {
         "@vuepress/client": "2.0.0-beta.51",

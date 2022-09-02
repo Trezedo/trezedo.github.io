@@ -1,5 +1,7 @@
 import { defineClientConfig } from "@vuepress/client";
 import { disableDebugLog } from "@zedo";
+import { decoPlugin } from "./configs/plugins/deco";
+
 // import { loadScripts, loadStyles } from "@zedo";
 // import { useBackground, useImageSize } from "@zedo";
 
@@ -19,6 +21,7 @@ export default defineClientConfig({
         loadScripts();
         useBackground();
         useImageSize(); */
+        decoPlugin();
     },
     rootComponents: [],
 });
