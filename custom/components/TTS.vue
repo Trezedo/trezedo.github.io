@@ -6,11 +6,7 @@
         <label>语言：</label>
         <select :disabled="disabled" v-model="currentLang">
             <option selected value="all">全部</option>
-            <option
-                v-for="(lang, idx) in getSupportedLang()"
-                :key="idx"
-                :value="lang"
-            >
+            <option v-for="(lang, idx) in getSupportedLang()" :key="idx" :value="lang">
                 {{ lang }}
             </option>
         </select>
@@ -18,46 +14,21 @@
     <div>
         <label>音色：</label>
         <select :disabled="disabled" v-model="speakerIdx">
-            <option
-                v-for="(voice, idx) in filterVoicesByLang(currentLang)"
-                :key="idx"
-                :value="idx"
-            >
+            <option v-for="(voice, idx) in filterVoicesByLang(currentLang)" :key="idx" :value="idx">
                 {{ voice.name }}
             </option>
-            <option
-                v-if="filterVoicesByLang(currentLang).length === 0"
-                disabled
-            >
-                没有可选项
-            </option>
+            <option v-if="filterVoicesByLang(currentLang).length === 0" disabled>没有可选项</option>
         </select>
     </div>
     <div>
         <label>语速：</label>
-        <input
-            type="number"
-            min="0"
-            max="10"
-            step="0.2"
-            v-model="rate"
-            :disabled="disabled"
-        />
+        <input type="number" min="0" max="10" step="0.2" v-model="rate" :disabled="disabled" />
         <label>音调：</label>
-        <input
-            type="number"
-            min="0"
-            max="2"
-            step="0.1"
-            v-model="pitch"
-            :disabled="disabled"
-        />
+        <input type="number" min="0" max="2" step="0.1" v-model="pitch" :disabled="disabled" />
     </div>
     <textarea v-model="textInput" />
     <div style="text-align: left">
-        <button type="button" @click="speak()" :disabled="disabled">
-            朗读
-        </button>
+        <button type="button" @click="speak()" :disabled="disabled">朗读</button>
     </div>
 </template>
 
@@ -88,9 +59,7 @@ onMounted(() => {
             let voices = speechSynthesis.getVoices();
             // 利用map之key的唯一性，对 voiceURI 去重
             let map = new Map();
-            allVoices.value = voices.filter(
-                (v) => !map.has(v.voiceURI) && map.set(v.voiceURI, 1)
-            );
+            allVoices.value = voices.filter((v) => !map.has(v.voiceURI) && map.set(v.voiceURI, 1));
             let length = allVoices.value.length;
             if (length > 0) {
                 console.log(`成功加载 ${length} 个语音`);
@@ -134,9 +103,7 @@ function getSupportedLang(voices?: SpeechSynthesisVoice[]): string[] {
 function filterVoicesByLang(lang: string, voices?: SpeechSynthesisVoice[]) {
     if (lang == "all") return allVoices.value;
     if (!voices) voices = allVoices.value;
-    return voices.filter(
-        (v) => v.lang.trim().toLowerCase() == lang.trim().toLowerCase()
-    );
+    return voices.filter((v) => v.lang.trim().toLowerCase() == lang.trim().toLowerCase());
 }
 
 /*onMounted(async () => {

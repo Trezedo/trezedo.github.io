@@ -1,7 +1,7 @@
 import { defineClientConfig } from "@vuepress/client";
-import { useBackground, useImageSize } from "@zedo";
-import { loadScripts, loadStyles } from "@zedo";
 import { disableDebugLog } from "@zedo";
+import { loadScripts, loadStyles } from "@zedo";
+import { useBackground, useImageSize } from "@zedo";
 
 // https://v2.vuepress.vuejs.org/zh/advanced/cookbook/usage-of-client-config.html
 export default defineClientConfig({
@@ -14,11 +14,10 @@ export default defineClientConfig({
     },
     setup() {
         disableDebugLog();
-
-        useBackground();
-        useImageSize();
         loadStyles();
         loadScripts();
+        useBackground();
+        useImageSize();
     },
     rootComponents: [],
 });
