@@ -5,4 +5,3 @@ export * from "./useConfirm";
 export * from "./headAssets";
 export * from "./useBackground";
 export * from "./useImageSize";
-export * from "./useNaiveTheme";

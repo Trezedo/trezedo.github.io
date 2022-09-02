@@ -1,15 +1,12 @@
-import { defineUserConfig } from "vuepress";
-import { Bundler } from "@vuepress/core";
+import { Bundler, defineUserConfig } from "vuepress";
 import { path } from "@vuepress/utils";
 
-import { onInitialized, bundlerConfig } from "./configs/";
-import { pluginConfig } from "./configs/plugins";
-import themeConfig from "./themeConfig";
+import { bundlerConfig, onInitialized, pluginConfig } from "./configs/";
+import theme from "./theme";
 
 // 这里的时间是构建时间，因为当前处于 nodejs 环境，其实也是可以做到 “不缓存” 的
 const date: string = "?" + new Date().getTime();
 
-// noinspection JSUnusedGlobalSymbols,SpellCheckingInspection
 export default defineUserConfig({
     base: "/",
 
@@ -32,7 +29,7 @@ export default defineUserConfig({
     ],
     alias: {
         "@zedo": path.resolve(__dirname, "../../custom/"),
-        "@theme-hope/components/NormalPage": path.resolve(
+        "@theme-hope/components/NormalPage.js": path.resolve(
             __dirname,
             "../../custom/components/views/NormalPage.vue"
         ),
@@ -40,19 +37,18 @@ export default defineUserConfig({
     locales: {
         "/": {
             lang: "zh-CN",
-            title: "Zedo",
+            title: "zedo",
             description: "使用 vuepress2 搭建的博客",
         },
         // "/zh/": {},
     },
-    theme: themeConfig,
+
+    theme,
     onInitialized: onInitialized,
     plugins: pluginConfig,
 
     bundler: bundler("vite"),
 
-    // clientAppSetupFiles beta.18 加入了隐藏侧边栏，取消自己写的
-    // path.resolve(__dirname, './configs/setupFiles/toggleSidebar.ts')
     clientConfigFile: path.resolve(__dirname, "./clientAppEnhance.ts"),
 });
 
