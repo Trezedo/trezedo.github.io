@@ -15,11 +15,14 @@ yarn-error.log*
 .yarnrc.yml
 
 # pnpm
-pnpm-lock.yaml
 pnpm-debug.log*
 
 # output
 dist
+packages/**/lib/
+
+# typescript build info
+*.tsbuildinfo
 
 # Logs
 logs
