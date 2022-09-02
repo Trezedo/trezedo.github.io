@@ -1,6 +1,6 @@
 import { hopeTheme } from "vuepress-theme-hope";
 import { navbar, sidebar } from "./configs";
-import type { TrustContext } from "katex";
+// import type { TrustContext } from "katex";
 
 export default hopeTheme({
     hostname: "https://zedo.gitee.io",
@@ -101,8 +101,9 @@ export default hopeTheme({
                     "\\label": "\\htmlId{tag#1}{}",
                     // 数据结构
                     "\\mk": "\\mkern{#1mu}",
-                    "\\box": String.raw`\begin{array}{|c|c|}\hline \!#1\! & \!#2\!\\ \hline \end{array}`,
-                    "\\node": String.raw`\box{#1}{\bullet}`,
+                    "\\box":
+                        "\\begin{array}{|c|c|}\\hline \\!#1\\! & \\!#2\\!\\\\ \\hline \\end{array}",
+                    "\\node": "\\box{#1}{\\bullet}",
                     "\\cnode": "\\colorbox{#1}{$\\node{#2}$}",
                     // katex 不支持默认参数，\providecommand\pTo[1][-20]{\mkern{#1mu}\xrightarrow{\mkern24mu}\mkern-7mu}
                     "\\pto": "\\mkern{-20mu}\\xrightarrow{\\mkern24mu}\\mkern-6mu",
@@ -116,7 +117,8 @@ export default hopeTheme({
                     return "error";
                 } */,
                 // https://github.com/KaTeX/KaTeX/issues/2003
-                trust: (context: TrustContext) => ["\\htmlId", "\\href"].includes(context.command),
+                trust: (context: /* TrustContext */ any) =>
+                    ["\\htmlId", "\\href"].includes(context.command),
             },
 
             chart: false,
