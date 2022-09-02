@@ -78,10 +78,6 @@
             var s = [];
             (e.requestAnimationFrame =
                 e.requestAnimationFrame ||
-                e.webkitRequestAnimationFrame ||
-                e.mozRequestAnimationFrame ||
-                e.oRequestAnimationFrame ||
-                e.msRequestAnimationFrame ||
                 function (e) {
                     setTimeout(e, 1e3 / 60);
                 }),
