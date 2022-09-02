@@ -41,7 +41,7 @@ export function disableDebugLog() {
     if (typeof window == "undefined") {
         return;
     }
-    if (process.env.NODE_ENV == "production") {
+    if (process.env["NODE_ENV"] == "production") {
         // development
         // @ts-ignore
         window.log = console.log;

@@ -20,8 +20,8 @@ async function createDefaultPage(app: App, { path, markdown, frontmatter }: Defa
     if (app.pages.every((page) => page.path !== path)) {
         const homepage = await createPage(app, {
             path,
-            frontmatter,
             content: markdown,
+            frontmatter: frontmatter!,
         });
         app.pages.push(homepage); // 把它添加到 `app.pages`
     }

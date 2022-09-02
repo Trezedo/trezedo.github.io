@@ -16,7 +16,7 @@ watch(qq, (newVal) => {
 function viewFriend() {
     if (qq.value.length < 5) return;
     const middlePage = "https://i.qianbao.qq.com/lib/components/adapt/middlepage.html?url=";
-    const qrCode = "https://gxh.vip.qq.com/club/themes/pc/qrcode/html/index.html?qrcode_url=";
+    // const qrCode = "https://gxh.vip.qq.com/club/themes/pc/qrcode/html/index.html?qrcode_url=";
     const baseUrl = "https://ti.qq.com/friends/recall?uin=";
 
     const url = encodeURIComponent(baseUrl + qq.value);
