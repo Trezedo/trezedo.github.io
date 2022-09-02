@@ -265,7 +265,7 @@ yarn add package-name@^
 
 我们都知道可以用 `@` 来指定版本，当我们指定的版本不存在时，就会让用户选择版本来确定。
 
-除了使用上面的方法外，还可以考虑 [yarn-upgrade-all]([https://www.npmjs.com/package/yarn-upgrade-all)。
+除了使用上面的方法外，还可以考虑 [yarn-upgrade-all](https://www.npmjs.com/package/yarn-upgrade-all)。
 
 > 参考
 >
