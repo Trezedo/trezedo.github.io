@@ -1,10 +1,7 @@
 <template>
     <NormalPage :class="{ 'has-cover': !!imgLink }">
         <template #top>
-            <div
-                class="page-cover"
-                :style="{ backgroundImage: `url(${imgLink})` }"
-            />
+            <div class="page-cover" :style="{ backgroundImage: `url(${imgLink})` }" />
         </template>
     </NormalPage>
 </template>
@@ -27,12 +24,11 @@ import NormalPage from "vuepress-theme-hope/lib/client/components/NormalPage";
 const frontmatter = usePageFrontmatter();
 
 const coverLink = ref(
-    frontmatter.value.cover ||
-        "https://w.wallhaven.cc/full/wq/wallhaven-wqve97.png"
+    frontmatter.value["cover"] || "https://w.wallhaven.cc/full/wq/wallhaven-wqve97.png"
 );
 
 const imgLink = computed(() => {
-    return (frontmatter.value.article !== false && coverLink.value) || "";
+    return (frontmatter.value["article"] !== false && coverLink.value) || "";
 });
 
 onMounted(() => {
@@ -62,7 +58,7 @@ $navbarHeight: var(--navbar-height);
 
 /* .theme-container .page */
 #main-content {
-    position: relative;
+    // position: relative;
 
     &.has-cover {
         padding-top: $coverHeight; // var(--navbar-height);

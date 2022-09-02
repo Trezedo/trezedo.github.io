@@ -70,3 +70,42 @@ img.hero-image {
     animation: typing var(--p-duration) steps(var(--p-step)) alternate infinite,
         caret 0.5s steps(1) infinite;
 }
+
+:root {
+    --faded-yellow: #fdf9d3;
+    --faded-green: #e4ffee;
+    --faded-purple: #d2d6e9;
+    --faded-red: #f8e8e5;
+    --faded-blue: #eff7fa;
+}
+
+@keyframes rainbow {
+    0%,
+    100% {
+        background: var(--faded-yellow);
+    }
+
+    25% {
+        background: var(--faded-green);
+    }
+
+    50% {
+        background: var(--faded-purple);
+    }
+
+    75% {
+        background: var(--faded-red);
+    }
+}
+
+.rainbow-bg {
+    position: relative;
+    width: 3600px;
+    height: 2200px;
+    background: var(--index-bg);
+    backdrop-filter: blur(20px) grayscale(1);
+    animation-name: rainbow;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
