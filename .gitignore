@@ -8,7 +8,6 @@ npm-debug.log*
 .npm
 
 # yarn
-yarn.lock
 yarn-debug.log*
 yarn-error.log*
 # yarn v3
