@@ -1,5 +1,5 @@
 import { App, createPage } from "vuepress";
-import { PageFrontmatter } from "@vuepress/shared";
+import type { PageFrontmatter } from "@vuepress/shared";
 
 export default async (app: App) => {
     await createDefaultPage(app, {

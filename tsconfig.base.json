@@ -22,7 +22,7 @@
 
         // Emit
         "downlevelIteration": false,
-        "importHelpers": true,
+        "importHelpers": false,
         "importsNotUsedAsValues": "remove",
         "newLine": "lf",
         "noEmitOnError": true,
