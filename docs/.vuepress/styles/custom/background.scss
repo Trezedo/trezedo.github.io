@@ -1,4 +1,4 @@
-// /* 影响首页、tag 页、category 页 */
+// /* 影响首页、tag 页、category 页、timeline 页、加密页 */
 
 :root {
     --bg-gap: 1rem;
@@ -59,9 +59,15 @@ $coverHeight: var(--cover-height);
     background: var(--bg-color-blur);
 }
 
-// 调整页脚位置
-.page.has-cover {
-    min-height: calc(100vh - #{$coverHeight} - var(--navbar-height));
+// 将 main 撑高，以调整页脚位置
+.page {
+    min-height: calc(
+        100vh - var(--navbar-height) - 2rem /* pad bottom */ - 2rem /* footer 的 margin-top */
+    );
+
+    &.has-cover {
+        min-height: calc(100vh - #{$coverHeight} - var(--navbar-height));
+    }
 }
 
 .breadcrumb,
@@ -97,7 +103,7 @@ $coverHeight: var(--cover-height);
 // 标题和正文衔接
 .page-title {
     &::before {
-        height: calc(100% + 1rem);
+        height: calc(100% + 0.5rem);
     }
 }
 
@@ -109,16 +115,16 @@ $coverHeight: var(--cover-height);
     }
 }
 
-// “编辑此页”背景
+// “编辑此页”等的背景
 .page-meta {
-    margin: 0.5rem auto 0;
+    margin: 0.5rem auto;
 
     &::before {
         z-index: 0;
         border-radius: $radius;
     }
 
-    .edit-link {
+    .meta-item {
         position: relative;
     }
 }
@@ -126,8 +132,7 @@ $coverHeight: var(--cover-height);
 // .page-nav 处理不了，改成处理其子元素
 .page-nav {
     border-top: none; // 取消白线
-    padding-left: $gap;
-    padding-right: $gap;
+    padding: 0 $gap 0.5rem;
     max-width: calc(var(--content-width) + #{$gap} * 2 + 1rem);
 
     .prev,
@@ -216,4 +221,9 @@ aside#toc {
     #toc {
         background: transparent;
     }
+}
+
+// 密码面板
+.password-modal {
+    background-color: var(--bg-color-blur);
 }
