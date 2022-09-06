@@ -24,8 +24,8 @@ onMounted(() => {
 });
 //
 const show = ref(false);
-//
-if(!__VUEPRESS_SSR__) {
+// markdown 中似乎用不了 __VUEPRESS_SSR__ 等
+if(typeof location != "undefined") {
     const routePath = decodeURI(location.href);
     const href = ref("");
     onMounted(() => {
