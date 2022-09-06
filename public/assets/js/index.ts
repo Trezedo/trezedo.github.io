@@ -1,6 +1,6 @@
 // 进入网页时执行，且只执行一次
-let scripts = [
-    "/assets/js/reloadPage.js",
+var scripts = <string[]>[
+    // "/assets/js/reloadPage.js",
     // "toggleSidebar.js" // 只会执行一次；不会更新，但又需要动态检测
     // "pop"
 ];

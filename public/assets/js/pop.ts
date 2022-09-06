@@ -1,7 +1,7 @@
 // 不依赖文档是否渲染完毕，因为是脚本自己创建的
 // https://css-tricks.com/playing-with-particles-using-the-web-animations-api/
 const clickPop = () => {
-    const el: Element = document.body;
+    const el: HTMLElement = document.body;
     if (!window["pop"]) {
         // document.body &&
         el.addEventListener("click", pop);
@@ -35,9 +35,7 @@ const clickPop = () => {
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
         // 在蓝色/紫色调色板中生成随机颜色
-        particle.style.background = `hsl(${
-            Math.random() * 90 + 180
-        }, 70%, 60%)`;
+        particle.style.background = `hsl(${Math.random() * 90 + 180}, 70%, 60%)`;
 
         // 在距离鼠标 50px 的范围内生成粒子目的地的随机 x, y 坐标
         const destinationX = x + (Math.random() - 0.5) * 2 * 50;

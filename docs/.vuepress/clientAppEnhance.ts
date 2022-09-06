@@ -1,15 +1,14 @@
 import { defineClientConfig } from "@vuepress/client";
 import { disableDebugLog } from "@zedo";
-import { decoPlugin } from "@zedo/plugin-hooks";
+import { decoPlugin, reloadPagePlugin } from "@zedo/plugin-hooks/";
 
 // import { loadScripts, loadStyles } from "@zedo";
 
 // https://v2.vuepress.vuejs.org/zh/advanced/cookbook/usage-of-client-config.html
 export default defineClientConfig({
     enhance({ app, router, siteData }) {
-        console.log(app, router, siteData);
-        // app.config.globalProperties
-        // 全局注册组件会被打包进 app.xxx.js
+        console.log(app.version, router.getRoutes(), siteData.value);
+        // 全局注册组件会被打包进 app.xxx.js，建议用官方插件注册组件
         // for (let com in Components) {
         //     app.component(com, Components[com])
         // }
@@ -21,6 +20,8 @@ export default defineClientConfig({
         useBackground();
         useImageSize(); */
         decoPlugin();
+        reloadPagePlugin();
     },
+    // 插入到 #app 的组件
     rootComponents: [],
 });

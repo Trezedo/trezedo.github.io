@@ -5,7 +5,7 @@ import { bundlerConfig, onInitialized, pluginConfig } from "./configs/";
 import theme from "./theme";
 
 // 这里的时间是构建时间，因为当前处于 nodejs 环境，其实也是可以做到 “不缓存” 的
-const date: string = "?" + new Date().getTime();
+// const date: string = "?" + new Date().getTime();
 
 export default defineUserConfig({
     base: "/",
@@ -25,7 +25,7 @@ export default defineUserConfig({
             rel: "icon", type: "image/jpeg",
             href: "https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=3&t=" + new Date().getTime()
         }],*/
-        ["script", { defer: true, src: "/assets/js/index.js" + date }],
+        // ["script", { defer: true, src: "/assets/js/index.js" + date }],
     ],
     alias: {
         "@zedo": path.resolve(__dirname, "../../custom/"),

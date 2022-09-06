@@ -1,1 +1,2 @@
-export * from "./deco";
+export * from "./deco.js";
+export * from "./reloadPage.js";
