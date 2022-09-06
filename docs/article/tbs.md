@@ -23,10 +23,11 @@ onMounted(() => {
     env.value = ua ? ua[0] : "QQ、微信";
 });
 //
-if(typeof location != "undefined") {
+const show = ref(false);
+//
+if(!__VUEPRESS_SSR__) {
     const routePath = decodeURI(location.href);
     const href = ref("");
-    const show = ref(false);
     onMounted(() => {
         const header = document.querySelector("#clear");
         header?.addEventListener("dblclick", () => {

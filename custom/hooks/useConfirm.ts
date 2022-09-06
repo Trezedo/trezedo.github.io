@@ -22,7 +22,7 @@ interface ConfirmOption extends ConfirmRequired {
  * 提供了 show 方法
  */
 export function useConfirm() {
-    if (typeof window == "undefined") return;
+    if (/* typeof window == "undefined" */ __VUEPRESS_SSR__) return;
     // @ts-ignore
     let Confirm = window.Notiflix.Confirm;
 

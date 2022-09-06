@@ -3,7 +3,7 @@ import { useRoute } from "vue-router";
 
 // todo 以 markdown-it 插件形式来处理
 export function useImageSize() {
-    if (typeof document == "undefined") {
+    if (/* typeof document == "undefined" */ __VUEPRESS_SSR__) {
         return;
     }
     // 思路来源：https://www.zhihu.com/question/23378396/answer/402528770
