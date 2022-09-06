@@ -39,6 +39,10 @@ onMounted(() => {
 <style lang="scss">
 :root {
     --cover-height: 40vh;
+
+    @media (max-width: 959px) {
+        --cover-height: 25vh;
+    }
 }
 
 $coverHeight: var(--cover-height);
