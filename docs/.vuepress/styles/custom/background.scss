@@ -6,9 +6,8 @@
 }
 
 // 清除默认设置的背景
-.theme-container .page.blog:not(p)
-
-/*:not 用于增加权重 */ {
+.theme-container .page.blog:not(p) {
+    /*:not 用于增加权重 */
     background: transparent;
 }
 
@@ -46,6 +45,11 @@
     background: var(--bg-color-blur);
 }
 
+// 调整页脚位置
+.page.has-cover {
+    min-height: calc(100vh - var(--cover-height) - var(--navbar-height));
+}
+
 // 正文背景
 $gap: 1rem;
 $radius: 8px;
@@ -66,6 +70,7 @@ $radius: 8px;
         left: 0 + $gap;
         max-width: calc(var(--content-width) + 5rem);
         z-index: -1;
+        pointer-events: none;
     }
 }
 
@@ -86,9 +91,32 @@ $radius: 8px;
     }
 }
 
+// 正文底部圆角
+.theme-hope-content:not(.custom) {
+    &::before {
+        border-bottom-left-radius: $radius;
+        border-bottom-right-radius: $radius;
+    }
+}
+
+// “编辑此页”背景
+.page-meta {
+    margin: 0.5rem 0 0;
+
+    &::before {
+        z-index: 0;
+        border-radius: $radius;
+    }
+
+    .edit-link {
+        position: relative;
+    }
+}
+
 // .page-nav 处理不了，改成处理其子元素
 .page-nav {
     max-width: calc(var(--content-width) + 3rem);
+    border-top: none; // 取消白线
 
     .prev,
     .next {
@@ -98,11 +126,23 @@ $radius: 8px;
     }
 }
 
-// 底部加上圆角
+// 底部加上圆角，修正 z 轴
 .page-meta {
-    &::before {
-        border-radius: 0 0 $radius $radius;
-    }
+    position: relative;
+
+    // &::before {
+    //     content: "";
+    //     position: absolute;
+    //     width: calc(100% - #{$gap} * 2);
+    //     height: 100%;
+    //     background-color: var(--bg-color);
+    //     top: 0;
+    //     left: 0 + $gap;
+    //     max-width: calc(var(--content-width) + 5rem);
+    //     // z-index: -1;
+    //     border-radius: 0 0 $radius $radius;
+    //     // z-index: 0;
+    // }
 }
 
 // 目录
