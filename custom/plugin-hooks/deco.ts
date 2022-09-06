@@ -3,6 +3,7 @@ import { useRoute } from "vue-router";
 
 const img = "https://w.wallhaven.cc/full/72/wallhaven-72rd8e.jpg";
 const style = `#bg {position: fixed;top: 0;left: 0;width: 100%;height: 100vh;z-index: -1;pointer-events: none;background-color: var(--bg-color-back);background: center center / cover no-repeat;transition: all 1s ease;}body {background: transparent;}`;
+
 const test = <string[]>[];
 
 export function decoPlugin() {

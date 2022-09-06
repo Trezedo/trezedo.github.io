@@ -10,6 +10,7 @@ export function useImageSize() {
 
     // 检测是否支持 zoom
     // MDN 建议用 transform scale 代替，但它不会重绘
+    // @ts-ignore
     const supportZoom: boolean = typeof document.body.style["zoom"] == "string";
 
     function initImageSize() {
@@ -25,13 +26,12 @@ export function useImageSize() {
             const unit = exec?.[2];
             if (supportZoom) {
                 if (size && unit !== "px") {
+                    // @ts-ignore
                     img.style["zoom"] = size + "%";
                 }
             } else {
                 // “兼容” Firefox，用图片原始高度处理
-                size &&
-                    (img.style.width =
-                        (img.naturalWidth * parseInt(size)) / 100 + "px");
+                size && (img.style.width = (img.naturalWidth * parseInt(size)) / 100 + "px");
             }
         }
     }

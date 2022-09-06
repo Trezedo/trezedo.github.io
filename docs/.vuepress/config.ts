@@ -1,4 +1,4 @@
-import { Bundler, defineUserConfig } from "vuepress";
+import { type Bundler, defineUserConfig } from "vuepress";
 import { path } from "@vuepress/utils";
 
 import { bundlerConfig, onInitialized, pluginConfig } from "./configs/";

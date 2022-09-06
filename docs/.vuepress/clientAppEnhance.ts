@@ -1,9 +1,8 @@
 import { defineClientConfig } from "@vuepress/client";
 import { disableDebugLog } from "@zedo";
-import { decoPlugin } from "./configs/plugins/deco";
+import { decoPlugin } from "@zedo/plugin-hooks";
 
 // import { loadScripts, loadStyles } from "@zedo";
-// import { useBackground, useImageSize } from "@zedo";
 
 // https://v2.vuepress.vuejs.org/zh/advanced/cookbook/usage-of-client-config.html
 export default defineClientConfig({
