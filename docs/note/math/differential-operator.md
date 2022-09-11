@@ -6,20 +6,65 @@ category:
 tag:
     - 微分方程
     - 算子
-description: （加锁是因为没整理好hhh）介绍算子法在求解二阶线性微分方程中的应用及其部分性质的证明
 ---
 
 # 微分方程算子法
 
-待完成
+此处主要整理算子法在求解线性微分方程中的应用及其部分性质的证明。
 
-<https://blog.csdn.net/SHRtuji/article/details/110094849>
+首先线性微分方程可以写成：
+
+$$
+a_0y^{(n)} + a_1y^{(n−1)} + a_2y^{(n−2)} + \cdots + a_{n−1}y' + a_n y=f(x)
+$$
+
+用微分算子表示：
+
+$$
+\left[a_0D^{(n)}+a_{1}D^{(n-1)}+a_{2}D^{(n-2)}+\cdots+a_{n-1}D+a_{n}\right]y=f(x)
+$$
+
+设  $\ds F(D)=\sum_{k=0}^{n}{a_kD^{n-k}}$  则有：
+
+$$
+F(D)y=f(x) \implies y=\frac{1}{F(D)}f(x)
+$$
+
+解出来就是对应的  $y$ ，即是线性方程的一个特解，所以用算子法解微分方程的关键就在于解  $\ds\frac{1}{F(D)}f(x)$ ，而这就需要了解微分算子的相关性质。
+
+## 微分算子的基本性质
+
+性质 1：若 $F\left( k \right) \ne 0$，则
+
+$$
+\frac{1}{F\left( D \right)}\text{e}^{kx}=\frac{1}{F\left( k \right)}\text{e}^{kx}
+$$
+
+若 $F\left( k \right) =0$ ，不妨设 $k$ 为 $F\left( k \right)$ 的 $m$ 重根，则
+
+$$
+\frac{1}{F\left( D \right)}{\rm e}^{kx}=x^m\frac{1}{F^{\left( m \right)}\left( D \right)}{\rm e}^{kx}=x^m\frac{1}{F^{\left( m \right)}\left( k \right)}{\rm e}^{kx}
+$$
+
+其中 $F^{\left( m \right)}\left( D \right)$ 表示 $F\left( D \right)$ 对 $D$ 的 $m$ 阶导数。
+
+性质 2：$f(x)$ 为 $e^{kx}h(x)$
+
+$$
+\frac{1}{F\left( D \right)}\text{e}^{kx}h\left( x \right) =\text{e}^{kx}\frac{1}{F\left( D+k \right)}h\left( x \right)
+$$
+
+性质 3：$f(x)$ 为多项式
+
+$$
+\begin{aligned} y^\ast&=\frac{1}{F\left( D \right)}\left( a_0x^m+a_1x^{m-1}+\cdots +a_m \right)\\ &=Q\left( D \right) \left( a_0x^m+a_1x^{m-1}+\cdots +a_m \right) \end{aligned}
+$$
+
+其中 $Q\left( D \right)$ 为 $1$ 除以按升幂排序的 $F\left( D \right)$ 的商式，其最高次数取到 $f\left( x \right)$ 的次数 $m$
 
 <https://zh.wikipedia.org/wiki/%E5%B7%AE%E5%88%86>
 
 <https://en.wikipedia.org/wiki/Fractional_calculus>
-
-<https://en.wikipedia.org/wiki/Cauchy_formula_for_repeated_integration>
 
 <https://en.wikipedia.org/wiki/Antiderivative>
 
@@ -32,8 +77,6 @@ description: （加锁是因为没整理好hhh）介绍算子法在求解二阶�
 <https://zhuanlan.zhihu.com/p/132651937>
 
 <https://wenku.baidu.com/share/a96428c0b9f67c1cfad6195f312b3169a451eae6?share_api=1&width=960>
-
----
 
 ```tex
 \[
@@ -82,7 +125,9 @@ a_n\text{是整数序列，因此}
 %https://baike.baidu.com/item/小数部分函数
 ```
 
----
+## 相关证明
+
+此部分可以仅作了解。
 
 $$
 \begin{aligned}
@@ -97,15 +142,15 @@ $$
 \end{aligned}
 $$
 
-利用重复积分的柯西公式，可知
+利用柯西重复积分公式[^cauchy]，可知
 
 $$
 \frac{1}{D^n}f=\frac{1}{(n-1)!}\int_0^x{(x-t)^{n-1}f\d t}
 $$
 
-从而$\lambda ^n\e ^{\lambda x}\int{\e ^{-\lambda x}\frac{1}{D^n}f\d x}\to 0,n\to \infty$
+从而 $\ds\lambda ^n\e ^{\lambda x}\int{\e ^{-\lambda x}\frac{1}{D^n}f\d x}\to 0,n\to \infty$
 
-从而对$I$取极限可得
+从而对 $I$ 取极限可得
 
 $$
 I=\sum_{m=0}^{\infty}{\frac{\lambda ^m}{D^{m+1}}f}=\frac{1}{D-\lambda}f
@@ -145,27 +190,27 @@ $$
 ```tex
 $1.(1)\lim_{x\to 0}\frac{(1+\sin ^2x)^{2022}-(\cos x)^{2022}}{\ln (1+x^2)}$.
 
-(2)求积分$\int_{y\ge x^2+1}{\frac{\d x\d y}{y^2+x^4}}$.
+(2)求积分 $\int_{y\ge x^2+1}{\frac{\d x\d y}{y^2+x^4}}$.
 
 (3)求 $f(x)=\e ^{-f^2}$ 的 Maclaurin 公式，并求出 $f^{(2022)}(0),f^{(2021)}(0)$.
 
-(4)曲面积分$\int_S{\frac{x\d y\d z+y\d z\d x+z\d x\d y}{(x^2+y^2+z^2)^{3/2}}}$
+(4)曲面积分 $\int_S{\frac{x\d y\d z+y\d z\d x+z\d x\d y}{(x^2+y^2+z^2)^{3/2}}}$
 
-$S$是区域$V=\left\{ (x,y,z)\mid \left| x \right|\le z,\left| y \right|\le 2,\left| z \right|\le 2 \right\} $的外侧.
+$S$ 是区域 $V=\left\{ (x,y,z)\mid \left| x \right|\le z,\left| y \right|\le 2,\left| z \right|\le 2 \right\}$ 的外侧.
 
 $2.x_0>0$，$x_n=\arctan x_{n-1},n\ge 1$
 
-(1)证：$\lim_{n\to \infty}x_n=0($求$\left\{ x_n \right\} $的极限)
+(1)证：$\lim_{n\to \infty}x_n=0$，求 $\left\{ x_n \right\}$ 的极限
 
 (2)证：数列$\left\{ \sqrt{n}x_n \right\} $收敛并求极限值
 
-$3.f(x)=x^{\alpha}\ln x$，在实数域$\mathbb{R}$上，证明：一致连续$\Leftrightarrow \alpha >1$
+$3.f(x)=x^{\alpha}\ln x$，在实数域 $\mathbb{R}$ 上，证明：一致连续 $\Leftrightarrow \alpha >1$
 
-$4.a_n>0,\frac{a_n}{a_{n+1}}=1+\frac{\alpha}{n}+\mathcal{O}\left( \frac{1}{n^2} \right) $，$\mathcal{O}\left( \frac{1}{n^2} \right) $表示存在$M>0$，对所有的$n$成立$\left| \mathcal{O}\left( \frac{1}{n^2} \right) \right|<\frac{M}{n^2}$.
+$4.a_n>0,\frac{a_n}{a_{n+1}}=1+\frac{\alpha}{n}+\mathcal{O}\left( \frac{1}{n^2} \right) $，$\mathcal{O}\left( \frac{1}{n^2} \right) $表示存在$M>0$，对所有的 $n$ 成立 $\left| \mathcal{O}\left( \frac{1}{n^2} \right) \right|<\frac{M}{n^2}$.
 
-证明：级数$\sum_{n=1}^{\infty}{a_n}$收敛$\Leftrightarrow \alpha >1$
+证明：级数 $\sum_{n=1}^{\infty}{a_n}$收敛$\Leftrightarrow \alpha >1$
 
-$5.f(x),g(x)$在$\left[ 0,+\infty \right) $上连续，且$\lim_{x\to \infty}\frac{f(x)}{g(x)}=1$，广义积分$\int_0^{+\infty}{g(x)\d x}$收敛.
+$5.f(x),g(x)$ 在 $[0,+\infty)$ 上连续，且 $\lim_{x\to \infty}\frac{f(x)}{g(x)}=1$，广义积分 $\int_0^{+\infty}{g(x)\d x}$ 收敛.
 
 (1)证明：广义积分$\int_0^{+\infty}{f(x)\d x}$也收敛.
 
@@ -177,11 +222,13 @@ $5.f(x),g(x)$在$\left[ 0,+\infty \right) $上连续，且$\lim_{x\to \infty}\fr
 
 7.证：函数$G(p)=\int_0^{\pi}{\frac{\sin x}{x^p(\pi -x)^{2-p}}\d x}$在(0,2)内连续.
 
-$8.f(x)$单调连续，在实数域上，$f(x+1)=f(x)+1$，$f^n(x)$表示$f(x)$的$n$次复合，
+$8.f(x)$ 单调连续，在实数域上，$f(x+1)=f(x)+1$，$f^n(x)$ 表示 $f(x)$ 的 $n$ 次复合，
 
 $\varphi =f^n(x)-x$
 
-(1)证明：$\forall n\ge 1,\varphi _n(x)$为周期函数$;$
+(1)证明：$\forall n\ge 1,\varphi _n(x)$ 为周期函数；
 
-(2)证明：$\forall x\in \mathbb{R},\lim_{n\to \infty}\frac{\varphi _n(x)}{n}$的极限值与$x$的取值无关.
+(2)证明：$\forall x\in \mathbb{R},\lim_{n\to \infty}\frac{\varphi _n(x)}{n}$ 的极限值与 $x$ 的取值无关.
 ```
+
+[^cauchy]: [Cauchy formula for repeated integration](https://en.wikipedia.org/wiki/Cauchy_formula_for_repeated_integration)
