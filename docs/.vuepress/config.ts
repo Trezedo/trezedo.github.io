@@ -12,7 +12,7 @@ export default defineUserConfig({
 
     dest: "./dist",
     public: "./public",
-    // templateBuild: "custom/index.build.html",
+    templateBuild: "custom/index.build.html",
 
     head: [
         // ! 此处引入的 css、js，当 hash 变化时也会重复加载
@@ -20,7 +20,7 @@ export default defineUserConfig({
             "link",
             { rel: "stylesheet", href: "/assets/font/iconfont.css" + date },
         ], */
-        // ["link", {rel: "shortcut icon", href: "/favicon.ico",type:"image/x-icon"}],
+        // ["link", { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" }],
         /*["link", {
             rel: "icon", type: "image/jpeg",
             href: "https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=3&t=" + new Date().getTime()
