@@ -101,9 +101,11 @@ $coverHeight: var(--cover-height);
 }
 
 // 标题和正文衔接
-.page-title {
+.theme-hope-content:not(.custom) {
     &::before {
-        height: calc(100% + 0.5rem);
+        $fix: 1rem;
+        top: -$fix;
+        height: calc(100% + #{$fix});
     }
 }
 
