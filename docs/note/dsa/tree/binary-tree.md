@@ -189,6 +189,259 @@ digraph finite_state_machine {
 </iframe>
 
 
+```c
+typedef int BTDataType;
+typedef struct BinaryTreeNode {
+    BTDataType data;
+    struct BinaryTreeNode *left;
+    struct BinaryTreeNode *right;
+} BTNode;
+
+/**
+ * 创建二叉树结点
+ * @param val 结点的值
+ * @return 结点指针
+ */
+BTNode *createBTNode(BTDataType val);
+
+/**
+ * 前序遍历
+ * @param root 根节点
+ */
+void PreOrder(BTNode *root);
+
+/**
+ * 中序遍历
+ * @param root 根节点
+ */
+void InOrder(BTNode *root);
+
+/**
+ * 后序遍历
+ * @param root 根节点
+ */
+void PostOrder(BTNode *root);
+
+/**
+ * 获取树的结点个数
+ * @param root 根节点
+ * @param pSize 返回型参数
+ */
+void TreeSize1(BTNode *root, int *pSize);
+
+/**
+ * 获取树的结点个数
+ * @param root 根节点
+ * @return
+ */
+int TreeSize2(BTNode *root);
+
+/**
+ * 获取树的叶子结点个数
+ * @param root 根节点
+ */
+int TreeLeafSize(BTNode *root);
+
+/**
+ * 二叉树的高度(深度)
+ * @param root 根节点
+ */
+int TreeHeight(BTNode *root);
+
+#include "Queue.h"
+
+/**
+ * 层序遍历（广度优先遍历）
+ * @param root 根节点
+ */
+void LevelOrder(BTNode *root);
+
+/**
+ * 前序遍历，返回遍历序列
+ * @param root 根节点
+ * @param returnSize 序列数组大小（输出型参数）
+ * @return 前序遍历序列数组
+ */
+int *PreOrderTraversal(BTNode *root, int *returnSize);
+
+/**
+ * 是否为平衡二叉树
+ * @param root 根节点
+ */
+bool isBalanced(BTNode *root);
+
+/**
+ * 销毁二叉树
+ * @param root 根节点
+ */
+void DestroyTree(BTNode *root);
+```
+
+### 实现
+
+```c
+BTNode *createBTNode(BTDataType val) {
+    BTNode *node = (BTNode *) malloc(sizeof(BTNode));
+    node->data = val;
+    node->left = NULL;
+    node->right = NULL;
+    return node;
+}
+
+void PreOrder(BTNode *root) {
+    if (root == NULL) {
+        // 此处是为了方便理解
+        printf("NULL ");
+        return;
+    }
+    // 递归：先序遍历依次访问根节点、左子树、右子树
+    printf("%c ", root->data);
+    PreOrder(root->left);
+    PreOrder(root->right);
+}
+
+void InOrder(BTNode *root) {
+    // 中序遍历只需要改变一下线序遍历代码的顺序
+    if (root == NULL) {
+        printf("NULL ");
+        return;
+    }
+    InOrder(root->left);
+    printf("%c ", root->data);
+    InOrder(root->right);
+}
+
+void PostOrder(BTNode *root) {
+    // 同上
+    if (root == NULL) {
+        printf("NULL ");
+        return;
+    }
+    PostOrder(root->left);
+    PostOrder(root->right);
+    printf("%c ", root->data);
+}
+
+void TreeSize1(BTNode *root, int *pSize) {
+    // 因为这里是递归，不像循环那样能够直接用局部变量计数，采用返回型参数
+    // 在遍历的基础上加上计数即可
+    if (root == NULL) {
+        return;
+    }
+    (*pSize)++;
+    TreeSize1(root->left, pSize);
+    TreeSize1(root->right, pSize);
+}
+
+int TreeSize2(BTNode *root) {
+    // 分治的思想：一棵树的结点个数是 1（根节点）+ 左子树结点个数 + 右子树结点个数
+    return root == NULL
+           ? 0
+           : 1 + TreeSize2(root->left) + TreeSize2(root->right);
+}
+
+int TreeLeafSize(BTNode *root) {
+    // 同样用分治的思想：一棵树的叶子结点个数，是左、右子树的叶子结点数之和
+    return root == NULL
+           ? 0 // 空树没有叶子
+           : (root->left == NULL && root->right == NULL)
+             // 非空树，且左右子树都为空，则该结点就是叶子
+             ? 1
+             : TreeLeafSize(root->left) + TreeLeafSize(root->right);
+}
+
+int TreeHeight(BTNode *root) {
+    // 同样用分治的思想：一棵树的高度是 1 + 左右子树高度大者的高度
+    // 访问顺序类似于后序遍历
+
+    if (root == NULL) { // 空树高度为 0
+        return 0;
+    }
+
+    // 注意：这里涉及到比较，应当用临时变量保存返回值，否则会冗余递归计算
+    int lh = TreeHeight(root->left);
+    int rh = TreeHeight(root->right);
+    return 1 + (lh > rh ? lh : rh);
+}
+
+void LevelOrder(BTNode *root) {
+    // 层序遍历。借助队列先进先出的特点
+    // 思想：当上一层结点出队列的时候，下一层的入队列，那么出队顺序恰好就是要求的
+    Queue queue;
+    QueueInit(&queue);
+
+    if (root) {
+        QueuePush(&queue, root);
+    }
+    // 队列为空时遍历结束
+    while (!QueueEmpty(&queue)) {
+        BTNode *front = QueueFront(&queue);
+        QueuePop(&queue);
+        printf("%c ", front->data);
+
+        // 父节点出队，并把左右子结点带入队列
+        if (front->left) {
+            QueuePush(&queue, front->left);
+        }
+        if (front->right) {
+            QueuePush(&queue, front->right);
+        }
+    }
+    printf("\n");
+    QueueDestroy(&queue);
+}
+
+
+// PreOrderTraversal 的子函数，避免多次 malloc
+// 每层递归都有一个 arrIdx，而我们想要所有函数共用同一个参数 arrIdx，因此用指针
+void pre_order(BTNode *root, int *arr, int *arrIdx) {
+    // 这里可以用普通的前序遍历，但是要把遍历到的元素放进数组
+    if (root == NULL) return;
+    arr[*arrIdx] = root->data;
+    (*arrIdx)++;
+    pre_order(root->left, arr, arrIdx);
+    pre_order(root->right, arr, arrIdx);
+}
+
+int *PreOrderTraversal(BTNode *root, int *returnSize) {
+    // 先算出结点个数，确定数组大小，然后把值放进数组
+    int size = TreeSize2(root);
+    int *arr = (int *) malloc(sizeof(int) * size);
+    *returnSize = size;
+
+    int i = 0; // 数组元素索引
+    pre_order(root, arr, &i);
+
+    return arr;
+}
+
+// 每个结点的左右子树的高度差绝对值不超过 1
+bool isBalanced(BTNode *root) {
+    // 同样是分治
+    if (root == NULL) { // 空树满足平衡条件
+        return true;
+    }
+
+    int lh = TreeHeight(root->left);
+    int rh = TreeHeight(root->right);
+
+    return abs(lh - rh) <= 1 // 当前结点满足，则还要检查左右子树根结点是否满足
+           && isBalanced(root->left)
+           && isBalanced(root->right);
+}
+
+void DestroyTree(BTNode *root) {
+    // 同样是分治：由于销毁二叉树依赖父结点的指针，故采用后序遍历的顺序来释放结点是最合适的
+
+    if (root == NULL) return; // 空树无需销毁
+
+    DestroyTree(root->left);
+    DestroyTree(root->right);
+    free(root);
+    root = NULL; // 实际不起作用，因为改变的是指针
+}
+```
+
 ## OJ 练习题
 
 1. [二叉树的前序遍历](https://leetcode.cn/problems/binary-tree-preorder-traversal/)
