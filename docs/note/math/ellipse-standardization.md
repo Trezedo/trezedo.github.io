@@ -15,9 +15,8 @@ description: 本文主要讲述了如何从一般圆系方程出发，先求其�
 中学我们曾经学过，在直角坐标系中，中心位于原点的主轴平行于 $x$ 轴的椭圆由如下方程指定
 
 $$
-\begin{equation}
-    \frac{x^2}{a^2}+\frac{y^2}{b^2}=1,a>b>0
-\end{equation}
+\frac{x^2}{a^2}+\frac{y^2}{b^2}=1,a>b>0
+\tag{1}
 $$
 
 **长轴**是通过连接椭圆上的两个点所能获得的最长线段，**短轴**是通过连接椭圆上的两个点所能获得的最短线段。在方程中，所设的 $2a$ 称为长轴长，$2b$ 称为短轴长，而所设的定点（原点）称为焦点，那么 $c=\sqrt{a^2-b^2}$ 称为焦距。
@@ -73,7 +72,7 @@ $$
 \end{cases}
 $$
 
-带入 $(1)$ 式可得
+带入 $\tagref{1}$ 式可得
 
 $$
 \frac{(x'\cos \theta +y'\sin \theta)^2}{a^2}+\frac{(y'\cos \theta -x'\sin \theta)^2}{b^2}=1
@@ -82,27 +81,26 @@ $$
 整理得到
 
 $$
-\left( \frac{\cos ^2\theta}{a^2}+\frac{\sin ^2\theta}{b^2} \right) x'^2+\sin 2\theta \left( \frac{1}{a^2}-\frac{1}{b^2} \right) x'y'+\left( \frac{\sin ^2\theta}{a^2}+\frac{\cos ^2\theta}{b^2} \right) y'^2=1
+\begin{aligned}
+\left( \frac{\cos ^2\theta}{a^2}+\frac{\sin ^2\theta}{b^2} \right) x'^2 &+\sin 2\theta \left( \frac{1}{a^2}-\frac{1}{b^2} \right) x'y'\\
+&+\left( \frac{\sin ^2\theta}{a^2}+\frac{\cos ^2\theta}{b^2} \right) y'^2=1
+\end{aligned}
 $$
 
 记系数
 
 $$
-\begin{equation}
 \begin{aligned}
     A&=\frac{\cos ^2\theta}{a^2}+\frac{\sin ^2\theta}{b^2}\\
     B&=\sin 2\theta \left( \frac{1}{a^2}-\frac{1}{b^2} \right)\\
     C&=\frac{\sin ^2\theta}{a^2}+\frac{\cos ^2\theta}{b^2}
-\end{aligned}
-\end{equation}
+\end{aligned}\tag{2}
 $$
 
 就得到其满足的一般形式为
 
 $$
-\begin{equation}
-    Ax'^2+Bx'y'+Cy'^2=1
-\end{equation}
+Ax'^2+Bx'y'+Cy'^2=1 \tag{3}
 $$
 
 现在我们再平移该椭圆，将
@@ -114,7 +112,7 @@ $$
 \end{cases}
 $$
 
-带入 $(3)$ 式可得到焦点位于点 $\left( h,k \right)$ 的椭圆方程
+带入 $\tagref{3}$ 式可得到焦点位于点 $(h,k)$ 的椭圆方程
 
 $$
 A\left( x''-h \right) ^2+B\left( x''-h \right) \left( y''-k \right) +C\left( y''-k \right) ^2=1
@@ -129,21 +127,17 @@ $$
 现令
 
 $$
-\begin{equation}
 \begin{aligned}
     D&=-2Ah-Bk\\
     E&=-Bh-2Ck\\
     F&=Ah^2+Bhk+Ck^2-1
-\end{aligned}
-\end{equation}
+\end{aligned}\tag{4}
 $$
 
 再将坐标 $\left( x,y \right)$ 代回，这就得到了一般圆系方程
 
 $$
-\begin{equation}
-    Ax^2+Bxy+Cy^2+Dx+Ey+F=0
-\end{equation}
+Ax^2+Bxy+Cy^2+Dx+Ey+F=0 \tag{5}
 $$
 
 ### 对系数的进一步探讨
@@ -160,12 +154,27 @@ $$
 若 $A-C=0$ ，则 $\cos 2\theta =0\Rightarrow \theta =\pm \dfrac{\pi}{4}$；否则
 
 $$
-\begin{equation}
-    \frac{B}{A-C}=\frac{\sin 2\theta}{\cos 2\theta}=\tan 2\theta
-\end{equation}
+\frac{B}{A-C}=\frac{\sin 2\theta}{\cos 2\theta}=\tan 2\theta \tag{6}
 $$
 
-可见如果 $B=0$ 则椭圆没有发生旋转，否则可以通过 $(6)$ 式求得旋转角度 $\theta$。
+可见如果 $B=0$ 则椭圆没有发生旋转，否则可以通过 $\tagref{6}$ 式求得旋转角度 $\theta$。
+
+如此又有
+
+$$
+\begin{aligned}
+(A-C) ^2+B^2&=\left( \cos ^22\theta +\sin ^22\theta \right) \left( \frac{1}{a^2}-\frac{1}{b^2} \right) ^2\\
+&=\left( \frac{1}{a^2}-\frac{1}{b^2} \right) ^2
+\end{aligned}
+$$
+
+故
+
+$$
+\sqrt{\left( A-C \right) ^2+B^2}=\left| \frac{1}{a^2}-\frac{1}{b^2} \right|=\frac{1}{b^2}-\frac{1}{a^2}
+$$
+
+注意到
 
 $$
 \begin{aligned}
@@ -184,9 +193,9 @@ $$
 4AC-B^2=\frac{4}{a^2b^2}>0
 $$
 
-因此，如果一般圆系方程 $(5)$ 式不满足上式，那么它不是一个椭圆。
+因此，如果一般圆系方程 $\tagref{5}$ 式不满足上式，那么它不是一个椭圆。
 
-由 $(4)$ 式可得
+由 $\tagref{4}$ 式可得
 
 $$
 \begin{cases}
@@ -198,7 +207,6 @@ $$
 若把 $h,k$ 视为未知数，则可解得
 
 $$
-\begin{equation}
 \begin{aligned}
     h=\frac{\begin{vmatrix}
     -D&    B\\
@@ -214,37 +222,40 @@ $$
     2A&    B\\
     B&    2C\\
     \end{vmatrix}}=\frac{BD-2AE}{4AC-B^2}
-\end{aligned}
-\end{equation}
+\end{aligned}\tag{7}
 $$
 
 实际上还可得到如下关系：
 
 $$
-\begin{equation}
 \begin{aligned}
     Dh+Ek&=-\left( 2Ah^2+Bkh \right) -\left( Bhk+2Ck^2 \right)\\
     &=-2\left( Ah^2+Bkh+Ck^2 \right)\\
-\end{aligned}
-\end{equation}
+\end{aligned}\tag{8}
 $$
 
-这里 $(h,k)$ 是焦点坐标，$D$ 和 $E$ 分别是 $(5)$ 式中 $x$ 和 $y$ 项的系数。
+这里 $(h,k)$ 是焦点坐标，$D$ 和 $E$ 分别是 $\tagref5$ 式中 $x$ 和 $y$ 项的系数。
 
 ## 椭圆标准化
 
 上面我们通过标准椭圆方程得到了一般椭圆方程。那么反过来同样可行，可通过旋转和平移得到将一般椭圆方程标准化。
 
-通过 $(7)$ 式我们知道，方程
+通过 $\tagref{7}$ 式我们知道，方程
 
 $$
 Ax^2+Bxy+Cy^2+Dx+Ey+F=0
 $$
 
-可通过作代换 $\begin{cases}
+可通过作代换
+
+$$
+\begin{cases}
     u=x-h \\
     v=y-k \\
-\end{cases}$ 就能消去一般方程中 $u$ 和 $v$ 项的系数。当然，如果不知道这个结论，也可以通过带入方程然后令系数为零求出 $h$ 和 $k$，此处从略。
+\end{cases}
+$$
+
+就能消去一般方程中 $u$ 和 $v$ 项的系数。当然，如果不知道这个结论，也可以通过带入方程然后令系数为零求出 $h$ 和 $k$，此处从略。
 
 通过上述平移坐标变换我们已经将椭圆焦点平移到了原点，此时的椭圆方程为
 
@@ -256,7 +267,7 @@ $$
 \end{gather*}
 $$
 
-带入 $(8)$ 式得到
+带入 $\tagref{8}$ 式得到
 
 $$
 Au^2+Buv+Cv^2=Ah^2+Bhk+Ck^2-F\xlongequal{\triangle} G
@@ -264,7 +275,7 @@ $$
 
 ### 求半长轴长和半短轴长
 
-接下来，我们不打算用 $(6)$ 式去求旋转角度。
+接下来，我们不打算用 $\tagref{6}$ 式去求旋转角度。
 
 由长轴和短轴的定义，这两个几何量的求解可转化为椭圆上的点 $(u,v)$ 到原点距离 $d=\sqrt{u^2+v^2}$ 的最大值和最小值，即 $d^2$ 在条件 $Au^2+Buv+Cv^2=G$ 下的极值。
 
@@ -277,13 +288,11 @@ $$
 再令
 
 $$
-\begin{equation}
     \begin{cases}
     L_x'=2x+\lambda (2Ax+By) =0&        \text{①}\\
     L_y'=2y+\lambda (Bx+2C) =0&        \text{②}\\
     L_{\lambda}'=Ax^2+Bxy+Cy^2-G=0&        \text{③}\\
-\end{cases}
-\end{equation}
+\end{cases}\tag{9}
 $$
 
 于是
@@ -295,7 +304,7 @@ $$
 \end{aligned}
 $$
 
-即要求 $x,y$ 使得 $x^2+y^2=-\lambda G$，故而 $(9)$ 式有非零解，即
+即要求 $x,y$ 使得 $x^2+y^2=-\lambda G$，故而 $\tagref{9}$ 式有非零解，即
 
 $$
 \begin{cases}
@@ -311,8 +320,10 @@ $$
     \det &=\begin{vmatrix}
     2(1+A\lambda)&        \lambda B\\
     \lambda B&        2(1+2C\lambda)\\
-\end{vmatrix}=4(1+A\lambda) (1+2C\lambda) -\lambda ^2B^2\\
-    &=(4AC-B^2) \lambda ^2+4(A+C) \lambda +4=0
+\end{vmatrix}\\
+    &=4(1+A\lambda) (1+2C\lambda) -\lambda ^2B^2\\
+    &=(4AC-B^2) \lambda ^2+4(A+C) \lambda +4\\
+    &=0
 \end{aligned}
 $$
 
@@ -351,6 +362,30 @@ $$
 $$
 
 这就完成了求解。
+
+::: tip
+
+注意，此处的 $a,b$ 和 [对系数的进一步探讨](#对系数的进一步探讨) 中的不一致。因为如果一致，则
+
+$$
+\begin{aligned}
+a^2&=\frac{2\left( Ah^2+Bhk+Ck^2-F \right)}{\left( \frac{1}{a^2}+\frac{1}{b^2} \right) -\left( \frac{1}{b^2}-\frac{1}{a^2} \right)}\\
+\Rightarrow 1&=Ah^2+Bhk+Ck^2-F
+\end{aligned}
+$$
+
+从而
+
+$$
+\begin{aligned}
+    a^2&=\frac{2}{\left( A+C \right) -\sqrt{\left( A-C \right) ^2+B^2}}\\
+    b^2&=\frac{2}{\left( A+C \right) +\sqrt{\left( A-C \right) ^2+B^2}}
+\end{aligned}
+$$
+
+即长轴长和短轴长只与系数 $A,B,C$ 有关，这显然是不正确的。
+
+:::
 
 ## 总结
 

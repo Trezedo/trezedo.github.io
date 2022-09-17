@@ -20,10 +20,10 @@ $$
 I_1=\int_0^p{\frac{\arctan x}{x^2+Bx+C}\d x}
 $$
 
-其中 $p>0$ ，若能够使用换元 $x\mapsto \frac{p-x}{1+px}$以及等式 $\eqref{1}$ 解决 ，
+其中 $p>0$ ，若能够使用换元 $x\mapsto \frac{p-x}{1+px}$ 以及等式 $\eqref{1}$ 解决 ，
 
 $$
-\arctan x+\arctan \frac{p-x}{1+px}=\arctan p \tag{1}\label{1}
+\arctan x+\arctan \frac{p-x}{1+px}=\arctan p \tag{1}%\label{1}
 $$
 
 则
@@ -73,13 +73,13 @@ $$
 对于分子为对数函数的积分，考虑如下积分：
 
 $$
-I_2=\int_0^p{\frac{\ln (x+A)}{x^2+Bx+C}\d x}\label{I2}
+I_2=\int_0^p{\frac{\ln (x+A)}{x^2+Bx+C}\d x} \label{I2}
 $$
 
 为了使用类似的方法，需要找到一个代换$f$，且满足：
 
 $$
-f(0)=p,f(p)=0,\label2\tag2
+f(0)=p,f(p)=0,\tag{2}
 $$
 
 $$
@@ -98,7 +98,7 @@ $$
 c=A(A+p)
 $$
 
-于是，满足以上条件的代换$\ds f=\frac{A(p-x)}{x+A}$，且$\ds\d \left( \frac{p-x}{x+A} \right) =-\frac{A+p}{(x+A)^2}\d x$
+于是，满足以上条件的代换 $\ds f=\frac{A(p-x)}{x+A}$，且$\ds\d \left( \frac{p-x}{x+A} \right) =-\frac{A+p}{(x+A)^2}\d x$
 
 从而
 
@@ -115,14 +115,20 @@ x^2+Bx+C=\left[ \left( A\frac{p-x}{x+A} \right) ^2+B\left( A\frac{p-x}{x+A} \rig
 $$
 
 $$
-RHS=(A^2-AB+C)x^2+\left( -2A^2p-AB(A-p)+2AC \right) x+(A^2p^2+A^2Bp+A^2C)
+\begin{aligned}
+    RHS=(A^2-AB+C)x^2&+\left( -2A^2p-AB(A-p)+2AC \right) x\\
+    &+(A^2p^2+A^2Bp+A^2C)
+\end{aligned}
 $$
 
 对应系数相等，则
 
 $$
-\left\{ \begin{array}{l} A^2-AB+C=A(A+p)\\ -2A^2p+AB(A+p)+2AC=BA(A+p)\\ A^2(p^2+Bp+C)=CA(A+p)
-\end{array} \right. \Rightarrow \left\{ \begin{array}{l} C=A(p+B)\\ C=A(B+p)\\ A(p+B)=C \end{array} \right.
+\begin{cases}
+A^2-AB+C=A(A+p)\\ -2A^2p+AB(A+p)+2AC=BA(A+p)\\ A^2(p^2+Bp+C)=CA(A+p)
+\end{cases} \Rightarrow
+\begin{cases}
+C=A(p+B)\\ C=A(B+p)\\ A(p+B)=C \end{cases}
 $$
 
 即三个方程均满足
@@ -133,7 +139,7 @@ $$
 
 ### 结论
 
-对于形如 [$I_2$](#tagI2) 的积分，如果满足 $C=A(p+B)$ ，则只需按以下方法操作便可解决：
+对于形如 $\href{#tag-I2}{I_2}$ 的积分，如果满足 $C=A(p+B)$，则只需按以下方法操作便可解决：
 
 $$
 \begin{aligned}
