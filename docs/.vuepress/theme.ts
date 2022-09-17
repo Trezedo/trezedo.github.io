@@ -96,9 +96,12 @@ export default hopeTheme({
                     "\\e": "\\text{e}",
                     "\\i": "\\text{i}",
                     "\\ds": "\\displaystyle",
-                    "\\eqref": "\\href{##tag#1}{(\\text{#1})}",
-                    "\\ref": "\\href{##tag#1}{\\text{#1}}",
-                    "\\label": "\\htmlId{tag#1}{}",
+                    "\\eqref": "\\href{##tag-#1}{(\\text{#1})}",
+                    "\\ref": "\\href{##tag-#1}{\\text{#1}}",
+                    "\\label": "\\htmlId{tag-#1}{}",
+                    "\\oldTag": "\\@ifstar\\tag@literal\\tag@paren",
+                    "\\tag": "\\oldTag{#1}\\label{#1}",
+                    "\\tagref": "\\href{##tag-#1}{(#1)}",
                     // 数据结构
                     "\\mk": "\\mkern{#1mu}",
                     "\\box":
