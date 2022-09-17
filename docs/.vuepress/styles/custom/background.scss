@@ -57,6 +57,7 @@ $coverHeight: var(--cover-height);
 // 页脚半透明
 .footer-wrapper {
     background: var(--bg-color-blur);
+    min-height: 3.7rem;
 }
 
 // 将 main 撑高，以调整页脚位置

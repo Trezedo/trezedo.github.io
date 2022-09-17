@@ -88,7 +88,7 @@ export default hopeTheme({
         mdEnhance: {
             // enableAll: true,
 
-            tex: {
+            katex: {
                 output: "html",
                 // mathml 相当于 tex 源码
                 macros: {
