@@ -142,7 +142,7 @@ $$
 
 ### 对系数的进一步探讨
 
-再来看 $(2)$ 式中的系数，显然有
+再来看 $\tagref{2}$ 式中的系数，显然有
 
 $$
 \begin{aligned}
@@ -422,5 +422,5 @@ $$
 
 ## 参考
 
-1. [椭圆](https://zh.wikipedia.org/wiki/%E6%A4%AD%E5%9C%86)
-2. [旋转](https://zh.wikipedia.org/wiki/%E6%97%8B%E8%BD%AC)
+1. [椭圆 - wikipedia](https://zh.wikipedia.org/wiki/%E6%A4%AD%E5%9C%86)
+2. [旋转 - wikipedia](https://zh.wikipedia.org/wiki/%E6%97%8B%E8%BD%AC)

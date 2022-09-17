@@ -202,7 +202,7 @@ Hibbard 增量序列
 Sedgewick 增量序列
 
 - {1,5,19,41,109,...} =$\{k\mid (9(4^k-2^k)+1) \lor (4^k-3\cdot2^k+1)\}$
-- 猜想：$T_{\text{worst}}=O(n^{4/3})$，$T_{\text{avg}}=O(n^{7/6})$
+- 猜想：$T_{\text{worst}}=O(n^{4/3})$，且 $T_{\text{avg}}=O(n^{7/6})$
 
 ## 测试
 
