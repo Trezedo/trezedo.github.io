@@ -32,6 +32,10 @@ pre::-webkit-scrollbar-thumb {
     margin-top: calc(0 - var(--offset-top));
 }
 
+.katex-display > .katex > .katex-html > .tag {
+    overflow: hidden;
+}
+
 // 滚动到自定义上下文锚点，上边距
 p > a[name] {
     padding-top: var(--offset-top);
