@@ -27,13 +27,13 @@ $$
 若我们将标准椭圆绕原点顺时针旋转 $\theta$ 角，则新坐标与原坐标的关系如下：
 
 $$
-\begin{bmatrix}{c}
+\begin{bmatrix}
     x'\\
     y'\\
 \end{bmatrix} =\begin{bmatrix}
     \cos \theta&    -\sin \theta\\
     \sin \theta&    \cos \theta\\
-\end{bmatrix} \begin{bmatrix}{c}
+\end{bmatrix} \begin{bmatrix}
     x\\
     y\\
 \end{bmatrix}
