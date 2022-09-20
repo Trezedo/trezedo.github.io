@@ -5,6 +5,7 @@ date: 2022-01-24
 description: 一类分子为反正切函数或对数函数，分母为二次函数的定积分计算方法。
 category:
     - 高等数学
+    - 积分
 tag:
     - 积分
 star: true
@@ -12,9 +13,21 @@ star: true
 
 # 两道特殊积分
 
+本文将讨论如下两种形式的积分，找到其易积时各待定系数满足的关系：
+
+$$
+\begin{aligned}
+    I_1&=\int_0^p{\frac{\arctan x}{x^2+Bx+C}\d x}
+    \\[1.2em]
+    I_2&=\int_0^p{\frac{\ln (x+A)}{x^2+Bx+C}\d x}
+\end{aligned}
+$$
+
+<!-- more -->
+
 ## 分子为反正切函数
 
-我们考虑这样一个积分：
+我们先考虑 $I_1$：
 
 $$
 I_1=\int_0^p{\frac{\arctan x}{x^2+Bx+C}\d x}
@@ -66,24 +79,23 @@ $$
 I\xlongequal{x\mapsto \frac{p-x}{1+px}}\int_0^p{\frac{\arctan \frac{p-x}{1+px}}{x^2+Bx+C}\d x}=\frac{\arctan p}{2}\int_0^p{\frac{1}{x^2+Bx+C}\d x}
 $$
 
-再考虑形如 $\ds\int{\frac{1}{(ax+b)^2\pm c^2}\d x}$ 的积分即可.
+再考虑形如 $\ds\int{\frac{1}{(ax+b)^2\pm c^2}\d x}$ 的积分即可，可参考[几种基本形式的积分](./integrals-of-basic-forms.md)。
 
 ## 分子为对数函数
 
-对于分子为对数函数的积分，考虑如下积分：
+对于 $I_2$：
 
 $$
 I_2=\int_0^p{\frac{\ln (x+A)}{x^2+Bx+C}\d x} \label{I2}
 $$
 
-为了使用类似的方法，需要找到一个代换$f$，且满足：
+为了使用类似的方法，需要找到一个代换 $f$，且满足：
 
 $$
-f(0)=p,f(p)=0,\tag{2}
-$$
-
-$$
-\ln \left( f(x)+A \right) =\ln \frac{c}{x+A}
+\begin{gather*}
+    f(0)=p,f(p)=0,\tag{2}\\
+    \ln \left( f(x)+A \right) =\ln \frac{c}{x+A}
+\end{gather*}
 $$
 
 其中 $c$ 为正常数。等式两端分别取指数，于是
@@ -98,7 +110,17 @@ $$
 c=A(A+p)
 $$
 
-于是，满足以上条件的代换 $\ds f=\frac{A(p-x)}{x+A}$，且$\ds\d \left( \frac{p-x}{x+A} \right) =-\frac{A+p}{(x+A)^2}\d x$
+于是，我们找到了满足以上条件的代换
+
+$$
+\ds f=\frac{A(p-x)}{x+A}
+$$
+
+且
+
+$$
+\ds\d \left( \frac{p-x}{x+A} \right) =-\frac{A+p}{(x+A)^2}\d x
+$$
 
 从而
 
@@ -106,9 +128,7 @@ $$
 I_2\xlongequal{x\mapsto f(x)}\int_0^p{\frac{\ln (A(p+A)) -\ln (x+A)}{\left( A\frac{p-x}{x+A} \right) ^2+B\left( A\frac{p-x}{x+A} \right) +C}\frac{A(A+p)}{(x+A)^2}\d x}
 $$
 
-下面探索系数 $B$，$C$ 之间的关系。
-
-令
+下面探索系数 $B$，$C$ 之间的关系。令
 
 $$
 x^2+Bx+C=\left[ \left( A\frac{p-x}{x+A} \right) ^2+B\left( A\frac{p-x}{x+A} \right) +C \right] \frac{\left( x+A \right) ^2}{A\left( A+p \right)}
