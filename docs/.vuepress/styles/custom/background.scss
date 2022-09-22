@@ -211,7 +211,7 @@ aside#toc {
     width: calc(100% + 2 * #{$margin});
     height: 100%;
     background: var(--bg-color);
-    margin: 0 -$margin;
+    margin: 0 - $margin;
 }
 
 // 时间线
