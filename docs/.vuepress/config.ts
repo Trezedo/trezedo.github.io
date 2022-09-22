@@ -23,7 +23,7 @@ export default defineUserConfig({
         // ["link", { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" }],
         /*["link", {
             rel: "icon", type: "image/jpeg",
-            href: "https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=3&t=" + new Date().getTime()
+            href: "&t=" + new Date().getTime()
         }],*/
         // ["script", { defer: true, src: "/assets/js/index.js" + date }],
     ],

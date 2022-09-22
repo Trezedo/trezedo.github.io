@@ -3,15 +3,15 @@ import { navbar, sidebar } from "./configs";
 // import type { TrustContext } from "katex";
 
 export default hopeTheme({
-    hostname: "https://zedo.gitee.io",
+    hostname: "https://zedo.netlify.app",
     author: {
         name: "机器不会学习",
-        url: "https://Trezedo.club",
+        url: "https://zedo.netlify.app",
     },
     iconAssets: "iconfont",
     iconPrefix: "iconfont icon-",
     // 左上角，以及首页右侧
-    logo: "https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=4", // "/favicon.ico",
+    logo: "https://res.abeim.cn/api-qq.tx?qq=1962234583", // "/favicon.ico",
 
     repoDisplay: true,
     repo: "https://github.com/trezedo/trezedo.github.io",
@@ -86,44 +86,6 @@ export default hopeTheme({
         // },
         comment: false,
         mdEnhance: {
-            // enableAll: true,
-
-            katex: {
-                output: "html",
-                // mathml 相当于 tex 源码
-                macros: {
-                    "\\d": "\\text{d}",
-                    "\\e": "\\text{e}",
-                    "\\i": "\\text{i}",
-                    "\\ds": "\\displaystyle",
-                    "\\eqref": "\\href{##tag-#1}{(\\text{#1})}",
-                    "\\ref": "\\href{##tag-#1}{\\text{#1}}",
-                    "\\label": "\\htmlId{tag-#1}{}",
-                    "\\oldTag": "\\@ifstar\\tag@literal\\tag@paren",
-                    "\\tag": "\\oldTag{#1}\\label{#1}",
-                    "\\tagref": "\\href{##tag-#1}{(#1)}",
-                    // 数据结构
-                    "\\mk": "\\mkern{#1mu}",
-                    "\\box":
-                        "\\begin{array}{|c|c|}\\hline \\!#1\\! & \\!#2\\!\\\\ \\hline \\end{array}",
-                    "\\node": "\\box{#1}{\\bullet}",
-                    "\\cnode": "\\colorbox{#1}{$\\node{#2}$}",
-                    // katex 不支持默认参数，\providecommand\pTo[1][-20]{\mkern{#1mu}\xrightarrow{\mkern24mu}\mkern-7mu}
-                    "\\pto": "\\mkern{-20mu}\\xrightarrow{\\mkern24mu}\\mkern-6mu",
-                },
-                // 似乎是 md-enhance 使用的 katex 版本较低的缘故
-                strict: "ignore" /* (errorCode: string, errorMsg: string, token: any) => {
-                    console.error(errorCode, errorMsg, token);
-                    if (errorCode === "htmlExtension") {
-                        return "ignore";
-                    }
-                    return "error";
-                } */,
-                // https://github.com/KaTeX/KaTeX/issues/2003
-                trust: (context: /* TrustContext */ any) =>
-                    ["\\htmlId", "\\href"].includes(context.command),
-            },
-
             chart: false,
             echarts: false,
             mermaid: true,
@@ -153,6 +115,43 @@ export default hopeTheme({
             align: true, // 一定程度上还算方便
             linkCheck: "dev",
             vpre: true, // 这是兼容 v1 的功能
+
+            katex: {
+                output: "html",
+                // mathml 相当于 tex 源码
+                macros: {
+                    "\\d": "\\mathop{}\\!\\mathrm{d}",
+                    "\\e": "\\text{e}",
+                    "\\i": "\\text{i}",
+                    "\\ds": "\\displaystyle",
+                    "\\eqref": "\\href{##tag-#1}{(\\text{#1})}",
+                    "\\ref": "\\href{##tag-#1}{\\text{#1}}",
+                    "\\label": "\\htmlId{tag-#1}{}",
+                    "\\oldTag": "\\@ifstar\\tag@literal\\tag@paren",
+                    "\\tag": "\\oldTag{#1}\\label{#1}",
+                    "\\tagref": "\\href{##tag-#1}{(#1)}",
+                    // 数据结构
+                    "\\mk": "\\mkern{#1mu}",
+                    "\\box":
+                        "\\begin{array}{|c|c|}\\hline \\!#1\\! & \\!#2\\!\\\\ \\hline \\end{array}",
+                    "\\node": "\\box{#1}{\\bullet}",
+                    "\\cnode": "\\colorbox{#1}{$\\node{#2}$}",
+                    // katex 不支持默认参数，\providecommand\pTo[1][-20]{\mkern{#1mu}\xrightarrow{\mkern24mu}\mkern-7mu}
+                    "\\pto": "\\mkern{-20mu}\\xrightarrow{\\mkern24mu}\\mkern-6mu",
+                    "\\circled": "\\text{\\textcircled{\\small{#1}}}",
+                },
+                // 似乎是 md-enhance 使用的 katex 版本较低的缘故
+                strict: "ignore" /* (errorCode: string, errorMsg: string, token: any) => {
+                    console.error(errorCode, errorMsg, token);
+                    if (errorCode === "htmlExtension") {
+                        return "ignore";
+                    }
+                    return "error";
+                } */,
+                // https://github.com/KaTeX/KaTeX/issues/2003
+                trust: (context: /* TrustContext */ any) =>
+                    ["\\htmlId", "\\href"].includes(context.command),
+            },
         },
 
         copyright: {
