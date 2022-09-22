@@ -1,5 +1,7 @@
 ---
 date: 2022-09-16
+icon: function
+star: true
 category:
     - 高等数学
 tag:
@@ -289,9 +291,9 @@ $$
 
 $$
     \begin{cases}
-    L_x'=2x+\lambda (2Ax+By) =0&        \text{①}\\
-    L_y'=2y+\lambda (Bx+2C) =0&        \text{②}\\
-    L_{\lambda}'=Ax^2+Bxy+Cy^2-G=0&        \text{③}\\
+    L_x'=2x+\lambda (2Ax+By) =0&    \circled{1}\\
+    L_y'=2y+\lambda (Bx+2C) =0&    \circled{2}\\
+    L_{\lambda}'=Ax^2+Bxy+Cy^2-G=0&    \circled{3}\\
 \end{cases}\tag{9}
 $$
 
@@ -299,7 +301,7 @@ $$
 
 $$
 \begin{aligned}
-    \frac{x}{2}\text{①}+\frac{y}{2}\text{②}&=x^2+y^2+\lambda (Ax^2+Bxy+Cy^2)\\
+    \frac{x}{2}\circled{1}+\frac{y}{2}\circled{2}&=x^2+y^2+\lambda (Ax^2+Bxy+Cy^2)\\
     &=x^2+y^2+\lambda G = 0
 \end{aligned}
 $$
@@ -318,8 +320,8 @@ $$
 $$
 \begin{aligned}
     \det &=\begin{vmatrix}
-    2(1+A\lambda)&        \lambda B\\
-    \lambda B&        2(1+2C\lambda)\\
+    2(1+A\lambda)&    \lambda B\\
+    \lambda B&    2(1+2C\lambda)\\
 \end{vmatrix}\\
     &=4(1+A\lambda) (1+2C\lambda) -\lambda ^2B^2\\
     &=(4AC-B^2) \lambda ^2+4(A+C) \lambda +4\\
