@@ -1,5 +1,7 @@
 ---
+icon: function
 date: 2022-09-20
+star: true
 category:
     - 高等数学
     - 积分
@@ -15,10 +17,10 @@ $$
 \begin{darray}{lll}
     I_1=\int{\frac{\d x}{a^2x^2+b^2}}&
     I_2=\int{\frac{\text{d}x}{a^2x^2-b^2}}
-    \\
+    \\[1em]
     I_3=\int{\frac{\text{d}x}{\sqrt{a^2x^2\pm b^2}}}&
     I_4=\int{\frac{\text{d}x}{\sqrt{b^2-a^2x^2}}}
-    \\
+    \\[1em]
     I_5=\int{\sqrt{a^2x^2\pm b^2}\d x}&
     I_6=\int{\sqrt{b^2-a^2x^2}\d x}
 \end{darray}
@@ -63,7 +65,7 @@ $$
 I_3=\frac{1}{a}\ln \left( ax+\sqrt{a^2x^2\pm b^2} \right) +C
 $$
 
-::: tip 反双曲三角函数
+::: tip 反双曲函数
 
 因为
 
@@ -98,7 +100,7 @@ $$
 
 ::: tip 三角换元
 
-不熟悉双曲三角函数也可以用三角函数：
+如果不熟悉双曲函数也可以用三角函数：
 
 $$
 \begin{aligned}
@@ -130,7 +132,7 @@ $$
 \begin{aligned}
     I_5&=\int{\sqrt{a^2x^2\pm b^2}\d x}=x\sqrt{a^2x^2\pm b^2}-\int{\frac{2a^2x^2}{2\sqrt{a^2x^2\pm b^2}}\d x}\\
     &=x\sqrt{a^2x^2\pm b^2}-\int{\frac{a^2x^2\pm b^2\mp b^2}{\sqrt{a^2x^2\pm b^2}}\d x}\\
-    &=x\sqrt{a^2x^2\pm b^2}-I_3\pm b^2I_3\\
+    &=x\sqrt{a^2x^2\pm b^2}-I_5\pm b^2I_3\\
     &=\frac{x}{2}\sqrt{a^2x^2\pm b^2}\pm \frac{b^2}{2a}\ln \left( ax+\sqrt{a^2x^2\pm b^2} \right) +C
 \end{aligned}
 $$
@@ -139,7 +141,7 @@ $$
 \begin{aligned}
     I_6&=\int{\sqrt{b^2-a^2x^2}\d x}=x\sqrt{b^2-a^2x^2}-\int{\frac{-2a^2x^2}{2\sqrt{b^2-a^2x^2}}\d x}\\
     &=x\sqrt{b^2-a^2x^2}-\int{\frac{\left( b^2-a^2x^2 \right) -b^2}{\sqrt{b^2-a^2x^2}}\d x}\\
-    &=x\sqrt{b^2-a^2x^2}-I_4+b^2I_4\\
+    &=x\sqrt{b^2-a^2x^2}-I_6+b^2I_4\\
     &=\frac{x}{2}\sqrt{b^2-a^2x^2}+\frac{b^2}{2a}\arcsin \frac{ax}{b}+C
 \end{aligned}
 $$

@@ -1,14 +1,14 @@
 ---
-icon: function
 # sidebar: false
 date: 2022-01-24
+icon: function
+star: true
 description: 一类分子为反正切函数或对数函数，分母为二次函数的定积分计算方法。
 category:
     - 高等数学
     - 积分
 tag:
     - 积分
-star: true
 ---
 
 # 两道特殊积分
@@ -46,7 +46,7 @@ $$
 $$
 
 $$
-I_1=\int_0^p{\frac{\arctan \frac{p-x}{1+px}}{\left( \frac{p-x}{1+px} \right) ^2+B\left( \frac{p-x}{1+px} \right) +C}\frac{p^2+1}{\left( 1+px \right) ^2}\text{d}x}
+I_1=\int_0^p{\frac{\arctan \frac{p-x}{1+px}}{\left( \frac{p-x}{1+px} \right) ^2+B\left( \frac{p-x}{1+px} \right) +C}\frac{p^2+1}{(1+px) ^2}\text{d}x}
 $$
 
 为了使用等式 $\eqref{1}$，还需使分母的方程一致，即
@@ -94,7 +94,7 @@ $$
 $$
 \begin{gather*}
     f(0)=p,f(p)=0,\tag{2}\\
-    \ln \left( f(x)+A \right) =\ln \frac{c}{x+A}
+    \ln (f(x)+A) =\ln \frac{c}{x+A}
 \end{gather*}
 $$
 
@@ -131,13 +131,13 @@ $$
 下面探索系数 $B$，$C$ 之间的关系。令
 
 $$
-x^2+Bx+C=\left[ \left( A\frac{p-x}{x+A} \right) ^2+B\left( A\frac{p-x}{x+A} \right) +C \right] \frac{\left( x+A \right) ^2}{A\left( A+p \right)}
+x^2+Bx+C=\left[ \left( A\frac{p-x}{x+A} \right) ^2+B\left( A\frac{p-x}{x+A} \right) +C \right] \frac{\left( x+A \right) ^2}{A(A+p)}
 $$
 
 $$
 \begin{aligned}
-    RHS=(A^2-AB+C)x^2&+\left( -2A^2p-AB(A-p)+2AC \right) x\\
-    &+(A^2p^2+A^2Bp+A^2C)
+    RHS=(A^2-AB+C)x^2 &+ (-2A^2p-AB(A-p)+2AC) x\\
+    & +(A^2p^2+A^2Bp+A^2C)
 \end{aligned}
 $$
 
@@ -157,14 +157,13 @@ $$
 C=A(p+B)
 $$
 
-### 结论
-
-对于形如 $\href{#tag-I2}{I_2}$ 的积分，如果满足 $C=A(p+B)$，则只需按以下方法操作便可解决：
+则满足上式的积分 $\href{#tag-I2}{I_2}$：
 
 $$
 \begin{aligned}
-    \int_0^p{\frac{\ln (x+A)}{x^2+Bx+C}\d x}&\xlongequal{x\mapsto A\frac{p-x}{x+A}}\int_0^p{\frac{\ln \left( A(p+A)\right) -\ln (x+A)}{x^2+Bx+C}\d x}\\
-    &=\frac{\ln \left( A(p+A)\right)}{2}\int_0^p{\frac{1}{x^2+Bx+C}\d x}
+    I_2&=\int_0^p{\frac{\ln (x+A)}{x^2+Bx+A(p+B)}\d x}\\
+    &\xlongequal{x\mapsto A\frac{p-x}{x+A}}\frac{\ln (A(p+A))}{2}\int_0^p{\frac{1}{x^2+Bx+A(p+B)}\d x}
+    \\&=\frac{1}{2}\int_0^p{\frac{\ln (A(p+A))}{x^2+Bx+A(p+B)}\d x}
 \end{aligned}
 $$
 
@@ -176,7 +175,7 @@ $$
 
 $$
 \begin{aligned}
-    \int_2^6{\frac{\ln x}{x^2+2x+12}\d x}&\xlongequal{t=x-2}\int_0^4{\frac{\ln (t+2)}{t^2+6t+20}\d t}=\frac{\ln \left( 2\cdot (2+4)\right)}{2}\int_0^4{\frac{1}{t^2+6t+20}\d t}\\
+    I&\xlongequal{t=x-2}\int_0^4{\frac{\ln (t+2)}{t^2+6t+20}\d t}=\frac{\ln ( 2\cdot (2+4))}{2}\int_0^4{\frac{1}{t^2+6t+20}\d t}\\
     &=\frac{\ln 12}{2}\int_0^4{\frac{1}{(t+3)^2+11}\d t}=\frac{\ln 12}{2}\left[ \frac{1}{\sqrt{11}}\arctan \frac{t+3}{\sqrt{11}} \right] _{0}^{4}\\
     &=\frac{\ln 12}{2\sqrt{11}}\left[ \arctan \frac{7}{\sqrt{11}}-\arctan \frac{3}{\sqrt{11}} \right]\\
     &=\frac{\ln 12}{2\sqrt{11}}\arctan \frac{\frac{7-3}{\sqrt{11}}}{1+\frac{7}{\sqrt{11}}\cdot \frac{3}{\sqrt{11}}}\\
@@ -185,3 +184,17 @@ $$
 $$
 
 :::
+
+## 总结
+
+有以下结论：
+
+$$
+\int_0^p{\frac{\arctan x}{x^2+p(B+1)x+B}\d x}=\frac{1}{2}\int_0^p{\frac{\arctan p}{x^2+p(B+1)x+B}\d x}
+$$
+
+$$
+\int_0^p{\frac{\ln (x+A)}{x^2+Bx+A(p+B)}\d x}=\frac{1}{2}\int_0^p{\frac{\ln (A(p+A))}{x^2+Bx+A(p+B)}\d x}
+$$
+
+其中 $p>0,A,B\in \mathbb{R},A\neq 0$。
