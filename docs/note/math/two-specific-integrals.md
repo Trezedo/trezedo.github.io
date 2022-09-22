@@ -197,4 +197,4 @@ $$
 \int_0^p{\frac{\ln (x+A)}{x^2+Bx+A(p+B)}\d x}=\frac{1}{2}\int_0^p{\frac{\ln (A(p+A))}{x^2+Bx+A(p+B)}\d x}
 $$
 
-其中 $p>0,A,B\in \mathbb{R},A\neq 0$。
+其中 $p>0,A,B\in \mathbb{R},A>0$。
