@@ -16,7 +16,7 @@ $$
 
 <!-- more -->
 
-## 降幂公式 {:power-reduction}
+## 降幂公式 {#power-reduction}
 
 ### 二项式定理
 
@@ -168,10 +168,121 @@ $$
     \end{matrix} (n-2k)x}+\frac{1-(n\mod 2)}{2^n}\binom{n}{n/2}
 $$
 
-从奇偶性来讲，当 $n$ 为奇数时， $\sin ^nx$ 仍是奇函数，所以降幂后用 $\sin kx$ 表示；
+从奇偶性来讲：
 
-而当 $n$ 为奇数时， $\sin ^nx$ 是偶函数，因此用 $\cos kx$ 表示。
+- 当 $n$ 为奇数时， $\sin ^nx$ 是奇函数，降幂后用 $\sin kx$ 表示；
+- 当 $n$ 为偶数时， $\sin ^nx$ 是偶函数，降幂后用 $\cos kx$ 表示。
 
 ## 相关计算
 
-待续。
+对于这两类积分
+
+$$
+\int{\sin ^nx\d x},\quad\int{\cos ^nx\d x}
+$$
+
+如果 $n$ 是奇数，可以凑微分来计算，例如：
+
+$$
+\int{\cos ^{2k+1}x\d x}=\int{\left( \cos ^2x \right) ^k\d \left( \sin x \right)}=\int{\left( 1-\sin ^2x \right) ^k\d \left( \sin x \right)}
+$$
+
+但当 $k$ 较大时计算也会相对复杂。
+
+我们利用上面的公式，可得：
+
+当 $n$ 为奇数时，
+
+$$
+\begin{aligned}
+    \int{\cos ^nx\d x}&=\frac{1}{2^{n-1}}\sum_{k=0}^{\lfloor \frac{n-1}{2} \rfloor}{\binom{n}{k}\frac{\sin \left( n-2k \right) x}{n-2k}}\\
+    \int{\sin ^nx\d x}&=-\frac{1}{2^{n-1}}\sum_{k=0}^{\lfloor \frac{n-1}{2} \rfloor}{\left( -1 \right) ^{\lfloor \frac{n}{2} \rfloor -k}\binom{n}{k}\frac{\cos \left( n-2k \right) x}{n-2k}}
+\end{aligned}
+$$
+
+当 $n$ 为偶数时，
+
+$$
+\begin{aligned}
+    \int{\cos ^nx\d x}&=\frac{1}{2^{n-1}}\sum_{k=0}^{\lfloor \frac{n-1}{2} \rfloor}{\binom{n}{k}\frac{\sin \left( n-2k \right) x}{n-2k}}+\frac{x}{2^n}\binom{n}{n/2}\\
+    \int{\sin ^nx\d x}&=\frac{1}{2^{n-1}}\sum_{k=0}^{\lfloor \frac{n-1}{2} \rfloor}{\left( -1 \right) ^{\lfloor \frac{n}{2} \rfloor -k}\binom{n}{k}\frac{\sin \left( n-2k \right) x}{n-2k}}+\frac{x}{2^n}\binom{n}{n/2}
+\end{aligned}
+$$
+
+看上去可能有亿点复杂，但实际操作时只要记住几点：
+
+1. 只有 $\sin x$ 奇数次幂的积分结果用 $\cos kx$ 表示，其余全用 $\sin kx$；
+
+2. $\ds\int{\sin ^nx\d x}$ 的项的符号正负交替，且首项符号为 $\left( -1 \right) ^{\lfloor \frac{n+1}{2} \rfloor}$；
+
+3. 偶次幂的积分会多一项 $\ds\frac{x}{2^n}\binom{n}{n/2}$；
+
+4. $\sin kx$ 或 $\cos kx$ 中 $k$ 从 $n$ 开始，每次减 2。
+
+例如，求 $\ds\int{\cos ^7x\d x}$
+
+被积函数为偶函数，结果用 $\sin kx$ 表示
+
+计算二项式系数
+
+$$
+\begin{aligned}
+    &\binom{7}{0}=1,\binom{7}{1}=7,\binom{7}{2}=7\cdot \frac{6}{2}=21,\\
+    &\binom{7}{3}=21\cdot \frac{5}{3}=35
+\end{aligned}
+$$
+
+即
+
+$$
+\begin{array}{c|cccc}
+    \hline
+    k&        0&        1&        2&        3&        \\[2px]
+    \hline
+    {\rm C}_{n}^{k}&        1&        7&        21&        35&        \\[2px]
+    \hline
+\end{array}
+$$
+
+写结果
+
+$$
+\begin{aligned}
+    \int{\cos ^7x\d x}&=\frac{1}{2^{7-1}}\left[ \frac{1}{7}\cos 7x+\frac{7}{5}\cos 5x+\frac{21}{3}\cos 3x+\frac{35}{1}\cos x \right] \\
+    &=\frac{1}{2^6}\left[ \frac{1}{7}\cos 7x+\frac{7}{5}\cos 5x+7\cos 3x+35\cos x \right]
+\end{aligned}
+$$
+
+求 $\ds\int{\sin ^8x\d x}$
+
+被积函数为偶函数，结果用 $\sin kx$ 表示，首项符号为 $\left( -1 \right) ^{\lfloor \frac{8+1}{2} \rfloor}=1$
+
+计算二项式系数，
+
+$$
+\begin{gathered}
+    \binom{8}{0}=1,\binom{8}{1}=8,\binom{8}{2}=8\cdot \frac{7}{2}=28\\
+    \binom{8}{3}=28\cdot \frac{6}{3}=56,\binom{8}{4}=56\cdot \frac{5}{4}=70
+\end{gathered}
+$$
+
+即
+
+$$
+\begin{array}{c|ccccc}
+\hline
+    k&        0&        1&        2&        3&        4\\[2px]
+    \hline
+    {\rm C}_{n}^{k}&        1&        8&        28&        56&        70\\[2px]
+    \hline
+\end{array}
+$$
+
+写结果
+
+$$
+\begin{aligned}
+    \int{\sin ^8x\d x}&=\frac{1}{2^{8-1}}\left[ \frac{1}{8}\sin 8x-\frac{8}{6}\sin 6x+\frac{28}{4}\sin 4x-\frac{56}{2}\sin 2x \right] +\frac{x}{2^8}\cdot 70\\
+    &=\frac{1}{2^7}\left[ \frac{1}{8}\sin 8x-\frac{4}{3}\sin 6x+7\sin 4x-28\sin 2x+35x \right]
+\end{aligned}
+$$

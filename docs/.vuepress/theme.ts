@@ -71,7 +71,6 @@ export default hopeTheme({
         config: {
             "/guide/encrypt.html": ["1234"],
             "/zh/guide/encrypt.html": ["1234"],
-            "/note/math/differential-operator.html": ["1962234583"],
         },
     },
     plugins: {
