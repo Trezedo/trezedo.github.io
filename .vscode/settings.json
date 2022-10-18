@@ -7,6 +7,7 @@
     "cSpell.words": [
         "acker",
         "androidhwext",
+        "asgi",
         "backtotop",
         "bigdata",
         "cleartext",
@@ -39,10 +40,13 @@
         "ohos",
         "oneline",
         "Qzone",
+        "runserver",
         "Schlömilch",
         "slideend",
         "slidestart",
         "Snipaste",
+        "startapp",
+        "startproject",
         "startuml",
         "swiper",
         "tagref",
@@ -50,12 +54,14 @@
         "touchz",
         "uglifyjs",
         "untils",
+        "urlpatterns",
         "userconfig",
         "Verticle",
         "vpre",
         "Waline",
         "winedt",
-        "Zhihu"
+        "wsgi",
+        "zhihu"
     ],
     "markdownlint.config": {
         // 允许嵌入 html 标签
