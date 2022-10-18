@@ -34,3 +34,35 @@ Get-ExecutionPolicy
 Set-ExecutionPolicy RemoteSigned
 # 接下来输入 'Y' 确定即可
 ```
+
+## LaTeX 写作
+
+### SumatraPDF 反向搜索
+
+单独打开 SumatraPDF 进程，左上角菜单 — 设置 — 选项 — 设置反向搜索命令行，输入：
+
+```text
+"D:\path to\VS Code\Code.exe" -g "%f:%l"
+```
+
+前面是 Vscode 的安装路径，至于后面的参数，通过 `code -h` 我们得知：
+
+```text
+ -g --goto <file:line[:character]>          Open a file at the path on the
+                                            specified line and character
+                                            position.
+```
+
+即用 vscode 打开并跳转到对应文件(`%f`)的行(`%l` )。
+
+> 还可以用其他编辑器打开：
+>
+> - 记事本：`notepad "%f"` （无法跳转到行）
+> - TexStudio：`"D:\path to\texstudio.exe" %f -line %l`
+
+如果双击之后没有任何反应，可能需要检查高级选项（即 SumatraPDF-settings.txt 文件）中是否启用了 `EnableTeXEnhancements`：
+
+```ini
+InverseSearchCmdLine = "D:\path to\VS Code\Code.exe" -g "%f:%l"
+EnableTeXEnhancements = true
+```

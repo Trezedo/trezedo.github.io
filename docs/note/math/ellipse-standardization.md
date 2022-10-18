@@ -422,6 +422,16 @@ $$
 
 求得旋转角度。
 
+利用线性代数中的二次型的知识将椭圆方程标准化更简单，可以看视频：
+
+<iframe src="https://player.bilibili.com/player.html?bvid=BV1S8411W7Yq"
+    width="100%"
+    height="500"
+    allow="fullscreen"
+    style="border: none"
+    sandbox="allow-same-origin allow-scripts allow-popups">
+</iframe>
+
 ## 参考
 
 1. [椭圆 - wikipedia](https://zh.wikipedia.org/wiki/%E6%A4%AD%E5%9C%86)
