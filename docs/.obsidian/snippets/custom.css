@@ -1,0 +1,11 @@
+:root {
+    --offset-top: 2rem;
+}
+
+/* mjx-mrow[id],
+mjx-mtd[id] */
+.math-block {
+    /* scroll-margin-top: 4rem; */
+    /* padding-top: var(--offset-top); */
+    /* margin-top: calc(0 - var(--offset-top)); */
+}

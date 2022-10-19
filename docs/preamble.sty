@@ -29,4 +29,6 @@
 \def\cnode#1#2{\colorbox{#1}{$\node{#2}$}}
 \def\mk#1{\mkern{#1mu}}
 
-\def\circled#1{\text{\textcircled{\small{#1}}}}
+% https://github.com/mathjax/MathJax/issues/2702
+% \def\circled#1{\text{\textcircled{\small{#1}}}}
+\newcommand{\circled}[1]{\enclose{circle}{\kern.1em\text{#1}\kern.1em}}
