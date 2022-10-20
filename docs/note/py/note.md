@@ -216,4 +216,12 @@ pip install PySide2  # 不区分大小写
 
 两者体积：PyQt5(56.9MB)，PySide2(139.7MB)
 
+PySide 默认会下载 `Qt Designer`(Qt 设计师)，而 PyQt5 需要额外安装：
+
+```sh
+pip install PyQt5-tools
+```
+
+为了后续能够快速打开 `designer.exe` 以及全局使用 `uic.exe`(编译 `.ui` 文件用的)，建议添加把 `site-packages\PySide2\` 添加到环境变量。
+
 如果使用 PyQt5，为了能够得到类型提示，可以安装 `PyQt5-stubs`
