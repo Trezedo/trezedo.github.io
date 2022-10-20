@@ -9,6 +9,12 @@ img.hero-image {
     min-height: 180px;
 }
 
+// 彩色进度条
+#nprogress .bar {
+    height: 3px;
+    background-image: repeating-linear-gradient(90deg, #00dc80 0, #34cdfe 50%, #0047e0);
+}
+
 .blogger-name,
 .blogger-description {
     background-image: linear-gradient(
