@@ -13,7 +13,9 @@ tag:
 # KaTeX 插件配置
 
 ::: warning 提示
+
 本文内容基于 `vuepress2` 的默认主题。
+
 :::
 
 <!-- more -->
@@ -299,12 +301,12 @@ export default defineUserConfig<DefaultThemeOptions>({
 
 添加 `katex options`：
 
-```json lines
+```js
 katexOptions: {
     macros: {
-        "\\eqref": "\\href{##tag#1}{(\\text{#1})}",
-        "\\ref": "\\href{##tag#1}{\\text{#1}}",
-        "\\label": "\\htmlId{tag#1}{}"
+        "\\eqref": "\\href{##tag-#1}{(\\text{#1})}",
+        "\\ref": "\\href{##tag-#1}{\\text{#1}}",
+        "\\label": "\\htmlId{tag-#1}{}"
     },
     trust: (context) => ['\\htmlId', '\\href'].includes(context.command)
 }
@@ -312,7 +314,7 @@ katexOptions: {
 
 在 `markdown` 中使用：
 
-```markdown
+```tex
 $$
 I_1=\int_0^p{\frac{\arctan x}{x^2+p(C+1)x+C}\text{d}x} \label{I1}
 $$
@@ -321,7 +323,8 @@ $$
 \arctan x+\arctan \frac{p-x}{1+px}=\arctan p \tag{1}\label{1}
 $$
 
-利用换元 $x\mapsto\frac{p-x}{1+px}$ 以及 $\eqref{1}$ 式可知，形如 [$I_1$](#tagI1) 的式子可化为
+利用换元 $x\mapsto\frac{p-x}{1+px}$ 以及 $\eqref{1}$ 式可知，形如 $\href{#tag-I1}{I_1}$ 的式子可化为
+% 当然也可以用 markdown 语法：[$I_1$](#tag-I1) 但 markdownlint 等可能会有警告
 
 $$
 \frac{\arctan p}{2}\int_0^p{\frac{1}{x^2+Bx+C}\text{d}x}
@@ -338,7 +341,7 @@ $$
 \arctan x+\arctan \frac{p-x}{1+px}=\arctan p \tag{1}\label{1}
 $$
 
-利用换元 $x\mapsto\frac{p-x}{1+px}$ 以及 $\eqref{1}$ 式可知，形如 [$I_1$](#tagI1) 的式子可化为
+利用换元 $x\mapsto\frac{p-x}{1+px}$ 以及 $\eqref{1}$ 式可知，形如 $\href{#tag-I1}{I_1}$ 的式子可化为
 
 $$
 \frac{\arctan p}{2}\int_0^p{\frac{1}{x^2+Bx+C}\text{d}x}
@@ -368,4 +371,4 @@ $$
 }
 ```
 
-其中 `4em` 需要和 `header` 的高度相近。
+其中的 `4em` 和 `header` 的高度相近。
