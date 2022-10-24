@@ -80,6 +80,41 @@ tag:
 
 至此，我们已经完成了 latex 写作的最重要的一步。
 
+### 设置镜像(无效果)
+
+> 提示：此处的操作并没有解决问题。如果实在需要安装好吧，建议在国内镜像下载 TexLive 并安装（见本文开头）。
+
+最近(2022-10-23)发现下载不了宏包，似乎是被墙了，连 miktex 官网都访问不了(很多非国内网站都是如此，后来发现是校园网的锅)。
+
+日志报错是
+
+```log
+Timeout was reached
+Data: code="28", url="https://api2.miktex.org/hello"
+```
+
+使用 mpm 命令(MiKTeX Package Manager) 查看可用源（估计也用不了，直接下一步）：
+
+```sh
+mpm --pick-repository-url
+```
+
+设置镜像(以北外镜像为例)：
+
+```sh
+mpm --set-repository=https://mirrors.bfsu.edu.cn/CTAN/systems/win32/miktex/tm/packages/
+```
+
+这里列举部分 miktex 的国内镜像：
+
+- 北京外国语大学 <https://mirrors.bfsu.edu.cn/CTAN/systems/win32/miktex/tm/packages/>
+- 清华大学 <https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/win32/miktex/tm/packages/>
+- 北京交通大学 <https://mirror.bjtu.edu.cn/CTAN/systems/win32/miktex/tm/packages/>
+- 中国科学技术大学 <https://mirrors.ustc.edu.cn/CTAN/systems/win32/miktex/tm/packages/>
+- 华为云 <https://repo.huaweicloud.com/CTAN/systems/win32/miktex/tm/packages/>
+
+然鹅设置之后依旧报同样的错（悲）……
+
 ### 说在后面
 
 这里只是刚刚能够使用 latex，还没有涉及到很多 latex 语法、公式、宏包、tex 命令行等等。而实际上 latex 也有其专门的 IDE：[TexStudio](http://texstudio.sourceforge.net/)、winedt（收费）等，同样提供了很多开箱即用的功能，以及常用的宏命令提示等等，当然，插件颇为丰富的 Visual Studio Code 也有对应的用于 latex 写作的插件：`LaTeX Workshop`，可定制性高，例如可以配置 snippet，但有时遇到编译错误它不能很好的对错误定位和提示，关于这点还是比较推荐 TexStudio。
