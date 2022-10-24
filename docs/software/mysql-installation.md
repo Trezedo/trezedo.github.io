@@ -2,9 +2,11 @@
 date: 2022-10-24
 tag:
     - MySQL
+category:
+    - 数据库
 ---
 
-# MySQL 安装
+# MySQL8.0 安装
 
 > 最近做课设需要用到 MySQL~~(虽然我更喜欢 PostgreSQL)~~，于是就记录下安装过程。
 
@@ -57,7 +59,7 @@ datadir="E:\db\mysql-8.0.28-x64\data"
 E:\db\mysql-8.0.28-x64;E:\db\mysql-8.0.28-x64\bin
 ```
 
-然后在 Path 变量里引用该变量：`%mysql%`
+然后在 Path 变量里添加并引用该变量：`%mysql%`
 
 ![配置环境变量示意图](./img/mysql/1666610578065.png)
 
@@ -113,6 +115,8 @@ MySQL 服务正在启动 .
 MySQL 服务已经启动成功。
 ```
 
+> 有些时候可能需要重启 MySQL，可以先停止服务再启动：`net stop mysql`。
+
 接着登陆 mysql：
 
 ```sh
@@ -120,7 +124,7 @@ mysql -u root -p
 # 输入密码时要手打！
 ```
 
-![1666612527556](img/mysql/1666612527556.png)
+![1666612527556](./img/mysql/1666612527556.png)
 
 先不要着急关闭或退出，先修改密码：
 
@@ -134,8 +138,77 @@ alter user 'root'@'localhost' identified by '123456';
 
 不放心密码是否修改成功的，可以重新用上面的命令连接，登陆测试一下。
 
-下面我用的是 IDEA 内置的数据库工具连接，用户名填 `root` 就可以了，端口默认是 `3306`，数据库名可以不填：
+下面我用的是 IDEA 内置的数据库工具连接，用户名填 `root` 就可以了，端口默认是 `3306`，数据库名可以不填(默认是 mysql)：
 
-![1666613984187](img/mysql/1666613984187.png)
+![1666613984187](./img/mysql/1666613984187.png)
 
 连接成功！至此，我们已经完成了 MySQL 的安装。
+
+## SQL 创建数据库和用户
+
+我们可以在命令行终端登陆后执行 SQL，也可以在图形化数据库工具执行。
+
+创建一个名为 `my_app` 的数据库：
+
+```sql
+mysql> create database my_app;
+Query OK, 1 row affected (0.01 sec)
+```
+
+连接它的 URL 就是：
+
+```text
+jdbc:mysql://localhost:3306/my_app
+```
+
+root 用户权限太高，通常会新建另一个用户来操作数据库：
+
+```sql
+-- 切换到刚刚创建的数据库
+use my_app;
+
+-- 创建一个允许任意 ip 远程连接的用户
+create user zedo@'%' identified by '123456';
+-- 移除用户
+drop user if exists zedo@'%';
+
+-- 给非 root 账户添加权限才能访问新建的数据库
+grant all privileges on my_app.* to 'zedo'@'%';
+```
+
+数据库用户部分我搜到这篇挺不错的：[MySQL 创建用户](https://www.yiibai.com/mysql/create-user.html)。
+
+## 其他操作
+
+常见的 SQL 这里就不列举了，主要记录一些不“常规”的操作。
+
+### 修改时区
+
+MySQL 默认使用的时区是 UTC 时区，通常我们要修改成东八区，可以通过连接数据库时的 URL 参数 `serverTimezone` 修改，也用 SQL 语句来临时修改，但这里我们通过 `my.ini` 实现永久修改：
+
+```ini
+[mysqld]
+default-time-zone="+08:00"
+```
+
+可能要重启 MySQL 服务才能生效，检测一下：
+
+```sql
+show variables like '%time_zone%';
+```
+
+可以就看到改动生效了：
+
+```diff
+  +------------------+--------+
+  | Variable_name    | Value  |
+  +------------------+--------+
+  | system_time_zone |        |
+- | time_zone        | SYSTEM |
++ | time_zone        | +08:00 |
+  +------------------+--------+
+```
+
+其他问题：
+
+- [MySQL 服务无法启动原因及解决办法](https://blog.csdn.net/weixin_44698389/article/details/105363480)

@@ -1,6 +1,10 @@
 ---
 date: 2022-10-16
 icon: python
+tag:
+    - python
+category:
+    - python
 ---
 
 # Python 笔记
@@ -137,9 +141,9 @@ django-admin startapp app
 │  │  views.py
 │  │  __init__.py
 │  │
-│  └─migrations
-│     │
-│     └─ __init__.py
+│  └─ migrations
+│      │
+│      └─ __init__.py
 │
 └─demo
     │  asgi.py
@@ -224,4 +228,4 @@ pip install PyQt5-tools
 
 为了后续能够快速打开 `designer.exe` 以及全局使用 `uic.exe`(编译 `.ui` 文件用的)，建议添加把 `site-packages\PySide2\` 添加到环境变量。
 
-如果使用 PyQt5，为了能够得到类型提示，可以安装 `PyQt5-stubs`
+如果使用 PyQt5，为了能够得到更好的提示，可以安装 `PyQt5-stubs`。
