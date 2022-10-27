@@ -17,8 +17,8 @@ Windows 系统可以按下 `Win+R` 键，输入 `SystemPropertiesAdvanced`，点
 
 以下假设安装 Python 的路径为 `E:\py`。
 
-1. 新建 `PYTHONPATH`，其值包括以下路径：`E:\py\`，`E:\py\Scripts\`，`E:\py\Lib\site-packages\`；
-2. 双击 `Path` 编辑变量，新建值为 `%PYTHONPATH%`。
+1. 新建 `PythonPath`，其值包括以下路径：`E:\py\`，`E:\py\Scripts`，`E:\py\Lib\site-packages`；
+2. 双击 `Path` 编辑变量，新建值为 `%PythonPath%`。
 
 ## pip 包管理工具
 
@@ -70,6 +70,86 @@ Linux/MAC 系统对应的应该是 `pip.conf`，具体位置它会提示。
 [global]
 index-url = http://pypi.douban.com/simple/
 trusted-host = pypi.douban.com
+```
+
+## 创建虚拟环境
+
+推荐 B 站视频：<https://www.bilibili.com/video/BV1V7411n7CM/>
+
+Python 3.3+ 自带了创建虚拟环境的工具：
+
+```sh
+# 查看帮助
+python -m venv -h
+# 创建
+python -m venv [虚拟环境的名字]
+```
+
+虚拟环境名字可以取 `venv` 等等，等待片刻，它会在当前目录下创建对应的文件。
+
+激活(这里是 Windows 系统)虚拟环境：
+
+```sh
+# 这里 [虚拟环境的名字] = env_demo
+cd env_demo\Scripts
+activate
+```
+
+这时候就会出现 `env_demo` 前缀：
+
+```sh
+(env_demo) E:\PyProjects\env_demo\Scripts>_
+```
+
+这时看一下环境变量，如果第一个是当前目录下的就是正确的：
+
+```sh
+(env_demo)$ echo %path%
+E:\PyProjects\env_demo\Scripts;...
+```
+
+这时候用 `pip install xxx` 就会安装在当前虚拟环境下，但
+
+```sh
+(env_demo)$ pip -V
+pip 22.3 from E:\envs\Python310\Lib\site-packages\pip (python 3.10)
+# 上面的路径可能不是当前目录，但
+# 只要 echo %path% 第一个路径对了就没问题
+```
+
+可以用 `pip list` 查看当前安装的所有包。
+
+退出虚拟环境：
+
+```sh
+deactivate.bat
+```
+
+### 保存和复制虚拟环境
+
+通过 `pip freeze` 命令可以导出当前环境所使用的包，从而实现保存和复制环境：
+
+```sh
+(env_demo)$ pip freeze
+certifi==2022.9.24
+charset-normalizer==2.1.1
+idna==3.4
+requests==2.28.1
+urllib3==1.26.12
+```
+
+以上只是查看，还可以保存到文本文档：
+
+```sh
+pip freeze > requirements.txt
+# 文件名可以是任意的，如 packages.txt
+```
+
+我们可以通过它来安装/卸载所有包：
+
+```sh
+pip install -r requirements.txt  # 安装
+pip uninstall -r requirements.txt -y  # 卸载
 ```
 
 ## 使用 Jupiter Notebook

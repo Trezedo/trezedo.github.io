@@ -14,9 +14,10 @@ tag:
 
 为了使用 `LaTeX`，需要 `TeX` 系统例如 `TeXLive`、`MiKTeX`、`MacTeX` 等等。通常 `TeXLive` 每年更新一次，兼容性强，并且保持跨操作系统的一致性。集成了几乎所有宏包，安装后即可直接使用，对新手还是非常友好的。然而正是因为它默认带有大量宏包，导致体积太大（超过 4G），本人才考虑使用 `MikTeX`，几乎所有宏包只有在使用时才会安装。这里给出国内的 `TeXLive` 镜像：
 
-- [中科大镜像](https://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/)
-- [清华镜像](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/)
-- [阿里云镜像](https://mirrors.aliyun.com/CTAN/systems/texlive/Images/)
+- [中科大镜像](https://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/)；
+- [清华镜像](https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/)；
+- [南京大学镜像](https://mirrors.nju.edu.cn/CTAN/systems/texlive/Images/)；
+- [阿里云镜像](https://mirrors.aliyun.com/CTAN/systems/texlive/Images/)；
 - [华为云镜像](https://repo.huaweicloud.com/CTAN/systems/texlive/Images/)。
 
 ## 下载
@@ -84,7 +85,7 @@ tag:
 
 > 提示：此处的操作并没有解决问题。如果实在需要安装好吧，建议在国内镜像下载 TexLive 并安装（见本文开头）。
 
-最近(2022-10-23)发现下载不了宏包，似乎是被墙了，连 miktex 官网都访问不了(很多非国内网站都是如此，后来发现是校园网的锅)。
+~~最近(2022-10-23)发现下载不了宏包，似乎是被墙了，连 miktex 官网都访问不了(很多非国内网站都是如此，后来发现是校园网的锅)~~。
 
 日志报错是
 
@@ -93,16 +94,23 @@ Timeout was reached
 Data: code="28", url="https://api2.miktex.org/hello"
 ```
 
-使用 mpm 命令(MiKTeX Package Manager) 查看可用源（估计也用不了，直接下一步）：
+使用 mpm 命令(MiKTeX Package Manager) 查看可用源，或者打开官网<https://miktex.org/repositories>，任选一个 Country 为 China 的都可：
 
 ```sh
-mpm --pick-repository-url
+mpm --list-repositories
+# 注意，这个选项已经被标记为 deprecated
 ```
 
 设置镜像(以北外镜像为例)：
 
 ```sh
 mpm --set-repository=https://mirrors.bfsu.edu.cn/CTAN/systems/win32/miktex/tm/packages/
+```
+
+新版 miktex 推荐用以下命令自动选择并设置镜像：
+
+```sh
+mpm --pick-repository-url
 ```
 
 这里列举部分 miktex 的国内镜像：
