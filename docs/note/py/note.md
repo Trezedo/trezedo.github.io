@@ -30,6 +30,8 @@ pip -V # 简写
 # 如果安装的是 python3，那么 pip 和 pip3 是等效的
 ```
 
+### 设置镜像
+
 一般我们安装一个 package 时要指定镜像，不然下载速度很慢，例如豆瓣源：
 
 ```sh
@@ -72,9 +74,79 @@ index-url = http://pypi.douban.com/simple/
 trusted-host = pypi.douban.com
 ```
 
+### pip 常用命令
+
+列出已安装的包：
+
+```sh
+pip list
+```
+
+安装要安装的包：
+
+```sh
+pip install xxx
+```
+
+安装特定版本：
+
+```sh
+pip install django==4.1.2
+```
+
+导出 python 的环境：
+
+```sh
+pip freeze > requirement.txt
+```
+
+从导出的 python 环境中安装所需要的包：
+
+```sh
+pip install -r requirement.txt
+```
+
+卸载导出的 python 环境中的包：
+
+```sh
+pip uninstall -r requirement.txt
+```
+
+升级包：
+
+```sh
+pip install -U <包名>
+```
+
+显示包所在的目录：
+
+```sh
+pip show -f <包名>
+```
+
+搜索包：
+
+```sh
+pip search <搜索关键字>
+```
+
+查询可升级的包：
+
+```sh
+pip list -o
+```
+
 ## 创建虚拟环境
 
-推荐 B 站视频：<https://www.bilibili.com/video/BV1V7411n7CM/>
+推荐 B 站视频：
+
+<iframe src="https://player.bilibili.com/player.html?bvid=BV1V7411n7CM"
+    width="100%"
+    height="500"
+    allow="fullscreen"
+    style="border: none"
+    sandbox="allow-same-origin allow-scripts allow-popups">
+</iframe>
 
 Python 3.3+ 自带了创建虚拟环境的工具：
 
