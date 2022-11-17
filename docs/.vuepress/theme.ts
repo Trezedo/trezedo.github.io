@@ -113,7 +113,7 @@ export default hopeTheme({
             container: true, // 默认开启
             align: true, // 一定程度上还算方便
             linkCheck: "dev",
-            vpre: true, // 这是兼容 v1 的功能
+            vPre: true, // 这是兼容 v1 的功能
 
             katex: {
                 output: "html",

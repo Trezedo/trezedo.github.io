@@ -19,7 +19,7 @@
 import { computed, onMounted, ref } from "vue";
 import { usePageFrontmatter } from "@vuepress/client";
 
-import NormalPage from "vuepress-theme-hope/lib/client/components/NormalPage";
+import NormalPage from "vuepress-theme-hope/components/NormalPage";
 
 const frontmatter = usePageFrontmatter();
 
