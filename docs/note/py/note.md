@@ -154,10 +154,10 @@ Python 3.3+ 自带了创建虚拟环境的工具：
 # 查看帮助
 python -m venv -h
 # 创建
-python -m venv [虚拟环境的名字]
+python -m venv [虚拟环境的路径]
 ```
 
-虚拟环境名字可以取 `venv` 等等，等待片刻，它会在当前目录下创建对应的文件。
+虚拟环境路径可以用 `venv` 等等，等待片刻，它会在当前目录下创建对应的文件。
 
 激活(这里是 Windows 系统)虚拟环境：
 
@@ -277,6 +277,7 @@ django-admin startproject demo
 进入 demo 所在路径，创建 `app`：
 
 ```sh
+cd demo
 django-admin startapp app
 ```
 
@@ -355,6 +356,25 @@ django 默认在 `8000` 端口启动服务，浏览器打开 `http://127.0.0.1:8
 访问 `http://127.0.0.1:8000/test` 就能看到 `hello world` 了。
 
 在 PyCharm 中运行项目后，django 会监听按键，当按下 `Ctrl+S` 后可快速刷新项目。
+
+数据库
+
+```sh
+# 检测数据库
+python manage.py inspectdb > models.py
+```
+
+注意生成的 models.py 必须是 `utf-8` 编码，否则报错：
+
+```text
+ValueError: source code string cannot contain null bytes
+```
+
+```sh
+# 数据库迁移
+python manage.py makemigrations
+python manage.py migrate
+```
 
 ## GUI 库
 

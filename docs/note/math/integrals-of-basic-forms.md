@@ -36,7 +36,7 @@ $$
 
 $$
 \begin{aligned}
-    I_1&=\int{\frac{\d x}{a^2x^2+b^2}}=\int{\frac{\frac{b}{a}\d \left( \frac{ax}{b} \right)}{b^2\left( 1+\left( \frac{ax}{b} \right) ^2 \right)}}=\frac{1}{a}\arctan \frac{ax}{b}+C
+    I_1&=\int{\frac{\d x}{a^2x^2+b^2}}=\int{\frac{\frac{b}{a}\d \left( \frac{ax}{b} \right)}{b^2\left( 1+\left( \frac{ax}{b} \right) ^2 \right)}}=\frac{1}{ab}\arctan \frac{ax}{b}+C
     \\
     I_2&=\int{\frac{\d x}{a^2x^2-b^2}}=\int{\frac{1}{2b}\left( \frac{1}{ax-b}-\frac{1}{ax+b} \right) \d x}\\
     &=\frac{1}{2b}\left[ \frac{1}{a}\ln \left| ax-b \right|-\frac{1}{a}\ln \left| ax+b \right| \right]\\
@@ -50,11 +50,11 @@ $$
 
 $$
 \begin{aligned}
-    I_3^+&=\int{\frac{\d x}{\sqrt{a^2x^2+b^2}}}\xlongequal{x=\frac{b}{a}\sin{\rm h}t}\int{\frac{\frac{b}{a}\cos{\rm h}t\d t}{b\cos{\rm h}t}}=\frac{t}{a}=\frac{1}{a}\sin{\rm h}^{-1}\frac{ax}{b}\\
+    I_3^+&=\int{\frac{\d x}{\sqrt{a^2x^2+b^2}}}\xlongequal{x=\frac{b}{a}\sinh t}\int{\frac{\frac{b}{a}\cosh t\d t}{b\cosh t}}=\frac{t}{a}=\frac{1}{a}\sinh ^{-1}\frac{ax}{b}\\
     &=\frac{1}{a}\ln \left( \frac{ax}{b}+\sqrt{\left( \frac{ax}{b} \right) ^2+1} \right) =\frac{1}{a}\ln \left( ax+\sqrt{ax^2+b^2} \right) -\frac{1}{a}\ln b\\
     &=\frac{1}{a}\ln \left( ax+\sqrt{ax^2+b^2} \right) +C
 \\
-    I_3^-&=\int{\frac{\d x}{\sqrt{a^2x^2-b^2}}}\xlongequal{x=\frac{b}{a}\cos{\rm h}t}\int{\frac{\frac{b}{a}\sin{\rm h}t\d t}{b\sin{\rm h}t}}=\frac{t}{a}=\frac{1}{a}\cos{\rm h}^{-1}\frac{ax}{b}\\
+    I_3^-&=\int{\frac{\d x}{\sqrt{a^2x^2-b^2}}}\xlongequal{x=\frac{b}{a}\cosh t}\int{\frac{\frac{b}{a}\sinh t\d t}{b\sinh t}}=\frac{t}{a}=\frac{1}{a}\cosh ^{-1}\frac{ax}{b}\\
     &=\frac{1}{a}\ln \left( ax+\sqrt{a^2x^2-b^2} \right) +C
 \end{aligned}
 $$
@@ -71,8 +71,8 @@ $$
 
 $$
 \begin{aligned}
-y&=\sin{\rm h}x=\frac{\e ^x-\e ^{-x}}{2}\\
-\Rightarrow x&=\sin{\rm h}^{-1}y
+y&=\sinh x=\frac{\e ^x-\e ^{-x}}{2}\\
+\Rightarrow x&=\sinh ^{-1}y
 \end{aligned}
 $$
 
@@ -91,10 +91,10 @@ $$
 取对数，$x=\ln \left( y+\sqrt{y^2+1} \right)$ ，即
 
 $$
-\sin{\rm h}^{-1}y=\ln \left( y+\sqrt{y^2+1} \right)
+\sinh ^{-1}y=\ln \left( y+\sqrt{y^2+1} \right)
 $$
 
-同理有 $\cos{\rm h}^{-1}y=\ln \left( y+\sqrt{y^2-1} \right)$
+同理有 $\cosh ^{-1}y=\ln \left( y+\sqrt{y^2-1} \right)$
 
 :::
 
@@ -152,7 +152,7 @@ $$
 
 $$
 \begin{aligned}
-    \int{\frac{\d x}{a^2x^2+b^2}}&=\frac{1}{a}\arctan \frac{ax}{b}+C\\
+    \int{\frac{\d x}{a^2x^2+b^2}}&=\frac{1}{ab}\arctan \frac{ax}{b}+C\\
     \int{\frac{\d x}{a^2x^2-b^2}}&=\frac{1}{2ab}\ln \left| \frac{ax-b}{ax+b} \right|+C
 \end{aligned}
 $$

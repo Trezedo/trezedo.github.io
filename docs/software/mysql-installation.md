@@ -6,7 +6,7 @@ category:
     - 数据库
 ---
 
-# MySQL8.0 安装
+# MySQL 8.0 安装
 
 > 最近做课设需要用到 MySQL~~(虽然我更喜欢 PostgreSQL)~~，于是就记录下安装过程。
 
