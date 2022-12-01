@@ -78,6 +78,7 @@ export default hopeTheme({
             autoExcerpt: false,
             article: "/article",
             // slides:undefined
+            hotReload: true,
         },
         // comment: {
         //     type: "waline",
@@ -139,6 +140,8 @@ export default hopeTheme({
                     "\\pto": "\\mkern{-20mu}\\xrightarrow{\\mkern24mu}\\mkern-6mu",
                     "\\circled": "\\text{\\textcircled{\\small{#1}}}",
                     "\\mod": "\\mathop{\\mathrm{mod}}",
+                    "\\Im": "\\operatorname{Im}",
+                    "\\Re": "\\operatorname{Re}",
                 },
                 // 似乎是 md-enhance 使用的 katex 版本较低的缘故
                 strict: "ignore" /* (errorCode: string, errorMsg: string, token: any) => {

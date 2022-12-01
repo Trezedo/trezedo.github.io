@@ -8,7 +8,7 @@ export default sidebar({
         {
             text: "使用指南",
             icon: "creative",
-            collapsable: true,
+            collapsible: true,
             prefix: "guide/",
             // link: "/guide/README.md",
             children: ["page.md", "markdown.md", "disable.md", "encrypt.md"],
@@ -21,14 +21,14 @@ export default sidebar({
                     prefix: "software/",
                     text: "软件",
                     icon: "note",
-                    collapsable: true,
+                    collapsible: true,
                     children: "structure",
                 },
                 {
                     prefix: "article/tech/",
                     text: "技术",
                     icon: "code",
-                    collapsable: true,
+                    collapsible: true,
                     children: "structure",
                 },
             ],
@@ -55,17 +55,17 @@ export default sidebar({
     ],
 
     "/article/": [
-        { prefix: "", icon: "note", text: "文章", children: "structure", collapsable: true },
-        { prefix: "tech/", icon: "code", text: "技术", children: "structure", collapsable: true },
+        { prefix: "", icon: "note", text: "文章", children: "structure", collapsible: true },
+        { prefix: "tech/", icon: "code", text: "技术", children: "structure", collapsible: true },
     ],
 
     "/note/math/": [
-        { prefix: "", icon: "advance", text: "笔记碎片", collapsable: true, children: "structure" },
+        { prefix: "", icon: "advance", text: "笔记碎片", collapsible: true, children: "structure" },
         {
             prefix: "q/",
             icon: "exercise",
             text: "习题记录",
-            collapsable: true,
+            collapsible: true,
             children: "structure",
         },
     ],
@@ -76,12 +76,12 @@ export default sidebar({
             icon: "",
             text: "线性表",
             children: [
-                { prefix: "", text: "基础知识", children: "structure", collapsable: true },
+                { prefix: "", text: "基础知识", children: "structure", collapsible: true },
                 {
                     prefix: "q/",
                     text: "习题",
                     children: "structure",
-                    collapsable: true,
+                    collapsible: true,
                 },
             ],
         },
@@ -90,12 +90,12 @@ export default sidebar({
             icon: "",
             text: "栈和队列",
             children: [
-                { prefix: "", text: "基础知识", children: "structure", collapsable: true },
+                { prefix: "", text: "基础知识", children: "structure", collapsible: true },
                 // {}
             ],
         },
         { prefix: "tree/", icon: "tree", text: "树", children: "structure" },
-        { prefix: "sorts/", icon: "", text: "排序", children: "structure", collapsable: true },
+        { prefix: "sorts/", icon: "", text: "排序", children: "structure", collapsible: true },
     ],
     "/note/algo/": [
         { prefix: "", text: "随笔", icon: "semantic", children: "structure" },
