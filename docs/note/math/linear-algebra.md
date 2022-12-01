@@ -1,5 +1,6 @@
 ---
 date: 2022-09-24
+icon: function
 category:
     - 线性代数
 tag:

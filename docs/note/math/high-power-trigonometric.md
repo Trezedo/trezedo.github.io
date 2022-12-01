@@ -1,5 +1,6 @@
 ---
 date: 2022-09-26
+icon: function
 category:
     - 高等数学
 tag:
