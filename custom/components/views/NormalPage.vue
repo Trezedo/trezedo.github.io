@@ -19,6 +19,7 @@
 import { computed, onMounted, ref } from "vue";
 import { usePageFrontmatter } from "@vuepress/client";
 
+// @ts-ignore
 import NormalPage from "vuepress-theme-hope/components/NormalPage";
 
 const frontmatter = usePageFrontmatter();
@@ -32,7 +33,11 @@ const imgLink = computed(() => {
 });
 
 onMounted(() => {
-    console.log(frontmatter.value);
+    const { head, tag, category, ...others } = frontmatter.value;
+    console.group("frontmatter");
+    console.log({ head, tag, category });
+    console.table(others);
+    console.groupEnd();
 });
 </script>
 

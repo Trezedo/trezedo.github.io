@@ -43,7 +43,7 @@ const pagesData = usePagesData();
 // console.log(usePageFrontmatter().value)
 // console.log(useSiteData().value)
 
-const pagesList = ref([]);
+const pagesList = ref<string[]>([]);
 for (let page in pagesData.value) {
     pagesList.value.push(page);
 }
@@ -56,9 +56,7 @@ const router = useRouter();
 const pages = router
     .getRoutes()
     .filter(
-        (rt) =>
-            (rt.path.endsWith(".html") || rt.path.endsWith("/")) &&
-            rt.redirect == undefined
+        (rt) => (rt.path.endsWith(".html") || rt.path.endsWith("/")) && rt.redirect == undefined
     )
     .filter((rt) => rt.path != route.path);
 
@@ -70,7 +68,7 @@ function extractFilename(path: string): string {
 
 pages.forEach((p) =>
     resolvers.resolvePageData(<string>p.name).then((page) => {
-        console.log(page.frontmatter);
+        console.table(page.frontmatter);
     })
 );
 </script>

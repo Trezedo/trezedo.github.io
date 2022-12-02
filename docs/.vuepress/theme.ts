@@ -75,7 +75,7 @@ export default hopeTheme({
     },
     plugins: {
         blog: {
-            autoExcerpt: false,
+            autoExcerpt: true,
             article: "/article",
             // slides:undefined
             hotReload: true,

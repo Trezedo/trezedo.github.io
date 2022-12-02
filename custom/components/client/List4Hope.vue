@@ -29,7 +29,8 @@ const props = defineProps({
 
 const routes = getSimpleRoutes(props.prefix, props.removeRoot);
 
+// meta 的 key 被改成了只有单个字母
 function computeTitle(route: RouteRecordNormalized) {
-    return route.meta["title"] || /[^/]*?(?=\.html$)/.exec(decodeURI(route.path))?.[0];
+    return route.meta["t"] || /[^/]*?(?=\.html$)/.exec(decodeURI(route.path))?.[0];
 }
 </script>
