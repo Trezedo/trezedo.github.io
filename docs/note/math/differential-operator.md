@@ -1,6 +1,7 @@
 ---
 icon: function
-date: 2022-02-09
+date: 2022-12-01
+createAt: 2022-02-09
 category:
     - 高等数学
 tag:
@@ -109,14 +110,14 @@ $$
 
 ::: info 例 2.2
 
-求特解 $y'''-3y''+3y'-1=\e ^x$
+求特解 $y'''-3y''+3y'-y=x\e ^x$
 
 :::
 
 $$
 \begin{aligned}
-    y*&=\frac{1}{D^3-3D^2+3D-1}\e ^x=\frac{1}{(D-1)^3}\e ^x=\e ^x\frac{1}{(D+1-1)^3}1\\
-    &=\e ^x\frac{1}{D^3}1=\frac{1}{6}x^3\e ^x
+    y*&=\frac{1}{D^3-3D^2+3D-1}x\e ^x=\frac{1}{(D-1)^3}x\e ^x=\e ^x\frac{1}{(D+1-1)^3}x\\
+    &=\e ^x\frac{1}{D^3}x=\frac{1}{4!}x^4\e ^x=\frac{1}{24}x^4\e ^x\\
 \end{aligned}
 $$
 
@@ -131,7 +132,7 @@ $$
 
 其中 $Q(D)$ 为 $1$ 除以按升幂排序的 $F(D)$ 的商式，其最高次数取到 $f(x)$ 的次数 $m$。
 
-通常 $Q(D)$ 可以由长除法和泰勒级数 $\frac{1}{1-x}=1+x+x^2+\cdots +x^n+\cdots$ 求得，这里只用后者。
+通常 $Q(D)$ 可以由长除法和泰勒级数 $\ds\frac{1}{1-x}=1+x+x^2+\cdots +x^n+\cdots$ 求得，这里只用后者。
 
 ::: info 例 3.1
 
