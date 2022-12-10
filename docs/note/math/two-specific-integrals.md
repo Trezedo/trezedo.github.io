@@ -46,7 +46,7 @@ $$
 $$
 
 $$
-I_1=\int_0^p{\frac{\arctan \frac{p-x}{1+px}}{\left( \frac{p-x}{1+px} \right) ^2+B\left( \frac{p-x}{1+px} \right) +C}\frac{p^2+1}{(1+px) ^2}\text{d}x}
+I_1=\int_0^p{\frac{\arctan \frac{p-x}{1+px}}{\left( \frac{p-x}{1+px} \right) ^2+B\left( \frac{p-x}{1+px} \right) +C}\frac{p^2+1}{(1+px) ^2}\d x}
 $$
 
 为了使用等式 $\eqref{1}$，还需使分母的方程一致，即

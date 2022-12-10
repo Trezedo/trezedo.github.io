@@ -38,7 +38,7 @@ $$
 性质 1（**指数式**）：若 $F\left( k \right) \ne 0$，则：
 
 $$
-\frac{1}{F\left( D \right)}\text{e}^{kx}=\frac{1}{F\left( k \right)}\text{e}^{kx}
+\frac{1}{F\left( D \right)}\e ^{kx}=\frac{1}{F\left( k \right)}\e ^{kx}
 $$
 
 特殊地，当 $k=0$ 时（$a$ 为任意常数）：
@@ -322,17 +322,17 @@ $$
 
 <!-- ---
 
-求 $y^{(5)}+2y^{(3)}+y=16(\sin x+\text{e}^{-x}+x)$ 的通解.
+求 $y^{(5)}+2y^{(3)}+y=16(\sin x+\e ^{-x}+x)$ 的通解.
 
 $$
 \begin{aligned}
-    y&=\frac{16}{D^5+2D^3+D}\left( \sin x+\text{e}^{-x}+x \right)\\
-    &=\left( \frac{16}{D}-\frac{8}{D-\text{i}}-\frac{8}{D+\text{i}}+\frac{4\text{i}}{\left( D-\text{i} \right) ^2}-\frac{4\text{i}}{\left( D+\text{i} \right) ^2} \right) \left( \sin x+\text{e}^{-x}+x \right)\\
-    &=\left[ \left( 16\int{} \right) -\left( 8\text{e}^{\text{i}x}\int{\text{e}^{-\text{i}x}} \right) -\left( 8\text{e}^{-\text{i}x}\int{\text{e}^{\text{i}x}} \right) +\left( 4\text{ie}^{\text{i}x}\iint{\text{e}^{-\text{i}x}} \right) -\left( 4\text{ie}^{-\text{i}x}\iint{\text{e}^{\text{i}x}} \right) \right] \left( \sin x+\text{e}^{-x}+x \right) \text{d}x\\
-    &=\left( 8x^2-16\text{e}^{-x}-16\cos x+C_1 \right)\\
-    &\quad-\left( 8x\sin x-8\text{e}^{-x}-4\cos x+C_2\text{e}^{\text{i}x}+C_3\text{e}^{-\text{i}x} \right)\\
-    &\quad+\left( -\cos x-4\text{e}^{-x}-2x^2\cos x+c_2\text{e}^{\text{i}x}+c_3\text{e}^{-\text{i}x}+C_4x\text{e}^{\text{i}x}+C_5x\text{e}^{-\text{i}x} \right)\\
-    &=8x^2-4\text{e}^{-x}-11\cos x-8x\sin x+2x^2\cos x\\
+    y&=\frac{16}{D^5+2D^3+D}\left( \sin x+\e ^{-x}+x \right)\\
+    &=\left( \frac{16}{D}-\frac{8}{D-\i }-\frac{8}{D+\i }+\frac{4\i }{\left( D-\i  \right) ^2}-\frac{4\i }{\left( D+\i  \right) ^2} \right) \left( \sin x+\e ^{-x}+x \right)\\
+    &=\left[ \left( 16\int{} \right) -\left( 8\e ^{\i x}\int{\e ^{-\i x}} \right) -\left( 8\e ^{-\i x}\int{\e ^{\i x}} \right) +\left( 4\text{ie}^{\i x}\iint{\e ^{-\i x}} \right) -\left( 4\text{ie}^{-\i x}\iint{\e ^{\i x}} \right) \right] \left( \sin x+\e ^{-x}+x \right) \d x\\
+    &=\left( 8x^2-16\e ^{-x}-16\cos x+C_1 \right)\\
+    &\quad-\left( 8x\sin x-8\e ^{-x}-4\cos x+C_2\e ^{\i x}+C_3\e ^{-\i x} \right)\\
+    &\quad+\left( -\cos x-4\e ^{-x}-2x^2\cos x+c_2\e ^{\i x}+c_3\e ^{-\i x}+C_4x\e ^{\i x}+C_5x\e ^{-\i x} \right)\\
+    &=8x^2-4\e ^{-x}-11\cos x-8x\sin x+2x^2\cos x\\
     &\quad+C_1'+\sin x\left( C_2'+C_3'x \right) +\cos x\left( C_4'+C_5'x \right)\\
 \end{aligned}
 $$ -->

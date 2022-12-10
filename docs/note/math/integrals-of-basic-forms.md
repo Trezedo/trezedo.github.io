@@ -16,10 +16,10 @@ tag:
 $$
 \begin{darray}{lll}
     I_1=\int{\frac{\d x}{a^2x^2+b^2}}&
-    I_2=\int{\frac{\text{d}x}{a^2x^2-b^2}}
+    I_2=\int{\frac{\d x}{a^2x^2-b^2}}
     \\[1em]
-    I_3=\int{\frac{\text{d}x}{\sqrt{a^2x^2\pm b^2}}}&
-    I_4=\int{\frac{\text{d}x}{\sqrt{b^2-a^2x^2}}}
+    I_3=\int{\frac{\d x}{\sqrt{a^2x^2\pm b^2}}}&
+    I_4=\int{\frac{\d x}{\sqrt{b^2-a^2x^2}}}
     \\[1em]
     I_5=\int{\sqrt{a^2x^2\pm b^2}\d x}&
     I_6=\int{\sqrt{b^2-a^2x^2}\d x}
