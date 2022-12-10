@@ -21,11 +21,11 @@
         "@vuepress/plugin-search": "2.0.0-beta.53",
         "@vuepress/shared": "2.0.0-beta.53",
         "@vuepress/utils": "2.0.0-beta.53",
-        "vite": "^3.2.4",
+        "vite": "^3.2.5",
         "vue": "^3.2.45",
         "vue-router": "^4.1.6",
         "vuepress": "2.0.0-beta.53",
-        "vuepress-theme-hope": "^2.0.0-beta.132"
+        "vuepress-theme-hope": "^2.0.0-beta.133"
     },
     "pnpm": {
         "peerDependencyRules": {
