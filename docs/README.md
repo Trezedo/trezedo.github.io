@@ -1,6 +1,6 @@
 ---
 home: true
-layout: Blog
+layout: BlogHome
 icon: home
 title: 博客主页
 heroImage: https://res.abeim.cn/api-qq.tx?qq=1962234583

@@ -29,7 +29,7 @@ export default defineUserConfig({
     ],
     alias: {
         "@zedo": path.resolve(__dirname, "../../custom/"),
-        "@theme-hope/components/NormalPage.js": path.resolve(
+        "@theme-hope/components/NormalPage": path.resolve(
             __dirname,
             "../../custom/components/views/NormalPage.vue"
         ),
