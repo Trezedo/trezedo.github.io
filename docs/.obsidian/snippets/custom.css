@@ -9,3 +9,19 @@ mjx-mtd[id] */
     /* padding-top: var(--offset-top); */
     /* margin-top: calc(0 - var(--offset-top)); */
 }
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: cornflowerblue;
+}
+
+.green {
+    color: green;
+}
+
+.orange {
+    color: orange;
+}
