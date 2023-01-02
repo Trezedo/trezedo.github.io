@@ -85,7 +85,7 @@ struct TreeNode {
 
 于是，在 C++ 中可以借助 `vector` 容器，这样就可以不用关心孩子的个数：
 
-```c++
+```cpp
 struct TreeNode {
     DataType data;
     vector<struct TreeNode*> children; // 该结点的子节点指针数组

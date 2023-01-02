@@ -437,7 +437,7 @@ Node *mergeIncreasingLists(Node *pl1, Node *pl2) {
 }
 ```
 
-```c++
+```cpp
 /**
  * Definition for singly-linked list.
  * struct ListNode {
