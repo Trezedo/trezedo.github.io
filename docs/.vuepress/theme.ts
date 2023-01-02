@@ -73,12 +73,13 @@ export default hopeTheme({
             "/zh/guide/encrypt.html": ["1234"],
         },
     },
+    hotReload: false,
     plugins: {
         blog: {
-            excerpt: true,
+            // excerpt: false,
+            excerptLength: 0,
             article: "/article",
             // slides:undefined
-            hotReload: true,
         },
         // comment: {
         //     type: "waline",
@@ -94,8 +95,8 @@ export default hopeTheme({
             tabs: true, // 可以写 markdown，不仅仅是代码
             codetabs: true, // 与 tabs 类似，但专门展示代码
             tasklist: true,
-            imageMark: false,
-            imageSize: false,
+            imgMark: false,
+            imgSize: false,
             include: false, // 可导入 markdown，而非以代码形式导入
             /* attrs 导致的问题：
             1. 行高亮代码被认为是 text 
