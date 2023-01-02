@@ -241,7 +241,7 @@ Node *reverseList(Node *head) {
 
 :::
 
-思路：使用快慢指针。快指针的速度是慢指针的 2 倍，这样当快指针到达链表尾结点时，慢指针刚好到链表中间。 `slow` 指针每次右移1次，`fast` 每次右移2次。
+思路：使用快慢指针。快指针的速度是慢指针的 2 倍，这样当快指针到达链表尾结点时，慢指针刚好到链表中间。 `slow` 指针每次右移 1 次，`fast` 每次右移 2 次。
 
 1° 如果是奇数个结点，则当 `fast` 到达尾结点时，`slow` 恰好就是链表中间结点：
 
@@ -330,6 +330,9 @@ Node *middleNode(Node *head) {
 
 ## 找到倒数第 k 个结点
 
+[剑指 Offer 22. 链表中倒数第 k 个节点 - leetcode](https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/)
+[删除链表的倒数第 N 个结点 - leetcode](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) （类似题）
+
 ```c
 /**
  * 找到链表的倒数第 k 个结点
@@ -365,9 +368,16 @@ Node *lastKNode(Node *head, int k) {
 }
 ```
 
+而对于这个相似题，多了一个删除操作，因此需要知道倒数第 k 个结点的前继结点。这里有两种思路：
+
+1. 找到倒数第 k+1 个结点 p，则 p->next 为待删结点；
+2. 创建一个头结点，其 next 域为 head，这样带头结点链表的倒数第 k 个结点是原先链表的倒数第 k+1 个结点。
+
 ## 合并两个有序链表
 
-<https://leetcode.cn/problems/merge-two-sorted-lists/>
+[21. 合并两个有序链表 - leetcode](https://leetcode.cn/problems/merge-two-sorted-lists/)
+
+思路：两个链表从头开始对比，取较小者进行尾插。
 
 $$
 \fcolorbox{black}{#bef}{$\,\mathstrut a\,$}\mkern-1mu \boxed{\diagdown}
@@ -407,13 +417,14 @@ Node *mergeIncreasingLists(Node *pl1, Node *pl2) {
         // 每次选取值较小的结点，尾插进新链表
         if (pl1->data < pl2->data) {
             tail->next = pl1;
-            tail = pl1;
+            // tail = pl1; tail 总会指向 tail->next，不区分 pl1, pl2
             pl1 = pl1->next;
         } else {
             tail->next = pl2;
-            tail = pl2;
+            // tail = pl2;
             pl2 = pl2->next;
         }
+        tail = tail->next;
     }
     // 其中一个链表遍历结束，另一链表中剩下的结点直接接到尾结点
     if (pl1) {
@@ -424,6 +435,45 @@ Node *mergeIncreasingLists(Node *pl1, Node *pl2) {
     }
     return head;
 }
+```
+
+```c++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+        // 为了方便，创建头结点
+        ListNode *head, *tail;
+        head = tail = new ListNode();
+
+        // 取较小者尾插
+        while(l1 != nullptr && l2 != nullptr) {
+            if(l1->val < l2->val) {
+                tail->next = l1;
+                l1 = l1->next;
+            } else {
+                tail->next = l2;
+                l2 = l2->next;
+            }
+            tail = tail->next;
+        }
+        // 合并后 l1 和 l2 最多只有一个未合并完，直接将链表末尾指向未合并完的链表
+        tail->next = l1 == nullptr ? l2 : l1;
+
+        ListNode* list = head->next;
+        delete head;
+        return list;
+    }
+};
 ```
 
 ## 划分链表
@@ -497,6 +547,10 @@ bool isPalindrome(Node *head) {
 
 ## 链表交点
 
+[160. 相交链表 - leetcode](https://leetcode.cn/problems/intersection-of-two-linked-lists/)
+判断相交：尾结点是否相同，即比较尾结点指针
+求交点：得到长度后，长链表先走，消去长度差，则首个相同的结点就是交点
+
 ```c
 /**
  * 找到两链表相交的结点
@@ -505,18 +559,17 @@ bool isPalindrome(Node *head) {
  * @return
  */
 Node *getIntersectionNode(Node *headA, Node *headB) {
-    // 思路1：暴力求解（穷举），O(N * M)
-    // 思路2：1.判断相交：尾结点是否相同
-    //       2.求交点：得到长度后，长链表先走，消去长度差，则首个相同的结点就是交点
+    // 思路 1.判断相交：尾结点是否相同
+    //      2.求交点：得到长度后，长链表先走，消去长度差，则首个相同的结点就是交点
 
     // 先判断是否相交，同时求出两链表长度
     Node *tailA = headA, *tailB = headB;
-    int lenA = 1, lenB = 1;
-    while (tailA->next) {
+    int lenA = 0, lenB = 0;
+    while (tailA && tailA->next) {
         tailA = tailA->next;
         lenA++;
     }
-    while (tailB->next) {
+    while (tailB && tailB->next) {
         tailB = tailB->next;
         lenB++;
     }
@@ -528,7 +581,7 @@ Node *getIntersectionNode(Node *headA, Node *headB) {
     // 接下来找到相交的结点
     int gap = abs(lenA - lenB); // 长度差
     Node *longList = lenA > lenB ? headA : headB;
-    Node *shortList = lenA < lenB ? headA : headB;
+    Node *shortList = lenA <= lenB ? headA : headB;
 
     // 消去长度差
     while (gap--) {
@@ -544,7 +597,11 @@ Node *getIntersectionNode(Node *headA, Node *headB) {
 }
 ```
 
-## 判断链表带环
+## 带环链表
+
+### 判断带环
+
+[141. 环形链表 - leetcode](https://leetcode.cn/problems/linked-list-cycle/)
 
 ```c
 /**
@@ -570,6 +627,10 @@ Node *hasCycle(Node *head) {
 ```
 
 ### 求环的入口结点
+
+[142. 环形链表 II - leetcode](https://leetcode.cn/problems/linked-list-cycle-ii/)
+L:如环前的长度
+L=NC - X
 
 ```c
 /**

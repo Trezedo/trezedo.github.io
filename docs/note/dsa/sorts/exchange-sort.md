@@ -1,5 +1,7 @@
 ---
 date: 2022-08-12
+star: true
+sticky: true
 category:
     - 数据结构
     - 排序

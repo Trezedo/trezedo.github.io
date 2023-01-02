@@ -86,7 +86,7 @@ void myStackFree(MyStack *obj) {
 
 ## 用栈实现队列
 
-<!-- https://leetcode.cn/problems/implement-queue-using-stacks/ -->
+[232. 用栈实现队列 - LeetCode](https://leetcode.cn/problems/implement-queue-using-stacks/)
 
 ```c
 typedef struct {
