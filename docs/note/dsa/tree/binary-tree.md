@@ -188,7 +188,6 @@ digraph finite_state_machine {
     sandbox="allow-same-origin allow-scripts allow-popups">
 </iframe>
 
-
 ```c
 typedef int BTDataType;
 typedef struct BinaryTreeNode {
@@ -444,9 +443,9 @@ void DestroyTree(BTNode *root) {
 
 ## OJ 练习题
 
-1. [二叉树的前序遍历](https://leetcode.cn/problems/binary-tree-preorder-traversal/)
-2. [二叉树的中序遍历](https://leetcode.cn/problems/binary-tree-inorder-traversal/)
-3. [二叉树的后序遍历](https://leetcode.cn/problems/binary-tree-postorder-traversal/)
-4. [二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)
-5. [平衡二叉树](https://leetcode.cn/problems/balanced-binary-tree/)
-6. [二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal/) （此题建议用 C++ 实现，用 C 语言较复杂）
+1. [144. 二叉树的前序遍历](https://leetcode.cn/problems/binary-tree-preorder-traversal/)
+2. [94. 二叉树的中序遍历](https://leetcode.cn/problems/binary-tree-inorder-traversal/)
+3. [145. 二叉树的后序遍历](https://leetcode.cn/problems/binary-tree-postorder-traversal/)
+4. [104. 二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)
+5. [110. 平衡二叉树](https://leetcode.cn/problems/balanced-binary-tree/)
+6. [102. 二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal/)
