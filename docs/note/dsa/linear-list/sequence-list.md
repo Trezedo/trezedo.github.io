@@ -408,6 +408,6 @@ void PopFront(SeqList *sl) {
 
 ### 扩展操作
 
-原地移除元素：<https://leetcode.cn/problems/remove-element/>
+原地移除元素：[27. 移除元素](https://leetcode.cn/problems/remove-element/)
 
-合并两个有序数组：<https://leetcode.cn/problems/merge-sorted-array/>
+合并两个有序数组：[88. 合并两个有序数组](https://leetcode.cn/problems/merge-sorted-array/)

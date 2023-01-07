@@ -18,7 +18,7 @@ tag:
 
 ## 逆置链表
 
-<!-- https://leetcode.cn/problems/reverse-linked-list -->
+[206. 反转链表](https://leetcode.cn/problems/reverse-linked-list)
 
 逆置链表也可以叫反转链表、翻转链表。例如：
 
@@ -221,7 +221,7 @@ Node *reverseList(Node *head) {
 
 ## 找到中间结点
 
-<!-- https://leetcode.cn/problems/middle-of-the-linked-list/ -->
+[876. 链表的中间结点](https://leetcode.cn/problems/middle-of-the-linked-list/)
 
 ::: info 题目
 
@@ -331,7 +331,7 @@ Node *middleNode(Node *head) {
 ## 找到倒数第 k 个结点
 
 [剑指 Offer 22. 链表中倒数第 k 个节点 - leetcode](https://leetcode.cn/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/)
-[删除链表的倒数第 N 个结点 - leetcode](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) （类似题）
+[19. 删除链表的倒数第 N 个结点 - leetcode](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) （类似题）
 
 ```c
 /**
@@ -666,6 +666,8 @@ Node *getCycleEntry2(Node *head) {
 
 ## 复制带随机指针的链表
 
+[138. 复制带随机指针的链表](https://leetcode.cn/problems/copy-list-with-random-pointer/)
+
 ```c
 typedef struct ListNode {
     int data;
@@ -678,7 +680,6 @@ typedef struct ListNode {
 /**
  * 复制带随机指针的链表
  *
- * https://leetcode.cn/problems/copy-list-with-random-pointer/
  * @param head
  * @return
  */

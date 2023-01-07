@@ -16,7 +16,7 @@ next: "../tree/README.md"
 
 ## 用队列实现栈
 
-<!-- https://leetcode.cn/problems/implement-stack-using-queues/ -->
+[225. 用队列实现栈](https://leetcode.cn/problems/implement-stack-using-queues/)
 
 ```c
 // 定义匿名结构体为 MyStack 类型
@@ -86,7 +86,7 @@ void myStackFree(MyStack *obj) {
 
 ## 用栈实现队列
 
-[232. 用栈实现队列 - LeetCode](https://leetcode.cn/problems/implement-queue-using-stacks/)
+[232. 用栈实现队列](https://leetcode.cn/problems/implement-queue-using-stacks/)
 
 ```c
 typedef struct {
@@ -157,7 +157,7 @@ void myQueueFree(MyQueue *obj) {
 
 ## 循环队列
 
-<!-- https://leetcode.cn/problems/design-circular-queue/ -->
+[622. 设计循环队列](https://leetcode.cn/problems/design-circular-queue/)
 
 ```c
 typedef int DataType;
