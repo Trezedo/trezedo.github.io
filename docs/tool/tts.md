@@ -1,7 +1,7 @@
 ---
 icon: change
 date: 2022-02-25
-description: 利用 Web Speech API 实现文本转语音，以及介绍了一些可方便使用的接口。
+excerpt: 利用 Web Speech API 实现文本转语音，以及介绍了一些可方便使用的接口。
 category:
     - JavaScript
 tag:

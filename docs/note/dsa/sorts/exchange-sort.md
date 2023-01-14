@@ -1,7 +1,7 @@
 ---
 date: 2022-08-12
 star: true
-sticky: true
+# sticky: true
 category:
     - 数据结构
     - 排序
@@ -44,13 +44,13 @@ void swap(int *a, int *b) {
 
 :::
 
-![冒泡排序示例  |400](./img/2.1-冒泡排序.png)
+![冒泡排序示例  |400](https://zedo.gitee.io/img/dsa/sorts/2.1-冒泡排序.png)
 
 上图中，我们将每趟冒泡“沉底”的元素用 <span style="color: #e67700"> 橘色</span> 标记（即排好序的元素），每趟冒泡发生交换的元素用 <span style="color: #087f5b">绿色</span> 标记。注意 $5$ 和 $\overline{5}$ 的相对位置没有发生改变。
 
 下面的动图来自 [github](https://github.com/hustcc/JS-Sorting-Algorithm/blob/master/res/bubbleSort.gif)，它可以更直观的体现整个冒泡排序的过程：
 
-![冒泡排序动图示意](./img/bubbleSort.gif)
+![冒泡排序动图示意](https://zedo.gitee.io/img/dsa/sorts/bubbleSort.gif)
 
 ### 代码实现
 

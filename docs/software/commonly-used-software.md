@@ -1,7 +1,7 @@
 ---
 date: 2022-03-27
 icon: windows
-description: windows 系统下常用、好用的软件
+excerpt: windows 系统下常用、好用的软件
 tag:
     - 软件
     - windows

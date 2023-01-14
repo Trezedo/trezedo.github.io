@@ -1,7 +1,7 @@
 ---
 icon: vue
 lang: zh-CN
-description: 使用 Vuepress2 搭建静态文档分享类站点
+excerpt: 使用 Vuepress2 搭建静态文档分享类站点
 date: 2022-01-23
 # layout: CustomLayout
 category:

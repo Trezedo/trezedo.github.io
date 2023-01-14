@@ -3,7 +3,7 @@
 date: 2022-01-24
 icon: function
 star: true
-description: 一类分子为反正切函数或对数函数，分母为二次函数的定积分计算方法。
+excerpt: 一类分子为反正切函数或对数函数，分母为二次函数的定积分计算方法。
 category:
     - 高等数学
     - 积分

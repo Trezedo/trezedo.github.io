@@ -351,7 +351,7 @@ python manage.py runserver
 
 django 默认在 `8000` 端口启动服务，浏览器打开 `http://127.0.0.1:8000/` 能够看到页面：
 
-![django项目运行](./img/1665999213439.png)
+![django 项目运行](https://zedo.gitee.io/img/django-20221017.png)
 
 访问 `http://127.0.0.1:8000/test` 就能看到 `hello world` 了。
 

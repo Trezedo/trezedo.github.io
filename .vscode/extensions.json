@@ -2,6 +2,7 @@
     "recommendations": [
         "davidanson.vscode-markdownlint",
         "tintinweb.graphviz-interactive-preview",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "pomdtr.excalidraw-editor"
     ]
 }

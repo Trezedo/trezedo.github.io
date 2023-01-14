@@ -27,7 +27,7 @@ pip install Pygments
 + xelatex.exe -synctex=1 -interaction=nonstopmode -shell-escape %.tex
 ```
 
-![texstudio 设置](./img/pkg-minted/studio-config.png)
+![texstudio 设置](https://zedo.gitee.io/img/texstudio-config.png)
 
 下面给出一个 demo 示例:
 

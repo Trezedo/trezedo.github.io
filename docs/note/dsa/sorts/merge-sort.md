@@ -18,13 +18,13 @@ order: 4
 
 归并排序过程示意：
 
-![归并排序示例1](./img/4.1-merge-example.png)
+![归并排序示例1](https://zedo.gitee.io/img/dsa/sorts/4.1-merge-example.png)
 
 归并排序每次都把原数组分成两半，即分成 [0, n/2 - 1] 和 [n/2, n] 两部分，然后再对这两部分再次二分，这就是一个“分治”的过程。
 
 对于长度不是 $2^k,k\in \mathbb{N}$ 的序列，过程也是完全类似：
 
-![归并排序示例2](./img/4.1-merge-example.png)
+![归并排序示例2](https://zedo.gitee.io/img/dsa/sorts/4.1-merge-example.png)
 
 归并排序的特性总结：
 

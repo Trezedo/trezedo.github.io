@@ -19,7 +19,7 @@ order: 3
 
 动态示意图：
 
-![直接选择排序示意图](./img/3.1-直接选择排序.gif)
+![直接选择排序示意图](https://zedo.gitee.io/img/dsa/sorts/3.1-直接选择排序.gif)
 
 直接选择排序思考非常好理解，但是效率不是很好，且实际中很少使用。
 
@@ -168,7 +168,7 @@ $$
 
 例子，以下完全二叉树中，结点 27 的左右子树都是小根堆：
 
-![建小堆示例](./img/3.1-建小堆.png)
+![建小堆示例](https://zedo.gitee.io/img/dsa/sorts/3.1-建小堆.png)
 
 1. 选出左右孩子较小者 15（15<19），比父亲 27 小，交换位置；
 2. 选出左右孩子较小者 18（18<28），比父亲 27 小，交换位置；
@@ -294,25 +294,25 @@ for (int i = (n / 2) - 1; i >= 0; i--) {
 
 我们取一个无序序列 $\{49,38,65,97,76,13,27,\underline{49},17,32\}$，将其建立为大根堆。首先将它们摆放成完全二叉树：
 
-![先摆放为完全二叉树|480](./img/3.2-maxHeap-1.png)
+![先摆放为完全二叉树|480](https://zedo.gitee.io/img/dsa/sorts/3.2-maxHeap-1.png)
 
-![step1|480](./img/3.2-maxHeap-2.png)
+![step1|480](https://zedo.gitee.io/img/dsa/sorts/3.2-maxHeap-2.png)
 
-![step2|480](./img/3.2-maxHeap-3.png)
+![step2|480](https://zedo.gitee.io/img/dsa/sorts/3.2-maxHeap-3.png)
 
-![step3|480](./img/3.2-maxHeap-4.png)
+![step3|480](https://zedo.gitee.io/img/dsa/sorts/3.2-maxHeap-4.png)
 
-![step4|480](./img/3.2-maxHeap-5.png)
+![step4|480](https://zedo.gitee.io/img/dsa/sorts/3.2-maxHeap-5.png)
 
-![step5|480](./img/3.2-maxHeap-6.png)
+![step5|480](https://zedo.gitee.io/img/dsa/sorts/3.2-maxHeap-6.png)
 
-![step6|480](./img/3.2-maxHeap-7.png)
+![step6|480](https://zedo.gitee.io/img/dsa/sorts/3.2-maxHeap-7.png)
 
-![step7|480](./img/3.2-maxHeap-8.png)
+![step7|480](https://zedo.gitee.io/img/dsa/sorts/3.2-maxHeap-8.png)
 
-![step8|480](./img/3.2-maxHeap-9.png)
+![step8|480](https://zedo.gitee.io/img/dsa/sorts/3.2-maxHeap-9.png)
 
-![step9|480](./img/3.2-maxHeap-10.png)
+![step9|480](https://zedo.gitee.io/img/dsa/sorts/3.2-maxHeap-10.png)
 
 到此为止我们就完成了建堆的操作。
 
@@ -350,17 +350,17 @@ void heap_sort(int *arr, int n) {
 
 请看下面这张动图（来自 [wikipedia](https://en.wikipedia.org/wiki/Heapsort)）以加深理解：
 
-![堆排序示意图](./img/heap-sort-example.gif)
+![堆排序示意图](https://zedo.gitee.io/img/dsa/sorts/heap-sort-example.gif)
 
 思考：为什么排升序不用小根堆选出最小值？
 
 例如序列 $\{0,3,1,4,5,6,2,9\}$ ，初始情况如下：
 
-![初始情况|400](./img/3.2-why-1.png)
+![初始情况|400](https://zedo.gitee.io/img/dsa/sorts/3.2-why-1.png)
 
 它已经满足小根堆的条件，现在我们把堆顶输出，情况是这样的：
 
-![输出堆顶|400](./img/3.2-why-2.png)
+![输出堆顶|400](https://zedo.gitee.io/img/dsa/sorts/3.2-why-2.png)
 
 可以发现，结点 3 原本的右孩子 5 现在成了 结点 1 的左孩子，结点 1 也是类似这种情况。也就是说，第二个数去做根了，剩下的结点关系全乱了，只能重新建堆。每次都如此，效率太低，还不如直接遍历选（最大或最小）数。
 

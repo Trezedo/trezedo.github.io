@@ -2,8 +2,8 @@
 icon: java
 date: 2022-02-15
 star: true
-sticky: true
-description: 学习异步后端框架 vert.x
+# sticky: true
+excerpt: 学习异步后端框架 vert.x
 category:
     - Java
     - 后端
