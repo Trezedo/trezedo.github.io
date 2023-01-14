@@ -5,7 +5,7 @@ import { navbar, sidebar } from "./configs";
 export default hopeTheme({
     hostname: "https://zedo.netlify.app",
     author: {
-        name: "机器不会学习",
+        name: "zedo",
         url: "https://zedo.netlify.app",
     },
     iconAssets: "iconfont",
