@@ -19,7 +19,7 @@ category:
 
 选择你的操作系统，然后下载压缩包即可：
 
-![下载操作](./img/mysql/1666607842953.png)
+![下载操作](https://zedo.gitee.io/img/mysql-20221024183725.png)
 
 应该是国内有 CDN，下载速度还挺快的。
 
@@ -61,7 +61,7 @@ E:\db\mysql-8.0.28-x64;E:\db\mysql-8.0.28-x64\bin
 
 然后在 Path 变量里添加并引用该变量：`%mysql%`
 
-![配置环境变量示意图](./img/mysql/1666610578065.png)
+![配置环境变量示意图](https://zedo.gitee.io/img/mysql-20221024225547.png)
 
 然后根据[文档](https://dev.mysql.com/doc/refman/8.0/en/data-directory-initialization.html)，初始化 MySQL：
 
@@ -124,7 +124,7 @@ mysql -u root -p
 # 输入密码时要手打！
 ```
 
-![1666612527556](./img/mysql/1666612527556.png)
+![终端连接数据库](https://zedo.gitee.io/img/mysql-20221024195529.png)
 
 先不要着急关闭或退出，先修改密码：
 
@@ -140,7 +140,7 @@ alter user 'root'@'localhost' identified by '123456';
 
 下面我用的是 IDEA 内置的数据库工具连接，用户名填 `root` 就可以了，端口默认是 `3306`，数据库名可以不填(默认是 mysql)：
 
-![1666613984187](./img/mysql/1666613984187.png)
+![IDEA 配置截图](https://zedo.gitee.io/img/mysql-20221024201946.png)
 
 连接成功！至此，我们已经完成了 MySQL 的安装。
 
