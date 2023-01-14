@@ -178,7 +178,7 @@ Done in 3.19s.
 
 查看 yarn 的全局安装包路径：
 
-```bash
+```sh
 $ yarn global bin
 E:\Envs\node\node_global\bin # 实际上也是 %node_global%\bin
 ```
@@ -189,7 +189,7 @@ E:\Envs\node\node_global\bin # 实际上也是 %node_global%\bin
 
 ### 常用命令
 
-```bash
+```sh
 yarn          # 安装所有包
 yarn install  # 安装所有包
 yarn init     # 初始化一个项目
@@ -283,13 +283,13 @@ yarn add package-name@^
 
 全局安装 `typescript` 和 `ts-node`
 
-```bash
+```sh
 npm install -g typescript
 # npm install -g typescript-node # 由于typescript-node不支持更高版本的ts
 npm install -g ts-node # typescript@>=2.7
 ```
 
-```powershell
+```sh
 yarn global add typescript
 yarn global add @types/node --dev
 yarn global add ts-node
@@ -297,7 +297,7 @@ yarn global add ts-node
 
 安装完成后就可以不用手动去编译成 js 文件，可以直接运行 ts 文件
 
-```js
+```ts
 // foo.ts
 let foo = {
     baz: {
@@ -309,7 +309,7 @@ console.log(foo);
 
 ### 执行命令 `ts-node xxx.ts`
 
-```powershell
+```sh
 ts-node foo.ts
 ```
 

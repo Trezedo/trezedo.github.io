@@ -211,5 +211,3 @@ if not "%~1"=="p" start /min cmd.exe /c %0 p & exit
 mshta vbscript:msgbox("在接下来弹出的窗口中，将控制按钮滑至最底格，单击“确定”；"^&vbCrLf^&"最后在系统弹出的窗口中选择“是”即可完成",64,"提示")(window.close)
 start %winDir%\system32\UserAccountControlSettings.exe
 ```
-
-$\boxed{d}$
