@@ -56,6 +56,6 @@ export function isDev(): boolean {
     return process.env["NODE_ENV"] == "development";
 }
 
-export function bundler(type: "vite" | "webpack"): Bundler {
+export function bundler(type: "vite" /*  | "webpack" */): Bundler {
     return bundlerConfig[type];
 }

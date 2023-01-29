@@ -72,6 +72,10 @@ p > a[name]:before {
     transform: translateX(calc(0px - var(--sidebar-width)));
 }
 
+.sidebar {
+    z-index: 1;
+}
+
 .page.full {
     padding-left: 0;
 }

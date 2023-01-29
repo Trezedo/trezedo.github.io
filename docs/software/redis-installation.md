@@ -23,15 +23,15 @@ Redis 是一款 key-value 存储结构的内存级 NoSQL 数据库
 
 这里选择较新的 5.0.x：
 
-![image-20230121133815147](E:\typora-img\image-20230121133815147.png)
+![redis for windows github](https://zedo.gitee.io/img/redis-20230121133815.png)
 
 下载 `.msi` 后缀的文件有安装界面，`.zip` 后缀的文件则要解压手动安装，这里选择前者。
 
-![选择安装路径](E:\typora-img\image-20230121134416844.png)
+![选择安装路径](https://zedo.gitee.io/img/redis-20230121134416.png)
 
 根据个人喜好和习惯选择安装路径，为了方便可以勾选下方的添加环境变量。
 
-![选择端口](E:\typora-img\image-20230121134441770.png)
+![选择端口](https://zedo.gitee.io/img/redis-20230121134441.png)
 
 学习阶段使用默认端口号即可，但在企业开发中是要修改的。
 
@@ -39,7 +39,7 @@ Redis 是一款 key-value 存储结构的内存级 NoSQL 数据库
 
 我们打开安装路径，按类型对文件排序：
 
-![安装文件截图](E:\typora-img\image-20230124144146500.png)
+![安装文件截图](https://zedo.gitee.io/img/redis-20230124144146.png)
 
 我们主要看 `.conf` 和 `.exe` 这两种类型的文件。
 
@@ -59,7 +59,7 @@ Redis 是一款 key-value 存储结构的内存级 NoSQL 数据库
 redis-server
 ```
 
-![启动redis server失败](E:\typora-img\image-20230124154819342.png)
+![启动redis server失败](https://zedo.gitee.io/img/redis-20230124154819.png)
 
 它提示我们“在一个非套接字上尝试了一个操作”，这可能是因为安装后默认启动了服务，可以按下 <kbd>Win</kbd>+<kbd>R</kbd> 输入 `services.msc` 查看是否有 `Redis`。
 
@@ -73,7 +73,7 @@ not connected> exit
 
 接着重新启动服务就成功了：
 
-![成功启动 Redis 服务](E:\typora-img\image-20230124155146624.png)
+![成功启动 Redis 服务](https://zedo.gitee.io/img/redis-20230124155146.png)
 
 ## 在命令行使用
 
@@ -161,7 +161,7 @@ OK
 
 当我们输入命令时，命令行会提示它的用法，例如 `set` ：
 
-![ping 命令及 set](E:\typora-img\image-20230124160222909.png)
+![ping 命令及 set](https://zedo.gitee.io/img/redis-20230124160222.png)
 
 ```text
 set key value [expiration EX seconds|PX milliseconds] [NX|XX]
@@ -191,6 +191,18 @@ OK
 
 Redis 还支持许多其他的数据结构，例如列表、集合、Hash 表等等，请参考文档：<https://redis.io/docs/data-types/>。
 
+在 B 站找到一个快速入门(1h 左右)的视频：[【Redis 入门记(完结)，Redis6 零基础快速入门教程 2022 版】](https://www.bilibili.com/video/BV1GY41187d5/)
+
+<iframe
+    src="//player.bilibili.com/player.html?aid=253491033&bvid=BV1GY41187d5&cid=493391936&page=1" scrolling="no"
+    width="100%"
+    height="500"
+    style="border:none"
+    frameborder="no"
+    framespacing="0"
+    allowfullscreen="true">
+</iframe>
+
 ## WSL
 
 如果想在 Windows 上用新版 Redis，也可以使用 Windows 子系统：
@@ -200,13 +212,15 @@ Redis 还支持许多其他的数据结构，例如列表、集合、Hash 表等
 
 微软的文档：[使用 WSL 在 Windows 上安装 Linux](https://learn.microsoft.com/zh-cn/windows/wsl/install)
 
-![安装WSL](E:\typora-img\image-20230121122736329.png)
+![安装 WSL](https://zedo.gitee.io/img/redis-20230121122736.png)
 
 我这里要科学上网才能进入安装，开始安装后就可以撤掉梯子。
 
 安装完成后重启电脑，在开始菜单就可以找到了：
 
-![位于开始菜单的子系统](E:\typora-img\image-20230124172926208.png)
+![位于开始菜单的子系统](https://zedo.gitee.io/img/redis-20230124172926.png)
+
+或者在命令行里用 `wsl` 即可打开。
 
 默认安装的是 Ubuntu，不过打开后没有图形界面，不过我们并不需要，有需要的可以参考[文章](https://blog.csdn.net/liyunxin_c_language/article/details/114107994)（未验证）。
 
@@ -269,7 +283,7 @@ class RedisTests {
 }
 ```
 
-Springboot 中使用 RedisTemplate 进行访问，`opsForValue()`  就是针对字符串的，类似的还有 `opsForList`、`opsForHash`  等，对应 Redis 的不同数据结构。以上 `set()`  方法等价于执行：
+Springboot 中使用 RedisTemplate 进行访问，`opsForValue()` 就是针对字符串的，类似的还有 `opsForList`、`opsForHash` 等，对应 Redis 的不同数据结构。以上 `set()` 方法等价于执行：
 
 ```sh
 # 注意命令行可能不能输入中文
@@ -293,4 +307,4 @@ chcp 65001       # 切换到 UTF-8 编码
 redis-cli --raw  # 连接Redis服务，字符串直接显示原文而非编码
 ```
 
-![命令行显示中文](E:\typora-img\image-20230124220742980.png)
+![命令行显示中文](https://zedo.gitee.io/img/redis-20230124220742.png)
