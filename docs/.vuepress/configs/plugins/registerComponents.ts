@@ -5,7 +5,7 @@ const resolve = (path: string) => {
     return Path.resolve(__dirname, "../../../../custom/components/" + path);
 };
 
-const components = {
+const components: Record<string, string> = {
     BlogPageDos: resolve("client/BlogPageDos.vue"),
     CurrentPageData: resolve("client/CurrentPageData.vue"),
     List4Hope: resolve("client/List4Hope.vue"),

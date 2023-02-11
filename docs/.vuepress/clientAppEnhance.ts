@@ -4,6 +4,8 @@ import { decoPlugin, reloadPagePlugin } from "@zedo/plugin-hooks/";
 
 // import { loadScripts, loadStyles } from "@zedo";
 
+import Speech from "@zedo/components/client/Speech.vue";
+
 // https://v2.vuepress.vuejs.org/zh/advanced/cookbook/usage-of-client-config.html
 export default defineClientConfig({
     enhance({ app, router: _r, siteData: _s }) {
@@ -23,5 +25,5 @@ export default defineClientConfig({
         reloadPagePlugin();
     },
     // 插入到 #app 的组件
-    rootComponents: [],
+    rootComponents: [Speech],
 });
