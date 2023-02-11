@@ -112,14 +112,14 @@ onMounted(() => {
     border: 1px solid #d1d5da;
     border-radius: 3px;
     padding: 2px;
-    cursor: pointer;
-    color: #586069;
+    color: #556699;
     user-select: none; // 点击按钮时保持选中的文字
-    z-index: 9999;
+    z-index: 999;
     transition: opacity 0.3s;
 
     &.on {
         opacity: 1;
+        cursor: pointer;
     }
 
     svg {

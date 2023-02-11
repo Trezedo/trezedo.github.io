@@ -202,3 +202,40 @@ blockquote {
         background-color: #161616;
     }
 }
+
+// 补充半透明 rgba 主题色
+:root {
+    --tc-bg: rgba(62, 175, 124, 0.5);
+
+    &.theme {
+        &-red {
+            --tc-bg: rgba(242, 109, 109, 0.5);
+        }
+
+        &-orange {
+            --tc-bg: rgba(251, 155, 95, 0.5);
+        }
+
+        &-blue {
+            --tc-bg: rgba(33, 150, 243, 0.5);
+        }
+
+        &-green {
+            --tc-bg: rgba(62, 175, 124, 0.5);
+        }
+    }
+}
+
+.theme-hope-content {
+    a {
+        padding: 4px;
+        color: var(--theme-color);
+        border-radius: 4px;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background-color: var(--tc-bg);
+            text-decoration: none;
+        }
+    }
+}
