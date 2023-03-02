@@ -194,7 +194,7 @@ Redis 还支持许多其他的数据结构，例如列表、集合、Hash 表等
 在 B 站找到一个快速入门(1h 左右)的视频：[【Redis 入门记(完结)，Redis6 零基础快速入门教程 2022 版】](https://www.bilibili.com/video/BV1GY41187d5/)
 
 <iframe
-    src="//player.bilibili.com/player.html?aid=253491033&bvid=BV1GY41187d5&cid=493391936&page=1" scrolling="no"
+    src="https://player.bilibili.com/player.html?aid=253491033&bvid=BV1GY41187d5&cid=493391936&page=1" scrolling="no"
     width="100%"
     height="500"
     style="border:none"
