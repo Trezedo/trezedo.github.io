@@ -115,3 +115,14 @@ img.hero-image {
     animation-iteration-count: infinite;
     animation-direction: normal;
 }
+
+// 自定义粒子
+particle {
+    position: fixed;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 999;
+}

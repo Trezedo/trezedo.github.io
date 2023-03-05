@@ -104,43 +104,27 @@ table {
     border-collapse: collapse;
     margin: 0 auto;
     text-align: center;
-}
 
-table td,
-table th {
-    border: 1px solid #cad9ea;
-    color: #666;
-    height: 30px;
-}
+    td,
+    th {
+        border: 1px solid #cad9ea;
+        color: #666;
+        height: 30px;
+    }
+    thead th {
+        background-color: #cce8eb;
+        width: 100px;
+        span {
+            font-weight: bold;
+        }
+    }
+    tr:nth-child(odd) {
+        background: #fff;
+    }
 
-table thead th {
-    background-color: #cce8eb;
-    width: 100px;
-}
-
-table thead th span {
-    font-weight: bold;
-}
-
-table tr:nth-child(odd) {
-    background: #fff;
-}
-
-table tr:nth-child(even) {
-    background: #f5fafa;
-}
-
-// todo 移动到其他文件
-
-// 自定义粒子
-particle {
-    position: fixed;
-    left: 0;
-    top: 0;
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0;
-    z-index: 999;
+    tr:nth-child(even) {
+        background: #f5fafa;
+    }
 }
 
 // @mr-hope/vuepress-plugin-components/lib/client/styles/back-to-top.scss
@@ -205,23 +189,23 @@ blockquote {
 
 // 补充半透明 rgba 主题色
 :root {
-    --tc-bg: rgba(62, 175, 124, 0.5);
+    --tc-bg: rgba(62, 175, 124, 0.2);
 
     &.theme {
         &-red {
-            --tc-bg: rgba(242, 109, 109, 0.5);
+            --tc-bg: rgba(242, 109, 109, 0.2);
         }
 
         &-orange {
-            --tc-bg: rgba(251, 155, 95, 0.5);
+            --tc-bg: rgba(251, 155, 95, 0.2);
         }
 
         &-blue {
-            --tc-bg: rgba(33, 150, 243, 0.5);
+            --tc-bg: rgba(33, 150, 243, 0.2);
         }
 
         &-green {
-            --tc-bg: rgba(62, 175, 124, 0.5);
+            --tc-bg: rgba(62, 175, 124, 0.2);
         }
     }
 }
@@ -238,4 +222,8 @@ blockquote {
             text-decoration: none;
         }
     }
+}
+
+blockquote {
+    border-radius: 6px;
 }

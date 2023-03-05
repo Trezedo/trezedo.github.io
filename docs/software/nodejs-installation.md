@@ -25,7 +25,7 @@ tag:
 
 :::
 
-下载 msi 安装包后，按默认的配置继续即可（可调整安装路径），这里选择的路径是 `E:\Envs\nodejs`。
+下载 msi 安装包后，按默认的配置继续即可（可调整安装路径），这里选择的路径是 `E:/envs/nodejs`。
 
 nodejs 默认的包管理工具是 npm，安装完成后可以使用以下命令检测是否成功：
 
@@ -40,29 +40,29 @@ npm -v  # 查看 npm 版本
 
 | 名称       | 默认值                        | 查看方法                    |
 | :--------- | :---------------------------- | --------------------------- |
-| prefix     | `AppData\Roaming\npm`         | `npm config get prefix`     |
-| cache      | `AppData\Local\npm-cache`     | `npm config get cache`      |
+| prefix     | `AppData/Roaming/npm`         | `npm config get prefix`     |
+| cache      | `AppData/Local/npm-cache`     | `npm config get cache`      |
 | registry   | `https://registry.npmjs.org/` | `npm config get registry`   |
-| userconfig | `%UserProfile%\.npmrc`        | `npm config get userconfig` |
+| userconfig | `%UserProfile%/.npmrc`        | `npm config get userconfig` |
 
 下面修改以上的默认值：
 
 ```bash
-npm config set prefix "E:/Envs/node/node_global"
-npm config set cache "E:/Envs/node/node_cache"
+npm config set prefix "E:/envs/node_pkg/node_global"
+npm config set cache "E:/envs/node_pkg/node_cache"
+
 # 设置国内淘宝镜像，可不加引号
 npm config set registry "https://registry.npmmirror.com/"
 ```
 
 ::: danger
 
-不要和 nodejs 安装路径在同一个目录，后续可能会出问题，例如权限不够等。
+安装路径和依赖路径不应是同一个目录，否则后续可能会出问题，如权限不够等。
 
 本文中：
 
-nodejs 安装路径：`E:\envs\nodejs`
-
-nodejs 环境路径：`E:\envs\node`
+- nodejs 安装路径：`E:/envs/nodejs`
+- nodejs 依赖路径：`E:/envs/node_pkg`
 
 :::
 
@@ -105,6 +105,90 @@ Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 
 <br/>
 
+## 使用 pnpm
+
+- [官网](https://pnpm.io/zh/)
+- [中文网](https://www.pnpm.cn/)
+
+```sh
+npm install -g pnpm
+```
+
+### 配置环境变量
+
+由于新的包管理工具 pnpm 在 `E:/envs/node_pkg/node_global` 下，直接在命令行使用 `pnpm` 会提示**不是内部或外部命令**，因此需要配置环境变量后才能使用。
+
+:::: tabs
+
+@tab 命令行设置
+
+用命令行设置环境变量比较快捷：
+
+```sh
+setx "node_global" "E:/envs/node_pkg/node_global"
+for /f "tokens=3*" %a in ('reg query HKCU\Environment /v Path') do ^
+@if [%b]==[] (@setx Path "%~a;%%node_global%%") else (@setx Path "%~a %~b;%%node_global%%")
+```
+
+双引号可以不加，除非路径包含空格
+
+> 如果电脑装有安全管家，使用 `setx` 命令可能会有风险提示。
+
+参考：
+
+- [cmd - setx](https://learn.microsoft.com/zh-cn/windows-server/administration/windows-commands/setx)
+- [Update the PATH user environment variable from command-line](https://superuser.com/questions/601015/how-to-update-the-path-user-environment-variable-from-command-line)
+
+<!-- https://zhuanlan.zhihu.com/p/349455443 -->
+
+@tab:active 手动设置
+
+::: tip 快速打开环境变量设置界面
+
+快捷键 <kbd>win</kbd>+<kbd>R</kbd>，键入 `SystemPropertiesAdvanced` 后回车，然后在最下方选择 `环境变量` 即可。
+
+:::
+
+在**用户变量**下，点击**新建**， 变量名为 `node_global` ，变量值为 `E:/envs/node_pkg/node_global`，
+
+然后找到并双击 `Path`，点击**新建**，输入 `%node_global%`，然后确定即可。
+
+::::
+
+pnpm 大部分命令和 npm 是一致的。如果 npm 配置过镜像，pnpm 则不需要重新配置。
+
+查看帮助：
+
+```sh
+pnpm -h
+pnpm <command> -h
+```
+
+配置相关：
+
+```sh
+pnpm config set <key> <value>
+pnpm config get <key>
+pnpm config delete <key>
+pnpm config list
+```
+
+添加包，同时下载它的依赖：
+
+```sh
+pnpm add <name>
+pnpm add <name>@<tag>
+pnpm add <name>@<version>
+pnpm add <name>@<version range>
+```
+
+它有额外的参数，常用的是 `-D` 和 `-g`：
+
+```sh
+pnpm add -D <name>  # -D 参数写入 devDependencies，默认写入 dependencies
+pnpm add -g <name>  # -g 参数表示全局安装
+```
+
 ## 使用 yarn
 
 ### 下载
@@ -115,24 +199,10 @@ Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 npm install --global yarn
 ```
 
-### 配置环境变量
-
-由于新的包管理工具 yarn 在 `E:\envs\node\node_global` 下，直接在命令行使用 `yarn` 会提示**不是内部或外部命令**，需要配置环境变量。
-
-::: tip
-
-快速打开环境变量设置界面的方法，按下快捷键 `win`+`R`，输入 `SystemPropertiesAdvanced` 后回车，然后在最下方选择`环境变量`即可。
-
-:::
-
-在**用户变量**下，点击**新建**， 变量名为 `node_global` ，变量值为 `E:\Envs\node\node_global`，
-
-然后找到并双击 `Path`，点击**新建**，输入 `%node_global%`，然后确定即可。
-
 在命令行验证：
 
 ```bash
-yarn -v # 或者 yarn --version
+yarn -v  # 或者 yarn --version
 ```
 
 查看全局变量
@@ -141,7 +211,7 @@ yarn -v # 或者 yarn --version
 yarn global dir
 ```
 
-它的默认位置是 `%UserProfile%\AppData\Local\Yarn\Data\global`
+它的默认位置是 `%UserProfile%/AppData/Local/Yarn/Data/global`
 
 ```bash
 yarn config -h # 查看帮助
@@ -150,8 +220,8 @@ yarn config -h # 查看帮助
 可以看到有 `global-folder`、`cache-folder` 两个项，获取它们得到的是 `undefined`，现修改其默认值：
 
 ```bash
-yarn config set global-folder "E:/Envs/node/yarn_global"
-yarn config set cache-folder "E:/Envs/node/yarn_cache"
+yarn config set global-folder "E:/envs/node/yarn_global"
+yarn config set cache-folder "E:/envs/node/yarn_cache"
 ```
 
 在修改 `global-folder` 后，可以发现使用 `yarn global dir` 也随之更改了。
@@ -180,10 +250,10 @@ Done in 3.19s.
 
 ```sh
 $ yarn global bin
-E:\Envs\node\node_global\bin # 实际上也是 %node_global%\bin
+E:/envs/node_pkg/node_global/bin  # 实际上也是 %node_global%/bin
 ```
 
-然后将以上路径添加到系统环境变量即可：打开配置环境变量页面，在 `path` 中添加 `%node_global%\bin`。
+然后将以上路径添加到系统环境变量即可：打开配置环境变量页面，在 `path` 中添加 `%node_global%/bin`。
 
 然后重新在命令行中输入 `tsc`，给出了 `tsc` 命令用法，就是已经能正常使用了。
 
@@ -323,10 +393,10 @@ npm cache clean -f
 
 ## 卸载 NodeJS
 
-按照正常方式卸载 nodejs 后，系统盘中还会存在一些残留的数据，还需要删除 `AppData\Roaming` 下的配置文件和临时文件：
+按照正常方式卸载 nodejs 后，系统盘中还会存在一些残留的数据，还需要删除 `AppData/Roaming` 下的配置文件和临时文件：
 
 1. 按下 `win`+`R`，输入 `%AppData%`；
 2. 找到并删除 `npm`、`npm-cache` 两个文件夹。
 3. 检查环境变量确保没有 `Nodejs` 相关值存在：`echo %PATH% | findstr "node"`
 
-在系统盘，当前用户名的目录下（如 `C:\Users\Trezedo`），还存在如 `.npmrc`，`.yarnrc` 之类的文件，用记事本打开可以发现它里面包含了我们使用 `npm config` 设置的配置，如果下次安装不需要这些配置，则可以手动删除。
+在系统盘，当前用户名的目录下（如 `C:/Users/Trezedo`），还存在如 `.npmrc`，`.yarnrc` 之类的文件，用记事本打开可以发现它里面包含了我们使用 `npm config` 设置的配置，如果下次安装不需要这些配置，则可以手动删除。
