@@ -107,6 +107,7 @@ onMounted(() => {
 <style lang="scss">
 .speech {
     position: absolute;
+    top: 0; // theme:避免插入 dom 后影响页脚
     opacity: 0;
     background-color: #f6f8fa;
     border: 1px solid #d1d5da;
@@ -114,8 +115,9 @@ onMounted(() => {
     padding: 2px;
     color: #556699;
     user-select: none; // 点击按钮时保持选中的文字
+    // pointer-events: none;
     z-index: 999;
-    transition: opacity 0.3s;
+    transition: opacity, left 0.25s;
 
     &.on {
         opacity: 1;
