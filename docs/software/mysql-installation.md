@@ -187,6 +187,7 @@ grant all privileges on my_app.* to 'zedo'@'%';
 MySQL 默认使用的时区是 UTC 时区，通常我们要修改成东八区，可以通过连接数据库时的 URL 参数 `serverTimezone` 修改，也用 SQL 语句来临时修改，但这里我们通过 `my.ini` 实现永久修改：
 
 ```ini
+; 放在 MySQL 根目录，这里是 E:\db\mysql-8.0.28-x64
 [mysqld]
 default-time-zone="+08:00"
 ```

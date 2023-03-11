@@ -56,7 +56,7 @@ tag:
 
 ![image-20220204165351295 center](https://zedo.gitee.io/img/image-20220204165351295.png#s-80)
 
-打开后，输入以下基本的`latex`文档结构：
+打开后，输入以下基本的 `LaTeX` 文档结构：
 
 ```latex
 \documentclass{article}
@@ -79,13 +79,13 @@ tag:
 
 ![image-20220204170854221 center](https://zedo.gitee.io/img/image-20220204170854221.png#s-60)
 
-至此，我们已经完成了 latex 写作的最重要的一步。
+至此，我们已经完成了 LaTeX 写作的最重要的一步。
 
 ### 设置镜像(无效果)
 
 > 提示：此处的操作并没有解决问题。如果实在需要安装好吧，建议在国内镜像下载 TexLive 并安装（见本文开头）。
 
-~~最近(2022-10-23)发现下载不了宏包，似乎是被墙了，连 miktex 官网都访问不了(很多非国内网站都是如此，后来发现是校园网的锅)~~。
+~~最近(2022-10-23)发现下载不了宏包，似乎是被墙了，连 MiKTeX 官网都访问不了(很多非国内网站都是如此，后来发现是校园网的锅)。~~
 
 日志报错是
 
@@ -107,13 +107,13 @@ mpm --list-repositories
 mpm --set-repository=https://mirrors.bfsu.edu.cn/CTAN/systems/win32/miktex/tm/packages/
 ```
 
-新版 miktex 推荐用以下命令自动选择并设置镜像：
+新版 MiKTeX 推荐用以下命令自动选择并设置镜像：
 
 ```sh
 mpm --pick-repository-url
 ```
 
-这里列举部分 miktex 的国内镜像：
+这里列举部分 MiKTeX 的国内镜像：
 
 - 北京外国语大学 <https://mirrors.bfsu.edu.cn/CTAN/systems/win32/miktex/tm/packages/>
 - 清华大学 <https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/win32/miktex/tm/packages/>
@@ -121,12 +121,12 @@ mpm --pick-repository-url
 - 中国科学技术大学 <https://mirrors.ustc.edu.cn/CTAN/systems/win32/miktex/tm/packages/>
 - 华为云 <https://repo.huaweicloud.com/CTAN/systems/win32/miktex/tm/packages/>
 
-然鹅设置之后依旧报同样的错（悲）……
+然而设置之后依旧报同样的错……
 
 ### 说在后面
 
-这里只是刚刚能够使用 latex，还没有涉及到很多 latex 语法、公式、宏包、tex 命令行等等。而实际上 latex 也有其专门的 IDE：[TexStudio](http://texstudio.sourceforge.net/)、winedt（收费）等，同样提供了很多开箱即用的功能，以及常用的宏命令提示等等，当然，插件颇为丰富的 Visual Studio Code 也有对应的用于 latex 写作的插件：`LaTeX Workshop`，可定制性高，例如可以配置 snippet，但有时遇到编译错误它不能很好的对错误定位和提示，关于这点还是比较推荐 TexStudio。
+这里只是刚刚能够使用 LaTeX，还没有涉及到很多 LaTeX 语法、公式、宏包、TeX 命令行等等。而实际上 LaTeX 也有其专门的 IDE：[TexStudio](http://texstudio.sourceforge.net/)、WinEdt（收费）等，同样提供了很多开箱即用的功能，以及常用的宏命令提示等等，当然，插件颇为丰富的 **VS Code** 也有对应的用于 LaTeX 写作的插件：`LaTeX Workshop`，可定制性高，例如可以配置 snippet，但有时遇到编译错误它不能很好的对错误定位和提示，关于这点还是比较推荐 TexStudio。
 
-当文档比较长的时候，pdf 到 tex 源码和 tex 到 pdf 的双向定位也是比较重要的，这里再推荐一个轻量的 pdf 阅读器：[SumatraPDF](https://www.sumatrapdfreader.org/)，它和 winedt、vscode 都能很好的配合，当然 TexStudio 也可以，但是它自带 pdf 阅读器。
+当文档比较长的时候，pdf 到 TeX 源码和 TeX 到 pdf 的双向定位也是比较重要的，这里再推荐一个轻量的 pdf 阅读器：[SumatraPDF](https://www.sumatrapdfreader.org/)，它和 winedt、vscode 都能很好的配合，当然 TexStudio 也可以，但是它自带 pdf 阅读器。
 
-学习 latex 更多的还是看手册，看宏包的使用说明文档，比较推荐的入门书就是 [lshort-zh-cn](https://mirrors.tuna.tsinghua.edu.cn/CTAN/info/lshort/chinese/lshort-zh-cn.pdf)，这个文档译名是《一份（不太）简短的 LaTeX2e 介绍》或《112 分钟了解 LaTeX2e》，这里还有国内外各一个论坛，遇到的问题可以上来搜索和询问：[Stack Exchange](tex.stackexchange.com)、[LaTeX 工作室](https://www.latexstudio.net/)，提问也有其对应的要求，例如一个最小工作示例（MWE），要学习的内容还算挺多，慢慢来吧。
+学习 LaTeX 更多的还是看手册，看宏包的使用说明文档，比较推荐的入门书就是 [lshort-zh-cn](https://mirrors.tuna.tsinghua.edu.cn/CTAN/info/lshort/chinese/lshort-zh-cn.pdf)，这个文档译名是《一份（不太）简短的 LaTeX2e 介绍》或《112 分钟了解 LaTeX2e》，这里还有国内外各一个论坛，遇到的问题可以上来搜索和询问：[Stack Exchange](tex.stackexchange.com)、[LaTeX 工作室](https://www.latexstudio.net/)，提问也有其对应的要求，例如一个最小工作示例（MWE），要学习的内容还算挺多，慢慢来吧。
