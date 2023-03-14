@@ -77,7 +77,7 @@ npm config get registry
 ::: details 使用 npm 命令后有警告的解决方法
 在安装 node v16 后使用 `npm -v` 后警告：
 
-```ps1
+```powershell
 npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
 ```
 
@@ -85,13 +85,13 @@ npm WARN config global `--global`, `--local` are deprecated. Use `--location=glo
 
 首先需要以管理员权限运行 powershell，然后执行：
 
-```ps1
+```powershell
 Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 ```
 
 > 如果不执行，可能会提示
 >
-> ```ps1
+> ```powershell
 > npm-windows-upgrade v6.0.1
 >
 > Scripts cannot be executed on this system.

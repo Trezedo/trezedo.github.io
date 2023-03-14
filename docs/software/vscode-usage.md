@@ -23,14 +23,14 @@ Windows 系统下使用 vscode 内置终端可能会提示：
 
 这是由于 Windows PowerShell 自动阻止不信任的脚本执行 造成的，因此需要更改 Windows PowerShell 执行策略。
 
-```ps1
+```powershell
 # 查看当前的执行策略
 Get-ExecutionPolicy
 ```
 
 根据上面的 [链接](https:/go.microsoft.com/fwlink/?LinkID=135170) ，以**管理员身份**打开 PowerShell，然后执行：
 
-```ps1
+```powershell
 Set-ExecutionPolicy RemoteSigned
 # 接下来输入 'Y' 确定即可
 ```

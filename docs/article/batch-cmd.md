@@ -167,7 +167,7 @@ start explorer.exe
 
 ## 小玩意儿
 
-### 将压缩包”藏“进图片
+### 将压缩包“藏”进图片
 
 合并后将后缀名改为 `.zip` 可以正常解压
 
@@ -205,9 +205,46 @@ call %bat%
 
 ### 关闭打开应用时的安全警告弹窗
 
+主要是**打开用户账户控制设置**界面，按下 <kbd>Win</kbd>+<kbd>R</kbd> 输入 `UserAccountControlSettings` 回车即可。
+
+也可以将下面的另存为 `*.{bat,cmd}` 然后运行：
+
 ```batch
 @echo off
 if not "%~1"=="p" start /min cmd.exe /c %0 p & exit
 mshta vbscript:msgbox("在接下来弹出的窗口中，将控制按钮滑至最底格，单击“确定”；"^&vbCrLf^&"最后在系统弹出的窗口中选择“是”即可完成",64,"提示")(window.close)
 start %winDir%\system32\UserAccountControlSettings.exe
 ```
+
+### 修改文件属性
+
+有些时候我们想要修改一些属性，例如创建时间、修改时间、访问时间等，通过 PowerShell 可以实现这个需求，不需要下载其他小工具：
+
+```powershell
+# 将 修改时间 和 访问时间 修改为 2023-01-05 11:30:00
+Set-ItemProperty -Name LastWriteTime -Value "2023-01-05 11:30:00" -Path D:\test.docx
+Set-ItemProperty -Name LastAccessTime -Value "2023-01-05 11:30:00" -Path D:\test.docx
+# 设置文件为非只读
+Set-ItemProperty -Name IsReadOnly -Value False  -Path D:\test.docx
+```
+
+常用的属性列举如下：
+
+- `Name`：文件名
+- `Extension`：后缀，如 `.docx`
+- `IsReadOnly`：是否只读
+- `CreationTime`：创建时间
+- `LastWriteTime`：修改时间
+- `LastAccessTime`：访问时间
+
+我们也可以通过 `Get-ItemProperty` 函数查看文件属性：
+
+```powershell
+Get-ItemProperty -Path E:\test.docx | Format-list -Property * -Force
+```
+
+> 参考：[Set-ItemProperty - 微软 Learn](https://learn.microsoft.com/zh-cn/powershell/module/Microsoft.PowerShell.Management/Set-ItemProperty?view=powershell-5.1)
+
+<!-- Attribute Changer https://www.petges.lu/download/ -->
+
+如果想要修改只读、隐藏、是否为系统文件等属性，可以用 `attrib` 命令，参考 `help attrib`。
