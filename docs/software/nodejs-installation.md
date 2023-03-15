@@ -124,15 +124,19 @@ npm install -g pnpm
 
 用命令行设置环境变量比较快捷：
 
-```sh
-setx "node_global" "E:/envs/node_pkg/node_global"
+```powershell
+setx "node_global" "E:\envs\node_pkg\node_global"
 for /f "tokens=3*" %a in ('reg query HKCU\Environment /v Path') do ^
 @if [%b]==[] (@setx Path "%~a;%%node_global%%") else (@setx Path "%~a %~b;%%node_global%%")
 ```
 
-双引号可以不加，除非路径包含空格
+:::tip
+Windows 11 似乎需要使用 `\` 而非 `/`，具体根据实际情况切换。
 
-> 如果电脑装有安全管家，使用 `setx` 命令可能会有风险提示。
+双引号可以不加，除非路径包含空格，所以你也可以把目标目录拖到命令行。
+
+如果电脑装有安全管家等，使用 `setx` 命令可能会有风险提示。
+:::
 
 参考：
 
@@ -143,9 +147,12 @@ for /f "tokens=3*" %a in ('reg query HKCU\Environment /v Path') do ^
 
 @tab:active 手动设置
 
-::: tip 快速打开环境变量设置界面
+::: tip 快速打开环境变量设置界面的方法
 
-快捷键 <kbd>win</kbd>+<kbd>R</kbd>，键入 `SystemPropertiesAdvanced` 后回车，然后在最下方选择 `环境变量` 即可。
+方式有多种，先按下快捷键 <kbd>win</kbd>+<kbd>R</kbd>，然后任选其一：
+
+- `rundll32 sysdm.cpl,EditEnvironmentVariables`：通过系统数据管理控制面板 `sysdm.cpl`（System Data Management Control Panel）直接打开；
+- 键入 `SystemPropertiesAdvanced` 后回车，然后在最下方选择 `环境变量`；
 
 :::
 

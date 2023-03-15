@@ -10,10 +10,12 @@ importers:
       '@vuepress/plugin-search': 2.0.0-beta.61
       '@vuepress/shared': 2.0.0-beta.61
       '@vuepress/utils': 2.0.0-beta.61
+      cross-env: ^7.0.3
       vite: ^3.2.5
       vue: ^3.2.47
       vue-router: ^4.1.6
       vuepress: 2.0.0-beta.61
+      vuepress-plugin-search-pro: 2.0.0-beta.193
       vuepress-theme-hope: 2.0.0-beta.193
     devDependencies:
       '@vuepress/bundler-webpack': 2.0.0-beta.61
@@ -22,10 +24,12 @@ importers:
       '@vuepress/plugin-search': 2.0.0-beta.61
       '@vuepress/shared': 2.0.0-beta.61
       '@vuepress/utils': 2.0.0-beta.61
+      cross-env: 7.0.3
       vite: 3.2.5
       vue: 3.2.47
       vue-router: 4.1.6_vue@3.2.47
       vuepress: 2.0.0-beta.61_zcwlgd45apez724duilctoxt4u
+      vuepress-plugin-search-pro: 2.0.0-beta.193_44bug2q4gvgfsg4b36ccgweufe
       vuepress-theme-hope: 2.0.0-beta.193_44bug2q4gvgfsg4b36ccgweufe
 
   packages/plugin-deco:
@@ -3623,6 +3627,14 @@ packages:
       parse-json: 5.2.0
       path-type: 4.0.0
       yaml: 1.10.2
+    dev: true
+
+  /cross-env/7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
     dev: true
 
   /cross-spawn/7.0.3:
@@ -8033,6 +8045,47 @@ packages:
     transitivePeerDependencies:
       - '@vue/composition-api'
       - '@vuepress/client'
+      - supports-color
+    dev: true
+
+  /vuepress-plugin-search-pro/2.0.0-beta.193_44bug2q4gvgfsg4b36ccgweufe:
+    resolution: {integrity: sha512-VvDiydQs340nEnffxI/2zEkMUb7l1D7K2TlAmFLL1hE31DapfsZzxe9EMA3b6HJ2JQd5lMK1OOYzTAvWDkEwvA==}
+    engines: {node: ^14.18.0 || >=16.0.0, npm: '>=8', pnpm: '>=7'}
+    peerDependencies:
+      '@vuepress/client': 2.0.0-beta.61
+      sass-loader: ^13.2.0
+      vuepress: 2.0.0-beta.61
+      vuepress-vite: 2.0.0-beta.61
+      vuepress-webpack: 2.0.0-beta.61
+    peerDependenciesMeta:
+      '@vuepress/client':
+        optional: true
+      sass-loader:
+        optional: true
+      vuepress:
+        optional: true
+      vuepress-plugin-sass-palette:
+        optional: true
+      vuepress-shared:
+        optional: true
+      vuepress-vite:
+        optional: true
+      vuepress-webpack:
+        optional: true
+    dependencies:
+      '@vuepress/client': 2.0.0-beta.61
+      '@vuepress/shared': 2.0.0-beta.61
+      '@vuepress/utils': 2.0.0-beta.61
+      '@vueuse/core': 9.13.0_vue@3.2.47
+      cheerio: 1.0.0-rc.12
+      chokidar: 3.5.3
+      vue: 3.2.47
+      vue-router: 4.1.6_vue@3.2.47
+      vuepress: 2.0.0-beta.61_zcwlgd45apez724duilctoxt4u
+      vuepress-plugin-sass-palette: 2.0.0-beta.193_44bug2q4gvgfsg4b36ccgweufe
+      vuepress-shared: 2.0.0-beta.193_44bug2q4gvgfsg4b36ccgweufe
+    transitivePeerDependencies:
+      - '@vue/composition-api'
       - supports-color
     dev: true
 

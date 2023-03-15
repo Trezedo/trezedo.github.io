@@ -1,7 +1,13 @@
 <template>
-    <div ref="el" class="speech" :class="{ on: show }" :data-text="text" :style="style">
+    <div
+        ref="el"
+        class="speech"
+        :class="[data.show ? 'on' : 'off']"
+        :data-text="data.text"
+        :style="style"
+    >
         <svg>
-            <use :xlink:href="'#speech-icon-' + icon"></use>
+            <use :xlink:href="'#speech-icon-' + data.icon" />
         </svg>
     </div>
     <svg
@@ -25,13 +31,15 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, reactive, ref } from "vue";
+import { CSSProperties, onMounted, reactive, ref } from "vue";
 
 const el = ref<HTMLDivElement | null>(null);
-const text = ref("");
-const show = ref(false);
-const icon = ref("play");
-const style = reactive({
+const data = reactive({
+    text: "",
+    show: false,
+    icon: "play",
+});
+const style = reactive<CSSProperties>({
     left: "",
     top: "",
 });
@@ -40,25 +48,25 @@ const handleSelectWords = () => {
     document.body.addEventListener("mouseup", (e: MouseEvent) => {
         const str = getSelection()!.toString().trim();
         if (str === "") {
-            show.value = false;
+            data.show = false;
             return;
         }
-        show.value = true;
+        data.show = true;
         speechSynthesis.cancel();
 
         // @ts-ignore 记录当前选择的文字位置等
         window.speechRange = getSelection().getRangeAt(0).cloneRange();
 
-        text.value = str;
+        data.text = str;
         const r = getSelection()!.getRangeAt(0).getBoundingClientRect();
-        icon.value = "play";
+        data.icon = "play";
 
         style.top = r.top + r.height + document.querySelector("html")!.scrollTop - 20 + "px";
         style.left = e.screenX + 4 + "px";
 
         // mousedown -> 选中的文字() -> 隐藏
         setTimeout(() => {
-            if (getSelection()!.toString().trim() == "") show.value = false;
+            if (getSelection()!.toString().trim() == "") data.show = false;
         }, 50);
     });
 };
@@ -79,21 +87,21 @@ const handleBtnClick = (e: MouseEvent) => {
 
     if (!speechSynthesis.speaking) {
         // 如果没在朗读，新建
-        const utter = new SpeechSynthesisUtterance(text.value);
+        const utter = new SpeechSynthesisUtterance(data.text);
         utter.onend = () => {
             // speechSynthesis.cancel();
-            icon.value = "play";
+            data.icon = "play";
         };
         speechSynthesis.speak(utter);
-        icon.value = "pause";
+        data.icon = "pause";
     } else {
         // 在朗读时，点击暂停、继续
         if (speechSynthesis.paused) {
             speechSynthesis.resume();
-            icon.value = "pause";
+            data.icon = "pause";
         } else {
             speechSynthesis.pause();
-            icon.value = "play";
+            data.icon = "play";
         }
     }
 };
@@ -115,13 +123,16 @@ onMounted(() => {
     padding: 2px;
     color: #556699;
     user-select: none; // 点击按钮时保持选中的文字
-    // pointer-events: none;
     z-index: 999;
     transition: opacity, left 0.25s;
 
     &.on {
         opacity: 1;
         cursor: pointer;
+    }
+
+    &.off {
+        pointer-events: none;
     }
 
     svg {
