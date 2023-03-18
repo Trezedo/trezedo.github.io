@@ -22,15 +22,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from "vue";
-import { useRoute, useRouter, RouterLink } from "vue-router";
-import {
-    usePageData,
-    usePagesData,
-    usePageFrontmatter,
-    useSiteData,
-    resolvers,
-} from "@vuepress/client";
+import { resolvers, usePagesData } from "@vuepress/client";
+import { ref } from "vue";
+import { RouterLink, useRoute, useRouter } from "vue-router";
 
 // @ts-ignore
 // import _pages from "@temp/pages";

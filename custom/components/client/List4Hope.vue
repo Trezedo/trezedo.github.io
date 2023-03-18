@@ -8,8 +8,8 @@
 </template>
 
 <script lang="ts" setup>
-import { getSimpleRoutes } from "../../hooks/";
 import type { RouteRecordNormalized } from "vue-router";
+import { getSimpleRoutes } from "../../hooks/";
 
 const props = defineProps({
     prefix: {

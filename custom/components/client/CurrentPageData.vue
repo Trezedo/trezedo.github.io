@@ -5,12 +5,12 @@
 <script lang="ts" setup>
 // https://github.com/vuepress/vuepress-next/pull/504
 import {
+    resolvers,
     usePageData,
     usePageFrontmatter,
-    useSiteData,
     usePagesData,
-    resolvers,
     useRouteLocale,
+    useSiteData,
 } from "@vuepress/client";
 import { onMounted } from "vue";
 

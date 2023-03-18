@@ -1,4 +1,10 @@
 {
+    "formatFiles.runOrganizeImports": true,
+    "editor.codeActionsOnSave": {
+        // 整理 import，去掉没用的导包
+        "source.organizeImports": false,
+        "source.fixAll": true
+    },
     "workbench.editorAssociations": {
         // 开启则使用默认的 svg 查看器，否则使用 office viewer
         // "*.svg": "default"
