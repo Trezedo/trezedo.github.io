@@ -31,7 +31,8 @@
 </template>
 
 <script setup lang="ts">
-import { CSSProperties, onMounted, reactive, ref } from "vue";
+import { usePageData } from "@vuepress/client";
+import { CSSProperties, onMounted, reactive, ref, watch } from "vue";
 
 const el = ref<HTMLDivElement | null>(null);
 const data = reactive({
@@ -43,6 +44,14 @@ const style = reactive<CSSProperties>({
     left: "",
     top: "",
 });
+
+// 切换页面后，避免 top 值超出页面高度
+watch(
+    () => usePageData().value.path,
+    () => {
+        style.top = 0;
+    }
+);
 
 const handleSelectWords = () => {
     document.body.addEventListener("mouseup", (e: MouseEvent) => {
