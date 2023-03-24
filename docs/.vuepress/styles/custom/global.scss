@@ -43,11 +43,11 @@ p > a[name] {
     padding-top: var(--offset-top);
     margin-top: calc(0 - var(--offset-top));
     visibility: hidden;
-}
 
-p > a[name]:before {
-    margin-left: -1em;
-    content: "m";
+    &:before {
+        margin-left: -1em;
+        content: "m";
+    }
 }
 
 // toggle 侧边栏的过渡动画
@@ -67,15 +67,15 @@ p > a[name]:before {
     https://blog.csdn.net/weixin_45689946/article/details/122167495
     transform 比 margin 性能好 50%~70%
  */
-.sidebar.hide {
-    // 使用 transform 代替直接 修改 left
-    // left: calc(0px - var(--sidebar-width));
-    -webkit-transform: translateX(calc(0px - var(--sidebar-width)));
-    transform: translateX(calc(0px - var(--sidebar-width)));
-}
-
 .sidebar {
     z-index: 1;
+
+    &.hide {
+        // 使用 transform 代替直接 修改 left
+        // left: calc(0px - var(--sidebar-width));
+        // -webkit-transform
+        transform: translateX(calc(0px - var(--sidebar-width)));
+    }
 }
 
 .page.full {
@@ -215,9 +215,10 @@ blockquote {
     }
 }
 
+// 正文链接背景色
 .theme-hope-content {
     a {
-        padding: 4px;
+        padding: 4px 1px;
         color: var(--theme-color);
         border-radius: 4px;
         transition: all 0.3s ease-in-out;

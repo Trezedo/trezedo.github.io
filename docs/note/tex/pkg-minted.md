@@ -1,5 +1,10 @@
 ---
+icon: tex
 date: 2022-10-27
+category:
+    - LaTeX
+tag:
+    - latex
 ---
 
 # LaTeX 使用 minted 代码高亮
