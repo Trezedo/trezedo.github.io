@@ -1,6 +1,5 @@
 import { hopeTheme } from "vuepress-theme-hope";
 import { navbar, sidebar } from "./configs";
-// import type { TrustContext } from "katex";
 
 export default hopeTheme({
     hostname: "https://zedo.netlify.app",
@@ -152,7 +151,7 @@ export default hopeTheme({
                     return "error";
                 } */,
                 // https://github.com/KaTeX/KaTeX/issues/2003
-                trust: (context: /* TrustContext */ any) =>
+                trust: (context /* : TrustContext */) =>
                     ["\\htmlId", "\\href"].includes(context.command),
             },
         },
