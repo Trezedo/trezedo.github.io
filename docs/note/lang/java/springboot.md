@@ -360,6 +360,35 @@ public class MybatisPlusConfig {
 见 [MybatisPlus Issues](https://github.com/baomidou/mybatis-plus/issues/4619)
 :::
 
+## WebMvc 配置
+
+配置跨域、拦截器、静态资源等，有以下方式实现：
+
+1. 实现 `WebMvcConfigurer` 接口（推荐）。
+2. 继承 `WebMvcConfigurationSupport` 类。
+
+代码示例如下：
+
+```java
+// 方式1
+@Configuration
+public class WebConfig implements WebMvcConfigurer {
+}
+
+// 方式2
+@Configuration
+public class WebConfig2 extends WebMvcConfigurationSupport {
+}
+```
+
+注意两种方式不能同时使用！
+
+如果你使用 IDEA，按下快捷键 <kbd>Ctrl</kbd>+<kbd>O</kbd> 打开重写函数面板，重写你需要的方法，例如：
+
+- 配置跨域 `addCorsMappings`
+- 添加拦截器 `addInterceptors`
+- 静态资源处理 `addResourceHandlers`
+
 ## 引入 Smart Doc 生成接口文档
 
 我们在开发时可能使用 Swagger 来测试接口，但它是侵入式的，即需要对类和函数添加注解。
@@ -417,7 +446,7 @@ Smart Doc 是非侵入式的，它基于注释生成文档，这里不做过多�
 
 在 IDEA 右侧 Maven 栏目中找到 `插件`->`smart-doc`，根据你所需要的执行，如 `smart-doc:openapi`，它会在 `src/main/resources/static/doc`（这是配置文件指定的）输出一个 `openapi.json` 文件，可以用支持 OpenApi3 的平台或工具（如 Apifox） 打开。
 
-下面配置静态资源路径，以允许访问 openapi.json 文件。
+下面配置静态资源路径，以允许访问 `openapi.json` 文件。
 
 ```java
 @Configuration

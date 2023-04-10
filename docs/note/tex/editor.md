@@ -35,9 +35,9 @@ TexStudio 对于初学者是比较友好的，它是用于创建 LaTeX 文档的
 
 虽然通过 LaTeX Workshop 使用 vscode 内置的 pdf 阅读器已经满足基本使用了，但我更喜欢外部的阅读器，例如 SumatraPDF，下面介绍配置其反向搜索的方法。
 
-单独打开 SumatraPDF 进程，左上角菜单 — 设置 — 选项 — 设置反向搜索命令行，输入：
+打开 SumatraPDF ，左上角依次选择菜单 — 设置 — 选项 — 设置反向搜索命令行，输入：
 
-```text
+```sh
 "D:\path to\VS Code\Code.exe" -g "%f:%l"
 ```
 
@@ -56,7 +56,7 @@ TexStudio 对于初学者是比较友好的，它是用于创建 LaTeX 文档的
 > - 记事本：`notepad "%f"` （无法跳转到行）
 > - TexStudio：`"D:\path to\texstudio.exe" %f -line %l`
 
-如果双击之后没有任何反应，可能需要检查高级选项（即 SumatraPDF-settings.txt 文件）中是否启用了 `EnableTeXEnhancements`：
+如果双击之后没有任何反应，可能需要检查高级选项（即 **SumatraPDF-settings.txt** 文件）中是否启用了 `EnableTeXEnhancements`：
 
 ```ini
 InverseSearchCmdLine = "D:\path to\VS Code\Code.exe" -g "%f:%l"

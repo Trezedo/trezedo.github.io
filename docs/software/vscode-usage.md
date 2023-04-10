@@ -17,7 +17,7 @@ icon: vscode
 Windows 系统下使用 vscode 内置终端可能会提示：
 
 ```text
-无法加载文件 yarn.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参阅 https:/go.microsoft.com/fwlink/?LinkID=135170 中的 about_Execution_Policies。
+无法加载文件 yarn.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参阅 https://go.microsoft.com/fwlink/?LinkID=135170 中的 about_Execution_Policies。
 所在位置 行:1 字符: 1
 ```
 
@@ -28,7 +28,7 @@ Windows 系统下使用 vscode 内置终端可能会提示：
 Get-ExecutionPolicy
 ```
 
-根据上面的 [链接](https:/go.microsoft.com/fwlink/?LinkID=135170) ，以**管理员身份**打开 PowerShell，然后执行：
+根据上面的 [链接](https://go.microsoft.com/fwlink/?LinkID=135170) ，以**管理员身份**打开 PowerShell，然后执行：
 
 ```powershell
 Set-ExecutionPolicy RemoteSigned
