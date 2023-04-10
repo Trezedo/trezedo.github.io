@@ -1,5 +1,5 @@
 import { hopeTheme } from "vuepress-theme-hope";
-import { navbar, sidebar } from "./configs";
+import { components, navbar, sidebar } from "./configs";
 
 export default hopeTheme({
     hostname: "https://zedo.netlify.app",
@@ -163,5 +163,6 @@ export default hopeTheme({
             triggerWords: 100,
         },
         pwa: false,
+        components,
     },
 });

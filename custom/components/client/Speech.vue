@@ -132,7 +132,7 @@ onMounted(() => {
     padding: 2px;
     color: #556699;
     user-select: none; // 点击按钮时保持选中的文字
-    z-index: 999;
+    z-index: 9999;
     transition: opacity, left 0.25s;
 
     &.on {
