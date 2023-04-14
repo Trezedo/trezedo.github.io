@@ -17,8 +17,7 @@ export const components: ComponentOptions = {
             {
                 path: "/",
                 title: "公告",
-                content:
-                    "新增公告组件，更新部分文章的笔误，本地降至 pnpm7 以保证和 netlify 的版本一致",
+                content: "修改 springboot 笔记，尝试通过 packageManager 使用 pnpm8",
                 // confirm: true,
                 // actions: [],
                 // showOnce: false,

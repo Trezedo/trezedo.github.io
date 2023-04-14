@@ -25,9 +25,9 @@
         "vue": "^3.2.47",
         "vue-router": "^4.1.6",
         "vuepress": "2.0.0-beta.61",
-        "vuepress-plugin-components": "2.0.0-beta.202",
-        "vuepress-plugin-search-pro": "2.0.0-beta.202",
-        "vuepress-theme-hope": "2.0.0-beta.202"
+        "vuepress-plugin-components": "2.0.0-beta.203",
+        "vuepress-plugin-search-pro": "2.0.0-beta.203",
+        "vuepress-theme-hope": "2.0.0-beta.203"
     },
     "pnpm": {
         "peerDependencyRules": {
@@ -39,5 +39,6 @@
                 "react-dom"
             ]
         }
-    }
+    },
+    "packageManager": "pnpm@8.2.0+"
 }

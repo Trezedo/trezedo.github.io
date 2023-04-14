@@ -44,6 +44,8 @@ import java.io.Serializable;
 public class Result<T> implements Serializable {
     /**
      * 请求是否成功
+     *
+     * @implNote 准确来说应该用 successful
      */
     private boolean success;
     /**
@@ -204,7 +206,7 @@ create table student
 ```java
 import lombok.Data;
 @Data
-public class StudentVo extends Student {
+public class StudentVO extends Student {
     /**
      * 专业名称
      */
@@ -212,12 +214,12 @@ public class StudentVo extends Student {
 }
 ```
 
-定义 Dao 接口：
+定义 DAO 接口：
 
 ```java
 @Mapper
-public interface StudentDao extends BaseMapper<Student> {
-    List<StudentVo> getVoList(@Param(Constants.WRAPPER) QueryWrapper<Student> query);
+public interface StudentDAO extends BaseMapper<Student> {
+    List<StudentVO> listVO(@Param(Constants.WRAPPER) QueryWrapper<Student> query);
 }
 ```
 
@@ -230,7 +232,8 @@ public interface StudentDao extends BaseMapper<Student> {
 @tab 方式 1
 
 ```xml
-<select id="getVoList" resultType="com.example.entity.vo.StudentVo">
+<!-- StudentMapper.xml -->
+<select id="listVO" resultType="com.example.entity.vo.StudentVO">
     select s.id, s.name, s.num, s.major_id, m.name as major_name
     from student s
     left join major m on s.major_id = m.id
@@ -242,12 +245,12 @@ public interface StudentDao extends BaseMapper<Student> {
 </select>
 ```
 
-使用 `left join` 连接表；其实可以不写 `if` 标签，此处是为了避免 IDE 报错提示，因为这不是标准的 SQL 语法。
+使用 `left join` 连接表；此处的 `if` 标签，一来可以避免 IDEA 对非标准 SQL 语法报错提示，二来能够避免查询条件为空导致语法错误。
 
 @tab 方式 2
 
 ```xml
-<select id="getVoList" resultType="com.example.entity.vo.StudentVo">
+<select id="listVO" resultType="com.example.entity.vo.StudentVO">
     select s.id, s.name, s.num, s.major_id, m.name as major_name
     from student s, major m
 
@@ -267,7 +270,7 @@ public interface StudentDao extends BaseMapper<Student> {
 @SpringBootTest
 class ApplicationTests {
     @Resource
-    StudentDao studentDao;
+    StudentDAO studentDAO;
 
     @Test
     void q() {
@@ -275,7 +278,7 @@ class ApplicationTests {
         // 注意这里需要用表别名，因为两个表都有 name 列
         // 表的别名在 SQL 中定义，一般取首字母
         query.like("s.name", "秦");
-        List<StudentVo> list = majorDao.getMajorVoList(query);
+        List<StudentVO> list = studentDAO.listVO(query);
         Optional.ofNullable(list).orElse(new ArrayList<>()).stream()
                 .filter(Objects::nonNull)
                 .forEach(System.out::println);
@@ -289,10 +292,10 @@ class ApplicationTests {
 
 ```java
 // 旧方式
-List<StudentVo> getVoList(@Param(Constants.WRAPPER) QueryWrapper<Student> query);
+List<StudentVO> getVOList(@Param(Constants.WRAPPER) QueryWrapper<Student> query);
 
 // 新方式，增加 page 参数，修改返回类型
-Page<StudentVo> pageVo(Page<StudentVo> page, @Param(Constants.WRAPPER) QueryWrapper<Student> query);
+Page<StudentVO> pageVO(Page<StudentVO> page, @Param(Constants.WRAPPER) QueryWrapper<Student> query);
 ```
 
 看着可能有些复杂，我们提取成一个通用的接口：
@@ -303,9 +306,9 @@ Page<StudentVo> pageVo(Page<StudentVo> page, @Param(Constants.WRAPPER) QueryWrap
  *
  * @param <T> 与数据库对应的 Java 类
  * @author zedo
- * @implNote 主要用于 pojo 转 vo，同时使用 MybatisPlus 的 QueryWrapper 做查询
+ * @implNote 主要用于 POJO 转 VO，同时使用 MybatisPlus 的 QueryWrapper 做查询
  */
-public interface IVoMapper<T> {
+public interface IVOMapper<T> {
     /**
      * 分页查询
      *
@@ -313,23 +316,23 @@ public interface IVoMapper<T> {
      * @param query 查询条件
      * @param <V>   视图层对象类型
      * @return 分页查询结果
-     * @implNote 需要在对应的 Mapper.xml 中定义 id 为 pageVo 的 select 标签
+     * @implNote 需要在对应的 Mapper.xml 中定义 id 为 pageVO 的 select 标签
      */
-    <V extends T> Page<V> pageVo(Page<V> page, @Param(Constants.WRAPPER) QueryWrapper<T> query);
+    <V extends T> Page<V> pageVO(Page<V> page, @Param(Constants.WRAPPER) QueryWrapper<T> query);
 }
 ```
 
 这里特地用泛型 `V` 表示 VO 层的对象，泛型 `T` 也可以和 `V` 用同样的类。为了使用上面的接口，需要以下操作：
 
-1，添加 `xxxDao` 继承的接口：
+1，添加 `xxxDAO` 继承的接口：
 
 ```java
 @Mapper
-public interface StudentDao extends BaseMapper<Student>, IVoMapper<Student> {
+public interface StudentDAO extends BaseMapper<Student>, IVOMapper<Student> {
 }
 ```
 
-2，编写对应的 `xxxMapper.xml`，需要有一个 `id="pageVo"` 的 `select` 标签。
+2，编写对应的 `xxxMapper.xml`，需要有一个 `id="pageVO"` 的 `select` 标签，就像上面方式 1 的 `StudentMapper.xml` 那样。
 
 <br>
 
@@ -405,6 +408,7 @@ Smart Doc 是非侵入式的，它基于注释生成文档，这里不做过多�
       <plugin>
         <groupId>com.github.shalousun</groupId>
         <artifactId>smart-doc-maven-plugin</artifactId>
+        <!-- 最新版本号看官网或者 maven 仓库 -->
         <version>2.6.6</version>
         <configuration>
           <!-- 指定生成文档的配置文件 -->
