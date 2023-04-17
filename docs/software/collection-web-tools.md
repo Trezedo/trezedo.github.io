@@ -5,9 +5,11 @@ icon: tool
 
 # 网页工具收集
 
-## 图片工具
+## 转换工具
 
-[I Love IMG](https://www.iloveimg.com/zh-cn)：支持在线处理图片，如裁剪、压缩、转换、编辑（透明图），不需要登陆。
+[CDKM 在线文件转换器](https://cdkm.com/cn/)：支持文档格式转换(pdf,docx 等)，图片格式转换(jpg,png,ico,gif,svg 等)，视频格式转换(常见格式都支持)，音频格式转换，甚至不常见的格式转换。
+
+[I Love IMG](https://www.iloveimg.com/zh-cn)：支持在线处理图片，如裁剪、压缩、转换(仅支持常见格式)、编辑（透明图），不需要登陆。
 
 ## 前端工具
 
@@ -34,4 +36,3 @@ icon: tool
 [Maven 仓库搜索](https://mvnrepository.com/)：比较全，基本能搜到，但容易被墙
 
 [Maven 仓库搜索](https://search.maven.org/)：搜索 Java 包名，不是很全
-
