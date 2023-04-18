@@ -9,7 +9,41 @@ tag:
     - java
 ---
 
-# SpringBoot 记录
+# SpringBoot 开发记录
+
+## 终止进程解决端口占用
+
+当我们重启 IDEA 时，提示我们 **“终止”** 或 **“断开连接”**，如果选择后者，那么下次启动 SpringBoot 项目时就可能会有类似如下报错：
+
+```text
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 62234 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 62234 or configure this application to listen on another port.
+```
+
+这是因为之前关闭 IDEA 时的 “断开连接” 操作没有关闭运行在对应端口的进程，我们只需要手动关闭即可解决：
+
+```sh
+# 查看哪个进程占用了 62234 端口
+netstat -aon | findstr 62234
+```
+
+![端口占用情况](./img/springboot/查找进程PID.png)
+
+```sh
+# 强制杀死进程
+taskkill -F -PID 17736
+```
+
+之后就可以重启 SpringBoot 项目了。
 
 ## 统一响应体简单封装
 
@@ -100,9 +134,9 @@ public class Result<T> implements Serializable {
 }
 ```
 
-> 代码使用到 lombok 的 `Getter` 注解，当然也可以使用 IDEA 的快捷键 <kbd>Alt</kbd>+<kbd>Insert</kbd> 生成 Getter。
+> 代码使用到 [lombok](https://projectlombok.org/) 的 `Getter` 注解，当然也可以使用 IDEA 的快捷键 <kbd>Alt</kbd>+<kbd>Insert</kbd> 生成 Getter。
 
-**使用方法**：先使用 `gen` 静态方法构造实体，之后再用 `of`/`ok`/`failed` 方法修改 success, code, msg 字段。
+**使用方法**：先使用 `gen` 静态方法构造实体，之后再用 `of`/`ok`/`failed` 方法修改 `success`, `code`, `msg` 字段。
 
 代码示例：
 
@@ -120,7 +154,7 @@ Result.<User>gen().failed("用户不存在", 400); // Result<User>
 ```
 
 注意到上面的 `gen` 方法显式类型实参有时不能自动推断，需要手动指定。
-这在 Controller 中可能不方便使用，因此下面再封装一个通用的 IBaseController 接口：
+这在控制器中可能不方便使用，因此下面再封装一个通用的 `IBaseController` 接口：
 
 ```java
 public interface IBaseController {
@@ -171,8 +205,8 @@ public interface IBaseController {
 
 > 我们可以有多种选择：
 >
-> 1. 直接让业务中的 Controller 实现 IBaseController 接口；
-> 2. 先定义抽象类 BaseController 并实现 IBaseController 接口，再让业务中的 Controller 继承 BaseController。
+> 1. 直接让业务中的 Controller 实现 `IBaseController` 接口；
+> 2. 先定义抽象类 BaseController 并实现 `IBaseController` 接口，再让业务中的 Controller 继承 BaseController。
 
 ## Mybatis Plus 多表条件查询
 
@@ -250,6 +284,7 @@ public interface StudentDAO extends BaseMapper<Student> {
 @tab 方式 2
 
 ```xml
+<!-- StudentMapper.xml -->
 <select id="listVO" resultType="com.example.entity.vo.StudentVO">
     select s.id, s.name, s.num, s.major_id, m.name as major_name
     from student s, major m
@@ -384,7 +419,7 @@ public class WebConfig2 extends WebMvcConfigurationSupport {
 }
 ```
 
-注意两种方式不能同时使用！
+注意两种方式**不能同时使用**！
 
 如果你使用 IDEA，按下快捷键 <kbd>Ctrl</kbd>+<kbd>O</kbd> 打开重写函数面板，重写你需要的方法，例如：
 

@@ -12,6 +12,8 @@ netlify 使用的 pnpm 版本默认是 7.x [^doc1]，但最新版已经是 8.x �
 }
 ```
 
+> pnpm 当前最新版本为 ![pnpm latest 版本](https://img.shields.io/npm/v/pnpm?label=pnpm)
+
 这里的版本号是唯一确定的，否则构建时会报错：
 
 ```sh

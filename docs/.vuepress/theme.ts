@@ -1,5 +1,5 @@
 import { hopeTheme } from "vuepress-theme-hope";
-import { components, navbar, sidebar } from "./configs";
+import { components, navbar, sidebar, comments } from "./configs";
 
 export default hopeTheme({
     hostname: "https://zedo.netlify.app",
@@ -79,11 +79,7 @@ export default hopeTheme({
             article: "/article",
             // slides:undefined
         },
-        // comment: {
-        //     type: "waline",
-        //     serverURL: "https://vuepress-theme-hope-comment.vercel.app",
-        // },
-        comment: false,
+        comment: comments,
         mdEnhance: {
             chart: false,
             echarts: false,
