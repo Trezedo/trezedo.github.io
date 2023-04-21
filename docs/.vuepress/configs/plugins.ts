@@ -12,15 +12,16 @@ export const pluginConfig: PluginConfig = [
     search,
 ];
 
-function getDate() {
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = today.getMonth() + 1;
-    const day = today.getDate();
-    return `${year}-${month}-${day}`;
-}
+export const comments: CommentOptions = {
+    provider: "Giscus",
+    repo: "Trezedo/blog-giscus",
+    repoId: "R_kgDOJYJYog",
+    category: "Announcements",
+    categoryId: "DIC_kwDOJYJYos4CV2sq",
+    // 其他选项用默认值即可
+};
 
-// 主题中不能单独使用
+// Hope 主题中不要单独使用
 export const components: ComponentOptions = {
     rootComponents: {
         // https://plugin-components.vuejs.press/zh/guide/notice.html
@@ -39,18 +40,9 @@ export const components: ComponentOptions = {
                 ][0],
                 // confirm: true,
                 // actions: [],
-                showOnce: isDev() ? false : true,
+                // showOnce: isDev() ? false : true,
                 // fullscreen: true,
             },
         ],
     },
-};
-
-export const comments: CommentOptions = {
-    provider: "Giscus",
-    repo: "Trezedo/blog-giscus",
-    repoId: "R_kgDOJYJYog",
-    category: "Announcements",
-    categoryId: "DIC_kwDOJYJYos4CV2sq",
-    // 其他选项用默认值即可
 };
