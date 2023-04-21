@@ -8,11 +8,11 @@ category:
 
 # MySQL 8.0 安装
 
-> 最近做课设需要用到 MySQL~~(虽然我更喜欢 PostgreSQL)~~，于是就记录下安装过程。
+最近做课设需要用到 MySQL ~~(虽然我更喜欢 PostgreSQL)~~，于是就记录下安装过程。
 
 安装步骤总览：<https://dev.mysql.com/doc/refman/8.0/en/windows-install-archive.html>
 
-## 下载并安装
+## 下载
 
 - 社区版下载：<https://dev.mysql.com/downloads/mysql/>
 - 历史版本：<https://downloads.mysql.com/archives/community/>
@@ -23,9 +23,11 @@ category:
 
 应该是国内有 CDN，下载速度还挺快的。
 
-因为这里我们选择了非“安装”版（安装版会默认安装到 `C:\Program Files\MySQL`），需要手动配置。下面的内容参考了[官网指南](https://dev.mysql.com/doc/refman/8.0/en/windows-install-archive.html)。
+因为这里我们选择了非“安装”版，需要手动配置。下面的内容参考了[官网指南](https://dev.mysql.com/doc/refman/8.0/en/windows-install-archive.html)。
 
 先解压刚才下载的压缩包到你喜欢的路径，我选择了 `E:\db\mysql-8.0.28-x64`。
+
+> [安装版](https://dev.mysql.com/downloads/installer/)会默认安装到 `C:\Program Files\MySQL`，不过现在可以自行选择了。
 
 ## 创建可选的配置文件
 
@@ -75,9 +77,9 @@ $ mysqld --initialize --console
 
 注意上面的最后一行，`cgyf_w.pu3gK` 是 mysql 为用户 `root@localhost` 创建的临时密码，需要先记住这个密码，后续登录和修改密码需要用到！
 
-## 安装 MySQL Server 服务
+## 注册 MySQL 服务
 
-> [Starting MySQL as a Windows Service](https://dev.mysql.com/doc/refman/8.0/en/windows-start-service.html)
+> 文档地址：[Starting MySQL as a Windows Service](https://dev.mysql.com/doc/refman/8.0/en/windows-start-service.html)
 
 这里我们跳过了在命令行启动 MySQL 的步骤，因为一般都是用 DataGrip，Navicat 等工具连接对吧。同时为了能够用这些工具连接 MySQL “服务器”，需要注册 Windows 服务。
 
@@ -100,33 +102,37 @@ The current server installed: E:\db\mysql-8.0.28-x64\bin\mysqld.exe MySQL
 
 这时可用以下命令删除服务（可能要用 cmd 而非 powershell）：
 
-```sh
-$ sc delete mysql
+```batch
+> sc delete mysql
 [SC] DeleteService 成功
 ```
 
-## 启动 MySQL
+### 启动 MySQL 服务
 
 服务安装成功之后通过命令，注意要和安装命令的 `[服务名]` 一样（可能需要管理员身份）:
 
-```sh
-$ net start mysql
+```batch
+> net start mysql
 MySQL 服务正在启动 .
 MySQL 服务已经启动成功。
 ```
 
 > 有些时候可能需要重启 MySQL，可以先停止服务再启动：`net stop mysql`。
+> <p style="height:10px"></p>
+>
+> 如果之前安装过 MySQL，还可能遇到~~不是我遇到的~~ [启动 mysql 服务时，报错提示“发生系统错误 2，找不到指定文件”的解决方法](https://blog.csdn.net/njzgIdba/article/details/123564176)。
 
 接着登陆 mysql：
 
 ```sh
 mysql -u root -p
-# 输入密码时要手打！
+# 输入密码时，如果复制粘贴保存的密码行不通，换成手打
+# win10 可能不能粘贴，而 win11 可以
 ```
 
 ![终端连接数据库](https://zedo.gitee.io/img/mysql-20221024195529.png)
 
-先不要着急关闭或退出，先修改密码：
+先不要着急关闭或退出（`exit` 或 `quit`），先修改密码：
 
 ```sql
 alter user root@localhost identified by '123456';

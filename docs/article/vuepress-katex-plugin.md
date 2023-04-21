@@ -10,11 +10,13 @@ tag:
     - vuepress
 ---
 
-# KaTeX 插件配置
+# Vuepress 之 KaTeX 插件配置
 
 ::: warning 提示
 
 本文内容基于 `vuepress2` 的默认主题。
+
+> 更建议使用 [Hope](https://theme-hope.vuejs.press/zh/) 主题作者维护的 [Markdown 增强插件](https://plugin-md-enhance.vuejs.press/zh/guide/tex.html)
 
 :::
 
@@ -28,7 +30,7 @@ tag:
 
 这里的 katex 插件指的是 [markdown-it-katex](https://github.com/waylonflinn/markdown-it-katex)，其安装方式很简单，只需要在项目中使用 yarn、npm 之类的包管理工具就行了
 
-```bash
+```sh
 yarn add markdown-it-katex
 ```
 
@@ -246,7 +248,7 @@ const customElement = [
 
 ### 更换插件
 
-如果需要使用自定义宏（macro），需要 Katex 版本在[0.7.0](https://github.com/KaTeX/KaTeX/releases/tag/v0.7.0)以上，而现在的[markdown-it-katex](https://github.com/waylonflinn/markdown-it-katex)使用的 katex 版本为 0.5.1。本人在[npmjs](https://www.npmjs.com/search?q=markdown-it%20katex)上搜索了一番，浏览之后发现以下库应该都是可用的：
+如果需要使用自定义宏（macro），需要 Katex 版本在 [0.7.0](https://github.com/KaTeX/KaTeX/releases/tag/v0.7.0) 以上，而现在的[markdown-it-katex](https://github.com/waylonflinn/markdown-it-katex) 使用的 katex 版本为 0.5.1。本人在 [npmjs](https://www.npmjs.com/search?q=markdown-it%20katex) 上搜索了一番，浏览之后发现以下库应该都是可用的：
 
 - [markdown-it-texmath](https://www.npmjs.com/package/markdown-it-texmath) 需要先安装 katex，因此新版 katex 都是可以的，版本更新较频繁
 - [@littlefattie/markdown-it-katex](https://www.npmjs.com/package/@littlefattie/markdown-it-katex) 对原有同名插件的改善，使用 `katex@0.15.1`，支持 TypeScript
@@ -254,7 +256,7 @@ const customElement = [
 
 这里我选择了 texmath，直接安装即可
 
-```bash
+```sh
 yarn add katex markdown-it-texmath
 ```
 

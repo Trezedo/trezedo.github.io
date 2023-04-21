@@ -16,12 +16,10 @@ Redis 是一款 key-value 存储结构的内存级 NoSQL 数据库
 
 相信大多数人使用的是 Windows 系统的电脑，而 [Redis 安装文档](https://redis.io/docs/getting-started/installation/) 没有提供 Windows 版本的安装包，不过我们可以选择第三方支持：
 
-- <https://github.com/microsoftarchive/redis/releases> 已经归档且不再更新，停留在 3.0.504；
-- <https://github.com/tporadowski/redis/releases> 目前版本是 5.0.x，更新频率为一年 1-2 更。
+- <https://github.com/microsoftarchive/redis/releases> 已经归档且不再更新，停留在 ![ms version](https://img.shields.io/github/v/release/microsoftarchive/redis?label=%20)；
+- <https://github.com/tporadowski/redis/releases> 目前最新版本是 ![win version](https://img.shields.io/github/v/release/tporadowski/redis?label=%20)，更新频率为一年 1-2 更。
 
-> 尽管新版 Redis 已经 7.0 了，但 5.0 的旧版本并不影响学习和项目的使用。
-
-这里选择较新的 5.0.x：
+> 尽管官方新版 Redis 已经 ![version](https://img.shields.io/github/v/release/redis/redis?label=%20) 了，但 ![win version](https://img.shields.io/github/v/release/tporadowski/redis?label=%20) 的旧版本并不影响学习和项目的使用。
 
 ![redis for windows github](https://zedo.gitee.io/img/redis-20230121133815.png)
 
@@ -79,12 +77,15 @@ not connected> exit
 
 成功启动 Redis 后，我们可以用命令行接口使用。
 
+> 下文将把 `host:ip`（如 `127.0.0.1:6379`）换成 `redis`
+
+
 ### ping
 
 检测网络连接的 `ping` 命令：
 
 ```sh
-127.0.0.1:6379> ping
+redis> ping
 PONG
 ```
 
@@ -95,9 +96,9 @@ PONG
 例如，我们要设置 key 为 name 的值为 zedo：
 
 ```sh
-127.0.0.1:6379> set name zedo
+redis> set name zedo
 OK
-127.0.0.1:6379> get name
+redis> get name
 "zedo"
 ```
 
@@ -106,7 +107,7 @@ OK
 若获取一个不存在的 key 的值，则会得到 `nil`，相当于我们熟知的 `null`：
 
 ```sh
-127.0.0.1:6379> get Name
+redis> get Name
 (nil)
 ```
 
@@ -140,16 +141,16 @@ keys *e # 查询所有以 e 结尾的 key
 `del` 命令用来删除 Redis 中的 key-value：
 
 ```sh
-127.0.0.1:6379> set somekey "test"
+redis> set somekey "test"
 OK
-127.0.0.1:6379> del somekey
+redis> del somekey
 (integer) 1
 ```
 
 也可以一次性删除多个 key：
 
 ```sh
-127.0.0.1:6379> del name note
+redis> del name note
 (integer) 2
 ```
 
@@ -177,11 +178,11 @@ set key value [expiration EX seconds|PX milliseconds] [NX|XX]
 如：
 
 ```sh
-127.0.0.1:6379> set somekey "will expire in 10 seconds" ex 10
+redis> set somekey "will expire in 10 seconds" ex 10
 OK
-127.0.0.1:6379> get somekey
+redis> get somekey
 "will expire in 10 seconds"
-127.0.0.1:6379> get somekey # 10 秒钟后执行
+redis> get somekey # 10 秒钟后执行
 (nil)
 ```
 
@@ -286,7 +287,7 @@ class RedisTests {
 Springboot 中使用 RedisTemplate 进行访问，`opsForValue()` 就是针对字符串的，类似的还有 `opsForList`、`opsForHash` 等，对应 Redis 的不同数据结构。以上 `set()` 方法等价于执行：
 
 ```sh
-# 注意命令行可能不能输入中文
+# 注意命令行输入中文可能不会正常显示
 set test1 "Hello，你好"
 set test2 "World，世界" ex 20
 ```

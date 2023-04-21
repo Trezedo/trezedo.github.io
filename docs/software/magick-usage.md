@@ -106,7 +106,7 @@ magick in.png -gravity SouthEast -draw "image over 0,0 0,0 water.png" out.png
 
 它可以通过 `-list gravity` 获取完整列表：
 
-```bash
+```sh
 $ magick -list gravity
 None
 Center
@@ -162,7 +162,7 @@ magick -background none -font SimHei -size 320x90 -fill "#1ac" label:文字 out.
 ::: code-tabs
 @tab linux
 
-```bash
+```sh
 magick -list font | grep Font
 ```
 
@@ -189,7 +189,7 @@ magick -list font | findstr Font
 
 <https://stackoverflow.com/questions/69255234/add-watermark-like-this-image>
 
-```bash
+```sh
 magick convert in.png ( -background none -pointsize 20 -fill rgba(0,120,215,0.1) label:"中文Trezedo" -rotate -20 -write mpr:tile +delete ) ( +clone -tile mpr:tile -draw "color 100,100 reset" ) -compose over -composite out.png
 
 # 调整了字体

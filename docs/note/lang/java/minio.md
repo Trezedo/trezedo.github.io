@@ -1,5 +1,6 @@
 ---
 date: 2023-04-17
+icon: java
 ---
 
 # SpringBoot 引入 MinIO 对象存储
@@ -18,23 +19,24 @@ MinIO 对象存储使用 [桶](https://min.io/docs/minio/windows/administration/
 
 ## 下载及使用
 
-下载地址（本文是 windows 版本）：<https://min.io/download>
+下载地址：<https://min.io/download>。
 
-我们只需要下载 MINIO SERVER，Windows 版本的 exe 大概有 96.5MB。
+我们只需要下载 MINIO SERVER，本文是 Windows 版本，exe 大小大概有 96.5MB（官网介绍的是不超过 100MB）。
 
-下载完成后不要双击打开，在命令行中运行：
+下载完成后不要直接双击打开，在当前目录打开命令行后执行：
 
-```sh
-./minio.exe server minio-data
+```batch
+minio.exe server minio-data
 ```
 
-其中 `minio-data` 是文件存储的文件夹。随后我们可以得到以下信息
+其中 `minio-data` 是文件实际存储的文件夹名称。随后我们可以得到以下信息：
+<a name="p1"></a>
 
 ![命令运行结果](./img/minio/首次运行.png)
 
 我们可以在浏览器打开 Console 那行的地址：`http://127.0.0.1:49775`，以默认的 `minioadmin` 为账号密码登录。
 
-首先我们要创建“桶”，点击 “Create a Bucket”，在界面中填写名称然后点击“Create Bucket”：
+首先我们要创建“桶”，点击 “Create a Bucket”，在界面中填写名称然后点击 “Create Bucket”：
 
 ![创建桶](./img/minio/创建桶.png)
 
@@ -46,25 +48,48 @@ MinIO 对象存储使用 [桶](https://min.io/docs/minio/windows/administration/
 
 侧边栏的 “Object Browser” 可以管理我们创建的桶以及文件，可以自行体验。
 
-### 修改默认端口
+> 这里有一份比较完整的中文教程（代码不一定适用于最新版）：[MinIO 教程 - 人人编程网](https://www.hxstrive.com/subject/minio/572.htm)
 
-通过以下命令：
+## 修改默认项(可选)
 
-```sh
-$minio.exe server -h
+### 控制台端口号
+
+MinIO 提供了 Web 控制台，但每次启动 server 时它的端口是随机的，如果我们想固定端口号，可以加上 `--console-address` 参数：
+
+```batch
+minio.exe server minio-data --console-address ":30125"
+```
+
+我们可以通过以下命令知道为什么这样做：
+
+```batch
+> minio.exe server -h
 
 FLAGS:
  --address value          bind to a specific ADDRESS:PORT, ADDRESS can be an IP or hostname (default: ":9000") [%MINIO_ADDRESS%]
  --console-address value  bind to a specific ADDRESS:PORT for embedded Console UI, ADDRESS can be an IP or hostname [%MINIO_CONSOLE_ADDRESS%]
 ```
 
-我们知道可以通过以下命令修改默认端口：
+其中域名可以省略，也可以填 `localhost`。
 
-```sh
-minio.exe server minio-data --address ":9000" --console-address ":30125"
+### 用户名和密码
+
+MinIO 通过环境变量来使用自定义的用户名和密码，我们可以创建一个 `start-minio.bat`：
+
+```batch
+@set MINIO_ROOT_USER=zedo
+@set MINIO_ROOT_PASSWORD=12345678
+cmd /k minio.exe server minio-data --console-address ":30125"
 ```
 
-域名可以省略，也可以填 `localhost`。
+::: tip
+
+1. MinIO 要求密码长度必须大于等于 8 位。
+2. `cmd /k` 表示执行完 bat 命令后保留窗口。
+
+:::
+
+这样可以消除启动([截图](#p1))中的 <span style="color:red">WARNING</span>。
 
 ## 在 SpringBoot 中引入
 
@@ -74,7 +99,7 @@ pom.xml 中添加依赖：
 <dependency>
     <groupId>io.minio</groupId>
     <artifactId>minio</artifactId>
-    <version>${minio.version}</version>
+    <version>版本号</version>
 </dependency>
 ```
 
@@ -168,26 +193,32 @@ public class FileVO {
 以下是 `MinioService` 类，包括了基本的文件上传、列表、下载功能：
 
 ```java
-import com.zedo.schedule.config.MinioConfig;
-import com.zedo.schedule.entity.vo.FileVO;
 import io.minio.*;
 import io.minio.http.Method;
 import io.minio.messages.Item;
+import jakarta.annotation.Nonnull;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.InputStream;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
+ * MinIO 对象存储服务
+ *
  * @author zedo
  */
 @Service
@@ -196,45 +227,62 @@ public class MinioService {
     @Resource
     MinioClient minioClient;
 
-    public boolean upload(MultipartFile file) {
-        try {
-            BucketExistsArgs bucketArgs = BucketExistsArgs.builder()
-                    .bucket(MinioConfig.BUCKET_NAME).build();
-            // todo 检查 bucket 是否存在。
-            boolean found = minioClient.bucketExists(bucketArgs);
+    static String LocalPath = System.getProperty("user.dir");
 
-            PutObjectArgs objectArgs = PutObjectArgs.builder()
-                    .object(file.getOriginalFilename())
-                    .bucket(MinioConfig.BUCKET_NAME)
+    /**
+     * @see MinioService#upload(String, MultipartFile, String)
+     */
+    public Optional<ObjectWriteResponse> upload(String bucketName, MultipartFile file) {
+        return upload(bucketName, file, "");
+    }
+
+    /**
+     * 上传文件到指定文件夹
+     *
+     * @param bucketName 桶名
+     * @param file       文件
+     * @param targetPath 目标文件夹
+     */
+    public Optional<ObjectWriteResponse> upload(String bucketName, MultipartFile file, String targetPath) {
+        BucketExistsArgs bucketArgs = BucketExistsArgs.builder()
+                .bucket(bucketName).build();
+        try {
+            // 检查 bucket 是否存在
+            boolean found = minioClient.bucketExists(bucketArgs);
+            if (!found) {
+                log.info("桶 '{}' 不存在", bucketName);
+                return Optional.empty();
+            }
+            PutObjectArgs args = PutObjectArgs.builder()
+                    .bucket(bucketName)
+                    .object(targetPath + "/" + file.getOriginalFilename())
                     .contentType(file.getContentType())
                     .stream(file.getInputStream(), file.getSize(), -1)
                     .build();
-
-            ObjectWriteResponse objectWriteResponse = minioClient.putObject(objectArgs);
-            System.out.println(objectWriteResponse.etag());
+            ObjectWriteResponse objectWriteResponse = minioClient.putObject(args);
+            return Optional.of(objectWriteResponse);
         } catch (Exception e) {
-            e.printStackTrace();
-            log.info(e.getMessage());
-            return false;
+            log.error("minio 文件上传异常", e);
+            return Optional.empty();
         }
-        return true;
     }
 
     /**
      * 查看文件对象
      *
-     * @param prefix    查找路径
-     * @param recursive 递归查找
+     * @param bucketName 桶名
+     * @param prefix     查找路径
+     * @param recursive  递归查找
      * @return 存储 bucket 内文件对象信息
      */
     @SneakyThrows
-    public List<FileVO> listObjects(String prefix, Boolean recursive) {
+    public List<FileVO> listObjects(String bucketName, String prefix, Boolean recursive) {
         // prefix 以 "/" 结尾，避免对查询结果有影响
         prefix = prefix.endsWith("/") ? prefix : prefix + "/";
         // recursive 默认为 false
         Iterable<Result<Item>> results = minioClient.listObjects(
                 ListObjectsArgs.builder()
-                        .bucket(MinioConfig.BUCKET_NAME)
+                        .bucket(bucketName)
                         .prefix(prefix)
                         .recursive(recursive != null && recursive)
                         .build()
@@ -259,6 +307,134 @@ public class MinioService {
     }
 
     /**
+     * 根据指定的文件名获取下载链接
+     *
+     * @param bucketName 桶名
+     * @param filename   文件名
+     * @return 下载链接
+     **/
+    @Nonnull
+    public String downloadUrl(String bucketName, String filename) {
+        // minio 不会校验文件是否存在，都会产生 url，只是打开后会显示资源不存在
+        if (isFileNotExist(bucketName, filename)) {
+            return "";
+        }
+        GetPresignedObjectUrlArgs args = GetPresignedObjectUrlArgs.builder()
+                .bucket(bucketName)
+                .object(filename)
+                .method(Method.GET)
+                .build();
+        try {
+            return minioClient.getPresignedObjectUrl(args);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * 下载文件到服务器
+     *
+     * @param bucketName 桶名
+     * @param filename   文件名
+     */
+    public File downloadAtServer(String bucketName, String filename) {
+        File localFile = new File(LocalPath + "/" + filename);
+        if (localFile.exists()) {
+            boolean deleted = localFile.delete();
+            log.info("文件 '{}' 删除{}", localFile.getAbsolutePath(), deleted ? "成功" : "失败");
+        }
+        DownloadObjectArgs args = DownloadObjectArgs.builder()
+                .bucket(bucketName)
+                .filename(filename)
+                .object(filename)
+                .build();
+        try {
+            // 以下方法首次会下载到项目根目录，之后就会抛异常: file already exists，因此上面先删文件
+            minioClient.downloadObject(args);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return localFile;
+    }
+
+    /**
+     * 下载/查看 文件
+     *
+     * @param bucketName 桶名
+     * @param filename   文件路径
+     * @param response   响应体
+     */
+    public void download(String bucketName, String filename, HttpServletResponse response) {
+        Optional<StatObjectResponse> statOpt = statFile(bucketName, filename);
+        // 文件不存在，这里相当于 isFileNotExist，但后续还需要用到 stat
+        if (statOpt.isEmpty()) {
+            log.info("下载的文件 '{}' 不存在", filename);
+            return;
+        }
+        StatObjectResponse stat = statOpt.get();
+        GetObjectArgs args = GetObjectArgs.builder()
+                .bucket(bucketName)
+                .object(filename)
+                .build();
+
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType(stat.contentType());
+
+        if (Objects.equals(stat.etag(), request.getHeader("If-None-Match"))) {
+            response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
+            response.setContentLength(0);
+            return;
+        }
+        response.setHeader(
+            HttpHeaders.CONTENT_DISPOSITION,
+            "attachment;filename="+ URLEncoder.encode(filename, StandardCharsets.UTF_8)
+        );
+        try (InputStream inputStream = minioClient.getObject(args)) {
+            // Content-Length 非必要
+            response.setHeader(HttpHeaders.CONTENT_LENGTH, String.valueOf(stat.size()));
+
+            ServletOutputStream outputStream = response.getOutputStream();
+            byte[] buffer = new byte[1024];
+            int len;
+
+            // 从输入流中读取定量的字节，并存储在缓冲区字节数组中，读到末尾返回 -1
+            while ((len = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, len);
+            }
+            // try-with-resource 不需要手动关闭 inputStream
+        } catch (Exception e) {
+            log.error("下载文件出错", e);
+        }
+    }
+
+    /**
+     * 检查文件是否存在
+     *
+     * @param bucketName 桶名
+     * @param filename   文件名
+     */
+    public boolean isFileNotExist(String bucketName, String filename) {
+        return statFile(bucketName, filename).isEmpty();
+    }
+
+    /**
+     * 获取文件 stat 信息
+     *
+     * @param bucketName 桶名
+     * @param filename   文件名
+     */
+    public Optional<StatObjectResponse> statFile(String bucketName, String filename) {
+        try {
+            StatObjectResponse stat = minioClient.statObject(StatObjectArgs.builder()
+                    .bucket(bucketName)
+                    .object(filename).build());
+            return Optional.of(stat);
+        } catch (Exception e) {
+            return Optional.empty();
+        }
+    }
+
+    /**
      * 格式化文件显示大小
      *
      * @param size 文件实际大小
@@ -276,95 +452,107 @@ public class MinioService {
         }
         return String.format("%.2f %s", s, powerLabels[i]);
     }
-
-    /**
-     * 根据指定的文件名获取下载链接
-     *
-     * @param filename 文件名
-     * @return 下载链接
-     **/
-    public String downloadUrl(String filename) {
-        GetPresignedObjectUrlArgs args = GetPresignedObjectUrlArgs.builder()
-                .bucket(MinioConfig.BUCKET_NAME)
-                .object(filename)
-                .method(Method.GET)
-                .build();
-        String objectUrl;
-        if (isFileNotExist(MinioConfig.BUCKET_NAME, filename)) {
-            return "";
-        }
-        try {
-            objectUrl = minioClient.getPresignedObjectUrl(args);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        return objectUrl;
-    }
-
-    public void download(String filename, HttpServletResponse response) {
-        if (isFileNotExist(MinioConfig.BUCKET_NAME, filename)) {
-            return;
-        }
-        /// 以下方法首次会下载到项目根目录，之后就会抛异常: file already exists
-        // minioClient.downloadObject(args)
-        StatObjectResponse stat = getFileStat(MinioConfig.BUCKET_NAME, filename);
-        if (stat == null) {
-            return;
-        }
-        GetObjectArgs args = GetObjectArgs.builder()
-                .bucket(MinioConfig.BUCKET_NAME)
-                .object(filename)
-                .build();
-        try (InputStream inputStream = minioClient.getObject(args)) {
-            response.setCharacterEncoding("UTF-8");
-            // response.setContentType("application/octet-stream"); // 该类型会导致图片“损坏”
-            response.setContentType(stat.contentType());
-            // 强制下载
-            response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(filename, StandardCharsets.UTF_8));
-
-            ServletOutputStream outputStream = response.getOutputStream();
-
-            byte[] buffer = new byte[1024];
-            int len;
-
-            // 从输入流中读取定量的字节，并存储在缓冲区字节数组中，读到末尾返回 -1
-            while ((len = inputStream.read(buffer)) > 0) {
-                outputStream.write(buffer, 0, len);
-            }
-            // inputStream.close(); try-with-resource 不需要手动关闭
-        } catch (Exception e) {
-            log.error("下载文件出错", e);
-        }
-    }
-
-    /**
-     * 检查文件是否存在
-     *
-     * @param bucketName 桶名
-     * @param filename   文件名
-     */
-    public boolean isFileNotExist(String bucketName, String filename) {
-        return getFileStat(bucketName, filename) == null;
-    }
-
-    /**
-     * 获取文件 stat 信息
-     *
-     * @param bucketName 桶名
-     * @param filename   文件名
-     */
-    private StatObjectResponse getFileStat(String bucketName, String filename) {
-        StatObjectResponse stat;
-        try {
-            stat = minioClient.statObject(StatObjectArgs.builder()
-                    .bucket(bucketName)
-                    .object(filename).build());
-        } catch (Exception e) {
-            return null;
-        }
-        return stat;
-    }
 }
 ```
 
-`MinioService` 的方法入参足够简单，只要传入控制层的参数即可，因此这里省略 Controller 的代码。
+::: warning
+
+如果你在使用的 jdk 版本不支持 `jakarta`，请换成 `javax`。
+
+:::
+
+`MinioService` 的方法入参足够简单，只要传入控制层的参数即可，下面给出上传、下载文件的代码参考：
+
+```java
+import io.minio.ObjectWriteResponse;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.lang.Nullable;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.util.*;
+import java.util.regex.Pattern;
+
+/**
+ * 文件上传接口
+ *
+ * @author zedo
+ */
+@RestController
+@RequestMapping("/files")
+public class MinioController extends BaseController {
+    @Resource
+    MinioService minioService;
+
+    /**
+     * 非法文件名包含的字符
+     */
+    public static Pattern INVALID_PATTERN = Pattern.compile("[\\\\:*?\"<>|]");
+
+    /**
+     * 上传文件
+     *
+     * @param file 文件
+     * @param path 上传到指定文件夹
+     */
+    @PostMapping("/upload")
+    public Result<?> uploadFile(
+        @RequestPart MultipartFile file, @RequestParam(required = false) String path
+    ) {
+        Optional<ObjectWriteResponse> upload = minioService.upload(MinioConfig.BUCKET_NAME, file, path);
+        boolean success = upload.isPresent();
+        if (success) {
+            ObjectWriteResponse stat = upload.get();
+            Map<String, String> map = new HashMap<>();
+            map.put("name", file.getName());
+            map.put("etag", stat.etag());
+            map.put("contentType", file.getContentType());
+            map.put("size", MinioService.formatSize(file.getSize()));
+            map.put("path", path + "/" + file.getName());
+            return succeed(map);
+        }
+        return failed("上传失败");
+    }
+
+    /**
+     * 获取文件列表
+     *
+     * @param recursive 是否递归
+     */
+    @GetMapping("/list/**")
+    public Result<List<FileVO>> listFiles(
+        HttpServletRequest req,
+        @Nullable @RequestParam(value = "r", required = false) Boolean recursive
+    ) {
+        String path = req.getRequestURI().replace("/files/list", "");
+        logger.debug("获取文件列表，path = {}", path);
+        // matches 会匹配整个字符串，find 检测是否包含
+        if (INVALID_PATTERN.matcher(path).find()) {
+            return failed("文件名包含非法字符");
+        }
+        List<FileVO> list = minioService.listObjects(MinioConfig.BUCKET_NAME, path, recursive);
+        if (list.size() == 0) {
+            return failed("目录为空或不存在");
+        }
+        return succeed(list);
+    }
+
+    /**
+     * 直接下载文件
+     *
+     * @param filename 文件名
+     */
+    @GetMapping("download")
+    public void download(@RequestParam("name") String filename, HttpServletResponse response) {
+        // 下载前检查文件是否存在
+        if (!minioService.isFileNotExist(MinioConfig.BUCKET_NAME, filename)) {
+            minioService.download(MinioConfig.BUCKET_NAME, filename, response);
+            return;
+        }
+        throw new RuntimeException("文件 '%s' 不存在".formatted(filename));
+    }
+}
+```

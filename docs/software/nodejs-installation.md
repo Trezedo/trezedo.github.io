@@ -29,7 +29,7 @@ tag:
 
 nodejs 默认的包管理工具是 npm，安装完成后可以使用以下命令检测是否成功：
 
-```bash
+```sh
 node -v # 查看 nodejs 版本
 npm -v  # 查看 npm 版本
 ```
@@ -47,7 +47,7 @@ npm -v  # 查看 npm 版本
 
 下面修改以上的默认值：
 
-```bash
+```sh
 npm config set prefix "E:/envs/node_pkg/node_global"
 npm config set cache "E:/envs/node_pkg/node_cache"
 
@@ -68,7 +68,7 @@ npm config set registry "https://registry.npmmirror.com/"
 
 ### 检验
 
-```bash
+```sh
 npm config get cache
 npm config get prefix
 npm config get registry
@@ -202,31 +202,31 @@ pnpm add -g <name>  # -g 参数表示全局安装
 
 使用 npm 全局安装
 
-```bash
+```sh
 npm install --global yarn
 ```
 
 在命令行验证：
 
-```bash
+```sh
 yarn -v  # 或者 yarn --version
 ```
 
 查看全局变量
 
-```bash
+```sh
 yarn global dir
 ```
 
 它的默认位置是 `%UserProfile%/AppData/Local/Yarn/Data/global`
 
-```bash
+```sh
 yarn config -h # 查看帮助
 ```
 
 可以看到有 `global-folder`、`cache-folder` 两个项，获取它们得到的是 `undefined`，现修改其默认值：
 
-```bash
+```sh
 yarn config set global-folder "E:/envs/node/yarn_global"
 yarn config set cache-folder "E:/envs/node/yarn_cache"
 ```
@@ -243,7 +243,7 @@ yarn_global 等文件路径可能需要和 nodejs 路径在同一盘符，参看
 
 为了全局使用 yarn 安装的某些库，例如 `typescript` 的编译命令 `tsc`，这里选用它进行测试。
 
-```bash
+```sh
 $ yarn global add typescript
 success Installed "typescript@4.5.5" with binaries:
       - tsc
@@ -310,7 +310,7 @@ ncu -u  # ncu 是 npm-check-updates 简写
 
 终端会展示可更新的依赖：
 
-![image-20220509190222090](https://zedo.gitee.io/img/image-20220509190222090.png#s-67)
+![可更新依赖列表](https://zedo.gitee.io/img/image-20220509190222090.png#s-67)
 
 然后用 npm 更新即可：
 
@@ -328,7 +328,7 @@ yarn upgrade-interactive
 
 使用空格选择即可：
 
-![image-20220509191023391](https://zedo.gitee.io/img/image-20220509191023391.png)
+![可交互升级界面截图](https://zedo.gitee.io/img/image-20220509191023391.png)
 
 但是它不会修改 `package.json` 中的版本号，如有需要，可以：
 
@@ -394,7 +394,7 @@ ts-node foo.ts
 
 ### 清空 npm 缓存
 
-```bash
+```sh
 npm cache clean -f
 ```
 

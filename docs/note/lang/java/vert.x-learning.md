@@ -360,9 +360,11 @@ io.vertx.core.json.DecodeException: Mapping XXX is
 </dependency>
 ```
 
-版本号最好和 `vert.x` 所使用的一致，但似乎 `vert.x` 对它的版本没有特殊要求。目前的最新版本是 [![s](https://maven-badges.herokuapp.com/maven-central/com.fasterxml.jackson.core/jackson-databind/badge.svg)](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)。
+版本号最好和 `vert.x` 所使用的一致，但似乎 `vert.x` 对它的版本没有特殊要求。目前的最新版本是 [![s](https://img.shields.io/maven-central/v/com.fasterxml.jackson.core/jackson-databind?label=%20)](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)。
 
-值得一提的是，`jackson-databind` 包的大小约有 1.5MB，如果你在意打包体积，可以使用谷歌的 [Gson](https://mvnrepository.com/artifact/com.google.code.gson/gson)（243KB）或者阿里巴巴的[FastJson](https://mvnrepository.com/artifact/com.alibaba/fastjson)（656KB）。
+<!-- https://maven-badges.herokuapp.com/maven-central/com.fasterxml.jackson.core/jackson-databind/badge.svg -->
+
+值得一提的是，`jackson-databind` 包的大小约有 1.5MB，如果你在意打包体积，可以使用谷歌的 [Gson](https://mvnrepository.com/artifact/com.google.code.gson/gson)（276KB）或者阿里巴巴的 [FastJson](https://mvnrepository.com/artifact/com.alibaba/fastjson)（656KB）。
 
 ::: warning 提示
 

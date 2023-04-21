@@ -31,14 +31,14 @@ Identify and stop the process that's listening on port 62234 or configure this a
 
 这是因为之前关闭 IDEA 时的 “断开连接” 操作没有关闭运行在对应端口的进程，我们只需要手动关闭即可解决：
 
-```sh
+```batch
 # 查看哪个进程占用了 62234 端口
 netstat -aon | findstr 62234
 ```
 
 ![端口占用情况](./img/springboot/查找进程PID.png)
 
-```sh
+```batch
 # 强制杀死进程
 taskkill -F -PID 17736
 ```

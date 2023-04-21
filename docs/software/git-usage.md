@@ -23,20 +23,20 @@ tag:
 
 这里假设目前所使用的 git 仓库都是同一个账号（全局）：
 
-```bash
+```sh
 git config --global user.email "注册时的邮箱"
 git config --global user.name "你的用户名"
 ```
 
 可以通过以下指令查询配置是否成功：
 
-```bash
+```sh
 git config --list
 ```
 
 ### 添加 ssh 公钥
 
-```bash
+```sh
 ssh-keygen -t rsa -C "注册时的邮箱"
 ```
 
@@ -81,7 +81,7 @@ The key's randomart image is:
 
 在项目中添加 gitee 远程仓库地址
 
-```bash
+```sh
 git remote add gitee git@gitee.com:zedo/zedo.git
 ```
 
@@ -89,7 +89,7 @@ git remote add gitee git@gitee.com:zedo/zedo.git
 
 删除已有的远程库地址：
 
-```bash
+```sh
 git remote rm gitee
 ```
 
@@ -97,7 +97,9 @@ git remote rm gitee
 
 [git 如何 add 全部而又忽略部分文件](https://segmentfault.com/q/1010000012086638)
 
+> ```sh
 > git pull --rebase origin master
+> ```
 >
 > 获取远程库与本地同步合并（如果远程库不为空必须做这一步，否则后面的提交会失败）
 

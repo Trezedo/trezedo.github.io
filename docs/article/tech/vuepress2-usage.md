@@ -26,7 +26,7 @@ tag:
 
 ## 创建文件夹
 
-```bash
+```sh
 yarn init
 yarn add --dev vitepress
 ```
@@ -34,13 +34,13 @@ yarn add --dev vitepress
 ::: code-tabs
 @tab linux
 
-```bash
+```sh
 mkdir docs && echo '# Hello VitePress' > docs/index.md
 ```
 
 @tab windows
 
-```bash
+```sh
 mkdir docs && echo # Hello VitePress > docs/index.md
 # windows 系统 md 或者 mkdir 都是创建目录
 ```
@@ -53,25 +53,25 @@ mkdir docs && echo # Hello VitePress > docs/index.md
 
 - **Step. 1:** 创建并更改为新目录。
 
-```bash
+```sh
 mkdir vitepress-starter && cd vitepress-starter
 ```
 
 - **Step. 2:** 使用您喜欢的包管理器进行初始化。
 
-```bash
+```sh
 yarn init
 ```
 
 - **Step. 3:** 本地安装 VitePress。
 
-    ```bash
+    ```sh
     yarn add --dev vitepress
     ```
 
 - **Step. 4:** 创建您的第一个文档。
 
-    ```bash
+    ```sh
     mkdir docs && echo '# Hello VitePress' > docs/index.md
     ```
 
