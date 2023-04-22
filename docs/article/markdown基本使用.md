@@ -5,7 +5,6 @@ date: 2022-01-22
 permalink: /article/markdown-intro.html
 # permalinkPattern: :year/:month/:day/markdown-intro.html
 excerpt: markdown 基本使用
-lastUpdated: 2022-02-24
 category:
     - Markdown
 tag:

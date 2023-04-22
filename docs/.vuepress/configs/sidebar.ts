@@ -1,7 +1,40 @@
 import { sidebar } from "vuepress-theme-hope";
 
 export default sidebar({
-    "/": [
+    "/article/": "structure",
+    "/note/": [
+        {
+            prefix: "algo/",
+            icon: "note",
+            text: "算法",
+            children: "structure",
+            collapsible: true,
+        },
+        {
+            prefix: "dsa/",
+            icon: "note",
+            text: "数据结构",
+            children: "structure",
+            collapsible: true,
+        },
+        {
+            prefix: "math/",
+            icon: "function",
+            text: "数学",
+            children: "structure",
+            collapsible: true,
+        },
+        {
+            prefix: "lang/",
+            icon: "function",
+            text: "编程语言",
+            children: "structure",
+            collapsible: true,
+        },
+    ],
+    "/software/": "structure",
+    "/tool/": "structure",
+    /* "/": [
         "/README.md",
         "/home.md",
         // "/slide.md",
@@ -106,5 +139,5 @@ export default sidebar({
         { prefix: "ts/", text: "TypeScript", icon: "typescript", children: "structure" },
     ],
 
-    "/tool/": "structure", // 空数组可以关闭
+    "/tool/": "structure", // 空数组可以关闭 */
 });

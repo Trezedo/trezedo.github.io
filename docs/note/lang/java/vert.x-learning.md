@@ -270,7 +270,15 @@ public void start(Promise<Void> startPromise) {
 
 ::: tip 小提示
 
-这里我用了 `Chrome` 浏览器的插件[JSON Viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh)，以便于查看 `json`，同时方便截图。如果无法·科·学·上·网，链接应该是打不开的，针对这个问题，这里推荐另一个下载安装很方便的插件：[JSON-Handle](http://jsonhandle.sinaapp.com/)，打开后在页面中找到**下载**（或者直接点[这里](http://sinacloud.net/download-file/JH/JSON-handle_0.6.1.crx)），完成后根据提示添加插件即可。
+这里我用了 `Chrome` 浏览器的插件 [JSON Viewer](https://chrome.google.com/webstore/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh)，以便于查看、美化 `json`，方便截图。
+
+如果插件应用商店链接打不开的，下面有几个好用的插件网站可以下载：
+
+- [Crx 搜搜](https://www.crxsoso.com/webstore/detail/gbmdgpbipfallnflgajpaliibnhdgobh)：下载后即可安装
+- [Chrome666](https://www.chrome666.com/chrome-extension/json_viewer.html)：下载后即可安装
+- [CrxDL.COM](https://crxdl.com/)：搜索 `gbmdgpbipfallnflgajpaliibnhdgobh` 下载压缩包，手动安装
+
+这里也有另一个下载安装方便的插件：[JSON-Handle](http://jsonhandle.sinaapp.com/)，打开后在页面中找到**下载**（或者直接点[这里](http://sinacloud.net/download-file/JH/JSON-handle_0.6.1.crx)），完成后根据提示添加插件即可。
 
 :::
 

@@ -504,3 +504,298 @@ public class WebConfig implements WebMvcConfigurer {
     }
 }
 ```
+
+## 激活指定 profiles
+
+> [Set the Active Spring Profiles](https://docs.spring.io/spring-boot/docs/3.0.6/reference/htmlsingle/#howto.properties-and-configuration.set-active-spring-profiles)
+
+springboot 默认使用 `.properties` 文件进行配置，我们也可以使用 `.yml` 或 `.yaml`。例如将 resources 目录下的的 `application.properties` 重命名为 `application.yml`。
+
+通常一个项目会区分不同的环境，每种环境使用不同的配置，例如开发环境下的数据库使用 `localhost`，生产环境下使用某个公网 ip。
+
+目录的结构如下：
+
+```text
+application.yml
+application-dev.yml
+application-prod.yml
+```
+
+### 配置文件方式 1
+
+最常见的做法是在 `application.yml` 添加以下内容来激活配置文件：
+
+```yml
+spring:
+    profiles:
+        active: dev # 激活 application-dev.yml
+```
+
+### 命令行方式
+
+打包后，通过命令行指定激活配置文件有两种方式：
+
+```sh
+# 第 1 种
+java -jar -Dspring.profiles.active=prod demo.jar
+java -Dspring.profiles.active=prod -jar demo.jar
+# 第 2 种
+java -jar demo.jar --spring.profiles.active=prod
+```
+
+> `-D` 方式设置 Java 系统属性要在 `-jar` 之前定义或紧跟 `-jar`。如果需要激活多个 profile 可以使用逗号隔开，如：`--spring.profiles.active=dev,test`
+
+### 环境变量方式
+
+windows 系统使用 `set` 临时设置环境变量：
+
+```batch
+set SPRING_PROFILES_ACTIVE=dev,test
+java -jar demo.jar
+```
+
+linux/mac 系统使用 `export`：
+
+```sh
+export SPRING_PROFILES_ACTIVE=dev,test
+java -jar demo.jar
+```
+
+### 配置文件方式 2
+
+> 参考：[spring-boot 启动时，指定 spring.profiles.active](https://blog.csdn.net/jmlqqs/article/details/107289746)
+
+另外，我们也可以在 maven 打包时使用 `-P` 参数进行切换：`mvn package -P prod`。
+
+**但是**，更方便地，先在 pom.xml 定义 profiles：
+
+```xml
+<profiles>
+    <profile>
+        <id>dev</id>
+        <!-- 默认激活 -->
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <properties>
+            <spring.profiles.active>dev</spring.profiles.active>
+        </properties>
+    </profile>
+    <profile>
+        <id>prod</id>
+        <properties>
+            <spring.profiles.active>prod</spring.profiles.active>
+        </properties>
+    </profile>
+</profiles>
+```
+
+修改 `application.yml`：
+
+```yml
+spring:
+    profiles:
+        active: "@spring.profiles.active@"
+```
+
+> 由于 `application.properties` 和 `application.yml` 文件接受 Spring 样式的占位符 ( `${...​}` )，因此 Maven 过滤更改为使用 `@..@` 占位符。[Spring Boot Maven Plugin](https://docs.spring.io/spring-boot/docs/3.0.6/maven-plugin/reference/htmlsingle/#using)
+> 这种方式虽然方便了一丢丢，但还是建议用环境变量来激活。
+
+这样我们在打包时，在配置文件栏目可以选择需要激活的 profiles(多选)，然后执行 `package` 即可：
+
+![IDEA 中的 Maven.png](./img/springboot/IDEA中Maven配置文件.png)
+
+::: tip
+
+如果是开发过程中切换配置文件，需要手动点击一下刷新按钮：
+
+![重新加载Maven项目](./img/springboot/重新加载Maven项目.png)
+
+避免我们重启 Application 时 profile 占位符 `@spring.profiles.active@` 没有被 Maven 替换。
+
+:::
+
+<br>
+
+以上几种方式的优先级：
+
+```text
+命令行方式 > Java 系统属性方式 > 系统变量方式 > 配置文件方式
+```
+
+## JAR 包瘦身
+
+所谓瘦身，也就是打包时分离 jar 包的依赖。
+
+### 方式 1
+
+用 mvn 复制依赖，将项目的依赖 jar 包复制到 `target/lib`：
+
+```sh
+mvn dependency:copy-dependencies -DincludeScope=runtime -DoutputDirectory=target/lib
+```
+
+在 `pom.xml` 修改：
+
+```xml
+<build>
+  <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <layout>ZIP</layout>
+          <includes>
+              <!-- 先去除所有的 jar 包 -->
+              <include>
+                <groupId>nothing</groupId>
+                <artifactId>nothing</artifactId>
+              </include>
+              <!-- 将需要的 jar 包保留，这里我不需要 -->
+              <!--<include>
+                <groupId> </groupId>
+                <artifactId> </artifactId>
+              </include>-->
+          </includes>
+        </configuration>
+      </plugin>
+  </plugins>
+</build>
+```
+
+运行方式修改为：
+
+```sh
+java -Dloader.path=./lib -jar demo.jar
+# 下面的是不行的
+# java -jar demo.jar --loader.path=./lib
+```
+
+或者用环境变量：
+
+```batch
+set LOADER_PATH=./lib
+java -jar demo.jar
+pause
+```
+
+> [Launching Executable Jars](https://docs.spring.io/spring-boot/docs/3.0.6/reference/htmlsingle/#appendix.executable-jar.launching)
+
+### 方式 2
+
+其实和上面类似，但是做的配置工作更多，只需要修改 `pom.xml`：
+
+首先需要在方式 1 的基础上，添加 `executions`：
+
+```xml
+<plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+    <!-- 此处省略 configuration -->
+
+    <executions>
+        <execution>
+        <goals>
+            <goal>repackage</goal>
+        </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+下面的配置用来自动复制依赖到 `lib`，复制 `resources`，同时不把 `resources` 下的部分文件进 jar 包：
+
+```xml
+<!-- 复制依赖 -->
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-dependency-plugin</artifactId>
+    <executions>
+        <execution>
+            <id>copy-dependencies</id>
+            <phase>package</phase>
+            <goals>
+                <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+                <includeScope>runtime</includeScope>
+                <outputDirectory>
+                    ${project.build.directory}/lib/
+                </outputDirectory>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-resources-plugin</artifactId>
+    <executions>
+        <execution>
+            <id>copy-resources</id>
+            <phase>package</phase>
+            <goals>
+                <goal>copy-resources</goal>
+            </goals>
+            <!-- configuration 必须放在 executions 里，否则无法运行项目 -->
+            <configuration>
+                <!-- 资源文件输出目录 -->
+                <outputDirectory>${project.build.directory}/resources</outputDirectory>
+                <!-- yml 的 @..@ 占位符 -->
+                <delimiters>
+                    <delimiter>${*}</delimiter>
+                    <delimiter>@</delimiter>
+                </delimiters>
+                <useDefaultDelimiters>false</useDefaultDelimiters>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <!-- 用来支持 yml 中的 @...@ 占位符 -->
+                        <filtering>true</filtering>
+                    </resource>
+                </resources>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+
+<!-- 决定哪些打进 jar 包 -->
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-jar-plugin</artifactId>
+    <configuration>
+        <outputDirectory>${project.build.directory}</outputDirectory>
+        <!-- 不要打包的文件，位于编译后的 classes 目录 -->
+        <excludes>
+            <exclude>*.**</exclude>
+            <exclude>static/**</exclude>
+            <exclude>mapper/*.xml</exclude>
+        </excludes>
+        <archive>
+            <manifest>
+                <addClasspath>true</addClasspath>
+                <!-- MANIFEST.MF 中 Class-Path 加入前缀 -->
+                <classpathPrefix>lib/</classpathPrefix>
+                <!-- jar 包不包含唯一版本标识 -->
+                <useUniqueVersions>false</useUniqueVersions>
+            </manifest>
+            <manifestEntries>
+                <!-- MANIFEST.MF 中 Class-Path 加入资源文件目录 -->
+                <Class-Path>./resources/</Class-Path>
+            </manifestEntries>
+        </archive>
+    </configuration>
+</plugin>
+```
+
+此时只需要正常的使用以下命令即可运行，不需要 `loader.path` 等参数：
+
+```java
+java -jar demo.jar
+```
+
+> 参考：[Spring Boot 打包，分离依赖 jar，配置文件](https://www.jianshu.com/p/dbdece9062b3)
+
+> 我还试了引入 [springboot thin launcher](https://github.com/spring-projects-experimental/spring-boot-thin-launcher)，但没跑起来，之后再测试了。
+
+<!-- https://www.jianshu.com/p/fdeb5e249379 -->
