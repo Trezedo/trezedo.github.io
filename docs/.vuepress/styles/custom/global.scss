@@ -68,7 +68,8 @@ p > a[name] {
     transform 比 margin 性能好 50%~70%
  */
 .sidebar {
-    z-index: 1;
+    // 和 navbar 一样的(比 notice 大即可)
+    z-index: 175;
 
     &.hide {
         // 使用 transform 代替直接 修改 left
@@ -76,6 +77,11 @@ p > a[name] {
         // -webkit-transform
         transform: translateX(calc(0px - var(--sidebar-width)));
     }
+}
+
+// 修改 .outlook-dropdown 没用，要让它比 navbar(175) 小一点
+.notice-wrapper:not(a) {
+    z-index: 174;
 }
 
 .page.full {

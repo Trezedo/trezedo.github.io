@@ -4,7 +4,6 @@ import { registerComponents } from "./plugins/registerComponents";
 import search from "./plugins/search";
 import type { ComponentOptions } from "vuepress-plugin-components";
 import type { CommentOptions } from "vuepress-plugin-comment2";
-import { isDev } from "../config";
 
 export const pluginConfig: PluginConfig = [
     //
@@ -40,7 +39,7 @@ export const components: ComponentOptions = {
                 ][0],
                 // confirm: true,
                 // actions: [],
-                // showOnce: isDev() ? false : true,
+                // showOnce: __VUEPRESS_DEV__ ? false : true,
                 // fullscreen: true,
             },
         ],

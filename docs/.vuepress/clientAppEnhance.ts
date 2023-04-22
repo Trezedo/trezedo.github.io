@@ -5,9 +5,13 @@ import { decoPlugin, reloadPagePlugin } from "@zedo/plugin-hooks/";
 // import { loadScripts, loadStyles } from "@zedo";
 
 import Speech from "@zedo/components/client/Speech.vue";
-import { onMounted } from "vue";
+import { onMounted, watch } from "vue";
+import { useRoute } from "vue-router";
 
-const handleDate = (date: Date = new Date()) => {
+const handleDate = (date: Date) => {
+    if (date?.toJSON() == null) {
+        date = new Date();
+    }
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
@@ -15,10 +19,10 @@ const handleDate = (date: Date = new Date()) => {
 };
 
 async function noticeUpdateTime() {
+    if (__VUEPRESS_DEV__) return;
     const data = await fetch("/sitemap.xml").then((response) =>
         response.text()
     );
-
     const xmlDoc = new DOMParser().parseFromString(data, "text/xml");
     // @ts-ignore
     let time = [...xmlDoc.querySelectorAll("lastmod")].reduce(
@@ -32,6 +36,14 @@ async function noticeUpdateTime() {
     };
     notice.textContent = date ? date + " 更新" : notice.textContent;
 }
+
+const makeCenterImgClass = () => {
+    document.querySelectorAll("p > img:only-child").forEach((e) => {
+        if (e.previousSibling == null) {
+            e.classList.add("center");
+        }
+    });
+};
 
 // https://v2.vuepress.vuejs.org/zh/advanced/cookbook/usage-of-client-config.html
 export default defineClientConfig({
@@ -51,6 +63,15 @@ export default defineClientConfig({
         decoPlugin();
         reloadPagePlugin();
         onMounted(noticeUpdateTime);
+
+        onMounted(makeCenterImgClass);
+        const route = useRoute();
+        watch(
+            () => route.path,
+            () => {
+                setTimeout(makeCenterImgClass, 1000);
+            }
+        );
     },
     // 插入到 #app 的组件
     rootComponents: [Speech],

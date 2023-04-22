@@ -85,7 +85,8 @@
         "MD024": {
             // 不同标题下的子标题内容可以重复
             "siblings_only": true
-        }
+        },
+        "MD028": false
     },
     "easysass.compileAfterSave": true,
     "easysass.formats": [
