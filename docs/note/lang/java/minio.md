@@ -1,6 +1,11 @@
 ---
 date: 2023-04-17
 icon: java
+category:
+    - Java
+tag:
+    - springboot
+    - minio
 ---
 
 # SpringBoot 引入 MinIO 对象存储
@@ -483,7 +488,7 @@ import java.util.regex.Pattern;
  */
 @RestController
 @RequestMapping("/files")
-public class MinioController extends BaseController {
+public class MinioController {
     @Resource
     MinioService minioService;
 
@@ -552,6 +557,7 @@ public class MinioController extends BaseController {
             minioService.download(MinioConfig.BUCKET_NAME, filename, response);
             return;
         }
+        // 可以自定义 Exception
         throw new RuntimeException("文件 '%s' 不存在".formatted(filename));
     }
 }

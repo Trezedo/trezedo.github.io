@@ -9,6 +9,8 @@ category:
 
 # Python 笔记
 
+[Python 安装包 - 华为镜像](https://repo.huaweicloud.com/python/)
+
 ## 添加环境变量
 
 如果你下载的是官方安装包，需要手动配置环境变量。

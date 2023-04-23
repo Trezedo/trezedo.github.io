@@ -11,6 +11,8 @@ icon: tool
 
 [I Love IMG](https://www.iloveimg.com/zh-cn)：支持在线处理图片，如裁剪、压缩、转换(仅支持常见格式)、编辑（透明图），不需要登陆。
 
+[Small PDF](https://smallpdf.com/cn/pdf-tools)：包括常用的 PDF压缩、转换、分割、合并、加密等功能。
+
 ## 前端工具
 
 [CV 开发](https://www.5cv.top/)：收集了很多前端的文档、工具、类库、UI 框架等。
