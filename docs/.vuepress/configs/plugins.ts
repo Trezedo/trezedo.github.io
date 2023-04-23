@@ -33,9 +33,10 @@ export const components: ComponentOptions = {
                     // "修改 springboot 笔记，尝试通过 packageManager 使用 pnpm8",
                     // "新增 netlify 部署笔记，更新收集的在线工具",
                     // "启用 Giscus 评论区，新增 minio 笔记",
-                    `1.更正 MySQL 文章中的勘误，补充 MinIO。
+                    /* `1.更正 MySQL 文章中的勘误，补充 MinIO。
                     <br>
-                    2.使用 shields.io 展示库/包的版本号。`,
+                    2.使用 shields.io 展示库/包的版本号。`, */
+                    "拆分 springboot 笔记中的 smart doc 部分，调整内容顺序",
                 ][0],
                 // confirm: true,
                 // actions: [],

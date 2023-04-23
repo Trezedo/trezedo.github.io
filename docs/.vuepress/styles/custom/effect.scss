@@ -12,11 +12,15 @@ img.hero-image {
 // 彩色进度条
 #nprogress .bar {
     height: 3px;
-    background-image: repeating-linear-gradient(90deg, #00dc80 0, #34cdfe 50%, #0047e0);
+    background-image: repeating-linear-gradient(
+        90deg,
+        #00dc80 0,
+        #34cdfe 50%,
+        #0047e0
+    );
 }
 
-.blogger-name,
-.blogger-description {
+@mixin rainbow($time: 4s) {
     background-image: linear-gradient(
         90deg,
         #ffa745,
@@ -30,10 +34,21 @@ img.hero-image {
         #ffa745
     );
     background-size: 200%;
-    animation: t-anim 4s linear infinite;
+    animation: t-anim $time linear infinite;
     // 实际上由 -webkit-background-clip 生效
     background-clip: text;
     color: transparent;
+}
+
+.blogger-name,
+.blogger-description {
+    @include rainbow();
+}
+
+.blog-hero {
+    h1 {
+        @include rainbow(1s);
+    }
 }
 
 @keyframes t-anim {

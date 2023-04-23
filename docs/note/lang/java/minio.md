@@ -14,7 +14,7 @@ tag:
 
 MinIO 是一个对象存储解决方案，基于 GNU AGPL v3 协议开源。它兼容亚马逊 S3 云存储服务的 API，并支持其所有核心功能。
 
-对象存储中的“对象”是指“二进制大对象”(Binary Large Object)，也常用 blob 表示，它通常是非结构化的数据，且大小是任意的，可以从几个字节到几 TB 不等。
+对象存储中的“对象”是指“**二进制大对象**”(Binary Large Object)，也常用 **blob** 表示，它通常是非结构化的数据，且大小是任意的，可以从几个字节到几 TB 不等。
 
 MinIO 非常适用于存储，如图像、音频文件、电子表格和二进制可执行代码等，并提供了专用工具和功能，使用标准的 S3 兼容 API 来存储、列出和检索这些对象。
 
@@ -558,7 +558,7 @@ public class MinioController {
             return;
         }
         // 可以自定义 Exception
-        throw new RuntimeException("文件 '%s' 不存在".formatted(filename));
+        throw new RuntimeException(String.format("文件 '%s' 不存在", filename));
     }
 }
 ```

@@ -11,40 +11,6 @@ tag:
 
 # SpringBoot 开发记录
 
-## 终止进程解决端口占用
-
-当我们重启 IDEA 时，提示我们 **“终止”** 或 **“断开连接”**，如果选择后者，那么下次启动 SpringBoot 项目时就可能会有类似如下报错：
-
-```text
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Web server failed to start. Port 62234 was already in use.
-
-Action:
-
-Identify and stop the process that's listening on port 62234 or configure this application to listen on another port.
-```
-
-这是因为之前关闭 IDEA 时的 “断开连接” 操作没有关闭运行在对应端口的进程，我们只需要手动关闭即可解决：
-
-```batch
-# 查看哪个进程占用了 62234 端口
-netstat -aon | findstr 62234
-```
-
-![端口占用情况](./img/springboot/查找进程PID.png)
-
-```batch
-# 强制杀死进程
-taskkill -F -PID 17736
-```
-
-之后就可以重启 SpringBoot 项目了。
-
 ## 统一响应体简单封装
 
 为了方便前端对数据的处理，后端通常会统一返回给前端的响应体结构，这里我采用的 json 结构如下：
@@ -207,6 +173,40 @@ public interface IBaseController {
 >
 > 1. 直接让业务中的 Controller 实现 `IBaseController` 接口；
 > 2. 先定义抽象类 BaseController 并实现 `IBaseController` 接口，再让业务中的 Controller 继承 BaseController。
+
+## 终止进程解决端口占用
+
+当我们重启 IDEA 时，提示我们 **“终止”** 或 **“断开连接”**，如果选择后者，那么下次启动 SpringBoot 项目时就可能会有类似如下报错：
+
+```text
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 62234 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 62234 or configure this application to listen on another port.
+```
+
+这是因为之前关闭 IDEA 时的 “断开连接” 操作没有关闭运行在对应端口的进程，我们只需要手动关闭即可解决：
+
+```batch
+# 查看哪个进程占用了 62234 端口
+netstat -aon | findstr 62234
+```
+
+![端口占用情况](./img/springboot/查找进程PID.png)
+
+```batch
+# 强制杀死进程
+taskkill -F -PID 17736
+```
+
+然后重启 SpringBoot Application 就可以了。
 
 ## Mybatis Plus 多表条件查询
 
@@ -431,7 +431,7 @@ public class WebConfig2 extends WebMvcConfigurationSupport {
 
 > [Set the Active Spring Profiles](https://docs.spring.io/spring-boot/docs/3.0.6/reference/htmlsingle/#howto.properties-and-configuration.set-active-spring-profiles)
 
-springboot 默认使用 `.properties` 文件进行配置，我们也可以使用 `.yml` 或 `.yaml`。例如将 resources 目录下的的 `application.properties` 重命名为 `application.yml`。
+springboot 默认使用 `.properties` 文件进行配置，我们也可以使用 `.yml`(也即 `.yaml`)。例如将 resources 目录下的的 `application.properties` 重命名为 `application.yml`。
 
 通常一个项目会区分不同的环境，每种环境使用不同的配置，例如开发环境下的数据库使用 `localhost`，生产环境下使用某个公网 ip。
 
