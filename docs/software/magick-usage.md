@@ -169,7 +169,7 @@ magick -list font | grep Font
 @tab windows
 
 ```batch
-# chcp 65001 => 正确显示中文名称的字体，如方正字体
+:: chcp 65001 => 正确显示中文名称的字体，如方正字体
 magick -list font | findstr Font
 ```
 

@@ -51,6 +51,14 @@ img.hero-image {
     }
 }
 
+.navbar .site-name {
+    @include rainbow(1s);
+}
+
+.navbar span.site-name {
+    color: transparent;
+}
+
 @keyframes t-anim {
     0% {
         background-position: 0;

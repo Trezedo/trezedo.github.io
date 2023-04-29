@@ -9,7 +9,7 @@ tag:
     - windows
 ---
 
-# BAT 命令整理
+# BAT/CMD 命令整理
 
 [cmd 命令 - 微软](https://docs.microsoft.com/zh-cn/windows-server/administration/windows-commands/cmd)
 

@@ -28,7 +28,14 @@ MinIO 对象存储使用 [桶](https://min.io/docs/minio/windows/administration/
 
 我们只需要下载 MINIO SERVER，本文是 Windows 版本，exe 大小大概有 96.5MB（官网介绍的是不超过 100MB）。
 
-下载完成后不要直接双击打开，在当前目录打开命令行后执行：
+将下载域名修改为 `dl.minio.org.cn` 即可使用国内镜像，例如：
+
+```diff
+- https://dl.min.io/server/minio/release/windows-amd64/minio.exe
++ https://dl.minio.org.cn/server/minio/release/windows-amd64/minio.exe
+```
+
+下载完成后不要直接双击打开，在下载文件的所在目录打开命令行执行：
 
 ```batch
 minio.exe server minio-data
@@ -512,11 +519,13 @@ public class MinioController {
         if (success) {
             ObjectWriteResponse stat = upload.get();
             Map<String, String> map = new HashMap<>();
-            map.put("name", file.getName());
+            // 注意 file.getName() 获取的是 MultipartFile 的变量名，此处得到 "file"
+            String filename = file.getOriginalFilename();
+            map.put("name", filename);
             map.put("etag", stat.etag());
             map.put("contentType", file.getContentType());
             map.put("size", MinioService.formatSize(file.getSize()));
-            map.put("path", path + "/" + file.getName());
+            map.put("path", path + "/" + filename);
             return succeed(map);
         }
         return failed("上传失败");
