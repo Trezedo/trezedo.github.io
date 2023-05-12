@@ -1,6 +1,11 @@
 ---
 icon: api
 date: 2023-03-18
+category:
+    - Java
+tag:
+    - springboot
+    - maven
 ---
 
 # 使用 Smart Doc 生成接口文档

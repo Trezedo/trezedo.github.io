@@ -24,16 +24,10 @@ export default sidebar({
             children: "structure",
             collapsible: true,
         },
-        {
-            prefix: "lang/",
-            icon: "function",
-            text: "编程语言",
-            children: "structure",
-            collapsible: true,
-        },
     ],
     "/software/": "structure",
     "/tool/": "structure",
+    "/lang/": "structure",
     /* "/": [
         "/README.md",
         "/home.md",

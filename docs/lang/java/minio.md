@@ -4,8 +4,8 @@ icon: java
 category:
     - Java
 tag:
-    - springboot
     - minio
+    - springboot
 ---
 
 # SpringBoot 引入 MinIO 对象存储

@@ -1,6 +1,8 @@
 ---
 icon: java
 date: 2022-10-16
+category:
+    - Java
 ---
 
 # JDK 下载安装
