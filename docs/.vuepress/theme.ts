@@ -18,17 +18,18 @@ export default hopeTheme({
     docsBranch: "main",
     docsDir: "docs", // "src/docs"
 
-    pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime", "Word"],
+    pageInfo: [
+        "Author",
+        "Original",
+        "Date",
+        "Category",
+        "Tag",
+        "ReadingTime",
+        "Word",
+    ],
 
     navbarAutoHide: "mobile", // "always" 容易卡顿
     darkmode: "toggle",
-    themeColor: {
-        blue: "#2196f3",
-        red: "#f26d6d",
-        green: "#3eaf7c",
-        orange: "#fb9b5f",
-    },
-
     blog: {
         articlePerPage: 12,
         medias: {
@@ -108,7 +109,7 @@ export default hopeTheme({
             demo: true,
             container: true, // 默认开启
             align: true, // 一定程度上还算方便
-            linkCheck: "dev",
+            checkLinks: { status: "dev" },
             vPre: true, // 这是兼容 v1 的功能
 
             katex: {
@@ -132,7 +133,8 @@ export default hopeTheme({
                     "\\node": "\\box{#1}{\\bullet}",
                     "\\cnode": "\\colorbox{#1}{$\\node{#2}$}",
                     // katex 不支持默认参数，\providecommand\pTo[1][-20]{\mkern{#1mu}\xrightarrow{\mkern24mu}\mkern-7mu}
-                    "\\pto": "\\mkern{-20mu}\\xrightarrow{\\mkern24mu}\\mkern-6mu",
+                    "\\pto":
+                        "\\mkern{-20mu}\\xrightarrow{\\mkern24mu}\\mkern-6mu",
                     "\\circled": "\\text{\\textcircled{\\small{#1}}}",
                     "\\mod": "\\mathop{\\mathrm{mod}}",
                     "\\Im": "\\operatorname{Im}",

@@ -3,7 +3,7 @@ import type { PluginConfig } from "vuepress";
 import { registerComponents } from "./plugins/registerComponents";
 import search from "./plugins/search";
 import type { ComponentOptions } from "vuepress-plugin-components";
-import type { CommentOptions } from "vuepress-plugin-comment2";
+import type { CommentPluginOptions } from "vuepress-plugin-comment2";
 
 export const pluginConfig: PluginConfig = [
     //
@@ -11,7 +11,7 @@ export const pluginConfig: PluginConfig = [
     search,
 ];
 
-export const comments: CommentOptions = {
+export const comments: CommentPluginOptions = {
     provider: "Giscus",
     repo: "Trezedo/blog-giscus",
     repoId: "R_kgDOJYJYog",
