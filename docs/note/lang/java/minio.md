@@ -35,6 +35,8 @@ MinIO 对象存储使用 [桶](https://min.io/docs/minio/windows/administration/
 + https://dl.minio.org.cn/server/minio/release/windows-amd64/minio.exe
 ```
 
+[点我开始下载](https://dl.minio.org.cn/server/minio/release/windows-amd64/minio.exe)
+
 下载完成后不要直接双击打开，在下载文件的所在目录打开命令行执行：
 
 ```batch

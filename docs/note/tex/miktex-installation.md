@@ -133,3 +133,31 @@ mpm --pick-repository-url
 当文档比较长的时候，pdf 到 TeX 源码和 TeX 到 pdf 的双向定位也是比较重要的，这里再推荐一个轻量的 pdf 阅读器：[SumatraPDF](https://www.sumatrapdfreader.org/)，它和 winedt、vscode 都能很好的配合，当然 TexStudio 也可以，但是它自带 pdf 阅读器。
 
 学习 LaTeX 更多的还是看手册，看宏包的使用说明文档，比较推荐的入门书就是 [lshort-zh-cn](https://mirrors.tuna.tsinghua.edu.cn/CTAN/info/lshort/chinese/lshort-zh-cn.pdf)，这个文档译名是《一份（不太）简短的 LaTeX2e 介绍》或《112 分钟了解 LaTeX2e》，这里还有国内外各一个论坛，遇到的问题可以上来搜索和询问：[Stack Exchange](tex.stackexchange.com)、[LaTeX 工作室](https://www.latexstudio.net/)，提问也有其对应的要求，例如一个最小工作示例（MWE），要学习的内容还算挺多，慢慢来吧。
+
+
+<!-- https://www.cnblogs.com/xjtu-blacksmith/p/easymcm.html 一个简洁、易用的美赛 LaTeX 模板: easymcm
+
+https://blog.csdn.net/hebtu666/article/details/103438056
+
+latex教程详细笔记
+https://blog.csdn.net/mr_cat123/article/details/80215341
+
+LaTeX公式手册(全网最全)
+https://www.cnblogs.com/1024th/p/11623258.html
+
+%新的平行且等于
+\newcommand*\pxdy{%
+\mathrel{\hspace{.03555em}\text{\tikz[baseline]
+\draw (.1em,0ex) -- (.9em,0ex)
+(.1em,.3ex) -- (.9em,.3ex)
+(.375em,.4ex) -- (.675em,1.8ex)
+(.55em,.4ex) -- (.85em,1.8ex);}\hspace{.03555em}}}
+%相似
+\newcommand*\xiangsi{%
+\mathrel{\text{%
+\tikz \draw[baseline] (-.25em,1.15ex) .. controls (-.55em,1.15ex) and (-.51em,.23ex) .. (-.275em,.23ex) .. controls (0,.23ex) and (0,1.15ex) .. (.275em,1.15ex) .. controls (.51em,1.15ex) and (.55em,.23ex) .. (.25em,.23ex);%
+}}}
+%全等
+\newcommand*\quand{%
+\mathrel{\text{%\small%
+\tikz \draw[baseline] (-.2em,1.35ex) .. controls (-.46em,1.6ex) and (-.54em,.65ex) .. (-.25em,.65ex) .. controls (-.06em,.65ex) and (.06em,1.35ex) .. (.25em,1.35ex) .. controls (.54em,1.35ex) and (.46em,.4ex) .. (.2em,.65ex) (-.46em,.4ex) -- (.46em,.4ex) (-.46em,0ex) -- (.46em,0ex);% -->
