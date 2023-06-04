@@ -41,12 +41,12 @@ projects:
     - icon: vue
       name: 个人博客 - 前端
       desc: 采用 Nuxt3 开发的博客前端项目，服务端渲染
-      link: https://gitee.com/zedo/hamony-os-app
+      link: https://gitee.com/zedo/blog-fe
 
     - icon: java
       name: 个人博客 - 后端
       desc: 采用 SpringBoot + Mybatis + Swagger + PostgreSQL 数据库开发的博客后端接口
-      link: https://gitee.com/zedo/hamony-os-app
+      link: https://gitee.com/zedo/z-blog
 
     - icon: vue
       name: 数据生成器
