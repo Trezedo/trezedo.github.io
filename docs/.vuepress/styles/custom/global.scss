@@ -51,12 +51,12 @@ p > a[name] {
 }
 
 // toggle 侧边栏的过渡动画
-.sidebar {
+.vp-sidebar {
     // transition: left 0.3s;
     transition: 0.3s;
 }
 
-.page {
+.vp-page {
     // 会覆盖切换页面之间的过度动画
     // transition: padding-left 0.3s;
     transition: all 0.3s;
@@ -67,7 +67,7 @@ p > a[name] {
     https://blog.csdn.net/weixin_45689946/article/details/122167495
     transform 比 margin 性能好 50%~70%
  */
-.sidebar {
+.vp-sidebar {
     // 和 navbar 一样的(比 notice 大即可)
     z-index: 175;
 
@@ -84,7 +84,7 @@ p > a[name] {
     z-index: 174;
 }
 
-.page.full {
+.vp-page.full {
     padding-left: 0;
 }
 
@@ -163,9 +163,9 @@ table {
     }
 }
 
-.sidebar,
-.breadcrumb,
-.page-title,
+.vp-sidebar,
+.vp-breadcrumb,
+.vp-page-title,
 .theme-hope-content,
 .blog-info-list {
     font-family: var(--font-family-fancy);

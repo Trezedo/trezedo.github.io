@@ -15,12 +15,12 @@ $radius: var(--bg-radius);
 $coverHeight: var(--cover-height);
 
 // 首页图不跟随滚动
-.blog-hero.fullscreen .mask {
+.vp-blog-hero.fullscreen .mask {
     background-attachment: fixed !important;
 }
 
 // 清除默认设置的背景
-.theme-container .page.blog:not(p) {
+.theme-container .vp-page.vp-blog:not(p) {
     /*:not 用于增加权重 */
     background: transparent;
 }
@@ -61,9 +61,10 @@ $coverHeight: var(--cover-height);
 }
 
 // 将 main 撑高，以调整页脚位置
-.page {
+.vp-page {
     min-height: calc(
-        100vh - var(--navbar-height) - 2rem /* pad bottom */ - 2rem /* footer 的 margin-top */
+        100vh - var(--navbar-height) - 2rem /* pad bottom */ - 2rem
+            /* footer 的 margin-top */
     );
 
     &.has-cover {
@@ -71,8 +72,8 @@ $coverHeight: var(--cover-height);
     }
 }
 
-.breadcrumb,
-.page-title,
+.vp-breadcrumb,
+.vp-page-title,
 .theme-hope-content:not(.custom),
 .page-meta {
     position: relative;
@@ -92,7 +93,7 @@ $coverHeight: var(--cover-height);
 }
 
 // 顶部留白，圆角
-.breadcrumb {
+.vp-breadcrumb {
     margin-top: $gap;
 
     &::before {
@@ -104,9 +105,11 @@ $coverHeight: var(--cover-height);
 // 标题和正文衔接
 .theme-hope-content:not(.custom) {
     &::before {
-        $fix: 1rem;
+        $fix: 2.5rem;
+        $pad: 1rem;
+
         top: -$fix;
-        height: calc(100% + #{$fix});
+        height: calc(100% + #{$fix} - #{$pad});
     }
 }
 
@@ -132,8 +135,8 @@ $coverHeight: var(--cover-height);
     }
 }
 
-// .page-nav 处理不了，改成处理其子元素
-.page-nav {
+// .vp-page-nav 处理不了，改成处理其子元素
+.vp-page-nav {
     border-top: none; // 取消白线
     padding: 0 $gap 0.5rem;
     max-width: calc(var(--content-width) + #{$gap} * 2 + 1rem);
@@ -174,24 +177,26 @@ aside#toc {
 }
 
 // 项目主页
-.hero::before,
-.features {
+.vp-hero-info::before,
+.vp-features {
     background-color: var(--bg-color);
 }
 
-.hero {
+.vp-hero-info {
     @media (max-width: 959px) {
         position: relative;
     }
 
     &::before {
+        $pad: 1rem;
+
         content: "";
         position: absolute;
         z-index: -1;
-        width: 100%;
+        width: calc(100% - #{$pad * 2});
         height: 100%;
         max-height: 50vh;
-        left: 0%;
+        left: $pad;
         border-radius: $radius;
 
         @media (max-width: 959px) {

@@ -1,11 +1,11 @@
 // 圆角头像
-img.logo,
-img.hero-image {
+.vp-nav-logo,
+.vp-blog-hero-image {
     // img.avatar 可以通过主题设置
     border-radius: 50%;
 }
 
-.hero-image {
+.vp-blog-hero-image {
     min-height: 180px;
 }
 
@@ -40,23 +40,11 @@ img.hero-image {
     color: transparent;
 }
 
-.blogger-name,
-.blogger-description {
-    @include rainbow();
-}
-
-.blog-hero {
-    h1 {
-        @include rainbow(1s);
-    }
-}
-
-.navbar .site-name {
-    @include rainbow(1s);
-}
-
-.navbar span.site-name {
-    color: transparent;
+.vp-blogger-name,
+.vp-blogger-description,
+.vp-blog-hero-title,
+.vp-navbar .vp-site-name {
+    @include rainbow(1.5s);
 }
 
 @keyframes t-anim {
