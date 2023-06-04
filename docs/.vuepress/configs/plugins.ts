@@ -36,7 +36,8 @@ export const components: ComponentOptions = {
                     /* `1.更正 MySQL 文章中的勘误，补充 MinIO。
                     <br>
                     2.使用 shields.io 展示库/包的版本号。`, */
-                    "拆分 springboot 笔记中的 smart doc 部分，调整内容顺序",
+                    // "拆分 springboot 笔记中的 smart doc 部分，调整内容顺序",
+                    "新增部分文档，暂时禁用 search-pro",
                 ][0],
                 // confirm: true,
                 // actions: [],

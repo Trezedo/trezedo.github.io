@@ -31,7 +31,7 @@ async function noticeUpdateTime() {
     );
 
     let date = handleDate(new Date(time));
-    const notice = document.querySelector(".notice-title span") ?? {
+    const notice = document.querySelector(".vp-notice-title span") ?? {
         textContent: "",
     };
     notice.textContent = date ? date + " 更新" : notice.textContent;
