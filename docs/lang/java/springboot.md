@@ -11,6 +11,8 @@ tag:
 
 # SpringBoot 开发记录
 
+> 本文基于 Spring Boot 3.x
+
 ## 统一响应体简单封装
 
 为了方便前端对数据的处理，后端通常会统一返回给前端的响应体结构，这里我采用的 json 结构如下：
@@ -419,13 +421,97 @@ public class WebConfig2 extends WebMvcConfigurationSupport {
 }
 ```
 
-注意两种方式**不能同时使用**！
+注意同一个项目中**不能同时使用**多种方式配置！
 
 如果你使用 IDEA，按下快捷键 <kbd>Ctrl</kbd>+<kbd>O</kbd> 打开重写函数面板，重写你需要的方法，例如：
 
 - 配置跨域 `addCorsMappings`
 - 添加拦截器 `addInterceptors`
 - 静态资源处理 `addResourceHandlers`
+
+### 跨域
+
+除了可以在 Controller 上使用 `@CrossOrigin` 注解单独设置接口跨域，也可以统一配置：
+
+```java
+@Configuration
+public class WebConfig implements WebMvcConfigurer {
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOriginPatterns("*")
+                // .allowedMethods("*") // 允许所有方法
+                .allowedMethods("GET", "POST", "PUT", "DELETE")
+                .allowCredentials(true);
+    }
+
+    /**
+     * @param registry 资源处理注册中心
+     * @implNote 配置跨域和拦截器可能会限制静态资源的访问，因此需要实现 addResourceHandlers 方法，添加静态资源路径
+     */
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        // 通过 /static/** 访问静态资源
+        registry.addResourceHandler("static/**")
+                .addResourceLocations("classpath:/resources/")
+                .addResourceLocations("classpath:/static/");
+    }
+}
+```
+
+### 自定义拦截器
+
+身份验证、日志记录等场景可以使用拦截器。
+
+以下是定义拦截器的方式：
+
+```java
+public class MyInterceptor implements HandlerInterceptor {
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        // 目标方法执行前
+        // 如果不拦截直接 return true
+        return HandlerInterceptor.super.preHandle(request, response, handler);
+    }
+
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+        // 目标方法执行后
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        // 请求完成时
+    }
+}
+```
+
+如果想要拦截，**建议**抛出运行时异常(`RuntimeException`)，结合全局异常处理进行拦截，而不是 `return false`。
+
+添加到 MVC 配置中（示例）：
+
+```java
+@Configuration
+public class WebConfig implements WebMvcConfigurer {
+    @Resource
+    MyInterceptor2 myInterceptor2;
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        // 拦截所有接口，登陆、注册、错误页除外
+        registry.addInterceptor(new MyInterceptor1())
+                .addPathPatterns("/**")
+                .excludePathPatterns("/auth/login", "/auth/register")
+                .excludePathPatterns("/error/**", "/static/**");
+        // 假设 myInterceptor2 注入了其他依赖
+        registry.addInterceptor(myInterceptor2);
+        // ...
+    }
+}
+```
+
+> 默认情况下，拦截器会拦截所有的请求，除非在 `addPathPatterns` 方法中指定了需要拦截的路径（可多次调用）。
+> 如果拦截器中需要注入 Redis 等，则注册拦截器时不能直接 `new`。
 
 ## 激活指定 profiles
 
