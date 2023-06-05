@@ -37,7 +37,8 @@ export const components: ComponentOptions = {
                     <br>
                     2.使用 shields.io 展示库/包的版本号。`, */
                     // "拆分 springboot 笔记中的 smart doc 部分，调整内容顺序",
-                    "新增部分文档，暂时禁用 search-pro",
+                    // "新增部分文档，暂时禁用 search-pro",
+                    "重启 search-pro，css 样式调整",
                 ][0],
                 // confirm: true,
                 // actions: [],
