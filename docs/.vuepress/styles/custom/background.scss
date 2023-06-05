@@ -32,13 +32,13 @@ $coverHeight: var(--cover-height);
 }
 
 // 分页器
-.pagination-wrapper:not(p) {
+.vp-pagination:not(p) {
     margin-bottom: 1.25rem;
     @include bg-border();
 }
 
 // 文章类型
-.article-type-wrapper:not(p) {
+.vp-article-type-wrapper:not(p) {
     padding: 1rem;
     @include bg-border();
 }
@@ -74,7 +74,7 @@ $coverHeight: var(--cover-height);
 
 .vp-breadcrumb,
 .vp-page-title,
-.theme-hope-content:not(.custom),
+.vp-page .theme-hope-content:not(p),
 .page-meta {
     position: relative;
 
@@ -103,18 +103,17 @@ $coverHeight: var(--cover-height);
 }
 
 // 标题和正文衔接
-.theme-hope-content:not(.custom) {
-    &::before {
-        $fix: 2.5rem;
-        $pad: 1rem;
-
-        top: -$fix;
-        height: calc(100% + #{$fix} - #{$pad});
-    }
-}
+// .vp-page .theme-hope-content:not(p) {
+//     &::before {
+//         $fix: 2.5rem;
+//         $pad: 1rem;
+//         top: -$fix;
+//         height: calc(100% + #{$fix} - #{$pad});
+//     }
+// }
 
 // 正文底部圆角
-.theme-hope-content:not(.custom) {
+.vp-page .theme-hope-content {
     &::before {
         border-bottom-left-radius: $radius;
         border-bottom-right-radius: $radius;
@@ -176,27 +175,56 @@ aside#toc {
     border-radius: $radius;
 }
 
-// 项目主页
+// 评论
+.giscus-wrapper {
+    position: relative;
+    $pad: $gap;
+
+    &::before {
+        content: "";
+        z-index: -1;
+        position: absolute;
+        border-radius: $radius;
+        left: $pad;
+        top: calc(2rem - $pad / 2);
+
+        background-color: var(--bg-color);
+        opacity: 0.9;
+        width: calc(100% - #{$pad} * 2);
+        height: calc(100px + $pad);
+    }
+}
+
+/* ------------------------- 项目主页 ----------------------------- */
+
+$project_pad: 32px;
+
 .vp-hero-info::before,
 .vp-features {
     background-color: var(--bg-color);
+    margin: 0;
+}
+
+.vp-feature {
+    padding-left: $project_pad;
+    padding-right: $project_pad;
 }
 
 .vp-hero-info {
+    margin-top: 4rem;
+
     @media (max-width: 959px) {
         position: relative;
     }
 
     &::before {
-        $pad: 1rem;
-
         content: "";
         position: absolute;
         z-index: -1;
-        width: calc(100% - #{$pad * 2});
+        width: calc(100% - #{$project_pad * 2});
         height: 100%;
         max-height: 50vh;
-        left: $pad;
+        left: $project_pad;
         border-radius: $radius;
 
         @media (max-width: 959px) {
@@ -206,17 +234,21 @@ aside#toc {
     }
 }
 
-.theme-hope-content.custom::after {
-    $margin: 2rem;
+.vp-project-home .theme-hope-content {
+    position: relative;
 
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    width: calc(100% + 2 * #{$margin});
-    height: 100%;
-    background: var(--bg-color);
-    margin: 0 - $margin;
+    &::after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        width: calc(100% - 2 * #{$project_pad});
+        height: 100%;
+        left: 50%;
+        transform: translate(-50%, -$project_pad);
+        background: var(--bg-color);
+        border-radius: $radius;
+    }
 }
 
 // 时间线
