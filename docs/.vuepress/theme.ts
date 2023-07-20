@@ -99,9 +99,7 @@ export default hopeTheme({
             */
             attrs: true,
             // 暂时启用
-            presentation: {
-                plugins: ["highlight", "math", "search", "notes", "zoom"],
-            },
+            presentation: ["highlight", "math", "search", "notes", "zoom"],
             mark: true, // 用 " == x ==" 高亮
             // stylize: [], // 比较强大但是为了兼容性我不用
             flowchart: true,

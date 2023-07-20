@@ -5,7 +5,7 @@ import type { DecoOption } from "../shared";
 const __dirname = getDirname(import.meta.url);
 
 export const decoPlugin = ({
-    img = "https://w.wallhaven.cc/full/72/wallhaven-72rd8e.jpg",
+    img = "https://zedo.gitee.io/img/wallhaven-72rd8e.png",
     excludePaths = [],
 }: DecoOption = {}): Plugin => ({
     name: "vuepress-plugin-deco",
