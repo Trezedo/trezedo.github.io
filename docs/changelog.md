@@ -5,6 +5,10 @@ article: false
 
 # 变更日志
 
+## 2023-07-24
+
+- 因 [res.abeim.cn](https://res.abeim.cn/api/qq.tx/doc.html) 服务无法及时更新，故更换头像链接
+
 ## 2023-07-20
 
 - 更新主题至 ![version](https://img.shields.io/badge/v2.0.0--beta.233-8A2BE2)

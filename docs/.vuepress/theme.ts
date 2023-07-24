@@ -10,7 +10,7 @@ export default hopeTheme({
     iconAssets: "iconfont",
     iconPrefix: "iconfont icon-",
     // 左上角，以及首页右侧
-    logo: "https://res.abeim.cn/api-qq.tx?qq=1962234583", // "/favicon.ico",
+    logo: "http://q1.qlogo.cn/g?b=qq&s=5&nk=1962234583", // "/favicon.ico",
 
     repoDisplay: true,
     repo: "https://github.com/trezedo/trezedo.github.io",
