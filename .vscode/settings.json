@@ -93,7 +93,10 @@
             // 不同标题下的子标题内容可以重复
             "siblings_only": true
         },
-        "MD028": false
+        "MD028": false,
+        "MD029": false, // 允许有序列表不从 1 开始编号
+        "MD046": false,
+        "MD051": false // 应对含空格的 fragment
     },
     "easysass.compileAfterSave": true,
     "easysass.formats": [

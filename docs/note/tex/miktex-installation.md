@@ -97,7 +97,7 @@ Timeout was reached
 Data: code="28", url="https://api2.miktex.org/hello"
 ```
 
-使用 mpm 命令(MiKTeX Package Manager) 查看可用源，或者打开官网<https://miktex.org/repositories>，任选一个 Country 为 China 的都可：
+使用 mpm 命令(MiKTeX Package Manager) 查看可用源，或者打开官网 <https://miktex.org/repositories>，任选一个 Country 为 China 的都可：
 
 ```sh
 mpm --list-repositories
@@ -124,8 +124,6 @@ mpm --pick-repository-url
 - 中国科学技术大学 <https://mirrors.ustc.edu.cn/CTAN/systems/win32/miktex/tm/packages/>
 - 华为云 <https://repo.huaweicloud.com/CTAN/systems/win32/miktex/tm/packages/>
 
-然而设置之后依旧报同样的错……
-
 ### 说在后面
 
 这里只是刚刚能够使用 LaTeX，还没有涉及到很多 LaTeX 语法、公式、宏包、TeX 命令行等等。而实际上 LaTeX 也有其专门的 IDE：[TexStudio](http://texstudio.sourceforge.net/)、WinEdt（收费）等，同样提供了很多开箱即用的功能，以及常用的宏命令提示等等，当然，插件颇为丰富的 **VS Code** 也有对应的用于 LaTeX 写作的插件：`LaTeX Workshop`，可定制性高，例如可以配置 snippet，但有时遇到编译错误它不能很好的对错误定位和提示，关于这点还是比较推荐 TexStudio。
@@ -133,7 +131,6 @@ mpm --pick-repository-url
 当文档比较长的时候，pdf 到 TeX 源码和 TeX 到 pdf 的双向定位也是比较重要的，这里再推荐一个轻量的 pdf 阅读器：[SumatraPDF](https://www.sumatrapdfreader.org/)，它和 winedt、vscode 都能很好的配合，当然 TexStudio 也可以，但是它自带 pdf 阅读器。
 
 学习 LaTeX 更多的还是看手册，看宏包的使用说明文档，比较推荐的入门书就是 [lshort-zh-cn](https://mirrors.tuna.tsinghua.edu.cn/CTAN/info/lshort/chinese/lshort-zh-cn.pdf)，这个文档译名是《一份（不太）简短的 LaTeX2e 介绍》或《112 分钟了解 LaTeX2e》，这里还有国内外各一个论坛，遇到的问题可以上来搜索和询问：[Stack Exchange](tex.stackexchange.com)、[LaTeX 工作室](https://www.latexstudio.net/)，提问也有其对应的要求，例如一个最小工作示例（MWE），要学习的内容还算挺多，慢慢来吧。
-
 
 <!-- https://www.cnblogs.com/xjtu-blacksmith/p/easymcm.html 一个简洁、易用的美赛 LaTeX 模板: easymcm
 
