@@ -1,5 +1,6 @@
 import { hopeTheme } from "vuepress-theme-hope";
-import { components, navbar, sidebar, comments } from "./configs";
+import { comments, navbar, sidebar } from "./configs";
+import { katexOptions, noticeOptions } from "./configs/plugins";
 
 export default hopeTheme({
     hostname: "https://zedo.netlify.app",
@@ -7,8 +8,6 @@ export default hopeTheme({
         name: "zedo",
         url: "https://zedo.netlify.app",
     },
-    iconAssets: "iconfont",
-    iconPrefix: "iconfont icon-",
     // 左上角，以及首页右侧
     logo: "http://q1.qlogo.cn/g?b=qq&s=5&nk=1962234583", // "/favicon.ico",
 
@@ -42,7 +41,6 @@ export default hopeTheme({
             // GitHub: "https://example.com",
             // Gmail: "https://example.com",
         },
-        roundAvatar: true, // 首页右侧的头像
     },
     lastUpdated: true,
 
@@ -80,85 +78,66 @@ export default hopeTheme({
             article: "/article",
             // slides:undefined
         },
-        comment: comments,
-        mdEnhance: {
-            chart: false,
-            echarts: false,
-            mermaid: true,
-            sub: true,
-            sup: true,
-            tabs: true, // 可以写 markdown，不仅仅是代码
-            codetabs: true, // 与 tabs 类似，但专门展示代码
-            tasklist: true,
-            imgMark: false,
-            imgSize: false,
-            include: false, // 可导入 markdown，而非以代码形式导入
-            /* attrs 导致的问题：
-            1. 行高亮代码被认为是 text 
-            2. https://github.com/vuepress-theme-hope/vuepress-theme-hope/issues/2048
-            */
-            attrs: true,
-            // 暂时启用
-            presentation: ["highlight", "math", "search", "notes", "zoom"],
-            mark: true, // 用 " == x ==" 高亮
-            // stylize: [], // 比较强大但是为了兼容性我不用
-            flowchart: true,
-            footnote: true,
-            demo: true,
-            container: true, // 默认开启
-            align: true, // 一定程度上还算方便
-            checkLinks: { status: "dev" },
-            vPre: true, // 这是兼容 v1 的功能
-
-            katex: {
-                output: "html",
-                // mathml 相当于 tex 源码
-                macros: {
-                    "\\d": "\\mathop{}\\!\\mathrm{d}",
-                    "\\e": "\\text{e}",
-                    "\\i": "\\text{i}",
-                    "\\ds": "\\displaystyle",
-                    "\\eqref": "\\href{##tag-#1}{(\\text{#1})}",
-                    "\\ref": "\\href{##tag-#1}{\\text{#1}}",
-                    "\\label": "\\htmlId{tag-#1}{}",
-                    "\\oldTag": "\\@ifstar\\tag@literal\\tag@paren",
-                    "\\tag": "\\oldTag{#1}\\label{#1}",
-                    "\\tagref": "\\href{##tag-#1}{(#1)}",
-                    // 数据结构
-                    "\\mk": "\\mkern{#1mu}",
-                    "\\box":
-                        "\\begin{array}{|c|c|}\\hline \\!#1\\! & \\!#2\\!\\\\ \\hline \\end{array}",
-                    "\\node": "\\box{#1}{\\bullet}",
-                    "\\cnode": "\\colorbox{#1}{$\\node{#2}$}",
-                    // katex 不支持默认参数，\providecommand\pTo[1][-20]{\mkern{#1mu}\xrightarrow{\mkern24mu}\mkern-7mu}
-                    "\\pto":
-                        "\\mkern{-20mu}\\xrightarrow{\\mkern24mu}\\mkern-6mu",
-                    "\\circled": "\\text{\\textcircled{\\small{#1}}}",
-                    "\\mod": "\\mathop{\\mathrm{mod}}",
-                    "\\Im": "\\operatorname{Im}",
-                    "\\Re": "\\operatorname{Re}",
-                },
-                // 似乎是 md-enhance 使用的 katex 版本较低的缘故
-                strict: "ignore" /* (errorCode: string, errorMsg: string, token: any) => {
-                    console.error(errorCode, errorMsg, token);
-                    if (errorCode === "htmlExtension") {
-                        return "ignore";
-                    }
-                    return "error";
-                } */,
-                // https://github.com/KaTeX/KaTeX/issues/2003
-                trust: (context /* : TrustContext */) =>
-                    ["\\htmlId", "\\href"].includes(context.command),
-            },
+        icon: {
+            assets: "iconify",
+            prefix: "iconfont icon-",
         },
-
+        comment: comments,
         copyright: {
             global: true,
             author: "Trezedo",
             license: "MIT",
-            triggerWords: 100,
+            triggerLength: 100,
+            disableSelection: false,
+            disableCopy: true,
         },
         pwa: false,
-        components,
+        search: {
+            locales: {
+                "/": { placeholder: "搜索" },
+                "/en/": { placeholder: "Search" },
+            },
+            // 排除首页
+            isSearchable: (page) => page.path !== "/",
+        },
+        slimsearch: {
+            indexContent: true,
+        },
+        notice: noticeOptions,
+    },
+    markdown: {
+        // https://ecosystem.vuejs.press/zh/plugins/markdown/markdown-math.html
+        math: {
+            type: "katex",
+            ...katexOptions,
+        },
+        chartjs: false,
+        echarts: false,
+        mermaid: true,
+        sub: true,
+        sup: true,
+        tabs: true, // 可以写 markdown，不仅仅是代码
+        codeTabs: true, // 与 tabs 类似，但专门展示代码
+        tasklist: true,
+        imgMark: false,
+        imgSize: false,
+        include: false, // 可导入 markdown，而非以代码形式导入
+        /* attrs 导致的问题：
+            1. 行高亮代码被认为是 text 
+            2. https://github.com/vuepress-theme-hope/vuepress-theme-hope/issues/2048
+            */
+        attrs: true,
+        // 暂时启用
+        // presentation: ["highlight", "math", "search", "notes", "zoom"],
+        revealjs: true,
+        mark: true, // 用 " == x ==" 高亮
+        // stylize: [], // 比较强大但是为了兼容性我不用
+        flowchart: true,
+        footnote: true,
+        demo: true,
+        // container: true, // 已弃用
+        align: true, // 一定程度上还算方便
+        linksCheck: { dev: true },
+        vPre: true, // 这是兼容 v1 的功能
     },
 });

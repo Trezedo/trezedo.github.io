@@ -1,13 +1,18 @@
 {
     "extends": "../tsconfig.build.json",
     "compilerOptions": {
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "target": "ES2022",
         "rootDir": "./src",
         "outDir": "./lib",
         "baseUrl": ".",
         "paths": {
-            "@theme/*": ["./src/client/components/*"]
+            "@theme/*": ["./src/client/components/*"],
+            "@/*": ["./src/*"],
+            "@/components/*": ["./src/components/*"]
         },
-        "types": ["@vuepress/client/types"]
+        "types": ["vuepress/client-types"]
     },
     "include": ["./src"]
 }

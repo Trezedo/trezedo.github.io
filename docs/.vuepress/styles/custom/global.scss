@@ -97,14 +97,14 @@ p > a[name] {
 
 // 选中文字美化。似乎无需 ::-moz-selection
 *::selection {
-    color: var(--theme-color);
+    color: var(--vp-c-accent);
     /* ----theme-color 15% 透明度 */
-    background-color: var(--theme-color-mask);
+    background-color: var(--vp-c-accent-soft);
 }
 
 // 行内代码背景色跟随主题
 code {
-    background-color: var(--theme-color-mask);
+    background-color: var(--vp-c-accent-hover);
 }
 
 /* https://www.jb51.net/article/220293.htm */

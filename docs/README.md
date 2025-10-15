@@ -1,6 +1,6 @@
 ---
 home: true
-layout: BlogHome
+layout: Blog
 icon: home
 title: 博客主页
 heroImage: http://q1.qlogo.cn/g?b=qq&s=5&nk=1962234583
@@ -8,7 +8,7 @@ heroImage: http://q1.qlogo.cn/g?b=qq&s=5&nk=1962234583
 # heroImageStyle: {border-radius: 50%}
 heroText: Trezedo's Blog
 heroFullScreen: true
-bgImage: https://zedo.gitee.io/img/wallhaven-z8dg9y-lossy.png
+bgImage: https://z.wiki/u/7Bes18
 # tagline: 人可以无知，但不可以白痴。 ——苗条俊
 tagline: 强中更有强中手，莫向人前满自夸。
 projects:

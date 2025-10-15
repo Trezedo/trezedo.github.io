@@ -1,4 +1,4 @@
-import { defineClientConfig } from "@vuepress/client";
+import { defineClientConfig } from "vuepress/client";
 import { disableDebugLog } from "@zedo";
 import { decoPlugin, reloadPagePlugin } from "@zedo/plugin-hooks/";
 

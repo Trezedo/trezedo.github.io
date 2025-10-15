@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-import { resolvers, usePagesData } from "@vuepress/client";
+import { resolvers /* usePagesData */ } from "vuepress/client";
 import { ref } from "vue";
 import { RouterLink, useRoute, useRouter } from "vue-router";
 
@@ -50,7 +50,9 @@ const router = useRouter();
 const pages = router
     .getRoutes()
     .filter(
-        (rt) => (rt.path.endsWith(".html") || rt.path.endsWith("/")) && rt.redirect == undefined
+        (rt) =>
+            (rt.path.endsWith(".html") || rt.path.endsWith("/")) &&
+            rt.redirect == undefined
     )
     .filter((rt) => rt.path != route.path);
 

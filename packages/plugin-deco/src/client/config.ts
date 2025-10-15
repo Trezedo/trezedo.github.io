@@ -1,7 +1,7 @@
-import { defineClientConfig } from "@vuepress/client";
+import { defineClientConfig } from "vuepress/client";
 import { onMounted, ref, watch } from "vue";
 import { useRoute } from "vue-router";
-import { Background } from "./components/";
+import { Background } from "./components/Background.js";
 
 const style = `#bg {position: fixed;top: 0;left: 0;width: 100%;height: 100vh;z-index: -1;pointer-events: none;background-color: var(--bg-color-back);background: center center / cover no-repeat;transition: all 1s ease;}body {background: transparent;}`;
 

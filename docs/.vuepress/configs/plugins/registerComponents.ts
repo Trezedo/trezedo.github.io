@@ -1,5 +1,5 @@
 import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
-import { path as Path } from "@vuepress/utils";
+import { path as Path } from "vuepress/utils";
 
 const resolve = (path: string) => {
     return Path.resolve(__dirname, "../../../../custom/components/" + path);
@@ -8,7 +8,7 @@ const resolve = (path: string) => {
 const components: Record<string, string> = {
     BlogPageDos: resolve("client/BlogPageDos.vue"),
     CurrentPageData: resolve("client/CurrentPageData.vue"),
-    List4Hope: resolve("client/List4Hope.vue"),
+    // List4Hope: resolve("client/List4Hope.vue"),
     CommonFriend: resolve("QQ/CommonFriend.vue"),
     TTS: resolve("TTS.vue"),
 };

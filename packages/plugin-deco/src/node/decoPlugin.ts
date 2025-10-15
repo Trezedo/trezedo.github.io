@@ -1,11 +1,15 @@
 import { getDirname, path } from "@vuepress/utils";
 import type { Plugin } from "vuepress";
-import type { DecoOption } from "../shared";
 
 const __dirname = getDirname(import.meta.url);
 
+export interface DecoOption {
+    img?: string;
+    excludePaths?: string[];
+}
+
 export const decoPlugin = ({
-    img = "https://zedo.gitee.io/img/wallhaven-72rd8e.png",
+    img = "https://z.wiki/u/42DuSN",
     excludePaths = [],
 }: DecoOption = {}): Plugin => ({
     name: "vuepress-plugin-deco",

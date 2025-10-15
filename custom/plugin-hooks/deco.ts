@@ -1,7 +1,7 @@
 import { onMounted, ref, watch } from "vue";
 import { useRoute } from "vue-router";
 
-const img = "https://zedo.gitee.io/img/wallhaven-72rd8e.png";
+const img = "https://z.wiki/u/42DuSN";
 const style = `#bg {position: fixed;top: 0;left: 0;width: 100%;height: 100vh;z-index: -1;pointer-events: none;background-color: var(--bg-color-back);background: center center / cover no-repeat;transition: all 1s ease;}body {background: transparent;}`;
 
 const test = <string[]>[];
@@ -32,7 +32,7 @@ export function decoPlugin() {
         bgEl.value.id = "bg";
 
         // 插入元素，引入 css
-        document.body.insertBefore(bgEl.value, document.body.children[0]);
+        // document.body.insertBefore(bgEl.value, document.body.children[0]);
 
         !test.includes(route.path) && install(bgEl.value);
     });

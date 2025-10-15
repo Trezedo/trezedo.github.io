@@ -1,4 +1,4 @@
-import { resolvers, usePagesData } from "@vuepress/client";
+import { resolvers, usePagesData } from "vuepress/client";
 import { PageData } from "vuepress";
 
 /**

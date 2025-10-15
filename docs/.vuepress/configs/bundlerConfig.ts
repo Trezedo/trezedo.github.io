@@ -1,6 +1,7 @@
-import { viteBundler } from "vuepress";
+import { viteBundler } from "@vuepress/bundler-vite";
 // import { webpackBundler } from "@vuepress/bundler-webpack";
 
+// https://v2.vuepress.vuejs.org/zh/reference/bundler/vite.html
 export default {
     vite: viteBundler({
         viteOptions: {

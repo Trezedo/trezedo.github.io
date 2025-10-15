@@ -8,10 +8,10 @@ import {
     resolvers,
     usePageData,
     usePageFrontmatter,
-    usePagesData,
+    useRoutes,
     useRouteLocale,
     useSiteData,
-} from "@vuepress/client";
+} from "vuepress/client";
 import { onMounted } from "vue";
 
 onMounted(() => {
@@ -21,11 +21,11 @@ onMounted(() => {
     console.log(useSiteData().value);
 });
 
-for (let valueKey in usePagesData().value) {
-    resolvers.resolvePageData(valueKey).then((pageData) => {
-        console.log(decodeURI(pageData.path));
-    });
-}
+// for (let valueKey in usePagesData().value) {
+//     resolvers.resolvePageData(valueKey).then((pageData) => {
+//         console.log(decodeURI(pageData.path));
+//     });
+// }
 
 // 默认主题使用的 temp
 // @ts-ignore

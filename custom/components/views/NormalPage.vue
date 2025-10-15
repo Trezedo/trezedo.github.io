@@ -19,7 +19,7 @@
 // https://github.com/vuepress-theme-hope/vuepress-theme-hope/blob/main/packages/theme/src/client/components/NormalPage.ts
 // 修改 CommonWrapper.ts 会影响很多地方
 
-import { usePageFrontmatter } from "@vuepress/client";
+import { usePageFrontmatter } from "vuepress/client";
 import { computed, onMounted, ref } from "vue";
 
 // @ts-ignore
@@ -27,10 +27,7 @@ import NormalPage from "vuepress-theme-hope/components/NormalPage";
 
 const frontmatter = usePageFrontmatter();
 
-const coverLink = ref(
-    frontmatter.value["cover"] ||
-        "https://zedo.gitee.io/img/wallhaven-wqve97.png"
-);
+const coverLink = ref(frontmatter.value["cover"] || "https://z.wiki/u/42DuSN");
 
 const imgLink = computed(() => {
     return (frontmatter.value["article"] !== false && coverLink.value) || "";
@@ -72,6 +69,7 @@ $navbarHeight: var(--navbar-height);
 /* .theme-container .page */
 #main-content {
     // position: relative;
+    background-color: #fff;
 
     &.has-cover {
         padding-top: $coverHeight; // var(--navbar-height);

@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { usePageData } from "@vuepress/client";
+import { usePageData } from "vuepress/client";
 import { CSSProperties, onMounted, reactive, ref, watch } from "vue";
 
 const el = ref<HTMLDivElement | null>(null);
@@ -70,7 +70,12 @@ const handleSelectWords = () => {
         const r = getSelection()!.getRangeAt(0).getBoundingClientRect();
         data.icon = "play";
 
-        style.top = r.top + r.height + document.querySelector("html")!.scrollTop - 20 + "px";
+        style.top =
+            r.top +
+            r.height +
+            document.querySelector("html")!.scrollTop -
+            20 +
+            "px";
         style.left = e.screenX + 4 + "px";
 
         // mousedown -> 选中的文字() -> 隐藏
@@ -85,7 +90,10 @@ const handleBtnClick = (e: MouseEvent) => {
     e.stopPropagation();
     e.preventDefault();
     // 若不支持语言合成
-    if ("undefined" == typeof speechSynthesis || "undefined" == typeof SpeechSynthesisUtterance) {
+    if (
+        "undefined" == typeof speechSynthesis ||
+        "undefined" == typeof SpeechSynthesisUtterance
+    ) {
         return;
     }
     // 重新选中之前选中的文字，https://stackoverflow.com/questions/1173194#1173319

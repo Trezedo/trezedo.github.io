@@ -2,8 +2,8 @@
     "formatFiles.runOrganizeImports": true,
     "editor.codeActionsOnSave": {
         // 整理 import，去掉没用的导包
-        "source.organizeImports": false,
-        "source.fixAll": true
+        "source.organizeImports": "explicit",
+        "source.fixAll.ts": "explicit"
     },
     "workbench.editorAssociations": {
         // 开启则使用默认的 svg 查看器，否则使用 office viewer
@@ -16,6 +16,7 @@
         "asgi",
         "backtotop",
         "bigdata",
+        "chartjs",
         "cleartext",
         "codetabs",
         "composables",
@@ -56,10 +57,13 @@
         "pygments",
         "quand",
         "Qzone",
+        "revealjs",
+        "ROCO",
         "runserver",
         "Schlömilch",
         "slideend",
         "slidestart",
+        "slimsearch",
         "Snipaste",
         "startapp",
         "startproject",
@@ -97,16 +101,5 @@
         "MD029": false, // 允许有序列表不从 1 开始编号
         "MD046": false,
         "MD051": false // 应对含空格的 fragment
-    },
-    "easysass.compileAfterSave": true,
-    "easysass.formats": [
-        {
-            "format": "expanded",
-            "extension": ".css"
-        },
-        {
-            "format": "compressed",
-            "extension": ".min.css"
-        }
-    ]
+    }
 }

@@ -1,5 +1,5 @@
-import type { PageFrontmatter } from "@vuepress/shared";
 import { createPage, type App } from "vuepress";
+import type { PageFrontmatter } from "vuepress/shared";
 
 export default async (app: App) => {
     await createDefaultPage(app, {
@@ -15,7 +15,10 @@ type DefaultPageOption = {
     markdown: string;
 };
 
-async function createDefaultPage(app: App, { path, markdown, frontmatter }: DefaultPageOption) {
+async function createDefaultPage(
+    app: App,
+    { path, markdown, frontmatter }: DefaultPageOption
+) {
     if (path == "") return;
     if (app.pages.every((page) => page.path !== path)) {
         const homepage = await createPage(app, {
