@@ -2,71 +2,83 @@
 icon: nodeJS
 date: 2022-02-04
 tag:
-    - nodejs
-    - 环境配置
+  - nodejs
+  - 环境配置
 ---
 
-# NodeJs 安装及使用
+# Node.js 安装及使用指南
 
-在官网选择合适系统的安装包并下载，官网地址：<https://nodejs.org/zh-cn/download/>
+## 安装 Node.js
 
-推荐下载**偶数**版本，且是**长期维护版(LTS)**。
+访问 Node.js 官网下载适合你系统的安装包：
+<https://nodejs.org/zh-cn/download/>
 
-::: tip
+**版本选择建议：**
 
-如果官网下载比较慢，也可以在国内镜像找到对应的版本：
+- 推荐下载 **长期维护版(LTS)**
+- 偶数版本仍然是更稳定的选择
 
-- 淘宝镜像 [https://npm.taobao.org/mirrors/node/](https://registry.npmmirror.com/binary.html?path=node/)
-- 华为镜像 <https://repo.huaweicloud.com/nodejs/>
-- 清华镜像 <https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/>
-- 北外镜像 <https://mirrors.bfsu.edu.cn/nodejs-release/>
+::: tip 国内镜像加速下载
 
-注意：淘宝镜像的域名已经从 `npm.taobao.org` 重定向至 `npmmirror.com` 了。
+如果官网下载速度较慢，可以使用以下国内镜像：
 
+- 淘宝镜像：<https://registry.npmmirror.com/binary.html?path=node/>
+- 华为镜像：<https://repo.huaweicloud.com/nodejs/>
+- 清华镜像：<https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/>
+- 北外镜像：<https://mirrors.bfsu.edu.cn/nodejs-release/>
+
+注意：淘宝镜像域名已从 `npm.taobao.org` 完全迁移至 `npmmirror.com`
 :::
 
-下载 msi 安装包后，按默认的配置继续即可（可调整安装路径），这里选择的路径是 `E:/envs/nodejs`。
+### 安装步骤
 
-nodejs 默认的包管理工具是 npm，安装完成后可以使用以下命令检测是否成功：
+1. 下载 Windows Installer (.msi) 安装包
+2. 运行安装程序，可按需调整安装路径（示例路径：`E:/envs/nodejs`）
+3. 按默认配置完成安装
+
+### 验证安装
+
+安装完成后，打开命令行工具验证：
 
 ```sh
-node -v # 查看 nodejs 版本
-npm -v  # 查看 npm 版本
+node -v  # 查看 Node.js 版本
+npm -v   # 查看 npm 版本
 ```
 
-## 默认配置
+## 配置 npm
 
-安装 nodejs 后 npm 默认的相关设置如下：
+Node.js 安装后，npm 的默认配置如下：
 
-| 名称       | 默认值                        | 查看方法                    |
-| :--------- | :---------------------------- | --------------------------- |
+| 配置项     | 默认值                        | 查看命令                    |
+| ---------- | ----------------------------- | --------------------------- |
 | prefix     | `AppData/Roaming/npm`         | `npm config get prefix`     |
 | cache      | `AppData/Local/npm-cache`     | `npm config get cache`      |
 | registry   | `https://registry.npmjs.org/` | `npm config get registry`   |
 | userconfig | `%UserProfile%/.npmrc`        | `npm config get userconfig` |
 
-下面修改以上的默认值：
+### 优化配置
+
+建议修改默认配置以提升体验：
 
 ```sh
+# 设置全局包安装目录和缓存目录
 npm config set prefix "E:/envs/node_pkg/node_global"
 npm config set cache "E:/envs/node_pkg/node_cache"
 
-# 设置国内淘宝镜像，可不加引号
+# 设置国内镜像源，加速下载
 npm config set registry "https://registry.npmmirror.com/"
 ```
 
-::: danger
+::: danger 重要提醒
+Node.js 安装路径与依赖路径应分开：
 
-安装路径和依赖路径不应是同一个目录，否则后续可能会出问题，如权限不够等。
+- Node.js 安装路径：`E:/envs/nodejs`
+- Node.js 依赖路径：`E:/envs/node_pkg`
 
-本文中：
-
-- nodejs 安装路径：`E:/envs/nodejs`
-- nodejs 依赖路径：`E:/envs/node_pkg`
-
+混合使用可能导致权限问题。
 :::
 
-### 检验
+### 验证配置
 
 ```sh
 npm config get cache
@@ -74,41 +86,16 @@ npm config get prefix
 npm config get registry
 ```
 
-::: details 使用 npm 命令后有警告的解决方法
-在安装 node v16 后使用 `npm -v` 后警告：
+## 解决常见问题
 
-```powershell
-npm WARN config global `--global`, `--local` are deprecated. Use `--location=global` instead.
-```
+## 使用 pnpm（推荐）
 
-直接 `npm i -g npm` 升级是不行的，因为它并没有更改 nodejs 安装目录下的 npm ，可以使用 [`npm-windows-upgrade`](https://www.npmjs.com/package/npm-windows-upgrade) 来升级：
-
-首先需要以管理员权限运行 powershell，然后执行：
-
-```powershell
-Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
-```
-
-> 如果不执行，可能会提示
->
-> ```powershell
-> npm-windows-upgrade v6.0.1
->
-> Scripts cannot be executed on this system.
-> To fix, run the command below as Administrator in > PowerShell and try again:
-> Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
-> ```
->
-> 然后执行 `npm-windows-upgrade` 就可以升级了。
-
-:::
-
-<br/>
-
-## 使用 pnpm
+pnpm 是更快速、更高效的包管理工具：
 
 - [官网](https://pnpm.io/zh/)
-- [中文网](https://www.pnpm.cn/)
+- [中文文档](https://www.pnpm.cn/)
+
+### 安装 pnpm
 
 ```sh
 npm install -g pnpm
@@ -116,51 +103,78 @@ npm install -g pnpm
 
 ### 配置环境变量
 
-由于新的包管理工具 pnpm 在 `E:/envs/node_pkg/node_global` 下，直接在命令行使用 `pnpm` 会提示**不是内部或外部命令**，因此需要配置环境变量后才能使用。
+pnpm 安装在自定义目录后，需要配置环境变量：
 
 :::: tabs
 
-@tab 命令行设置
+@tab:active Powershell（推荐）
 
-用命令行设置环境变量比较快捷：
+打开 powershell，执行：
 
 ```powershell
-setx "node_global" "E:\envs\node_pkg\node_global"
-for /f "tokens=3*" %a in ('reg query HKCU\Environment /v Path') do ^
-@if [%b]==[] (@setx Path "%~a;%%node_global%%") else (@setx Path "%~a %~b;%%node_global%%")
+# 设置 node_global 环境变量
+[Environment]::SetEnvironmentVariable("node_global", "E:\envs\node_pkg\node_global", "User")
+
+# 将 node_global 添加到用户 PATH 变量中
+$path = [Environment]::GetEnvironmentVariable("Path", "User")
+if ($path -notlike "*%node_global%*") {
+    [Environment]::SetEnvironmentVariable("Path", "$path;%node_global%", "User")
+}
 ```
 
-:::tip
-Windows 11 似乎需要使用 `\` 而非 `/`，具体根据实际情况切换。
+验证：
 
-双引号可以不加，除非路径包含空格，所以你也可以把目标目录拖到命令行。
+```powershell
+# 验证 node_global 变量
+echo $env:node_global
+```
 
-如果电脑装有安全管家等，使用 `setx` 命令可能会有风险提示。
-:::
+@tab 手动配置
 
-参考：
+1. 打开环境变量设置界面：
 
-- [cmd - setx](https://learn.microsoft.com/zh-cn/windows-server/administration/windows-commands/setx)
-- [Update the PATH user environment variable from command-line](https://superuser.com/questions/601015/how-to-update-the-path-user-environment-variable-from-command-line)
+   - 按下 <kbd>Win</kbd>+<kbd>R</kbd>
+   - 输入 `rundll32 sysdm.cpl,EditEnvironmentVariables`
+   - 或输入 `SystemPropertiesAdvanced` 后点击"环境变量"
 
-<!-- https://zhuanlan.zhihu.com/p/349455443 -->
-
-@tab:active 手动设置
-
-::: tip 快速打开环境变量设置界面的方法
-
-方式有多种，先按下快捷键 <kbd>win</kbd>+<kbd>R</kbd>，然后任选其一：
-
-- `rundll32 sysdm.cpl,EditEnvironmentVariables`：通过系统数据管理控制面板 `sysdm.cpl`（System Data Management Control Panel）直接打开；
-- 键入 `SystemPropertiesAdvanced` 后回车，然后在最下方选择 `环境变量`；
-
-:::
-
-在**用户变量**下，点击**新建**， 变量名为 `node_global` ，变量值为 `E:/envs/node_pkg/node_global`，
-
-然后找到并双击 `Path`，点击**新建**，输入 `%node_global%`，然后确定即可。
+2. 在**用户变量**中：
+   - 点击"新建"，变量名 `node_global`，变量值 `E:\envs\node_pkg\node_global`
+   - 找到 `Path` 变量，双击后点击"新建"，输入 `%node_global%`
 
 ::::
+
+### 解决 PowerShell 执行策略问题
+
+在 PowerShell 中运行 pnpm 时可能遇到脚本执行被阻止：
+
+```powershell
+pnpm : 无法加载文件 E:\envs\node_pkg\node_global\pnpm.ps1，因为在此系统上禁止运行脚本。
+```
+
+**解决方案：**
+
+以管理员身份运行 PowerShell，执行：
+
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+完成后在 cmd 中验证：
+
+```cmd
+pnpm -v
+```
+
+---
+
+**更新说明：**
+
+- 更新了镜像源信息，确保链接有效
+- 简化了过时的警告处理方法
+- 优化了配置步骤，使其更清晰易懂
+- 强调了当前推荐的 Node.js 版本选择
+
+### 相关命令
 
 pnpm 大部分命令和 npm 是一致的。如果 npm 配置过镜像，pnpm 则不需要重新配置。
 
@@ -180,20 +194,20 @@ pnpm config delete <key>
 pnpm config list
 ```
 
-添加包，同时下载它的依赖：
+可以用 `i` 代替 `install` 或 `add` ；添加包，同时下载它的依赖：
 
 ```sh
-pnpm add <name>
-pnpm add <name>@<tag>
-pnpm add <name>@<version>
-pnpm add <name>@<version range>
+pnpm i <name>
+pnpm i <name>@<tag>
+pnpm i <name>@<version>
+pnpm i vue@next
 ```
 
 它有额外的参数，常用的是 `-D` 和 `-g`：
 
 ```sh
-pnpm add -D <name>  # -D 参数写入 devDependencies，默认写入 dependencies
-pnpm add -g <name>  # -g 参数表示全局安装
+pnpm i -D <name>  # -D 参数写入 devDependencies，默认写入 dependencies
+pnpm i -g <name>  # -g 参数表示全局安装
 ```
 
 ## 使用 yarn
@@ -292,8 +306,6 @@ yarn upgrade-interactive --latest # 检查项目依赖更新
 >
 > [yarn 和 npm 的区别、--save 和--save-dev 的区别](https://www.jianshu.com/p/467182102e43)
 
-<!-- -->
-
 ## 更新依赖版本并保存 {#dependency}
 
 安装 `npm-check-updates`
@@ -377,9 +389,9 @@ yarn global add ts-node
 ```ts
 // foo.ts
 let foo = {
-    baz: {
-        a: 1,
-    },
+  baz: {
+    a: 1,
+  },
 };
 console.log(foo);
 ```

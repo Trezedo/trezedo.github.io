@@ -17,7 +17,7 @@ tag:
 
 ### 浏览器
 
-[百分浏览器](https://www.centbrowser.cn/) 基于 Chrome 内核 86.0.4240.198，个人一直在使用，具体多出来的功能请看主页。不过它的作者很久没更新了，最后更新时间：2021-01-06。
+[百分浏览器](https://www.centbrowser.cn/) 基于 Chrome 内核，个人一直将其便携版作为主力使用。
 
 [360 极速浏览器](https://browser.360.cn/ee/)：也是 360 出品的良心软件，基于 Chrome 内核，~~一般下载它都是为了打开 IE 页面吧~~。
 
@@ -31,9 +31,7 @@ tag:
 
 [IntelliJ Idea](https://www.jetbrains.com/zh-cn/idea/download/)： Jet Brains 公司出品，强大的 Java IDE ~~应该没有程序员不知道吧~~。
 
-[SumatraPDF](https://www.sumatrapdfreader.org/download-free-pdf-viewer)：轻量、快速的 pdf 阅读器，曾经使用过 LaTeX 的朋友应该不会陌生。
-
-[猎豹护眼大师](http://www.downxia.com/downinfo/175516.html) 此处是非官方精简版，无需安装（不建议官方版）。
+[SumatraPDF](https://www.sumatrapdfreader.org/download-free-pdf-viewer)：轻量、快速的 pdf 阅读器，使用 LaTeX 的应该不会陌生。
 
 ### 图片相关
 
@@ -65,6 +63,8 @@ tag:
 
 [compressor](https://compressor.io/) 图片压缩（在线工具）
 
+[XnView MP](https://www.xnview.com/en/xnview-mp/)：图片浏览器
+
 ### 其他
 
 [有道词典](https://cidian.youdao.com/)：桌面翻译软件。
@@ -85,11 +85,21 @@ Duplicate File Finder Plus：查找重复文件（非免费，自行搜索）。
 
 导入书签 <chrome://settings/importData>
 
+[猎豹护眼大师](http://www.downxia.com/downinfo/175516.html) 此处是非官方精简版，无需安装（不建议官方版）。
+
+[TranslucentTB](https://apps.microsoft.com/detail/9pf4kz2vn4w9)：Windows 10/11 半透明任务栏（微软商店版本和github上的不太一样）
+
+[驱动总裁](https://www.sysceo.com/dc)：重装电脑后更新驱动
+
+[Windows 轻松设置](https://www.bilibili.com/opus/904672369138729017)：支持移除系统自带软件（尤其是Edge浏览器），其他各种小功能。首发在远景论坛，但有注册门槛。
+
+B站外链播放器使用文档：<https://player.bilibili.com/>
+
 ## 重装系统
 
 ### 镜像
 
-原版系统镜像下载：<https://next.itellyou.cn/Original/> 需要注册登陆
+原版系统镜像下载：<https://next.itellyou.cn/Original/> 需要注册登陆，可配合PE工具安装
 
 ### PE 工具
 
@@ -102,7 +112,7 @@ Duplicate File Finder Plus：查找重复文件（非免费，自行搜索）。
 <!-- aid 可通过查看源码获得，实测 bvid 优先级高 -->
 
 <iframe
-    src="https://player.bilibili.com/player.html?bvid=BV1qf4y1776C&danmaku=1"
+    src="https://player.bilibili.com/player.html?bvid=BV1qf4y1776C&danmaku=1&autoplay=0"
     width="100%"
     height="500"
     allow="fullscreen"

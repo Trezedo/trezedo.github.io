@@ -9,6 +9,10 @@ permalink: /article/gitee-image-hosting.html
 
 # 使用 gitee 搭建图床
 
+> [!caution]
+>
+> 2024 年 5 月起 Gitee Pages 服务已关闭，因此本文内容已失效。
+
 先安装 [PicGo](https://picgo.github.io/PicGo-Doc/zh/guide/#下载安装)，在 github release 中找到 [最新稳定版](https://github.com/Molunerfinn/PicGo/releases/latest).
 
 安装完成后打开 PicGo 界面，找到“插件设置”，搜索 “github plus” 然后安装。
