@@ -1,15 +1,31 @@
 {
-    "formatFiles.runOrganizeImports": true,
     "editor.codeActionsOnSave": {
-        // 整理 import，去掉没用的导包
-        "source.organizeImports": "explicit",
-        "source.fixAll.ts": "explicit"
+        "source.organizeImports": "explicit", // 整理 import，去掉没用的导包
+        "source.fixAll.ts": "explicit", // 保存时修复 ts 报告的问题
+        "source.fixAll.markdownlint": "explicit" // 保存时修复 markdownlint 报告的问题
     },
     "workbench.editorAssociations": {
-        // 开启则使用默认的 svg 查看器，否则使用 office viewer
-        // "*.svg": "default"
+        "*.md": "default" // 使用默认编辑器打开 md 文件，而不是 markdown 编辑器
     },
-    "svg.preview.background": "editor",
+    "markdownlint.config": {
+        "MD007": {
+            "indent": 2 // 列表缩进 2 个空格
+        },
+        "MD033": false, // 允许嵌入 html 标签
+        "MD012": {
+            // 最多两个连续空行
+            // 注意：prettier 会合并连续的空行为 1 行，且目前没有可配置项
+            "maximum": 2
+        },
+        "MD024": {
+            // 不同标题下的子标题内容可以重复
+            "siblings_only": true
+        },
+        "MD028": false, // 允许列表项以空格开头
+        "MD029": false, // 允许有序列表不从 1 开始编号
+        "MD046": false, // 允许标题下直接是代码块
+        "MD051": false // 应对含空格的 fragment
+    },
     "cSpell.words": [
         "acker",
         "androidhwext",
@@ -35,11 +51,15 @@
         "fwlink",
         "gravizo",
         "Gson",
+        "harmonyos",
         "HDFS",
         "HKEY",
         "HKLM",
+        "hugeicons",
         "iconfont",
+        "iconify",
         "ifstar",
+        "katex",
         "lshort",
         "Maclaurin",
         "markmap",
@@ -52,6 +72,7 @@
         "npmrc",
         "ohos",
         "oneline",
+        "ooui",
         "operatorname",
         "pxdy",
         "pygments",
@@ -69,6 +90,7 @@
         "startproject",
         "startuml",
         "swiper",
+        "tabler",
         "tagref",
         "texmath",
         "tikz",
@@ -80,26 +102,10 @@
         "Verticle",
         "vpre",
         "Waline",
+        "Wechat",
         "winedt",
         "wsgi",
         "xiangsi",
         "zhihu"
-    ],
-    "markdownlint.config": {
-        // 允许嵌入 html 标签
-        "MD033": false,
-        "MD012": {
-            // 最多两个连续空行
-            // 注意：prettier 会合并连续的空行为 1 行，且目前没有可配置项
-            "maximum": 2
-        },
-        "MD024": {
-            // 不同标题下的子标题内容可以重复
-            "siblings_only": true
-        },
-        "MD028": false,
-        "MD029": false, // 允许有序列表不从 1 开始编号
-        "MD046": false,
-        "MD051": false // 应对含空格的 fragment
-    }
+    ]
 }
