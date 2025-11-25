@@ -1,6 +1,6 @@
 ---
 date: 2023-06-03
-icon: git
+icon: skill-icons:git
 ---
 
 # git 合并两个项目

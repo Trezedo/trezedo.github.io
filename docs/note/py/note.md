@@ -1,6 +1,6 @@
 ---
 date: 2022-10-16
-icon: python
+icon: vscode-icons:file-type-python
 tag:
     - python
 category:
@@ -353,7 +353,7 @@ python manage.py runserver
 
 django 默认在 `8000` 端口启动服务，浏览器打开 `http://127.0.0.1:8000/` 能够看到页面：
 
-![django 项目运行](https://zedo.gitee.io/img/django-20221017.png)
+![django 项目运行](https://zedo-img.netlify.app/img/2022-10/django-17.png)
 
 访问 `http://127.0.0.1:8000/test` 就能看到 `hello world` 了。
 

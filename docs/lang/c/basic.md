@@ -1,10 +1,10 @@
 ---
-icon: c
 date: 2022-03-13
+icon: streamline-logos:c-language-logo-solid
 category:
-	- 编程语言
+    - 编程语言
 tag:
-	- C语言
+    - C语言
 ---
 
 # C 语言基础
@@ -247,15 +247,7 @@ C 语言规定，在每个字符串型常量的结尾加一个字符串结束标
 
 例如，字符串型常量`"CHINA"`在内存中的存储结果如下图所示，它占用的内存单元不是 5 个字符，而是 6 个字符，即大小为 6 字节，最后一个字符为`'\0'`。然而，在输出时不会输出`'\0'`，因为它无法显示。
 
-<img src='https://g.gravizo.com/svg?
-digraph G {
-C [shape=box];
-H [shape=box];
-I [shape=box];
-N [shape=box];
-A [shape=box];
-"\\0" [shape=box];
-}' style="zoom:67%;" />
+<img src='https://kroki.io/graphviz/svg/eNpLyUwvSizIUHBXqOZyVoguzkgsSLVNyq-ItebyQOV6onL9ULmOqFylmBgDJVShWgB6biMw' style="zoom:67%;" alt="CHINA存储示意"/>
 
 ### 强制类型转换
 

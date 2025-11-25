@@ -1,8 +1,8 @@
 ---
-icon: debug
 author:
     - Kayce Basques
 date: 2022-07-24
+icon: fa-brands:chrome
 excerpt: "A reference of convenience functions available in the Chrome DevTools Console.
 <br>
 Chrome DevTools 控制台中提供的实用功能参考"

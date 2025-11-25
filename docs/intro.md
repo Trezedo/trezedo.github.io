@@ -1,5 +1,5 @@
 ---
-icon: circle-info
+icon: dinkie-icons:boy
 article: false
 # cover: /assets/images/cover3.jpg
 ---

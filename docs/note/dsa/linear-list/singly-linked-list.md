@@ -1,5 +1,6 @@
 ---
 date: 2022-08-08
+icon: icon-park:link-three
 category:
     - 数据结构
     - 线性表
@@ -28,7 +29,7 @@ order: 2
 
 概念：链表是一种**物理存储结构上非连续**、非顺序的存储结构，数据元素的**逻辑顺序**是通过链表中的**指针链接次序**实现的 。
 
-![链表示意图|540](https://zedo.gitee.io/img/dsa/ll/2.1-链表示意图.png)
+![链表示意图|540](https://zedo-img.netlify.app/img/dsa/ll/2.1-链表示意图.png)
 
 实际中要实现的链表的结构非常多样，以下情况组合起来就有 8 种链表结构：
 
@@ -36,15 +37,15 @@ order: 2
 2. 带头结点（哨兵位）、不带头结点
 3. 循环、非循环
 
-![单双链表对比|560](https://zedo.gitee.io/img/dsa/ll/2.2-单双对比.png)
+![单双链表对比|560](https://zedo-img.netlify.app/img/dsa/ll/2.2-单双对比.png)
 
-![单链表带头对比|580](https://zedo.gitee.io/img/dsa/ll/2.3-带头对比.png)
+![单链表带头对比|580](https://zedo-img.netlify.app/img/dsa/ll/2.3-带头对比.png)
 
-![循环对比|520](https://zedo.gitee.io/img/dsa/ll/2.4-循环对比.png)
+![循环对比|520](https://zedo-img.netlify.app/img/dsa/ll/2.4-循环对比.png)
 
 虽然有这么多的链表的结构，但是我们实际中最常用还是两种结构：
 
-![结构复杂度对比|650](https://zedo.gitee.io/img/dsa/ll/2.5-常用链表类型.png)
+![结构复杂度对比|650](https://zedo-img.netlify.app/img/dsa/ll/2.5-常用链表类型.png)
 
 1. 无头单向非循环链表：**结构简单**，一般不会单独用来存数据。实际中更多是作为**其他数据结构的子结构**，如哈希桶、图的邻接表等等。这种结构在考试、笔试和面试中出现很多。
 2. 带头双向循环链表：**结构最复杂**，一般用在单独存储数据。实际中使用的链表数据结构，都
@@ -86,7 +87,7 @@ typedef struct ListNode {
 
 这里给出图示加以区分：
 
-![img|580](https://zedo.gitee.io/img/dsa/ll/2.6-头指针头结点.png)
+![头指针头结点|580](https://zedo-img.netlify.app/img/dsa/ll/2.6-头指针头结点.png)
 
 有了头结点后，不论是首元结点还是普通结点，对它的删除和在它之前插入结点的操作统一起来了（下文会说明）。
 

@@ -1,7 +1,7 @@
 ---
 home: true
 layout: Blog
-icon: home
+icon: fa-solid:blog
 title: 博客主页
 heroImage: http://q1.qlogo.cn/g?b=qq&s=5&nk=1962234583
 # https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=5
@@ -59,5 +59,4 @@ projects:
       link: https://gitee.com/zedo/img
 # footer: customize your footer text
 ---
-
 <BlogPageDos/>

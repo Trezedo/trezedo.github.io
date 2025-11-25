@@ -1,6 +1,6 @@
 ---
-icon: java
 date: 2022-10-16
+icon: logos:java
 category:
     - Java
 ---

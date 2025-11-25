@@ -1,7 +1,7 @@
 ---
 # sidebar: false
 date: 2022-01-24
-icon: function
+icon: tabler:math-integrals
 star: true
 excerpt: 一类分子为反正切函数或对数函数，分母为二次函数的定积分计算方法。
 category:

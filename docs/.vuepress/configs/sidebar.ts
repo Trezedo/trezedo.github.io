@@ -5,21 +5,21 @@ export default sidebar({
     "/note/": [
         {
             prefix: "algo/",
-            icon: "note",
+            icon: "hugeicons:algorithm",
             text: "算法",
             children: "structure",
             collapsible: true,
         },
         {
             prefix: "dsa/",
-            icon: "note",
+            icon: "carbon:data-vis-1",
             text: "数据结构",
             children: "structure",
             collapsible: true,
         },
         {
             prefix: "math/",
-            icon: "function",
+            icon: "ooui:mathematics",
             text: "数学",
             children: "structure",
             collapsible: true,
@@ -28,7 +28,7 @@ export default sidebar({
     "/software/": "structure",
     "/tool/": "structure",
     "/lang/": "structure",
-    /* "/": [
+    "/": [
         "/README.md",
         "/home.md",
         // "/slide.md",
@@ -81,13 +81,14 @@ export default sidebar({
         },
     ],
 
-    "/article/": [
-        { prefix: "", icon: "note", text: "文章", children: "structure", collapsible: true },
-        { prefix: "tech/", icon: "code", text: "技术", children: "structure", collapsible: true },
-    ],
-
     "/note/math/": [
-        { prefix: "", icon: "advance", text: "笔记碎片", collapsible: true, children: "structure" },
+        {
+            prefix: "",
+            icon: "advance",
+            text: "笔记碎片",
+            collapsible: true,
+            children: "structure",
+        },
         {
             prefix: "q/",
             icon: "exercise",
@@ -103,7 +104,12 @@ export default sidebar({
             icon: "",
             text: "线性表",
             children: [
-                { prefix: "", text: "基础知识", children: "structure", collapsible: true },
+                {
+                    prefix: "",
+                    text: "基础知识",
+                    children: "structure",
+                    collapsible: true,
+                },
                 {
                     prefix: "q/",
                     text: "习题",
@@ -117,21 +123,40 @@ export default sidebar({
             icon: "",
             text: "栈和队列",
             children: [
-                { prefix: "", text: "基础知识", children: "structure", collapsible: true },
+                {
+                    prefix: "",
+                    text: "基础知识",
+                    children: "structure",
+                    collapsible: true,
+                },
                 // {}
             ],
         },
         { prefix: "tree/", icon: "tree", text: "树", children: "structure" },
-        { prefix: "sorts/", icon: "", text: "排序", children: "structure", collapsible: true },
+        {
+            prefix: "sorts/",
+            icon: "",
+            text: "排序",
+            children: "structure",
+            collapsible: true,
+        },
     ],
     "/note/algo/": [
         { prefix: "", text: "随笔", icon: "semantic", children: "structure" },
-        { prefix: "q/", text: "算法题", icon: "exercise", children: "structure" },
+        {
+            prefix: "q/",
+            text: "算法题",
+            icon: "exercise",
+            children: "structure",
+        },
     ],
     "/note/lang/": [
         { prefix: "C/", text: "C", icon: "c", children: "structure" },
-        { prefix: "ts/", text: "TypeScript", icon: "typescript", children: "structure" },
+        {
+            prefix: "ts/",
+            text: "TypeScript",
+            icon: "typescript",
+            children: "structure",
+        },
     ],
-
-    "/tool/": "structure", // 空数组可以关闭 */
 });

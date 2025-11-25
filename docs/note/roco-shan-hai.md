@@ -1,5 +1,7 @@
 ---
 article: false
+date: 2025-11-08
+icon: twemoji:video-game
 ---
 
 # 洛克王国-山海秘境篇

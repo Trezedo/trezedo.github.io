@@ -80,7 +80,6 @@ export default hopeTheme({
         },
         icon: {
             assets: "iconify",
-            prefix: "iconfont icon-",
         },
         comment: comments,
         copyright: {
@@ -106,6 +105,7 @@ export default hopeTheme({
         notice: noticeOptions,
     },
     markdown: {
+        alert: true,
         // https://ecosystem.vuejs.press/zh/plugins/markdown/markdown-math.html
         math: {
             type: "katex",

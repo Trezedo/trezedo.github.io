@@ -1,6 +1,6 @@
 ---
-icon: table
 date: 2022-03-21
+icon: memory:number
 category:
     - 离散数学
 tag:

@@ -1,6 +1,6 @@
 ---
 date: 2022-09-24
-icon: function
+icon: mdi:matrix
 category:
     - 线性代数
 tag:

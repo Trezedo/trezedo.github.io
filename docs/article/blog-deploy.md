@@ -1,6 +1,6 @@
 ---
 date: 2023-04-15
-icon: blog
+icon: fa-solid:blog
 ---
 
 # 关于博客

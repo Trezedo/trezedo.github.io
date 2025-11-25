@@ -1,6 +1,6 @@
 ---
-icon: javascript
 date: 2022-03-26
+icon: skill-icons:javascript
 category:
     - 编程语言
     - JavaScript

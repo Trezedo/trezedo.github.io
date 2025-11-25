@@ -1,7 +1,7 @@
 ---
-icon: vue
 article: false
 date: 2021-07-20
+icon: devicon:tex
 category:
     - 小工具
 tag:

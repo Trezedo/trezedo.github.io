@@ -1,5 +1,6 @@
 ---
 date: 2022-08-12
+icon: pajamas:insert
 category:
     - 数据结构
     - 排序
@@ -22,7 +23,7 @@ order: 1
 
 当插入第 i(i>=1) 个元素时，前面的 arr[0], arr[1],..., arr[i-1] 已经排好序（相对顺序），此时用 arr[i] 与 arr[i-1], arr[i-2], … 依次分别比较，找到插入位置就将 arr[i] 插入，原来位置上的元素顺序后移。
 
-![插入排序思想示意图 |360](https://zedo.gitee.io/img/dsa/sorts/1.1-插入排序.png)
+![插入排序思想示意图 |360](https://zedo-img.netlify.app/img/dsa/sorts/1.1-插入排序.png)
 
 ### 代码实现
 
@@ -131,7 +132,7 @@ void binary_insert_sort(int *arr, int n) {
 
 下图是希尔排序的示意图：
 
-![希尔排序示意图|480](https://zedo.gitee.io/img/dsa/sorts/1.2-希尔排序.png)
+![希尔排序示意图|480](https://zedo-img.netlify.app/img/dsa/sorts/1.2-希尔排序.png)
 
 ::: tip
 

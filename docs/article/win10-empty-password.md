@@ -1,5 +1,6 @@
 ---
 date: 2023-06-23
+icon: fa-brands:windows
 ---
 
 # Windows 10 设置空密码
@@ -8,4 +9,4 @@ date: 2023-06-23
 2. 依次打开 计算机配置——Windows 设置——安全设置——本地策略——安全选项；
 3. 找到 “账户：使用空密码的本地账户只允许进行控制台登录”，将其设置为“已禁用”
 
-![安全策略截图](./img/win10-empty-password/1687569317809.png)
+![安全策略截图](https://zedo-img.netlify.app/img/2023-06/24091520.png)

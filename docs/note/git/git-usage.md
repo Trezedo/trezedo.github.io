@@ -1,6 +1,6 @@
 ---
-icon: git
 date: 2022-01-27
+icon: skill-icons:git
 tag:
     - git
 ---
@@ -71,11 +71,11 @@ The key's randomart image is:
 
 接下来在码云上添加 SSH 公钥。右上角打开设置，
 
-![20220128193519.png](https://zedo.gitee.io/img/20220128193519.png)
+![28193519.png](https://zedo-img.netlify.app/img/2022-01/28193519.png)
 
 找到 SSH 公钥
 
-![20220128193543.png](https://zedo.gitee.io/img/20220128193543.png)
+![28193543.png](https://zedo-img.netlify.app/img/2022-01/28193543.png)
 
 粘贴 `id_rsa.pub`  中的内容到以上文本框，点击确定，输入密码即可。
 

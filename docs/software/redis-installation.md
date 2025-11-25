@@ -1,5 +1,6 @@
 ---
 date: 2023-01-21
+icon: devicon:redis-wordmark
 ---
 
 # Redis 安装
@@ -21,15 +22,15 @@ Redis 是一款 key-value 存储结构的内存级 NoSQL 数据库
 
 > 尽管官方新版 Redis 已经 ![version](https://img.shields.io/github/v/release/redis/redis?label=%20) 了，但 ![win version](https://img.shields.io/github/v/release/tporadowski/redis?label=%20) 的旧版本并不影响学习和项目的使用。
 
-![redis for windows github](https://zedo.gitee.io/img/redis-20230121133815.png)
+![redis for windows github](https://zedo-img.netlify.app/img/2023-01/redis-21133815.png)
 
 下载 `.msi` 后缀的文件有安装界面，`.zip` 后缀的文件则要解压手动安装，这里选择前者。
 
-![选择安装路径](https://zedo.gitee.io/img/redis-20230121134416.png)
+![选择安装路径](https://zedo-img.netlify.app/img/2023-01/redis-21134416.png)
 
 根据个人喜好和习惯选择安装路径，为了方便可以勾选下方的添加环境变量。
 
-![选择端口](https://zedo.gitee.io/img/redis-20230121134441.png)
+![选择端口](https://zedo-img.netlify.app/img/2023-01/redis-21134441.png)
 
 学习阶段使用默认端口号即可，但在企业开发中是要修改的。
 
@@ -37,7 +38,7 @@ Redis 是一款 key-value 存储结构的内存级 NoSQL 数据库
 
 我们打开安装路径，按类型对文件排序：
 
-![安装文件截图](https://zedo.gitee.io/img/redis-20230124144146.png)
+![安装文件截图](https://zedo-img.netlify.app/img/2023-01/redis-24144146.png)
 
 我们主要看 `.conf` 和 `.exe` 这两种类型的文件。
 
@@ -57,7 +58,7 @@ Redis 是一款 key-value 存储结构的内存级 NoSQL 数据库
 redis-server
 ```
 
-![启动redis server失败](https://zedo.gitee.io/img/redis-20230124154819.png)
+![启动redis server失败](https://zedo-img.netlify.app/img/2023-01/redis-24154819.png)
 
 它提示我们“在一个非套接字上尝试了一个操作”，这可能是因为安装后默认启动了服务，可以按下 <kbd>Win</kbd>+<kbd>R</kbd> 输入 `services.msc` 查看是否有 `Redis`。
 
@@ -71,7 +72,7 @@ not connected> exit
 
 接着重新启动服务就成功了：
 
-![成功启动 Redis 服务](https://zedo.gitee.io/img/redis-20230124155146.png)
+![成功启动 Redis 服务](https://zedo-img.netlify.app/img/2023-01/redis-24155146.png)
 
 ## 在命令行使用
 
@@ -162,7 +163,7 @@ redis> del name note
 
 当我们输入命令时，命令行会提示它的用法，例如 `set` ：
 
-![ping 命令及 set](https://zedo.gitee.io/img/redis-20230124160222.png)
+![ping 命令及 set](https://zedo-img.netlify.app/img/2023-01/redis-24160222.png)
 
 ```text
 set key value [expiration EX seconds|PX milliseconds] [NX|XX]
@@ -213,13 +214,13 @@ Redis 还支持许多其他的数据结构，例如列表、集合、Hash 表等
 
 微软的文档：[使用 WSL 在 Windows 上安装 Linux](https://learn.microsoft.com/zh-cn/windows/wsl/install)
 
-![安装 WSL](https://zedo.gitee.io/img/redis-20230121122736.png)
+![安装 WSL center](https://zedo-img.netlify.app/img/2023-01/redis-21122736.png)
 
 我这里要科学上网才能进入安装，开始安装后就可以撤掉梯子。
 
 安装完成后重启电脑，在开始菜单就可以找到了：
 
-![位于开始菜单的子系统](https://zedo.gitee.io/img/redis-20230124172926.png)
+![位于开始菜单的子系统](https://zedo-img.netlify.app/img/2023-01/redis-24172926.png)
 
 或者在命令行里用 `wsl` 即可打开。
 
@@ -308,4 +309,4 @@ chcp 65001       # 切换到 UTF-8 编码
 redis-cli --raw  # 连接Redis服务，字符串直接显示原文而非编码
 ```
 
-![命令行显示中文](https://zedo.gitee.io/img/redis-20230124220742.png)
+![命令行显示中文 center](https://zedo-img.netlify.app/img/2023-01/redis-24220742.png)

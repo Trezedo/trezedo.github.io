@@ -1,6 +1,6 @@
 ---
 date: 2022-08-11
-icon: stack
+icon: ph:stack-overflow-logo-bold
 category:
     - 数据结构
     - 线性表

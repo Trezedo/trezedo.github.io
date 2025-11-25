@@ -1,6 +1,6 @@
 ---
-icon: tex
 date: 2022-10-27
+icon: devicon:tex
 category:
     - LaTeX
 tag:
@@ -32,7 +32,7 @@ pip install Pygments
 + xelatex.exe -synctex=1 -interaction=nonstopmode -shell-escape %.tex
 ```
 
-![texstudio 设置](https://zedo.gitee.io/img/texstudio-config.png)
+![texstudio 设置](https://zedo-img.netlify.app/img/texstudio-config.png)
 
 下面给出一个 demo 示例:
 

@@ -1,6 +1,6 @@
 ---
-icon: nodeJS
 date: 2022-02-04
+icon: logos:nodejs-icon
 tag:
   - nodejs
   - 环境配置
@@ -322,7 +322,7 @@ ncu -u  # ncu 是 npm-check-updates 简写
 
 终端会展示可更新的依赖：
 
-![可更新依赖列表](https://zedo.gitee.io/img/image-20220509190222090.png#s-67)
+![可更新依赖列表](https://zedo-img.netlify.app/img/2022-05/09190222.png#s-67)
 
 然后用 npm 更新即可：
 
@@ -340,7 +340,7 @@ yarn upgrade-interactive
 
 使用空格选择即可：
 
-![可交互升级界面截图](https://zedo.gitee.io/img/image-20220509191023391.png)
+![可交互升级界面截图](https://zedo-img.netlify.app/img/2022-05/09191023.png)
 
 但是它不会修改 `package.json` 中的版本号，如有需要，可以：
 

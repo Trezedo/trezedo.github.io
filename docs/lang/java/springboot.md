@@ -1,6 +1,6 @@
 ---
-icon: java
 date: 2023-03-18
+icon: logos:java
 category:
     - Java
     - 后端
@@ -201,7 +201,7 @@ Identify and stop the process that's listening on port 62234 or configure this a
 netstat -aon | findstr 62234
 ```
 
-![端口占用情况](./img/springboot/查找进程PID.png)
+![端口占用情况](https://zedo-img.netlify.app/img/springboot/查找进程PID.png)
 
 ```batch
 :: 强制杀死进程
@@ -611,13 +611,13 @@ spring:
 
 这样我们在打包时，在配置文件栏目可以选择需要激活的 profiles(多选)，然后执行 `package` 即可：
 
-![IDEA 中的 Maven.png](./img/springboot/IDEA中Maven配置文件.png)
+![IDEA 中的 Maven.png](https://zedo-img.netlify.app/img/springboot/IDEA中Maven配置文件.png)
 
 ::: tip
 
 如果是开发过程中切换配置文件，需要手动点击一下刷新按钮：
 
-![重新加载Maven项目](./img/springboot/重新加载Maven项目.png)
+![重新加载Maven项目](https://zedo-img.netlify.app/img/springboot/重新加载Maven项目.png)
 
 避免我们重启 Application 时 profile 占位符 `@spring.profiles.active@` 没有被 Maven 替换。
 

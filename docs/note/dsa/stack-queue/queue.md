@@ -1,6 +1,6 @@
 ---
 date: 2022-08-10
-icon: queue
+icon: mdi:queue-first-in-last-out
 category:
     - 数据结构
     - 线性表

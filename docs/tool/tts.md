@@ -1,6 +1,6 @@
 ---
-icon: change
 date: 2022-02-25
+icon: material-symbols:text-to-speech
 excerpt: 利用 Web Speech API 实现文本转语音，以及介绍了一些可方便使用的接口。
 category:
     - JavaScript
@@ -79,7 +79,7 @@ msgbox vList,64,"List"
 
 ::: center
 
-![20220225090022.png](https://zedo.gitee.io/img/20220225090022.png)
+![当前语音列表](https://zedo-img.netlify.app/img/2022-02/25090022.png)
 
 :::
 
@@ -89,7 +89,7 @@ msgbox vList,64,"List"
 
 微软的 Edge 浏览器自带了很多种不同语言的（在线）语音包，如 Windows 版本：
 
-![Windows上的Edge浏览器语音包](https://zedo.gitee.io/img/image-20220313091116003.png)
+![Windows上的Edge浏览器语音包](https://zedo-img.netlify.app/img/2022-03/13091116.png)
 
 :::
 
@@ -97,7 +97,7 @@ msgbox vList,64,"List"
 
 Windows 10 默认安装了两个不同语言的 TTS 引擎，实际上会有一些已经安装的语音，但是并没有显示在以上[查询语音包](#查询语音包)的列表中显示，可以打开设置查看：
 
-![image-20220225210747140](https://zedo.gitee.io/img/image-20220225210747140.png)
+![语音列表](https://zedo-img.netlify.app/img/2022-02/25210747.png)
 
 可以发现，这里比之前的列表多了几个：
 
@@ -117,7 +117,7 @@ Windows 10 默认安装了两个不同语言的 TTS 引擎，实际上会有一�
 
 比如我们的电脑应该会是 `zh-CN` 和 `en-US` 两个文件夹，里面的内容就是语音引擎。打开 `zh-CN` 目录查看是否存在 `Hongyu` 等语音：
 
-![image-20220225221825312](https://zedo.gitee.io/img/image-20220225221825312.png)
+![Hongyu语音包文件](https://zedo-img.netlify.app/img/2022-02/25221825.png)
 
 由于实测发现需要增加的注册表项太多才能生效，因此以下仅给出 `Hongyu` 的代码（64 位浏览器）：
 
@@ -173,7 +173,7 @@ foreach($voice in $listVoices) {
 
 ::: center
 
-![image-20220226142839950](https://zedo.gitee.io/img/image-20220226142839950.png)
+![本地可用语音列表](https://zedo-img.netlify.app/img/2022-02/26142839.png)
 
 :::
 
@@ -187,9 +187,9 @@ windows 10 系统可以通过：
 
 来增加语音包：
 
-![image-20220225210541297](https://zedo.gitee.io/img/image-20220225210541297.png)
+![管理语音](https://zedo-img.netlify.app/img/2022-02/25210541.png)
 
-![image-20220225210630475](https://zedo.gitee.io/img/image-20220225210630475.png)
+![选择语音包](https://zedo-img.netlify.app/img/2022-02/25210630.png)
 
 ## 百度 TTS
 

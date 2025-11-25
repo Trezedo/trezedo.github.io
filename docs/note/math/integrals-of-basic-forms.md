@@ -1,6 +1,6 @@
 ---
-icon: function
 date: 2022-09-20
+icon: tabler:math-integrals
 star: true
 category:
     - 高等数学

@@ -1,6 +1,6 @@
 ---
 date: 2022-07-15
-icon: vscode
+icon: vscode-icons:file-type-vscode
 ---
 
 # VS Code 使用

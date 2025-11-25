@@ -1,7 +1,7 @@
 ---
-icon: vue
-slug: vue-usage
 date: 2022-01-23
+icon: tabler:file-type-vue
+slug: vue-usage
 category:
     - VuePress
     - Markdown

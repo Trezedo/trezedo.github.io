@@ -1,7 +1,6 @@
 ---
-icon: question
-# article: false
 date: 2022-02-21
+icon: bi:browser-chrome
 excerpt: 关于在 QQ 内打开 Gitee Pages 的缓存问题
 category:
     - QQ
@@ -101,6 +100,6 @@ if(typeof location != "undefined") {
 
 最终，我的解决方案是：==添加刷新按钮==来执行刷新操作：
 
-![image-20220324221949233 center |400](https://zedo.gitee.io/img/image-20220324221949233.png)
+![24221949 center |400](https://zedo-img.netlify.app/img/2022-03/24221949.png)
 
 可以发现在右下角多了一个按钮，点它就可以刷新啦~

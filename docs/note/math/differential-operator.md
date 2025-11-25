@@ -1,6 +1,6 @@
 ---
-icon: function
 date: 2022-12-01
+icon: fluent:math-format-professional-16-filled
 createAt: 2022-02-09
 category:
     - 高等数学

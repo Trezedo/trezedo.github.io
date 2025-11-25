@@ -1,8 +1,8 @@
 ---
-icon: vue
-lang: zh-CN
-excerpt: 使用 Vuepress2 搭建静态文档分享类站点
 date: 2022-01-23
+icon: logos:vue
+excerpt: 使用 Vuepress2 搭建静态文档分享类站点
+lang: zh-CN
 # layout: CustomLayout
 category:
     - VuePress

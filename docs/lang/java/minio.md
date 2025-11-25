@@ -1,6 +1,6 @@
 ---
 date: 2023-04-17
-icon: java
+icon: simple-icons:minio
 category:
     - Java
 tag:
@@ -46,17 +46,17 @@ minio.exe server minio-data
 其中 `minio-data` 是文件实际存储的文件夹名称。随后我们可以得到以下信息：
 <a name="p1"></a>
 
-![命令运行结果](./img/minio/首次运行.png)
+![命令运行结果](https://zedo-img.netlify.app/img/minio/20230417232903.png)
 
 我们可以在浏览器打开 Console 那行的地址：`http://127.0.0.1:49775`，以默认的 `minioadmin` 为账号密码登录。
 
 首先我们要创建“桶”，点击 “Create a Bucket”，在界面中填写名称然后点击 “Create Bucket”：
 
-![创建桶](./img/minio/创建桶.png)
+![创建桶](https://zedo-img.netlify.app/img/minio/20230417233504.png)
 
 为了在 SpringBoot 中使用，需要创建密钥。左侧点击 “Access Keys”，然后再右侧找到 “Create access key” 即可创建：
 
-![创建密钥](./img/minio/创建密钥.png)
+![创建密钥](https://zedo-img.netlify.app/img/minio/20230417233805.png)
 
 注意保存，secret key 只会显示一次，当然我们也可以重新生成密钥。
 

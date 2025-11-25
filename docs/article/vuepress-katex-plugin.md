@@ -1,6 +1,6 @@
 ---
-icon: tex
 date: 2022-01-26
+icon: vscode-icons:file-type-light-tex
 category:
     - VuePress
     - KaTeX

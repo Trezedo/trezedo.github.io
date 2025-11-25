@@ -1,6 +1,6 @@
 ---
-icon: tex
 date: 2022-10-18
+icon: devicon:tex
 category:
     - LaTeX
 tag:

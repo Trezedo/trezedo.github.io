@@ -1,5 +1,6 @@
 ---
 date: 2022-08-13
+icon: bytesize:lightning
 category:
     - 数据结构
     - 排序

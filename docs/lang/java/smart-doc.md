@@ -1,6 +1,6 @@
 ---
-icon: api
 date: 2023-03-18
+icon: gravity-ui:abbr-api
 category:
     - Java
 tag:

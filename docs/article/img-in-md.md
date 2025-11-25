@@ -1,6 +1,6 @@
 ---
-icon: markdown
 date: 2022-07-15
+icon: bxs:image
 category:
     - Markdown
     - 小技巧
@@ -25,19 +25,19 @@ tag:
 例如在 markdown 中使用这张图片：
 
 ```markdown
-![图片demo](https://zedo.gitee.io/img/image-20220509190222090.png)
+![图片demo](https://zedo-img.netlify.app/img/2022-05/09190222.png)
 ```
 
 得到如下结果：
 
-![图片demo](https://zedo.gitee.io/img/image-20220509190222090.png)
+![图片demo](https://zedo-img.netlify.app/img/2022-05/09190222.png)
 
 在电脑上看起来是不是有点大？
 
 如果你用过 Typora，就会知道它缩放图片的做法是使用原生 HTML 语法：
 
 ```markdown
-<img src="https://zedo.gitee.io/img/image-20220509190222090.png" alt="图片demo" style="zoom: 67%;" />
+<img src="https://zedo-img.netlify.app/img/2022-05/09190222.png" alt="图片demo" style="zoom: 67%;" />
 ```
 
 注意 `style` 使用了 `zoom` 属性，它不是标准 CSS 属性，但目前除了火狐浏览器，绝大部分浏览器都支持使用[^zoom]。
@@ -53,13 +53,13 @@ tag:
 ```html
 <p>这是 zoom：</p>
 <img
-    src="https://zedo.gitee.io/img/image-20220509190222090.png"
+    src="https://zedo-img.netlify.app/img/2022-05/09190222.png"
     style="zoom: 40%;"
 />
 
 <p>这是 transform: scale：</p>
 <img
-    src="https://zedo.gitee.io/img/image-20220509190222090.png"
+    src="https://zedo-img.netlify.app/img/2022-05/09190222.png"
     style="transform: scale(0.4);"
 />
 <p>文字段落</p>
@@ -82,13 +82,13 @@ tag:
 ```html
 <p>这是 zoom：</p>
 <img
-    src="https://zedo.gitee.io/img/image-20220509190222090.png"
+    src="https://zedo-img.netlify.app/img/2022-05/09190222.png"
     style="zoom: 40%;"
 />
 
 <p>这是 width：</p>
 <img
-    src="https://zedo.gitee.io/img/image-20220509190222090.png"
+    src="https://zedo-img.netlify.app/img/2022-05/09190222.png"
     style="width: 40%;"
 />
 <p>文字段落</p>
@@ -105,13 +105,13 @@ tag:
 ```html
 <p>这是 zoom：</p>
 <img
-    src="https://zedo.gitee.io/img/image-20220629092339931.png"
+    src="https://zedo-img.netlify.app/img/2022-06/29092339.png"
     style="zoom: 66%;"
 />
 
 <p>这是 width：</p>
 <img
-    src="https://zedo.gitee.io/img/image-20220629092339931.png"
+    src="https://zedo-img.netlify.app/img/2022-06/29092339.png"
     style="width: 66%;"
 />
 <p>文字段落</p>
@@ -134,19 +134,19 @@ CSS 中除了 `width` 属性之外，还有一个与宽度相关的属性——`
 ```html
 <p>这是 zoom：</p>
 <img
-    src="https://zedo.gitee.io/img/image-20220629092339931.png"
+    src="https://zedo-img.netlify.app/img/2022-06/29092339.png"
     style="zoom: 66%;"
 />
 
 <p>这是 max-width：</p>
 <img
-    src="https://zedo.gitee.io/img/image-20220629092339931.png"
+    src="https://zedo-img.netlify.app/img/2022-06/29092339.png"
     style="max-width: 66%;"
 />
 
 <p>这是 width：</p>
 <img
-    src="https://zedo.gitee.io/img/image-20220629092339931.png"
+    src="https://zedo-img.netlify.app/img/2022-06/29092339.png"
     style="width: 66%;"
 />
 

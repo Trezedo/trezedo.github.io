@@ -1,10 +1,11 @@
 ---
 date: 2023-01-13
+icon: fa6-brands:golang
+excerpt: 快速入门 Go 语言
 category:
     - 编程语言
 tag:
     - go
-excerpt: 快速入门 Go 语言
 ---
 
 # Golang 快速上手
@@ -96,11 +97,11 @@ of the named environment variables to the given values.
 
 这里的集成开非环境以 vscode 为例。在安装完 Golang 以及**设置镜像**后，启动 vscode，按下<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>，然后输入 `Go: Install/Update Tools` 并点开，全选上然后点击确定即可：
 
-![vscode Go 配置](https://zedo.gitee.io/img/lang/go-20230113193448.png)
+![vscode Go 配置](https://zedo-img.netlify.app/img/lang/go-20230113193448.png)
 
 耐心等待终端安装（注意要设置镜像，否则可能失败）
 
-![工具链安装日志](https://zedo.gitee.io/img/lang/go-20230113193744.png)
+![工具链安装日志](https://zedo-img.netlify.app/img/lang/go-20230113193744.png)
 
 这样就完成了配置！
 
@@ -116,7 +117,7 @@ go mod init 项目名
 
 接着就可以看到创建了一个 `go.mod` 文件：
 
-![go.mod 文件及目录](https://zedo.gitee.io/img/lang/go-20230113194832.png)
+![go.mod 文件及目录](https://zedo-img.netlify.app/img/lang/go-20230113194832.png)
 
 接着新建 `01-hello/main.go` 文件，其内容如下：
 
@@ -142,7 +143,7 @@ func main() {
 go run ./01-hello/main.go
 ```
 
-![运行成功截图](https://zedo.gitee.io/img/lang/go-20230113195248.png)
+![运行成功截图](https://zedo-img.netlify.app/img/lang/go-20230113195248.png)
 
 成功地在终端打印了 `Hello World` ！
 
@@ -173,9 +174,9 @@ Golang 提供了 `+`、`-`、`*`、`/`、`%` 来做加减乘除和取余的算�
 
 ```go
 func main() {
-	fmt.Println(196+223, 45-83, 3.4*5) // 419 -38 17
-	fmt.Println(19.6*22.3, 45/5.0)     // 437.08 9
-	fmt.Print(34 % 5)                  // 4
+ fmt.Println(196+223, 45-83, 3.4*5) // 419 -38 17
+ fmt.Println(19.6*22.3, 45/5.0)     // 437.08 9
+ fmt.Print(34 % 5)                  // 4
 }
 ```
 
@@ -206,7 +207,7 @@ Go 语言是一门强类型语言，每一个变量都有它自己的变量类�
 
 在 Go 语言里面变量的声明有两种方式：
 
-1. `var 变量名 变量类型 = 值` 
+1. `var 变量名 变量类型 = 值`
    - 该方式来声明变量可以省略变量类型，编译器会自动推导变量的类型。
    - 例如：`var name = "张三"`，变量 `name` 的类型会推导为 `string`
 2. `变量名 := 值`
@@ -215,7 +216,6 @@ Go 语言是一门强类型语言，每一个变量都有它自己的变量类�
 > 如果要声明常量，把 `var` 改成 `const` 即可。
 
 Go 语言中字符串是内置类型，可以直接通过加号去拼接，参考第 15 行代码；也能够直接用等于号去比较两个字符。在 Go 语言里面，大部分运算符的使用和优先级都和 C/C++ 类似。
-
 
 
 ```go

@@ -1,6 +1,7 @@
 ---
 article: false
 date: 2022-08-12
+icon: mdi:sort
 prev: ../tree/tree.md
 ---
 

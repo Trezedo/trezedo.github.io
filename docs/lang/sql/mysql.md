@@ -1,6 +1,7 @@
 ---
-date: 2023-05-12
 article: false
+date: 2023-05-12
+icon: logos:mysql
 ---
 
 # MySQL SQL 语句

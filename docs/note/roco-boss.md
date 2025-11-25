@@ -1,5 +1,7 @@
 ---
 article: false
+date: 2023-08-14
+icon: twemoji:video-game
 ---
 
 # 洛克王国 BOSS 编号大全（顺序版）

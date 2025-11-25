@@ -1,7 +1,7 @@
 ---
-icon: markdown
-slug: markdown-intro
 date: 2022-01-22
+slug: markdown-intro
+icon: bi:markdown-fill
 permalink: /article/markdown-intro.html
 # permalinkPattern: :year/:month/:day/markdown-intro.html
 excerpt: markdown 基本使用

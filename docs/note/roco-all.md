@@ -1,5 +1,7 @@
 ---
 article: false
+date: 2023-06-20
+icon: twemoji:video-game
 ---
 # 洛克王国攻略记录
 
@@ -867,7 +869,7 @@ Flash Player 离线安装包下载：
 2. 适用于 Chromium 内核的 PPAPI 版：<https://www.flash.cn/flashplayer/3400330/install_flash_player_ppapi_cn.exe>
 3. 适用于 Firefox 85 版本以下的 NPAPI 版：<https://www.flash.cn/flashplayer/3400330/install_flash_player_cn.exe>
 
-> 链接中的数字即版本号去掉小数点，例如 `3400330` 对应版本 `34.0.0.330` 
+> 链接中的数字即版本号去掉小数点，例如 `3400330` 对应版本 `34.0.0.330`
 
 如果使用悟空辅助时经常白屏，或者等待很久才能进入登录界面，但用 Flash 中心检测问题并修复仍然无法解决，可以尝试在安全中心把Flash所在目录加进去：
 

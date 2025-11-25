@@ -1,6 +1,6 @@
 ---
-icon: java
 date: 2022-02-15
+icon: devicon:vertx
 star: true
 # sticky: true
 excerpt: 学习异步后端框架 vert.x
@@ -27,17 +27,17 @@ vert.x 官方提供了一个生成代码的在线工具：<https://start.vertx.i
 
 打开后，简单配置一些信息，然后选择依赖，假设我们是第一次使用，想做的就是和开发 `Spring Boot` 一样的返回 `json` 的接口，那么只需要选择 `Vert.x Web` 依赖：
 
-![image-20220216130952875](https://zedo.gitee.io/img/image-20220216130952875.png)
+![创建 vertx 界面](https://zedo-img.netlify.app/img/2022-02/16130952.png)
 
 当然，通常我们的项目是需要数据库的，`Vert.x` 提供了 `PostgreSQL`、`MySQL`、`MSSQL`、`Oracle`、`MongoDB`、`Redis` 等常见数据库的客户端：
 
-![image-20220216131533733](https://zedo.gitee.io/img/image-20220216131533733.png)
+![选择数据库](https://zedo-img.netlify.app/img/2022-02/16131533.png)
 
 根据你们所使用的数据库选择对应的客户端即可。本人常用 `PostgreSQL`，因此这里选择它的客户端。
 
 `Vert.x` 默认生成的代码默认使用的是 `JDK 11`，相信大多数开发者安装的版本还是 `JDK 1.8`（或者 `JDK 8`，两者是一个东西），因此还需要修改版本，点击 `Advanced options`，选择 `JDK 1.8`：
 
-![image-20220216132246970](https://zedo.gitee.io/img/image-20220216132246970.png)
+![选择JDK](https://zedo-img.netlify.app/img/2022-02/16132246.png)
 
 然后点击 `Generate Project` 等待生成代码完毕，随后会让你下载一个压缩包文件。
 
@@ -49,7 +49,7 @@ vert.x 官方提供了一个生成代码的在线工具：<https://start.vertx.i
 
 ### 配置文件
 
-**解压**刚才下载的压缩包到某个空目录，这样就是一个 `Vert.x` 项目了。然后用 `Java` 的 `IDE` 打开这个项目文件夹，这里我用的是 `IntelliJ IDEA`。首先需要打开的是根目录下的 `pom.xml` 文件，它是一个 `maven` 项目的配置文件，看看是否有报错，这个报错通常是正常的，因为我们还没有下载依赖。解决办法也很简单，只需要简单调整一下该文件的依赖顺序，然后右上角会出现这个按钮：![image-20220216133937492 |60](https://zedo.gitee.io/img/image-20220216133937492.png)
+**解压**刚才下载的压缩包到某个空目录，这样就是一个 `Vert.x` 项目了。然后用 `Java` 的 `IDE` 打开这个项目文件夹，这里我用的是 `IntelliJ IDEA`。首先需要打开的是根目录下的 `pom.xml` 文件，它是一个 `maven` 项目的配置文件，看看是否有报错，这个报错通常是正常的，因为我们还没有下载依赖。解决办法也很简单，只需要简单调整一下该文件的依赖顺序，然后右上角会出现这个按钮：![maven变更按钮 |60](https://zedo-img.netlify.app/img/2022-02/16133937.png)
 
 点击它就会**加载`maven`变更**，如果没有的依赖它就会自动从 `maven` 中心下载（当然，我们也可以剪切一部分依赖，然后加载变更，再把剪切掉的粘贴回来，再次加载变更即可）。
 
@@ -210,7 +210,7 @@ vertx.deployVerticle(MainVerticle.class.getName(), result -> {
 
 添加这个 `main` 方法后，就可以运行了，可以通过浏览器打开 <http://localhost:8888> 查看是否成功：
 
-![image-20220216154721553](https://zedo.gitee.io/img/image-20220216154721553.png)
+![测试页面](https://zedo-img.netlify.app/img/2022-02/16154721.png)
 
 这和我们在[上面](#demo)所说的结果看上去是一致的。
 
@@ -264,7 +264,7 @@ public void start(Promise<Void> startPromise) {
 
 现在重新运行项目，打开浏览器测试一下：
 
-![image-20220216194353060 center|440](https://zedo.gitee.io/img/image-20220216194353060.png)
+![测试json响应 center|440](https://zedo-img.netlify.app/img/2022-02/16194353.png)
 
 与我们的预期一致，尽管逻辑很简单，这就是我们的第一个接口！
 
@@ -325,7 +325,7 @@ router.route("/api/hello").handler(this::handleHello);
 
 将我们的 `vert.x` 项目打包成 `jar` 文件，这与 `SpringBoot` 项目的打包方式类似，只需要在 IDEA 右侧点击 `maven`，找到 `package`，双击即可。
 
-![image-20220216210750646 center](https://zedo.gitee.io/img/image-20220216210750646.png#s-60)
+![打包maven项目 center](https://zedo-img.netlify.app/img/2022-02/16210750.png#s-60)
 
 ::: warning
 

@@ -1,6 +1,6 @@
 ---
-icon: typescript
 date: 2023-05-23
+icon: skill-icons:typescript
 ---
 
 # JS 小功能 & 技巧

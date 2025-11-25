@@ -1,6 +1,6 @@
 ---
 date: 2022-08-10
-icon: stack
+icon: game-icons:stack
 category:
     - 数据结构
     - 线性表

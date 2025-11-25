@@ -1,6 +1,6 @@
 ---
-icon: gitee
 date: 2022-01-27
+icon: solar:gallery-send-bold
 tag:
     - gitee
     - 图床
@@ -19,7 +19,7 @@ permalink: /article/gitee-image-hosting.html
 
 接下来在“图传设置”中找到 githubPlus，填写内容，例如：
 
-![20220127215621.png](https://zedo.gitee.io/img/20220127215621.png)
+![27215621.png](https://zedo-img.netlify.app/img/2022-01/27215621.png)
 
 填写 `repo`，`branch`，`token` 即可，`origin` 选择 `gitee`.
 
@@ -31,11 +31,11 @@ PicGo 中要填写的 token 是 gitee 中的私人令牌。
 
 打开 gitee [私人令牌](https://gitee.com/profile/personal_access_tokens) 页面，右上角点击“生成新令牌”，修改权限如下：
 
-![20220127215053.png](https://zedo.gitee.io/img/20220127215053.png)
+![27215053.png](https://zedo-img.netlify.app/img/2022-01/27215053.png)
 
 提交后按提示操作即可。
 
-![20220127215514](https://zedo.gitee.io/img/20220127215514.png#s-60)
+![27215514](https://zedo-img.netlify.app/img/2022-01/27215514.png#s-60)
 
 注意复制生成的令牌。
 
@@ -59,5 +59,5 @@ GET https://assets.gitee.com/favicon.ico 403
 
 ```diff
 - https://gitee.com/zedo/img/raw/master/20220127215053.png
-+ https://zedo.gitee.io/img/20220127215053.png
++ https://zedo-img.netlify.app/img/20220127215053.png
 ```

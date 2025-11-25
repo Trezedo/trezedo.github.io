@@ -1,6 +1,6 @@
 ---
 date: 2023-04-16
-icon: java
+icon: logos:java
 category:
     - Java
 tag:

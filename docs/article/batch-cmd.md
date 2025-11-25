@@ -1,6 +1,6 @@
 ---
-icon: shell
 date: 2022-07-19
+icon: vscode-icons:file-type-powershell
 category:
     - 批处理
 tag:

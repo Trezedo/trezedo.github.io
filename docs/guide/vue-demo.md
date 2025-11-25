@@ -1,7 +1,7 @@
 ---
-date: 2022-03-15
-icon: vue
 article: false
+date: 2022-03-15
+icon: logos:vue
 ---
 
 # Hope 主题 demo 中使用 vue

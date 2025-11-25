@@ -1,5 +1,6 @@
 ---
 date: 2023-01-02
+icon: icon-park:link-three
 ---
 
 # LeetCode 链表
@@ -203,11 +204,11 @@ Node *reverseList(Node *head) {
 
 链接：<https://leetcode.cn/problems/reverse-linked-list-ii/>
 
-![[Pasted image 20230406163712.png]]
+![06163712.png](https://zedo-img.netlify.app/img/2023-04/06163712.png)
 
-![[Pasted image 20230406163733.png]]
+![06163733.png](https://zedo-img.netlify.app/img/2023-04/06163733.png)
 
-![[Pasted image 20230406163441.png]]
+![06163441.png](https://zedo-img.netlify.app/img/2023-04/06163441.png)
 
 ## 876. 链表的中间结点
 
@@ -779,6 +780,7 @@ public:
 ### 23. 合并 K 个升序链表
 
 [23. 合并 K 个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/)
-![[Pasted image 20230406184546.png]]
+
+![06184546.png](https://zedo-img.netlify.app/img/2023-04/06184546.png)
 
 [25. K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/)

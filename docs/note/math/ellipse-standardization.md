@@ -1,6 +1,6 @@
 ---
 date: 2022-09-16
-icon: function
+icon: mdi:ellipse-outline
 star: true
 category:
     - 高等数学
