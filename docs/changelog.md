@@ -25,3 +25,5 @@ date: 2023-07-20
 ## 2026-03-07
 
 - 使用 Obsidian Lint 插件对所有文章格式化
+- 更新至 vuepress@2.0.0-rc.26
+- 更新至 vuepress-theme-hope@2.0.0-rc.103
