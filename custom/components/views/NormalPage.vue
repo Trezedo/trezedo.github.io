@@ -19,15 +19,15 @@
 // https://github.com/vuepress-theme-hope/vuepress-theme-hope/blob/main/packages/theme/src/client/components/NormalPage.ts
 // 修改 CommonWrapper.ts 会影响很多地方
 
-import { usePageFrontmatter } from "vuepress/client";
 import { computed, onMounted, ref } from "vue";
+import { usePageFrontmatter } from "vuepress/client";
 
 // @ts-ignore
 import NormalPage from "vuepress-theme-hope/components/NormalPage";
 
 const frontmatter = usePageFrontmatter();
 
-const coverLink = ref(frontmatter.value["cover"] || "https://z.wiki/u/42DuSN");
+const coverLink = ref(frontmatter.value["cover"] || "https://zedo-img.netlify.app/img/wallhaven-z8dg9y-lossy.png");
 
 const imgLink = computed(() => {
     return (frontmatter.value["article"] !== false && coverLink.value) || "";

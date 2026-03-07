@@ -1,7 +1,7 @@
 ---
 icon: fa-solid:blog
 title: 博客主页
-bgImage: https://z.wiki/u/7Bes18
+bgImage: https://zedo-img.netlify.app/img/wallhaven-72rd8e.png
 heroFullScreen: true
 heroImage: http://q1.qlogo.cn/g?b=qq&s=5&nk=1962234583
 # https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=5

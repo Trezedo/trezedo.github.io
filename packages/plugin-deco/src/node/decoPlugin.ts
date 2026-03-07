@@ -9,7 +9,7 @@ export interface DecoOption {
 }
 
 export const decoPlugin = ({
-    img = "https://z.wiki/u/42DuSN",
+    img = "https://zedo-img.netlify.app/img/wallhaven-z8dg9y-lossy.png",
     excludePaths = [],
 }: DecoOption = {}): Plugin => ({
     name: "vuepress-plugin-deco",
