@@ -25,3 +25,17 @@ mjx-mtd[id] */
 .orange {
     color: orange;
 }
+
+/* https://forum-zh.obsidian.md/t/topic/19710 避免链接一触即发 */
+.cm-s-obsidian span.cm-link {
+    pointer-events: none;
+}
+
+/* blue topaz 主题：避免图片默认单独成行 */
+body:not(.obsidian-default-image)
+    .workspace-leaf-content[data-type="markdown"]
+    .view-content
+    :not(.canvas-node-content)
+    > img:not([class*="emoji"]) {
+    display: inline-block;
+}

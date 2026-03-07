@@ -5,5 +5,12 @@
     "margin": "0",
     "downscalePercent": 100
   },
-  "showLineNumber": true
+  "showLineNumber": true,
+  "strictLineBreaks": true,
+  "useMarkdownLinks": true,
+  "alwaysUpdateLinks": true,
+  "spellcheck": false,
+  "newLinkFormat": "relative",
+  "propertiesInDocument": "source",
+  "trashOption": "local"
 }
