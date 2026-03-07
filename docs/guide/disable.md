@@ -1,29 +1,26 @@
 ---
 date: 2022-03-15
-title: 布局与功能禁用
 icon: config
 order: 3
 category:
     - 使用指南
 tag:
     - 禁用
-
-navbar: false
-sidebar: false
-
+backtotop: false
 breadcrumb: false
-pageInfo: false
+comment: false
 contributors: false
 editLink: false
-lastUpdated: false
-prev: false
-next: false
-comment: false
 footer: false
-
-backtotop: false
-# article: false
+lastUpdated: false
+navbar: false
+next: false
+pageInfo: false
+prev: false
+sidebar: false
 ---
+
+# 布局与功能禁用
 
 你可以通过设置页面的 Frontmatter，在页面禁用功能与布局。
 

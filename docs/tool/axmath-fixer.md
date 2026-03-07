@@ -32,16 +32,12 @@ $$
 
 ### 格式化
 
-这部分包括修正 Axmath 的部分错误行为(主要是 v2.5)~~dddd~~，以及简化一些语法：
+这部分包括修正 Axmath 的部分错误行为（主要是 v2.5）~~dddd~~，以及简化一些语法：
 
 1. `aligned`：如果连续多行公式以 `=`、`\xlongequal` 开头，则将他们合并为 `aligned` 环境并对齐；
-
 2. `binom`：将可能为二项式系数的 `array` 转化为 `\binom{·}{·}`；
-
 3. `display`：如果某行是一整个行内公式，转化成块级公式；
-
 4. `matrix`：格式化矩阵，支持 `pmatrix`, `vmatrix`, `bmatrix`, `Bmatrix`, `Vmatrix`。不支持嵌套的 matrix；
-
 5. `underset`：调整 `\underset{·}{·}`。例如 `\underset{·}{\lim}` 将调整为 `\lim_{·}`。支持该项主要是因为看到不少人这么用。
 
 ### 自定义替换规则

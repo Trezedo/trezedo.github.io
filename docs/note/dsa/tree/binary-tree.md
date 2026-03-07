@@ -1,12 +1,12 @@
 ---
 date: 2022-08-11
+order: 1
 category:
     - 数据结构
     - 树
 tag:
     - 二叉树
     - C语言
-order: 1
 next: ../sorts/readme.md
 ---
 

@@ -1,9 +1,9 @@
 ---
 date: 2022-10-16
 icon: vscode-icons:file-type-python
-tag:
-    - python
 category:
+    - python
+tag:
     - python
 ---
 
@@ -22,7 +22,7 @@ Windows 系统可以按下 `Win+R` 键，输入 `SystemPropertiesAdvanced`，点
 1. 新建 `PythonPath`，其值包括以下路径：`E:\py\`，`E:\py\Scripts`，`E:\py\Lib\site-packages`；
 2. 双击 `Path` 编辑变量，新建值为 `%PythonPath%`。
 
-## pip 包管理工具
+## Pip 包管理工具
 
 Python 安装包自带包管理工具 pip，可以使用以下命令查看版本：
 
@@ -76,7 +76,7 @@ index-url = http://pypi.douban.com/simple/
 trusted-host = pypi.douban.com
 ```
 
-### pip 常用命令
+### Pip 常用命令
 
 列出已安装的包：
 
@@ -161,7 +161,7 @@ python -m venv [虚拟环境的路径]
 
 虚拟环境路径可以用 `venv` 等等，等待片刻，它会在当前目录下创建对应的文件。
 
-激活(这里是 Windows 系统)虚拟环境：
+激活（这里是 Windows 系统）虚拟环境：
 
 ```sh
 # 这里 [虚拟环境的名字] = env_demo
@@ -308,7 +308,7 @@ django-admin startapp app
     └─ __init__.py
 ```
 
-建议先看一下这部分的[官方文档](https://docs.djangoproject.com/zh-hans/4.1/intro/tutorial01/)，它描述得很清楚。
+建议先看一下这部分的 [官方文档](https://docs.djangoproject.com/zh-hans/4.1/intro/tutorial01/)，它描述得很清楚。
 
 我们先建一个简单的接口，然后再运行项目
 

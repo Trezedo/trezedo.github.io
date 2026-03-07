@@ -64,7 +64,7 @@ minio.exe server minio-data
 
 > 这里有一份比较完整的中文教程（代码不一定适用于最新版）：[MinIO 教程 - 人人编程网](https://www.hxstrive.com/subject/minio/572.htm)
 
-## 修改默认项(可选)
+## 修改默认项（可选）
 
 ### 控制台端口号
 
@@ -103,7 +103,7 @@ cmd /k minio.exe server minio-data --console-address ":30125"
 
 :::
 
-这样可以消除启动([截图](#p1))中的 <span style="color:red">WARNING</span>。
+这样可以消除启动 ([截图](#p1)) 中的 <span style="color:red">WARNING</span>。
 
 ## 在 SpringBoot 中引入
 

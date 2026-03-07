@@ -64,7 +64,7 @@ java -Dloader.path=./lib -jar demo.jar
 # java -jar demo.jar --loader.path=./lib
 ```
 
-或者用环境变量(windows)：
+或者用环境变量 (windows)：
 
 ```batch
 set LOADER_PATH=./lib
@@ -76,9 +76,9 @@ pause
 
 以上配置实现了只把项目本身源码编译产物和 Springboot Loader 相关的打进 jar 包，且运行 jar 包时可以从外部加载依赖类库。
 
-## 进一步配置(可选)
+## 进一步配置（可选）
 
-如果还想要不把 resources 目录打进jar包、自动复制依赖到 lib 目录、自动确定 `-Dloader.path`，则可以继续该小结的内容。
+如果还想要不把 resources 目录打进 jar 包、自动复制依赖到 lib 目录、自动确定 `-Dloader.path`，则可以继续该小结的内容。
 
 首先需要在以上配置的基础上，添加 `executions`：
 

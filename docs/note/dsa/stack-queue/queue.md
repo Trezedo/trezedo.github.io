@@ -1,13 +1,13 @@
 ---
 date: 2022-08-10
 icon: mdi:queue-first-in-last-out
+order: 2
 category:
     - 数据结构
     - 线性表
 tag:
     - 队列
     - C语言
-order: 2
 next: "./q.md"
 ---
 

@@ -24,7 +24,7 @@ tag:
 
 ## 基本使用
 
-在[vuepress@v2](https://v2.vuepress.vuejs.org/zh/)中，如果想要内置的 **markdown-it** 支持数学公式的显示，只需要使用 mathjax、katex 等对应的插件即可，katex 相比 mathjax，公式渲染速度要快很多，因此这里选择使用 katex 插件。
+在 [vuepress@v2](https://v2.vuepress.vuejs.org/zh/) 中，如果想要内置的 **markdown-it** 支持数学公式的显示，只需要使用 mathjax、katex 等对应的插件即可，katex 相比 mathjax，公式渲染速度要快很多，因此这里选择使用 katex 插件。
 
 ### 安装 markdown-it-katex
 
@@ -36,7 +36,7 @@ yarn add markdown-it-katex
 
 #### 配置
 
-很快就能完成，接下来在`config.ts`中配置：
+很快就能完成，接下来在 `config.ts` 中配置：
 
 ```ts
 import { defineUserConfig, DefaultThemeOptions } from "vuepress";
@@ -51,7 +51,7 @@ export default defineUserConfig<DefaultThemeOptions>({
 ```
 
 ::: tip 提示
-配置文件 `config.ts` 或者 `config.js` 在 `docs/.vuepress` 目录下，两者配置方式有部分不同，详见官网的[说明](https://v2.vuepress.vuejs.org/zh/guide/configuration.html#配置文件)，本人倾向于使用 `typescript`，因为它有更好的类型提示，本文之后也是使用 `ts` 格式的配置文件。
+配置文件 `config.ts` 或者 `config.js` 在 `docs/.vuepress` 目录下，两者配置方式有部分不同，详见官网的 [说明](https://v2.vuepress.vuejs.org/zh/guide/configuration.html#配置文件)，本人倾向于使用 `typescript`，因为它有更好的类型提示，本文之后也是使用 `ts` 格式的配置文件。
 :::
 
 已经成功引入的 katex 插件，除此之外，还需要引入 css 文件，同样在配置文件中加入:
@@ -116,7 +116,7 @@ If this is a native custom element, make sure to exclude it from component resol
 
 :::
 
-查看[官网的文档](https://v2.vuepress.vuejs.org/zh/guide/markdown.html#注意事项)，了解到是因为 Katex 在 HTML 中渲染这些公式会使用非标准标签。
+查看 [官网的文档](https://v2.vuepress.vuejs.org/zh/guide/markdown.html#注意事项)，了解到是因为 Katex 在 HTML 中渲染这些公式会使用非标准标签。
 
 > 非标准的 HTML 标签不会被 Vue 模板编译器识别成原生 HTML 标签。相反，Vue 会尝试将这些标签解析为 Vue 组件，而显然这些组件通常是不存在的。 例如：
 >
@@ -130,7 +130,7 @@ If this is a native custom element, make sure to exclude it from component resol
 >   - 对于 `@bundler-webpack` ，设置 [vue.compilerOptions](https://v2.vuepress.vuejs.org/zh/reference/bundler/webpack.html#vue)
 >   - 对于 `@bundler-vite` ，设置 [vuePluginOptions.template.compilerOptions](https://v2.vuepress.vuejs.org/zh/reference/bundler/vite.html#vuepluginoptions)
 
-显然选择第二种方式更好。本人使用的是`vite`，以下也是基于`vite`的配置.
+显然选择第二种方式更好。本人使用的是 `vite`，以下也是基于 `vite` 的配置.
 
 ```ts
 // config.ts
@@ -180,15 +180,15 @@ const customElement = [
 ];
 ```
 
-其中`customElement`中的元素可以通过查看[Katex 源码](https://github.com/KaTeX/KaTeX/blob/main/src/mathMLTree.js)找到。
+其中 `customElement` 中的元素可以通过查看 [Katex 源码](https://github.com/KaTeX/KaTeX/blob/main/src/mathMLTree.js) 找到。
 
 ::: tip
 
-实际使用时发现以上`customElement`数组并不完全包括 Katex 所使用的标签，还有`"eq"`, `"eqn"`等标签。
+实际使用时发现以上 `customElement` 数组并不完全包括 Katex 所使用的标签，还有 `"eq"`, `"eqn"` 等标签。
 
 :::
 
-至此，在`markdown-it`中引入 katex 的工作已经基本完毕。
+至此，在 `markdown-it` 中引入 katex 的工作已经基本完毕。
 
 > 参考：
 >
@@ -248,7 +248,7 @@ const customElement = [
 
 ### 更换插件
 
-如果需要使用自定义宏（macro），需要 Katex 版本在 [0.7.0](https://github.com/KaTeX/KaTeX/releases/tag/v0.7.0) 以上，而现在的[markdown-it-katex](https://github.com/waylonflinn/markdown-it-katex) 使用的 katex 版本为 0.5.1。本人在 [npmjs](https://www.npmjs.com/search?q=markdown-it%20katex) 上搜索了一番，浏览之后发现以下库应该都是可用的：
+如果需要使用自定义宏（macro），需要 Katex 版本在 [0.7.0](https://github.com/KaTeX/KaTeX/releases/tag/v0.7.0) 以上，而现在的 [markdown-it-katex](https://github.com/waylonflinn/markdown-it-katex) 使用的 katex 版本为 0.5.1。本人在 [npmjs](https://www.npmjs.com/search?q=markdown-it%20katex) 上搜索了一番，浏览之后发现以下库应该都是可用的：
 
 - [markdown-it-texmath](https://www.npmjs.com/package/markdown-it-texmath) 需要先安装 katex，因此新版 katex 都是可以的，版本更新较频繁
 - [@littlefattie/markdown-it-katex](https://www.npmjs.com/package/@littlefattie/markdown-it-katex) 对原有同名插件的改善，使用 `katex@0.15.1`，支持 TypeScript

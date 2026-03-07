@@ -80,8 +80,7 @@ not connected> exit
 
 > 下文将把 `host:ip`（如 `127.0.0.1:6379`）换成 `redis`
 
-
-### ping
+### Ping
 
 检测网络连接的 `ping` 命令：
 
@@ -90,7 +89,7 @@ redis> ping
 PONG
 ```
 
-### set & get
+### Set & Get
 
 因为 Redis 是 key-value 存储结构的数据库，所以最简单的就是 `set`、`get` 命令。
 
@@ -120,7 +119,7 @@ redis> get Name
 set note "Hello\nWorld"
 ```
 
-### keys
+### Keys
 
 查询有哪些 key，用 `*` 表示通配符，例如：
 
@@ -137,7 +136,7 @@ keys *e # 查询所有以 e 结尾的 key
 2) "name"
 ```
 
-### del
+### Del
 
 `del` 命令用来删除 Redis 中的 key-value：
 
@@ -170,9 +169,7 @@ set key value [expiration EX seconds|PX milliseconds] [NX|XX]
 ```
 
 - EX：设置指定的过期时间，以秒为单位。
-
 - PX：设置指定的过期时间，以毫秒为单位。
-
 - NX：仅当 key 不存在时设置。
 - XX：仅当 key 存在时才设置。
 
@@ -193,7 +190,7 @@ redis> get somekey # 10 秒钟后执行
 
 Redis 还支持许多其他的数据结构，例如列表、集合、Hash 表等等，请参考文档：<https://redis.io/docs/data-types/>。
 
-在 B 站找到一个快速入门(1h 左右)的视频：[【Redis 入门记(完结)，Redis6 零基础快速入门教程 2022 版】](https://www.bilibili.com/video/BV1GY41187d5/)
+在 B 站找到一个快速入门 (1h 左右) 的视频：[【Redis 入门记(完结)，Redis6 零基础快速入门教程 2022 版】](https://www.bilibili.com/video/BV1GY41187d5/)
 
 <iframe
     src="https://player.bilibili.com/player.html?aid=253491033&bvid=BV1GY41187d5&cid=493391936&page=1" scrolling="no"
@@ -224,7 +221,7 @@ Redis 还支持许多其他的数据结构，例如列表、集合、Hash 表等
 
 或者在命令行里用 `wsl` 即可打开。
 
-默认安装的是 Ubuntu，不过打开后没有图形界面，不过我们并不需要，有需要的可以参考[文章](https://blog.csdn.net/liyunxin_c_language/article/details/114107994)（未验证）。
+默认安装的是 Ubuntu，不过打开后没有图形界面，不过我们并不需要，有需要的可以参考 [文章](https://blog.csdn.net/liyunxin_c_language/article/details/114107994)（未验证）。
 
 之后按照官网的 linux Redis 安装方法即可。
 

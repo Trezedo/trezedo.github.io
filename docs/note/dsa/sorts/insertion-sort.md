@@ -1,6 +1,7 @@
 ---
 date: 2022-08-12
 icon: pajamas:insert
+order: 1
 category:
     - 数据结构
     - 排序
@@ -8,7 +9,6 @@ tag:
     - 直接插入排序
     - 希尔排序
     - 折半插入排序
-order: 1
 ---
 
 # 数据结构 - 插入排序

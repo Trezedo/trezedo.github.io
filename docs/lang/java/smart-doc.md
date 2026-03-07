@@ -12,7 +12,7 @@ tag:
 
 我们在开发时可能使用 Swagger 来测试接口，但它是侵入式的，即需要对类和函数添加注解。
 
-Smart Doc 是非侵入式的，它基于注释生成文档，这里不做过多介绍，请看[官方文档](https://smart-doc-group.github.io/#/zh-cn/)。
+Smart Doc 是非侵入式的，它基于注释生成文档，这里不做过多介绍，请看 [官方文档](https://smart-doc-group.github.io/#/zh-cn/)。
 
 最新版本：![smart-doc](https://img.shields.io/maven-central/v/com.github.shalousun/smart-doc)
 

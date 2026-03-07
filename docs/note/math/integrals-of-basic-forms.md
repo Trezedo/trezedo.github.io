@@ -1,12 +1,12 @@
 ---
 date: 2022-09-20
 icon: tabler:math-integrals
-star: true
 category:
     - 高等数学
     - 积分
 tag:
     - 积分
+star: true
 ---
 
 # 几种基本形式的积分

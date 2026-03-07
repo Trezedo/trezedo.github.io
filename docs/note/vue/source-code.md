@@ -4,7 +4,7 @@ date: 2023-05-13
 icon: logos:vue
 ---
 
-# vue 源码解析相关仓库、网站
+# Vue 源码解析相关仓库、网站
 
 vue2 及相关生态系统源码
 <https://github.com/answershuto/learnVue>

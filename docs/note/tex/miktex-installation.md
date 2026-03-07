@@ -37,7 +37,7 @@ tag:
 
 ![安装界面 center](https://zedo-img.netlify.app/img/2022-02/04162706.png#s-75)
 
-这个页面可以使用默认的，也可以将 **"Ask me first"** 改为 **"Yes"**，这样每当我们的文档需要安装宏包时，它会自己直接安装，而不是每次都询问。我们输出的`pdf` 通常是 `A4` 纸的页面大小，这里不做更改。接下来等待它安装完成即可。
+这个页面可以使用默认的，也可以将 **"Ask me first"** 改为 **"Yes"**，这样每当我们的文档需要安装宏包时，它会自己直接安装，而不是每次都询问。我们输出的 `pdf` 通常是 `A4` 纸的页面大小，这里不做更改。接下来等待它安装完成即可。
 
 安装完成后打开 `MiKTeX Console`，windows 系统可在**开始菜单**中的**最近添加**找到，或者在安装时所选的安装目录下：`miktex\bin\x64\miktex-console.exe`。
 
@@ -84,11 +84,11 @@ tag:
 
 至此，我们已经完成了 LaTeX 写作的最重要的一步。
 
-### 设置镜像(无效果)
+### 设置镜像（无效果）
 
 > 提示：此处的操作并没有解决问题。如果实在需要安装好吧，建议在国内镜像下载 TexLive 并安装（见本文开头）。
 
-~~最近(2022-10-23)发现下载不了宏包，似乎是被墙了，连 MiKTeX 官网都访问不了(很多非国内网站都是如此，后来发现是校园网的锅)。~~
+~~最近 (2022-10-23) 发现下载不了宏包，似乎是被墙了，连 MiKTeX 官网都访问不了（很多非国内网站都是如此，后来发现是校园网的锅）。~~
 
 日志报错是
 
@@ -97,14 +97,14 @@ Timeout was reached
 Data: code="28", url="https://api2.miktex.org/hello"
 ```
 
-使用 mpm 命令(MiKTeX Package Manager) 查看可用源，或者打开官网 <https://miktex.org/repositories>，任选一个 Country 为 China 的都可：
+使用 mpm 命令（MiKTeX Package Manager）查看可用源，或者打开官网 <https://miktex.org/repositories>，任选一个 Country 为 China 的都可：
 
 ```sh
 mpm --list-repositories
 # 注意，这个选项已经被标记为 deprecated
 ```
 
-设置镜像(以北外镜像为例)：
+设置镜像（以北外镜像为例）：
 
 ```sh
 mpm --set-repository=https://mirrors.bfsu.edu.cn/CTAN/systems/win32/miktex/tm/packages/
@@ -130,7 +130,7 @@ mpm --pick-repository-url
 
 当文档比较长的时候，pdf 到 TeX 源码和 TeX 到 pdf 的双向定位也是比较重要的，这里再推荐一个轻量的 pdf 阅读器：[SumatraPDF](https://www.sumatrapdfreader.org/)，它和 winedt、vscode 都能很好的配合，当然 TexStudio 也可以，但是它自带 pdf 阅读器。
 
-学习 LaTeX 更多的还是看手册，看宏包的使用说明文档，比较推荐的入门书就是 [lshort-zh-cn](https://mirrors.tuna.tsinghua.edu.cn/CTAN/info/lshort/chinese/lshort-zh-cn.pdf)，这个文档译名是《一份（不太）简短的 LaTeX2e 介绍》或《112 分钟了解 LaTeX2e》，这里还有国内外各一个论坛，遇到的问题可以上来搜索和询问：[Stack Exchange](tex.stackexchange.com)、[LaTeX 工作室](https://www.latexstudio.net/)，提问也有其对应的要求，例如一个最小工作示例（MWE），要学习的内容还算挺多，慢慢来吧。
+学习 LaTeX 更多的还是看手册，看宏包的使用说明文档，比较推荐的入门书就是 [lshort-zh-cn](https://mirrors.tuna.tsinghua.edu.cn/CTAN/info/lshort/chinese/lshort-zh-cn.pdf)，这个文档译名是《一份（不太）简短的 LaTeX2e 介绍》或《112 分钟了解 LaTeX2e》，这里还有国内外各一个论坛，遇到的问题可以上来搜索和询问：[Stack Exchange](https://tex.stackexchange.com)、[LaTeX 工作室](https://www.latexstudio.net/)，提问也有其对应的要求，例如一个最小工作示例（MWE），要学习的内容还算挺多，慢慢来吧。
 
 <!-- https://www.cnblogs.com/xjtu-blacksmith/p/easymcm.html 一个简洁、易用的美赛 LaTeX 模板: easymcm
 

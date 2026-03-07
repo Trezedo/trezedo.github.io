@@ -169,7 +169,7 @@ public interface IBaseController {
 }
 ```
 
-之所以封装成接口，是因为实际开发中可能会为了实现某种功能而让 Controller 继承一个抽象类，但在 Java 中一个类同时只能继承(extends)另一个类，而一个类可以同时实现(implements)多个接口。
+之所以封装成接口，是因为实际开发中可能会为了实现某种功能而让 Controller 继承一个抽象类，但在 Java 中一个类同时只能继承 (extends) 另一个类，而一个类可以同时实现 (implements) 多个接口。
 
 > 我们可以有多种选择：
 >
@@ -214,7 +214,7 @@ taskkill -F -PID 17736
 
 在 `xxxMapper.xml` 的 SQL 语句中使用 MybatisPlus 提供的 QueryWrapper 查询比纯写 xml 要方便。
 
-类似如下需求，有学生(student)和专业(major)两个表：
+类似如下需求，有学生 (student) 和专业 (major) 两个表：
 
 ```sql
 create table major
@@ -374,7 +374,7 @@ public interface StudentDAO extends BaseMapper<Student>, IVOMapper<Student> {
 <br>
 
 ::: tip
-为了让分页生效，记得[配置分页插件](https://baomidou.com/pages/2976a3/#spring-boot)：
+为了让分页生效，记得 [配置分页插件](https://baomidou.com/pages/2976a3/#spring-boot)：
 
 ```java
 @Configuration
@@ -486,7 +486,7 @@ public class MyInterceptor implements HandlerInterceptor {
 }
 ```
 
-如果想要拦截，**建议**抛出运行时异常(`RuntimeException`)，结合全局异常处理进行拦截，而不是 `return false`。
+如果想要拦截，**建议**抛出运行时异常 (`RuntimeException`)，结合全局异常处理进行拦截，而不是 `return false`。
 
 添加到 MVC 配置中（示例）：
 

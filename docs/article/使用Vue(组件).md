@@ -1,7 +1,6 @@
 ---
 date: 2022-01-23
 icon: tabler:file-type-vue
-slug: vue-usage
 category:
     - VuePress
     - Markdown
@@ -9,6 +8,7 @@ tag:
     - vuepress
     - vue
     - markdown
+slug: vue-usage
 permalink: /article/sfc-in-vuepress.html
 ---
 

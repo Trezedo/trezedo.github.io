@@ -2,8 +2,8 @@
 date: 2022-02-04
 icon: logos:nodejs-icon
 tag:
-  - nodejs
-  - 环境配置
+    - nodejs
+    - 环境配置
 ---
 
 # Node.js 安装及使用指南
@@ -15,7 +15,7 @@ tag:
 
 **版本选择建议：**
 
-- 推荐下载 **长期维护版(LTS)**
+- 推荐下载 **长期维护版（LTS）**
 - 偶数版本仍然是更稳定的选择
 
 ::: tip 国内镜像加速下载
@@ -132,14 +132,13 @@ echo $env:node_global
 @tab 手动配置
 
 1. 打开环境变量设置界面：
-
-   - 按下 <kbd>Win</kbd>+<kbd>R</kbd>
-   - 输入 `rundll32 sysdm.cpl,EditEnvironmentVariables`
-   - 或输入 `SystemPropertiesAdvanced` 后点击"环境变量"
+    - 按下 <kbd>Win</kbd>+<kbd>R</kbd>
+    - 输入 `rundll32 sysdm.cpl,EditEnvironmentVariables`
+    - 或输入 `SystemPropertiesAdvanced` 后点击“环境变量”
 
 2. 在**用户变量**中：
-   - 点击"新建"，变量名 `node_global`，变量值 `E:\envs\node_pkg\node_global`
-   - 找到 `Path` 变量，双击后点击"新建"，输入 `%node_global%`
+    - 点击“新建”，变量名 `node_global`，变量值 `E:\envs\node_pkg\node_global`
+    - 找到 `Path` 变量，双击后点击“新建”，输入 `%node_global%`
 
 ::::
 
@@ -249,7 +248,7 @@ yarn config set cache-folder "E:/envs/node/yarn_cache"
 
 ::: info
 
-yarn_global 等文件路径可能需要和 nodejs 路径在同一盘符，参看[创建 vite 错误](https://blog.csdn.net/weixin_43824526/article/details/121319955)。
+yarn_global 等文件路径可能需要和 nodejs 路径在同一盘符，参看 [创建 vite 错误](https://blog.csdn.net/weixin_43824526/article/details/121319955)。
 
 :::
 
@@ -389,9 +388,9 @@ yarn global add ts-node
 ```ts
 // foo.ts
 let foo = {
-  baz: {
-    a: 1,
-  },
+    baz: {
+        a: 1,
+    },
 };
 console.log(foo);
 ```

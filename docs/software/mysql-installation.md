@@ -1,10 +1,10 @@
 ---
 date: 2022-10-24
 icon: logos:mysql
-tag:
-    - MySQL
 category:
     - 数据库
+tag:
+    - MySQL
 ---
 
 # MySQL 8.0 安装
@@ -24,11 +24,11 @@ category:
 
 应该是国内有 CDN，下载速度还挺快的。
 
-因为这里我们选择了非“安装”版，需要手动配置。下面的内容参考了[官网指南](https://dev.mysql.com/doc/refman/8.0/en/windows-install-archive.html)。
+因为这里我们选择了非“安装”版，需要手动配置。下面的内容参考了 [官网指南](https://dev.mysql.com/doc/refman/8.0/en/windows-install-archive.html)。
 
 先解压刚才下载的压缩包到你喜欢的路径，我选择了 `E:\db\mysql-8.0.28-x64`。
 
-> [安装版](https://dev.mysql.com/downloads/installer/)会默认安装到 `C:\Program Files\MySQL`，不过现在可以自行选择了。
+> [安装版](https://dev.mysql.com/downloads/installer/) 会默认安装到 `C:\Program Files\MySQL`，不过现在可以自行选择了。
 
 ## 创建可选的配置文件
 
@@ -66,7 +66,7 @@ E:\db\mysql-8.0.28-x64;E:\db\mysql-8.0.28-x64\bin
 
 ![配置环境变量示意图](https://zedo-img.netlify.app/img/2022-10/mysql-24225547.png)
 
-然后根据[文档](https://dev.mysql.com/doc/refman/8.0/en/data-directory-initialization.html)，初始化 MySQL：
+然后根据 [文档](https://dev.mysql.com/doc/refman/8.0/en/data-directory-initialization.html)，初始化 MySQL：
 
 ```sh
 $ mysqld --initialize --console
@@ -145,7 +145,7 @@ alter user 'root'@'localhost' identified by '123456';
 
 不放心密码是否修改成功的，可以重新用上面的命令连接，登陆测试一下。
 
-下面我用的是 IDEA 内置的数据库工具连接，用户名填 `root` 就可以了，端口默认是 `3306`，数据库名可以不填(默认是 mysql)：
+下面我用的是 IDEA 内置的数据库工具连接，用户名填 `root` 就可以了，端口默认是 `3306`，数据库名可以不填（默认是 mysql）：
 
 ![IDEA 配置截图](https://zedo-img.netlify.app/img/2022-10/mysql-24201946.png)
 

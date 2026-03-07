@@ -3,7 +3,7 @@ date: 2023-06-03
 icon: skill-icons:git
 ---
 
-# git 合并两个项目
+# Git 合并两个项目
 
 假设有两个项目：
 
@@ -14,7 +14,7 @@ icon: skill-icons:git
 
 > 前后端开发时是分在两个 git 仓库的，现需要合并
 
-## 克隆项目1
+## 克隆项目 1
 
 ```sh
 git clone https://github.com/server.git

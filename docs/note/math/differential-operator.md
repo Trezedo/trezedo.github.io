@@ -1,12 +1,12 @@
 ---
 date: 2022-12-01
 icon: fluent:math-format-professional-16-filled
-createAt: 2022-02-09
 category:
     - 高等数学
 tag:
     - 微分方程
     - 算子
+createAt: 2022-02-09
 ---
 
 # 微分方程算子法
@@ -294,7 +294,7 @@ $$
 \end{aligned}
 $$
 
-利用柯西重复积分公式[^cauchy]，可知
+利用柯西重复积分公式 [^cauchy]，可知
 
 $$
 \frac{1}{D^n}f=\frac{1}{(n-1)!}\int_0^x{(x-t)^{n-1}f\d t}

@@ -1,7 +1,7 @@
 ---
 date: 2020-01-01
-title: 幻灯片页
 icon: slides
+title: 幻灯片页
 layout: Slides
 ---
 

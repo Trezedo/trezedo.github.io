@@ -565,7 +565,7 @@ Node *hasCycle(Node *head) {
 
 此题也即求环的入口结点
 
-L:入环前的长度
+L：入环前的长度
 L=NC - X
 
 ```c

@@ -32,7 +32,6 @@ function speak(text: string) {
 以下是一个文本转语音（Text to Speech, TTS）的实例，您可以做出以下调整：
 
 - 选择一门语言；
-
 - 选择一种音色（有些语言只有一种选择）；
 - 修改语速；
 - 修改音调；
@@ -95,7 +94,7 @@ msgbox vList,64,"List"
 
 ### 激活隐藏语音
 
-Windows 10 默认安装了两个不同语言的 TTS 引擎，实际上会有一些已经安装的语音，但是并没有显示在以上[查询语音包](#查询语音包)的列表中显示，可以打开设置查看：
+Windows 10 默认安装了两个不同语言的 TTS 引擎，实际上会有一些已经安装的语音，但是并没有显示在以上 [查询语音包](#查询语音包) 的列表中显示，可以打开设置查看：
 
 ![语音列表](https://zedo-img.netlify.app/img/2022-02/25210747.png)
 
@@ -217,9 +216,9 @@ https://fanyi.baidu.com/gettts?lan=zh&spd=5&source=web&text=文本
 
 :::
 
-可以发现，以上是无法直接播放的。如果我们直接打开这个[链接](https://fanyi.baidu.com/gettts?lan=zh&spd=5&source=web&text=%E7%99%BE%E5%BA%A6TTS%E6%B5%8B%E8%AF%95)，会发现它会让我们下载一个 `mp3` 文件，通过查看网络请求记录可以发现，它返回的 MIME 类型为 `text/html`，而手动打开时它才是下载 `mp3` 文件，导致 `audio` 无法播放。
+可以发现，以上是无法直接播放的。如果我们直接打开这个 [链接](https://fanyi.baidu.com/gettts?lan=zh&spd=5&source=web&text=%E7%99%BE%E5%BA%A6TTS%E6%B5%8B%E8%AF%95)，会发现它会让我们下载一个 `mp3` 文件，通过查看网络请求记录可以发现，它返回的 MIME 类型为 `text/html`，而手动打开时它才是下载 `mp3` 文件，导致 `audio` 无法播放。
 
-针对这个问题，可以使用在[免费接口](../article/免费接口.md)中介绍的免费 api，这里直接给出：
+针对这个问题，可以使用在 [免费接口](../article/免费接口.md) 中介绍的免费 api，这里直接给出：
 
 - <http://api.weijieyue.cn/api/?id=46> 19 种音色
 - <https://yuanxiapi.cn/api/voice/voice.php> 6 种音色

@@ -1,12 +1,12 @@
 ---
 date: 2022-08-07
+order: 1
 category:
     - 数据结构
     - 线性表
 tag:
     - 顺序表
     - C语言
-order: 1
 prev: ../Readme.md
 ---
 
@@ -315,7 +315,7 @@ void Insert(SeqList *sl, int pos, DataType x) {
 }
 ```
 
-推荐用断言([`assert`](https://cplusplus.com/reference/cassert/assert/))
+推荐用断言 ([`assert`](https://cplusplus.com/reference/cassert/assert/))
 
 实际上我们已经实现了最通用的插入操作，这里再额外提一下头插和尾插，因为两者是在顺序表中常用的操作。
 

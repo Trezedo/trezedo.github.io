@@ -1,13 +1,12 @@
 ---
 date: 2022-03-15
-title: Markdown 展示
 icon: markdown
 order: 2
 category:
     - 使用指南
-#tag:
-#    - Markdown
 ---
+
+# Markdown 展示
 
 VuePress 主要从 Markdown 文件生成页面。因此，你可以使用它轻松生成文档或博客站点。
 
@@ -221,7 +220,7 @@ npm i -D vuepress-theme-hope
 
 #### 脚注
 
-此文字有脚注[^first].
+此文字有脚注 [^first].
 
 [^first]: 这是脚注内容
 

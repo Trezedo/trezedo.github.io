@@ -23,7 +23,7 @@ pip install Pygments
 
 > 文档说的是 python2，但实际上 python3 也没啥问题。此处我的 python 版本为 3.10.7。
 
-编译时需要加上 `-shell-escape` 参数(这部分看文档就行)，下面以 texstudio 为例
+编译时需要加上 `-shell-escape` 参数（这部分看文档就行），下面以 texstudio 为例
 
 在 `选项`-`设置TeXstudio`-`命令`，找到你所使用的编译器（我的是 XeLaTeX），加上 `-shell-escape` 参数，即：
 

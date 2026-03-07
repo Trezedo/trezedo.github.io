@@ -19,7 +19,7 @@ tag:
 
 下载 `.exe` 文件（例如 `Git-2.37.1-64-bit.exe`）后打开，按默认设置继续下去就可以了。
 
-## git 初始化
+## Git 初始化
 
 这里假设目前所使用的 git 仓库都是同一个账号（全局）：
 
@@ -103,7 +103,7 @@ git remote rm gitee
 >
 > 获取远程库与本地同步合并（如果远程库不为空必须做这一步，否则后面的提交会失败）
 
-## git 命令
+## Git 命令
 
 ### 列出分支
 
@@ -284,7 +284,7 @@ git reset --hard origin/master git pull
 git pull
 ```
 
-git 强制覆盖本地命令(单条执行)∶
+git 强制覆盖本地命令（单条执行）∶
 
 ```sh
 git fetch --all && git reset --hard origin/master && git pull

@@ -1,6 +1,7 @@
 ---
 date: 2022-08-11
 icon: ph:stack-overflow-logo-bold
+order: 3
 category:
     - 数据结构
     - 线性表
@@ -8,7 +9,6 @@ tag:
     - 栈
     - 队列
     - C语言
-order: 3
 next: "../tree/README.md"
 ---
 

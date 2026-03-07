@@ -629,7 +629,7 @@ Node *hasCycle(Node *head) {
 ### 求环的入口结点
 
 [142. 环形链表 II - leetcode](https://leetcode.cn/problems/linked-list-cycle-ii/)
-L:如环前的长度
+L：入环前的长度
 L=NC - X
 
 ```c

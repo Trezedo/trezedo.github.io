@@ -1,7 +1,6 @@
 ---
-icon: dinkie-icons:boy
 article: false
-# cover: /assets/images/cover3.jpg
+icon: dinkie-icons:boy
 ---
 
 # 介绍页

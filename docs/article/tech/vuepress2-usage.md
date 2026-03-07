@@ -2,7 +2,6 @@
 date: 2022-01-23
 icon: logos:vue
 excerpt: 使用 Vuepress2 搭建静态文档分享类站点
-lang: zh-CN
 # layout: CustomLayout
 category:
     - VuePress
@@ -215,7 +214,7 @@ git reset --soft HEAD^
 
 [git push 的 -u 参数具体适合含义？](https://www.zhihu.com/question/20019419)
 
-## markdown-it 相关
+## Markdown-It 相关
 
 <https://github.com/markdown-it/markdown-it/blob/master/docs/architecture.md>
 

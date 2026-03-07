@@ -1,14 +1,13 @@
 ---
-# sidebar: false
 date: 2022-01-24
 icon: tabler:math-integrals
-star: true
 excerpt: 一类分子为反正切函数或对数函数，分母为二次函数的定积分计算方法。
 category:
     - 高等数学
     - 积分
 tag:
     - 积分
+star: true
 ---
 
 # 两道特殊积分
@@ -79,7 +78,7 @@ $$
 I\xlongequal{x\mapsto \frac{p-x}{1+px}}\int_0^p{\frac{\arctan \frac{p-x}{1+px}}{x^2+Bx+C}\d x}=\frac{\arctan p}{2}\int_0^p{\frac{1}{x^2+Bx+C}\d x}
 $$
 
-再考虑形如 $\ds\int{\frac{1}{(ax+b)^2\pm c^2}\d x}$ 的积分即可，可参考[几种基本形式的积分](./integrals-of-basic-forms.md)。
+再考虑形如 $\ds\int{\frac{1}{(ax+b)^2\pm c^2}\d x}$ 的积分即可，可参考 [几种基本形式的积分](./integrals-of-basic-forms.md)。
 
 ## 分子为对数函数
 

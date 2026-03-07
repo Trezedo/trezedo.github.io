@@ -40,7 +40,7 @@ tag:
 <img src="https://zedo-img.netlify.app/img/2022-05/09190222.png" alt="图片demo" style="zoom: 67%;" />
 ```
 
-注意 `style` 使用了 `zoom` 属性，它不是标准 CSS 属性，但目前除了火狐浏览器，绝大部分浏览器都支持使用[^zoom]。
+注意 `style` 使用了 `zoom` 属性，它不是标准 CSS 属性，但目前除了火狐浏览器，绝大部分浏览器都支持使用 [^zoom]。
 
 `zoom` 可以基于原始大小缩放，并改变图片在文档流中的大小。
 
@@ -190,7 +190,7 @@ CSS 中除了 `width` 属性之外，还有一个与宽度相关的属性——`
 <img src="/example.png#s-66" alt="" />
 ```
 
-要能够让 CSS 控制它，首先得有[选择器](https://www.w3school.com.cn/cssref/css_selectors.asp)吧？可以这样选到这类元素：
+要能够让 CSS 控制它，首先得有 [选择器](https://www.w3school.com.cn/cssref/css_selectors.asp) 吧？可以这样选到这类元素：
 
 ```js
 // 链接中包含 "#s" 的图片元素
@@ -234,7 +234,7 @@ img[src*="#s"] {
 }
 ```
 
-然后使用 [在线工具](http://www.wetools.com/sass-to-css)或 [VS Code 插件](https://marketplace.visualstudio.com/items?itemName=spook.easysass) 编译，在你所使用的 markdown 编辑器(引擎)引入即可。
+然后使用 [在线工具](http://www.wetools.com/sass-to-css) 或 [VS Code 插件](https://marketplace.visualstudio.com/items?itemName=spook.easysass) 编译，在你所使用的 markdown 编辑器（引擎）引入即可。
 
 > Typora 可以在其安装目录下的 `resources/app/window.html` 中引入。
 >

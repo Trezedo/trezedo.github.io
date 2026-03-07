@@ -213,11 +213,8 @@ $$
 看上去可能有亿点复杂，但实际操作时只要记住几点：
 
 1. 只有 $\sin x$ 奇数次幂的积分结果用 $\cos kx$ 表示，其余全用 $\sin kx$；
-
 2. $\ds\int{\sin ^nx\d x}$ 的项的符号正负交替，且首项符号为 $\left( -1 \right) ^{\lfloor \frac{n+1}{2} \rfloor}$；
-
 3. 偶次幂的积分会多一项 $\ds\frac{x}{2^n}\binom{n}{n/2}$；
-
 4. $\sin kx$ 或 $\cos kx$ 中 $k$ 从 $n$ 开始，每次减 2。
 
 例如，求 $\ds\int{\cos ^7x\d x}$

@@ -1,5 +1,6 @@
 ---
 date: 2022-08-15
+icon: streamline:magic-wand-2-solid
 ---
 
 # 使用 Image Magick 处理图片
@@ -28,7 +29,7 @@ density 的取值越高输出的图片越清晰，建议取值的范围是 $[200
 
 > 从这看到的：[convert svg to png using imagemagick](https://stackoverflow.com/questions/9530524/convert-svg-to-transparent-png-with-antialiasing-using-imagemagick)。
 >
-> 从[官方文档](https://imagemagick.org/script/command-line-tools.php)看来，`magick` 相当于 `magick convert` 的缩写。
+> 从 [官方文档](https://imagemagick.org/script/command-line-tools.php) 看来，`magick` 相当于 `magick convert` 的缩写。
 
 如果还想对输出的图片进行缩放，可以用 resize 选项：
 
@@ -48,13 +49,13 @@ magick -density 200 in.svg -resize 200% out.png
 
 > 从 [这](https://stackoverflow.com/questions/12332448/subscripts-and-superscripts-in-svg) 找到的。了解更多：[svg 教程 - 中文翻译版](https://svg.brucewar.cn/)。
 
-magick 转换 svg 时对字体处理得不是很好，它改变了设定的字体，且不能通过 `-font` 选项修改字体。虽然[这个问题](https://stackoverflow.com/questions/9836998/converting-svg-with-custom-fonts-to-png-using-imagemagick)很早之前(2012 年)就提出了，但是目前仍存在。
+magick 转换 svg 时对字体处理得不是很好，它改变了设定的字体，且不能通过 `-font` 选项修改字体。虽然 [这个问题](https://stackoverflow.com/questions/9836998/converting-svg-with-custom-fonts-to-png-using-imagemagick) 很早之前 (2012 年) 就提出了，但是目前仍存在。
 
 ::: info
 
 [inkscape](https://inkscape.org/) 是专门处理 svg 的，安装包 95.7MB，magick 安装包 38.0MB。
 
-有评论说 inkscape 没有这个问题，我下载使用之后发现它确实没有 magick 的字体问题，基本上所见(svg)即所得(png)，不过输出体积会大一些：
+有评论说 inkscape 没有这个问题，我下载使用之后发现它确实没有 magick 的字体问题，基本上所见 (svg) 即所得 (png)，不过输出体积会大一些：
 
 ```batch
 inkscape -d 240 in.svg -o out.png
@@ -139,7 +140,7 @@ West
 </svg>
 ```
 
-上面[添加图片水印](#图片水印)的 draw 参数其实也可以用来添加文字水印：
+上面 [添加图片水印](#图片水印) 的 draw 参数其实也可以用来添加文字水印：
 
 ```batch
 magick in.png -draw "fill red text 10,40 'Trezedo'" out.png

@@ -1,7 +1,6 @@
 ---
 date: 2022-02-15
 icon: devicon:vertx
-star: true
 # sticky: true
 excerpt: 学习异步后端框架 vert.x
 category:
@@ -10,7 +9,7 @@ category:
 tag:
     - vert.x
     - java
-# permalink: /article/vertx-learning.html
+star: true
 ---
 
 # vert.x 学习
@@ -51,7 +50,7 @@ vert.x 官方提供了一个生成代码的在线工具：<https://start.vertx.i
 
 **解压**刚才下载的压缩包到某个空目录，这样就是一个 `Vert.x` 项目了。然后用 `Java` 的 `IDE` 打开这个项目文件夹，这里我用的是 `IntelliJ IDEA`。首先需要打开的是根目录下的 `pom.xml` 文件，它是一个 `maven` 项目的配置文件，看看是否有报错，这个报错通常是正常的，因为我们还没有下载依赖。解决办法也很简单，只需要简单调整一下该文件的依赖顺序，然后右上角会出现这个按钮：![maven变更按钮 |60](https://zedo-img.netlify.app/img/2022-02/16133937.png)
 
-点击它就会**加载`maven`变更**，如果没有的依赖它就会自动从 `maven` 中心下载（当然，我们也可以剪切一部分依赖，然后加载变更，再把剪切掉的粘贴回来，再次加载变更即可）。
+点击它就会**加载 `maven` 变更**，如果没有的依赖它就会自动从 `maven` 中心下载（当然，我们也可以剪切一部分依赖，然后加载变更，再把剪切掉的粘贴回来，再次加载变更即可）。
 
 ::: tip
 
@@ -83,7 +82,7 @@ vert.x 官方提供了一个生成代码的在线工具：<https://start.vertx.i
 
 假设到这里为止，项目中的 `pom.xml` 已经没有报错了，那么就可以去看 `java` 代码了。
 
-根据刚才我的配置，生成的项目中`src`目录的结构是这样的：
+根据刚才我的配置，生成的项目中 `src` 目录的结构是这样的：
 
 ```text
 .
@@ -176,7 +175,7 @@ public static void main(String[] args) {
 
 :::
 
-当然，开发环境下部署(`deploy`)的方法不止这一种“方法”。
+当然，开发环境下部署 (`deploy`) 的方法不止这一种“方法”。
 
 ::: details 其他部署方法
 
@@ -212,7 +211,7 @@ vertx.deployVerticle(MainVerticle.class.getName(), result -> {
 
 ![测试页面](https://zedo-img.netlify.app/img/2022-02/16154721.png)
 
-这和我们在[上面](#demo)所说的结果看上去是一致的。
+这和我们在 [上面](#demo) 所说的结果看上去是一致的。
 
 ### 第一个接口
 
@@ -278,7 +277,7 @@ public void start(Promise<Void> startPromise) {
 - [Chrome666](https://www.chrome666.com/chrome-extension/json_viewer.html)：下载后即可安装
 - [CrxDL.COM](https://crxdl.com/)：搜索 `gbmdgpbipfallnflgajpaliibnhdgobh` 下载压缩包，手动安装
 
-这里也有另一个下载安装方便的插件：[JSON-Handle](http://jsonhandle.sinaapp.com/)，打开后在页面中找到**下载**（或者直接点[这里](http://sinacloud.net/download-file/JH/JSON-handle_0.6.1.crx)），完成后根据提示添加插件即可。
+这里也有另一个下载安装方便的插件：[JSON-Handle](http://jsonhandle.sinaapp.com/)，打开后在页面中找到**下载**（或者直接点 [这里](http://sinacloud.net/download-file/JH/JSON-handle_0.6.1.crx)），完成后根据提示添加插件即可。
 
 :::
 
@@ -376,7 +375,7 @@ io.vertx.core.json.DecodeException: Mapping XXX is
 
 ::: warning 提示
 
-并不建议使用 `Gson` 或者 `FastJson`，因为不论是 `vert.x` 还是 `Spring` 都选择了 `Jackson`。`FastJson` 曾经多次出现过漏洞（不过更新之后都修复了），而`Gson`的功能是挺强的，但性能相对较弱。
+并不建议使用 `Gson` 或者 `FastJson`，因为不论是 `vert.x` 还是 `Spring` 都选择了 `Jackson`。`FastJson` 曾经多次出现过漏洞（不过更新之后都修复了），而 `Gson` 的功能是挺强的，但性能相对较弱。
 
 相关对比可以查看：[Jackson 替换 fastjson](https://www.cnblogs.com/larva-zhh/p/11544317.html)
 
@@ -409,7 +408,7 @@ public class User {
 
 ::: details 关于注解
 
-这里的`@Data`、`@NoArgsConstructor` 和 `@AllArgsConstructor` 都是 [`lombok`](https://mvnrepository.com/artifact/org.projectlombok/lombok)提供的注解，分别用于自动生成 setters 和 getters ，无参构造方法和全参构造方法，这里只是为了方便，不做过多阐述。如果需要使用，添加依赖即可：
+这里的 `@Data`、`@NoArgsConstructor` 和 `@AllArgsConstructor` 都是 [`lombok`](https://mvnrepository.com/artifact/org.projectlombok/lombok) 提供的注解，分别用于自动生成 setters 和 getters ，无参构造方法和全参构造方法，这里只是为了方便，不做过多阐述。如果需要使用，添加依赖即可：
 
 ```xml
 <dependency>
@@ -614,7 +613,7 @@ userList.forEach(System.out::println);
 java.lang.ClassCastException: java.util.LinkedHashMap cannot be cast to trezedo.demo.VertxStarter.entity.User
 ```
 
-也就是说，实际上 `JsonArray` 的 `getList` 方法，并没有正真的转成一个 `List`，而是使用了 `LinkedHashMap` 这种数据结构，从而当我们使用它转换的 `List` 时就会出现问题，这也能说明为什么上面打印的结果是`Map`的结构。
+也就是说，实际上 `JsonArray` 的 `getList` 方法，并没有正真的转成一个 `List`，而是使用了 `LinkedHashMap` 这种数据结构，从而当我们使用它转换的 `List` 时就会出现问题，这也能说明为什么上面打印的结果是 `Map` 的结构。
 
 可惜的是，`JsonArray` 也没有提供可泛化的方法。难道这种对象就没有办法处理了吗？
 
@@ -697,7 +696,7 @@ vertx.createHttpServer().requestHandler(router).listen(8888);
 
 ### 处理请求并调用下一个处理器
 
-当 Vert.x Web 决定路由一个请求到匹配的 `route` 上，它会使用一个 `RoutingContext` 调用对应处理器。如果不在当前处理器里结束这个响应，则需要调用[`next`](http://vertx.io/docs/apidocs/io/vertx/ext/web/RoutingContext.html#next--) 方法让其他匹配的 `Route` 来处理请求（如果有）：
+当 Vert.x Web 决定路由一个请求到匹配的 `route` 上，它会使用一个 `RoutingContext` 调用对应处理器。如果不在当前处理器里结束这个响应，则需要调用 [`next`](http://vertx.io/docs/apidocs/io/vertx/ext/web/RoutingContext.html#next--) 方法让其他匹配的 `Route` 来处理请求（如果有）：
 
 ```java
 Route route = router.route();
@@ -828,11 +827,11 @@ mainRouter.mountSubRouter("/productsAPI", restAPI);
 
 <br/>
 
-更多内容可以查看官方文档的中文翻译，这部分内容也摘自官方文档，不过要注意这个文档是基于 `vert.x 3` 的，和 `4.x` 有细微差别。本文在[参考](#参考)中给出链接。
+更多内容可以查看官方文档的中文翻译，这部分内容也摘自官方文档，不过要注意这个文档是基于 `vert.x 3` 的，和 `4.x` 有细微差别。本文在 [参考](#参考) 中给出链接。
 
 ## 数据库
 
-相信大多数开发者都接触过 `RDBMS`（关系型数据库管理系统），这里我将使用其中的 `PostgreSQL` 数据库。以下内容主要参考[官方文档](https://vertx.io/docs/vertx-pg-client/java/)。
+相信大多数开发者都接触过 `RDBMS`（关系型数据库管理系统），这里我将使用其中的 `PostgreSQL` 数据库。以下内容主要参考 [官方文档](https://vertx.io/docs/vertx-pg-client/java/)。
 
 ### 配置参数
 
@@ -941,7 +940,7 @@ client
     });
 ```
 
-[`RowSet`](https://vertx.io/docs/apidocs/io/vertx/sqlclient/RowSet.html)查询方法提供了一个适用于 `SELECT` 查询的异步实例：
+[`RowSet`](https://vertx.io/docs/apidocs/io/vertx/sqlclient/RowSet.html) 查询方法提供了一个适用于 `SELECT` 查询的异步实例：
 
 ```java
 client
@@ -958,7 +957,7 @@ client
     });
 ```
 
-更多使用方法及高级特性请移步[官方文档](https://vertx.io/docs/vertx-pg-client/java/)。
+更多使用方法及高级特性请移步 [官方文档](https://vertx.io/docs/vertx-pg-client/java/)。
 
 ### 简单封装
 
@@ -1005,7 +1004,7 @@ public static JsonArray parseJsonArray(RowSet<Row> rows) {
 
 **用 `Vert.X` 来构造系统中有高并发要求的微服务，其它复杂或者是没什么要求的部分还是采取传统方案。**
 
-我还看到有 [Nutz](http://www.nutzam.com/)（国人开发）、[Quarkus](https://quarkus.io/)、[Javalin](https://javalin.io/)、[Micronaut](https://micronaut.io/)等等后端框架，其中有些框架概念和 `Spring` 比较相似，用来开发快速或者追求更高的性能还是不错的，只是简单看了下文档，先暂时不上手了，内容都挺多的 :joy:。
+我还看到有 [Nutz](http://www.nutzam.com/)（国人开发）、[Quarkus](https://quarkus.io/)、[Javalin](https://javalin.io/)、[Micronaut](https://micronaut.io/) 等等后端框架，其中有些框架概念和 `Spring` 比较相似，用来开发快速或者追求更高的性能还是不错的，只是简单看了下文档，先暂时不上手了，内容都挺多的 :joy:。
 
 ## 相关项目
 
@@ -1016,9 +1015,6 @@ public static JsonArray parseJsonArray(RowSet<Row> rows) {
 ## 参考
 
 1. [Vert.x-Web](https://vertx.io/docs/vertx-web/java/)
-
 2. [Vert.x Web 官方文档中文翻译](https://vertxchina.github.io/vertx-translation-chinese/web/Web.html)
-
 3. [Vert.x 核心包各功能模块详解](https://www.cnblogs.com/dagger9527/p/12286808.html)
-
 4. [Building RESTful APIs with Eclipse Vertx](https://itnext.io/building-restful-apis-with-eclipse-vertx-4ce89d8eeb74)

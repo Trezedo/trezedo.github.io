@@ -145,7 +145,7 @@ deb http://archive2.kylinos.cn/deb/kylin/production/PART-V10-SP1/custom/partner/
 
 ![查看 sources](https://zedo-img.netlify.app/img/kylin/20260117132147.png)
 
-暂时就这么多，后面有时间再测试下编程开发以及WPS JS宏之类的东西。
+暂时就这么多，后面有时间再测试下编程开发以及 WPS JS 宏之类的东西。
 
 ## 踩坑&相关问题
 

@@ -13,9 +13,9 @@ icon: vaadin:tools
 
 ## 转换工具
 
-[CDKM 在线文件转换器](https://cdkm.com/cn/)：支持文档格式转换(pdf,docx 等)，图片格式转换(jpg,png,ico,gif,svg 等)，视频格式转换(常见格式都支持)，音频格式转换，甚至不常见的格式转换。
+[CDKM 在线文件转换器](https://cdkm.com/cn/)：支持文档格式转换 (pdf,docx 等)，图片格式转换 (jpg,png,ico,gif,svg 等)，视频格式转换（常见格式都支持），音频格式转换，甚至不常见的格式转换。
 
-[I Love IMG](https://www.iloveimg.com/zh-cn)：支持在线处理图片，如裁剪、压缩、转换(仅支持常见格式)、编辑（透明图），不需要登陆。
+[I Love IMG](https://www.iloveimg.com/zh-cn)：支持在线处理图片，如裁剪、压缩、转换（仅支持常见格式）、编辑（透明图），不需要登陆。
 
 [Small PDF](https://smallpdf.com/cn/pdf-tools)：包括常用的 PDF 压缩、转换、分割、合并、加密等功能。
 
@@ -37,7 +37,7 @@ icon: vaadin:tools
 
 ## 网络工具
 
-[在线 ping - IT Dog](https://www.itdog.cn/ping/)：检测网络延迟、~~是否被墙~~等等，区域可视化(即地图)。
+[在线 ping - IT Dog](https://www.itdog.cn/ping/)：检测网络延迟、~~是否被墙~~等等，区域可视化（即地图）。
 
 [Ping 检测 - 站长工具](https://ping.chinaz.com/)：同上，但鼠标悬浮在地图上时有待优化。
 

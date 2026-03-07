@@ -189,7 +189,6 @@ public class MinioController extends BaseController {
 在 HTTP 响应头中，Content-Disposition 有两个可选值：
 
 - `"inline"` 表示将文件内容直接嵌入到浏览器中，通常用于显示图片、视频或 PDF 等文件。
-
 - `"attachment"` 表示将文件作为附件下载，通常用于下载文件，而不是在浏览器中打开它。
 
 当 Content-Disposition 设置为 `"inline"` 时，浏览器将尝试在页面中显示文件，如果浏览器支持该文件类型和插件，则文件将直接嵌入到页面中；否则，浏览器将提示用户下载该文件。

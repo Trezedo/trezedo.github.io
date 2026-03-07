@@ -86,7 +86,6 @@ of the named environment variables to the given values.
 
 - [vs code](https://code.visualstudio.com/) 免费，安装后需额外安装 [Go 插件](https://marketplace.visualstudio.com/items?itemName=golang.Go) 以支持 Golang
 - [goland](https://www.jetbrains.com/zh-cn/go/) JetBrains 出品，安装后直接可使用。但注意这是收费的，有 30 天免费试用期。
-
 - 云平台：<https://gitpod.io/#github.com/wangkechun/go-by-example>
 
     短链接：<https://hi-hi.cn/gitpod>
@@ -154,17 +153,13 @@ go run ./01-hello/main.go
   - 每个 package 里面都包含很多函数（function）。
 - `func` 关键字声明了一个函数。
   - 函数体需要使用 `{ }` 括起来，这样的话 Go 就知道函数的开始和结束位置了。
-
 - `main` 这个标识符很特殊：
-
   - 当你运行 Go 语言编写的程序时，会从 main package 的 main function 开始执行。
-
   - 没有 main，那么 Go 编译器就会报错，因为它不知道程序应该从哪开始。
-
 - 想要打印一行文字，你就可以使用 `Println` 这个函数（ln 就是 line 的简写）
   - `Println` 的前面使用了 `fmt` 和一个点，这是因为 `Println` 是由 fmt 这个 package 提供的函数。
   - 除了标准库提供的 `fmt.Println`，go 语言还内置了 `println`。
-- Go对 `{ }` 的位置很挑剔，在上面的代码中，左大括号 `{` 与 `func` 关键字位于同一行，而右大括号 `}` 单独成行，这是唯一一种允许的样式。
+- Go 对 `{ }` 的位置很挑剔，在上面的代码中，左大括号 `{` 与 `func` 关键字位于同一行，而右大括号 `}` 单独成行，这是唯一一种允许的样式。
 
 ## 基础语法
 
@@ -216,7 +211,6 @@ Go 语言是一门强类型语言，每一个变量都有它自己的变量类�
 > 如果要声明常量，把 `var` 改成 `const` 即可。
 
 Go 语言中字符串是内置类型，可以直接通过加号去拼接，参考第 15 行代码；也能够直接用等于号去比较两个字符。在 Go 语言里面，大部分运算符的使用和优先级都和 C/C++ 类似。
-
 
 ```go
 package main
@@ -326,7 +320,7 @@ for n := 0; n < 5; n++ {
 
 ### 分支结构
 
-Go 中的分支结构和 C/C++同样类似。同样地，在 `switch` 后的那个变量不需要括号。一个很大的不同点是，在  C/C++ 中如果没有 `break` 语句就会执行所有剩下的 `case`，而在 Go 中 `case` 不需要加 `break`。
+Go 中的分支结构和 C/C++同样类似。同样地，在 `switch` 后的那个变量不需要括号。一个很大的不同点是，在 C/C++ 中如果没有 `break` 语句就会执行所有剩下的 `case`，而在 Go 中 `case` 不需要加 `break`。
 
 ```go
 a := 2
@@ -396,7 +390,7 @@ func main() {
 
 ### 切片
 
-切片(slice)不同于数组，它可以任意更改长度，并且拥有更多的操作。
+切片 (slice) 不同于数组，它可以任意更改长度，并且拥有更多的操作。
 
 我们可以用 `make` 来创建一个切片，可以像数组一样取值：
 
@@ -438,9 +432,9 @@ fmt.Println(s[2:])  // [c d e f]，从第2个到最后一个元素，不包括�
 
 这里的“位置”其实就是元素的“索引”范围，不同于 python，Go 不支持负数索引。
 
-### map
+### Map
 
-### range
+### Range
 
 ### 函数
 
@@ -465,4 +459,3 @@ fmt.Println(s[2:])  // [c d e f]，从第2个到最后一个元素，不包括�
 ## 参考
 
 - [Go 上手 基础语法](https://bytedance.feishu.cn/file/boxcnDQ57K0wtcZtA3Y26ORKwec)
-

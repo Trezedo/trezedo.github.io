@@ -1,15 +1,14 @@
 ---
 date: 2022-01-22
-slug: markdown-intro
 icon: bi:markdown-fill
-permalink: /article/markdown-intro.html
-# permalinkPattern: :year/:month/:day/markdown-intro.html
 excerpt: markdown 基本使用
 category:
     - Markdown
 tag:
     - markdown
-# layout: CustomLayout
+slug: markdown-intro
+# permalinkPattern: :year/:month/:day/markdown-intro.html
+permalink: /article/markdown-intro.html
 ---
 
 # Markdown 基本使用
@@ -127,7 +126,7 @@ module.exports = {
 
 ### 脚注
 
-此文字有脚注[^first].
+此文字有脚注 [^first].
 
 [^first]: 这是脚注内容
 

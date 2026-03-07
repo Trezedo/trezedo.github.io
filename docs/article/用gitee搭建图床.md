@@ -25,7 +25,7 @@ permalink: /article/gitee-image-hosting.html
 
 其中 repo 是你的用户名 + 仓库名，仓库默认的分支是 “master”。
 
-## token 获取方法
+## Token 获取方法
 
 PicGo 中要填写的 token 是 gitee 中的私人令牌。
 
