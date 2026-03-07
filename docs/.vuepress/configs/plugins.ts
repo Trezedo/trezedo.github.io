@@ -68,8 +68,9 @@ export const noticeOptions: NoticePluginOptions = {
                     2.使用 shields.io 展示库/包的版本号。`, */
                 // "拆分 springboot 笔记中的 smart doc 部分，调整内容顺序",
                 // "新增部分文档，暂时禁用 search-pro",
-                "重启 search-pro, css 样式调整",
-                "更新至 vuepress@2.0.0-rc.24",
+                // "重启 search-pro, css 样式调整",
+                // "更新至 vuepress@2.0.0-rc.24",
+                "使用 Obsidian Lint 插件对所有文章格式化",
             ][0],
             actions: [
                 {
