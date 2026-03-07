@@ -248,3 +248,19 @@ Get-ItemProperty -Path E:\test.docx | Format-list -Property * -Force
 <!-- Attribute Changer https://www.petges.lu/download/ -->
 
 如果想要修改只读、隐藏、是否为系统文件等属性，可以用 `attrib` 命令，参考 `help attrib`。
+
+### 查看回收站大小
+
+单独查看 D 盘回收站：
+
+```powershell
+$sum = (Get-ChildItem -Path 'D:\$Recycle.bin' -Recurse -File -Force -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum).Sum; if (!$sum) { $sum = 0 }; '{0:N2} MB' -f ($sum / 1MB)
+```
+
+总共大小：
+
+```powershell
+$recycle = (New-Object -ComObject Shell.Application).NameSpace(10)  # 10 代表回收站
+$totalSize = 0; $recycle.Items() | ForEach-Object { $totalSize += $_.Size }
+'{0:N2} MB' -f ($totalSize /1MB)
+```
