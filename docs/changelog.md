@@ -16,3 +16,12 @@ date: 2023-07-20
 - 修正 [数据结构 - 单链表](./note/dsa/linear-list/singly-linked-list.md) 文中图片链接地址
 - 修改 `NormalPage.vue` 组件中背景图的链接
 - 背景图改用图床链接
+
+## 2025-11-25
+
+- 使用 Netlify 作为图床
+- 文档 icon 统一使用 Iconify
+
+## 2026-03-07
+
+- 使用 Obsidian Lint 插件对所有文章格式化
