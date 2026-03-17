@@ -1,10 +1,11 @@
 ---
-date: 2022-03-15
-icon: lock
+# date: 2022-03-15
+# date: 2026-03-17
+icon: fa:lock
 category:
     - 使用指南
 tag:
-    - 文章加密
+    - 加密
 ---
 
 # 密码加密的文章

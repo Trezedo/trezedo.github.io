@@ -1,7 +1,8 @@
 ---
-date: 2022-03-15
-icon: config
-order: 3
+# date: 2022-03-15
+# date: 2026-03-17
+icon: fa6-solid:gears
+order: 4
 category:
     - 使用指南
 tag:
