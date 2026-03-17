@@ -9,11 +9,10 @@ export default hopeTheme({
         url: "https://zedo.netlify.app",
     },
     // 左上角，以及首页右侧
-    logo: "http://q1.qlogo.cn/g?b=qq&s=5&nk=1962234583", // "/favicon.ico",
+    logo: "https://q1.qlogo.cn/g?b=qq&s=5&nk=1962234583", // "/favicon.ico",
 
     repoDisplay: true,
     repo: "https://github.com/trezedo/trezedo.github.io",
-    // docsRepo: this.repo,
     docsBranch: "main",
     docsDir: "docs", // "src/docs"
 
@@ -32,13 +31,13 @@ export default hopeTheme({
     blog: {
         articlePerPage: 12,
         medias: {
-            QQ: "https://res.abeim.cn/api/qq/?qq=1962234583",
+            QQ: "https://api.mmp.cc/api/qqhome?text=1962234583",
             Qzone: "https://1962234583.qzone.qq.com",
             Wechat: "https://wx.shanglala.cn/wap/url_scheme.php?id=NjYw", //"https://u.wechat.com/MMPIhfjElaxLw0gmEeUn8rI",
             Zhihu: "https://www.zhihu.com/people/0Chenky",
             Email: "mailto:trezedo@qq.com",
             Gitee: "https://gitee.com/zedo",
-            // GitHub: "https://example.com",
+            GitHub: "https://github.com/trezedo",
             // Gmail: "https://example.com",
         },
     },
@@ -67,58 +66,24 @@ export default hopeTheme({
 
     encrypt: {
         config: {
-            "/guide/encrypt.html": ["1234"],
-            "/zh/guide/encrypt.html": ["1234"],
+            "/demo/encrypt.html": { hint: "密码：1234", password: "1234" },
         },
     },
-    hotReload: false,
-    plugins: {
-        blog: {
-            excerptLength: 100,
-            article: "/article",
-            // slides:undefined
-        },
-        icon: {
-            assets: "iconify",
-        },
-        comment: comments,
-        copyright: {
-            global: true,
-            author: "Trezedo",
-            license: "MIT",
-            triggerLength: 100,
-            disableSelection: false,
-            disableCopy: true,
-        },
-        pwa: false,
-        search: {
-            locales: {
-                "/": { placeholder: "搜索" },
-                "/en/": { placeholder: "Search" },
-            },
-            // 排除首页
-            isSearchable: (page) => page.path !== "/",
-        },
-        slimsearch: {
-            indexContent: true,
-        },
-        notice: noticeOptions,
-    },
+
+    hotReload: true, // 主要是侧边栏热更新
+
     markdown: {
+        align: true, // 一定程度上还算方便
+        attrs: true,
         alert: true,
-        // https://ecosystem.vuejs.press/zh/plugins/markdown/markdown-math.html
-        math: {
-            type: "katex",
-            ...katexOptions,
-        },
-        chartjs: false,
-        echarts: false,
-        mermaid: true,
-        sub: true,
-        sup: true,
-        tabs: true, // 可以写 markdown，不仅仅是代码
         codeTabs: true, // 与 tabs 类似，但专门展示代码
-        tasklist: true,
+        component: true, // 以 YAML 和 JSON 的数据格式使用 Vue 组件
+        chartjs: false,
+        demo: true,
+        echarts: false,
+        flowchart: true,
+        footnote: true,
+        gfm: true,
         imgMark: false,
         imgSize: false,
         include: false, // 可导入 markdown，而非以代码形式导入
@@ -126,18 +91,49 @@ export default hopeTheme({
             1. 行高亮代码被认为是 text 
             2. https://github.com/vuepress-theme-hope/vuepress-theme-hope/issues/2048
             */
-        attrs: true,
-        // 暂时启用
-        // presentation: ["highlight", "math", "search", "notes", "zoom"],
-        revealjs: true,
+        linksCheck: { dev: true },
         mark: true, // 用 " == x ==" 高亮
         // stylize: [], // 比较强大但是为了兼容性我不用
-        flowchart: true,
-        footnote: true,
-        demo: true,
-        // container: true, // 已弃用
-        align: true, // 一定程度上还算方便
-        linksCheck: { dev: true },
+        math: {
+            type: "katex", // https://ecosystem.vuejs.press/zh/plugins/markdown/markdown-math.html
+            ...katexOptions,
+        },
+        mermaid: true,
+
+        revealjs: { plugins: ["highlight", "math", "search", "notes", "zoom"] },
+        spoiler: true,
+        sub: true,
+        sup: true,
+        tabs: true, // 可以写 markdown，不仅仅是代码
+        tasklist: true,
         vPre: true, // 这是兼容 v1 的功能
+        plantuml: true,
+        vuePlayground: true,
+    },
+
+    plugins: {
+        blog: {
+            excerptLength: 100,
+            article: "/article/",
+        },
+        components: {
+            components: ["Badge", "VPCard"],
+        },
+
+        icon: {
+            assets: "https://unpkg.com/iconify-icon@2.3.0/dist/iconify-icon.min.js", //"iconify",
+        },
+        comment: comments,
+        copyright: {
+            global: true,
+            author: "zedo",
+            license: "MIT",
+            triggerLength: 100,
+            disableSelection: false,
+            disableCopy: false,
+        },
+        notice: noticeOptions,
+        pwa: false,
+        slimsearch: true,
     },
 });

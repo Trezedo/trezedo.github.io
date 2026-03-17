@@ -1,99 +1,18 @@
 import { sidebar } from "vuepress-theme-hope";
 
 export default sidebar({
+    // https://theme-hope.vuejs.press/zh/guide/layout/sidebar.html
+    // 注意对象键声明的顺序。一般来说，应该将更精确的路径放在前面，以避免被更宽泛的路径匹配到。
     "/article/": "structure",
-    "/note/": [
-        {
-            prefix: "algo/",
-            icon: "hugeicons:algorithm",
-            text: "算法",
-            children: "structure",
-            collapsible: true,
-        },
-        {
-            prefix: "dsa/",
-            icon: "carbon:data-vis-1",
-            text: "数据结构",
-            children: "structure",
-            collapsible: true,
-        },
-        {
-            prefix: "math/",
-            icon: "ooui:mathematics",
-            text: "数学",
-            children: "structure",
-            collapsible: true,
-        },
-    ],
     "/software/": "structure",
     "/tool/": "structure",
     "/lang/": "structure",
-    "/": [
-        "/README.md",
-        "/home.md",
-        // "/slide.md",
-        {
-            text: "使用指南",
-            icon: "creative",
-            collapsible: true,
-            prefix: "guide/",
-            // link: "/guide/README.md",
-            children: ["page.md", "markdown.md", "disable.md", "encrypt.md"],
-        },
-        {
-            text: "文章",
-            icon: "note",
-            children: [
-                {
-                    prefix: "software/",
-                    text: "软件",
-                    icon: "note",
-                    collapsible: true,
-                    children: "structure",
-                },
-                {
-                    prefix: "article/tech/",
-                    text: "技术",
-                    icon: "code",
-                    collapsible: true,
-                    children: "structure",
-                },
-            ],
-        },
-        {
-            prefix: "note/",
-            text: "笔记",
-            icon: "note",
-            children: [
-                {
-                    text: "数学",
-                    icon: "function",
-                    prefix: "math/", // prefix 对 link 无效
-                    link: "math/Readme.md",
-                },
-                {
-                    text: "数据结构",
-                    icon: "computer",
-                    prefix: "dsa/",
-                    link: "dsa/Readme.md",
-                },
-            ],
-        },
-    ],
 
     "/note/math/": [
         {
             prefix: "",
-            icon: "advance",
+            icon: "hugeicons:note",
             text: "笔记碎片",
-            collapsible: true,
-            children: "structure",
-        },
-        {
-            prefix: "q/",
-            icon: "exercise",
-            text: "习题记录",
-            collapsible: true,
             children: "structure",
         },
     ],
@@ -157,6 +76,81 @@ export default sidebar({
             text: "TypeScript",
             icon: "typescript",
             children: "structure",
+        },
+    ],
+    "/note/": [
+        {
+            prefix: "algo/",
+            icon: "hugeicons:algorithm",
+            text: "算法",
+            children: "structure",
+            collapsible: true,
+        },
+        {
+            prefix: "dsa/",
+            icon: "carbon:data-vis-1",
+            text: "数据结构",
+            children: "structure",
+            collapsible: true,
+        },
+        {
+            prefix: "math/",
+            icon: "ooui:mathematics",
+            text: "数学",
+            children: "structure",
+            collapsible: true,
+        },
+    ],
+    "/": [
+        "/README.md",
+        "/home.md",
+        // "/slide.md",
+        {
+            text: "使用指南",
+            icon: "creative",
+            collapsible: true,
+            prefix: "guide/",
+            // link: "/guide/README.md",
+            children: ["page.md", "markdown.md", "disable.md", "encrypt.md"],
+        },
+        {
+            text: "文章",
+            icon: "note",
+            children: [
+                {
+                    prefix: "software/",
+                    text: "软件",
+                    icon: "note",
+                    collapsible: true,
+                    children: "structure",
+                },
+                {
+                    prefix: "article/tech/",
+                    text: "技术",
+                    icon: "code",
+                    collapsible: true,
+                    children: "structure",
+                },
+            ],
+        },
+        {
+            prefix: "note/",
+            text: "笔记",
+            icon: "note",
+            children: [
+                {
+                    text: "数学",
+                    icon: "function",
+                    prefix: "math/", // prefix 对 link 无效
+                    link: "math/Readme.md",
+                },
+                {
+                    text: "数据结构",
+                    icon: "computer",
+                    prefix: "dsa/",
+                    link: "dsa/Readme.md",
+                },
+            ],
         },
     ],
 });

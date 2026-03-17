@@ -3,10 +3,10 @@ import { navbar } from "vuepress-theme-hope";
 export default navbar([
     "/",
     "/home.md",
-    { text: "使用指南", icon: "icon-park-outline:guide-board", link: "/guide" },
+    { text: "使用指南", icon: "icon-park-outline:guide-board", link: "/demo/" },
     {
         text: "归档",
-        icon: "list",
+        icon: "ri:archive-drawer-fill",
         children: [
             {
                 text: "文章",
@@ -25,24 +25,24 @@ export default navbar([
             },
             {
                 text: "分类",
-                prefix: "/category",
+                prefix: "/category/",
                 children: [
                     // activeMatch 避免一直高亮
                     {
                         text: "全部",
                         icon: "material-symbols:category-outline",
-                        link: "/",
+                        link: "",
                         activeMatch: "^/category/$",
                     },
                     {
                         text: "数学",
                         icon: "ooui:mathematics",
-                        link: "/高等数学/",
+                        link: "高等数学/",
                     },
                     {
                         text: "后端",
                         icon: "streamline-cyber-color:network",
-                        link: "/后端/",
+                        link: "后端/",
                     },
                 ],
             },
