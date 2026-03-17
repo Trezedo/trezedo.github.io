@@ -1,189 +1,12 @@
-:root {
-    // 滚动到目标的顶部偏移距离 3.75rem + 1.05rem = 4.8rem
-    --offset-top: calc(var(--navbar-height) + 1.05rem);
-}
-
-// https://github.com/vuepress/vuepress-next/issues/359
-:focus:not(:focus-visible) {
-    outline: 0;
-}
-
-// 代码块中的横向滚动条
-pre::-webkit-scrollbar {
-    height: 5px;
-
-    &-track {
-        background-color: var(--border-color);
-    }
-
-    &-thumb {
-        background-color: var(--theme-color);
-        border-radius: 5px;
-
-        &:hover {
-            background-color: var(--text-color);
-        }
-    }
-}
-
-// 有用但是作用在了其他元素 https://developer.mozilla.org/zh-CN/docs/Web/CSS/scroll-margin-top
-// html {scroll-padding-top: 4.5em;}
-.base > span.enclosing {
-    // https://stackoverflow.com/questions/4086107#26214572
-    padding-top: var(--offset-top);
-    margin-top: calc(0 - var(--offset-top));
-}
-
-.katex-display > .katex > .katex-html > .tag {
-    overflow: hidden;
-}
-
-// 滚动到自定义上下文锚点，上边距
-p > a[name] {
-    padding-top: var(--offset-top);
-    margin-top: calc(0 - var(--offset-top));
-    visibility: hidden;
-
-    &:before {
-        margin-left: -1em;
-        content: "m";
-    }
-}
-
-// toggle 侧边栏的过渡动画
-.vp-sidebar {
-    // transition: left 0.3s;
-    transition: 0.3s;
-}
-
-.vp-page {
-    // 会覆盖切换页面之间的过度动画
-    // transition: padding-left 0.3s;
-    transition: all 0.3s;
-}
-
-/**
-    原先通过调整 left “隐藏” 侧边栏，但明显感觉到性能不太好
-    https://blog.csdn.net/weixin_45689946/article/details/122167495
-    transform 比 margin 性能好 50%~70%
- */
-.vp-sidebar {
-    // 和 navbar 一样的(比 notice 大即可)
-    z-index: 175;
-
-    &.hide {
-        // 使用 transform 代替直接 修改 left
-        // left: calc(0px - var(--sidebar-width));
-        // -webkit-transform
-        transform: translateX(calc(0px - var(--sidebar-width)));
-    }
-}
-
-// 修改 .outlook-dropdown 没用，要让它比 navbar(175) 小一点
-.notice-wrapper:not(a) {
-    z-index: 174;
-}
-
-.vp-page.full {
-    padding-left: 0;
-}
-
-// 表格对齐方式
-.custom-container.center > table,
-.custom-container.right > table {
-    display: inline;
-    margin: 1rem auto;
-}
-
-// 选中文字美化。似乎无需 ::-moz-selection
+// 选中文字背景色跟随主题
 *::selection {
     color: var(--vp-c-accent);
-    /* ----theme-color 15% 透明度 */
     background-color: var(--vp-c-accent-soft);
 }
 
 // 行内代码背景色跟随主题
-code {
-    background-color: var(--vp-c-accent-hover);
-}
-
-/* https://www.jb51.net/article/220293.htm */
-/* table {
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: center;
-
-    td,
-    th {
-        border: 1px solid #cad9ea;
-        color: #666;
-        height: 30px;
-    }
-
-    thead th {
-        background-color: #cce8eb;
-        width: 100px;
-
-        span {
-            font-weight: bold;
-        }
-    }
-
-    tr:nth-child(odd) {
-        background: #fff;
-    }
-
-    tr:nth-child(even) {
-        background: #f5fafa;
-    }
-} */
-
-// @mr-hope/vuepress-plugin-components/lib/client/styles/back-to-top.scss
-.refresh-page {
-    background-color: var(--c-bg, #fff);
-    border-radius: 1rem;
-    border-width: 0;
-    bottom: 8rem;
-    box-shadow: 2px 2px 10px 0 var(--card-shadow);
-    color: var(--c-brand, #3eaf7c);
-    cursor: pointer;
-    height: 3rem;
-    width: 3rem;
-    position: fixed !important;
-    right: 1rem;
-    padding: 0.5rem;
-    z-index: 100;
-
-    @media screen and (max-width: 719px) {
-        bottom: 7rem;
-        width: 2.25rem;
-        height: 2.25rem;
-        padding: 0.25rem;
-        border-radius: 0.5rem;
-    }
-}
-
-.vp-sidebar,
-.vp-breadcrumb,
-.vp-page-title,
-.theme-hope-content,
-.blog-info-list {
-    font-family: var(--font-family-fancy);
-}
-
-// 边框
-iframe {
-    border: 2px var(--theme-color) solid;
-    border-radius: 6px;
-}
-
-// 代码高亮中的评论
-.token.comment {
-    font-style: normal !important;
-
-    html[data-theme="dark"] & {
-        color: #6a8759;
-    }
+:not(pre) > code {
+    background-color: var(--vp-c-accent-soft);
 }
 
 // 引用块
@@ -191,51 +14,71 @@ blockquote {
     border-color: #ddd;
     border-left-width: 5px;
     background-color: #f2f3f5;
+    border-radius: 6px;
 
     html[data-theme="dark"] & {
         border-color: #333;
-        background-color: #161616;
+        background-color: #222;
     }
 }
 
-// 补充半透明 rgba 主题色
-:root {
-    --tc-bg: rgba(62, 175, 124, 0.2);
+// 代码块中的横向滚动条，增加 hover 背景
+pre::-webkit-scrollbar {
+    // &-track { } 无效
 
-    &.theme {
-        &-red {
-            --tc-bg: rgba(242, 109, 109, 0.2);
-        }
-
-        &-orange {
-            --tc-bg: rgba(251, 155, 95, 0.2);
-        }
-
-        &-blue {
-            --tc-bg: rgba(33, 150, 243, 0.2);
-        }
-
-        &-green {
-            --tc-bg: rgba(62, 175, 124, 0.2);
-        }
-    }
-}
-
-// 正文链接背景色
-.theme-hope-content {
-    a {
-        padding: 4px 1px;
-        color: var(--theme-color);
-        border-radius: 4px;
-        transition: all 0.3s ease-in-out;
-
+    &-thumb {
         &:hover {
-            background-color: var(--tc-bg);
-            text-decoration: none;
+            background-color: var(--vp-c-accent);
         }
     }
 }
 
-blockquote {
-    border-radius: 6px;
+// katex tagref 滚动定位修正
+:root {
+    // 滚动到目标的顶部偏移距离 3.75rem + 1.05rem = 4.8rem
+    --offset-top: calc(var(--navbar-height) + 1.05rem);
+}
+
+// 有用但是作用在了其他元素 https://developer.mozilla.org/zh-CN/docs/Web/CSS/scroll-margin-top
+// html {scroll-padding-top: 4.5em;}
+.base > span.enclosing[id^="tag-"] {
+    // https://stackoverflow.com/questions/4086107#26214572
+    padding-top: var(--offset-top);
+    margin-top: calc(0 - var(--offset-top));
+}
+
+// todo 解决移动端公式编号位置问题
+// .katex-display > .katex > .katex-html > .tag {
+//     overflow: hidden;
+// }
+
+// 自定义锚点滚动定位修正
+#markdown-content p > a[id],
+#markdown-content p > a[name] {
+    padding-top: var(--offset-top);
+    margin-top: calc(0 - var(--offset-top));
+    visibility: hidden;
+
+    &:before {
+        // 用于观察
+        content: "m";
+        margin-left: -1em;
+    }
+}
+
+// 正文链接 hover 背景色
+#markdown-content p > a {
+    padding: 4px 1px;
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: var(--vp-c-accent-soft);
+        text-decoration: none; // 去掉默认的下划线
+    }
+}
+
+// 去掉边框
+iframe {
+    border: none;
 }
