@@ -4,5 +4,7 @@
   "obsidian-linter",
   "oz-clear-unused-images",
   "obsidian-git",
-  "table-editor-obsidian"
+  "table-editor-obsidian",
+  "note_uid_generator",
+  "any-block"
 ]

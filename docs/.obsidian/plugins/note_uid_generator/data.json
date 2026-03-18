@@ -1,0 +1,10 @@
+{
+  "uidKey": "uid",
+  "autoGenerateUid": true,
+  "autoGenerationScope": "vault",
+  "autoGenerationFolder": "",
+  "autoGenerationExclusions": [],
+  "folderToClear": "",
+  "copyFormatString": "{title} - {uidKey}: {uid}",
+  "copyFormatStringMissingUid": "{title} - No {uidKey}"
+}
