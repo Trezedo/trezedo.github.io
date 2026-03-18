@@ -67,7 +67,7 @@ pre::-webkit-scrollbar {
 }
 
 // 正文链接 hover 背景色
-#markdown-content p > a {
+#markdown-content :not(:is(h1, h2, h3, h4, h5, h6)) a {
     padding: 4px 1px;
     border-radius: 4px;
     transition: all 0.3s ease-in-out;
