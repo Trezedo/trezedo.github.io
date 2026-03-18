@@ -1,11 +1,10 @@
 ---
 author:
     - Kayce Basques
-date: 2022-07-24
+    - Sofia Emelianova
+date: 2026-03-18
 icon: fa-brands:chrome
-excerpt: "A reference of convenience functions available in the Chrome DevTools Console.
-<br>
-Chrome DevTools 控制台中提供的实用功能参考"
+excerpt: "A reference of convenience functions available in the Chrome DevTools Console.<br/>Chrome DevTools 控制台中提供的实用功能参考"
 category:
     - Debug
 tag:
@@ -15,13 +14,19 @@ tag:
 
 # Chrome 控制台实用 API 参考
 
-> 原文链接：[Console Utilities API reference](https://developer.chrome.com/docs/devtools/console/utilities/)
+::: tip
+
+原文链接：[Console Utilities API reference](https://developer.chrome.com/docs/devtools/console/utilities/)
+
+最初于 2022-07-24 转载此文，后因图片无法加载，又更新了一遍。最初还是全英文版，再看时已经有了中文机翻。
+
+:::
 
 <!-- The Console Utilities API contains a collection of convenience functions for performing common
 tasks: selecting and inspecting DOM elements, displaying data in readable format, stopping and
 starting the profiler, and monitoring DOM events. -->
 
-Console Utilities API 包含一组用于执行常见任务且方便的函数：选择和检查 DOM 元素、以可读格式显示数据、停止和启动分析器以及监视 DOM 事件。
+Console Utilities API 包含一组用于执行常见任务且方便的函数：选择和检查 DOM 元素、查询对象、以可读格式显示数据、停止和启动分析器以及监视 DOM 事件。
 
 ::: danger
 
@@ -46,13 +51,11 @@ won't work if you try to call them in your scripts. -->
 <!-- In the following example, a simple expression (`2 + 2`) is evaluated. The `$_` property is then
 evaluated, which contains the same value: -->
 
-在下面的例子中，计算一个简单的表达式(`2 + 2`)。然后计算 `$_` 属性，它包含相同的值:
+在下面的例子中，计算一个简单的表达式 (`2 + 2`)。然后计算 `$_` 属性，它包含相同的值:
 
 <!-- alt="$_ is the most recently evaluated expression" -->
 
-<img src="https://wd.imgix.net/image/admin/TfgjCE7ayHU8lwJJTFss.png?auto=format&w=964"
-alt="$_ 是最近求值的表达式"
-width="800" height="238"/>
+![$_ 是最近求值的表达式](https://zedo-img.netlify.app/img/chrome/is-most-recently-eval-91da2e37b12ba_960.png)
 
 <!-- In the next example, the evaluated expression initially contains an array of names.
 Evaluating `$_.length` to find the length of the array,
@@ -62,7 +65,7 @@ the value stored in `$_` changes to become the latest evaluated expression, 4: -
 
 计算 `$_.length` 来查找数组的长度，存储在 `$_` 中的值会变成最新的求值表达式，为 4：
 
-<img src="https://wd.imgix.net/image/admin/d2jU3P5gc4G2OuK4PMQ1.png" alt="$_ changes when new commands are evaluated" width="800" height="319" />
+![计算新命令时，$_ 会发生变化](https://zedo-img.netlify.app/img/chrome/changes-new-commands-5c3176479dc2c_960.png)
 
 ## \$0 - ​\$4 {#recent-many}
 
@@ -82,7 +85,7 @@ In the Console drawer, `$0` has been evaluated and displays the same element: --
 
 在下面的例子中，Elements 面板中选择了一个 `img` 元素。在 Console 抽屉中，`$0` 已被求值并展示相同的元素:
 
-<img src="https://wd.imgix.net/image/admin/v9jdOozAkvhutIYnejJl.png" alt="$0 的例子" width="800" height="186"  />
+![$0 的例子](https://zedo-img.netlify.app/img/chrome/example-0-38ab0691323fe_960.png)
 
 <!-- The image below shows a different element selected in the same page.
 The `$0` now refers to newly selected element, while `$1` returns the previously selected one: -->
@@ -91,7 +94,7 @@ The `$0` now refers to newly selected element, while `$1` returns the previously
 
 `$0` 现在指向新选择的元素，而 `$1` 则返回先前选择的元素：
 
-<img src="https://wd.imgix.net/image/admin/ET1JJFtUIXvaoPCGQ94C.png" alt="$1 的例子" width="800" height="318"  />
+![$1 的例子](https://zedo-img.netlify.app/img/chrome/example-1-bdc65325a56a2_960.png)
 
 ## \$(selector \[, startNode\]) {#querySelector-function}
 
@@ -107,7 +110,7 @@ this function is an alias for the [document.querySelector()][2] function. -->
 
 下面的例子返回了对文档中第一个 `<img>` 元素的引用:
 
-<img src="https://wd.imgix.net/image/admin/poVWF9iRLAYZ08O2t88S.png" alt="$('img') 的例子" width="800" height="234"  />
+![$('img') 的例子](https://zedo-img.netlify.app/img/chrome/example-img-b1a41e5b82a16_960.png)
 
 <!-- Right-click on the returned result and select 'Reveal in Elements Panel' to find it in the DOM,
 or 'Scroll in to View' to show it on the page.
@@ -116,9 +119,9 @@ The following example returns a reference to the currently selected element and 
 
 右键单击返回的结果，选择“Reveal in Elements Panel”，在 DOM 中找到它，或者选择“Scroll in to View”，在页面上显示它。
 
-下面的例子返回当前选定元素的引用，并显示其 src 属性:
+下面的例子返回当前选定元素的引用，并显示其 `src` 属性:
 
-<img src="https://wd.imgix.net/image/admin/TLcKoLAXcrFcOgSPnNaD.png" alt="$('img').src 的例子" width="800" height="234"  />
+![$('img').src 的例子](https://zedo-img.netlify.app/img/chrome/example-imgsrc-b86ba5ef405c_960.png)
 
 <!-- This function also supports a second parameter, startNode, that specifies an 'element' or Node from
 which to search for elements.
@@ -127,18 +130,18 @@ The default value of this parameter is `document`. -->
 <!-- The following example returns a reference to the first element after the currently selected Node and
 displays its src properly: -->
 
-这个函数还支持第二个参数 startNode，它指定了一个“元素”或用于搜索元素的节点。该参数的默认值是 `document`。
+这个函数还支持第二个参数 `startNode`，它指定了一个“元素”或用于搜索元素的节点。该参数的默认值是 `document`。
 
-下面的示例返回当前选定节点后的第一个元素的引用，并正确地显示其 src 属性:
+以下示例会返回 `devsite-header-background` 的第一个后代 `img` 元素的引用，并正确地显示其 `src` 属性:
 
-<img src="https://wd.imgix.net/image/admin/Q5XlmeIMaHQkpP1QryBd.png" alt="$('img', div).src 的例子" width="800" height="234" />
+![$('img', div).src 的例子](https://zedo-img.netlify.app/img/chrome/example-img-divsr-3b8ae5c01e964_960.png)
 
-::: warning 提示
+::: warning 注意
 
 <!-- **Note:** If you are using a library such as jQuery that uses `$`, this functionality will be
 overwritten, and `$` will correspond to that library's implementation. -->
 
-如果你使用一个像 jQuery 一样使用 `$` 的库，该功能将被覆盖，`$` 将对应该库的实现。
+如果你使用的是 jQuery 等使用 `$` 的库，该功能将被覆盖，`$` 将对应该库的实现。
 
 :::
 
@@ -150,9 +153,9 @@ This command is equivalent to calling [document.querySelectorAll()][3].
 The following example uses `$$()` to create an array of all `<img>` elements in the current document
 and displays the value of each element's `src` property: -->
 
-`$$(selector)` 返回一个匹配给定 CSS 选择器的元素数组。这个命令等价于调用[document.querySelectorAll()][3]。
+`$$(selector)` 返回一个匹配给定 CSS 选择器的元素数组。这个命令等价于调用 Array.from([document.querySelectorAll()][3])。
 
-下面的例子使用 `$$()` 来创建当前文档中所有 `<img>` 元素的数组，并显示每个元素的 `src` 属性的值:
+下面的例子使用 `$$()` 来创建当前文档中所有 `<img>` 元素的数组，并展示每个元素的 `src` 属性的值:
 
 ```js
 let images = $$("img");
@@ -163,8 +166,7 @@ for (let each of images) {
 
 <!-- Example of using $$() to select all images in the document and display their sources. -->
 
-<img src="https://wd.imgix.net/image/BrQidfK9jaQyIHwdw91aVpkPiib2/f3W2BdYq3PAl435AMXso.png?auto=format&w=964"
-alt="使用 $$() 选择文档中的所有图像并显示的示例。" width="800" height="536"  />
+![使用 $$() 选择文档中的所有图像并显示的示例](https://zedo-img.netlify.app/img/chrome/example-using-sele-b88ecb820c41b.png)
 
 <!-- This function also supports a second parameter, startNode, that specifies an element or Node from
 which to search for elements.
@@ -173,7 +175,7 @@ The default value of this parameter is `document`.
 This modified version of the previous example uses `$$()` to create an array of all `<img>` elements
 that appear in the current document after the selected Node: -->
 
-这个函数还支持第二个参数 startNode，它指定一个或多个元素，以便从中搜索元素。该参数的默认值是 `document`。
+这个函数还支持第二个参数 `startNode`，它指定一个或多个元素，以便从中搜索元素。该参数的默认值是 `document`。
 
 这个修改后的版本使用了 `$$()` 来创建一个数组，包含所有 `<img>` 元素，这些元素出现在当前文档中选定的节点之后:
 
@@ -185,7 +187,8 @@ for (let each of images) {
 ```
 
 <!-- Example of using $() to select all images appearing after the select div element in the document and displaying their sources. -->
-<img src="https://wd.imgix.net/image/admin/MKKFwNfiqaq8JPUkgchF.png" alt="使用 $() 选择 document 中已选 div 元素后出现的所有图像并显示其来源" width="800" height="336"  />
+
+![使用 $() 选择 document 中已选 div 元素后出现的所有图像并显示其来源](https://zedo-img.netlify.app/img/chrome/example-using-selec-d3560a98283cc_960.png)
 
 ::: tip
 
@@ -209,24 +212,24 @@ For example, the following returns all the `<p>` elements on the page: -->
 $x("//p");
 ```
 
-<img src="https://wd.imgix.net/image/admin/8fIwlT9ZWd9109E9jyRb.png" alt="Example of using an XPath selector" width="800" height="282"  />
+![使用 XPath 选择器示例](https://zedo-img.netlify.app/img/chrome/example-using-xpath-sel-9ee5cd32b60bf_960.png)
 
 <!-- The following example returns all the `<p>` elements that contain `<a>` elements: -->
 
-下面的例子返回所有包含 `<a>` 元素的 `<p>` 元素:
+以下示例会返回包含 `<a>` 元素的所有 `<p>` 元素:
 
 ```js
 $x("//p[a]");
 ```
 
-<img src="https://wd.imgix.net/image/admin/qvqloRRfS4IU1WhDsJkP.png" alt="Example of using a more complicated XPath selector" width="800" height="251"  />
+![使用更复杂的 XPath 选择器示例](https://zedo-img.netlify.app/img/chrome/example-using-more-comp-02a9b55f645c3_960.png)
 
 <!-- Similar to the other selector functions, `$x(path)` has an optional second parameter, `startNode`,
 that specifies an element or Node from which to search for elements. -->
 
-与其他选择器函数类似，`$x(path)` 有一个可选的参数 startNode，它指定一个或多个元素，以便从中搜索元素。
+与其他选择器函数类似，`$x(path)` 有一个可选的参数 `startNode`，用于指定要从中搜索元素的元素或节点。
 
-<img src="https://wd.imgix.net/image/admin/srYQFy4Y7TRlT0kGarUN.png" alt="Example of using an XPath selector with startNode" width="800" height="282"  />
+![使用 startNode 的 XPath 选择器示例](https://zedo-img.netlify.app/img/chrome/example-using-xpath-sel-235f297c77cdb_960.png)
 
 ## clear() {#clear-function}
 
@@ -253,21 +256,21 @@ copy($0);
 <!-- When the specified function is called, the debugger is invoked and breaks inside the function on the
 Sources panel allowing to step through the code and debug it. -->
 
-当调用指定的函数时，将调用调试器，并在 Sources 面板上的函数内部中断，从而允许逐步遍历代码并调试它。
+当调用指定的函数时，调试程序会被调用，并在 Sources 面板上的函数内部中断，以便于逐行调试代码。
 
 ```js
 debug(getData);
 ```
 
-<img src="https://wd.imgix.net/image/admin/dhPBjuzWvsEbHeGR5NpQ.png" alt="Breaking inside a function with debug()" width="800" height="526"  />
+![使用 debug() 在函数内部中断](https://zedo-img.netlify.app/img/chrome/breaking-inside-function-b75481bc017a8_960.png)
 
 <!-- Use `undebug(fn)` to stop breaking on the function, or use the UI to disable all breakpoints.
 
 For more information on breakpoints, see [Pause Your Code With Breakpoints][4]. -->
 
-使用 `undebug(fn)` 停止函数断点，或使用 UI 禁用所有断点。
+使用 `undebug(fn)` 停止在函数上断点，或使用 UI 停用所有断点。
 
-有关断点的更多信息，请参见 [使用断点暂停代码][4]。
+有关断点的更多信息，请参阅 [使用断点暂停代码][4]。
 
 ## dir(object) {#dir-function}
 
@@ -286,7 +289,7 @@ document.body;
 dir(document.body);
 ```
 
-<img src="https://wd.imgix.net/image/admin/SBW2kszkhG1rlXfxtQDg.png" alt="Logging document.body with and without dir() function" width="800" height="590"  />
+![使用和不使用 dir() 函数打印 document.body](https://zedo-img.netlify.app/img/chrome/logging-documentbody-an-38e6368214da1_960.png)
 
 <!-- For more information, see the [`console.dir()`][console-dir] entry in the Console API. -->
 
@@ -297,7 +300,7 @@ dir(document.body);
 <!-- `dirxml(object)` prints an XML representation of the specified object, as seen in the Elements tab.
 This method is equivalent to the [`console.dirxml()`][console-dirxml] method. -->
 
-`dirxml(object)` 打印指定对象的 XML 表示，如在 Elements 选项卡中所示。
+`dirxml(object)` 打印指定对象的 XML 表示形式，如在 Elements 选项卡中所示。
 这个方法等价于 [`console.dirxml()`][console-dirxml] 方法。
 
 ## inspect(object/function) {#inspect-function}
@@ -307,15 +310,15 @@ panel: either the Elements panel for DOM elements or the Profiles panel for Java
 
 The following example opens the `document.body` in the Elements panel: -->
 
-`inspect(object/function)` 在合适的面板中打开并选择指定的元素或对象：用于 DOM 元素的 Elements 面板或用于 JavaScript 堆对象的 Profiles 面板。
+`inspect(object/function)` 会打开相应的面板（对于 DOM 元素，是 Elements 面板；对于 JavaScript 堆对象，是 Profiles 面板），并选择指定的元素或对象。
 
-下面的示例中，在元素面板中打开 `document.body`：
+以下示例在 Elements 面板中打开 `document.body`：
 
 ```js
 inspect(document.body);
 ```
 
-<img src="https://wd.imgix.net/image/admin/BDFR3iEMqRnWIWrrVEu6.png" alt="Inspecting an element with inspect()" width="800" height="337"  />
+![使用 inspect() 检查元素](https://zedo-img.netlify.app/img/chrome/inspecting-element-insp-e274156ad4de4_960.png)
 
 <!-- When passing a function to inspect, the function opens the document up in the Sources panel for you
 to inspect. -->
@@ -332,9 +335,9 @@ For example, the following lists all the event listeners registered on the docum
 
 `getEventListeners(object)` 返回在指定对象上注册的事件侦听器。
 
-返回值是一个对象，包含每个已注册事件类型的数组(例如 `click` 或 `keydown`)。
+返回值是一个对象，包含每个已注册事件类型的数组 (例如 `click` 或 `keydown`)。
 每个数组的成员都是描述为每种类型注册的侦听器的对象。
-例如，下面列出了在 document 对象上注册的所有事件监听器:
+例如，下面列出了在 `document` 对象上注册的所有事件监听器:
 
 ```js
 getEventListeners(document);
@@ -342,23 +345,25 @@ getEventListeners(document);
 
 <!-- // todo 检查语义 -->
 
-<img src="https://wd.imgix.net/image/admin/pVhvAi37yxLejbODHGSZ.png" alt="Output of using getEventListeners()" width="800" height="255"  />
+![Output of using getEventListeners()](https://zedo-img.netlify.app/img/chrome/output-using-geteventlis-1e1da35bccadd_960.png)
 
 <!-- If more than one listener is registered on the specified object, then the array contains a member
 for each listener.
 In the following example, there are two event listeners registered on the document element
 for the `click` event: -->
 
-如果在指定的对象上注册了多个侦听器，则数组为每个侦听器包含一个成员。
-在下面的例子中，有两个事件监听器在 document 元素上注册了 `click` 事件:
+如果在指定的对象上注册了多个监听器，则数组中会包含每个监听器对应的成员。
+以下示例中，在 `document` 元素上针对 `click` 事件注册了两个事件监听器:
 
-<img src="https://wd.imgix.net/image/admin/Hlh3CErBYJTTNg9butfj.png" alt="Multiple listeners" width="800" height="389"  />
+![Multiple listeners](https://zedo-img.netlify.app/img/chrome/multiple-listeners-1fa07046eab1a_960.png)
 
 <!-- You can further expand each of these objects to explore their properties: -->
 
 你可以进一步展开这些对象来探索它们的属性：
 
-<img src="https://wd.imgix.net/image/admin/EJnoDfrKGIhwz7cx0WE3.png" alt="Expanded view of listener object" width="800" height="389"  />
+![Expanded view of listener object](https://zedo-img.netlify.app/img/chrome/expanded-view-listener-o-fea9ccaa7e1c8_960.png)
+
+如需了解详情，请参 [阅检查对象属性](https://developer.chrome.com/docs/devtools/console/reference#inspect-object-properties)。
 
 ## keys(object) {#keys-function}
 
@@ -367,27 +372,32 @@ object. To get the associated values of the same properties, use `values()`.
 
 For example, suppose your application defined the following object: -->
 
-`keys(object)` 返回一个包含属于指定对象的属性名称的数组。要获取相同属性的关联值，请使用 `values()`。
+`keys(object)` 会返回一个数组，其中包含属于指定对象的属性的名称。如需获取相同属性的关联值，请使用 [`values()`](https://developer.chrome.com/docs/devtools/console/utilities#values-function)。
 
 例如，假设你定义了以下对象:
 
 ```js
-let player1 = { name: "Ted", level: 42 };
+let player = {
+    "name": "Parzival",
+    "number": 1,
+    "state": "ready",
+    "easterEggs": 3
+};
 ```
 
 <!-- Assuming `player1` was defined in the global namespace (for simplicity), typing `keys(player1)` and
 `values(player1)` in the console results in the following: -->
 
-假设 `player1` 是在全局命名空间中定义的(为了简单起见)，在控制台中输入 `keys(player1)` 和 `values(player1)` 将得到以下结果:
+假设 `player` 是在全局命名空间中定义的 (为了简单起见)，在控制台中输入 `keys(player)` 和 `values(player)` 将得到以下结果:
 
-<img src="https://wd.imgix.net/image/admin/HYEKFYyD93YzGLoF2avv.png" alt="Example of keys() and values() methods" width="800" height="226"  />
+![Example of keys() and values() methods](https://zedo-img.netlify.app/img/chrome/example-keys-values-c709a644b5168_960.png)
 
 ## monitor(function) {#monitor-function}
 
 <!-- When the function specified is called, a message is logged to the console that indicates the
 function name along with the arguments that are passed to the function when it was called. -->
 
-当调用指定的函数时，将记录一条消息到控制台，该消息指示函数名以及在调用函数时传递给该函数的参数。
+调用指定的函数时，系统会向控制台记录一条消息，其中包含函数名称以及在调用该函数时传递给该函数的参数。
 
 ```js
 function sum(x, y) {
@@ -396,11 +406,11 @@ function sum(x, y) {
 monitor(sum);
 ```
 
-<img src="https://wd.imgix.net/image/admin/V28TFRjUqryt2u3b2zls.png" alt="Example of monitor() method" width="800" height="221"  />
+![Example of monitor() method](https://zedo-img.netlify.app/img/chrome/example-monitor-method-b7adcf92594eb_960.png)
 
 <!-- Use `unmonitor(function)` to cease monitoring. -->
 
-使用 `unmonitor(function)` 停止监控。
+使用 [`unmonitor(function)`](https://developer.chrome.com/docs/devtools/console/utilities#unmonitor-function) 停止监控。
 
 ## monitorEvents(object \[, events\]) {#monitorEvents-function}
 
@@ -410,19 +420,19 @@ console. You can specify a single event to monitor, an array of events, or one o
 
 The following monitors all resize events on the window object. -->
 
-当指定对象上发生指定事件之一时，将 Event 对象记录到控制台。可以指定要监视的单个事件、事件数组或映射到预定义事件集合的泛型事件“类型”之一。请参见下面的例子。
+当指定对象上发生指定事件之一时，将 Event 对象记录到控制台。可以指定要监视的单个事件、事件数组或映射到预定义事件集合的泛型事件“类型”之一。请参见下面的示例。
 
-下面的代码监视窗口对象上的所有调整大小事件。
+以下代码会监控 `window` 对象上的所有大小调整事件。
 
 ```js
 monitorEvents(window, "resize");
 ```
 
-<img src="https://wd.imgix.net/image/admin/ZrU8M58cKhN2eZRpiNVI.png" alt="Monitoring window resize events" width="800" height="252"  />
+![Monitoring window resize events](https://zedo-img.netlify.app/img/chrome/monitoring-window-resize-6cc482b08832c_960.png)
 
 <!-- The following defines an array to monitor both "resize" and "scroll" events on the window object: -->
 
-下面定义了一个数组来监视 window 对象上的"resize"和"scroll"事件:
+以下代码定义了一个数组，用于监控 `window` 对象上的 `resize` 和 `scroll` 事件:
 
 ```js
 monitorEvents(window, ["resize", "scroll"]);
@@ -469,7 +479,7 @@ The table below lists the available event types and their associated event mappi
 <!-- For example, the following uses the "key" event type all corresponding key events on an input text
 field currently selected in the Elements panel. -->
 
-例如，下面使用“key”事件类型在 Elements 面板中当前选择的输入文本字段中所有对应的键事件。
+例如，以下代码使用 `key` 事件类型捕获当前在 Elements 面板中选中的输入文本字段上的所有相应按键事件。
 
 ```js
 monitorEvents($0, "key");
@@ -477,9 +487,11 @@ monitorEvents($0, "key");
 
 <!-- Below is sample output after typing a characters in the text field: -->
 
-下面是在文本框中输入一个字符后的输出示例:
+以下是在文本字段中输入字符后的输出示例：
 
-<img src="https://wd.imgix.net/image/admin/Shs04IRgNP87cbbjCbtd.png" alt="Monitoring key events" width="800" height="252"  />
+![Monitoring key events](https://zedo-img.netlify.app/img/chrome/monitoring-key-events-ef5a9ed8c7437_960.png)
+
+使用 [`unmonitorEvents(object[, events])`](https://developer.chrome.com/docs/devtools/console/utilities#unmonitorEvents-function) 停止监控。
 
 ## profile(\[name\]) 和 profileEnd(\[name\]) {#profile-function}
 
@@ -487,27 +499,40 @@ monitorEvents($0, "key");
 completes the profile and displays the results in the Profile panel. (See also [Speed Up JavaScript
 Execution][7].) -->
 
-`profile()` 用一个可选的名称启动一个 JavaScript CPU 分析会话。`profileEnd()` 完成配置文件，并在配置文件面板中显示结果。(参见 [加速 JavaScript 执行][7]。)
+`profile()` 会启动一个带有可选名称的 JavaScript CPU 性能分析会话。`profileEnd()` 完成配置文件，并在配置文件面板中显示结果。(参见 [加速 JavaScript 执行][7]。)
+
+::: warning
+
+`profile()` 和 `profileEnd()` 是 [`console.profile()`](https://developer.mozilla.org/docs/Web/API/console/profile) 和 [`console.profileEnd()`](https://developer.mozilla.org/docs/Web/API/console/profileEnd) 的缩写
+
+:::
 
 <!-- To start profiling: -->
 
-开始分析：
+如需开始性能分析，请执行以下操作：
 
 ```js
-profile("My profile");
+profile("Profile 1");
 ```
 
 <!-- To stop profiling and display the results in the Profiles panel: -->
 
-停止分析并在 Profiles 面板中显示结果：
+如需停止分析并在 Profiles 面板中查看结果，请执行以下操作：
 
 ```js
-profileEnd("My profile");
+profileEnd("Profile 1");
 ```
+
+
+<!-- Result in the profiles panel: -->
+
+Profiles 面板中的结果：
+
+![Grouped profiles](https://zedo-img.netlify.app/img/chrome/profile-1-the-performanc-e990dbe4f281e_960.png)
 
 <!-- Profiles can also be nested. For example, this will work in any order: -->
 
-Profiles 也可以嵌套。例如，这将以任何顺序工作:
+Profiles 还可以嵌套。例如，以下代码无论以何种顺序运行，都能正常运行：
 
 ```js
 profile("A");
@@ -516,18 +541,13 @@ profileEnd("A");
 profileEnd("B");
 ```
 
-<!-- Result in the profiles panel: -->
-
-Profiles 面板中的结果：
-
-<img src="https://wd.imgix.net/image/admin/BWxxLJby5scm6zF0eidW.png" alt="Grouped profiles" width="800" height="469"  />
 
 ::: tip
 
 <!-- **Note:** Multiple CPU profiles can operate at once and you aren't required to close them out in
 creation order. -->
 
-多个 CPU 配置文件可以同时操作，你不需要按创建顺序关闭它们。
+多个 CPU 配置文件可以同时运行，你不需要按创建顺序关闭它们。
 
 :::
 
@@ -540,13 +560,15 @@ with the specified constructor. For example:
 - `queryObjects(HTMLElement)`. Returns all HTML elements.
 - `queryObjects(foo)`, where `foo` is a class name. Returns all objects that were instantiated via `new foo()`. -->
 
-The scope of `queryObjects()` is the currently-selected execution context in the console.
+<!-- The scope of `queryObjects()` is the currently-selected execution context in the console. -->
 
-从控制台中调用 `queryObjects(Constructor)` 来返回使用指定构造函数创建的对象数组。例如:
+从控制台中调用 `queryObjects(Constructor)` 可返回使用指定构造函数创建的对象数组。例如:
 
 - `queryObjects(Promise)`. 返回所有的 `Promise` 实例。
 - `queryObjects(HTMLElement)`. 返回所有 HTML 元素。
 - `queryObjects(foo)`, 返回所有通过 `new foo()` 实例化的对象，其中 `foo` 是类名。
+
+`queryObjects()` 的范围是控制台中当前所选的执行上下文。
 
 ## table(data \[, columns\]) {#table-function}
 
@@ -554,7 +576,10 @@ The scope of `queryObjects()` is the currently-selected execution context in the
 For example, to display a list of names using a table in the console, you would do: -->
 
 通过传入带有可选列标题的数据对象，以表格格式记录对象数据。
-例如，要在控制台中使用表格显示名称列表，你可以这样做:
+
+这是 [`console.table()`](https://developer.chrome.com/docs/devtools/console/api#table) 的快捷方式。
+
+例如，如需在控制台中使用表格显示名称列表，可以执行以下操作：
 
 ```js
 let names = [
@@ -564,14 +589,14 @@ let names = [
 table(names);
 ```
 
-<img src="https://wd.imgix.net/image/admin/jI1NQZJs08FsKA6nMyIp.png" alt="Example of table() method" width="800" height="488"  />
+![Example of table() method](https://zedo-img.netlify.app/img/chrome/example-table-method-880fdbceda0cd_960.png)
 
 ## undebug(function) {#undebug-function}
 
 <!-- `undebug(function)` stops the debugging of the specified function so that when the function is called,
 the debugger is no longer invoked. This is used in concert with `debug(fn)`. -->
 
-`undebug(function)` 停止对指定函数的调试，这样当函数被调用时，调试器就不再被调用。这与 `debug(fn)` 一起使用。
+`undebug(function)` 会停止对指定函数进行调试，这样当 `function` 函数被调用时不再调用调试器。这与 `debug(fn)` 搭配使用。
 
 ```js
 undebug(getData);
@@ -581,7 +606,7 @@ undebug(getData);
 
 <!-- `unmonitor(function)` stops the monitoring of the specified function. This is used in concert with `monitor(fn)`. -->
 
-`unmonitor(function)` 停止对指定函数的监视。这与 `monitor(fn)` 一起使用。
+`unmonitor(function)` 会停止对指定函数的监控。这与 `monitor(fn)` 搭配使用。
 
 ```js
 unmonitor(getData);
@@ -592,7 +617,7 @@ unmonitor(getData);
 <!-- `unmonitorEvents(object[, events])` stops monitoring events for the specified object and events.
 For example, the following stops all event monitoring on the window object: -->
 
-`unmonitorEvents(object[, events])` 停止对指定对象和事件的监控。例如，以下停止 window 对象上的所有事件监控:
+`unmonitorEvents(object[, events])` 会停止监控指定对象和事件的事件。例如，以下代码会停止对 `window` 对象的所有事件监控：
 
 ```js
 unmonitorEvents(window);
@@ -602,7 +627,7 @@ unmonitorEvents(window);
 code starts monitoring all mouse events on the currently selected element, and then stops monitoring
 "mousemove" events (perhaps to reduce noise in the console output): -->
 
-您还可以有选择地停止监视对象上的特定事件。例如，下面的代码开始监控当前选中元素上的所有鼠标事件，然后停止监控“mousemove”事件(可能是为了减少控制台输出中的干扰):
+您还可以有选择地停止监视对象上的特定事件。例如，下面的代码开始监控当前选中元素上的所有鼠标事件，然后停止监控 `mousemove` 事件 (可能是为了减少控制台输出中的干扰):
 
 ```js
 monitorEvents($0, "mouse");
