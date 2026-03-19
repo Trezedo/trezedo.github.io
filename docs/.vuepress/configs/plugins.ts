@@ -60,31 +60,10 @@ export const noticeOptions: NoticePluginOptions = {
         {
             path: "/",
             title: "最近更新",
-            content: [
-                // "新增公告组件，更新部分文章的笔误，本地降至 pnpm7 以保证和 netlify 的版本一致",
-                // "修改 springboot 笔记，尝试通过 packageManager 使用 pnpm8",
-                // "新增 netlify 部署笔记，更新收集的在线工具",
-                // "启用 Giscus 评论区，新增 minio 笔记",
-                /* `1.更正 MySQL 文章中的勘误，补充 MinIO。
-                    <br>
-                    2.使用 shields.io 展示库/包的版本号。`, */
-                // "拆分 springboot 笔记中的 smart doc 部分，调整内容顺序",
-                // "新增部分文档，暂时禁用 search-pro",
-                // "重启 search-pro, css 样式调整",
-                // "更新至 vuepress@2.0.0-rc.24",
-                "使用 Obsidian Lint 插件对所有文章格式化",
-            ][0],
-            actions: [
-                {
-                    text: "确定",
-                    link: "/",
-                    type: "primary",
-                },
-            ],
-            // confirm: true,
-            // actions: [],
-            // showOnce: __VUEPRESS_DEV__ ? false : true,
-            // fullscreen: true,
+            content: "根据 git log 维护更新日志",
+            actions: [{ text: "确定", type: "primary" }],
+            // showOnce: __VUEPRESS_DEV__ ? false : true, // 生产环境只显示一次，开发环境每次都显示
+            fullscreen: true,
         },
     ],
     // 选项
