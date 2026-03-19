@@ -12,7 +12,6 @@ export default defineUserConfig({
 
     dest: "./dist",
     public: "./public",
-    templateBuild: "custom/index.build.html",
 
     head: [
         // ! 此处引入的 css、js，当 hash 变化时也会重复加载
