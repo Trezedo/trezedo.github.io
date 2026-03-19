@@ -8,6 +8,7 @@ import { registerComponents } from "./plugins/registerComponents";
 export const katexOptions: KatexOptions = {
     output: "html",
     macros: {
+        // 见 "/docs/preamble.sty"
         "\\d": "\\mathop{}\\!\\mathrm{d}",
         "\\e": "\\text{e}",
         "\\i": "\\text{i}",
@@ -31,14 +32,15 @@ export const katexOptions: KatexOptions = {
         "\\Im": "\\operatorname{Im}",
         "\\Re": "\\operatorname{Re}",
     },
-    // 似乎是 md-enhance 使用的 katex 版本较低的缘故
-    strict: "ignore" /* (errorCode: string, errorMsg: string, token: any) => {
-                    console.error(errorCode, errorMsg, token);
-                    if (errorCode === "htmlExtension") {
-                        return "ignore";
-                    }
-                    return "error";
-                } */,
+
+    // 复杂公式在 vite 打包时总会发出 warning，即使按文档使用了如下配置
+    strict: (errorCode, errorMsg, token) => {
+        console.error(errorCode, errorMsg, token);
+        if (errorCode === "htmlExtension") {
+            return "ignore";
+        }
+        return "error";
+    },
     // https://github.com/KaTeX/KaTeX/issues/2003
     trust: (context: TrustContext) =>
         ["\\htmlId", "\\href"].includes(context.command),
