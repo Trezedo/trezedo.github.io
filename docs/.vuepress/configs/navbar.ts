@@ -2,10 +2,21 @@ import { navbar } from "vuepress-theme-hope";
 
 export default navbar([
     "/",
-    "/home.md",
-    { text: "使用指南", icon: "icon-park-outline:guide-board", link: "/demo/" },
+    // "/home.md",
+    { text: "DEMO", icon: "icon-park-outline:guide-board", link: "/demo/" },
+
     {
-        text: "归档",
+        text: "笔记",
+        icon: "si:ai-note-fill",
+        link: "/note/",
+    },
+    {
+        text: "编程",
+        icon: "jam:code",
+        link: "/lang/",
+    },
+    {
+        text: "站点导航",
         icon: "ri:archive-drawer-fill",
         children: [
             {
@@ -17,51 +28,46 @@ export default navbar([
                         link: "/article/",
                     },
                     {
-                        text: "收藏",
-                        icon: "f7:square-favorites-alt",
+                        text: "星标",
+                        icon: "noto-v1:star",
                         link: "/star/",
                     },
                 ],
             },
             {
-                text: "分类",
-                prefix: "/category/",
+                text: "索引",
+                prefix: "",
                 children: [
-                    // activeMatch 避免一直高亮
                     {
-                        text: "全部",
+                        text: "分类",
                         icon: "material-symbols:category-outline",
-                        link: "",
-                        activeMatch: "^/category/$",
+                        link: "/category/",
+                        activeMatch: "^/category/.*$", // 子页面保持高亮
                     },
                     {
-                        text: "数学",
-                        icon: "ooui:mathematics",
-                        link: "高等数学/",
-                    },
-                    {
-                        text: "后端",
-                        icon: "streamline-cyber-color:network",
-                        link: "后端/",
+                        text: "标签",
+                        icon: "ph:tag-bold",
+                        link: "/tag/",
+                        activeMatch: "^/tag/.*$",
                     },
                 ],
             },
             {
-                text: "标签",
-                icon: "solar:tag-bold",
-                link: "/tag/",
-                activeMatch: "^/tag/$",
-            },
-            {
-                text: "笔记",
-                icon: "si:ai-note-fill",
-                link: "/note/",
-                activeMatch: "^/note/$",
-            },
-            {
-                text: "时间线",
-                icon: "icon-park-outline:timeline",
-                link: "/timeline/",
+                text: "归档",
+                icon: "ph:archive-box-bold",
+                // link: "",
+                children: [
+                    {
+                        text: "时间线",
+                        icon: "icon-park-outline:timeline",
+                        link: "/timeline/",
+                    },
+                    {
+                        text: "更新日志",
+                        icon: "material-icon-theme:changelog",
+                        link: "changelog.md",
+                    },
+                ],
             },
         ],
     },
