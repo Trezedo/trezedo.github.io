@@ -1,10 +1,17 @@
 ---
 article: false
+icon: material-icon-theme:changelog
 date: 2023-07-20
-modified: 2026-03-20
+modified: 2026-03-21
 ---
 
 # 变更日志
+
+:::tip
+
+此处仅记录博客重大变更，文章更新、修订不列入其中。
+
+:::
 
 ## 2022
 
