@@ -1,6 +1,8 @@
 import { useHeadCss, useHeadScript } from "./hooks";
 
-const styles: CustomElement[] = [{ id: "zedo-iconfont", src: "/assets/font/iconfont.css" }];
+const styles: CustomElement[] = [
+    { id: "zedo-iconfont", src: "/assets/font/iconfont.css" },
+];
 
 const scripts: CustomElement[] = [
     {

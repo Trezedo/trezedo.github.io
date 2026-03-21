@@ -35,7 +35,7 @@ export function useConfirm() {
                 option.cancelText || "取消",
                 option.onOkClick || (() => {}),
                 option.onCancelClick || (() => {}),
-                option.options
+                option.options,
             );
         }
     }

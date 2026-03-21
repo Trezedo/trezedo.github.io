@@ -1,6 +1,6 @@
-import { defineClientConfig } from "vuepress/client";
 import { disableDebugLog } from "@zedo";
 import { decoPlugin, reloadPagePlugin } from "@zedo/plugin-hooks/";
+import { defineClientConfig } from "vuepress/client";
 
 // import { loadScripts, loadStyles } from "@zedo";
 
@@ -21,13 +21,13 @@ const handleDate = (date: Date) => {
 async function noticeUpdateTime() {
     if (__VUEPRESS_DEV__) return;
     const data = await fetch("/sitemap.xml").then((response) =>
-        response.text()
+        response.text(),
     );
     const xmlDoc = new DOMParser().parseFromString(data, "text/xml");
     // @ts-ignore
     let time = [...xmlDoc.querySelectorAll("lastmod")].reduce(
         (prev, { textContent: t }) => (t > prev ? t : prev),
-        ""
+        "",
     );
 
     let date = handleDate(new Date(time));
@@ -48,7 +48,7 @@ const makeCenterImgClass = () => {
 // https://v2.vuepress.vuejs.org/zh/advanced/cookbook/usage-of-client-config.html
 export default defineClientConfig({
     enhance({ app, router: _r, siteData: _s }) {
-        console.log(app.version);
+        console.log(`vuepress v${app.version}`);
         // 全局注册组件会被打包进 app.xxx.js，建议用官方插件注册组件
         // for (let com in Components) {
         //     app.component(com, Components[com])
@@ -70,7 +70,7 @@ export default defineClientConfig({
             () => route.path,
             () => {
                 setTimeout(makeCenterImgClass, 1000);
-            }
+            },
         );
     },
     // 插入到 #app 的组件

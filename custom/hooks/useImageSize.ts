@@ -15,7 +15,7 @@ export function useImageSize() {
 
     function initImageSize() {
         const images = document.querySelectorAll<HTMLImageElement>(
-            'img[src*="#s-"]'
+            'img[src*="#s-"]',
         ) as unknown as HTMLImageElement[];
         console.log("list: ", images);
 
@@ -31,7 +31,9 @@ export function useImageSize() {
                 }
             } else {
                 // “兼容” Firefox，用图片原始高度处理
-                size && (img.style.width = (img.naturalWidth * parseInt(size)) / 100 + "px");
+                size &&
+                    (img.style.width =
+                        (img.naturalWidth * parseInt(size)) / 100 + "px");
             }
         }
     }
@@ -48,7 +50,7 @@ export function useImageSize() {
             setTimeout(() => {
                 initImageSize();
             }, 500);
-        }
+        },
     );
     onUpdated(() => {
         console.log("!!!");
