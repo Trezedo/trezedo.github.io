@@ -1,5 +1,5 @@
 // 打包设置
-export { default as bundlerConfig } from "./bundlerConfig";
+export { default as bundler } from "./bundler";
 
 // 钩子设置
 export { default as onInitialized } from "./onInitialized";

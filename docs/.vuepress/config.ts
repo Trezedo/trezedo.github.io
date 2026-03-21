@@ -1,7 +1,7 @@
-import { type Bundler, defineUserConfig } from "vuepress";
+import { defineUserConfig } from "vuepress";
 import { path } from "vuepress/utils";
 
-import { bundlerConfig, onInitialized, pluginConfig } from "./configs/";
+import { bundler, onInitialized, pluginConfig } from "./configs/";
 import theme from "./theme";
 
 // 这里的时间是构建时间，因为当前处于 nodejs 环境，其实也是可以做到 “不缓存” 的
@@ -15,22 +15,13 @@ export default defineUserConfig({
 
     head: [
         // ! 此处引入的 css、js，当 hash 变化时也会重复加载
-        /* [
-            "link",
-            { rel: "stylesheet", href: "/assets/font/iconfont.css" + date },
-        ], */
-        // ["link", { rel: "shortcut icon", href: "/favicon.ico", type: "image/x-icon" }],
-        /*["link", {
-            rel: "icon", type: "image/jpeg",
-            href: "&t=" + new Date().getTime()
-        }],*/
         // ["script", { defer: true, src: "/assets/js/index.js" + date }],
     ],
     alias: {
         "@zedo": path.resolve(__dirname, "../../custom/"),
         "@theme-hope/components/NormalPage": path.resolve(
             __dirname,
-            "../../custom/components/views/NormalPage.vue"
+            "../../custom/components/views/NormalPage.vue",
         ),
     },
     locales: {
@@ -39,22 +30,13 @@ export default defineUserConfig({
             title: "zedo",
             description: "使用 vuepress2 搭建的博客",
         },
-        // "/zh/": {},
     },
 
     theme,
     onInitialized: onInitialized,
     plugins: pluginConfig,
 
-    bundler: bundler("vite"),
+    bundler: bundler,
 
     clientConfigFile: path.resolve(__dirname, "./clientAppEnhance.ts"),
 });
-
-export function isDev(): boolean {
-    return __VUEPRESS_DEV__;
-}
-
-export function bundler(type: "vite" /*  | "webpack" */): Bundler {
-    return bundlerConfig[type];
-}

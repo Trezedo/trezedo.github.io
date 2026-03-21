@@ -72,5 +72,4 @@ export const noticeOptions: NoticePluginOptions = {
 export const pluginConfig: PluginConfig = [
     //
     registerComponents,
-    // search,
 ];
