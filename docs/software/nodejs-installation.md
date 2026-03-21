@@ -1,9 +1,15 @@
 ---
-date: 2022-02-04
 icon: logos:nodejs-icon
+date: 2026-03-21
+created: 2022-02-04
+modified: 2026-03-21
+category:
+    - JavaScript
+    - Nodejs
 tag:
+    - javascript
     - nodejs
-    - 环境配置
+    - pnpm
 ---
 
 # Node.js 安装及使用指南
@@ -11,7 +17,10 @@ tag:
 ## 安装 Node.js
 
 访问 Node.js 官网下载适合你系统的安装包：
+
 <https://nodejs.org/zh-cn/download/>
+
+<!-- more -->
 
 **版本选择建议：**
 
@@ -36,37 +45,76 @@ tag:
 2. 运行安装程序，可按需调整安装路径（示例路径：`E:/envs/nodejs`）
 3. 按默认配置完成安装
 
+个性化设置选项解释：
+
+- Node.js runtime：安装核心 Node.js 运行时（node.exe）
+- corepack manager：安装 corepack，Node.js 的通用包管理器
+- npm package manager：安装 npm，推荐的 Node.js 包管理器
+- Online documentation shortcuts：在开始菜单中添加 Node.js 在线文档和 Node.js 网站链接
+- Add to PATH：将 Node.js、npm 以及通过 npm 全局安装的模块添加到 PATH 环境变量中。
+
+::: tip
+
+安装后，
+
+- `E:/envs/nodejs/` 会被添加到系统变量的 `PATH` 中
+- `%AppData%/npm` （见下文）会被添加到用户变量的 `PATH` 中
+
+:::
+
 ### 验证安装
 
 安装完成后，打开命令行工具验证：
 
 ```sh
-node -v  # 查看 Node.js 版本
-npm -v   # 查看 npm 版本
+node -v      # 查看 Node.js 版本
+npm -v       # 查看 npm 版本
+corepack -v  # 查看 corepack 版本
 ```
 
-## 配置 npm
+### 配置 npm
 
-Node.js 安装后，npm 的默认配置如下：
+Node.js 安装后，可用 `npm config ls -l` 查看完整的 npm 默认配置，我们重点查看以下几项：
 
-| 配置项     | 默认值                        | 查看命令                    |
-| ---------- | ----------------------------- | --------------------------- |
-| prefix     | `AppData/Roaming/npm`         | `npm config get prefix`     |
-| cache      | `AppData/Local/npm-cache`     | `npm config get cache`      |
-| registry   | `https://registry.npmjs.org/` | `npm config get registry`   |
-| userconfig | `%UserProfile%/.npmrc`        | `npm config get userconfig` |
+```sh
+npm config get registry prefix cache userconfig
+```
 
-### 优化配置
+```text
+registry=https://registry.npmjs.org/
+prefix=C:\Users\zedo\AppData\Roaming\npm
+cache=C:\Users\zedo\AppData\Local\npm-cache
+userconfig=C:\Users\zedo\.npmrc
+```
+
+|   配置项   | 默认值                        | 说明                                                                                                                                |
+| :--------: | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+|  registry  | `https://registry.npmjs.org/` | npm 包仓库的地址，默认是官方的公共仓库。为了加快下载速度，我们通常会改为淘宝等国内镜像。                                            |
+|   prefix   | `%AppData%/npm`               | 指定 npm 全局安装包时的安装目录，也决定了全局可执行命令（如 `npm` 或其他通过 `npm install -g` 安装的工具）的存放路径。              |
+|   cache    | `%LocalAppData%/npm-cache`    | npm 的缓存目录。当你执行 `npm install` 时，下载的包会先存放到这里，下次再安装相同版本时可以直接从缓存读取，避免重复下载，提高速度。 |
+| userconfig | `%UserProfile%/.npmrc`        | 当前用户的 npm 配置文件路径，通常用于存放用户级别的配置。                                                                           |
+
+:::tip
+
+这里展开说一下 Windows 下的一些环境变量，可参考 [PowerShell & CMD](../article/powershell-and-cmd.md#windows-环境变量)：
+
+| 变量名         | 扩展后路径                    |
+| -------------- | ----------------------------- |
+| %UserProfile%  | C:\Users\zedo                 |
+| %LocalAppData% | C:\Users\zedo\AppData\Local   |
+| %AppData%      | C:\Users\zedo\AppData\Roaming |
+
+:::
 
 建议修改默认配置以提升体验：
 
 ```sh
+# 设置国内镜像源，加速下载
+npm config set registry "https://registry.npmmirror.com/"
+
 # 设置全局包安装目录和缓存目录
 npm config set prefix "E:/envs/node_pkg/node_global"
 npm config set cache "E:/envs/node_pkg/node_cache"
-
-# 设置国内镜像源，加速下载
-npm config set registry "https://registry.npmmirror.com/"
 ```
 
 ::: danger 重要提醒
@@ -78,73 +126,78 @@ Node.js 安装路径与依赖路径应分开：
 混合使用可能导致权限问题。
 :::
 
-### 验证配置
+重新查看并验证配置
 
 ```sh
-npm config get cache
-npm config get prefix
-npm config get registry
+npm config get registry prefix cache
 ```
-
-## 解决常见问题
 
 ## 使用 pnpm（推荐）
 
 pnpm 是更快速、更高效的包管理工具：
 
-- [官网](https://pnpm.io/zh/)
-- [中文文档](https://www.pnpm.cn/)
+- 官网：<https://pnpm.io/zh/>
+- 中文网：<https://www.pnpm.cn/>
+
+> `pnpm` 代表 performant（高性能的） npm。 [@rstacruz](https://github.com/rstacruz/) 想出了这个名字
 
 ### 安装 pnpm
+
+使用 npm 全局安装：
 
 ```sh
 npm install -g pnpm
 ```
 
-### 配置环境变量
+:::tip
 
-pnpm 安装在自定义目录后，需要配置环境变量：
+本文所安装版本为 ![pnpm 安装版本](https://img.shields.io/badge/pnpm-v10.32.1-blue)，当前最新版本为 ![pnpm latest 版本](https://img.shields.io/npm/v/pnpm?label=pnpm)
+
+:::
+
+### 环境变量及配置
+
+此时 pnpm 已经被安装到 `npm config set prefix` 设置的目录了，但是系统的环境变量并没有被同步修改，需要手动配置环境变量：
 
 :::: tabs
 
-@tab:active Powershell（推荐）
+@tab Powershell（推荐）
 
-打开 powershell，执行：
+按下 <kbd>Win</kbd>+<kbd>R</kbd> 键入 `powershell` 打开会话窗口，执行：
 
 ```powershell
-# 设置 node_global 环境变量
-[Environment]::SetEnvironmentVariable("node_global", "E:\envs\node_pkg\node_global", "User")
+# 获取 npm prefix 路径
+$prefix = & npm config get prefix
 
-# 将 node_global 添加到用户 PATH 变量中
+# 将 prefix 添加到用户变量的 Path 中
 $path = [Environment]::GetEnvironmentVariable("Path", "User")
-if ($path -notlike "*%node_global%*") {
-    [Environment]::SetEnvironmentVariable("Path", "$path;%node_global%", "User")
+if ($path -notlike "*$prefix*") {
+    [Environment]::SetEnvironmentVariable("Path", "$path;$prefix", "User")
 }
-```
-
-验证：
-
-```powershell
-# 验证 node_global 变量
-echo $env:node_global
 ```
 
 @tab 手动配置
 
 1. 打开环境变量设置界面：
-    - 按下 <kbd>Win</kbd>+<kbd>R</kbd>
-    - 输入 `rundll32 sysdm.cpl,EditEnvironmentVariables`
-    - 或输入 `SystemPropertiesAdvanced` 后点击“环境变量”
+    - 按下 <kbd>Win</kbd>+<kbd>R</kbd>，以下方式二选一：
+    - 键入 `rundll32 sysdm.cpl,EditEnvironmentVariables`
+    - 键入 `SystemPropertiesAdvanced` 后点击“环境变量”
 
-2. 在**用户变量**中：
-    - 点击“新建”，变量名 `node_global`，变量值 `E:\envs\node_pkg\node_global`
-    - 找到 `Path` 变量，双击后点击“新建”，输入 `%node_global%`
+2. 在**用户变量**中找到 `Path` 变量，双击后点击“新建”，输入 `E:\envs\node_pkg\node_global`
 
 ::::
 
-### 解决 PowerShell 执行策略问题
+打开**新的** PowerShell/CMD 会话窗口验证：
 
-在 PowerShell 中运行 pnpm 时可能遇到脚本执行被阻止：
+```powershell
+pnpm -v
+```
+
+### 修改 PowerShell 执行策略
+
+新安装的 Windows 系统中，PowerShell 的默认执行策略通常是 `Restricted`，不允许任何脚本运行。
+
+在 PowerShell 中运行 pnpm 时可能会遇到脚本执行被阻止的问题（Vscode 终端使用的就是 PowerShell）：
 
 ```powershell
 pnpm : 无法加载文件 E:\envs\node_pkg\node_global\pnpm.ps1，因为在此系统上禁止运行脚本。
@@ -152,264 +205,123 @@ pnpm : 无法加载文件 E:\envs\node_pkg\node_global\pnpm.ps1，因为在此�
 
 **解决方案：**
 
-以管理员身份运行 PowerShell，执行：
+以管理员身份运行 PowerShell，执行以下命令：
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
-完成后在 cmd 中验证：
+推荐使用 `RemoteSigned` 策略，允许运行本地未签名脚本，但从互联网下载的脚本需要由可信发布者签名，在安全性和便利性之间取得了较好的平衡。
 
-```cmd
-pnpm -v
-```
+参考：
 
----
+- [Set-ExecutionPolicy](https://learn.microsoft.com/zh-cn/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-5.1)
+- [about_Execution_Policies](https://learn.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-5.1)
 
-**更新说明：**
+### 配置相关路径
 
-- 更新了镜像源信息，确保链接有效
-- 简化了过时的警告处理方法
-- 优化了配置步骤，使其更清晰易懂
-- 强调了当前推荐的 Node.js 版本选择
+根据 [pnpm FAQ](https://pnpm.io/zh/faq#存储路径未指定)：
+
+> 如果未设置存储路径，则会创建多个存储库（每个驱动器或文件系统对应一个）。
+> 若在磁盘 A 上执行安装操作，存储库会在 A 盘文件系统根目录下的 `.pnpm-store` 中创建。如果之后在磁盘 B 上再次执行安装，会在 B 盘的 `.pnpm-store` 位置创建一个独立的存储库。相关项目仍可保留 pnpm 的优势，但各个驱动器可能会存在重复的软件包。
+
+这里我们的 `.pnpm-store` 在 E 盘根目录。
 
 ### 相关命令
 
-pnpm 大部分命令和 npm 是一致的。如果 npm 配置过镜像，pnpm 则不需要重新配置。
-
-查看帮助：
+pnpm 大部分命令和 npm 是一致的。
 
 ```sh
-pnpm -h
-pnpm <command> -h
+# 安装项目所有依赖
+pnpm install          # 安装 package.json 中声明的依赖
+
+# 添加依赖
+pnpm add <pkg>        # 保存到 dependencies
+pnpm add -D <pkg>     # 保存到 devDependencies
+pnpm add -g <pkg>     # 全局安装
+
+# 更新依赖
+pnpm update           # 更新所有依赖
+pnpm update <pkg>     # 更新指定包
+
+# 移除依赖
+pnpm remove <pkg>     # 从 dependencies / devDependencies 移除
+pnpm remove -g <pkg>  # 移除全局包
+
+# 列出已安装的包
+pnpm list             # 当前项目的依赖树
+pnpm list -g          # 全局安装的包
+
+# 运行脚本（packages.json 中的 scripts）
+pnpm run <script>     # 可简写为 pnpm <script>
+
+# 配置相关
+pnpm config set <key> <value> # 设置一个配置项
+pnpm config get <key>         # 获取指定配置项的值
+pnpm config delete <key>      # 从配置文件中移除该键
+pnpm config list              # 列出所有当前生效的配置项
 ```
 
-配置相关：
+pnpm 提供了一些与 npm 一致的简写，方便记忆：
+
+| 完整命令       | 别名                          | 说明                         |
+| -------------- | ----------------------------- | ---------------------------- |
+| `pnpm install` | `pnpm i`                      | 安装 `package.json` 中的依赖 |
+| `pnpm remove`  | `pnpm rm`<br>`pnpm uninstall` | 移除依赖                     |
+| `pnpm run`     | `pnpm` + 脚本名               | 运行脚本，例如 `pnpm dev`    |
+| `pnpm list`    | `pnpm ls`                     | 列出已安装的包               |
+| `pnpm update`  | `pnpm up`                     | 更新依赖                     |
+
+### 包名的多种形式
+
+安装或添加依赖时，包名 `<pkg>` 可以有以下几种写法：
 
 ```sh
-pnpm config set <key> <value>
-pnpm config get <key>
-pnpm config delete <key>
-pnpm config list
+# 1. 仅包名（自动安装最新版本，受 package.json 中版本范围约束）
+pnpm add vue
+
+# 2. 指定版本号
+pnpm add vue@3.4.0
+
+# 3. 指定版本范围（使用 ^、~ 等符号）
+pnpm add vue@^3.4.0           # 兼容 3.x.x 的最新版本（不包含 4.0.0）
+pnpm add vue@~3.4.0           # 兼容 3.4.x 的最新版本（不包含 3.5.0）
+pnpm add vue@">=3.4.0 <4.0.0" # 完整范围语法
+
+# 4. 使用标签（如 next, latest）
+pnpm add vue@next          # 安装下一个主要版本的预发布版
+pnpm add vue@latest      # 安装最新稳定版
 ```
 
-可以用 `i` 代替 `install` 或 `add` ；添加包，同时下载它的依赖：
+在 `pnpm add <pkg>@<version-range>` 中，`<version-range>` 支持 npm 的语义化版本范围语法，常用符号说明如下：
+
+| 符号/语法     | 示例                   | 含义                                                                                                                   |
+| ------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `@`           | `vue@3.4.0`            | 分隔符，后面跟具体的版本号、标签或范围。                                                                               |
+| `^`           | `vue@^3.4.0`           | **兼容更新**：允许更新到不改变最左边非零数字的版本。<br>例如：`^3.4.0` 可以安装 `3.4.1`、`3.5.0`，但不能安装 `4.0.0`。 |
+| `~`           | `vue@~3.4.0`           | **补丁更新**：只允许更新到最后一位（补丁号）的版本。<br>例如：`~3.4.0` 可以安装 `3.4.1`、`3.4.5`，但不能安装 `3.5.0`。 |
+| `>=`、`<=` 等 | `vue@">=3.4.0 <4.0.0"` | 使用比较运算符精确控制版本范围。                                                                                       |
+| `*` 或 `x`    | `vue@*`                | 任意版本（不推荐，可能导致不可控更新）。                                                                               |
+| `latest`      | `vue@latest`           | 安装最新的稳定版（等同于不指定版本）。                                                                                 |
+| `next`        | `vue@next`             | 安装下一个主要版本的预发布版（通常用于尝鲜）。                                                                         |
+
+**实际场景举例**：
 
 ```sh
-pnpm i <name>
-pnpm i <name>@<tag>
-pnpm i <name>@<version>
-pnpm i vue@next
+# 只希望 Vue 的补丁更新（如修复 bug），不升级次版本
+pnpm add vue@~3.4.0
+
+# 希望获得 Vue 3 的所有功能更新，但不升级到 Vue 4
+pnpm add vue@^3.4.0
+
+# 安装 Vue Router 4 的最新版本（不限制具体次版本）
+pnpm add vue-router@^4.0.0
+
+# 固定一个精确版本，避免任何意外升级
+pnpm add --save-exact vue@3.4.0
 ```
 
-它有额外的参数，常用的是 `-D` 和 `-g`：
-
-```sh
-pnpm i -D <name>  # -D 参数写入 devDependencies，默认写入 dependencies
-pnpm i -g <name>  # -g 参数表示全局安装
-```
-
-## 使用 yarn
-
-### 下载
-
-使用 npm 全局安装
-
-```sh
-npm install --global yarn
-```
-
-在命令行验证：
-
-```sh
-yarn -v  # 或者 yarn --version
-```
-
-查看全局变量
-
-```sh
-yarn global dir
-```
-
-它的默认位置是 `%UserProfile%/AppData/Local/Yarn/Data/global`
-
-```sh
-yarn config -h # 查看帮助
-```
-
-可以看到有 `global-folder`、`cache-folder` 两个项，获取它们得到的是 `undefined`，现修改其默认值：
-
-```sh
-yarn config set global-folder "E:/envs/node/yarn_global"
-yarn config set cache-folder "E:/envs/node/yarn_cache"
-```
-
-在修改 `global-folder` 后，可以发现使用 `yarn global dir` 也随之更改了。
-
-::: info
-
-yarn_global 等文件路径可能需要和 nodejs 路径在同一盘符，参看 [创建 vite 错误](https://blog.csdn.net/weixin_43824526/article/details/121319955)。
-
-:::
-
-### 添加环境变量
-
-为了全局使用 yarn 安装的某些库，例如 `typescript` 的编译命令 `tsc`，这里选用它进行测试。
-
-```sh
-$ yarn global add typescript
-success Installed "typescript@4.5.5" with binaries:
-      - tsc
-      - tsserver
-Done in 3.19s.
-```
-
-接着使用 `tsc`，会发现它提示 **'tsc' 不是内部或外部命令**。
-
-查看 yarn 的全局安装包路径：
-
-```sh
-$ yarn global bin
-E:/envs/node_pkg/node_global/bin  # 实际上也是 %node_global%/bin
-```
-
-然后将以上路径添加到系统环境变量即可：打开配置环境变量页面，在 `path` 中添加 `%node_global%/bin`。
-
-然后重新在命令行中输入 `tsc`，给出了 `tsc` 命令用法，就是已经能正常使用了。
-
-### 常用命令
-
-```sh
-yarn          # 安装所有包
-yarn install  # 安装所有包
-yarn init     # 初始化一个项目
-
-yarn add package-name        # 装包
-yarn add package-name --dev  # 装包，作为开发依赖
-
-yarn upgrade package-name    # 更新包
-yarn remove package-name     # 删除包
-
-yarn publish   # 发布包
-
-yarn cache list      # 查看包的缓存列表
-yarn global add xxx  # 全局安装，相当于 npm install -g xxx
-yarn global remove   # 全局卸载包
-
-yarn upgrade-interactive --latest # 检查项目依赖更新
-```
-
-> 参考
->
-> [Node.js 安装及环境配置之 Windows 篇](https://www.cnblogs.com/zhouyu2017/p/6485265.html)
->
-> [yarn 和 npm 的区别、--save 和--save-dev 的区别](https://www.jianshu.com/p/467182102e43)
-
-## 更新依赖版本并保存 {#dependency}
-
-安装 `npm-check-updates`
-
-```sh
-npm install -g npm-check-updates
-```
-
-在项目中检查更新：
-
-```sh
-ncu -u  # ncu 是 npm-check-updates 简写
-```
-
-终端会展示可更新的依赖：
-
-![可更新依赖列表](https://zedo-img.netlify.app/img/2022-05/09190222.png#s-67)
-
-然后用 npm 更新即可：
-
-```sh
-npm install
-```
-
-<!-- -->
-
-yarn 提供了一个命令来选择性升级依赖：
-
-```sh
-yarn upgrade-interactive
-```
-
-使用空格选择即可：
-
-![可交互升级界面截图](https://zedo-img.netlify.app/img/2022-05/09191023.png)
-
-但是它不会修改 `package.json` 中的版本号，如有需要，可以：
-
-```sh
-yarn add package-name@^
-```
-
-其中 `package-name` 是包名。
-
-::: tip
-
-我们都知道可以用 `@` 来指定版本，当我们指定的版本不存在时，就会让用户选择版本来确定。
-
-除了使用上面的方法外，还可以考虑 [yarn-upgrade-all](https://www.npmjs.com/package/yarn-upgrade-all)。
-
-> 参考
->
-> <https://stackoverflow.com/questions/16073603/>
->
-> <https://stackoverflow.com/questions/62650640/>
-
-:::
-
-## 直接运行 ts 文件
-
-通常情况下，ts 文件需要用 tsc 编译成 js 文件再运行，这里通过使用 `ts-node`，直接运行 ts 文件，省去了手动编译的过程。
-
-### 安装
-
-全局安装 `typescript` 和 `ts-node`
-
-```sh
-npm install -g typescript
-# npm install -g typescript-node # 由于typescript-node不支持更高版本的ts
-npm install -g ts-node # typescript@>=2.7
-```
-
-```sh
-yarn global add typescript
-yarn global add @types/node --dev
-yarn global add ts-node
-```
-
-安装完成后就可以不用手动去编译成 js 文件，可以直接运行 ts 文件
-
-```ts
-// foo.ts
-let foo = {
-    baz: {
-        a: 1,
-    },
-};
-console.log(foo);
-```
-
-### 执行命令 `ts-node xxx.ts`
-
-```sh
-ts-node foo.ts
-```
-
-参考：[ts-node 直接运行 typescript 文件](https://www.jianshu.com/p/8b893b37276b)
-
-### 清空 npm 缓存
-
-```sh
-npm cache clean -f
-```
-
-## 卸载 NodeJS
+## 卸载 Node.js
 
 按照正常方式卸载 nodejs 后，系统盘中还会存在一些残留的数据，还需要删除 `AppData/Roaming` 下的配置文件和临时文件：
 
