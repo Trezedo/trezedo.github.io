@@ -35,8 +35,10 @@ logs
 docs/**/img/*.svg
 !docs/**/img/*.keep.svg
 
-# for 2 files: workspace(.json)?
+# 忽略工作区布局文件（如 workspace, workspace.json, workspace-mobile.json 等）
 /**/.obsidian/workspace*
+# 忽略插件本体（只保留插件列表）
+/**/.obsidian/plugins/
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
