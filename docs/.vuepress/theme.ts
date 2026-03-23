@@ -84,6 +84,15 @@ export default hopeTheme({
         flowchart: true,
         footnote: true,
         gfm: true,
+        highlighter: {
+            type: "shiki",
+            langAlias: {
+                /* obsidian 的 prismjs 可以高亮 excel，但 vuepress 的不行
+                 * 此处使用 shiki 别名，js系, c#, r 语言等等都可以
+                 */
+                excel: "js",
+            },
+        },
         imgMark: false,
         imgSize: false,
         include: false, // 可导入 markdown，而非以代码形式导入
