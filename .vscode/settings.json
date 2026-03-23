@@ -4,12 +4,15 @@
         "source.fixAll.ts": "explicit", // 保存时修复 ts 报告的问题
         "source.fixAll.markdownlint": "explicit" // 保存时修复 markdownlint 报告的问题
     },
-    "workbench.editorAssociations": {
-        "*.md": "default" // 使用默认编辑器打开 md 文件，而不是 markdown 编辑器
+    // vscode 隐藏目录
+    "files.exclude": {
+        "**/dist": true,
+        "**/.vuepress/.cache": true,
+        "**/.vuepress/.temp": true
     },
     "markdownlint.config": {
         "MD007": {
-            "indent": 2 // 列表缩进 2 个空格
+            "indent": 4 // 列表缩进 4 个空格
         },
         "MD033": false, // 允许嵌入 html 标签
         "MD012": {
@@ -44,9 +47,11 @@
         "composables",
         "cond",
         "Configurer",
+        "ctex",
         "Czkawka",
         "darkmode",
         "datadir",
+        "dblclick",
         "displaystyle",
         "documentclass",
         "dpkg",
@@ -61,6 +66,7 @@
         "findstr",
         "frontmatter",
         "fwlink",
+        "Giscus",
         "graphviz",
         "gravizo",
         "Gson",
@@ -76,6 +82,7 @@
         "infty",
         "inkscape",
         "katex",
+        "keyup",
         "Krokiet",
         "kylin",
         "leetcode",
@@ -91,6 +98,10 @@
         "mathrel",
         "mathrm",
         "miktex",
+        "mousedown",
+        "mousemove",
+        "mouseout",
+        "mouseup",
         "mysqld",
         "newcommand",
         "nonstopmode",
@@ -103,7 +114,9 @@
         "operatorname",
         "pdfarranger",
         "pmatrix",
+        "postorder",
         "println",
+        "providecommand",
         "pxdy",
         "pygments",
         "quand",
@@ -113,8 +126,10 @@
         "rgba",
         "ROCO",
         "runserver",
+        "SAPI",
         "scanf",
         "Schlömilch",
+        "shiki",
         "skia",
         "slideend",
         "slidestart",
@@ -130,24 +145,29 @@
         "stdbool",
         "stdlib",
         "swiper",
+        "synctex",
         "tabler",
         "tagref",
         "texdoc",
         "texmath",
         "textcircled",
         "textcolor",
+        "TEXTJOIN",
         "tikz",
         "touchz",
         "Typora",
         "uglifyjs",
+        "undebug",
         "untils",
         "urlpatterns",
         "usepackage",
         "userconfig",
+        "vbcrlf",
         "Verticle",
         "vertx",
         "vmatrix",
         "vpre",
+        "vuepress",
         "Waline",
         "Wechat",
         "winedt",

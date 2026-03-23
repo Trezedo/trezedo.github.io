@@ -1,1 +1,10 @@
-{}
+{
+  "capitaliser:cycle-capitalisation": [
+    {
+      "modifiers": [
+        "Shift"
+      ],
+      "key": "F3"
+    }
+  ]
+}

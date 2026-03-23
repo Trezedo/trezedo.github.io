@@ -39,3 +39,8 @@ body:not(.obsidian-default-image)
     > img:not([class*="emoji"]) {
     display: inline-block;
 }
+
+/* graphviz 生成的 svg 图片居中 */
+.block-language-graphviz.multi-graph {
+    text-align: center;
+}
