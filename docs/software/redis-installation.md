@@ -1,6 +1,11 @@
 ---
-date: 2023-01-21
 icon: devicon:redis-wordmark
+date: 2023-01-21
+modified: 2026-03-23
+category:
+    - 数据库
+tag:
+    - redis
 ---
 
 # Redis 安装

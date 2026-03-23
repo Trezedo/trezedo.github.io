@@ -1,14 +1,14 @@
 ---
-date: 2022-08-10
 icon: mdi:queue-first-in-last-out
+date: 2022-08-10
+modified: 2026-03-23
 order: 2
 category:
     - 数据结构
-    - 线性表
 tag:
     - 队列
-    - C语言
-next: "./q.md"
+    - c语言
+next: ./q.md
 ---
 
 # 数据结构 - 队列
@@ -18,10 +18,10 @@ next: "./q.md"
 数据结构
 
 ```c
-#include <stdio.h>  
-#include <stdlib.h>  
-#include <stdbool.h>  
-#include <assert.h>  
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <assert.h>
 
 typedef int QDataType;
 
@@ -41,7 +41,7 @@ typedef struct Queue {
 ## 接口申明
 
 ```c
-// 因为队头、队尾指针都存储在结构体中，改变它俩的指向使用值传递就能做到，故不用二级指针  
+// 因为队头、队尾指针都存储在结构体中，改变它俩的指向使用值传递就能做到，故不用二级指针
 // 如果参数不用结构体 (Queue *pq)，则需传二级指针 (QueueNode **pHead, QueueNode **pTail)
 
 /**

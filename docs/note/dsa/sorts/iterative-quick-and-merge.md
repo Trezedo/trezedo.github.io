@@ -1,13 +1,14 @@
 ---
-date: 2022-08-13
 icon: bytesize:lightning
+date: 2022-08-13
+modified: 2026-03-23
 order: 5
 category:
+    - 排序算法
     - 数据结构
-    - 排序
 tag:
-    - 快速排序
     - 归并排序
+    - 快速排序
 ---
 
 # 数据结构 - 快排和归并（非递归）

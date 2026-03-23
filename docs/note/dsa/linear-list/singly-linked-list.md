@@ -1,13 +1,13 @@
 ---
-date: 2022-08-08
 icon: icon-park:link-three
+date: 2022-08-08
+modified: 2026-03-23
 order: 2
 category:
     - 数据结构
-    - 线性表
 tag:
     - 链表
-    - C语言
+    - c语言
 ---
 
 # 数据结构 - 单链表

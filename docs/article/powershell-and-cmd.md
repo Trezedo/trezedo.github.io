@@ -2,10 +2,9 @@
 icon: vscode-icons:file-type-powershell
 date: 2026-03-21
 created: 2022-07-19
-modified: 2026-03-21
+modified: 2026-03-23
 category:
-    - 批处理
-    - PowerShell
+    - powershell
 tag:
     - batch
     - cmd
@@ -13,7 +12,7 @@ tag:
     - windows
 ---
 
-# Powershell & CMD
+# PowerShell & CMD
 
 文中这些 CMD 命令，大部分是我中小学时期从网络上陆续搜集来的。后来数量渐多，文件也分散各处，便想着整理成一份汇总，方便查阅，那些零散的小文件也就没有再保留的必要了。其实较早的那批至今还没整理完，不过在后续的工作和学习中，又陆陆续续补充了一些内容。
 

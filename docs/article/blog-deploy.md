@@ -1,6 +1,7 @@
 ---
-date: 2023-04-15
 icon: fa-solid:blog
+date: 2023-04-15
+modified: 2026-03-23
 ---
 
 # 关于博客
@@ -26,4 +27,5 @@ Installing npm packages using pnpm version Usage Error: Invalid package manager 
 ```
 
 [^doc1]: [Available software at build time](https://docs.netlify.com/configure-builds/available-software-at-build-time/#tools)
+
 [^doc2]: [Manage build dependencies](https://docs.netlify.com/configure-builds/manage-dependencies/#pnpm)

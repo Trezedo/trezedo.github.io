@@ -1,6 +1,7 @@
 ---
-date: 2022-09-26
 icon: arcticons:math-wiki
+date: 2022-09-26
+modified: 2026-03-23
 category:
     - 高等数学
 tag:

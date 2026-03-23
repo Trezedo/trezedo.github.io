@@ -1,7 +1,11 @@
 ---
-article: false
-date: 2023-05-13
 icon: logos:vue
+date: 2023-05-13
+modified: 2026-03-23
+category:
+    - vue
+tag:
+    - vue
 ---
 
 # Vue 源码解析相关仓库、网站

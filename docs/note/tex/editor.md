@@ -1,8 +1,9 @@
 ---
+icon: vscode-icons:file-type-light-tex
 date: 2022-10-18
-icon: devicon:tex
+modified: 2026-03-23
 category:
-    - LaTeX
+    - latex
 tag:
     - latex
     - miktex
@@ -20,8 +21,8 @@ TexStudio 对于初学者是比较友好的，它是用于创建 LaTeX 文档的
 
 - [Github](https://github.com/texstudio-org/texstudio/releases/)：官网的下载地址
 - Github Release 镜像：
-  - [北外镜像](https://mirrors.bfsu.edu.cn/github-release/texstudio-org/texstudio/LatestRelease/)
-  - [清华镜像](https://mirrors.tuna.tsinghua.edu.cn/github-release/texstudio-org/texstudio/LatestRelease/)
+    - [北外镜像](https://mirrors.bfsu.edu.cn/github-release/texstudio-org/texstudio/LatestRelease/)
+    - [清华镜像](https://mirrors.tuna.tsinghua.edu.cn/github-release/texstudio-org/texstudio/LatestRelease/)
 
 > 北外镜像和清华镜像界面几乎一样，但下载速度在我这却快很多！
 

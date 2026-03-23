@@ -1,8 +1,10 @@
 ---
+icon: vscode-icons:file-type-light-tex
 date: 2022-10-27
-icon: devicon:tex
+modified: 2026-03-23
 category:
-    - LaTeX
+    - latex
+    - python
 tag:
     - latex
 ---

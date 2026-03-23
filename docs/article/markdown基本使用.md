@@ -1,13 +1,13 @@
 ---
-date: 2022-01-22
 icon: bi:markdown-fill
+date: 2022-01-22
+modified: 2026-03-23
 excerpt: markdown 基本使用
 category:
-    - Markdown
+    - markdown
 tag:
     - markdown
 slug: markdown-intro
-# permalinkPattern: :year/:month/:day/markdown-intro.html
 permalink: /article/markdown-intro.html
 ---
 
@@ -15,7 +15,7 @@ permalink: /article/markdown-intro.html
 
 markdown 基础可以参看：<https://markdown.com.cn/>
 
-<CurrentPageData/>
+<CurrentPageData />
 
 简单介绍 Markdown 的基本使用以及在 VuePress 中的拓展
 

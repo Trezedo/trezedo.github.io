@@ -1,12 +1,15 @@
 ---
-date: 2026-01-17
 icon: ix:operating-system
+date: 2026-01-17
+modified: 2026-03-23
+category:
+    - linux
 tag:
     - 银河麒麟
-    - Qemu
+    - qemu
 ---
 
-# Win10 使用 Qemu 运行银河麒麟系统
+# Win10 使用 QEMU 运行银河麒麟系统
 
 ## 准备工作
 

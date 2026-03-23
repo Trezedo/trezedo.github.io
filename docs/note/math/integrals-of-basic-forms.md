@@ -1,6 +1,7 @@
 ---
-date: 2022-09-20
 icon: tabler:math-integrals
+date: 2022-09-20
+modified: 2026-03-23
 category:
     - 高等数学
     - 积分

@@ -1,11 +1,12 @@
 ---
-date: 2023-04-22
 icon: logos:java
+date: 2023-04-22
+modified: 2026-03-21
 category:
-    - Java
+    - java
 tag:
-    - springboot
     - maven
+    - springboot
 ---
 
 # SpringBoot 项目 JAR 包瘦身

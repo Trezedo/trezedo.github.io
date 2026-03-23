@@ -1,6 +1,11 @@
 ---
-date: 2023-06-03
 icon: skill-icons:git
+date: 2023-06-03
+modified: 2026-03-23
+category:
+    - git
+tag:
+    - git
 ---
 
 # Git 合并两个项目

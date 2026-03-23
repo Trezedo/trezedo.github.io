@@ -1,9 +1,9 @@
 ---
-date: 2022-03-26
 icon: skill-icons:javascript
+date: 2022-03-26
+modified: 2026-03-23
 category:
-    - 编程语言
-    - JavaScript
+    - javascript
 tag:
     - javascript
 ---
@@ -150,7 +150,8 @@ elementIsInFocus(anyElement);
 
 ```js
 const touchSupported = () => {
-    "ontouchstart" in window || (window.DocumentTouch && document instanceof window.DocumentTouch);
+    "ontouchstart" in window ||
+        (window.DocumentTouch && document instanceof window.DocumentTouch);
 };
 console.log(touchSupported());
 // Result: 如果支持触摸事件会返回 True 否则返回 False

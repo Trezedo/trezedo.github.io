@@ -1,6 +1,7 @@
 ---
+icon: bxs:slideshow
 date: 2020-01-01
-icon: slides
+modified: 2026-03-23
 title: 幻灯片页
 layout: Slides
 ---
@@ -202,32 +203,32 @@ $$
 ### 动画 class
 
 - `fade-in`
-<!-- .element: class="fragment fade-in" -->
+      <!-- .element: class="fragment fade-in" -->
 
 - `fade-out`
-<!-- .element: class="fragment fade-out" -->
+      <!-- .element: class="fragment fade-out" -->
 
 - `fade-up`
-<!-- .element: class="fragment fade-up" -->
+      <!-- .element: class="fragment fade-up" -->
 
 <!-- list break -->
 
 - `fade-down`
-<!-- .element: class="fragment fade-down" -->
+      <!-- .element: class="fragment fade-down" -->
 
 - `fade-left`
-<!-- .element: class="fragment fade-left" -->
+      <!-- .element: class="fragment fade-left" -->
 
 - `fade-right`
-<!-- .element: class="fragment fade-right" -->
+      <!-- .element: class="fragment fade-right" -->
 
 <!-- list break -->
 
 - `fade-in-then-out`
-<!-- .element: class="fragment fade-in-then-out" -->
+      <!-- .element: class="fragment fade-in-then-out" -->
 
 - `fade-in-then-semi-out`
-<!-- .element: class="fragment fade-in-then-semi-out" -->
+      <!-- .element: class="fragment fade-in-then-semi-out" -->
 
 --
 
@@ -238,35 +239,35 @@ $$
 ### 动画 class
 
 - `grow`
-<!-- .element: class="fragment grow" -->
+      <!-- .element: class="fragment grow" -->
 
 - `shrink`
-<!-- .element: class="fragment shrink" -->
+      <!-- .element: class="fragment shrink" -->
 
 - `strike`
-<!-- .element: class="fragment strike" -->
+      <!-- .element: class="fragment strike" -->
 
 <!-- list break -->
 
 - `highlight-red`
-<!-- .element: class="fragment highlight-red" -->
+      <!-- .element: class="fragment highlight-red" -->
 
 - `highlight-green`
-<!-- .element: class="fragment highlight-green" -->
+      <!-- .element: class="fragment highlight-green" -->
 
 - `highlight-blue`
-<!-- .element: class="fragment highlight-blue" -->
+      <!-- .element: class="fragment highlight-blue" -->
 
 <!-- list break -->
 
 - `highlight-current-red`
-<!-- .element: class="fragment highlight-current-red" -->
+      <!-- .element: class="fragment highlight-current-red" -->
 
 - `highlight-current-green`
-<!-- .element: class="fragment highlight-current-green" -->
+      <!-- .element: class="fragment highlight-current-green" -->
 
 - `highlight-current-blue`
-<!-- .element: class="fragment highlight-current-blue" -->
+      <!-- .element: class="fragment highlight-current-blue" -->
 
 --
 
@@ -299,18 +300,18 @@ $$
 不同元素可以有相同的动画顺序。
 
 - 最后显示
-<!-- .element: class="fragment" data-fragment-index="3"-->
+      <!-- .element: class="fragment" data-fragment-index="3"-->
 
 - 第二个显示
-<!-- .element: class="fragment" data-fragment-index="2"-->
+      <!-- .element: class="fragment" data-fragment-index="2"-->
 
 <!-- list break -->
 
 - 第一个显示
-<!-- .element: class="fragment" data-fragment-index="1"-->
+      <!-- .element: class="fragment" data-fragment-index="1"-->
 
 - 第二个显示
-<!-- .element: class="fragment" data-fragment-index="2"-->
+      <!-- .element: class="fragment" data-fragment-index="2"-->
 
 ---
 

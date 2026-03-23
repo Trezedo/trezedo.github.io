@@ -1,16 +1,17 @@
 ---
-date: 2022-01-26
 icon: vscode-icons:file-type-light-tex
+date: 2022-01-26
+modified: 2026-03-23
 category:
-    - VuePress
-    - KaTeX
-tag:
     - latex
+    - vuepress
+tag:
     - katex
+    - latex
     - vuepress
 ---
 
-# Vuepress 之 KaTeX 插件配置
+# VuePress 之 KaTeX 插件配置
 
 ::: warning 提示
 
@@ -127,8 +128,8 @@ If this is a native custom element, make sure to exclude it from component resol
 >
 > - 添加一个 [v-pre](https://v3.cn.vuejs.org/api/directives.html#v-pre) 指令来跳过这个元素和它的子元素的编译过程。注意所有的模板语法也都会失效。
 > - 设置 [compilerOptions.isCustomElement](https://v3.vuejs.org/api/application-config.html#compileroptions) 来告诉 Vue 模板编译器不要尝试作为组件来解析它们。
->   - 对于 `@bundler-webpack` ，设置 [vue.compilerOptions](https://v2.vuepress.vuejs.org/zh/reference/bundler/webpack.html#vue)
->   - 对于 `@bundler-vite` ，设置 [vuePluginOptions.template.compilerOptions](https://v2.vuepress.vuejs.org/zh/reference/bundler/vite.html#vuepluginoptions)
+>     - 对于 `@bundler-webpack` ，设置 [vue.compilerOptions](https://v2.vuepress.vuejs.org/zh/reference/bundler/webpack.html#vue)
+>     - 对于 `@bundler-vite` ，设置 [vuePluginOptions.template.compilerOptions](https://v2.vuepress.vuejs.org/zh/reference/bundler/vite.html#vuepluginoptions)
 
 显然选择第二种方式更好。本人使用的是 `vite`，以下也是基于 `vite` 的配置.
 
@@ -193,7 +194,6 @@ const customElement = [
 > 参考：
 >
 > 1. [KaTeX Options](https://katex.org/docs/options.html)
->
 > 2. [vuepress-next issues](https://github.com/vuepress/vuepress-next/issues/328#issuecomment-1004117836)
 
 ## 响应式公式块

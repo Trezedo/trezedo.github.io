@@ -1,6 +1,7 @@
 ---
-date: 2022-01-24
 icon: tabler:math-integrals
+date: 2022-01-24
+modified: 2026-03-23
 excerpt: 一类分子为反正切函数或对数函数，分母为二次函数的定积分计算方法。
 category:
     - 高等数学

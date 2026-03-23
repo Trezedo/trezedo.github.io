@@ -1,6 +1,11 @@
 ---
-date: 2023-06-23
 icon: fa-brands:windows
+date: 2023-06-23
+modified: 2026-03-23
+category:
+    - windows
+tag:
+    - windows
 ---
 
 # Windows 10 设置空密码

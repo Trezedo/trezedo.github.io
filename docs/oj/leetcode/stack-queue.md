@@ -1,5 +1,13 @@
 ---
+icon: ph:stack-minus-bold
 date: 2022-12-31
+modified: 2026-03-23
+category:
+    - 数据结构
+    - leetcode
+tag:
+    - 队列
+    - 栈
 ---
 
 # 栈与队列

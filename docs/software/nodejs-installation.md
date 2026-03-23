@@ -2,10 +2,10 @@
 icon: logos:nodejs-icon
 date: 2026-03-21
 created: 2022-02-04
-modified: 2026-03-21
+modified: 2026-03-23
 category:
-    - JavaScript
-    - Nodejs
+    - javascript
+    - nodejs
 tag:
     - javascript
     - nodejs
@@ -96,7 +96,7 @@ userconfig=C:\Users\zedo\.npmrc
 
 :::tip
 
-这里展开说一下 Windows 下的一些环境变量，可参考 [PowerShell & CMD](../article/powershell-and-cmd.md#windows-环境变量)：
+这里展开说一下 Windows 下的一些环境变量，可参考 [PowerShell & CMD](../article/powershell-and-cmd.md#环境变量)：
 
 | 变量名         | 扩展后路径                    |
 | -------------- | ----------------------------- |

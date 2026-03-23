@@ -1,12 +1,13 @@
 ---
-date: 2022-09-16
 icon: mdi:ellipse-outline
+date: 2022-09-16
+modified: 2026-03-23
 excerpt: 本文主要讲述了如何从一般圆系方程出发，先求其焦点坐标，然后利用拉格朗日乘数法求出了半长轴长和半短轴长。
 category:
     - 高等数学
 tag:
-    - 椭圆
     - 拉格朗日乘数法
+    - 椭圆方程
 star: true
 ---
 

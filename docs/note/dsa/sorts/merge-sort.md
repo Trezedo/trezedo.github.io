@@ -1,10 +1,11 @@
 ---
-date: 2022-08-13
 icon: entypo:merge
+date: 2022-08-13
+modified: 2026-03-23
 order: 4
 category:
+    - 排序算法
     - 数据结构
-    - 排序
 tag:
     - 归并排序
 ---

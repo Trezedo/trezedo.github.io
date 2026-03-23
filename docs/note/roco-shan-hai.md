@@ -1,7 +1,12 @@
 ---
 article: false
+icon: streamline-pixel:pet-animals-cat
 date: 2025-11-08
-icon: twemoji:video-game
+modified: 2026-03-23
+category:
+    - game
+tag:
+    - game
 ---
 
 # 洛克王国 - 山海秘境篇

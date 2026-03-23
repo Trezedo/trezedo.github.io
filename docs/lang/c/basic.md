@@ -1,10 +1,11 @@
 ---
-date: 2022-03-13
 icon: streamline-logos:c-language-logo-solid
+date: 2022-03-13
+modified: 2026-03-23
 category:
-    - 编程语言
+    - c语言
 tag:
-    - C语言
+    - c语言
 ---
 
 # C 语言基础
@@ -12,16 +13,16 @@ tag:
 ## 数据类型
 
 - 基本类型
-  - 整型 int
-  - 字符型 char
-  - 实型（浮点型）
-    - 单精度实型 float
-    - 双精度实型 double
+    - 整型 int
+    - 字符型 char
+    - 实型（浮点型）
+        - 单精度实型 float
+        - 双精度实型 double
 - 构造类型
-  - 数组类型 []
-  - 结构体类型 struct
-  - 聚合类型 union（考研不考）
-  - 枚举类型 enum（考研不考）
+    - 数组类型 []
+    - 结构体类型 struct
+    - 聚合类型 union（考研不考）
+    - 枚举类型 enum（考研不考）
 - 指针类型\*
 - 空类型（无值类）void
 

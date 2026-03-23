@@ -1,14 +1,14 @@
 ---
-date: 2022-08-12
 icon: carbon:insert
+date: 2022-08-12
+modified: 2026-03-23
 order: 2
-# sticky: true
 category:
-    - 数据结构
     - 排序
+    - 数据结构
 tag:
-    - 冒泡排序
     - 快速排序
+    - 冒泡排序
 star: true
 ---
 

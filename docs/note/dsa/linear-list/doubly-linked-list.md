@@ -1,13 +1,14 @@
 ---
+icon: tabler:exchange-filled
 date: 2022-08-09
+modified: 2026-03-23
 order: 3
 category:
     - 数据结构
-    - 线性表
 tag:
     - 链表
-    - C语言
-next: "../stack-queue/Readme.md"
+    - c语言
+next: ../stack-queue/README.md
 ---
 
 # 数据结构 - 双向链表

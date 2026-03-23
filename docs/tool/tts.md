@@ -5,13 +5,12 @@ created: 2022-02-25
 modified: 2026-03-23
 excerpt: 介绍 Web Speech API 的基本用法，讲解 Windows 平台下 SAPI 与 OneCore 语音引擎的区别，提供查询、激活本地语音包的脚本及手动配置方法。
 category:
-    - JavaScript
-    - Windows
+    - javascript
+    - windows
 tag:
     - 语音合成
     - 注册表
-    - PowerShell
-    - Speech API
+    - powershell
 ---
 
 # Web 语音合成与 Windows 语音包配置

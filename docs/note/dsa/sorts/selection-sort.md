@@ -1,13 +1,14 @@
 ---
-date: 2022-08-12
 icon: fluent-mdl2:multi-select-mirrored
+date: 2022-08-12
+modified: 2026-03-23
 order: 3
 category:
+    - 排序算法
     - 数据结构
-    - 排序
 tag:
-    - 直接选择排序
     - 堆排序
+    - 直接选择排序
 ---
 
 # 数据结构 - 选择排序

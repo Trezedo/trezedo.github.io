@@ -1,7 +1,12 @@
 ---
 article: false
-date: 2022-03-15
 icon: logos:vue
+date: 2022-03-15
+modified: 2026-03-23
+category:
+    - vuepress
+tag:
+    - vuepress
 ---
 
 # Hope 主题 demo 中使用 vue

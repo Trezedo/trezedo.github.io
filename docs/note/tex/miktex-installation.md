@@ -1,13 +1,12 @@
 ---
+icon: vscode-icons:file-type-light-tex
 date: 2022-02-04
-icon: devicon:tex
+modified: 2026-03-23
 category:
-    - MiKTeX
-    - LaTeX
+    - latex
 tag:
     - latex
     - miktex
-    - 环境配置
 ---
 
 # MiKTeX 安装及使用

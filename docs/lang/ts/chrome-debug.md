@@ -1,14 +1,14 @@
 ---
+icon: fa-brands:chrome
+date: 2026-03-18
+modified: 2026-03-23
 author:
     - Kayce Basques
     - Sofia Emelianova
-date: 2026-03-18
-icon: fa-brands:chrome
-excerpt: "A reference of convenience functions available in the Chrome DevTools Console.<br/>Chrome DevTools 控制台中提供的实用功能参考"
+excerpt: A reference of convenience functions available in the Chrome DevTools Console.<br/>Chrome DevTools 控制台中提供的实用功能参考
 category:
-    - Debug
+    - chrome
 tag:
-    - 调试
     - chrome
 ---
 

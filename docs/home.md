@@ -1,6 +1,10 @@
 ---
+home: true
 icon: typcn:home
+modified: 2026-03-23
 title: 项目主页
+heroImage: /favicon.ico
+heroText: 项目名称
 actions:
     - text: 使用指南 💡
       link: /guide/
@@ -78,9 +82,6 @@ features:
       details: 包括图标支持、全屏按钮、返回顶部按钮等
       link: https://vuepress-theme-hope.github.io/v2/zh/guide/feature/
 footer: MIT Licensed | Copyright © 2019-present Mr.Hope
-heroImage: /favicon.ico
-heroText: 项目名称
-home: true
 sidebar: false
 tagline: 你可以在这里放置或是整个项目的描述。
 ---

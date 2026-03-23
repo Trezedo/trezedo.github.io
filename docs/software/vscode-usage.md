@@ -1,6 +1,12 @@
 ---
-date: 2022-07-15
 icon: vscode-icons:file-type-vscode
+date: 2022-07-15
+modified: 2026-03-23
+category:
+    - vscode
+tag:
+    - powershell
+    - vscode
 ---
 
 # VS Code 使用

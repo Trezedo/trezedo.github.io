@@ -1,12 +1,13 @@
 ---
+icon: tabler:binary-tree
 date: 2022-08-11
+modified: 2026-03-23
 order: 1
 category:
     - 数据结构
-    - 树
 tag:
     - 二叉树
-    - C语言
+    - c语言
 next: ../sorts/readme.md
 ---
 

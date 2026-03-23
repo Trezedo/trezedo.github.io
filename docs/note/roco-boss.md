@@ -1,7 +1,12 @@
 ---
 article: false
+icon: streamline-pixel:pet-animals-cat
 date: 2023-08-14
-icon: twemoji:video-game
+modified: 2026-03-23
+category:
+    - game
+tag:
+    - game
 ---
 
 # 洛克王国 BOSS 编号大全（顺序版）

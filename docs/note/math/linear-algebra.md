@@ -1,6 +1,7 @@
 ---
-date: 2022-09-24
 icon: mdi:matrix
+date: 2022-09-24
+modified: 2026-03-23
 category:
     - 线性代数
 tag:

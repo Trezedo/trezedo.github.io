@@ -1,8 +1,12 @@
 ---
-date: 2022-10-16
 icon: logos:java
+date: 2022-10-16
+modified: 2026-03-23
 category:
-    - Java
+    - java
+tag:
+    - java
+    - jdk
 ---
 
 # JDK 下载安装

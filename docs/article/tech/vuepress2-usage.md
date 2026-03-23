@@ -1,14 +1,14 @@
 ---
-date: 2022-01-23
 icon: logos:vue
-excerpt: 使用 Vuepress2 搭建静态文档分享类站点
-# layout: CustomLayout
+date: 2022-01-23
+modified: 2026-03-23
+excerpt: 使用 VuePress2 搭建静态文档分享类站点
 category:
-    - VuePress
-    - Markdown
-tag:
-    - vuepress
     - markdown
+    - vuepress
+tag:
+    - markdown
+    - vuepress
 ---
 
 # VuePress2 初体验

@@ -1,11 +1,12 @@
 ---
+icon: tabler:letter-d
 date: 2022-12-01
-icon: fluent:math-format-professional-16-filled
+modified: 2026-03-23
 category:
     - 高等数学
 tag:
     - 微分方程
-    - 算子
+    - 微分算子
 createAt: 2022-02-09
 ---
 

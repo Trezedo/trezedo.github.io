@@ -1,9 +1,10 @@
 ---
-date: 2022-01-27
 icon: solar:gallery-send-bold
+date: 2022-01-27
+modified: 2026-03-23
 tag:
-    - gitee
     - 图床
+    - gitee
 permalink: /article/gitee-image-hosting.html
 ---
 

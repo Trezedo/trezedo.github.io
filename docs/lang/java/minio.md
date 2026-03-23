@@ -1,8 +1,9 @@
 ---
-date: 2023-04-17
 icon: simple-icons:minio
+date: 2023-04-17
+modified: 2026-03-23
 category:
-    - Java
+    - java
 tag:
     - minio
     - springboot

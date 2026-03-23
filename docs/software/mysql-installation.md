@@ -1,10 +1,11 @@
 ---
-date: 2022-10-24
 icon: logos:mysql
+date: 2022-10-24
+modified: 2026-03-23
 category:
     - 数据库
 tag:
-    - MySQL
+    - mysql
 ---
 
 # MySQL 8.0 安装
@@ -119,6 +120,7 @@ MySQL 服务已经启动成功。
 ```
 
 > 有些时候可能需要重启 MySQL，可以先停止服务再启动：`net stop mysql`。
+>
 > <p style="height:10px"></p>
 >
 > 如果之前安装过 MySQL，还可能遇到~~不是我遇到的~~ [启动 mysql 服务时，报错提示“发生系统错误 2，找不到指定文件”的解决方法](https://blog.csdn.net/njzgIdba/article/details/123564176)。

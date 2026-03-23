@@ -1,6 +1,11 @@
 ---
-date: 2023-05-23
 icon: skill-icons:typescript
+date: 2023-05-23
+modified: 2026-03-23
+category:
+    - javascript
+tag:
+    - javascript
 ---
 
 # JS 小功能 & 技巧

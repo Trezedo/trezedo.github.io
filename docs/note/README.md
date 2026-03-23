@@ -1,10 +1,10 @@
 ---
-icon: note
 article: false
+icon: streamline-ultimate:notes-book-bold
 ---
 
 # 笔记
 
-<List4Hope prefix="/note/"/>
+<Catalog />
 
 <!-- <CurrentPageData /> -->

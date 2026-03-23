@@ -1,11 +1,12 @@
 ---
-date: 2023-01-13
 icon: fa6-brands:golang
+date: 2023-01-13
+modified: 2026-03-23
 excerpt: 快速入门 Go 语言
 category:
-    - 编程语言
+    - golang
 tag:
-    - go
+    - golang
 ---
 
 # Golang 快速上手
@@ -148,17 +149,17 @@ go run ./01-hello/main.go
 
 - `package` 关键字声明了代码所属的包。
 - Go 语言里所有的代码都被分为不同的包。
-  - Go 提供了一个标准库，它由 fmt、math、time 等 package 组成，每个 package 都能做一类工作。
+    - Go 提供了一个标准库，它由 fmt、math、time 等 package 组成，每个 package 都能做一类工作。
 - `import` 关键字指明了代码所需要使用的 package。
-  - 每个 package 里面都包含很多函数（function）。
+    - 每个 package 里面都包含很多函数（function）。
 - `func` 关键字声明了一个函数。
-  - 函数体需要使用 `{ }` 括起来，这样的话 Go 就知道函数的开始和结束位置了。
+    - 函数体需要使用 `{ }` 括起来，这样的话 Go 就知道函数的开始和结束位置了。
 - `main` 这个标识符很特殊：
-  - 当你运行 Go 语言编写的程序时，会从 main package 的 main function 开始执行。
-  - 没有 main，那么 Go 编译器就会报错，因为它不知道程序应该从哪开始。
+    - 当你运行 Go 语言编写的程序时，会从 main package 的 main function 开始执行。
+    - 没有 main，那么 Go 编译器就会报错，因为它不知道程序应该从哪开始。
 - 想要打印一行文字，你就可以使用 `Println` 这个函数（ln 就是 line 的简写）
-  - `Println` 的前面使用了 `fmt` 和一个点，这是因为 `Println` 是由 fmt 这个 package 提供的函数。
-  - 除了标准库提供的 `fmt.Println`，go 语言还内置了 `println`。
+    - `Println` 的前面使用了 `fmt` 和一个点，这是因为 `Println` 是由 fmt 这个 package 提供的函数。
+    - 除了标准库提供的 `fmt.Println`，go 语言还内置了 `println`。
 - Go 对 `{ }` 的位置很挑剔，在上面的代码中，左大括号 `{` 与 `func` 关键字位于同一行，而右大括号 `}` 单独成行，这是唯一一种允许的样式。
 
 ## 基础语法
@@ -203,10 +204,10 @@ Go 语言是一门强类型语言，每一个变量都有它自己的变量类�
 在 Go 语言里面变量的声明有两种方式：
 
 1. `var 变量名 变量类型 = 值`
-   - 该方式来声明变量可以省略变量类型，编译器会自动推导变量的类型。
-   - 例如：`var name = "张三"`，变量 `name` 的类型会推导为 `string`
+    - 该方式来声明变量可以省略变量类型，编译器会自动推导变量的类型。
+    - 例如：`var name = "张三"`，变量 `name` 的类型会推导为 `string`
 2. `变量名 := 值`
-   - 这种叫海象操作符
+    - 这种叫海象操作符
 
 > 如果要声明常量，把 `var` 改成 `const` 即可。
 

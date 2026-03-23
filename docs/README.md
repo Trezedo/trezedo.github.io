@@ -1,13 +1,12 @@
 ---
+home: true
 icon: fa-solid:blog
+modified: 2026-03-23
 title: 博客主页
+heroImage: https://q1.qlogo.cn/g?b=qq&s=5&nk=1962234583
+heroText: Trezedo's Blog
 bgImage: https://zedo-img.netlify.app/img/wallhaven-72rd8e.png
 heroFullScreen: true
-heroImage: https://q1.qlogo.cn/g?b=qq&s=5&nk=1962234583
-# https://thirdqq.qlogo.cn/g?b=sdk&k=TwT70050CH0C9Bd4qWtCmg&s=5
-# heroImageStyle: {border-radius: 50%}
-heroText: Trezedo's Blog
-home: true
 layout: Blog
 projects:
     - icon: article
@@ -22,7 +21,6 @@ projects:
       name: 数学笔记
       desc: 佛系记录
       link: /note/math/
-    # - icon: /icon.svg
     - icon: tool
       name: 小工具
       desc: 小众且不太实用
@@ -47,7 +45,6 @@ projects:
       name: 图床
       desc:
       link: https://gitee.com/zedo/img
-# tagline: 人可以无知，但不可以白痴。 ——苗条俊
 tagline: 强中更有强中手，莫向人前满自夸。
 ---
 

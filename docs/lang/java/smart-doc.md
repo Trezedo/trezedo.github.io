@@ -1,11 +1,12 @@
 ---
-date: 2023-03-18
 icon: gravity-ui:abbr-api
+date: 2023-03-18
+modified: 2026-03-23
 category:
-    - Java
+    - java
 tag:
-    - springboot
     - maven
+    - springboot
 ---
 
 # 使用 Smart Doc 生成接口文档

@@ -1,7 +1,11 @@
 ---
-article: false
-date: 2023-05-12
 icon: logos:mysql
+date: 2023-05-12
+modified: 2026-03-23
+category:
+    - 数据库
+tag:
+    - mysql
 ---
 
 # MySQL SQL 语句

@@ -1,14 +1,14 @@
 ---
-date: 2022-02-15
 icon: devicon:vertx
-# sticky: true
+date: 2022-02-15
+modified: 2026-03-23
 excerpt: 学习异步后端框架 vert.x
 category:
-    - Java
     - 后端
-tag:
-    - vert.x
     - java
+tag:
+    - java
+    - vert.x
 star: true
 ---
 

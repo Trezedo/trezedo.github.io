@@ -1,11 +1,12 @@
 ---
-date: 2022-03-21
 icon: memory:number
+date: 2022-03-21
+modified: 2026-03-23
 category:
     - 离散数学
 tag:
     - 真值表
-    - C语言
+    - c语言
     - java
     - kotlin
 ---

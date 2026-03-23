@@ -1,9 +1,9 @@
 ---
-article: false
-date: 2022-02-17
 icon: file-icons:graphviz
+date: 2022-02-17
+modified: 2026-03-23
 category:
-    - 小工具
+    - 网页工具
 tag:
     - graphviz
 ---

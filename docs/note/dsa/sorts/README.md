@@ -1,7 +1,11 @@
 ---
 article: false
-date: 2022-08-12
 icon: mdi:sort
+date: 2022-08-12
+modified: 2026-03-23
+category:
+    - 排序算法
+    - 数据结构
 prev: ../tree/tree.md
 ---
 

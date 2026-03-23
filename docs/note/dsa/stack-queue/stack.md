@@ -1,13 +1,13 @@
 ---
-date: 2022-08-10
 icon: game-icons:stack
+date: 2022-08-10
+modified: 2026-03-23
 order: 1
 category:
     - 数据结构
-    - 线性表
 tag:
     - 栈
-    - C语言
+    - c语言
 ---
 
 # 数据结构 - 栈

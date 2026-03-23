@@ -1,10 +1,13 @@
 ---
+icon: carbon:executable-program
 date: 2022-03-27
-icon: bi:filetype-exe
-excerpt: windows 系统下常用、好用的软件
+modified: 2026-03-23
+excerpt: Windows 系统下常用、好用的软件
+category:
+    - windows
 tag:
-  - 软件
-  - windows
+    - 软件
+    - windows
 ---
 
 # Windows 常用软件

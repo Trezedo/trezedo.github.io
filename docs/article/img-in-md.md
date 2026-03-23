@@ -1,13 +1,14 @@
 ---
-date: 2022-07-15
 icon: bxs:image
+date: 2022-07-15
+modified: 2026-03-23
 category:
-    - Markdown
-    - 小技巧
-tag:
+    - css
     - markdown
+tag:
     - css
     - javascript
+    - markdown
 ---
 
 # Markdown 中的图片
@@ -261,9 +262,10 @@ function initImageSize() {
 
 ```markdown
 ![alt](/example.png#s-200px) --> 宽度为 200px
-![alt](/example.png#s-60%)   --> 宽度为原来的 60%
-![alt](/example.png#s-60)    --> 宽度为原来的 60%
+![alt](/example.png#s-60%) --> 宽度为原来的 60%
+![alt](/example.png#s-60) --> 宽度为原来的 60%
 ```
 
 [^zoom]: [can I use zoom ?](https://caniuse.com/?search=zoom)
+
 [^uri]: 见维基百科：[Uniform Resource Identifier](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Syntax)

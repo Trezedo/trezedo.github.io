@@ -1,12 +1,13 @@
 ---
-date: 2023-03-18
 icon: logos:java
+date: 2023-03-18
+modified: 2026-03-23
 category:
-    - Java
     - 后端
-tag:
-    - springboot
     - java
+tag:
+    - java
+    - springboot
 ---
 
 # SpringBoot 开发记录
@@ -371,9 +372,8 @@ public interface StudentDAO extends BaseMapper<Student>, IVOMapper<Student> {
 
 2，编写对应的 `xxxMapper.xml`，需要有一个 `id="pageVO"` 的 `select` 标签，就像上面方式 1 的 `StudentMapper.xml` 那样。
 
-<br>
-
 ::: tip
+
 为了让分页生效，记得 [配置分页插件](https://baomidou.com/pages/2976a3/#spring-boot)：
 
 ```java
@@ -391,6 +391,7 @@ public class MybatisPlusConfig {
 :::
 
 ::: danger 重要提示
+
 需要注意的是，如果你使用的 JDK 版本在 9 及以上，构建运行前可能需要加上以下 VM 参数，否则执行会抛出异常：
 
 ```sh

@@ -1,6 +1,11 @@
 ---
-date: 2022-08-15
 icon: streamline:magic-wand-2-solid
+date: 2022-08-15
+modified: 2026-03-23
+category:
+    - 图像处理
+tag:
+    - image-magick
 ---
 
 # 使用 Image Magick 处理图片

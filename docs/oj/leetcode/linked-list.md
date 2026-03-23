@@ -1,6 +1,12 @@
 ---
-date: 2023-01-02
 icon: icon-park:link-three
+date: 2023-01-02
+modified: 2026-03-23
+category:
+    - 数据结构
+    - leetcode
+tag:
+    - 链表
 ---
 
 # LeetCode 链表

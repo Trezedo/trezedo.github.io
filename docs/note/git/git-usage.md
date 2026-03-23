@@ -1,6 +1,10 @@
 ---
-date: 2022-01-27
 icon: skill-icons:git
+date: 2022-01-27
+modified: 2026-03-23
+category:
+    - git
+    - windows
 tag:
     - git
 ---

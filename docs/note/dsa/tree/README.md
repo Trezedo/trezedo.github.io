@@ -1,5 +1,11 @@
 ---
 article: false
+icon: tabler:binary-tree-2
+modified: 2026-03-23
+category:
+    - 数据结构
+tag:
+    - 二叉树
 prev: ../stack-queue/queue.md
 ---
 

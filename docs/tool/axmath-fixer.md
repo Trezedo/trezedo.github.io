@@ -1,9 +1,10 @@
 ---
 article: false
+icon: vscode-icons:file-type-light-tex
 date: 2021-07-20
-icon: devicon:tex
+modified: 2026-03-23
 category:
-    - 小工具
+    - latex
 tag:
     - axmath
 ---
@@ -52,9 +53,7 @@ $$
 
 可以在此尝试：
 
-<iframe src="https://zedo.gitee.io/untils" title="untils" width="100%" height="300" style="border: solid var(--theme-color); border-radius:6px">
-  <p>Your browser does not support iframes.</p>
-</iframe>
+<iframe src="https://zedo.gitee.io/untils" title="untils" width="100%" height="300" style="border: solid var(--theme-color); border-radius:6px"></iframe>
 
 如果加载不出，可以点击 [这里](https://zedo.gitee.io/untils) 体验。
 

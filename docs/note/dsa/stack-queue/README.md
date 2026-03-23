@@ -1,6 +1,12 @@
 ---
 article: false
-# index: false # 不把当前页面加到侧边栏
+icon: mdi:view-sequential
+modified: 2026-03-23
+category:
+    - 数据结构
+tag:
+    - 队列
+    - 栈
 prev: ../linear-list/doubly-linked-list.md
 ---
 

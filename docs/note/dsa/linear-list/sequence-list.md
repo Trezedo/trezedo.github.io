@@ -1,13 +1,14 @@
 ---
+icon: carbon:flow-sequence
 date: 2022-08-07
+modified: 2026-03-23
 order: 1
 category:
     - 数据结构
-    - 线性表
 tag:
     - 顺序表
-    - C语言
-prev: ../Readme.md
+    - c语言
+prev: ../README.md
 ---
 
 # 数据结构 - 顺序表
