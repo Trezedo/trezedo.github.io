@@ -4,15 +4,13 @@
 
 <script lang="ts" setup>
 // https://github.com/vuepress/vuepress-next/pull/504
+import { onMounted } from "vue";
 import {
-    resolvers,
     usePageData,
     usePageFrontmatter,
-    useRoutes,
     useRouteLocale,
     useSiteData,
 } from "vuepress/client";
-import { onMounted } from "vue";
 
 onMounted(() => {
     console.log(useRouteLocale());

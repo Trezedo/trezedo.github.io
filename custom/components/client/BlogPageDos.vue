@@ -39,7 +39,7 @@ onMounted(() => {
 // 初始化打字机效果
 onMounted(() => {
     const p = document.querySelector<HTMLParagraphElement>(
-        ".vp-blog-hero-description"
+        ".vp-blog-hero-description",
     );
     if (!p) {
         console.error("找不到对应元素");

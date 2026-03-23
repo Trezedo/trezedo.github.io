@@ -31,8 +31,8 @@
 </template>
 
 <script setup lang="ts">
-import { usePageData } from "vuepress/client";
 import { CSSProperties, onMounted, reactive, ref, watch } from "vue";
+import { usePageData } from "vuepress/client";
 
 const el = ref<HTMLDivElement | null>(null);
 const data = reactive({
@@ -50,7 +50,7 @@ watch(
     () => usePageData().value.path,
     () => {
         style.top = 0;
-    }
+    },
 );
 
 const handleSelectWords = () => {
@@ -141,7 +141,9 @@ onMounted(() => {
     color: #556699;
     user-select: none; // 点击按钮时保持选中的文字
     z-index: 9999;
-    transition: opacity, left 0.25s;
+    transition:
+        opacity,
+        left 0.25s;
 
     &.on {
         opacity: 1;
