@@ -1,4 +1,5 @@
 import { hopeTheme } from "vuepress-theme-hope";
+
 import { comments, navbar, sidebar } from "./configs";
 import { katexOptions, noticeOptions } from "./configs/plugins";
 

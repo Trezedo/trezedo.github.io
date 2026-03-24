@@ -1,12 +1,10 @@
+import { onMounted, watch } from "vue";
+import { useRoute } from "vuepress/client";
+
 import { disableDebugLog } from "@zedo";
+import Speech from "@zedo/components/client/Speech.vue";
 import { decoPlugin, reloadPagePlugin } from "@zedo/plugin-hooks/";
 import { defineClientConfig } from "vuepress/client";
-
-// import { loadScripts, loadStyles } from "@zedo";
-
-import Speech from "@zedo/components/client/Speech.vue";
-import { onMounted, watch } from "vue";
-import { useRoute } from "vue-router";
 
 const handleDate = (date: Date) => {
     if (date?.toJSON() == null) {

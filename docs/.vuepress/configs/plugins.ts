@@ -1,9 +1,6 @@
 import type { CommentPluginOptions } from "@vuepress/plugin-comment";
 import { NoticePluginOptions } from "@vuepress/plugin-notice";
-import type { PluginConfig } from "vuepress";
-
 import type { KatexOptions, TrustContext } from "katex";
-import { registerComponents } from "./plugins/registerComponents";
 
 export const katexOptions: KatexOptions = {
     output: "html",
@@ -68,8 +65,3 @@ export const noticeOptions: NoticePluginOptions = {
     ],
     // 选项
 };
-
-export const pluginConfig: PluginConfig = [
-    //
-    registerComponents,
-];
