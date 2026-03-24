@@ -1,0 +1,1 @@
+export { graphvizPlugin } from "./node";

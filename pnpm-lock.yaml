@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@viz-js/viz':
+        specifier: ^3.25.0
+        version: 3.25.0
       '@vue/repl':
         specifier: ^4.7.1
         version: 4.7.1
@@ -1098,6 +1101,9 @@ packages:
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
       vue: ^3.2.25
+
+  '@viz-js/viz@3.25.0':
+    resolution: {integrity: sha512-dM7zAYMdf7mcRz5Kdb+YJb6+qv5Rjk0rPZ18gROdpMrP/3S7RFOp8uxybeiz5RypHrE1zo1vccA8Twh4mIcLZw==}
 
   '@vue-macros/common@3.1.2':
     resolution: {integrity: sha512-h9t4ArDdniO9ekYHAD95t9AZcAbb19lEGK+26iAjUODOIJKmObDNBSe4+6ELQAA3vtYiFPPBtHh7+cQCKi3Dng==}
@@ -4098,6 +4104,8 @@ snapshots:
       '@rolldown/pluginutils': 1.0.0-rc.2
       vite: 7.1.12(@types/node@24.12.0)(lightningcss@1.32.0)(sass-embedded@1.98.0)(sass@1.98.0)(yaml@2.8.3)
       vue: 3.5.30
+
+  '@viz-js/viz@3.25.0': {}
 
   '@vue-macros/common@3.1.2(vue@3.5.30)':
     dependencies:

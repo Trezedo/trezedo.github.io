@@ -16,6 +16,7 @@
     "push:gh": "git push github main"
   },
   "devDependencies": {
+    "@viz-js/viz": "^3.25.0",
     "@vue/repl": "^4.7.1",
     "@vuepress/bundler-vite": "2.0.0-rc.26",
     "@vuepress/plugin-comment": "2.0.0-rc.125",
