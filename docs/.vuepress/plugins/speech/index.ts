@@ -1,0 +1,1 @@
+export { speechPlugin } from "./node";

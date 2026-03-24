@@ -24,6 +24,7 @@
     "@vuepress/plugin-register-components": "2.0.0-rc.125",
     "@vuepress/plugin-revealjs": "2.0.0-rc.125",
     "@vuepress/plugin-slimsearch": "2.0.0-rc.125",
+    "@vueuse/core": "^14.2.1",
     "cross-env": "^7.0.3",
     "flowchart.ts": "^3.0.1",
     "katex": "^0.16.40",

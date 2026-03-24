@@ -2,7 +2,6 @@ import { onMounted, watch } from "vue";
 import { useRoute } from "vuepress/client";
 
 import { disableDebugLog } from "@zedo";
-import Speech from "@zedo/components/client/Speech.vue";
 import { decoPlugin, reloadPagePlugin } from "@zedo/plugin-hooks/";
 import { defineClientConfig } from "vuepress/client";
 
@@ -72,5 +71,5 @@ export default defineClientConfig({
         );
     },
     // 插入到 #app 的组件
-    rootComponents: [Speech],
+    rootComponents: [],
 });
