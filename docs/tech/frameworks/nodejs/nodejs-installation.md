@@ -96,7 +96,7 @@ userconfig=C:\Users\zedo\.npmrc
 
 :::tip
 
-这里展开说一下 Windows 下的一些环境变量，可参考 [PowerShell & CMD](../../devops/shell/powershell-and-cmd.md#境变量)：
+这里展开说一下 Windows 下的一些环境变量，可参考 [PowerShell & CMD](../../tools/shell/powershell-and-cmd.md#环境变量)：
 
 | 变量名         | 扩展后路径                    |
 | -------------- | ----------------------------- |
@@ -218,16 +218,9 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 - [Set-ExecutionPolicy](https://learn.microsoft.com/zh-cn/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-5.1)
 - [about_Execution_Policies](https://learn.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-5.1)
 
-### 配置相关路径
-
-根据 [pnpm FAQ](https://pnpm.io/zh/faq#存储路径未指定)：
-
-> 如果未设置存储路径，则会创建多个存储库（每个驱动器或文件系统对应一个）。
-> 若在磁盘 A 上执行安装操作，存储库会在 A 盘文件系统根目录下的 `.pnpm-store` 中创建。如果之后在磁盘 B 上再次执行安装，会在 B 盘的 `.pnpm-store` 位置创建一个独立的存储库。相关项目仍可保留 pnpm 的优势，但各个驱动器可能会存在重复的软件包。
-
-这里我们的 `.pnpm-store` 在 E 盘根目录。
-
 ### 相关命令
+
+其实到这里就可以直接在项目中使用了。
 
 pnpm 大部分命令和 npm 是一致的。
 
@@ -320,6 +313,47 @@ pnpm add vue-router@^4.0.0
 # 固定一个精确版本，避免任何意外升级
 pnpm add --save-exact vue@3.4.0
 ```
+
+### 配置相关路径
+
+根据 [pnpm FAQ](https://pnpm.io/zh/faq#存储路径未指定)：
+
+> 如果未设置存储路径，则会创建多个存储库（每个驱动器或文件系统对应一个）。
+> 若在磁盘 A 上执行安装操作，存储库会在 A 盘文件系统根目录下的 `.pnpm-store` 中创建。如果之后在磁盘 B 上再次执行安装，会在 B 盘的 `.pnpm-store` 位置创建一个独立的存储库。相关项目仍可保留 pnpm 的优势，但各个驱动器可能会存在重复的软件包。
+
+这里我们的 `.pnpm-store` 在 E 盘根目录。
+
+如果我们尝试全局安装某个 npm 包（即使用 `-g` 参数），会发现：
+
+```sh
+> pnpm i -g tree-cli
+ERR_PNPM_NO_GLOBAL_BIN_DIR  Unable to find the global bin directory
+
+Run "pnpm setup" to create it automatically, or set the global-bin-dir setting, or the PNPM_HOME env variable. The global bin directory should be in the PATH.
+```
+
+我们按照提示，执行 `pnpm setup`：
+
+```sh
+> pnpm setup
+Next configuration changes were made:
+PNPM_HOME=C:\Users\zedo\AppData\Local\pnpm
+Path=%PNPM_HOME%;E:\envs\node_pkg\node_global # 此处做了删减
+
+Setup complete. Open a new terminal to start using pnpm.
+```
+
+> 完成后需要重启 PowerShell 等终端，同时如果你在用 VSCode，也需要重启才能正确加载环境变量。
+
+它在电脑上添加了环境变量，我们再执行以下命令让 `PNPM_HOME` 不在 C 盘，并额外设置 `global-bin-dir`：
+
+```sh
+$pnpmPath = [System.IO.Path]::GetFullPath("E:/envs/pnpm")
+pnpm config set global-bin-dir $pnpmPath
+[Environment]::SetEnvironmentVariable("PNPM_HOME", $pnpmPath, "User")
+```
+
+之后我们就可以正常全局安装了。
 
 ## 卸载 Node.js
 
