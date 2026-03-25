@@ -9,7 +9,7 @@ export default sidebar({
     "/exercises/": [
         {
             text: "LeetCode",
-            icon: "mdi:code-tags",
+            icon: "simple-icons:leetcode",
             prefix: "leetcode/",
             children: "structure",
             collapsible: true,
@@ -105,17 +105,19 @@ export default sidebar({
         {
             text: "操作系统",
             icon: "mdi:monitor",
+            prefix: "os/",
             children: "structure",
             collapsible: true,
         },
         {
-            text: "开发工具",
+            text: "电脑工具",
             icon: "mdi:tools",
             prefix: "tools/",
             children: "structure",
             collapsible: true,
         },
     ],
+    "/tech/tools/": "structure",
 
     "/": [
         "/README.md",
@@ -129,59 +131,59 @@ export default sidebar({
             children: ["page.md", "markdown.md", "disable.md", "encrypt.md"],
         },
         {
-            text: "文章",
-            icon: "ri:note-line",
-            children: [
-                {
-                    prefix: "blog/",
-                    text: "随笔",
-                    icon: "ri:note-line",
-                    collapsible: true,
-                    children: "structure",
-                },
-            ],
+            text: "随笔",
+            icon: "fluent:line-style-sketch-32-filled",
+            collapsible: true,
+            prefix: "blog/",
+            children: "structure",
         },
         {
             prefix: "notes/",
             text: "笔记",
-            icon: "ri:note-line",
+            icon: "ph:notebook-fill",
             children: [
                 {
                     text: "数学",
                     icon: "ooui:mathematics",
                     prefix: "math/",
                     children: "structure",
+                    collapsible: true,
                 },
                 {
                     text: "数据结构",
                     icon: "carbon:data-vis-1",
                     prefix: "data-structure/",
                     children: "structure",
+                    collapsible: true,
                 },
                 {
                     text: "算法",
                     icon: "hugeicons:algorithm",
                     prefix: "algorithm/",
                     children: "structure",
+                    collapsible: true,
                 },
                 {
                     text: "大数据",
                     icon: "mdi:database",
                     prefix: "bigdata/",
                     children: "structure",
+                    collapsible: true,
                 },
                 {
                     text: "游戏",
                     icon: "mdi:gamepad-variant",
                     prefix: "games/",
                     children: "structure",
+                    collapsible: true,
                 },
             ],
         },
         {
             text: "技术实践",
-            icon: "mdi:code-braces",
-            link: "/tech/",
+            icon: "jam:code",
+            prefix: "tech/",
+            children: "structure",
         },
     ],
 });

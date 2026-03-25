@@ -9,7 +9,7 @@ export default navbar([
     },
     {
         text: "技术实践",
-        icon: "jam:code",
+        icon: "streamline-plump:deepfake-technology-1-remix",
         link: "/tech/",
     },
     {
