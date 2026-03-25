@@ -14,10 +14,4 @@ prev: ../linear-list/doubly-linked-list.md
 
 栈和队列是操作受限的顺序表
 
-## 栈
-
-[栈](./stack.md)
-
-## 队列
-
-[队列](./queue.md)
+<Catalog />

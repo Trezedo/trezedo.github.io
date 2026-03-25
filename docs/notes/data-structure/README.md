@@ -1,10 +1,10 @@
 ---
-icon: tabler:exchange-filled
 article: false
+icon: tabler:exchange-filled
 modified: 2026-03-23
-next: ./linear-list/sequence-list.md
 category:
     - 数据结构
+next: ./linear-list/sequence-list.md
 ---
 
 # 数据结构与算法
