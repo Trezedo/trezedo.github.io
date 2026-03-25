@@ -1,5 +1,5 @@
 ---
-icon: fa6-brands:golang
+icon: grommet-icons:golang
 date: 2023-01-13
 modified: 2026-03-23
 excerpt: 快速入门 Go 语言

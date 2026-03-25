@@ -17,8 +17,6 @@ next: ../sorts/readme.md
 
 ### 相关概念
 
-<!-- ![image-20220811141906216](C:\Users\zedo\AppData\Roaming\Typora\typora-user-images\image-20220811141906216.png) -->
-
 ```graphviz
 digraph binaryTree {
     node [shape = circle; color = red; fontcolor = blue; fontsize = 10;];
