@@ -1,9 +1,6 @@
-import { useRouter } from "vue-router";
+import { useRouter } from "vuepress/client";
 
 /**
- * useRouter API 在 beta.39 之后某个版本被 "@vuepress/client" 移除了
- * 改用 "vue-router"
- *
  * 通过 vue-router 的 {@link getRoutes} 方法进行筛选，<br>
  * 因为路由在页面加载之前就已经生成完毕，故性能消耗小
  * @param prefix 路由前缀，用来限定路径
