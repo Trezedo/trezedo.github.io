@@ -1,0 +1,94 @@
+---
+icon: fa-brands:dev
+date: 2022-06-29
+modified: 2026-03-23
+category:
+    - 鸿蒙
+tag:
+    - 调试
+    - harmony-os
+    - ide
+---
+
+# DevEco 使用本地真机调试
+
+> 本文参考开发者手册 [使用真机进行调试](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ide_debug_device-0000001053822404) 并进行真实记录。
+
+## 获取 UUID
+
+> 文档地址：[获取 UUID 方法](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-harmonyos-debugapp-manual-0000001177608893#section1835412326017)
+
+::: tip 准备工作
+
+1. 需要打开手机的开发者模式（打开设置，然后到关于手机页面，连续快速点击版本号 7 次，直到出现提醒正处于开发者模式）。
+2. 通过数据线将手机连接上电脑。
+
+:::
+
+先使用 HarmonyOS SDK 下 toolchains 目录中的 `hdc.exe` 工具获取设备的 uuid：
+
+```batch
+hdc shell bm get --uuid
+```
+
+![设备 uuid 截图](https://zedo-img.netlify.app/img/2022-06/29091923.png)
+
+> 如果已开启调试模式且获取手机 UUID 失败，请将 USB 连接模式改为“传输文件”或 “MIDI”，通常手机没有设置就可以正常读取了。
+
+复制一下，后面会用到。
+
+## 申请调试证书
+
+> 文档地址：[手动方式调试 HarmonyOS 应用](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-harmonyos-debugapp-manual-0000001177608893)
+
+1.打开 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，选择 “用户与访问”
+
+![用户与访问](https://zedo-img.netlify.app/img/2022-06/29092335.png)
+
+在左侧导航栏下方选择“设备管理”，进入设备管理页面。
+
+![设备管理-1](https://zedo-img.netlify.app/img/2022-06/29092339.png#s-50)
+
+页面中选择添加设备，在弹出窗口填写设备信息，点击“提交”。
+
+![设备管理-2](https://zedo-img.netlify.app/img/2022-06/29092347.png)
+
+![填写设备信息](https://zedo-img.netlify.app/img/2022-06/29092358.png)
+
+这里的 UUID 就是上面用工具获取到的。
+
+添加完成：
+
+![添加完成截图](https://zedo-img.netlify.app/img/2022-06/29094423.png)
+
+## 创建项目
+
+同样在 [AppGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)，选择“我的项目”：
+
+![我的项目](https://zedo-img.netlify.app/img/2022-06/29095849.png)
+
+点击 “添加项目”，然后填写项目名称：
+
+![添加项目](https://zedo-img.netlify.app/img/2022-06/29100100.png)
+
+完成后点击 “添加应用”：
+
+![添加应用](https://zedo-img.netlify.app/img/2022-06/29100233.png)
+
+填写表单，应用包名就是 DevEco 项目的包名，最后确定即可：
+
+![表单截图](https://zedo-img.netlify.app/img/2022-06/29100408.png)
+
+::: warning 注意
+
+应用包名只允许使用英文字母、数字、"\_"，首字符必须是字母，以 “.” 分隔，至少包含 3 段，每一段必须以数字或者字母结束，具体规范请参见 [软件包规范](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-help-harmonyos-releaseapp-0000001126380068#section4921315403)
+
+:::
+
+然后在 DevEco 中，依次选择 “File” - “Project Structure” - “Project” - “Signing Configs”，就能够自动签名了：
+
+![DevEco 签名](https://zedo-img.netlify.app/img/2022-06/29101540.png)
+
+之后就能使用真机运行我们的 APP 了（小吐槽：远程真机和模拟器是真的卡）。
+
+![连接真机截图](https://zedo-img.netlify.app/img/2022-06/29101617.png)

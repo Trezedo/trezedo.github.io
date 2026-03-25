@@ -393,7 +393,7 @@ modified: 2026-03-21
 - 更新至 vuepress-theme-hope@v2.0.0-beta.233
 - 添加变更日志页面（changelog）
 - 修改 `NormalPage.vue` 组件中背景图并改用图床链接
-- 修正 [数据结构 - 单链表](./note/dsa/linear-list/singly-linked-list.md) 文中图片链接地址
+- 修正 [数据结构 - 单链表](./notes/data-structure/linear-list/singly-linked-list.md) 文中图片链接地址
 
 ### 2023-07-24
 
@@ -468,3 +468,4 @@ modified: 2026-03-21
 ### 2026-03-25
 
 - 重构 speech 插件，使用 VueUse API 避免自行维护。
+- 按内容领域（技术栈、工具等）自然分类，调整目录结构及文件名。

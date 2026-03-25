@@ -1,0 +1,360 @@
+---
+article: false
+icon: hugeicons:api
+date: 2022-01-08
+modified: 2026-03-23
+excerpt: 分享一些比较有用的免费接口
+tag:
+    - 接口
+---
+
+# 免费接口
+
+## IP 查询接口
+
+### 免费在线查询
+
+| 地址                       | 备注     |
+| -------------------------- | -------- |
+| <https://www.hao7188.com/> | 具体到县 |
+| <https://www.ip138.com/>   | 具体到市 |
+| <https://www.ip.cn/>       | 具体到市 |
+
+### 获取本机 IP
+
+| 站点    | 地址                                            | 备注                                         |
+| ------- | ----------------------------------------------- | -------------------------------------------- |
+| 腾讯    | <https://cgi.vip.qq.com/clientinfo/getclientip> |                                              |
+| 淘宝    | <https://www.taobao.com/help/getip.php>         | 返回的不是 json                              |
+| 搜狐    | <http://pv.sohu.com/cityjson?ie=utf-8>          | 返回的不是 json；不指定则 ie 默认为 GBK 编码 |
+| httpbin | <https://httpbin.org/ip>                        |                                              |
+
+附上对应的请求返回数据：
+
+::: tabs
+
+@tab 腾讯
+
+```json
+{
+    "ret": 0,
+    "msg": "success",
+    "ip": "111.59.124.154",
+    "delay": 0,
+    "domainid": 18
+}
+```
+
+@tab 淘宝
+
+```js
+ipCallback({ ip: "111.59.124.154" });
+```
+
+@tab 搜狐
+
+```js
+var returnCitySN = { cip: "111.59.124.154", cid: "CN", cname: "CHINA" };
+```
+
+@tab httpbin
+
+```json
+{
+    "origin": "111.59.124.154"
+}
+```
+
+:::
+
+### IP 查询地址
+
+| 站点       | 地址                                                                         | 备注                                          |
+| ---------- | ---------------------------------------------------------------------------- | --------------------------------------------- |
+| 码农实验室 | <https://www.fkcoder.com/ip?ip=111.59.124.154>                               | 文档地址：<https://www.fkcoder.com>           |
+| 淘宝       | <https://ip.taobao.com/outGetIpInfo?ip=111.59.124.154&accessKey=alibaba-inc> | 见 [说明](https://ip.taobao.com/instructions) |
+| 太平洋网络 | <http://whois.pconline.com.cn/ipJson.jsp?ip=111.59.124.154&json=true>        | 见 [说明](http://whois.pconline.com.cn)       |
+| ip-api     | <http://ip-api.com/json/111.59.124.154?lang=zh-CN>                           | 已失效                                        |
+| 网易云     | <http://ip.ws.126.net/ipquery?ip=111.59.124.154>                             | 已失效                                        |
+
+附上对应的请求返回数据：
+
+::: tabs
+
+@tab 码农实验室
+
+```json
+{
+    "country": "中国",
+    "region": "0",
+    "province": "广西",
+    "city": "桂林市",
+    "isp": "移动"
+}
+```
+
+@tab 淘宝
+
+```json
+{
+    "data": {
+        "area": "",
+        "country": "中国",
+        "isp_id": "100017",
+        "queryIp": "171.106.26.3",
+        "city": "桂林",
+        "ip": "171.106.26.3",
+        "isp": "电信",
+        "county": "",
+        "region_id": "450000",
+        "area_id": "",
+        "county_id": null,
+        "region": "广西",
+        "country_id": "CN",
+        "city_id": "450300"
+    },
+    "msg": "query success",
+    "code": 0
+}
+```
+
+@tab 太平洋网络
+
+```json
+{
+    "ip": "111.59.124.154",
+    "pro": "广西",
+    "proCode": "450000",
+    "city": "桂林市",
+    "cityCode": "450300",
+    "region": "",
+    "regionCode": "0",
+    "addr": "广西桂林市 移通",
+    "regionNames": "",
+    "err": ""
+}
+```
+
+@tab ip-api
+
+```json
+{
+    "status": "success",
+    "country": "中国",
+    "countryCode": "CN",
+    "region": "GX",
+    "regionName": "广西壮族自治区",
+    "city": "七星",
+    "zip": "",
+    "lat": 25.255,
+    "lon": 110.314,
+    "timezone": "Asia/Shanghai",
+    "isp": "China Mobile communications corporation",
+    "org": "China Mobile",
+    "as": "AS9808 China Mobile Communications Group Co., Ltd.",
+    "query": "111.59.124.154"
+}
+```
+
+:::
+
+> [Java 获取客户端真实 IP 地址](https://www.cnblogs.com/east7/p/11985612.html)
+>
+> [Java Web 获取客户端真实 IP](https://www.cnblogs.com/xiaoxing/p/6565573.html)
+>
+> [2021 最新官方 IP 地址查询接口](https://blog.oioweb.cn/66.html)
+
+## 时间查询接口
+
+<!-- https://www.jsjiami.com/article/get-now-time.html -->
+
+| 站点 | 地址                                                                | 备注                   |
+| ---- | ------------------------------------------------------------------- | ---------------------- |
+| 淘宝 | <http://api.m.taobao.com/rest/api3.do?api=mtop.common.getTimestamp> |                        |
+| 苏宁 | <https://f.m.suning.com/api/ct.do>                                  |                        |
+| 腾讯 | <http://vv.video.qq.com/checktime?otype=json>                       | 返回的不是 json；含 ip |
+
+附上返回格式：
+
+::: tabs
+
+@tab 腾讯
+
+```js
+QZOutputJson = {
+    s: "o",
+    t: 1656841646,
+    ip: "111.59.124.154",
+    pos: "---",
+    rand: "n7olVwhd4fU7Q-AxiTzbRg==",
+};
+```
+
+@tab 淘宝
+
+```json
+{
+    "api": "mtop.common.getTimestamp",
+    "v": "*",
+    "ret": ["SUCCESS::接口调用成功"],
+    "data": {
+        "t": "1656841679098"
+    }
+}
+```
+
+@tab 苏宁
+
+```json
+{
+    "api": "time",
+    "code": "1",
+    "currentTime": 1656841708283,
+    "msg": ""
+}
+```
+
+:::
+
+## 二维码生成接口
+
+下面是发现的两个在国内速度不错的二维码接口。
+
+| 名称              | 主页地址                                 | 备注                                             |
+| ----------------- | ---------------------------------------- | ------------------------------------------------ |
+| QR Code Generator | <https://goqr.me/api/doc/create-qr-code> | 德国人开发的，历史悠久，支持 `https`。           |
+| QRCODE\.JP        | <https://qrcode.jp>                      | **最近发现被墙了**；日本人开发的，支持 `https`。 |
+
+接口格式与示例：
+
+::: tabs
+
+@tab Generator
+
+```http
+https://api.qrserver.com/v1/create-qr-code/?size=尺寸&data=链接
+```
+
+尺寸可以是 `100x100`、`150x150` 等等。如果格式错误或不填写，默认为 `250x250`。支持的参数比较多，请看官方文档。
+
+示例：<https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https>:<//zedo.netlify.app>
+
+@tab QRCODE.JP
+
+```http
+https://qrcode.jp/qr?q=链接&s=尺寸
+```
+
+其中尺寸可以填数字 `1-10`。
+
+示例：<https://qrcode.jp/qr?q=https>:<//zedo.netlify.app>&s=10>
+
+:::
+
+::: details 更多
+
+可以查看下文中的 [API 集合](#api-集合) ，有国内免费的接口，但是还有其他接口，因此不放在此处。
+
+当然了，如果不需要接口，仅仅是日常使用，这有几个还是不错的：
+
+- [草料二维码](https://cli.im/)
+- [码主人](https://mazhuren.com/)
+- [二维码生成器](https://cn.online-qrcode-generator.com/)
+- [菜鸟工具](https://c.runoob.com/front-end/3454/)
+
+:::
+
+## 随机图片接口
+
+Lorem Picsum
+
+接口格式：
+
+```http
+https://picsum.photos/720/480
+# 获取一张 宽720像素，高480像素 的图片
+```
+
+```http
+https://picsum.photos/500
+# 获取一张 边长为500像素 的正方形图片
+```
+
+更多使用方式查看官网：[https://picsum.photos/](https://picsum.photos/)
+
+| 名称                      | 地址                                 | 备注                     |
+| ------------------------- | ------------------------------------ | ------------------------ |
+| Unsplash                  | <https://source.unsplash.com/random> | 文档比较复杂，直接给链接 |
+| IMGAPI                    | <https://imgapi.cn/>                 |                          |
+| 随机二次元图片 API- 樱花  | <https://www.dmoe.cc/>               |                          |
+| 东方 Project 随机图片 API | <https://img.paulzzh.com/>           |                          |
+| 随机二次元图片接口        | <https://acg.toubiec.cn/>            |                          |
+| 岁月小筑随机图片 API      | <https://img.xjh.me/>                |                          |
+| 随机图片 API              | <https://tuapi.eees.cc/>             | 提供 4 个分类            |
+| 古风美图美女二次元 API    | <https://cdn.seovx.com/>             | 提供 3 个分类            |
+| 凌一 随机图片 API         | <https://api.lyiqk.cn/>              | 提供 13 个分类           |
+| 墨天逸随机图片 API        | <http://api.mtyqx.cn/>               |                          |
+| 3650000 随机 API          | <https://3650000.xyz/>               | 具体看主页               |
+| shibe                     | <https://shibe.online/>              | 获取狗狗图片             |
+
+必应壁纸
+
+<https://bing.ioliu.cn/v1/rand?type=json>
+
+<https://bing.ioliu.cn/v1/rand?w=1920&h=1080>
+
+[缙哥哥博客](https://www.dujin.org/) 接口：
+
+- [宫崎骏动漫剧照随机接口](https://www.dujin.org/16863.html)
+- <https://api.dujin.org/bing/1366.php>（必应图片，一天一更新）
+- <https://api.dujin.org/bing/1920.php> 同上
+- <https://api.dujin.org/bing/m.php> 同上，尺寸针对手机
+
+必应接口：
+
+<https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1>
+
+::: details 更多
+
+这里找到一些~~你懂的~~三次元接口
+
+| 地址                                    | 备注                |
+| --------------------------------------- | ------------------- |
+| <https://yuanxiapi.cn/api/Littlesister> | 远昔，查看 API 集合 |
+| <https://imgapi.cn/cos.php>             | 上面提到过          |
+| <https://3650000.xyz/api/>              | 同上                |
+| <https://api.lyiqk.cn/sexylady>         | 同上                |
+| <https://api.lyiqk.cn/purelady>         | 同上                |
+| <https://cdn.seovx.com/?mom=302>        | 同上                |
+
+下面是未找到使用说明的（有些是从 [这](https://hostloc.com/thread-864253-1-1.html) 找到的），现在可能已失效
+
+| 地址                                  | 备注   |
+| ------------------------------------- | ------ |
+| <http://api.nmb.show/xiaojiejie1.php> |        |
+| <http://api.nmb.show/xiaojiejie2.php> |        |
+| <https://api.nmb.show/1985acg.php>    | 二次元 |
+| <https://picture.yinux.workers.dev/>  |        |
+
+:::
+
+## API 集合
+
+| 名称                | 地址                                            | 备注                                                                 |
+| ------------------- | ----------------------------------------------- | -------------------------------------------------------------------- |
+| 远昔 API            | <https://yuanxiapi.cn/>                         | 提供了 100 多种 API，会记录 IP                                       |
+| 博天 API            | <https://api.btstu.cn/>                         | 提供了 23 个接口                                                     |
+| ChenYFan の公开 API | <https://api.cyfan.top/>                        | 提供壁纸、图片、百度收录等 10 个接口                                 |
+| 小歪 API            | <https://api.ixiaowai.cn/>                      | 提供了图片 API（二次元），一言语录、舔 :dog: 日记和二维码等 6 个接口 |
+| 韩小韩 API          | <https://api.vvhan.com/>                        | 56 个接口                                                            |
+| UomgAPI             | <https://api.uomg.com/>                         | 51 个接口                                                            |
+| 小忆 API            | <http://api.weijieyue.cn/>                      |                                                                      |
+| Kate API            | <https://api.sumt.cn/>                          | 40 个接口                                                            |
+| 九黎 API            | <http://jiuli.xiaoapi.cn/>                      | 80 多个 API，大多数是和 QQ 有关的（需要 token）                      |
+| 言溪 API            | <http://api.yanxi520.cn/>                       | 110 个接口                                                           |
+| 笙梳 API            | <https://shengapi.cn/>                          | 近 100 个接口                                                        |
+| 独角兽 API          | <http://ovooa.com/>                             | 120 个 API                                                           |
+| 免费 API            | <http://api.wpbom.com/>                         | 没错就叫这个名                                                       |
+| 小白 API            | <https://xiaobai.klizi.cn/>                     | 194 个 API                                                           |
+| 糖豆子 API          | <https://api.tangdouz.com/>                     | 部分接口已经失效，文档排版比较乱 233                                 |
+| ~~同济互联 API~~    | <https://www.kancloud.cn/wei1044/api88/1662866> | 接口特别多，但是已经用不了了                                         |
