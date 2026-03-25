@@ -1,7 +1,7 @@
 ---
 icon: carbon:executable-program
 date: 2022-03-27
-modified: 2026-03-23
+modified: 2026-03-25
 excerpt: Windows 系统下常用、好用的软件
 category:
     - windows
@@ -90,27 +90,11 @@ B 站外链播放器使用文档：<https://player.bilibili.com/>
 
 [ShareX](https://getsharex.com/)：开源、免费的截图工具，支持录制 Gif 动图，但使用起来没有 Snipaste 方便。支持添加 [图片效果](https://getsharex.com/image-effects/)，个人使用后感觉添加水印比较难用。
 
-[FastStone Capture](https://www.faststone.org/FSCaptureDownload.htm)：老牌截图工具，支持滚动截图、添加水印、录制视频，还有简易、方便的图片编辑器。
+[FastStone Capture](https://www.faststone.org/FSCaptureDownload.htm)：老牌截图工具，支持屏幕录制、滚动截图、高清长图、图片编辑、图片转 PDF 格式、屏幕取色。该软件的图片编辑器支持缩放，旋转，减切，非常适合剪裁和拼接图片。
+
+> FS Capture 不是免费的，有 30 天免费试用。不过网上能搜到绿色版。此外也有单文件版，但似乎单文件版的设置不能持久化，如果需要做个性化设置（例如水印），建议下载安装版。
 
 [XnView MP](https://www.xnview.com/en/xnview-mp/)：图片浏览器
-
-:::: tip
-
-该软件不是免费的，有 30 天免费试用。不过网上能搜到很多可用的注册码。此外，国人还做了绿色单文件版，但似乎对单文件版的设置不能持久化，如果需要做个性化设置（例如水印），建议下载安装版。
-
-::: details 更多
-
-<https://www.cnblogs.com/QW-lzm/p/15307460.html> 亲测可用
-
-<https://xiazai.zol.com.cn/detail/21/203339.shtml>  未测试
-
-<https://www.423down.com/660.html>  未测试
-
-<https://www.yutu.cn/softhtml/showsoft_6496.html>  未测试
-
-:::
-
-::::
 
 [SVG Explorer Extension](https://github.com/tibold/svg-explorer-extension/releases) ![最新版本](https://img.shields.io/github/v/release/tibold/svg-explorer-extension)：在资源管理器中预览 svg 图片（缩略图），打不开 github 的也可以试下在 [这里](https://download.cnet.com/svg-explorer-extension/3000-2248_4-78237543.html) 下载。
 
@@ -173,6 +157,8 @@ Czkawka 和 Krokiet 是两套不同 GUI。`windows_czkawka_gui_gtk_412.zip` 解�
 [AV1 视频扩展](https://apps.microsoft.com/detail/9mvzqvxjbq9v?hl=zh-cn&gl=CN)：使 Windows 系统支持播放 AV1 编码的视频，但似乎不支持显示缩略图。
 
 [Icaros Shell Extensions](https://github.com/Xanashi/Icaros)：一套轻量级、高质量的 Windows Shell 扩展程序。可以为 FFmpeg 支持的几乎所有视频媒体格式提供 Windows 资源管理器缩略图。可以设置视频缩略图位置（已有缩略图的需清理缓存）
+
+[zFrontier - 在线键盘测试](https://www.zfrontier.com/lab/keyboardTester)：换了新键盘、外接键盘可以用该工具进行测试每个按键是否正常。
 
 ## 重装系统
 
