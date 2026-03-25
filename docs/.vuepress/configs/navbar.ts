@@ -2,18 +2,20 @@ import { navbar } from "vuepress-theme-hope";
 
 export default navbar([
     "/",
-    // "/home.md",
-    { text: "DEMO", icon: "icon-park-outline:guide-board", link: "/demo/" },
-
     {
         text: "笔记",
-        icon: "si:ai-note-fill",
-        link: "/note/",
+        icon: "ph:notebook-fill",
+        link: "/notes/",
     },
     {
-        text: "编程",
+        text: "技术实践",
         icon: "jam:code",
-        link: "/lang/",
+        link: "/tech/",
+    },
+    {
+        text: "解题",
+        icon: "fluent:calligraphy-pen-question-mark-20-filled",
+        link: "/exercises/",
     },
     {
         text: "站点导航",
@@ -29,7 +31,7 @@ export default navbar([
                     },
                     {
                         text: "星标",
-                        icon: "noto-v1:star",
+                        icon: "ph:star-fill",
                         link: "/star/",
                     },
                 ],
@@ -55,7 +57,6 @@ export default navbar([
             {
                 text: "归档",
                 icon: "ph:archive-box-bold",
-                // link: "",
                 children: [
                     {
                         text: "时间线",
@@ -64,11 +65,12 @@ export default navbar([
                     },
                     {
                         text: "更新日志",
-                        icon: "material-icon-theme:changelog",
+                        icon: "ri:history-line",
                         link: "changelog.md",
                     },
                 ],
             },
         ],
     },
+    { text: "DEMO", icon: "icon-park-outline:guide-board", link: "/demo/" },
 ]);
