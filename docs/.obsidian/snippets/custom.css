@@ -41,6 +41,7 @@ body:not(.obsidian-default-image)
 }
 
 /* graphviz 生成的 svg 图片居中 */
-.block-language-graphviz.multi-graph {
+.block-language-graphviz.multi-graph,
+.block-language-dot.multi-graph {
     text-align: center;
 }
