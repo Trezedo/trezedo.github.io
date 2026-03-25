@@ -1,0 +1,9 @@
+// 默认为 "¶"，会导致目录列表有微小缩进，看着不顺眼
+.vp-catalog-header-anchor::before {
+    content: "";
+}
+
+// 二级目录图标与文本之间的间距太近，增加一些间距
+.route-link.vp-sub-catalog-link .vp-icon {
+    margin-right: 0.5rem;
+}
