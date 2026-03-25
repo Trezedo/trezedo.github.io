@@ -458,3 +458,13 @@ modified: 2026-03-21
 
 - Frontmatter: category 和 tag 统一使用 lowercase（除 `QQ` 外），并适当调整
 - Frontmatter: 修改、补充合适的图标
+
+### 2026-03-24
+
+- 移除早期用于实现和测试文章列表的旧组件
+- 为 `excel` 代码块高亮添加 Shiki 别名
+- 实现 graphviz 插件，支持将 `graphviz` 或 `dot` 代码块渲染为图片
+
+### 2026-03-25
+
+- 重构 speech 插件，使用 VueUse API 避免自行维护。
