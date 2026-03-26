@@ -2,7 +2,6 @@
 icon: tabler:math-integrals
 date: 2022-01-24
 modified: 2026-03-23
-excerpt: 一类分子为反正切函数或对数函数，分母为二次函数的定积分计算方法。
 category:
     - 高等数学
     - 积分
@@ -93,9 +92,9 @@ $$
 
 $$
 \begin{gather*}
-    f(0)=p,f(p)=0,\tag{2}\\
+    f(0)=p,f(p)=0,\\
     \ln (f(x)+A) =\ln \frac{c}{x+A}
-\end{gather*}
+\end{gather*}\tag{2}
 $$
 
 其中 $c$ 为正常数。等式两端分别取指数，于是
