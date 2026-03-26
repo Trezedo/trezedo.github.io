@@ -7,3 +7,28 @@
 .route-link.vp-sub-catalog-link .vp-icon {
     margin-right: 0.5rem;
 }
+
+:root {
+    // 补充 hope 主题缺失的目录背景色变量
+    // 混合 rgb 为半透明: color-mix(in srgb, var(--vp-c-accent), transparent 90%);
+    --bg-color-blur: var(--vp-c-accent-soft);
+}
+
+aside#toc {
+    // 使目录背景模糊
+    backdrop-filter: blur(8px);
+}
+
+.vp-toc-header:hover {
+    cursor: pointer;
+}
+
+.vp-toc-link {
+    // 加深颜色，使其在模糊背景上更清晰
+    color: var(--vp-c-text);
+}
+
+.vp-toc-placeholder {
+    // 避免鼠标在链接上晃动时 blur 背景顶部有闪烁
+    top: calc(var(--navbar-height) + 1rem); // 原先 + 0.5rem
+}
