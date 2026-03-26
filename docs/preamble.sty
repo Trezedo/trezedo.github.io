@@ -8,8 +8,11 @@
 % https://forum.obsidian.md/t/3189/3
 \renewcommand\label[1]{\cssId{#1}{}}
 \renewcommand{\ref}[2]{\href{###1}{#2}}
-\renewcommand{\eqref}[2]{\href{###1}{(#2)}}
-\newcommand{\tagref}[1]{\href{##mjx-eqn:#1}{(#1)}}
+% obsidian 本身不支持锚点跳转，这部分宏的定义其实没有意义
+% 其 mathjax 插件的 tag 命令也不会为元素设置 id（以前似乎有，现在已经删了）
+% 为了保持一致，以下仅根据 katex 中的配置定义
+\renewcommand{\eqref}[1]{\href{##tag-#1}{(#1)}}
+\newcommand{\tagref}[1]{\href{##tag-#1}{(#1)}}
 
 % \def\useless{\undefined}
 % katex 需要 \global 才能生效，但 mathjax 无法识别该命令
