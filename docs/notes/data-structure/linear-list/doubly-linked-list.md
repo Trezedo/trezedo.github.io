@@ -11,7 +11,7 @@ tag:
 next: ../stack-queue/README.md
 ---
 
-# 数据结构 - 双向链表
+# 双向链表
 
 这里我们主要介绍的是链表中最复杂的结构：循环双向链表 (Circular Doubly Linked List)
 
