@@ -136,6 +136,14 @@ Czkawka 和 Krokiet 是两套不同 GUI。`windows_czkawka_gui_gtk_412.zip` 解�
 
 [手心输入法](https://www.xinshuru.com/)：
 
+[eza](https://github.com/eza-community/eza/releases)：一个用 Rust 编写的、现代化的、维护良好的 `ls` 替代工具，并提供了更多功能和更优的默认设置。它使用颜色来区分文件类型和元数据。它支持符号链接、扩展属性和 Git。而且它体积**小**、**速度快**，并且只有**一个二进制文件**。
+
+```sh
+eza -?             # 查看帮助及说明
+eza ./ -T -L 3 -D  # 以树形结构显示当前目录，深度3层，仅列出目录
+# 等价于 eza ./ --tree --level 3 --only-dirs
+```
+
 ### 系统相关
 
 [TranslucentTB](https://apps.microsoft.com/detail/9pf4kz2vn4w9)：Windows 10/11 半透明任务栏（微软商店版本和 github 上的不太一样）
