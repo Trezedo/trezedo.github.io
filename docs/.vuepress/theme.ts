@@ -86,6 +86,7 @@ export default hopeTheme({
         footnote: true,
         gfm: true,
         highlighter: {
+            lineNumbers: 5,
             type: "shiki",
             langAlias: {
                 /* obsidian 的 prismjs 可以高亮 excel，但 vuepress 的不行
