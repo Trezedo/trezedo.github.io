@@ -7,15 +7,14 @@ $MQMobile: 719px !default;
 $MQMobileNarrow: 419px !default;
 
 // https://fonts.zeoseven.com/items/292/#embed
+// medium 比原版略粗一点，看起来更顺眼
+// @import url("https://fontsapi.zeoseven.com/292/main/result.css");
 @import url("https://fontsapi.zeoseven.com/292/medium/result.css");
 
-// @import url("https://cdnjs.cloudflare.com/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/lxgwwenkaiscreenr.css");
-// "LXGW WenKai Screen R"
+$vp-font: "LXGW WenKai Medium, LXGW WenKai, sans-serif";
+$vp-font-heading: $vp-font;
 
-$vp-font: '"LXGW WenKai", sans-serif';
-$vp-font-heading: '"LXGW WenKai", sans-serif';
-
-// @vuepress/helper/lib/client/styles/normalize.css 设置了字体合成属性，导致落霞孤鹜字体无法加粗
-#markdown-content {
+// @vuepress/helper/lib/client/styles/normalize.css 设置了 `font-synthesis: style;` 导致落霞孤鹜字体无法加粗
+body {
     font-synthesis-weight: auto;
 }

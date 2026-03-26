@@ -33,24 +33,46 @@ pre::-webkit-scrollbar {
     }
 }
 
-// katex tagref 滚动定位修正
+// KaTeX tagref 滚动定位修正
 :root {
-    // 滚动到目标的顶部偏移距离 3.75rem + 1.05rem = 4.8rem
-    --offset-top: calc(var(--navbar-height) + 1.05rem);
+    // 滚动到目标的顶部偏移距离；--navbar-height 为 3.75rem
+    --offset-top: calc(var(--navbar-height) * 2);
 }
 
-// 有用但是作用在了其他元素 https://developer.mozilla.org/zh-CN/docs/Web/CSS/scroll-margin-top
-// html {scroll-padding-top: 4.5em;}
 .base > span.enclosing[id^="tag-"] {
+    // scroll-padding-top、scroll-margin-top 无效
     // https://stackoverflow.com/questions/4086107#26214572
     padding-top: var(--offset-top);
-    margin-top: calc(0 - var(--offset-top));
+    margin-top: calc(0 - var(--offset-top)); // 没有这句也行，因为该元素宽度为 0
 }
 
-// todo 解决移动端公式编号位置问题
-// .katex-display > .katex > .katex-html > .tag {
-//     overflow: hidden;
-// }
+/*
+ * 修复移动端 KaTeX 公式编号（.tag）遮挡公式内容（.base）的问题。
+ * 实现方式：
+ * 1. 将 .katex-html 的父容器设为相对定位（position: relative），作为绝对定位的参考系；
+ * 2. .katex-html 本身不设置定位，保持正常文档流；
+ * 3. .tag 改为 inline-block，使其与 .base 同行排列，避免绝对定位带来的遮挡。
+ */
+@media (max-width: 768px) {
+    :root {
+        --katex-tag-offset: 2.5em; // 预留标签与公式之间的间距
+    }
+
+    .katex-display .katex:has(.tag) {
+        position: relative;
+
+        .katex-html {
+            position: unset;
+            padding-right: var(--katex-tag-offset);
+            overflow-x: auto;
+            overflow-y: hidden;
+
+            .tag {
+                display: inline-block; // 与 base 一样
+            }
+        }
+    }
+}
 
 // 自定义锚点滚动定位修正
 #markdown-content p > a[id],
