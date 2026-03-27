@@ -3,8 +3,9 @@
 </template>
 
 <script setup lang="ts">
-import { type Viz } from "@viz-js/viz";
-import { type PropType, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import type { Viz } from "@viz-js/viz";
+import type { PropType } from "vue";
+import { onBeforeUnmount, onMounted, ref, watch } from "vue";
 
 const props = defineProps({
     dot: { type: String, required: true },

@@ -38,9 +38,9 @@ import {
     useSpeechSynthesis,
     useTextSelection,
 } from "@vueuse/core";
+import type { CSSProperties } from "vue";
 import {
     computed,
-    CSSProperties,
     onMounted,
     onUnmounted,
     ref,
@@ -49,7 +49,7 @@ import {
 import { useRouter } from "vuepress/client";
 
 // 获取选中文本和选区位置
-const { text: selectedText, rects } = useTextSelection();
+const { text: selectedText } = useTextSelection();
 
 // 用于语音合成的响应式文本，初始为空，并禁用自动朗读
 const speechText = ref("");
@@ -200,6 +200,7 @@ watch(
 .fade-leave-active {
     transition: opacity 0.2s ease;
 }
+
 .fade-enter-from,
 .fade-leave-to {
     opacity: 0;

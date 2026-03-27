@@ -4,16 +4,9 @@ import { viteBundler } from "@vuepress/bundler-vite";
 export default viteBundler({
     viteOptions: {
         build: {
-            rollupOptions: {
-                // 对静态文件进行分类
-                output: {
-                    // 新版暂时不可用，打包会出问题
-                    // chunkFileNames: "assets/js/[name]-[hash].js",
-                    // entryFileNames: "assets/js/[name]-[hash].js",
-                    // assetFileNames: `assets/[ext]/[name]-[hash].[ext]`,
-                },
-            },
+            // rollupOptions 已弃用，改为 rolldownOptions，但使用空配置也会触发 warning
         },
+
         server: {
             proxy: {},
         },
