@@ -64,11 +64,21 @@ pre::-webkit-scrollbar {
         .katex-html {
             position: unset;
             padding-right: var(--katex-tag-offset);
-            overflow-x: auto;
-            overflow-y: hidden;
+            // 左边预留适当空间，保持美观
+            padding-left: calc(var(--katex-tag-offset) / 2);
 
             .tag {
-                display: inline-block; // 与 base 一样
+                display: inline-block; // 与 .base 一样
+            }
+
+            // 其他样式（滚动条）与 .katex-display 保持一致
+            overflow: auto hidden;
+            scrollbar-width: thin;
+            padding-top: 0.2em;
+            padding-bottom: 0.2em;
+
+            &::-webkit-scrollbar {
+                height: 3px;
             }
         }
     }
