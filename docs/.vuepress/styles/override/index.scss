@@ -8,15 +8,27 @@
     margin-right: 0.5rem;
 }
 
+// 导航栏背景透明，有毛玻璃效果
+#app {
+    --navbar-c-bg: transparent;
+}
+
 :root {
     // 补充 hope 主题缺失的目录背景色变量
-    // 混合 rgb 为半透明: color-mix(in srgb, var(--vp-c-accent), transparent 90%);
-    --bg-color-blur: var(--vp-c-accent-soft);
+    --bg-color-blur: rgba(255, 255, 255, 0.1);
+    //
 }
 
 aside#toc {
-    // 使目录背景模糊
-    backdrop-filter: blur(8px);
+    // 鼠标悬浮目录时再使背景模糊，避免影响阅读
+    backdrop-filter: saturate(150%) blur(0px);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        // 混合 rgb 为半透明: color-mix(in srgb, var(--vp-c-accent), transparent 90%);
+        background-color: var(--vp-c-accent-soft);
+        backdrop-filter: saturate(150%) blur(12px);
+    }
 }
 
 .vp-toc-header:hover {
