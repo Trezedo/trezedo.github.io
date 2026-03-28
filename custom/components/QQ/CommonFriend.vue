@@ -3,7 +3,7 @@
     <button @click="viewFriend()" :disabled="qq === '' || qq.length < 5">查看</button>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref, watch } from "vue";
 // import { useConfirm } from "../../hooks";
 

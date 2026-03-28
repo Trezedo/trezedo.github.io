@@ -18,8 +18,7 @@ export const katexOptions: KatexOptions = {
         "\\tagref": "\\href{##tag-#1}{(#1)}",
         // 数据结构
         "\\mk": "\\mkern{#1mu}",
-        "\\box":
-            "\\begin{array}{|c|c|}\\hline \\!#1\\! & \\!#2\\!\\\\ \\hline \\end{array}",
+        "\\box": "\\begin{array}{|c|c|}\\hline \\!#1\\! & \\!#2\\!\\\\ \\hline \\end{array}",
         "\\node": "\\box{#1}{\\bullet}",
         "\\cnode": "\\colorbox{#1}{$\\node{#2}$}",
         // katex 不支持默认参数，\providecommand\pTo[1][-20]{\mkern{#1mu}\xrightarrow{\mkern24mu}\mkern-7mu}
@@ -39,8 +38,7 @@ export const katexOptions: KatexOptions = {
         return "error";
     },
     // https://github.com/KaTeX/KaTeX/issues/2003
-    trust: (context: TrustContext) =>
-        ["\\htmlId", "\\href"].includes(context.command),
+    trust: (context: TrustContext) => ["\\htmlId", "\\href"].includes(context.command),
 };
 
 export const comments: CommentPluginOptions = {

@@ -18,10 +18,7 @@ export function getSimpleRoutes(prefix?: string, removeRoot?: boolean) {
             withPrefix = route.path.startsWith(prefix);
             if (removeRoot) {
                 // 以 prefix 开头，但不能同时以它结尾
-                withPrefix &&= !(
-                    route.path.endsWith(prefix) ||
-                    route.path.endsWith(prefix + "/")
-                );
+                withPrefix &&= !(route.path.endsWith(prefix) || route.path.endsWith(prefix + "/"));
             }
         }
         return basic && withPrefix;

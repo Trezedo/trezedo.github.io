@@ -1,10 +1,7 @@
 <template>
     <NormalPage :class="{ 'has-cover': !!imgLink }">
         <template #top>
-            <div
-                class="page-cover"
-                :style="{ backgroundImage: `url(${imgLink})` }"
-            />
+            <div class="page-cover" :style="{ backgroundImage: `url(${imgLink})` }" />
         </template>
     </NormalPage>
 </template>
@@ -22,12 +19,13 @@
 import { computed, onMounted, ref } from "vue";
 import { usePageFrontmatter } from "vuepress/client";
 
-// @ts-ignore
 import NormalPage from "vuepress-theme-hope/components/NormalPage";
 
 const frontmatter = usePageFrontmatter();
 
-const coverLink = ref(frontmatter.value["cover"] || "https://zedo-img.netlify.app/img/wallhaven-z8dg9y-lossy.png");
+const coverLink = ref(
+    frontmatter.value["cover"] || "https://zedo-img.netlify.app/img/wallhaven-z8dg9y-lossy.png",
+);
 
 const imgLink = computed(() => {
     return (frontmatter.value["article"] !== false && coverLink.value) || "";

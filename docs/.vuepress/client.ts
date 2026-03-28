@@ -17,9 +17,7 @@ const handleDate = (date: Date) => {
 
 async function noticeUpdateTime() {
     if (__VUEPRESS_DEV__) return;
-    const data = await fetch("/sitemap.xml").then((response) =>
-        response.text(),
-    );
+    const data = await fetch("/sitemap.xml").then((response) => response.text());
     const xmlDoc = new DOMParser().parseFromString(data, "text/xml");
     // @ts-ignore
     let time = [...xmlDoc.querySelectorAll("lastmod")].reduce(

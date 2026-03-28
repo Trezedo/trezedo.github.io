@@ -17,15 +17,7 @@ export default hopeTheme({
     docsBranch: "main",
     docsDir: "docs", // "src/docs"
 
-    pageInfo: [
-        "Author",
-        "Original",
-        "Date",
-        "Category",
-        "Tag",
-        "ReadingTime",
-        "Word",
-    ],
+    pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime", "Word"],
 
     navbarAutoHide: "mobile", // "always" 容易卡顿
     darkmode: "toggle",

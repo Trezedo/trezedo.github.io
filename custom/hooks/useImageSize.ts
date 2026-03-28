@@ -1,5 +1,5 @@
 import { onMounted, onUpdated, watch } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute } from "vuepress/client";
 
 // todo 以 markdown-it 插件形式来处理
 export function useImageSize() {
@@ -31,9 +31,7 @@ export function useImageSize() {
                 }
             } else {
                 // “兼容” Firefox，用图片原始高度处理
-                size &&
-                    (img.style.width =
-                        (img.naturalWidth * parseInt(size)) / 100 + "px");
+                void (size && (img.style.width = (img.naturalWidth * parseInt(size)) / 100 + "px"));
             }
         }
     }

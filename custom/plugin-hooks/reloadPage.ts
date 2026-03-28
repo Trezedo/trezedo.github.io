@@ -16,10 +16,7 @@ export function reloadPagePlugin() {
             btn.onmouseout = () => btn.blur();
             return btn;
         };
-        if (
-            /\bQQ\b|Wechat/.test(navigator.userAgent) ||
-            /debug/.test(location.search)
-        ) {
+        if (/\bQQ\b|Wechat/.test(navigator.userAgent) || /debug/.test(location.search)) {
             const button = createButton();
             document.body.appendChild(button);
             button.addEventListener("click", () => {

@@ -17,10 +17,6 @@
         "noUnusedLocals": false,
         "noUnusedParameters": false
     },
-    "include": [
-        "./custom/**/*",
-        "docs/.vuepress/**/*.ts",
-        "docs/.vuepress/**/*.vue"
-    ],
+    "include": ["./custom/**/*", "docs/.vuepress/**/*.ts", "docs/.vuepress/**/*.vue"],
     "exclude": ["node_modules"]
 }

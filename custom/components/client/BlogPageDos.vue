@@ -2,7 +2,7 @@
     <!--  -->
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { onMounted } from "vue";
 // import { detectTbs } from "../../hooks/";
 
@@ -38,9 +38,7 @@ onMounted(() => {
 
 // 初始化打字机效果
 onMounted(() => {
-    const p = document.querySelector<HTMLParagraphElement>(
-        ".vp-blog-hero-description",
-    );
+    const p = document.querySelector<HTMLParagraphElement>(".vp-blog-hero-description");
     if (!p) {
         console.error("找不到对应元素");
         return;
@@ -53,7 +51,6 @@ onMounted(() => {
 });
 </script>
 
-<!--suppress CssUnusedSymbol -->
 <style>
 a.slide-down-wrapper:hover {
     cursor: pointer;

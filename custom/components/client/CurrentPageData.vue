@@ -2,15 +2,10 @@
     <div>CurrentPageData.vue</div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 // https://github.com/vuepress/vuepress-next/pull/504
 import { onMounted } from "vue";
-import {
-    usePageData,
-    usePageFrontmatter,
-    useRouteLocale,
-    useSiteData,
-} from "vuepress/client";
+import { usePageData, usePageFrontmatter, useRouteLocale, useSiteData } from "vuepress/client";
 
 onMounted(() => {
     console.log(useRouteLocale());

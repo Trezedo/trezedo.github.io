@@ -33,19 +33,9 @@
 </template>
 
 <script setup lang="ts">
-import {
-    onClickOutside,
-    useSpeechSynthesis,
-    useTextSelection,
-} from "@vueuse/core";
+import { onClickOutside, useSpeechSynthesis, useTextSelection } from "@vueuse/core";
 import type { CSSProperties } from "vue";
-import {
-    computed,
-    onMounted,
-    onUnmounted,
-    ref,
-    watch,
-} from "vue";
+import { computed, onMounted, onUnmounted, ref, watch } from "vue";
 import { useRouter } from "vuepress/client";
 
 // 获取选中文本和选区位置
@@ -53,8 +43,7 @@ const { text: selectedText } = useTextSelection();
 
 // 用于语音合成的响应式文本，初始为空，并禁用自动朗读
 const speechText = ref("");
-const { isPlaying, isSupported, status, stop, toggle, speak } =
-    useSpeechSynthesis(speechText);
+const { isPlaying, isSupported, status, stop, toggle, speak } = useSpeechSynthesis(speechText);
 
 const router = useRouter();
 const currentSpeakingText = ref(""); // 记录当前正在朗读的文本
@@ -141,10 +130,7 @@ const buttonStyle = computed<CSSProperties>(() => {
 // 按钮图标：正在朗读当前文本时显示暂停，否则显示播放
 const icon = computed(() => {
     const isCurrentlyPlaying = status.value === "play";
-    if (
-        isCurrentlyPlaying &&
-        currentSpeakingText.value === selectedText.value
-    ) {
+    if (isCurrentlyPlaying && currentSpeakingText.value === selectedText.value) {
         return "pause";
     }
     return "play";

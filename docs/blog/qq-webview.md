@@ -14,7 +14,7 @@ tag:
 
 ## 缓存问题
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref, onMounted, computed } from "vue";
 
 const env = ref("");

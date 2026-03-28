@@ -1,8 +1,6 @@
 import { useHeadCss, useHeadScript } from "./hooks";
 
-const styles: CustomElement[] = [
-    { id: "zedo-iconfont", src: "/assets/font/iconfont.css" },
-];
+const styles: CustomElement[] = [{ id: "zedo-iconfont", src: "/assets/font/iconfont.css" }];
 
 const scripts: CustomElement[] = [
     {
@@ -26,13 +24,13 @@ const scripts: CustomElement[] = [
 
 export function loadStyles() {
     for (const css of styles) {
-        !css.disabled && useHeadCss(css);
+        void (!css.disabled && useHeadCss(css));
     }
 }
 
 export function loadScripts() {
     for (const js of scripts) {
-        !js.disabled && useHeadScript(js);
+        void (!js.disabled && useHeadScript(js));
     }
 }
 

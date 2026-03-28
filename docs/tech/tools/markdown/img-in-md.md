@@ -53,16 +53,10 @@ tag:
 
 ```html
 <p>这是 zoom：</p>
-<img
-    src="https://zedo-img.netlify.app/img/2022-05/09190222.png"
-    style="zoom: 40%;"
-/>
+<img src="https://zedo-img.netlify.app/img/2022-05/09190222.png" style="zoom: 40%;" />
 
 <p>这是 transform: scale：</p>
-<img
-    src="https://zedo-img.netlify.app/img/2022-05/09190222.png"
-    style="transform: scale(0.4);"
-/>
+<img src="https://zedo-img.netlify.app/img/2022-05/09190222.png" style="transform: scale(0.4);" />
 <p>文字段落</p>
 ```
 
@@ -82,16 +76,10 @@ tag:
 
 ```html
 <p>这是 zoom：</p>
-<img
-    src="https://zedo-img.netlify.app/img/2022-05/09190222.png"
-    style="zoom: 40%;"
-/>
+<img src="https://zedo-img.netlify.app/img/2022-05/09190222.png" style="zoom: 40%;" />
 
 <p>这是 width：</p>
-<img
-    src="https://zedo-img.netlify.app/img/2022-05/09190222.png"
-    style="width: 40%;"
-/>
+<img src="https://zedo-img.netlify.app/img/2022-05/09190222.png" style="width: 40%;" />
 <p>文字段落</p>
 ```
 
@@ -105,16 +93,10 @@ tag:
 
 ```html
 <p>这是 zoom：</p>
-<img
-    src="https://zedo-img.netlify.app/img/2022-06/29092339.png"
-    style="zoom: 66%;"
-/>
+<img src="https://zedo-img.netlify.app/img/2022-06/29092339.png" style="zoom: 66%;" />
 
 <p>这是 width：</p>
-<img
-    src="https://zedo-img.netlify.app/img/2022-06/29092339.png"
-    style="width: 66%;"
-/>
+<img src="https://zedo-img.netlify.app/img/2022-06/29092339.png" style="width: 66%;" />
 <p>文字段落</p>
 ```
 
@@ -134,22 +116,13 @@ CSS 中除了 `width` 属性之外，还有一个与宽度相关的属性——`
 
 ```html
 <p>这是 zoom：</p>
-<img
-    src="https://zedo-img.netlify.app/img/2022-06/29092339.png"
-    style="zoom: 66%;"
-/>
+<img src="https://zedo-img.netlify.app/img/2022-06/29092339.png" style="zoom: 66%;" />
 
 <p>这是 max-width：</p>
-<img
-    src="https://zedo-img.netlify.app/img/2022-06/29092339.png"
-    style="max-width: 66%;"
-/>
+<img src="https://zedo-img.netlify.app/img/2022-06/29092339.png" style="max-width: 66%;" />
 
 <p>这是 width：</p>
-<img
-    src="https://zedo-img.netlify.app/img/2022-06/29092339.png"
-    style="width: 66%;"
-/>
+<img src="https://zedo-img.netlify.app/img/2022-06/29092339.png" style="width: 66%;" />
 
 <p>文字段落</p>
 ```

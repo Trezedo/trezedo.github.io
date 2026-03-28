@@ -12,12 +12,7 @@
 // 彩色进度条
 #nprogress .bar {
     height: 3px;
-    background-image: repeating-linear-gradient(
-        90deg,
-        #00dc80 0,
-        #34cdfe 50%,
-        #0047e0
-    );
+    background-image: repeating-linear-gradient(90deg, #00dc80 0, #34cdfe 50%, #0047e0);
 }
 
 @mixin rainbow($time: 4s) {
@@ -84,7 +79,8 @@
     white-space: nowrap;
     font-weight: 500;
     border-right: 2px solid transparent;
-    animation: typing var(--p-duration) steps(var(--p-step)) alternate infinite,
+    animation:
+        typing var(--p-duration) steps(var(--p-step)) alternate infinite,
         caret 0.5s steps(1) infinite;
 }
 

@@ -379,8 +379,7 @@ console.log(`msg: ${result.msg}\n data: ${result.data}`);
 比如我们在 `common/js/utils.js` 中定义了函数：
 
 ```js
-export const isPhoneValid = (phone) =>
-    /^1(3\d|5[0-3,5-9]|7[1-3,5-8]|8\d)\d{8}$/.test(phone);
+export const isPhoneValid = (phone) => /^1(3\d|5[0-3,5-9]|7[1-3,5-8]|8\d)\d{8}$/.test(phone);
 ```
 
 然后我们想在 JS Page 中导入 `isPhoneValid` 这个函数（相对路径为 `"../../common/js/utils.js"`），
