@@ -1,8 +1,8 @@
 import type { CommentPluginOptions } from "@vuepress/plugin-comment";
+import type { MarkdownKatexPluginOptions } from "@vuepress/plugin-markdown-math";
 import { NoticePluginOptions } from "@vuepress/plugin-notice";
-import type { KatexOptions, TrustContext } from "katex";
 
-export const katexOptions: KatexOptions = {
+export const katexOptions: MarkdownKatexPluginOptions = {
     output: "html",
     macros: {
         // 见 "/docs/preamble.sty"
@@ -38,7 +38,7 @@ export const katexOptions: KatexOptions = {
         return "error";
     },
     // https://github.com/KaTeX/KaTeX/issues/2003
-    trust: (context: TrustContext) => ["\\htmlId", "\\href"].includes(context.command),
+    trust: (context) => ["\\htmlId", "\\href"].includes(context.command),
 };
 
 export const comments: CommentPluginOptions = {
