@@ -2,8 +2,8 @@
     "name": "trezedo-blog",
     "version": "3.0.0",
     "description": "Blog project of vuepress-theme-hope",
-    "author": "Trezedo",
     "license": "MIT",
+    "author": "Trezedo",
     "scripts": {
         "build:all": "pnpm build:lib && pnpm docs:build",
         "build:lib": "pnpm --filter \"vuepress-plugin-deco\" run build",
@@ -13,7 +13,12 @@
         "docs:up": "pnpm dlx vp-update",
         "preview": "pnpm exec vite preview --host",
         "push:ge": "git push gitee main",
-        "push:gh": "git push github main"
+        "push:gh": "git push github main",
+        "docs:fmt": "npx prettier --write 'docs/**/*.{ts,md}'",
+        "fmt": "oxfmt",
+        "fmt:check": "oxfmt --check",
+        "lint": "oxlint",
+        "lint:fix": "oxlint --fix"
     },
     "devDependencies": {
         "@viz-js/viz": "^3.25.0",
@@ -29,6 +34,8 @@
         "flowchart.ts": "^3.0.1",
         "katex": "^0.16.43",
         "mermaid": "^11.13.0",
+        "oxfmt": "^0.42.0",
+        "oxlint": "^1.57.0",
         "sass-embedded": "^1.98.0",
         "vue": "^3.5.31",
         "vuepress": "2.0.0-rc.27",
@@ -36,13 +43,13 @@
         "vuepress-plugin-md-enhance": "2.0.0-rc.104",
         "vuepress-theme-hope": "2.0.0-rc.104"
     },
+    "engines": {
+        "pnpm": ">=10.0.0"
+    },
     "pnpm": {
         "onlyBuiltDependencies": [
             "@parcel/watcher",
             "esbuild"
         ]
-    },
-    "engines": {
-        "pnpm": ">=10.0.0"
     }
 }

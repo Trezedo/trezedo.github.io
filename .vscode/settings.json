@@ -1,5 +1,9 @@
 {
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
     "editor.codeActionsOnSave": {
+        "source.format.oxc": "always",
+        "source.fixAll.oxc": "always",
         "source.organizeImports": "explicit", // 整理 import，去掉没用的导包
         "source.fixAll.ts": "explicit", // 保存时修复 ts 报告的问题
         "source.fixAll.markdownlint": "explicit" // 保存时修复 markdownlint 报告的问题
@@ -10,6 +14,32 @@
         "**/.vuepress/.cache": true,
         "**/.vuepress/.temp": true
     },
+    "[css]": {
+        "editor.defaultFormatter": "oxc.oxc-vscode"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "oxc.oxc-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "oxc.oxc-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "oxc.oxc-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "oxc.oxc-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "oxc.oxc-vscode"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "oxc.oxc-vscode"
+    },
+    // prettier 对 markdown 表格的格式化支持更好
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // "markdown.validate.enabled": true, // 会把 $[i, n-1]$ 这样的方括号当作链接
     "markdownlint.config": {
         "MD007": {
             "indent": 4 // 列表缩进 4 个空格
@@ -38,10 +68,12 @@
         "asgi",
         "Axmath",
         "backtotop",
+        "bgcolor",
         "bigdata",
         "binom",
         "bmatrix",
         "cellborder",
+        "cellspacing",
         "Charsets",
         "chartjs",
         "cleartext",
@@ -67,6 +99,7 @@
         "fasterxml",
         "fastjson",
         "findstr",
+        "fontsize",
         "frontmatter",
         "fwlink",
         "Giscus",
@@ -111,16 +144,21 @@
         "mouseout",
         "mouseup",
         "mysqld",
+        "nbsp",
+        "neato",
         "newcommand",
         "newrank",
         "nonstopmode",
         "Notiflix",
         "npmrc",
+        "nprogress",
         "nullptr",
         "ohos",
         "oneline",
         "ooui",
         "operatorname",
+        "oxfmt",
+        "oxlint",
         "pdfarranger",
         "pmatrix",
         "postorder",
