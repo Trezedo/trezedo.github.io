@@ -1,0 +1,1 @@
+export { dynamicChangelogPlugin } from "./node";

@@ -1,6 +1,5 @@
 import type { CommentPluginOptions } from "@vuepress/plugin-comment";
 import type { MarkdownKatexPluginOptions } from "@vuepress/plugin-markdown-math";
-import { NoticePluginOptions } from "@vuepress/plugin-notice";
 
 export const katexOptions: MarkdownKatexPluginOptions = {
     output: "html",
@@ -48,18 +47,4 @@ export const comments: CommentPluginOptions = {
     category: "Announcements",
     categoryId: "DIC_kwDOJYJYos4CV2sq",
     // 其他选项用默认值即可
-};
-
-export const noticeOptions: NoticePluginOptions = {
-    config: [
-        {
-            path: "/",
-            title: "最近更新",
-            content: "根据 git log 维护更新日志",
-            actions: [{ text: "确定", type: "primary" }],
-            // showOnce: __VUEPRESS_DEV__ ? false : true, // 生产环境只显示一次，开发环境每次都显示
-            fullscreen: true,
-        },
-    ],
-    // 选项
 };

@@ -1,4 +1,4 @@
+export * from "./dynamic-changelog";
 export * from "./graphviz";
-export * from "./speech";
-
 export * from "./registerComponents";
+export * from "./speech";

@@ -1,8 +1,13 @@
 import { defineUserConfig } from "vuepress";
 import { path } from "vuepress/utils";
 
-import { bundler, onInitialized } from "./configs/";
-import { graphvizPlugin, registerComponents, speechPlugin } from "./plugins/";
+import { bundler, onInitialized } from "./configs";
+import {
+    dynamicChangelogPlugin,
+    graphvizPlugin,
+    registerComponents,
+    speechPlugin,
+} from "./plugins";
 import theme from "./theme";
 
 // 这里的时间是构建时间，因为当前处于 nodejs 环境，其实也是可以做到 “不缓存” 的
@@ -35,7 +40,15 @@ export default defineUserConfig({
 
     theme,
     onInitialized: onInitialized,
-    plugins: [registerComponents, graphvizPlugin, speechPlugin],
+    plugins: [
+        registerComponents,
+        graphvizPlugin,
+        speechPlugin,
+        dynamicChangelogPlugin({
+            changelogPath: "changelog.md", // 自定义路径
+            headingLevel: 3, // 提取最后一段 h3 的内容
+        }),
+    ],
 
     bundler: bundler,
 

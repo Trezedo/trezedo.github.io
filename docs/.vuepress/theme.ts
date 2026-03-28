@@ -1,7 +1,7 @@
 import { hopeTheme } from "vuepress-theme-hope";
 
 import { comments, navbar, sidebar } from "./configs";
-import { katexOptions, noticeOptions } from "./configs/plugins";
+import { katexOptions } from "./configs/plugins";
 
 export default hopeTheme({
     hostname: "https://zedo.netlify.app",
@@ -135,7 +135,7 @@ export default hopeTheme({
             disableSelection: false,
             disableCopy: false,
         },
-        notice: noticeOptions,
+        notice: [],
         pwa: false,
         slimsearch: true,
     },
