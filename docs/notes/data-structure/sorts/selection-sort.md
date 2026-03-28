@@ -150,7 +150,25 @@ $$
 
 而其逻辑结构是一颗完全二叉树：
 
-![堆的逻辑结构示意图](./img/heap.keep.svg)
+```dot
+digraph {
+    rankdir = TB;
+    node [shape = circle;];
+    edge [arrowsize = 0.5;];
+    a -> {b c};
+    b -> {d e};
+    c -> {f g};
+    d -> {h i};
+
+    subgraph {
+        // 辅助
+        edge [style = invis;];
+        node [style = invis;];
+        rank = same;
+        b -> 1 -> c;
+    }
+}
+```
 
 可以发现，父子结点的下标之间有关系：
 

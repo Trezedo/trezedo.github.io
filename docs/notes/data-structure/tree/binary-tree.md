@@ -17,16 +17,22 @@ next: ../sorts/readme.md
 
 ### 相关概念
 
-```graphviz
+```dot
 digraph binaryTree {
-    node [shape = circle; color = red; fontcolor = blue; fontsize = 10;];
-    root [color = blue;fontcolor = black;fontsize = 20;];
-    root -> a [style = dotted;];
-    root -> b;
-    a -> c;
-    a -> d;
-    b -> e;
-    b -> f;
+    node [shape = circle; fontsize = 12;];
+    root;
+    root -> {A B};
+    A -> {C D};
+    B -> {E F};
+
+    // 辅助
+    subgraph {
+        edge [style = invis;];
+        T [style = invis;];
+        A -> T; T -> B;
+        rank = same;
+        A; B; T;
+    }
 }
 ```
 
@@ -154,32 +160,13 @@ struct BinaryTreeNode{
 
 :::
 
-```graphviz
-digraph finite_state_machine {
-    rankdir=LR;
-    size="8,5"
-
-    node [shape = doublecircle]; S;
-    node [shape = point ]; qi
-
-    node [shape = circle];
-    qi -> S;
-    S  -> q1 [ label = "a" ];
-    S  -> S  [ label = "a" ];
-    q1 -> S  [ label = "a" ];
-    q1 -> q2 [ label = "ddb" ];
-    q2 -> q1 [ label = "b" ];
-    q2 -> q2 [ label = "b" ];
-}
-```
-
 二叉树的遍历序列中，如果没有中序遍历序列，则无法得知左右子树的界限，不能唯一确定一颗二叉树。
 
 ### 遍历序列确定二叉树
 
 此方法参看了以下视频：
 
-<iframe src="https://player.bilibili.com/player.html?bvid=BV1Xu411d7qf"
+<iframe src="https://player.bilibili.com/player.html?bvid=BV1Xu411d7qf&autoplay=0"
     width="100%"
     height="500"
     allow="fullscreen"

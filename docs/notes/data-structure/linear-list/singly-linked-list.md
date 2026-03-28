@@ -108,7 +108,7 @@ digraph "链表示意图" {
     margin = 0;
 
     subgraph cluster_doubly {
-        label="\n双向链表"
+        label="双向链表"
         labelloc="b"
         peripheries = 0;
         node [shape = record; height = 0.3;];
@@ -136,12 +136,10 @@ digraph "链表示意图" {
     }
 
     subgraph cluster_singly {
-        label="\n单链表\n\n"
+        label="单链表\n\n"
         labelloc="b"
         peripheries = 0;
         node [shape = record; height = 0.3;];
-
-        // ₀₁₂₃₄₅₆₇₈₉₊₋₌₍₎ₐₑₒₓₔ ₕ ₖ ₗ ₘ ₙ ₚ ₛ ₜ ⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿº˙
         node1 [label = "{<data> d₁| <next> &#9679;}";];
         node2 [label = "{<data> d₂ | <next> &#9679;}";];
         node3 [label = "{<data> d₃ | <next> &#9679;}";];
@@ -156,69 +154,200 @@ digraph "链表示意图" {
 }
 ```
 
-![单链表带头对比|580](https://zedo-img.netlify.app/img/dsa/ll/2.3-带头对比.png)
-
 ```dot
-digraph "链表示意图" {
+digraph "单链表带头对比" {
     rankdir = "LR";
-    // https://stackoverflow.com/questions/50494263/circular-list-in-graphviz-or-how-to-bend-the-edge
+    newrank = true;
+
     margin = 0;
-    label = "单链表、循环单链表";
-
     node [shape = record; height = 0.3;];
-    edge [tailclip = false; arrowsize = 0.6;];
+    edge [tailclip = false; arrowsize = 0.6; dir = both; arrowtail = dot;];
 
-    subgraph "循环链表" {
-        label = "";
-        peripheries = 0;
+    subgraph cluster_head {
+        label = "带头节点的单链表";
+        labelloc = "b";
+        labeljust = "c";
+        color = "none";
 
-        cnode1 [label = "{<data> d₁| <next> &#9679;}";];
-        cnode2 [label = "{<data> d₂ | <next> &#9679;}";];
-        cnode3 [label = "{<data> d₃ | <next> &#9679;}";];
+        head [label = "{<data> head| <next> }";];
+        node1 [label = "{<data> d₁| <next> }";];
+        node2 [label = "{<data> d₂ | <next> }";];
+        node3 [label = "{<data> d₃ | <next> }";];
 
-        edge [tailclip = false; arrowsize = 0.6;];
+        null2 [label = "NULL"; shape = plaintext;];
 
-        // cnode3:next:s -> cnode1:data:s;
-        // cnode3 -> cnode2 -> cnode1 [style=invis];
-
-        subgraph {
-            node [shape = point; height = 0;];
-            pHead;
-            pTail;
-        }
-        pHead:n -> cnode1;
-        pHead:s -> pTail:s [dir = none;];
-        cnode1:next:c -> cnode2:data;
-        cnode2:next:c -> cnode3:data;
-        cnode3:next:c -> pTail:n [dir = none;];
-    }
-
-    subgraph "单链表" {
-        peripheries = 0;
-
-        node1 [label = "{<data> d₁| <next> &#9679;}";];
-        node2 [label = "{<data> d₂ | <next> &#9679;}";];
-        node3 [label = "{<data> d₃ | <next> &#9679;}";];
-
-        null [label = "NULL";shape = plaintext;];
-
+        head:next:c -> node1;
         node1:next:c -> node2:data;
         node2:next:c -> node3:data;
-        node3:next:c-> null;
+        node3:next:c -> null2;
     }
 
-    // 对齐
-    subgraph {
-        rank = same;
-        cnode1;
-        node1;
+    subgraph cluster_non {
+        label = "不带头结点单链表";
+        labelloc = "t";
+        labeljust = "c";
+        color = "none";
+
+        // 添加一个隐藏的虚拟头结点
+        hidden_head [label = "{<data> head| <next> }"; style = invis;];
+
+        no1 [label = "{<data> d₁| <next> }";];
+        no2 [label = "{<data> d₂ | <next> }";];
+        no3 [label = "{<data> d₃ | <next> }";];
+
+        null [label = "NULL"; shape = plaintext;];
+
+        // 隐藏连接（不显示边）
+        hidden_head -> no1 [style = invis;];
+        no1:next:c -> no2:data;
+        no2:next:c -> no3:data;
+        no3:next:c -> null;
+    }
+
+ // 有隐藏头结点，也可以不用设置对齐
+ { rank = same; head; hidden_head; }
+ { rank = same; no1; node1; }
+ { rank = same; no2; node2; }
+ { rank = same; no3; node3; }
+}
+```
+
+```dot
+digraph LinkedList_neato {
+    layout = neato; // 使用 neato 或 fdp 引擎
+    // overlap = false; // 避免节点重叠，在 dot 14.1.4 中会渲染异常
+
+    label = "单链表、循坏单链表";
+    labelloc = "b"; // bt
+    labeljust = "c"; // clr
+    // 节点样式：链表节点使用 record 形状
+    node [shape = record; width = 0.4; height = 0.3;];
+
+    rankdir = "LR"; // 让 data | next 水平排列
+    subgraph cluster_单链表 {
+        label=""
+        peripheries = 0; // 隐藏边框，或者用 color = "none"
+
+        // 链表节点坐标 (x, y) 单位英寸，y=0 水平线
+        node01 [pos = "0, 0.6!"; label = "{<data> d₁| <next> &#9679;}";];
+        node02 [pos = "1.2, 0.6!"; label = "{<data> d₂ | <next> &#9679;}";];
+        node03 [pos = "2.4, 0.6!"; label = "{<data> d₃ | <next> &#9679;}";];
+        null [pos = "3.6, 0.6!"; label = "NULL"; shape = plaintext;];
+        // 下面这个仅用于给左边添加空白区域
+  null_dp [pos = "-0.8, 0.6!"; shape = plaintext; style = invis];
+
+        edge [tailclip = false; arrowsize = 0.5;];
+        node01:next:c -> node02:data;
+        node02:next:c -> node03:data;
+        node03:next:c-> null;
+    }
+
+    subgraph cluster_循环链表 {
+        label = ""
+        peripheries = 0;
+
+        node1 [pos = "0, 0!"; label = "{<data> d&#8321; | <next> &#9679; }";];
+        node2 [pos = "1.2, 0!"; label = "{<data> d&#x2082; | <next> &#9679; }";];
+        node3 [pos = "2.4, 0!"; label = "{<data> d₃ | <next> &#9679; }";];
+
+        // 辅助点
+        node [shape = point; width = 0;];
+        A [pos = "-0.8, 0!";];    B [pos = "3.2, 0!";];
+        C [pos = "-0.8, -0.5!";]; D [pos = "3.2, -0.5!";];
+
+        edge [tailclip = false; arrowsize = 0.5;];
+        // 链表内部的连接
+        node1:next:c -> node2:data
+        node2:next:c -> node3:data
+  // 自定义回环路径
+        edge [arrowhead = none;];
+        node3:next:c -> B;
+        B -> D; D -> C; C -> A;
+        A -> node1:data [arrowhead = normal;];
     }
 }
 ```
 
 虽然有这么多的链表的结构，但是我们实际中最常用还是两种结构：
 
-![结构复杂度对比|650](https://zedo-img.netlify.app/img/dsa/ll/2.5-常用链表类型.png)
+```dot
+digraph List {
+    rankdir = "LR";
+    margin = 0;
+
+    label = "\n无头单向非循环链表";
+    labelloc = "b";
+    peripheries = 0;
+    node [shape = record; height = 0.3;];
+
+    node1 [label = "{<data> d₁| <next> &#9679;}";];
+    node2 [label = "{<data> d₂ | <next> &#9679;}";];
+    node3 [label = "{<data> d₃ | <next> &#9679;}";];
+
+    null [label = "NULL";shape = plaintext;];
+
+    edge [tailclip = false; arrowsize = 0.6;];
+    node1:next:c -> node2:data;
+    node2:next:c -> node3:data;
+    node3:next:c -> null;
+}
+```
+
+```dot
+digraph List {
+    layout = neato; // 使用 neato 或 fdp 引擎
+
+    label = "\n带头结点双向循环链表";
+    labelloc = "b";
+    labeljust = "c";
+    node [shape = record; width = 0.3; height = 0.3;];
+
+    rankdir = "LR"; // 让 data | next 水平排列
+
+    subgraph cluster_循环链表 {
+        label = ""
+        peripheries = 0;
+
+        d0 [pos = "0, 0!"; label = "{<prev> &#9679; | <data> head| <next> &#9679; }";];
+        d1 [pos = "1.5, 0!"; label = "{<prev> &#9679; | <data> d&#8321; | <next> &#9679; }";];
+        d2 [pos = "3.0, 0!"; label = "{<prev> &#9679; | <data> d&#8322; | <next> &#9679; }";];
+        d3 [pos = "4.5, 0!"; label = "{<prev> &#9679; | <data> d&#8323; | <next> &#9679; }";];
+
+        // 辅助点
+        node [shape = point; width = 0;];
+        A [pos = "-0.475, 0.5!";];  B [pos = "4.91, 0.5!";];
+        C [pos = "-0.475, -0.5!";]; D [pos = "4.91, -0.5!";];
+
+        edge [tailclip = false; arrowsize = 0.5;];
+        // 链表内部的连接，从左到右
+        d0:next:c -> d1:prev
+        d1:next:c -> d2:prev
+        d2:next:c -> d3:prev
+        // 绘制隐藏直线，使可见的弯曲
+        d0:next:c -> d1:prev [style=invis];
+        d1:next:c -> d2:prev [style=invis];
+        d2:next:c -> d3:prev [style=invis];
+
+        // 链表内部的连接，从右到左
+        d3:prev:c -> d2:next
+        d2:prev:c -> d1:next
+        d1:prev:c -> d0:next
+        d3:prev:c -> d2:next [style=invis];
+        d2:prev:c -> d1:next [style=invis];
+        d1:prev:c -> d0:next [style=invis];
+
+        // 自定义回环路径
+        edge [arrowhead = none;];
+        d0:prev:c -> A;
+        A -> B;
+        B -> d3:next [arrowhead = normal;];
+
+        d3:next:c -> D;
+        D -> C;
+        C -> d0:prev [arrowhead = normal;];
+    }
+}
+```
 
 1. 无头单向非循环链表：**结构简单**，一般不会单独用来存数据。实际中更多是作为**其他数据结构的子结构**，如哈希桶、图的邻接表等等。这种结构在考试、笔试和面试中出现很多。
 2. 带头双向循环链表：**结构最复杂**，一般用在单独存储数据。实际中使用的链表数据结构，都
@@ -260,7 +389,70 @@ typedef struct ListNode {
 
 这里给出图示加以区分：
 
-![头指针头结点|580](https://zedo-img.netlify.app/img/dsa/ll/2.6-头指针头结点.png)
+```dot
+digraph "链表示意图" {
+    rankdir = "LR";
+    margin = 0;
+    newrank=true;
+
+    subgraph cluster_main {
+        node [shape = plain; height = 0.4;];
+        peripheries = 0;
+
+        ppHead [label = "ppHead ";];
+        // head [label = "{<data> head| <next> &#9679; }";]; // shape = record 才可用
+        head [label = <
+            <table border="0" cellborder="1" cellspacing="0">
+                <tr>
+                <!-- <font point-size="10"><sub>n</sub></font> 效果不是很好 -->
+                <td width="24" height="24" port="data" bgcolor="lightblue" align="center">head</td>
+                <td width="24" height="24" port="next" align="right">&#9679;</td>
+                </tr>
+            </table>>;
+        ];
+
+        d1 [label = <
+            <table border="0" cellborder="1" cellspacing="0">
+                <tr>
+                <td width="24" height="24" port="data" bgcolor="lightblue">d&#8321;</td>
+                <td width="24" height="24" port="next" >&#9679;</td>
+                </tr>
+            </table>>;
+        ];
+
+        dots [label = "&#8226; &#8226; &#8226;";margin = 0;];
+
+        dn [label = <
+            <table border="0" cellborder="1" cellspacing="0">
+                <tr>
+                <td width="24" height="24" port="data" bgcolor="lightblue">dₙ</td>
+                <td width="24" height="24" port="next" >&#9679;</td>
+                </tr>
+            </table>>;
+        ];
+
+        edge [tailclip = false; arrowsize = 0.6;];
+        ppHead -> head [tailclip = true;];
+        head:next:c -> d1:data;
+        d1:next:c -> dots:w;
+        dots:e -> dn:w [arrowtail = dot; dir = both;];
+        dn:next:c -> "  NULL";
+    }
+
+    edge [arrowsize = 0.4; arrowhead = vee; color = "salmon";];
+    node [shape = plain;fontsize=11];
+
+    { rank = same; "头指针"; ppHead; }
+    { rank = same; "头结点"; head; }
+    { rank = same; "首元结点"; d1; }
+    { rank = same; "尾结点"; dn; }
+
+    "头指针" -> ppHead;
+    "头结点" -> head;
+    "首元结点" -> d1;
+    "尾结点" -> dn;
+}
+```
 
 有了头结点后，不论是首元结点还是普通结点，对它的删除和在它之前插入结点的操作统一起来了（下文会说明）。
 
