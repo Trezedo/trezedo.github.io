@@ -478,3 +478,18 @@ modified: 2026-03-21
 - 修复移动端 $\KaTeX$ 公式编号（`.tag`）遮挡公式内容（`.base`）的问题
 - 取消正文中链接的左右 `padding`，因为格式化后会在左右两端增加空格
 - 定义缺失的 `--bg-color-blur` 为目录增加主题背景色，使用毛玻璃模糊效果
+
+### 2026-03-27
+
+- 鼠标悬浮目录时再使背景模糊，避免影响阅读
+- 导航栏毛玻璃效果
+- `.katex-html` 样式美化：滚动条与默认的的保持一致、左侧适当增加 `padding`，使含 `\tag` 的较短公式视觉上更美观。
+
+### 2026-03-28
+
+- 更新至 vuepress@2.0.0-rc.27
+- 更新至 vuepress-theme-hope@2.0.0-rc.104
+- 启用 oxfmt 进行格式化，保留 prettier 对 markdown 的格式化功能，并格式化所有文件
+- 移除项目中的 `.{svg, dot}` 附件，改用 `dot` 代码块渲染
+- 维护项目根目录下的 `README.md`
+- 移除依赖 `katex`，改用 `@vuepress/plugin-markdown-math`
