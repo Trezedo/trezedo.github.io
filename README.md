@@ -1,16 +1,19 @@
-# Trezedo Blog
+# 📘 Trezedo Blog
 
-## 项目简介
+[![作者: Trezedo](https://img.shields.io/badge/作者-Trezedo-blue.svg?style=for-the-badge)](https://zedo.netlify.app)
+[![License: MIT](https://img.shields.io/badge/许可-MIT-blue.svg?style=for-the-badge)](https://github.com/trezedo/trezedo.github.io/blob/main/LICENSE)
+
+## ✨ 项目简介
 
 此仓库是一个基于 Vue 和 VuePress 的静态文档博客项目，包含自定义插件、样式和完整的个人笔记。
 项目创建于 2022 年，经过持续演进，已累积丰富的文档内容与生态扩展能力。
 
-### 环境要求
+### 🛠️ 环境要求
 
 - Node.js 22+
 - pnpm >= 10.0.0
 
-## 快速开始
+## 🚀 快速开始
 
 ```bash
 # 安装依赖（仅需首次）
@@ -26,7 +29,7 @@ pnpm docs:build
 pnpm preview
 ```
 
-## 可用脚本
+## ⚙️ 可用脚本
 
 | 命令                            | 说明                                            |
 | ------------------------------- | ----------------------------------------------- |
@@ -42,7 +45,7 @@ pnpm preview
 
 > 项目默认使用 oxfmt 进行格式化，同时仍然保留了 prettier，因为它对 Markdown 的格式化能力较好（尤其是表格）。
 
-## 项目结构
+## 📁 项目结构
 
 ```text
 .
@@ -70,7 +73,7 @@ pnpm preview
 └── ...其他配置文件
 ```
 
-## 技术栈
+## 🧰 技术栈
 
 - **核心框架**：Vue 3 + VuePress 2
 - **主题与插件**：
@@ -93,13 +96,13 @@ pnpm preview
     - `oxfmt`、`oxlint` - `prettier`（markdown 格式化）
     - Obsidian Lint 插件（功能更丰富）
 
-## 代码规范
+## 📐 代码规范
 
 - 使用 `pnpm lint` 进行静态检查
 - 使用 `pnpm fmt` 格式化代码
-- 提交前建议运行 `pnpm lint:fix` 自动修复可修复问题
+- 提交前建议运行 `pnpm fmt`
 
-## Obsidian 集成
+## 🗃️ Obsidian 集成
 
 本项目 `docs` 目录可直接作为 Obsidian 仓库打开。推荐启用以下社区插件（已在 `docs/.obsidian/community-plugins.json` 中声明）：
 
@@ -125,7 +128,7 @@ date: 2026-01-01
 # 文档标题
 ```
 
-## 自定义与扩展
+## 🔧 自定义与扩展
 
 基本遵从官方模板的文件结构：
 
@@ -133,9 +136,6 @@ date: 2026-01-01
 - **侧边栏/导航**：通过 `theme-hope` 的 `sidebar` 与 `navbar` 配置
 - **添加新文档**：在 `docs/` 下创建 `.md` 文件，并按照现有结构归类即可自动生成路由
 
-## 许可证
+## 📜 许可证
 
-本项目采用 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) 许可证。
-
-- 允许分享、转载、改编，但需要**署名**（注明作者及原文链接），且**不得用于商业用途**。
-- 如需商业使用，请联系作者 [trezedo@qq.com](mailto:trezedo@qq.com) 获取授权。
+本项目采用 [MIT](https://choosealicense.com/licenses/mit/) 许可证。
