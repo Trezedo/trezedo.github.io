@@ -1,0 +1,8 @@
+*.md linguist-documentation
+*.ts linguist-language=TypeScript
+*.js linguist-language=JavaScript
+*.vue linguist-language=Vue
+*.css linguist-language=CSS
+*.scss linguist-language=SCSS
+*.html linguist-language=HTML
+*.json linguist-language=JSON
