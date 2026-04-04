@@ -1,9 +1,8 @@
-import { onMounted, watch } from "vue";
-import { useRoute } from "vuepress/client";
+import { onMounted } from "vue";
+import { defineClientConfig } from "vuepress/client";
 
 import { disableDebugLog } from "@zedo";
 import { decoPlugin, reloadPagePlugin } from "@zedo/plugin-hooks/";
-import { defineClientConfig } from "vuepress/client";
 
 const handleDate = (date: Date) => {
     if (date?.toJSON() == null) {
@@ -32,14 +31,6 @@ async function noticeUpdateTime() {
     notice.textContent = date ? date + " 更新" : notice.textContent;
 }
 
-const makeCenterImgClass = () => {
-    document.querySelectorAll("p > img:only-child").forEach((e) => {
-        if (e.previousSibling == null) {
-            e.classList.add("center");
-        }
-    });
-};
-
 // https://v2.vuepress.vuejs.org/zh/advanced/cookbook/usage-of-client-config.html
 export default defineClientConfig({
     enhance({ app, router: _r, siteData: _s }) {
@@ -58,15 +49,6 @@ export default defineClientConfig({
         decoPlugin();
         reloadPagePlugin();
         onMounted(noticeUpdateTime);
-
-        onMounted(makeCenterImgClass);
-        const route = useRoute();
-        watch(
-            () => route.path,
-            () => {
-                setTimeout(makeCenterImgClass, 1000);
-            },
-        );
     },
     // 插入到 #app 的组件
     rootComponents: [],

@@ -17,24 +17,19 @@ img[src*="#s"] {
     }
 }
 
-// 通过 alt 来设置图片居中
+// 1.段落只有图片时默认居中，否则为行内图片；但由于 css 无法区分文本结点，配合 js 恢复为行内块
+// 2.通过设置 alt 包含 "center" 来设置图片居中
+p > img:only-child,
 img[alt*="center"] {
     display: block;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 // 图片与文字底部对齐
 p img {
     display: inline-block;
     vertical-align: text-bottom;
-}
-
-// 设置图片为默认居中
-p > img:only-child.center {
-    // 需要配合 js 处理，因为 css 没法区分文本结点
-    // 当 p 标签中只有唯一 img 才居中，否则为行内图片，不应处理
-    display: block;
-    margin: 0 auto;
 }
 
 // todo 用 js onload 事件实现
