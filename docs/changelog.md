@@ -493,3 +493,18 @@ modified: 2026-03-21
 - 移除项目中的 `.{svg, dot}` 附件，改用 `dot` 代码块渲染
 - 维护项目根目录下的 `README.md`
 - 移除依赖 `katex`，改用 `@vuepress/plugin-markdown-math`
+- 实现自定义变更日志提示框，可读取最新 changelog
+
+### 2026-04-04
+
+- 更新至 vuepress-theme-hope@2.0.0-rc.106
+- 搜索功能基本可用，但还是存在少量问题
+- CSS 设置图片默认居中
+
+### 2026-04-11
+
+- 以插件形式引入 notivue 通知组件
+- 初步重构 deco 插件，改用更规范的 vuepress 插件形式，移除 `/custom` 和 `/packages/plugin-deco` 目录
+- 引入 oxlint-tsgolint 以支持检查 typescript 类型
+- 统一修改插件名为 `plugin*`
+- 修复字体加粗异常
