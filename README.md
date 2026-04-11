@@ -93,7 +93,8 @@ pnpm preview
     - `mermaid`（图表）
     - `flowchart.ts`（流程图）
 - **代码质量**：
-    - `oxfmt`、`oxlint` - `prettier`（markdown 格式化）
+    - `oxfmt`、`oxlint`
+    - `prettier`（markdown 格式化）
     - Obsidian Lint 插件（功能更丰富）
 
 ## 📐 代码规范
