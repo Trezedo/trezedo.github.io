@@ -1,1 +1,1 @@
-export { graphvizPlugin } from "./node";
+export { pluginGraphviz } from "./node";

@@ -1,7 +1,7 @@
 import type { Plugin } from "vuepress/core";
 import { path } from "vuepress/utils";
 
-export const graphvizPlugin: Plugin = {
+export const pluginGraphviz: Plugin = {
     name: "vuepress-plugin-graphviz",
     clientConfigFile: path.resolve(__dirname, "../client/index.ts"),
 

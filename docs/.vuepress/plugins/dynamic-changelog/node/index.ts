@@ -14,7 +14,7 @@ const tempFilename = "latestChangelog.js";
  * 动态 changelog 插件
  * @param options 参数
  */
-export function dynamicChangelogPlugin(options: DynamicChangelogOptions = {}) {
+export function pluginDynamicChangelog(options: DynamicChangelogOptions = {}) {
     return (app: App): Plugin => {
         const changelogPath = path.join(app.dir.source(), options.changelogPath || "changelog.md");
         const headingLevel = options.headingLevel || 3;

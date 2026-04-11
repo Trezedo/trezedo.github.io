@@ -1,1 +1,1 @@
-export { dynamicChangelogPlugin } from "./node";
+export { pluginDynamicChangelog } from "./node";

@@ -1,1 +1,1 @@
-export { speechPlugin } from "./node";
+export { pluginSpeech } from "./node";
