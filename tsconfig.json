@@ -1,22 +1,24 @@
 {
-    "extends": "./tsconfig.base.json",
     "compilerOptions": {
         "module": "NodeNext",
         "moduleResolution": "NodeNext",
         "target": "es2022",
-        "baseUrl": "./",
         "paths": {
-            "@zedo": ["custom"], // 注意末尾不能有斜杠
-            "@zedo/*": ["custom/*"]
+            "@plugins": ["./plugins"], // 注意末尾不能有斜杠
+            "@plugins/*": ["./docs/.vuepress/plugins/*"] // vuepress 似乎不支持以别名形式导入插件，只能用相对路径
         },
-        "sourceMap": true,
-        "downlevelIteration": true,
-        "types": ["vuepress/client-types"],
-        "skipLibCheck": true,
+        "types": [
+            "vuepress/client-types" // https://v2.vuepress.vuejs.org/zh/reference/client-api.html#常量
+        ],
         "jsx": "preserve",
         "noUnusedLocals": false,
         "noUnusedParameters": false
     },
-    "include": ["./custom/**/*", "docs/.vuepress/**/*.ts", "docs/.vuepress/**/*.vue"],
+    "include": [
+        "docs/.vuepress/**/*.ts",
+        "docs/.vuepress/**/*.d.ts", // .d.ts` 是独立的扩展名，TypeScript glob 模式不会自动将 `.ts` 扩展到 `.d.ts`
+        "docs/.vuepress/**/*.vue",
+        "docs/.vuepress/**/*.tsx"
+    ],
     "exclude": ["node_modules"]
 }
