@@ -50,9 +50,15 @@ tag:
 
 #### 文本工具
 
+[Textify](https://ramensoftware.com/textify)：一款适用于 Windows 的工具，可以从原本不允许复制文本的对话框和控件中复制文本。（比如应用程序窗口标题、VB Script 的弹窗），采用鼠键结合进行复制。Github 地址：<https://github.com/m417z/Textify>
+
 [TextGO](https://github.com/C5H12O5/TextGO)![版本](https://img.shields.io/github/v/release/C5H12O5/TextGO?label=Release&color=blue)：TextGO 是一个跨平台的文本处理工具，能够识别文本类型并执行自定义动作，内置丰富的文本类型和处理动作，简单配置即可使用。
 
 [文本对比工具 - 1K Tools](https://1ktools.com/zh-cn/tools/text/text-diff)：文本差异对比在线 Web 工具，快速找出两段文本的修改、删除、新增内容，支持代码对比和高级对比选项。网络上同类型比较好用的。
+
+[魔曰（Abracadabra）](https://github.com/SheepChef/Abracadabra)：挺有意思的古文风文本加密工具，将数据加密为汉字构成的文言文，完全开源，易于部署，易于使用。在线体验：<https://abra.js.org/>
+
+[Hidden Word](https://github.com/Ackites/hidden-word)：一个基于 Unicode 的文本数字水印工具，用于在文本内容中嵌入不可见的版权标识和元数据信息。在线体验地址：<https://hidden-word.top/> （202604：目前域名过期不可用）
 
 ### 音视频工具
 
@@ -85,6 +91,8 @@ B 站外链播放器使用文档：<https://player.bilibili.com/>
 [飞鱼视频下载助手](https://www.feiyudo.com/extract)：视频网站解析，每日有使用次数限制
 
 ### 图片工具
+
+[灵猫看图](https://lmkt.tianruo.net/)：简单清爽的看图软件，界面简洁干净，无广告，无干扰，支持 100 多种文件格式。支持 Windows 和 macOS。内置了文本识别，类似微信截图的功能，个人使用体验还不错。
 
 [Snipaste](https://www.snipaste.com/)：开源、免费的截图工具，使用比较方便，支持贴图等功能。
 
