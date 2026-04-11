@@ -20,6 +20,9 @@
         "lint": "oxlint",
         "lint:fix": "oxlint --fix"
     },
+    "dependencies": {
+        "notivue": "^2.4.5"
+    },
     "devDependencies": {
         "@viz-js/viz": "^3.25.0",
         "@vue/repl": "^4.7.1",
