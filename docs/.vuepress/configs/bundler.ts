@@ -6,10 +6,6 @@ export default viteBundler({
         build: {
             // rollupOptions 已弃用，改为 rolldownOptions，但使用空配置也会触发 warning
         },
-
-        server: {
-            proxy: {},
-        },
     },
     vuePluginOptions: {
         template: {

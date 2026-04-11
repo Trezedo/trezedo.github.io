@@ -1,12 +1,14 @@
 import { defineUserConfig } from "vuepress";
 import { path } from "vuepress/utils";
 
-import { bundler, onInitialized } from "./configs";
+import { bundler } from "./configs";
 import {
-    dynamicChangelogPlugin,
-    graphvizPlugin,
+    pluginDeco,
+    pluginDynamicChangelog,
+    pluginGraphviz,
+    pluginNotivue,
+    pluginSpeech,
     registerComponents,
-    speechPlugin,
 } from "./plugins";
 import theme from "./theme";
 
@@ -39,15 +41,19 @@ export default defineUserConfig({
     },
 
     theme,
-    onInitialized: onInitialized,
+    onInitialized: (_) => {},
     plugins: [
         registerComponents,
-        graphvizPlugin,
-        speechPlugin,
-        dynamicChangelogPlugin({
+        pluginGraphviz,
+        pluginSpeech,
+        pluginDynamicChangelog({
             changelogPath: "changelog.md", // 自定义路径
             headingLevel: 3, // 提取最后一段 h3 的内容
         }),
+        pluginDeco({
+            img: "https://zedo-img.netlify.app/img/wallhaven-z8dg9y-lossy.png",
+        }),
+        pluginNotivue(),
     ],
 
     bundler: bundler,

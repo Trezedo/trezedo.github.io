@@ -137,6 +137,8 @@ export default hopeTheme({
         },
         notice: [],
         pwa: false,
-        slimsearch: true,
+        slimsearch: {
+            indexContent: true,
+        },
     },
 });
