@@ -15,6 +15,6 @@ $vp-font: "LXGW WenKai Medium, LXGW WenKai, sans-serif";
 $vp-font-heading: $vp-font;
 
 // @vuepress/helper/lib/client/styles/normalize.css 设置了 `font-synthesis: style;` 导致落霞孤鹜字体无法加粗
-body {
+body #app {
     font-synthesis-weight: auto;
 }
