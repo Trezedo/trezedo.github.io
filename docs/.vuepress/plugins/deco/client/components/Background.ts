@@ -1,13 +1,13 @@
 import { defineComponent, h } from "vue";
 
 export const Background = defineComponent({
-    name: "BackToTop",
+    name: "Background",
 
     setup() {
         return () =>
             h("div", {
                 id: "bg",
-                name: "back-to-top",
+                name: "background",
             });
     },
 });

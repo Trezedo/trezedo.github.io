@@ -1,0 +1,44 @@
+@keyframes t-anim {
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: 200%;
+    }
+}
+
+/* 打字机效果 */
+/* 打字机效果 - 单次播放 */
+:root {
+    --p-width: 40ch; /* 由 JS 动态设置，对应文字总宽度 */
+    --p-step: 20; /* 由 JS 动态设置，对应字符数 */
+    --p-duration: 8s;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--p-width);
+    }
+}
+
+@keyframes caret {
+    50% {
+        border-right-color: currentColor;
+    }
+}
+
+.typing {
+    display: inline-block;
+    width: var(--p-width);
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight: 500;
+    border-right: 2px solid transparent;
+    animation:
+        typing var(--p-duration) steps(var(--p-step)) forwards,
+        caret 0.5s steps(1) infinite;
+}

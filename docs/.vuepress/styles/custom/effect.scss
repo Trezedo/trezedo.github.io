@@ -42,48 +42,6 @@
     @include rainbow(1.5s);
 }
 
-@keyframes t-anim {
-    0% {
-        background-position: 0;
-    }
-
-    100% {
-        background-position: 200%;
-    }
-}
-
-/* 打字机效果 */
-:root {
-    --p-width: 40ch;
-    --p-step: 20;
-    --p-duration: 8s;
-}
-
-@keyframes typing {
-    from {
-        width: 0;
-    }
-}
-
-@keyframes caret {
-    50% {
-        border-right-color: currentColor;
-    }
-}
-
-.typing {
-    display: inline-block;
-    width: var(--p-width);
-    /* font: bold 200% Consolas, Monaco, monospace; */
-    overflow: hidden;
-    white-space: nowrap;
-    font-weight: 500;
-    border-right: 2px solid transparent;
-    animation:
-        typing var(--p-duration) steps(var(--p-step)) alternate infinite,
-        caret 0.5s steps(1) infinite;
-}
-
 :root {
     --faded-yellow: #fdf9d3;
     --faded-green: #e4ffee;
