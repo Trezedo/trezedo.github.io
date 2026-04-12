@@ -49,4 +49,4 @@ const count = ref(0)
 </template>
 ```
 
-@[code vue](../../../../custom/components/client/CurrentPageData.vue)
+@[code vue](@components/TTS.vue)

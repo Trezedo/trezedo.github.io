@@ -12,9 +12,6 @@ import {
 } from "./plugins";
 import theme from "./theme";
 
-// 这里的时间是构建时间，因为当前处于 nodejs 环境，其实也是可以做到 “不缓存” 的
-// const date: string = "?" + new Date().getTime();
-
 export default defineUserConfig({
     base: "/",
 
@@ -26,11 +23,7 @@ export default defineUserConfig({
         // ["script", { defer: true, src: "/assets/js/index.js" + date }],
     ],
     alias: {
-        "@zedo": path.resolve(__dirname, "../../custom/"),
-        "@theme-hope/components/NormalPage": path.resolve(
-            __dirname,
-            "../../custom/components/views/NormalPage.vue",
-        ),
+        "@components": path.resolve(__dirname, "./components"),
     },
     locales: {
         "/": {
@@ -59,4 +52,11 @@ export default defineUserConfig({
     bundler: bundler,
 
     clientConfigFile: path.resolve(__dirname, "./client.ts"),
+
+    markdown: {
+        importCode: {
+            handleImportPath: (str) =>
+                str.replace(/^@components/, path.resolve(__dirname, "./components")),
+        },
+    },
 });

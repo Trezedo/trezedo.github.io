@@ -47,5 +47,3 @@ projects:
       link: https://gitee.com/zedo/img
 tagline: 强中更有强中手，莫向人前满自夸。
 ---
-
-<BlogPageDos/>

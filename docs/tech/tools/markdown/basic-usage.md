@@ -13,8 +13,6 @@ tag:
 
 markdown 基础可以参看：<https://markdown.com.cn/>
 
-<CurrentPageData />
-
 简单介绍 Markdown 的基本使用以及在 VuePress 中的拓展
 
 <!-- more -->
@@ -37,7 +35,7 @@ $$ \frac 12 \int_a^b f(x)dx $$
 
 ### 导入代码
 
-@ [code vue](../../../../custom/components/client/CurrentPageData.vue)
+@[code vue](@components/TTS.vue)
 
 ::: code-tabs
 @tab linux
