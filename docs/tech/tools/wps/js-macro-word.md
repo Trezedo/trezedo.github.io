@@ -19,6 +19,17 @@ tag:
 - [WPS 开放平台（加载项）](https://open.wps.cn/previous/docs/client/wpsLoad)：多层 iframe 嵌套的 [文档](https://qn.cache.wpscdn.cn/encs/doc/office_v19/index.htm) ……分享链接不方便。
 - [WPS WebOffice 开放平台](https://solution.wps.cn/docs/client/api/Word/Document.html)：WebOffice 的可能不一定和 WPS JSA 的 API 完全一样。
 
+## 为什么不是 VBA？
+
+我认为主要有两个原因：
+
+1. 跨平台与国产环境
+   VBA 依赖 Windows COM 组件，在国产电脑（麒麟、UOS 等）上运行比较困难。而 WPS 原生支持的 JSA（JavaScript 宏）可在这些平台上直接运行，真正实现“一次编写，到处使用”。
+2. 语法与调试体验更好
+   JavaScript 语法上比 VB 灵活太多——正则表达式用 `/.../g` 直接写；回调函数可作为参数轻松传入；数组支持 `map` / `filter` 等高阶函数，代码简洁；随便打开浏览器按下 F12 就能调试 JS，比 VBA 那个老旧的编辑器高效数倍。
+
+当然，尽管现在有很多 VBA 能做的功能 JSA 尚且做不到，但对于绝大多数日常自动化、文本处理、跨平台场景，JSA 已经完全够用。
+
 ## 添加到自定义功能的方法
 
 ### 编写宏
@@ -117,13 +128,15 @@ function test() {
 
 :::
 
-## 公文字体格式化
+## 公文字体及段落格式
 
 这部分的函数可以复制粘贴到你自己的 `Normal.dotm` 中。
 
 如果经常从 DeepSeek 之类的 AI 中复制粘贴，这里的函数可以帮你减少手动调格式的工作量以及节省时间。
 
-定义通用函数：
+### 查找替换
+
+这里 `replaceWithFormat` 实际上就是执行查找替换，只不过写成函数了：
 
 ```js {21,22}
 /**
@@ -189,8 +202,6 @@ function replaceWithFormat(pattern, replacement, matchWildcards, fonts, paragrap
 }
 ```
 
-这里 `replaceWithFormat` 实际上就是执行查找替换，只不过写成函数了。
-
 > 查找替换这一部分强烈推荐观看 up 主“一闪流溢“”的合集：[《通配符查找替换》入门教程](https://space.bilibili.com/89039806/lists/952022/)
 
 ::: info
@@ -204,7 +215,9 @@ searchRange = getSearchRange(scope);
 
 :::
 
-按公文习惯设置段落和字体格式：
+### 段落和字体格式
+
+按公文习惯设置：
 
 ```js
 function 全文字体段落设置(_) {
@@ -214,25 +227,25 @@ function 全文字体段落设置(_) {
         const para = paras(i);
         // wdWithInTable = 12，判断是否在表格内；返回 0 表示不在表格中
         // 页眉页脚、文本框默认不会包含在段落中，只需另外处理嵌入型图片
-        if (para.Range.Information(wdWithInTable) == 0) {
-            // 字体
-            const font = para.Range.Font;
-            font.NameFarEast = "仿宋_GB2312";
-            font.NameAscii = "Times New Roman";
-            font.Size = 16;
-            font.Bold = false;
+        if (para.Range.Information(wdWithInTable) != 0) continue; // 在表格内，跳过该段落
 
-            // 段落
-            const pf = para.Range.ParagraphFormat;
-            pf.Style = ActiveDocument.Styles(wdStyleNormal);
-            pf.LineSpacingRule = wdLineSpaceExactly;
-            pf.LineSpacing = 29.3;
-            pf.CharacterUnitFirstLineIndent = 2;
-            pf.FirstLineIndent = 0;
-            pf.Alignment = wdAlignParagraphJustify;
-            pf.AddSpaceBetweenFarEastAndAlpha = -1;
-            pf.AddSpaceBetweenFarEastAndDigit = -1;
-        }
+        // 字体
+        const font = para.Range.Font;
+        font.NameFarEast = "仿宋_GB2312";
+        font.NameAscii = "Times New Roman";
+        font.Size = 16;
+        font.Bold = false;
+
+        // 段落
+        const pf = para.Range.ParagraphFormat;
+        pf.Style = ActiveDocument.Styles(wdStyleNormal);
+        pf.LineSpacingRule = wdLineSpaceExactly;
+        pf.LineSpacing = 29.3;
+        pf.CharacterUnitFirstLineIndent = 2;
+        pf.FirstLineIndent = 0;
+        pf.Alignment = wdAlignParagraphJustify;
+        pf.AddSpaceBetweenFarEastAndAlpha = -1;
+        pf.AddSpaceBetweenFarEastAndDigit = -1;
     }
 }
 
@@ -299,20 +312,20 @@ function 清除格式() {
 
 这里二级标题的格式化之所以说比较粗略，是因为 WPS 的通配符还是太弱了：
 
-1. 既不像正则表达式那样强大，又不像 MS Word 那样支持 `[。^13]` 和 `?` 语法（MS Word 中的 `^13` 相当于 WPS 中的 `^p`），`[。^p]` 会直接提示错误
+1. 既不像正则表达式那样强大，又不像 MS Word 那样支持 `[。^13]` 和 `?` 语法（MS Word 中的 `^13` 相当于 WPS 中的 `^p`），`[。^p]` 会直接提示错误。
 2. WPS 的 `*` 匹配默认是贪婪的（MS Word 的通配符 `?` 是非贪婪的）。
 3. 有的二级标题喜欢单独成段，有时又以句号结尾紧连着后文，在 WPS 中使用通配符就做不到两者兼顾。
 
 为了方便，这里 `格式化标题` 默认把第一段视为标题，所以只适用于简单的报告、请示等文体，不适用于函、呈批件等格式。另外，如果你的标题很长，建议用**软回车（Shift+Enter）换行**，而不是直接回车。
 
-### 图片
+## 嵌入式图片
 
 如果同时插入的图片比较多（$\geq 10$ 张），调整大小是比较头疼的，这段函数可以快速调整为统一的尺寸：
 
 ```js
 function 批量改图片尺寸() {
-    let promt = `请输入高*宽(cm)，0或省略表示自动比例\n例如 0*12.5 或 *12.5 表示\n保持当前比例将宽度设为 12.5cm`;
-    let size = InputBox(promt, "修改嵌入型图片尺寸");
+    let prompt = `请输入高*宽(cm)，0或省略表示自动比例\n例如 0*12.5 或 *12.5 表示\n保持当前比例将宽度设为 12.5cm`;
+    let size = InputBox(prompt, "修改嵌入型图片尺寸");
     if (size == "") return;
     let [h, w] = size.split("*").map((e) => +e.trim());
     let [hpt, wpt] = [h, w].map((n) => (n * 72) / 2.54);
@@ -342,12 +355,12 @@ function 格式化嵌入型图片() {
         const pf = shp.Range.ParagraphFormat;
         pf.Space1(); // 单倍行距
         // 以下用于判断段落中是否有其他文字
-        if (shp.Range.Paragraphs(1).Range.Text.trim() == "/") {
-            // "/" 是图片占位符
-            pf.Alignment = wdAlignParagraphCenter;
-            pf.CharacterUnitFirstLineIndent = 0;
-            pf.FirstLineIndent = 0;
-        }
+        // 如果不是纯图片则跳过居中设置，其中 "/" 是图片占位符
+        if (shp.Range.Paragraphs(1).Range.Text.trim() != "/") continue;
+
+        pf.Alignment = wdAlignParagraphCenter;
+        pf.CharacterUnitFirstLineIndent = 0;
+        pf.FirstLineIndent = 0;
     }
 }
 ```
@@ -359,7 +372,7 @@ function 格式化嵌入型图片() {
 3. `InlineShapes` 不会包含文本框、设置为文字环绕的浮动图片。
 4. 你也可以把这段函数的调用加在 `function 一键格式化()` 里面。
 
-## 编号
+## 自动编号
 
 有些时候自动编号会有些烦人，这个函数可以将动态的自动编号转为静态的：
 
@@ -375,6 +388,7 @@ function 自动编号转静态() {
 :::center
 
 ![动态编号选中的效果](https://zedo-img.netlify.app/img/2026-04/12195814.png#s-45) ![静态编号选中的效果](https://zedo-img.netlify.app/img/2026-04/12195948.png#s-45)
+
 :::
 
 ## 下步计划
