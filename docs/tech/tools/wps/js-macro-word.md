@@ -50,11 +50,11 @@ tag:
 
 依次点击左上角的“文件”——“选项”，打开选项面板，按下图提示操作即可：
 
-![自定义功能区演示](https://zedo-img.netlify.app/img/2026-04/12200807.png)
+![自定义功能区演示](https://zedo-img.netlify.app/img/2026-04/15221909.png)
 
 然后就可以在上方选项卡看到我们自定义的函数，只需要鼠标单击就能运行：
 
-![自定义功能示意](https://zedo-img.netlify.app/img/2026-04/12202614.png)
+![自定义功能示意](https://zedo-img.netlify.app/img/2026-04/15221818.png)
 
 ## 布局设置
 
@@ -68,12 +68,14 @@ tag:
  */
 function 设置页面布局() {
     const ps = ActiveDocument.PageSetup; // 获取页面设置对象
-    ps.TopMargin = CentimetersToPoints(3.7); // 上边距 3.7cm
-    ps.BottomMargin = CentimetersToPoints(3.5); // 下边距 3.5cm
-    ps.LeftMargin = CentimetersToPoints(2.8); // 左边距 2.8cm
-    ps.RightMargin = CentimetersToPoints(2.6); // 右边距 2.6cm
-    ps.HeaderDistance = CentimetersToPoints(1.5); // 页眉距纸张顶端 1.5cm
-    ps.FooterDistance = CentimetersToPoints(2.4); // 页脚距纸张底端 2.4cm
+    // 设置上下左右边距（厘米）
+    ps.TopMargin = CentimetersToPoints(3.7);
+    ps.BottomMargin = CentimetersToPoints(2.3);
+    ps.LeftMargin = CentimetersToPoints(2.8);
+    ps.RightMargin = CentimetersToPoints(2.3);
+    // 页眉页脚
+    ps.HeaderDistance = CentimetersToPoints(1.5); // 页眉距纸张顶端
+    ps.FooterDistance = CentimetersToPoints(2.4); // 页脚距纸张底端
 }
 ```
 
@@ -91,7 +93,7 @@ function CentimetersToPoints(cm) {
 
 ## 段落格式
 
-段落相关的属性非常之多，可以参考：[WPS开放平台 - ParagraphFormat](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/wps/ParagraphFormat/obj)
+段落相关的属性非常之多，可以参考引用 [^paragraph]。
 
 这里只给出个别比较常用的作为演示：
 
@@ -109,9 +111,9 @@ function 修改段落格式() {
     // 设置单倍行距
     pf.LineSpacingRule = wdLineSpaceSingle;
 
-    // 设置行距为固定值 28.95 磅
+    // 设置行距为固定值 29.3 磅
     pf.LineSpacingRule = wdLineSpaceExactly;
-    pf.LineSpacing = 28.95;
+    pf.LineSpacing = 29.3;
 }
 
 // 使用示例：
@@ -128,9 +130,21 @@ function test() {
 
 :::
 
-## 简单公文格式化
+## 简单公文排版
 
-如果经常从 DeepSeek 之类的 AI 中复制粘贴，这里的函数可以帮你减少手动调格式的工作量以及节省时间。
+在日常公文写作中，调整格式通常繁琐且耗时。为此，我整理了一套基于 WPS/Word 宏的一键格式化脚本，支持以下核心功能：
+
+- **全文统一格式**：中文仿宋\_GB 2312、西文 Times New Roman、三号字体、行间距 29.3 磅、首行缩进 2 字符，自动跳过表格内容。
+- **智能标题与层级**：将首段视为标题并设为方正小标宋简体、二号居中；支持“一、”“（一）”“1.”等三级标题的字体加粗或楷体转换。
+- **段旨句灵活加粗**：根据逗号数量和字数判断——短句整句加粗，长句仅加粗开头的“X 是”。
+- **抬头与主送机关**：自动识别并应用楷体、顶格。
+- **署名与成文日期**：自动查找文末的日期和署名，按公文规范右对齐并添加合适的空格。
+
+> **适用范围说明**：这里的“简单”指公文不包含版头、版记或者是大量表格、分栏、文本框等非复杂元素，适用于**结构简单、层级清晰的常用公文**（如请示、报告等）。当然，去掉版头版记的“复杂”文种的正文部分也可以用该脚本排版，只是做不到“一键”。
+
+只需运行 `一键格式化()` 宏，即可快速将草稿转化为符合要求的公文排版。下文详细列出了代码实现与使用注意事项。
+
+### 代码部分
 
 为了方便，定义清空格式的函数：
 
@@ -142,10 +156,14 @@ function 清除格式() {
 }
 ```
 
-因为基于通配符的查找替换实现二级标题的格式化比较粗略（见 [查找替换](#查找替换)）。这里就是要解决通配符不够“强大”的问题，使用正则表达式来匹配、判断：
+因为基于通配符的查找替换实现二级标题的格式化比较粗略（见下文 [查找替换](#查找替换)）。这里就是要解决通配符不够“强大”的问题，使用正则表达式来查找并处理：
 
 ```js
-function 正则替换(regexp, callback) {
+/*
+ * regexp 是正则表达式，应带有 "g" 标志
+ * callback 是回调函数，如 (range) => {...}
+ */
+function 正则查找处理(regexp, callback) {
     const doc = Application.ActiveDocument;
     const paras = doc.Paragraphs;
     // 确保有 g 标志
@@ -157,8 +175,11 @@ function 正则替换(regexp, callback) {
         const para = paras.Item(i);
         const paraRange = para.Range;
         const paraText = paraRange.Text;
-        const matches = [...paraText.matchAll(globalRegex)];
-        for (const match of matches) {
+        // 国产电脑用不了 matchAll，使用 exec 代替
+        // const matches = [...paraText.matchAll(globalRegex)];
+        // for (const match of matches) {
+        let match;
+        while ((match = globalRegex.exec(paraText)) !== null) {
             const startPos = paraRange.Start + match.index;
             const endPos = startPos + match[0].length;
             const matchedRange = doc.Range(startPos, endPos);
@@ -170,9 +191,9 @@ function 正则替换(regexp, callback) {
 
 按公文习惯设置：
 
-```js
+```js {42-43,65-67,89-90}
 /**
- * 全文仿宋_GB2312，三号字体，行间距 28.95 磅，首行缩进 2 字符
+ * 全文仿宋_GB2312，三号字体，行间距 29.3 磅，首行缩进 2 字符
  */
 function 全文字体段落设置(_) {
     // 可以直接修改 ActiveDocument.Content.ParagraphFormat，但此处需要跳过表格
@@ -194,7 +215,7 @@ function 全文字体段落设置(_) {
         const pf = para.Range.ParagraphFormat;
         pf.Style = ActiveDocument.Styles(wdStyleNormal); // 应用“正文”样式
         pf.LineSpacingRule = wdLineSpaceExactly;
-        pf.LineSpacing = 28.95;
+        pf.LineSpacing = 29.3;
         pf.CharacterUnitFirstLineIndent = 2; // 首行缩进（单位：字符），需要写在 FirstLineIndent 前面
         pf.FirstLineIndent = 0;
         pf.CharacterUnitLeftIndent = 0; // 左右缩进
@@ -208,8 +229,31 @@ function 全文字体段落设置(_) {
 }
 
 /**
+ * 根据段旨句内容决定加粗方式。
+ * 多于 2 个逗号或者超过一行 26 个字的不会被整句加粗。
+ */
+function 段旨句加粗(range) {
+    let r = Selection.Range; // 用于取得代码类型提示
+    r = range;
+    const text = r.Text; // 匹配的整句文本
+    const commaCount = (text.match(/，/g) || []).length; // 中文逗号个数
+
+    if (commaCount < 2 && text.length <= 26) {
+        // 整句加粗
+        r.Font.Bold = true;
+    } else {
+        // 只加粗开头的“X是”
+        const prefixMatch = text.match(/^[一二三四五六七八九十]是/);
+        if (prefixMatch) {
+            const prefix = prefixMatch[0];
+            const prefixRange = r.Parent.Range(r.Start, r.Start + prefix.length);
+            prefixRange.Font.Bold = true;
+        }
+    }
+}
+
+/**
  * 标题为方正小标宋简体，二号字体，居中对齐
- * @param {Paragraph} para - 标题所在段
  */
 function 格式化标题(para) {
     let titlePara = ActiveDocument.Paragraphs.Item(1); // 默认将第一段视为标题
@@ -221,59 +265,64 @@ function 格式化标题(para) {
     font.NameAscii = "Times New Roman";
     font.Size = 22; // 22 表示二号，16 表示三号，
 
-    const pf = range.ParagraphFormat; // 段落格式对象
+    const pf = range.ParagraphFormat;
     pf.Alignment = wdAlignParagraphCenter; // 居中对齐
     pf.CharacterUnitFirstLineIndent = 0;
     pf.FirstLineIndent = 0;
 }
 
 /**
- * 处理匹配到的文本范围，根据段旨句内容决定加粗方式
- * @param {Range} range - 例如“一是...。二是……。”
+ * 楷体、顶格（无首行缩进）
+ * 主送机关就是公文抬头
+ * 返回 false 表示没处理任何段落。
  */
-function 段旨句加粗(range) {
-    const text = range.Text; // 匹配的整段文本
-    const commaCount = (text.match(/，/g) || []).length; // 中文逗号个数
+function 处理抬头(range) {
+    // 全文仅处理一次，避免后续误判。若不需要可以注释改行。
+    if (Application.SalutationHandled) return false;
 
-    if (commaCount < 2 && text.length <= 26) {
-        // 整段加粗
-        range.Font.Bold = true;
-    } else {
-        // 否则只加粗开头的“X是”
-        const prefixMatch = text.match(/^[一二三四五六七八九十]是/);
-        if (prefixMatch) {
-            const prefix = prefixMatch[0];
-            const prefixRange = range.Parent.Range(range.Start, range.Start + prefix.length);
-            prefixRange.Font.Bold = true;
-        }
-    }
+    let r = Selection.Range; // 用于取得代码类型提示
+    r = range;
+    // 其上一段必须是空行
+    let previousPara = r.Paragraphs(1).Previous(1);
+    if (!previousPara || previousPara.Range.Text.trim() !== "") return false;
+    r.Font.NameFarEast = "楷体_GB2312";
+    r.Paragraphs(1).CharacterUnitFirstLineIndent = 0;
+    r.Paragraphs(1).FirstLineIndent = 0;
+    Application.SalutationHandled = true;
+    return true;
 }
 
 function 格式化层级标题(_) {
+    // 抬头（或主送机关）
+    正则查找处理(/^[^：]*、[^：]*：\r/g, (r) => {
+        Application.SalutationHandled = 处理抬头(r);
+    });
+    // 抬头不含顿号的情况
+    if (!Application.SalutationHandled) 正则查找处理(/^[^：]*：\r/g, 处理抬头);
+
     // 一级标题
-    正则替换(/^[一二三四五六七八九十]、.*?\r/g, (r) => {
+    正则查找处理(/^[一二三四五六七八九十]、.*?\r/g, (r) => {
         r.Font.NameFarEast = "黑体";
     });
+
     // 二级标题
-    正则替换(/^（[一二三四五六七八九十]）.*?(?:。|\r)/g, (r) => {
+    正则查找处理(/^（[一二三四五六七八九十]）.*?(?:。|\r)/g, (r) => {
         r.Font.NameFarEast = "楷体_GB2312";
+    });
+
+    // 三级标题（一般不用加粗）
+    正则查找处理(/^[0-9]{1,2}\..*?(?:。|\r)/g, (r) => {
+        r.Font.Bold = true;
     });
 
     // 段旨句
-    正则替换(/(?<=^|[。？！])[一二三四五六七八九十]是.*?。/g, 段旨句加粗);
-
-    // 主送机关
-    正则替换(/^[^：\r]*、[^：\r]*：\r/g, (r) => {
-        // 满足匹配的同时，还需要上 1 段是空行
-        let previousPara = r.Paragraphs(1).Previous(1);
-        if (!previousPara || previousPara.Range.Text.trim() !== "") return;
-        r.Font.NameFarEast = "楷体_GB2312";
-        r.Paragraphs(1).CharacterUnitFirstLineIndent = 0;
-        r.Paragraphs(1).FirstLineIndent = 0;
-    });
+    正则查找处理(/(?<=^|[。？！])[一二三四五六七八九十]是.*?。/g, 段旨句加粗);
 }
 
-function 格式化落款日期(_) {
+/**
+ * 署名（发文机关）、成文日期
+ */
+function 格式化署名日期(_) {
     const doc = Application.ActiveDocument;
     let datePara = null,
         unitPara = null;
@@ -287,7 +336,7 @@ function 格式化落款日期(_) {
             break;
         }
     }
-    if (!datePara || !unitPara) return MsgBox("未找到日期或落款单位。");
+    if (!datePara || !unitPara) return MsgBox("未找到成文日期或署名。");
 
     // 去除段落首位空白字符，使得多次运行的效果仍保持一致
     let unitText = unitPara.Range.Text.trim();
@@ -295,16 +344,16 @@ function 格式化落款日期(_) {
     // 等效长度：中文=2，半角（英文/数字/空格）=1
     const eqLen = (s) =>
         [...s].reduce((sum, cur) => sum + (/[\u0000-\u00ff]/.test(cur) ? 1 : 2), 0);
-    const unitEq = eqLen(unitText);
-    const dateEq = eqLen(dateText);
-
     const processPara = (para, text) => {
         if (!para || para.Range.Text.trim().length < 1) return;
         para.Range.Text = text;
         para.Alignment = wdAlignParagraphRight; // 右对齐
         para.WordWrap = 0; // 避免段落末尾空格不占空间
     };
-    const diff = Math.round(dateEq / 2 + 4 * 2 + 5 / 4 - unitEq / 2); // 中西文之间的间距大概 1/2 空格，总共5个
+
+    const unitLen = eqLen(unitText);
+    const dateLen = eqLen(dateText);
+    const diff = Math.round(dateLen / 2 + 4 * 2 + 5 / 4 - unitLen / 2); // 中西文之间的间距约为 1/2 半角空格，总共5个
     if (diff >= 0) {
         unitText = unitText + " ".repeat(diff) + "\r";
         dateText = dateText + " ".repeat(8) + "\r";
@@ -313,7 +362,7 @@ function 格式化落款日期(_) {
         dateText = dateText + " ".repeat(8 - diff) + "\r";
     }
     processPara(unitPara, unitText);
-    datePara = unitPara.Next(1); // 更新引用，因为手动添加了 "\r"，原引用失效
+    datePara = unitPara.Next(1); // 更新引用，因为手动添加了 "\r" 导致原引用失效
     processPara(datePara, dateText);
 }
 
@@ -323,21 +372,70 @@ function 一键格式化() {
     全文字体段落设置();
     格式化标题();
     格式化层级标题();
-    格式化落款日期();
+    格式化署名日期();
     Application.ScreenUpdating = true;
     Application.EnableEvents = true;
 }
 ```
 
-默认可运行的是不带参数的函数。这里给部分函数加了一个未使用的参数 `_`，例如 `格式化标题(_)`，是为了在点击“运行宏”的时候不出现在宏名列表中。
+### 相关说明
 
-`wdWithInTable` 常量用于判断所选内容是否位于表格中，参考文档：[WdInformation 枚举参考](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/wps/enum/WdInformation)
+::: info
 
-后面再补充测试用例及演示，还有实现具体细节。
+WPS 编辑器的类型提示不够完善，对 jsdoc 类型支持不够友好，所以本文使用了大量冗余定义来得到代码提示，例如以上高亮部分的 42-43 行：
 
-匹配二级标题的正则表达式：`/^（[一二三四五六七八九十]）.*?(?:。|$)/gm`，其中 `$` 就是字符串的末尾（不含 `\r`、`\n` 这些换行符），而在 WPS/Word 中每个段落默认以 `\r` 结尾，这里实际上就是按每段匹配，所以也可以改写为 `/^（[一二三四五六七八九十]）.*?(?:。|\r)/g`。
+```js :line-numbers=42
+let r = Selection.Range; // 用于取得代码类型提示
+r = range;
+```
 
-为了方便，这里 `格式化标题` 默认把第一段视为标题，所以只适用于简单公文文种，不适用于函、呈批件等格式。另外，如果你的标题很长，建议用**软回车（Shift+Enter）换行**，而不是直接回车。
+:::
+
+1. 默认可运行的是不带参数的函数。这里给部分函数加了一个未使用的参数 `_`，例如 `全文字体段落设置(_)`，是为了在点击“运行宏”的时候不出现在宏名列表中，但允许通过函数调用。
+2. `wdWithInTable` 常量用于判断所选内容是否位于表格中 [^table]。
+3. 匹配二级标题的正则表达式： `/^（[一二三四五六七八九十]）.*?(?:。|\r)/g`，在 WPS/Word 中每个段落默认以 `\r` 结尾，这里实际上就是按每段匹配，所以也可以改写为 `/^（[一二三四五六七八九十]）.*?(?:。|$)/gm`，其中 `$` 就是字符串的末尾（不含 `\r`、`\n` 这些换行符）[^正则边界断言]。
+4. 为了方便，这里 `格式化标题` 默认把第一段视为标题，所以只适用于简单公文文种，不适用于函、呈批件等格式。另外，如果你的标题很长，建议用**软回车（Shift+Enter）换行**，而不是直接回车。
+
+### 测试用例
+
+注意标题需要手动 Shift+Enter 换行：
+
+```text
+关于公文结构测试用例的说明
+标题用Shift+Enter换行  确保属于相同段落
+本文件仅用于演示格式化功能
+
+（抬头称谓）所有浏览此文章的读者：
+发文事由（或者“导语”）。请注意，以下格式混乱，仅作测试之用：
+一、一级标题，可能包含句号，也可以没有
+（一）二级标题
+这里是正文主体下的内容。内容无特殊标记，此处二级标题后直接换行。
+（二）含句号的二级标题。
+这里比起上面多了个句号。
+（三）不换行的二级标题。此处标题包含句号且与内容紧连着。这里是正文主体下的内容，没有换行，直接跟着标题。
+二、第二个一级标题，或者说第二大点。
+（一）第二大点比第一大点多了个句号。
+1.三级标题。一般情况下不用加粗，这里加粗是为了演示。该层级与一级标题比较类似，只是把中文改成了阿拉伯数字，但其正则表达式实际上是修改二级标题的得到的。
+2.换行的三级标题
+这一风格和二级标题的判断比较像——三级标题后换行，只要放在开头就不会被误认为正文。注意：本文档默认匹配全角标点。
+此处为无标题的段落插入：直接一段文字，这里应该不会有任何不同于正文的格式。
+（二）另一些常用的？
+测试常用的“一是、二是”这种段旨句：
+一是直接加粗“一是”，这种句子可能非常长，且包含2个及以上逗号或者字数超过一行（这里认为一行28个字，减去缩进2字符，即26个字，不考虑西文）。二是内容较短的直接整句加粗。这种不包含逗号，加粗就完事了。三是内容比较长，但是只有一个逗号或者不超过1行的。这种通常也会被认为是“对仗”的小标题，整句加粗。
+四是这段文字长度刚好二十六字的结构应该整句都被加粗。
+五是这段文字长度超过二十六字的结构不应该整句都被加粗。
+六是测试，包含两个逗号的，不应该整句都被加粗。
+三、署名、成文日期和印章
+默认公文加盖印章：成文日期右空四字编排（这里用8个半角空格），署名以成文日期为准居中编排（大差不差就行了）。
+
+
+Trezedo
+2026年4月XX日
+```
+
+运行效果：
+
+![格式化运行效果展示](https://zedo-img.netlify.app/img/2026-04/15223045-格式化演示.gif)
 
 ## 嵌入式图片
 
@@ -349,7 +447,7 @@ function 批量改图片尺寸() {
     let size = InputBox(prompt, "修改嵌入型图片尺寸");
     if (size == "") return;
     let [h, w] = size.split("*").map((e) => +e.trim());
-    let [hpt, wpt] = [h, w].map((n) => (n * 72) / 2.54);
+    let [hpt, wpt] = [h, w].map((n) => n * (72 / 2.54));
     let count = ActiveDocument.InlineShapes.Count;
     for (let i = 1; i <= count; i++) {
         let shp = ActiveDocument.InlineShapes.Item(i);
@@ -398,6 +496,10 @@ function 格式化嵌入型图片() {
 有些时候自动编号会有些烦人，这个函数可以将动态的自动编号转为静态的：
 
 ```js
+/**
+ * 将选中部分的动态编号列表转为静态
+ * 不选中内容则全文转换
+ */
 function 自动编号转静态() {
     let range = Selection.Type === wdSelectionIP ? ActiveDocument.Content : Selection.Range;
     range.ListFormat.ConvertNumbersToText();
@@ -414,13 +516,7 @@ function 自动编号转静态() {
 
 ## 查找替换
 
-其实最初公文格式化的函数就是用通配符查找替换实现的。但这里二级标题的格式化，使用通配符几乎匹配不到，因为 WPS 的通配符还是太弱了：
-
-1. 既不像正则表达式那样强大，又不像 MS Word 那样支持 `[。^13]` 和 `?` 语法（MS Word 中的 `^13` 相当于 WPS 中的 `^p`），`[。^p]` 会直接提示错误。
-2. WPS 的 `*` 匹配默认是贪婪的（MS Word 的通配符 `?` 是非贪婪的）。
-3. 有的二级标题喜欢单独成段，有时又以句号结尾紧连着后文，在 WPS 中使用通配符就做不到两者兼顾。
-
-以下是写成函数的查找替换：
+以下是函数形式的查找替换：
 
 ```js {21,22}
 /**
@@ -486,19 +582,17 @@ function replaceWithFormat(pattern, replacement, matchWildcards, fonts, paragrap
 }
 ```
 
-> 查找替换这一部分强烈推荐观看 up 主“一闪流溢“”的合集：[《通配符查找替换》入门教程](https://space.bilibili.com/89039806/lists/952022/)
+> 查找替换这一部分强烈推荐观看 up 主“一闪流溢“”的合集 [^查找替换视频合集]。
 
-::: info
+最初 [简单公文排版](#简单公文排版) 其实是用通配符查找替换实现的。
 
-WPS 编辑器的类型提示不够完善，对 jsdoc 类型支持不够友好，所以这里 `replaceWithFormat` 函数用了一个冗余的定义（`Selection.Range`）来得到代码提示：
+但对于二级标题的格式化，使用通配符匹配健壮性不强，因为 WPS 的通配符太弱了：
 
-```js
-let searchRange = Selection.Range; // 仅用于代码提示
-searchRange = getSearchRange(scope);
-```
+1. 既不像正则表达式那样强大，又不像 MS Word 那样支持 `[。^13]` 语法（MS Word 中的 `^13` 相当于 WPS 中的 `^p`），`[。^p]` 会直接提示错误。
+2. 通配符的 `*` 匹配默认是贪婪的。
+3. 有的二级标题喜欢单独成段，有时又以句号结尾紧连着后文，使用通配符做不到两者兼顾。
 
-:::
-最初的格式化层级标题功能实现（比较粗略）：
+较粗略的格式化层级标题功能实现：
 
 ```js
 function 格式化层级标题() {
@@ -525,7 +619,11 @@ function 格式化层级标题() {
 }
 ```
 
-## 下步计划
+## 未完待续
+
+其实还有很多功能，等遇到需求了、代码成熟了再记录一下。尤其是 Word 表格处理、（反向）邮件合并、题目排版相关的。
+
+## 参考
 
 有一些帖子写的挺好的，有时间再~~参考一下~~（doge）
 
@@ -533,3 +631,11 @@ function 格式化层级标题() {
 
 <!-- https://forum.wps.cn/topic/62814 -->
 <!-- https://forum.wps.cn/topic/65963 -->
+
+[^paragraph]: [ParagraphFormat - WPS开放平台](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/wps/ParagraphFormat/obj)
+
+[^table]: [WdInformation 枚举参考 - WPS开放平台](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/wps/enum/WdInformation)
+
+[^正则边界断言]: [输入边界断言：^、$ - MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion)
+
+[^查找替换视频合集]: [《通配符查找替换》入门教程 - 哔哩哔哩](https://space.bilibili.com/89039806/lists/952022/)
