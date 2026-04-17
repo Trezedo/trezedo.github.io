@@ -5,5 +5,5 @@
 *.scss linguist-language=SCSS
 
 # 从语言统计中排除
-docs/.obsidian/** linguist-vendored
-public/** linguist-vendored
+docs/.obsidian/ linguist-vendored
+public/ linguist-vendored
