@@ -1,44 +1,15 @@
 .idea
-.cache
-.temp
+
+dist/
+node_modules/
 
 # vuepress
-config.ts.*
-
-# npm
-node_modules
-npm-debug.log*
-.npm
-
-# yarn
-yarn-debug.log*
-yarn-error.log*
-# yarn v3
-.yarn
-.yarnrc.yml
-
-# pnpm
-pnpm-debug.log*
-
-# output
-dist
-packages/**/lib/
-
-# typescript build info
-*.tsbuildinfo
-
-# Logs
-logs
-*.log
-
-# 尽量不使用 svg 图片（转 png）
-docs/**/img/*.svg
-!docs/**/img/*.keep.svg
+docs/.vuepress/.cache
+docs/.vuepress/.temp
+# 临时配置文件
+docs/.vuepress/config.ts.*
 
 # 忽略工作区布局文件（如 workspace, workspace.json, workspace-mobile.json 等）
 /**/.obsidian/workspace*
 # 忽略插件本体（只保留插件列表）
 /**/.obsidian/plugins/
-
-# Diagnostic reports (https://nodejs.org/api/report.html)
-report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
