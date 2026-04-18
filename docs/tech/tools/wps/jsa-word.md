@@ -2,59 +2,18 @@
 icon: vscode-icons:file-type-word
 date: 2026-04-08
 category:
-    - jsa
-    - wps
+  - jsa
+  - wps
 tag:
-    - javascript
-    - word
+  - javascript
+  - word
 ---
 
-# WPS JS 宏：常用 Word 宏片段
+# WPS JSA：Word 篇
 
 本文的宏多数根据 WPS 自带的录制功能所得代码进行修改，去除冗余、加上注释、修改为类型提示友好的代码风格。
 
-可参考的文档：
-
-- [WPS 开放平台（wps365）](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/wps/Application/obj)：比较全面，链接能具体到某个 API 参考对象。
-- [WPS 开放平台（加载项）](https://open.wps.cn/previous/docs/client/wpsLoad)：多层 iframe 嵌套的 [文档](https://qn.cache.wpscdn.cn/encs/doc/office_v19/index.htm) ……分享链接不方便。
-- [WPS WebOffice 开放平台](https://solution.wps.cn/docs/client/api/Word/Document.html)：WebOffice 的可能不一定和 WPS JSA 的 API 完全一样。
-
-## 为什么不是 VBA？
-
-我认为主要有两个原因：
-
-1. 跨平台与国产环境
-   VBA 依赖 Windows COM 组件，在国产电脑（麒麟、UOS 等）上运行比较困难。而 WPS 原生支持的 JSA（JavaScript 宏）可在这些平台上直接运行，真正实现“一次编写，到处使用”。
-2. 语法与调试体验更好
-   JavaScript 语法上比 VB 灵活太多——正则表达式用 `/.../g` 直接写；回调函数可作为参数轻松传入；数组支持 `map` / `filter` 等高阶函数，代码简洁；随便打开浏览器按下 F12 就能调试 JS，比 VBA 那个老旧的编辑器高效数倍。
-
-当然，尽管现在有很多 VBA 能做的功能 JSA 尚且做不到，但对于绝大多数日常自动化、文本处理、跨平台场景，JSA 已经完全够用。
-
-## 添加到自定义功能的方法
-
-### 编写宏
-
-首先任意打开一个 Word 文件，上方依次点开“工具”——“开发工具”——“WPS 宏编辑器”：
-
-![WPS宏编辑器](https://zedo-img.netlify.app/img/2026-04/12201926.png)
-
-如果用的是 VBA，还需要手动切换到 JS 环境：![切换到JS环境按钮](https://zedo-img.netlify.app/img/2026-04/12201804.png)
-
-在编辑器窗口中找到到 `Normal.dotm` 的代码部分，右键新建模块，然后在右侧编写、粘贴代码就行了：
-
-![添加宏示意](https://zedo-img.netlify.app/img/2026-04/12201609.png)
-
-### 快捷运行宏
-
-每次都要打开宏编辑器执行函数是比较麻烦的，好在 WPS 支持添加自定义功能。以下是添加步骤：
-
-依次点击左上角的“文件”——“选项”，打开选项面板，按下图提示操作即可：
-
-![自定义功能区演示](https://zedo-img.netlify.app/img/2026-04/15221909.png)
-
-然后就可以在上方选项卡看到我们自定义的函数，只需要鼠标单击就能运行：
-
-![自定义功能示意](https://zedo-img.netlify.app/img/2026-04/15221818.png)
+如果你是第一次使用 JS 宏，建议先阅读 [WPS JSA 宏基础](./jsa-basic.md)。
 
 ## 布局设置
 
@@ -76,18 +35,6 @@ function 设置页面布局() {
     // 页眉页脚
     ps.HeaderDistance = CentimetersToPoints(1.5); // 页眉距纸张顶端
     ps.FooterDistance = CentimetersToPoints(2.4); // 页脚距纸张底端
-}
-```
-
-有的 WPS 版本可能用不了 `CentimetersToPoints`，可以这样定义：
-
-```js
-/**
- * 厘米转磅值
- * 1 磅 (pt） = 1/72 英寸 (inch)，而 1 英寸 = 2.54 厘米（精确值）
- */
-function CentimetersToPoints(cm) {
-    return cm * (72 / 2.54);
 }
 ```
 
@@ -135,7 +82,7 @@ function test() {
 在日常公文写作中，调整格式通常繁琐且耗时。为此，我整理了一套基于 WPS/Word 宏的一键格式化脚本，支持以下核心功能：
 
 - **全文统一格式**：中文仿宋\_GB 2312、西文 Times New Roman、三号字体、行间距 29.3 磅、首行缩进 2 字符，自动跳过表格内容。
-- **智能标题与层级**：将首段视为标题并设为方正小标宋简体、二号居中；支持“一、”“（一）”“1.”等三级标题的字体加粗或楷体转换。
+- **智能标题与层级**：将首段视为标题并设为方正小标宋简体、二号居中；支持“一、”“（一）”“1.”等结构层次的字体加粗或楷体转换。
 - **段旨句灵活加粗**：根据逗号数量和字数判断——短句整句加粗，长句仅加粗开头的“X 是”。
 - **抬头与主送机关**：自动识别并应用楷体、顶格。
 - **署名与成文日期**：自动查找文末的日期和署名，按公文规范右对齐并添加合适的空格。
@@ -143,6 +90,51 @@ function test() {
 > **适用范围说明**：这里的“简单”指公文不包含版头、版记或者是大量表格、分栏、文本框等非复杂元素，适用于**结构简单、层级清晰的常用公文**（如请示、报告等）。当然，去掉版头版记的“复杂”文种的正文部分也可以用该脚本排版，只是做不到“一键”。
 
 只需运行 `一键格式化()` 宏，即可快速将草稿转化为符合要求的公文排版。下文详细列出了代码实现与使用注意事项。
+
+### 效果展示
+
+先看运行效果：
+
+![格式化运行效果展示](https://zedo-img.netlify.app/img/2026-04/15223045-格式化演示.gif)
+
+以下是测试用例，注意标题需要手动 Shift+Enter 换行：
+
+```text
+关于公文结构测试用例的说明
+标题用Shift+Enter换行  确保属于相同段落
+本文件仅用于演示格式化功能
+
+（抬头称谓）所有浏览此文章的读者：
+发文事由（或者“导语”）。请注意，以下格式混乱，仅作测试之用：
+一、一级标题，可能包含句号，也可以没有
+（一）二级标题
+这里是正文主体下的内容。内容无特殊标记，此处二级标题后直接换行。
+（二）含句号的二级标题。
+这里比起上面多了个句号。
+（三）不换行的二级标题。此处标题包含句号且与内容紧连着。这里是正文主体下的内容，没有换行，直接跟着标题。
+二、第二个一级标题，或者说第二大点。
+（一）第二大点比第一大点多了个句号。
+1.三级标题。一般情况下不用加粗，这里加粗是为了演示。该层级与一级标题比较类似，只是把中文改成了阿拉伯数字，但其正则表达式实际上是修改二级标题的得到的。
+2.换行的三级标题
+这一风格和二级标题的判断比较像——三级标题后换行，只要放在开头就不会被误认为正文。注意：本文档默认匹配全角标点。
+此处为无标题的段落插入：直接一段文字，这里应该不会有任何不同于正文的格式。
+（二）另一些常用的？
+测试常用的“一是、二是”这种段旨句：
+一是直接加粗“一是”，这种句子可能非常长，且包含2个及以上逗号或者字数超过一行（这里认为一行28个字，减去缩进2字符，即26个字，不考虑西文）。二是内容较短的直接整句加粗。这种不包含逗号，加粗就完事了。三是内容比较长，但是只有一个逗号或者不超过1行的。这种通常也会被认为是“对仗”的小标题，整句加粗。
+四是这段文字长度刚好二十六字的结构应该整句都被加粗。
+五是这段文字长度超过二十六字的结构不应该整句都被加粗。
+六是测试，包含两个逗号的，不应该整句都被加粗。
+三、署名、成文日期和印章
+默认公文加盖印章：成文日期右空四字编排（这里用8个半角空格），署名以成文日期为准居中编排（大差不差就行了）。
+
+
+Trezedo
+2026年4月XX日
+```
+
+格式化效果静态展示：
+
+![16000628.png](https://zedo-img.netlify.app/img/2026-04/16000628.png)
 
 ### 代码部分
 
@@ -353,6 +345,7 @@ function 格式化署名日期(_) {
 
     const unitLen = eqLen(unitText);
     const dateLen = eqLen(dateText);
+
     const diff = Math.round(dateLen / 2 + 4 * 2 + 5 / 4 - unitLen / 2); // 中西文之间的间距约为 1/2 半角空格，总共5个
     if (diff >= 0) {
         unitText = unitText + " ".repeat(diff) + "\r";
@@ -380,64 +373,13 @@ function 一键格式化() {
 
 ### 相关说明
 
-::: info
+1. `wdWithInTable` 常量用于判断所选内容是否位于表格中 [^table]。
+2. 匹配二级标题的正则表达式： `/^（[一二三四五六七八九十]）.*?(?:。|\r)/g`，在 WPS/Word 中每个段落默认以 `\r` 结尾，这里实际上就是按每段匹配，所以也可以改写为 `/^（[一二三四五六七八九十]）.*?(?:。|$)/gm`，其中 `$` 就是字符串的末尾（不含 `\r`、`\n` 这些换行符）[^正则边界断言]。
+3. 为了方便，这里 `格式化标题` 默认把第一段视为标题，所以只适用于简单公文文种，不适用于函、呈批件等格式。另外，如果你的标题很长，建议用**软回车（Shift+Enter）换行**，而不是直接回车。
 
-WPS 编辑器的类型提示不够完善，对 jsdoc 类型支持不够友好，所以本文使用了大量冗余定义来得到代码提示，例如以上高亮部分的 42-43 行：
+## 图片
 
-```js :line-numbers=42
-let r = Selection.Range; // 用于取得代码类型提示
-r = range;
-```
-
-:::
-
-1. 默认可运行的是不带参数的函数。这里给部分函数加了一个未使用的参数 `_`，例如 `全文字体段落设置(_)`，是为了在点击“运行宏”的时候不出现在宏名列表中，但允许通过函数调用。
-2. `wdWithInTable` 常量用于判断所选内容是否位于表格中 [^table]。
-3. 匹配二级标题的正则表达式： `/^（[一二三四五六七八九十]）.*?(?:。|\r)/g`，在 WPS/Word 中每个段落默认以 `\r` 结尾，这里实际上就是按每段匹配，所以也可以改写为 `/^（[一二三四五六七八九十]）.*?(?:。|$)/gm`，其中 `$` 就是字符串的末尾（不含 `\r`、`\n` 这些换行符）[^正则边界断言]。
-4. 为了方便，这里 `格式化标题` 默认把第一段视为标题，所以只适用于简单公文文种，不适用于函、呈批件等格式。另外，如果你的标题很长，建议用**软回车（Shift+Enter）换行**，而不是直接回车。
-
-### 测试用例
-
-注意标题需要手动 Shift+Enter 换行：
-
-```text
-关于公文结构测试用例的说明
-标题用Shift+Enter换行  确保属于相同段落
-本文件仅用于演示格式化功能
-
-（抬头称谓）所有浏览此文章的读者：
-发文事由（或者“导语”）。请注意，以下格式混乱，仅作测试之用：
-一、一级标题，可能包含句号，也可以没有
-（一）二级标题
-这里是正文主体下的内容。内容无特殊标记，此处二级标题后直接换行。
-（二）含句号的二级标题。
-这里比起上面多了个句号。
-（三）不换行的二级标题。此处标题包含句号且与内容紧连着。这里是正文主体下的内容，没有换行，直接跟着标题。
-二、第二个一级标题，或者说第二大点。
-（一）第二大点比第一大点多了个句号。
-1.三级标题。一般情况下不用加粗，这里加粗是为了演示。该层级与一级标题比较类似，只是把中文改成了阿拉伯数字，但其正则表达式实际上是修改二级标题的得到的。
-2.换行的三级标题
-这一风格和二级标题的判断比较像——三级标题后换行，只要放在开头就不会被误认为正文。注意：本文档默认匹配全角标点。
-此处为无标题的段落插入：直接一段文字，这里应该不会有任何不同于正文的格式。
-（二）另一些常用的？
-测试常用的“一是、二是”这种段旨句：
-一是直接加粗“一是”，这种句子可能非常长，且包含2个及以上逗号或者字数超过一行（这里认为一行28个字，减去缩进2字符，即26个字，不考虑西文）。二是内容较短的直接整句加粗。这种不包含逗号，加粗就完事了。三是内容比较长，但是只有一个逗号或者不超过1行的。这种通常也会被认为是“对仗”的小标题，整句加粗。
-四是这段文字长度刚好二十六字的结构应该整句都被加粗。
-五是这段文字长度超过二十六字的结构不应该整句都被加粗。
-六是测试，包含两个逗号的，不应该整句都被加粗。
-三、署名、成文日期和印章
-默认公文加盖印章：成文日期右空四字编排（这里用8个半角空格），署名以成文日期为准居中编排（大差不差就行了）。
-
-
-Trezedo
-2026年4月XX日
-```
-
-运行效果：
-
-![格式化运行效果展示](https://zedo-img.netlify.app/img/2026-04/15223045-格式化演示.gif)
-
-## 嵌入式图片
+### 批量调整尺寸
 
 如果同时插入的图片比较多（$\geq 10$ 张），调整大小是比较头疼的，这段函数可以快速调整为统一的尺寸：
 
@@ -459,6 +401,8 @@ function 批量改图片尺寸() {
     MsgBox("共修改" + count + "张图片");
 }
 ```
+
+### 格式化嵌入型图片
 
 当我们手动设置全文的行间距为固定值时，需要把图片还原为单倍行距，否则图片会显示不全：
 
@@ -491,7 +435,45 @@ function 格式化嵌入型图片() {
 3. `InlineShapes` 不会包含文本框、设置为文字环绕的浮动图片。
 4. 你也可以把这段函数的调用加在 `function 一键格式化()` 里面。
 
-## 自动编号
+### 压缩图片
+
+此处调用内置的压缩图片功能：
+[Application.CommandBars](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/wps/Application/member/CommandBars) 、[文字 idMso 参考](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/idmso-list/wps-idmso-reference)
+
+```js
+function 压缩图片() {
+    Application.CommandBars.ExecuteMso("PicturesCompress");
+}
+```
+
+### 导出图片
+
+不用把 `doc(x)` 改成 `zip` 后缀，再进压缩包找图片资源了：
+
+```js
+function 导出所有图片() {
+    let saveRootPath = Env.GetDesktopPath() + "/压缩图片/";
+    try {
+        // 默认导出到桌面
+        MkDir(saveRootPath);
+    } catch (e) {}
+    let saveName;
+    for (let i = 1; i <= ActiveDocument.InlineShapes.Count; i++) {
+        let p = ActiveDocument.InlineShapes.Item(i);
+        // 图片导入时的原始名称
+        let imgPath = (p.LinkFormat && p.LinkFormat.SourceFullName) || p.AlternativeText;
+        saveName = imgPath + "_compressed.png";
+        p.SaveAsPicture(saveRootPath + saveName);
+    }
+    MsgBox("已保存到文件夹：" + saveRootPath + "\n" + saveName);
+}
+```
+
+> 如果办公环境有水印系统，改后缀的方式得到的压缩包一般是打不开的。该函数导出的图片通常不带水印。
+
+## 域
+
+### 自动编号
 
 有些时候自动编号会有些烦人，这个函数可以将动态的自动编号转为静态的：
 
@@ -510,7 +492,7 @@ function 自动编号转静态() {
 
 :::center
 
-![动态编号选中的效果](https://zedo-img.netlify.app/img/2026-04/12195814.png#s-45) ![静态编号选中的效果](https://zedo-img.netlify.app/img/2026-04/12195948.png#s-45)
+![动态编号选中的效果](https://zedo-img.netlify.app/img/2026-04/12195814.png#s-48) ![静态编号选中的效果](https://zedo-img.netlify.app/img/2026-04/12195948.png#s-48)
 
 :::
 
@@ -619,6 +601,58 @@ function 格式化层级标题() {
 }
 ```
 
+## 页码
+
+高亮的 `textRange` 部分参考了 [^页码]：
+
+```js {22,29-31}
+function 添加页码() {
+    const footers = ActiveDocument.Sections.Item(1).Footers;
+    footers.Item(wdHeaderFooterPrimary).Range.ShapeRange.Delete(); // 删除footer
+    footers.Item(wdHeaderFooterEvenPages).Range.ShapeRange.Delete(); // 删除双数页脚
+
+    let footer = ActiveDocument.Sections.Item(1).Footers.Item(wdHeaderFooterPrimary);
+    footer.Shapes.AddTextbox(msoTextOrientationHorizontal, 0, 0, 144, 144, footer.Range);
+    const shape = footer.Shapes.Item(1);
+    shape.Fill.Visible = msoFalse;
+    shape.Line.Visible = msoFalse;
+
+    const textFrame = shape.TextFrame;
+    textFrame.AutoSize = 1;
+    textFrame.WordWrap = 0;
+    textFrame.MarginLeft = 0;
+    textFrame.MarginRight = 0;
+    textFrame.MarginTop = 0;
+    textFrame.MarginBottom = 0;
+    textFrame.Orientation = msoTextOrientationHorizontal;
+
+    shape.RelativeHorizontalPosition = wdRelativeHorizontalPositionMargin;
+    shape.Left = -999993;
+    shape.RelativeVerticalPosition = wdRelativeVerticalPositionParagraph;
+    shape.Top = 0;
+    shape.WrapFormat.Type = wdWrapNone;
+
+    const textRange = shape.TextFrame.TextRange;
+    textRange.Text = "— X —";
+    // textRange.Characters.Item(3) 就是页码 "X"；
+    // 保留横线和空格的前提下，只把中间的占位符“X”替换成真正的页码数字
+    textRange.Fields.Add(textRange.Characters.Item(3), wdFieldPage, "", true);
+    textRange.Font.Name = "宋体";
+    textRange.Font.Size = 14;
+    footer.PageNumbers.NumberStyle = wdPageNumberStyleArabic;
+}
+```
+
+`shape.Left = -999993` 这里并不是所有负值都可以的，我尝试了其他值，结合无意间翻到的文档 [^shapePostion]，整理如下：
+
+|   值    | 对应位置选项           | 文档枚举名称   | 文档说明     |
+| :-----: | ---------------------- | -------------- | ------------ |
+| -999993 | 双面打印 1（奇右偶左） | wdShapeOutside | 所选区域外部 |
+| -999994 | 双面打印 2（奇左偶右） | wdShapeInside  | 所选区域内部 |
+| -999995 | 居中                   | wdShapeCenter  | 中央         |
+| -999996 | 右侧                   | wdShapeRight   | 右侧         |
+| -999998 | 左侧                   | wdShapeLeft    | 左侧         |
+
 ## 未完待续
 
 其实还有很多功能，等遇到需求了、代码成熟了再记录一下。尤其是 Word 表格处理、（反向）邮件合并、题目排版相关的。
@@ -639,3 +673,5 @@ function 格式化层级标题() {
 [^正则边界断言]: [输入边界断言：^、$ - MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion)
 
 [^查找替换视频合集]: [《通配符查找替换》入门教程 - 哔哩哔哩](https://space.bilibili.com/89039806/lists/952022/)
+
+[^页码]: [wps js 宏之插入页码 | 非常超 - 博客园](https://www.cnblogs.com/lcxdc/p/17010213.html)
