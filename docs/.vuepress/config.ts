@@ -16,7 +16,7 @@ export default defineUserConfig({
     base: "/",
 
     dest: "./dist",
-    public: "./public",
+    public: "./docs/.vuepress/public",
 
     head: [
         // ! 此处引入的 css、js，当 hash 变化时也会重复加载
