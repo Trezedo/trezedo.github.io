@@ -97,12 +97,12 @@ export default hopeTheme({
         linksCheck: { dev: true },
         mark: true, // 用 " == x ==" 高亮
         // stylize: [], // 比较强大但是为了兼容性我不用
+        markmap: true,
         math: {
             type: "katex", // https://ecosystem.vuejs.press/zh/plugins/markdown/markdown-math.html
             ...katexOptions,
         },
         mermaid: true,
-
         revealjs: { plugins: ["highlight", "math", "search", "notes", "zoom"] },
         spoiler: true,
         sub: true,

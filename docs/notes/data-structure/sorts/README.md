@@ -45,9 +45,32 @@ prev: ../tree/tree.md
 
 - [二路归并排序](./merge-sort.md)
 
-<iframe src="/markmap/排序算法分类.html"
-    width="100%"
-    height="400"
-    frameborder="0"
-    scrolling="No"
-/>
+思维导图：
+
+```markmap
+---
+markmap:
+    colorFreezeLevel: 2
+---
+
+# 排序算法
+
+## 插入排序
+
+- 直接插入排序
+- 希尔排序
+
+## 选择排序
+
+- 直接选择排序
+- 堆排序
+
+## 交换排序
+
+- 冒泡排序
+- 快速排序
+
+## 归并排序
+
+- 归并排序
+```
