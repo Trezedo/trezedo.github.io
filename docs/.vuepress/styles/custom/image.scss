@@ -9,11 +9,18 @@ img[src*="#s"] {
     }
 }
 
-@for $i from 5 through 100 {
-    @if ($i % 5==0 or $i==66 or $i==67) {
-        #app {
+#app {
+    @for $i from 5 through 100 {
+        @if $i % 5==0 {
             @include image-size($i);
         }
+    }
+
+    // 特殊值
+    $special-values: 33, 48, 49, 66, 67;
+
+    @each $val in $special-values {
+        @include image-size($val);
     }
 }
 
