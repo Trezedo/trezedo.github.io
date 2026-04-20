@@ -136,17 +136,7 @@ Trezedo
 
 ![16000628.png](https://zedo-img.netlify.app/img/2026-04/16000628.png)
 
-### 代码部分
-
-为了方便，定义清空格式的函数：
-
-```js
-function 清除格式() {
-    Selection.WholeStory();
-    Selection.ClearFormatting();
-    Selection.SetRange(0, 0);
-}
-```
+### 正则辅助函数
 
 因为基于通配符的查找替换实现二级标题的格式化比较粗略（见下文 [查找替换](#查找替换)）。这里就是要解决通配符不够“强大”的问题，使用正则表达式来查找并处理：
 
@@ -181,42 +171,128 @@ function 正则查找处理(regexp, callback) {
 }
 ```
 
-按公文习惯设置：
+### 样式部分
 
-```js {42-43,65-67,89-90}
-/**
- * 全文仿宋_GB2312，三号字体，行间距 29.3 磅，首行缩进 2 字符
- */
+这是后来加的，考虑到有些地方不是按推荐性国标（GB/T）设置的，这里把正文、标题和抬头单独设了个样式：
+
+```js {2-4}
+function 应用样式属性(style, 名称) {
+    let _ = style;
+    style = ActiveDocument.Styles.Item(1); // wdStyleNormal (-1) 正文样式的索引
+    style = _; // 获取类型提示
+
+    if (名称 === "公文正文") {
+        style.BaseStyle = "正文"; // 清空基础样式
+        style.NextParagraphStyle = "公文正文"; // 后续段落样式
+
+        // 设置默认字体格式
+        const font = style.Font;
+        font.Name = "仿宋_GB2312"; // NameFarEast
+        font.NameAscii = "Times New Roman";
+        font.Size = 16; // 16 表示三号
+        font.SizeBi = 16; // Bi 后缀的是复杂文种
+        font.Bold = msoFalse;
+        font.Italic = msoFalse;
+
+        // 设置默认段落格式
+        const pf = style.ParagraphFormat;
+        pf.Alignment = wdAlignParagraphJustify; // 两端对齐
+        pf.SpaceBefore = 0;
+        pf.SpaceAfter = 0;
+        pf.LineSpacingRule = wdLineSpaceExactly; // 固定行距
+        pf.LineSpacing = 29.3;
+
+        pf.CharacterUnitFirstLineIndent = 2; // 首行缩进（字符）
+        pf.FirstLineIndent = 0;
+        pf.WordWrap = msoTrue; // 西文换行
+        pf.AddSpaceBetweenFarEastAndAlpha = msoTrue; // 中文、英文之间添加间距
+        pf.AddSpaceBetweenFarEastAndDigit = msoTrue; // 中文、数字之间添加间距
+
+        pf.WidowControl = msoFalse; // 孤行控制
+        pf.KeepWithNext = msoFalse; // 与下段同页
+        pf.KeepTogether = msoFalse; // 段中不分页
+        pf.PageBreakBefore = msoFalse; // 段前分页
+    } else if (名称 === "公文标题") {
+        style.BaseStyle = "公文正文";
+        style.Font.NameFarEast = "方正小标宋简体";
+        style.Font.Size = 22; // 22 表示二号，16 表示三号，
+
+        const pf = style.ParagraphFormat;
+        pf.Alignment = wdAlignParagraphCenter;
+        pf.CharacterUnitFirstLineIndent = 0;
+        pf.FirstLineIndent = 0;
+        pf.WidowControl = msoFalse; // 孤行控制
+    } else if (名称 === "公文抬头") {
+        style.BaseStyle = "公文正文";
+        style.Font.NameFarEast = "楷体_GB2312";
+
+        const pf = style.ParagraphFormat;
+        pf.CharacterUnitFirstLineIndent = 0;
+        pf.FirstLineIndent = 0;
+    }
+}
+
+// 若不存在则创建并应用属性；若已存在则直接返回，不修改属性
+function 确保样式存在(名称, 类型 = wdStyleTypeParagraph) {
+    try {
+        return ActiveDocument.Styles.Item(名称);
+    } catch (e) {
+        let s = ActiveDocument.Styles.Add(名称, 类型);
+        应用样式属性(s, 名称);
+        return s;
+    }
+}
+
+// 添加到自定义功能区：手动覆盖所有公文样式属性，恢复默认预设
+function 设置公文样式() {
+    let styleArr = ["公文正文", "公文标题", "公文抬头"];
+    styleArr.forEach((名称) => {
+        let style = 确保样式存在(名称); // 确保存在
+        应用样式属性(style, 名称); // 强制覆盖所有属性
+    });
+    MsgBox(`已设置 ${styleArr.join("、") + " 等 " + styleArr.length} 个样式。`);
+}
+
+// 添加到自定义功能区
+function 删除非内置样式() {
+    let styles = ActiveDocument.Styles;
+    let nameArr = []; // 记录删除了哪些
+    // 从后往前删
+    for (let i = styles.Count; i >= 1; i--) {
+        let s = styles.Item(i);
+        // 避免删除字符样式（删了似乎不影响，但是计数有错误）
+        if (s.Type == wdStyleTypeParagraph && !s.BuiltIn) {
+            nameArr.push(s.NameLocal);
+            s.Delete();
+        }
+    }
+    MsgBox("共删除 " + nameArr.length + " 个样式：" + nameArr.join("、"));
+}
+```
+
+1. 高亮的行（如 $2-4$ 行，下同）只用于获取编辑器内的代码提示，删除不影响运行效果。
+2. 注意 `CharacterUnitFirstLineIndent` 需要写在 `FirstLineIndent` 前面，否则最终的缩进设置可能会不正确。
+
+### 格式部分
+
+```js {26-27,64-65}
+function 清除格式() {
+    Selection.WholeStory();
+    Selection.ClearFormatting();
+    Selection.SetRange(0, 0);
+}
+
+// 全文仿宋_GB2312，三号字体，行间距 29.3 磅，首行缩进 2 字符
 function 全文字体段落设置(_) {
     // 可以直接修改 ActiveDocument.Content.ParagraphFormat，但此处需要跳过表格
     const paras = ActiveDocument.Paragraphs;
     for (let i = 1; i <= paras.Count; i++) {
-        const para = paras(i);
+        const para = paras.Items(i);
         // wdWithInTable = 12，判断是否在表格内；返回 0 表示不在表格中
         // 页眉页脚、文本框默认不会包含在段落中，只需另外处理嵌入型图片
         if (para.Range.Information(wdWithInTable) != 0) continue; // 在表格内，跳过该段落
-
-        // 字体
-        const font = para.Range.Font;
-        font.NameFarEast = "仿宋_GB2312";
-        font.NameAscii = "Times New Roman";
-        font.Size = 16;
-        font.Bold = false;
-
-        // 段落
         const pf = para.Range.ParagraphFormat;
-        pf.Style = ActiveDocument.Styles(wdStyleNormal); // 应用“正文”样式
-        pf.LineSpacingRule = wdLineSpaceExactly;
-        pf.LineSpacing = 29.3;
-        pf.CharacterUnitFirstLineIndent = 2; // 首行缩进（单位：字符），需要写在 FirstLineIndent 前面
-        pf.FirstLineIndent = 0;
-        pf.CharacterUnitLeftIndent = 0; // 左右缩进
-        pf.CharacterUnitRightIndent = 0;
-        pf.LeftIndent = 0;
-        pf.RightIndent = 0;
-        pf.Alignment = wdAlignParagraphJustify; // 两端对齐
-        pf.AddSpaceBetweenFarEastAndAlpha = -1; // 中文、英文之间添加间距
-        pf.AddSpaceBetweenFarEastAndDigit = -1; // 中文、数字之间添加间距
+        pf.Style = ActiveDocument.Styles("公文正文"); // 应用“公文正文”样式
     }
 }
 
@@ -251,16 +327,7 @@ function 格式化标题(para) {
     let titlePara = ActiveDocument.Paragraphs.Item(1); // 默认将第一段视为标题
     if (para) titlePara = para;
     let range = titlePara.Range;
-
-    const font = range.Font;
-    font.NameFarEast = "方正小标宋简体";
-    font.NameAscii = "Times New Roman";
-    font.Size = 22; // 22 表示二号，16 表示三号，
-
-    const pf = range.ParagraphFormat;
-    pf.Alignment = wdAlignParagraphCenter; // 居中对齐
-    pf.CharacterUnitFirstLineIndent = 0;
-    pf.FirstLineIndent = 0;
+    range.Style = ActiveDocument.Styles.Item("公文标题");
 }
 
 /**
@@ -277,9 +344,9 @@ function 处理抬头(range) {
     // 其上一段必须是空行
     let previousPara = r.Paragraphs(1).Previous(1);
     if (!previousPara || previousPara.Range.Text.trim() !== "") return false;
-    r.Font.NameFarEast = "楷体_GB2312";
-    r.Paragraphs(1).CharacterUnitFirstLineIndent = 0;
-    r.Paragraphs(1).FirstLineIndent = 0;
+
+    r.Style = ActiveDocument.Styles.Item("公文抬头");
+
     Application.SalutationHandled = true;
     return true;
 }
@@ -361,20 +428,20 @@ function 格式化署名日期(_) {
 
 function 一键格式化() {
     Application.ScreenUpdating = false; // 不像 Excel，提升不大
-    Application.EnableEvents = false;
+    确保样式存在("公文正文");
+    确保样式存在("公文标题");
+    确保样式存在("公文抬头");
+
     全文字体段落设置();
     格式化标题();
     格式化层级标题();
     格式化署名日期();
     Application.ScreenUpdating = true;
-    Application.EnableEvents = true;
 }
 ```
 
-### 相关说明
-
 1. `wdWithInTable` 常量用于判断所选内容是否位于表格中 [^table]。
-2. 匹配二级标题的正则表达式： `/^（[一二三四五六七八九十]）.*?(?:。|\r)/g`，在 WPS/Word 中每个段落默认以 `\r` 结尾，这里实际上就是按每段匹配，所以也可以改写为 `/^（[一二三四五六七八九十]）.*?(?:。|$)/gm`，其中 `$` 就是字符串的末尾（不含 `\r`、`\n` 这些换行符）[^正则边界断言]。
+2. 匹配二级标题的正则表达式： `/^（[一二三四五六七八九十]）.*?(?:。|\r)/g`，因为在 WPS/Word 中每个段落默认以 `\r` 结尾，这里实际上就是按每段匹配，所以也可以改写为 `/^（[一二三四五六七八九十]）.*?(?:。|$)/gm`，其中 `$` 就是字符串的末尾（不含 `\r`、`\n` 这些换行符）[^正则边界断言]。
 3. 为了方便，这里 `格式化标题` 默认把第一段视为标题，所以只适用于简单公文文种，不适用于函、呈批件等格式。另外，如果你的标题很长，建议用**软回车（Shift+Enter）换行**，而不是直接回车。
 
 ## 图片
