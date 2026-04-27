@@ -2,11 +2,11 @@
 icon: vscode-icons:file-type-word
 date: 2026-04-08
 category:
-  - jsa
-  - wps
+    - jsa
+    - wps
 tag:
-  - javascript
-  - word
+    - javascript
+    - word
 ---
 
 # WPS JSA：Word 篇
@@ -287,7 +287,7 @@ function 全文字体段落设置(_) {
     // 可以直接修改 ActiveDocument.Content.ParagraphFormat，但此处需要跳过表格
     const paras = ActiveDocument.Paragraphs;
     for (let i = 1; i <= paras.Count; i++) {
-        const para = paras.Items(i);
+        const para = paras.Item(i);
         // wdWithInTable = 12，判断是否在表格内；返回 0 表示不在表格中
         // 页眉页脚、文本框默认不会包含在段落中，只需另外处理嵌入型图片
         if (para.Range.Information(wdWithInTable) != 0) continue; // 在表格内，跳过该段落
@@ -710,7 +710,7 @@ function 添加页码() {
 }
 ```
 
-`shape.Left = -999993` 这里并不是所有负值都可以的，我尝试了其他值，结合无意间翻到的文档 [^shapePostion]，整理如下：
+`shape.Left = -999993` 这里并不是所有负值都可以的，我尝试了其他值，结合无意间翻到的文档 [^shapePosition]，整理如下：
 
 |   值    | 对应位置选项           | 文档枚举名称   | 文档说明     |
 | :-----: | ---------------------- | -------------- | ------------ |
@@ -719,6 +719,38 @@ function 添加页码() {
 | -999995 | 居中                   | wdShapeCenter  | 中央         |
 | -999996 | 右侧                   | wdShapeRight   | 右侧         |
 | -999998 | 左侧                   | wdShapeLeft    | 左侧         |
+
+## 邮件合并
+
+适用于已打开数据源，但是不记得数据源文件路径的情况，可以查看数据源文件的路径：
+
+```js
+// 创建文本框，放入字符串后复制再删除
+function copyText(text) {
+    const tb = ActiveDocument.Shapes.AddTextbox(1, 0, 0, 100, 100);
+    tb.TextFrame.TextRange.Text = text;
+    tb.TextFrame.TextRange.Copy();
+    tb.Delete();
+}
+
+function 获取邮件合并数据源路径() {
+    const ds = ActiveDocument.MailMerge.DataSource;
+    const cs = ds.ConnectString;
+    if (!cs) {
+        MsgBox("当前文档没有设置邮件合并数据源。", jsInformation);
+        return;
+    }
+    let dsPath = /Data Source=([^;]+)/i.exec(cs)?.[1];
+    MsgBox(dsPath, jsInformation, "数据源路径");
+    copyText(dsPath);
+
+    if (ds && ds.TableName) {
+        MsgBox(/`([^`]+)\$`/i.exec(ds.TableName)?.[1], jsInformation, "工作表名称");
+    } else {
+        MsgBox("未检测到明确的工作表名", jsInformation);
+    }
+}
+```
 
 ## 未完待续
 
@@ -742,3 +774,5 @@ function 添加页码() {
 [^查找替换视频合集]: [《通配符查找替换》入门教程 - 哔哩哔哩](https://space.bilibili.com/89039806/lists/952022/)
 
 [^页码]: [wps js 宏之插入页码 | 非常超 - 博客园](https://www.cnblogs.com/lcxdc/p/17010213.html)
+
+[^shapePosition]: [WdShapePosition 枚举 - WPS开放平台](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/wps/enum/WdShapePosition)
