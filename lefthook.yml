@@ -1,0 +1,15 @@
+# EXAMPLE USAGE:
+#
+#   Refer for explanation to following link:
+#   https://lefthook.dev/configuration/
+
+pre-commit:
+    parallel: true
+    commands:
+        format:
+            # 关键配置：运行命令后自动执行 git add
+            stage_fixed: true
+            # 指定需要格式化的文件类型
+            glob: "*.{js,ts,jsx,tsx,json,md,css,scss,yml}"
+            # 运行格式化命令
+            run: prettier --write {staged_files}
