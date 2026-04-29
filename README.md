@@ -31,17 +31,18 @@ pnpm preview
 
 ## ⚙️ 可用脚本
 
-| 命令                            | 说明                                            |
-| ------------------------------- | ----------------------------------------------- |
-| `pnpm docs:dev`                 | 启动 VuePress 开发服务器（含热更新）            |
-| `pnpm docs:clean-dev`           | 清除缓存后启动开发服务器                        |
-| `pnpm docs:build`               | 构建静态站点                                    |
-| `pnpm preview`                  | 预览构建后的站点（使用 Vite）                   |
-| `pnpm docs:up`                  | 更新 VuePress 及相关主题（`vp-update`）         |
-| `pnpm docs:fmt`                 | 格式化 `docs/` 下的 TypeScript 与 Markdown 文件 |
-| `pnpm fmt` / `pnpm fmt:check`   | 代码格式化（基于 oxfmt）                        |
-| `pnpm lint` / `pnpm lint:fix`   | 代码检查（基于 oxlint）                         |
-| `pnpm push:ge` / `pnpm push:gh` | 分别推送到 Gitee 或 GitHub 远程仓库             |
+| 命令                            | 说明                                     |
+| ------------------------------- | ---------------------------------------- |
+| `pnpm docs:dev`                 | 启动 VuePress 开发服务器（含热更新）     |
+| `pnpm docs:clean-dev`           | 清除缓存后启动开发服务器                 |
+| `pnpm docs:build`               | 构建静态站点                             |
+| `pnpm preview`                  | 预览构建后的站点（使用 Vite）            |
+| `pnpm docs:up`                  | 更新 VuePress 及相关主题（`vp-update`）  |
+| `pnpm docs:fmt`                 | 格式化 `docs/` 下的文档（基于 prettier） |
+| `pnpm fmt` / `pnpm fmt:check`   | 代码格式化（基于 oxfmt）                 |
+| `pnpm lint` / `pnpm lint:fix`   | 代码检查（基于 oxlint）                  |
+| `pnpm push:ge` / `pnpm push:gh` | 分别推送到 Gitee 或 GitHub 远程仓库      |
+| `pnpm hook`                     | 安装 Lefthook Git 钩子                   |
 
 > 项目默认使用 oxfmt 进行格式化，同时仍然保留了 prettier，因为它对 Markdown 的格式化能力较好（尤其是表格）。
 
@@ -49,12 +50,9 @@ pnpm preview
 
 ```text
 .
-├── custom/                    # 自定义插件与扩展组件（即将移除）
-│   ├── components/            # 自定义 Vue 组件
-│   └── hooks/                 # 自定义钩子
-├── docs/                      # 文档源目录
+├── docs/                      # 文档源目录（可作为 Obsidian 仓库打开）
 │   ├── .vuepress/             # VuePress 配置
-│   ├── .obsidian/             # Obsidian 配置
+│   ├── .obsidian/             # Obsidian 配置与插件设置
 │   ├── blog/                  # 博客文章
 │   ├── demo/                  # 示例代码/演示
 │   ├── exercises/             # 解题练习
@@ -66,8 +64,11 @@ pnpm preview
 │   ├── slide.md               # 幻灯片（仅作为 demo）
 │   ├── preamble.sty           # LaTeX 宏（Obsidian MathJax 插件）
 │   └── README.md              # 博客主页
-├── packages/                  # monorepo 尝试（即将移除）
 ├── public/                    # 静态资源目录
+├── .oxfmtrc.json              # oxfmt 格式化配置
+├── .oxlintrc.json             # oxlint 检查配置
+├── .prettierrc                # Prettier 配置
+├── lefthook.yml               # Lefthook Git 钩子配置
 ├── package.json
 ├── pnpm-lock.yaml
 └── ...其他配置文件
@@ -82,26 +83,35 @@ pnpm preview
     - `@vuepress/plugin-notice`
     - `@vuepress/plugin-register-components`
     - `@vuepress/plugin-revealjs`
-    - `@vuepress/plugin-slimsearch`
+    - `@vuepress/plugin-slimsearch`（目前存在 bug，不保证可用）
     - `vuepress-plugin-components`
     - `vuepress-plugin-md-enhance`
     - `vuepress-plugin-math`
 - **增强功能**：
-    - `@vue/repl`（Vue 交互式示例）
-    - `@vueuse/core`（组合式工具库）
-    - `@viz-js/viz`（Graphviz 支持）
-    - `mermaid`（图表）
-    - `flowchart.ts`（流程图）
+    - `@vue/repl` – Vue 交互式 REPL
+    - `@vueuse/core` – Vue 组合式工具集
+    - `@viz-js/viz` – Graphviz 图形渲染
+    - `mermaid` – 流程图 / 图表
+    - `notivue` – 通知提示组件
+    - `flowchart.ts` – 流程图生成
+    - `markmap-lib` / `markmap-view` / `markmap-toolbar` – 思维导图支持
 - **代码质量**：
-    - `oxfmt`、`oxlint`
-    - `prettier`（markdown 格式化）
-    - Obsidian Lint 插件（功能更丰富）
+    - `oxfmt` / `oxlint` – 高性能格式化与检查
+    - `prettier` – Markdown 文件格式化（效果比 `oxfmt` 更好）
+    - `lefthook` – Git 钩子管理器
+    - Obsidian Linter 插件（功能更丰富）
 
 ## 📐 代码规范
 
 - 使用 `pnpm lint` 进行静态检查
-- 使用 `pnpm fmt` 格式化代码
-- 提交前建议运行 `pnpm fmt`
+- 使用 `pnpm fmt` 格式化代码（oxfmt）
+- 推荐在提交前运行 `pnpm fmt && pnpm lint`，或安装 Lefthook 钩子自动执行：
+
+```bash
+pnpm hook # 一次性安装钩子（首次克隆后 / 修改 lefthook.yml 后执行）
+```
+
+- 配置了 lefthook.yml，将在 pre-commit 阶段自动运行格式化。
 
 ## 🗃️ Obsidian 集成
 
@@ -117,9 +127,7 @@ pnpm preview
 - `Style Settings` – 主题样式调整，自定义 CSS
 - `Universal Renderer` – 通用渲染支持（主要是 `dot` 块）
 
-在 Obsidian 中打开此项目时，这些插件将自动启用（需已安装对应插件）。
-
-另外注意，Linter 插件设置了对 YAML key 排序，新建 markdown 文件后必须补充 YAML Frontmatter，例如：
+注意：Linter 插件要求新建的 Markdown 文件必须包含 YAML Frontmatter（YAML key 排序），例如：
 
 ```md
 ---
@@ -131,11 +139,11 @@ date: 2026-01-01
 
 ## 🔧 自定义与扩展
 
-基本遵从官方模板的文件结构：
+基本遵从 VuePress Theme Hope 官方模板的文件结构：
 
 - **主题配置**：位于 `docs/.vuepress/theme.{ts,js}`
-- **侧边栏/导航**：通过 `theme-hope` 的 `sidebar` 与 `navbar` 配置
-- **添加新文档**：在 `docs/` 下创建 `.md` 文件，并按照现有结构归类即可自动生成路由
+- **侧边栏/导航**：通过主题的 `sidebar` 与 `navbar` 配置
+- **添加新文档**：在 `docs/` 下创建 `.md` 文件，并按现有目录归类即可自动生成路由
 
 ## 📜 许可证
 
