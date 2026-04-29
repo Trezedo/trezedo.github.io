@@ -733,24 +733,55 @@ function copyText(text) {
     tb.Delete();
 }
 
-function 获取邮件合并数据源路径() {
+function 邮件数据源路径() {
     const ds = ActiveDocument.MailMerge.DataSource;
     const cs = ds.ConnectString;
-    if (!cs) {
-        MsgBox("当前文档没有设置邮件合并数据源。", jsInformation);
-        return;
-    }
-    let dsPath = /Data Source=([^;]+)/i.exec(cs)?.[1];
-    MsgBox(dsPath, jsInformation, "数据源路径");
-    copyText(dsPath);
-
-    if (ds && ds.TableName) {
-        MsgBox(/`([^`]+)\$`/i.exec(ds.TableName)?.[1], jsInformation, "工作表名称");
+    const qs = ds.QueryString;
+    if (!cs && !qs) return MsgBox("无数据源");
+    let dsPath, sheetName;
+    if (cs) {
+        // Excel
+        dsPath = /Data Source=([^;]+)/.exec(cs)?.[1];
+        sheetName = /`([^`]+)\$`/.exec(qs)?.[1];
     } else {
-        MsgBox("未检测到明确的工作表名", jsInformation);
+        // Word
+        dsPath = /SELECT \* FROM\s+(.+)$/i.exec(qs)?.[1]?.replace(/^`|`$/g, "");
     }
+    if (!dsPath) return MsgBox(cs, jsCritical, "路径解析失败");
+    copyText(dsPath);
+    MsgBox(dsPath, jsInformation, "数据源路径");
+    if (sheetName) MsgBox(sheetName, jsInformation, "工作表名称");
+    else if (cs) MsgBox("未检测到工作表名");
 }
 ```
+
+::: info 提示
+
+数据源一般使用 `.xls` 和 `.doc(x)` 两种文件类型。
+
+如果使用 Excel 数据源，就会通过 `ConnectString` 连接，内容类似（无论是否国产系统）：
+
+```js
+ActiveDocument.MailMerge.DataSource.QueryString;
+// SELECT * FROM `Sheet1$`
+ActiveDocument.MailMerge.DataSource.ConnectString;
+// "Provider=Microsoft.Jet.OLEDB.4.0;\t\t\t\t\t\tData Source=C:/Users/zedo/Desktop/数据源.xls;\t\t\t\t\t\tExtended Properties='Excel 8.0; IMEX=1'"
+```
+
+此时 `QueryString` 的值形如 ``"SELECT * FROM `表名$`"``。
+
+如果用 Word 数据源，则直接通过 `QueryString` 查询，不需要“连接”（Connect）：
+
+```js
+ActiveDocument.MailMerge.DataSource.QueryString;
+// SELECT * FROM C:/Users/zedo/Desktop/数据源.docx
+```
+
+可见两种类型的数据源 `QueryString` 差异很明显。
+
+:::
+
+有时候 `TableName` 属性的值与 `QueryString` 相等，但它是只读的，通常使用 `QueryString` 更准确。
 
 ## 未完待续
 
