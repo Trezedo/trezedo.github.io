@@ -1,9 +1,9 @@
 {
     "recommendations": [
-        "davidanson.vscode-markdownlint",
         "tintinweb.graphviz-interactive-preview",
         "pomdtr.excalidraw-editor",
         "vue.volar",
-        "oxc.oxc-vscode"
+        "oxc.oxc-vscode",
+        "rvben.rumdl"
     ]
 }
