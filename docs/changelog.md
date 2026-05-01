@@ -508,3 +508,20 @@ modified: 2026-03-21
 - 引入 oxlint-tsgolint 以支持检查 typescript 类型
 - 统一修改插件名为 `plugin*`
 - 修复字体加粗异常
+
+### 2024-04-19
+
+- 简化 `.gitignore` 文件
+- 启用 `markmap` 插件，以支持内联 Markmap 思维导图
+- 使用 css 实现 Obsidian 代码块行数（长代码有 bug）
+- 移除根目录下的 `public` 目录及已弃用的静态文件
+- 优化自定义图片缩放 scss 结构
+
+### 2026-04-28
+
+- 引入 lefthook 实现提交前使用 prettier 格式化（针对 Obsidian Linter 的 YAML 默认 2 缩进的问题）
+
+### 2026-05-01
+
+- 引入 rumdl（rust 版 markdownlint）和 autocorrect（处理中西文间的空格、符号）格式化文档。
+- 段落换行统一使用 `<br>` 而非 `<br />`
