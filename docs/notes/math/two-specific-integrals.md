@@ -32,7 +32,7 @@ $$
 I_1=\int_0^p{\frac{\arctan x}{x^2+Bx+C}\d x}
 $$
 
-其中 $p>0$ ，若能够使用换元 $x\mapsto \frac{p-x}{1+px}$ 以及等式 $\eqref{1}$ 解决 ，
+其中 $p>0$ ，若能够使用换元 $x\mapsto \frac{p-x}{1+px}$ 以及等式 $\eqref{1}$ 解决，
 
 $$
 \arctan x+\arctan \frac{p-x}{1+px}=\arctan p \tag{1}%\label{1}

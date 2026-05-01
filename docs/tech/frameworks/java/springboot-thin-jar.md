@@ -53,7 +53,7 @@ mvn dependency:copy-dependencies -DincludeScope=runtime -DoutputDirectory=target
 
 使用 IDEA 执行 Maven 命令的方式：
 
-![重新加载Maven项目 | center](https://zedo-img.netlify.app/img/springboot/重新加载Maven项目.png)
+![重新加载 Maven 项目 | center](https://zedo-img.netlify.app/img/springboot/重新加载Maven项目.png)
 
 :::
 

@@ -22,7 +22,7 @@ tag:
 
 <!-- more -->
 
-**版本选择建议：**
+### 版本选择建议
 
 - 推荐下载 **长期维护版（LTS）**
 - 偶数版本仍然是更稳定的选择
@@ -139,7 +139,7 @@ pnpm 是更快速、更高效的包管理工具：
 - 官网：<https://pnpm.io/zh/>
 - 中文网：<https://www.pnpm.cn/>
 
-> `pnpm` 代表 performant（高性能的） npm。 [@rstacruz](https://github.com/rstacruz/) 想出了这个名字
+> `pnpm` 代表 performant（高性能的）npm。 [@rstacruz](https://github.com/rstacruz/) 想出了这个名字
 
 ### 安装 pnpm
 
@@ -203,9 +203,7 @@ pnpm -v
 pnpm : 无法加载文件 E:\envs\node_pkg\node_global\pnpm.ps1，因为在此系统上禁止运行脚本。
 ```
 
-**解决方案：**
-
-以管理员身份运行 PowerShell，执行以下命令：
+解决方案：以管理员身份运行 PowerShell，执行以下命令：
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser

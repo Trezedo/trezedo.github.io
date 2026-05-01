@@ -39,7 +39,7 @@ tag:
 | **Shift+F9**         | 仅计算当前活动工作表                                                                   |
 | **Shift+Alt+←/→**    | 取消/创建行列分组                                                                      |
 
-部分快捷键可参考微软文档：[Excel中的键盘快捷方式 - Microsoft](https://support.microsoft.com/zh-cn/office/excel-中的键盘快捷方式-1798d9d5-842a-42b8-9c99-9b7213f0040f)
+部分快捷键可参考微软文档：[Excel 中的键盘快捷方式 - Microsoft](https://support.microsoft.com/zh-cn/office/excel-中的键盘快捷方式-1798d9d5-842a-42b8-9c99-9b7213f0040f)
 
 ## Excel 公式
 
@@ -57,7 +57,7 @@ tag:
 
 - 将会得到 `46027`，即 2026 年 1 月 5 日
 - 这里是 2026 年 1 月 1 日之后第一个 " 星期一 " 的日期
-- [WEEKDAY函数文档](https://support.microsoft.com/zh-cn/office/weekday-%E5%87%BD%E6%95%B0-60e44483-2ed1-439f-8bd0-e404c190949a)
+- [WEEKDAY 函数文档](https://support.microsoft.com/zh-cn/office/weekday-%E5%87%BD%E6%95%B0-60e44483-2ed1-439f-8bd0-e404c190949a)
 
 ### 2. 逐行提取文本（无 TEXTSPLIT 公式的情况下）
 
@@ -102,5 +102,5 @@ tag:
 ## 参考文档
 
 - [WPS 加载项开发文档](http://open.wps.cn/previous/docs/client/wpsLoad)
-- [WPS JS API文档](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/go-to-js-from-vb)
+- [WPS JS API 文档](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/go-to-js-from-vb)
 - [WPS 二次开发 - gitee](https://gitee.com/zouyf/wps)

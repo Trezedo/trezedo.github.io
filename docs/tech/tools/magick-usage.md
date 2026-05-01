@@ -196,7 +196,7 @@ magick -list font | findstr Font
 <https://stackoverflow.com/questions/69255234/add-watermark-like-this-image>
 
 ```sh
-magick convert in.png ( -background none -pointsize 20 -fill rgba(0,120,215,0.1) label:"中文Trezedo" -rotate -20 -write mpr:tile +delete ) ( +clone -tile mpr:tile -draw "color 100,100 reset" ) -compose over -composite out.png
+magick convert in.png ( -background none -pointsize 20 -fill rgba(0,120,215,0.1) label:"中文 Trezedo" -rotate -20 -write mpr:tile +delete ) ( +clone -tile mpr:tile -draw "color 100,100 reset" ) -compose over -composite out.png
 
 # 调整了字体
 magick convert in.png ^

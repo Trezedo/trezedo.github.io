@@ -52,7 +52,7 @@ function 修改段落格式() {
     const pf = Selection.Range.ParagraphFormat; // Selection 表示鼠标选中范围
 
     // 设置首行缩进
-    pf.CharacterUnitFirstLineIndent = 2; // 首行缩进2字符
+    pf.CharacterUnitFirstLineIndent = 2; // 首行缩进 2 字符
     pf.FirstLineIndent = 0; // 清除磅值缩进
 
     // 设置单倍行距
@@ -101,7 +101,7 @@ function test() {
 
 ```text
 关于公文结构测试用例的说明
-标题用Shift+Enter换行  确保属于相同段落
+标题用 Shift+Enter 换行  确保属于相同段落
 本文件仅用于演示格式化功能
 
 （抬头称谓）所有浏览此文章的读者：
@@ -120,16 +120,16 @@ function test() {
 此处为无标题的段落插入：直接一段文字，这里应该不会有任何不同于正文的格式。
 （二）另一些常用的？
 测试常用的“一是、二是”这种段旨句：
-一是直接加粗“一是”，这种句子可能非常长，且包含2个及以上逗号或者字数超过一行（这里认为一行28个字，减去缩进2字符，即26个字，不考虑西文）。二是内容较短的直接整句加粗。这种不包含逗号，加粗就完事了。三是内容比较长，但是只有一个逗号或者不超过1行的。这种通常也会被认为是“对仗”的小标题，整句加粗。
+一是直接加粗“一是”，这种句子可能非常长，且包含 2 个及以上逗号或者字数超过一行（这里认为一行 28 个字，减去缩进 2 字符，即 26 个字，不考虑西文）。二是内容较短的直接整句加粗。这种不包含逗号，加粗就完事了。三是内容比较长，但是只有一个逗号或者不超过 1 行的。这种通常也会被认为是“对仗”的小标题，整句加粗。
 四是这段文字长度刚好二十六字的结构应该整句都被加粗。
 五是这段文字长度超过二十六字的结构不应该整句都被加粗。
 六是测试，包含两个逗号的，不应该整句都被加粗。
 三、署名、成文日期和印章
-默认公文加盖印章：成文日期右空四字编排（这里用8个半角空格），署名以成文日期为准居中编排（大差不差就行了）。
+默认公文加盖印章：成文日期右空四字编排（这里用 8 个半角空格），署名以成文日期为准居中编排（大差不差就行了）。
 
 
 Trezedo
-2026年4月XX日
+2026 年 4 月 XX 日
 ```
 
 格式化效果静态展示：
@@ -452,7 +452,7 @@ function 一键格式化() {
 
 ```js
 function 批量改图片尺寸() {
-    let prompt = `请输入高*宽(cm)，0或省略表示自动比例\n例如 0*12.5 或 *12.5 表示\n保持当前比例将宽度设为 12.5cm`;
+    let prompt = `请输入高*宽 (cm)，0 或省略表示自动比例\n例如 0*12.5 或 *12.5 表示\n保持当前比例将宽度设为 12.5cm`;
     let size = InputBox(prompt, "修改嵌入型图片尺寸");
     if (size == "") return;
     let [h, w] = size.split("*").map((e) => +e.trim());
@@ -664,7 +664,7 @@ function 格式化层级标题() {
     );
 
     // 3.第三层级加粗：一是、二是……
-    replaceWithFormat("[一二三四五六七八九十]是", "", 1, { replace: { Bold: true } });
+    replaceWithFormat("[一二三四五六七八九十] 是", "", 1, { replace: { Bold: true } });
 }
 ```
 
@@ -675,7 +675,7 @@ function 格式化层级标题() {
 ```js {22,29-31}
 function 添加页码() {
     const footers = ActiveDocument.Sections.Item(1).Footers;
-    footers.Item(wdHeaderFooterPrimary).Range.ShapeRange.Delete(); // 删除footer
+    footers.Item(wdHeaderFooterPrimary).Range.ShapeRange.Delete(); // 删除 footer
     footers.Item(wdHeaderFooterEvenPages).Range.ShapeRange.Delete(); // 删除双数页脚
 
     let footer = ActiveDocument.Sections.Item(1).Footers.Item(wdHeaderFooterPrimary);
@@ -791,14 +791,14 @@ ActiveDocument.MailMerge.DataSource.QueryString;
 
 有一些帖子写的挺好的，有时间再~~参考一下~~（doge）
 
-[【效率提升】在VSCODE里写JS宏代码 - WPS 社区](https://bbs.wps.cn/topic/49738)
+[【效率提升】在 VSCODE 里写 JS 宏代码 - WPS 社区](https://bbs.wps.cn/topic/49738)
 
 <!-- https://forum.wps.cn/topic/62814 -->
 <!-- https://forum.wps.cn/topic/65963 -->
 
-[^paragraph]: [ParagraphFormat - WPS开放平台](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/wps/ParagraphFormat/obj)
+[^paragraph]: [ParagraphFormat - WPS 开放平台](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/wps/ParagraphFormat/obj)
 
-[^table]: [WdInformation 枚举参考 - WPS开放平台](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/wps/enum/WdInformation)
+[^table]: [WdInformation 枚举参考 - WPS 开放平台](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/wps/enum/WdInformation)
 
 [^正则边界断言]: [输入边界断言：^、$ - MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion)
 
@@ -806,4 +806,4 @@ ActiveDocument.MailMerge.DataSource.QueryString;
 
 [^页码]: [wps js 宏之插入页码 | 非常超 - 博客园](https://www.cnblogs.com/lcxdc/p/17010213.html)
 
-[^shapePosition]: [WdShapePosition 枚举 - WPS开放平台](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/wps/enum/WdShapePosition)
+[^shapePosition]: [WdShapePosition 枚举 - WPS 开放平台](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/wps/enum/WdShapePosition)

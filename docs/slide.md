@@ -28,7 +28,7 @@ layout: Slides
 
 <!-- .element: class="r-fit-text" -->
 
-[👇](#/1/1)
+[👇](#/1/1) <!-- rumdl-disable-line MD051 -->
 
 --
 
@@ -60,7 +60,7 @@ layout: Slides
 
 <!-- .element: class="r-fit-text" -->
 
-你可以在幻灯片中使用 Markdown 语法的各种标记.
+你可以在幻灯片中使用 Markdown 语法的各种标记。
 
 <!-- .element: class="r-fit-text" -->
 
@@ -70,7 +70,7 @@ layout: Slides
 
 ## Markdown
 
-你可以在幻灯片中使用 Markdown 语法的各种标记.
+你可以在幻灯片中使用 Markdown 语法的各种标记。
 
 ### 这是一个 H3
 
@@ -84,7 +84,7 @@ layout: Slides
 
 ## Markdown
 
-你可以在幻灯片中使用 Markdown 语法的各种标记.
+你可以在幻灯片中使用 Markdown 语法的各种标记。
 
 列表默认为 `inline-block`
 
@@ -102,7 +102,7 @@ layout: Slides
 
 ## Markdown
 
-你可以在幻灯片中使用 Markdown 语法的各种标记.
+你可以在幻灯片中使用 Markdown 语法的各种标记。
 
 在你启用 `highlight` 插件后，代码块会自动高亮。
 
@@ -116,7 +116,7 @@ const a = 1;
 
 ## Markdown
 
-你可以在幻灯片中使用 Markdown 语法的各种标记.
+你可以在幻灯片中使用 Markdown 语法的各种标记。
 
 在你启用 `math` 插件后，你也可以使用 TEX 格式使用数学公式。
 
@@ -130,7 +130,7 @@ $$
 
 ## Markdown
 
-你可以在幻灯片中使用 Markdown 语法的各种标记.
+你可以在幻灯片中使用 Markdown 语法的各种标记。
 
 ⚠**请注意**: 表格和分割线，以及所有不在 Markdown 标准语法中的内容均不受支持。
 
@@ -172,7 +172,7 @@ $$
 
 ### 背景
 
-你可以通过向特定幻灯片添加 `data-background` 属性自定义幻灯片背景.
+你可以通过向特定幻灯片添加 `data-background` 属性自定义幻灯片背景。
 
 ---
 
@@ -329,9 +329,9 @@ $$
 
 <!-- .element: class="r-fit-text" -->
 
-Transition 可以通过配置中的 `transition` 选项全局设置，也可以通过在特定幻灯片添加 `data-transition` 属性局部设置.
+Transition 可以通过配置中的 `transition` 选项全局设置，也可以通过在特定幻灯片添加 `data-transition` 属性局部设置。
 
-可能的值:
+可能的值：
 
 - none
 - fade

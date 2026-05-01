@@ -19,9 +19,9 @@ tag:
 
 本机信息：
 
-- CPU：Intel i5-9300H
-- GPU：GTX 1650 (4GB)
-- RAM：12GB
+- CPU: Intel i5-9300H
+- GPU: GTX 1650 (4GB)
+- RAM: 12GB
 
 ## 创建虚拟硬盘
 
@@ -119,7 +119,7 @@ dpkg --print-architecture
 ping 8.8.8.8
 ```
 
-![测试ping](https://zedo-img.netlify.app/img/kylin/20260117214754.png)
+![测试 ping](https://zedo-img.netlify.app/img/kylin/20260117214754.png)
 
 响应比较快，说明网络正常。
 
@@ -184,8 +184,8 @@ systemctl enable spice-vdagent
 
 ## 参考链接
 
-- [Windows上使用QEMU创建银河麒麟ARM64虚拟机完全手册](https://www.cnblogs.com/mylibs/p/kylin-arm64-with-qemu-on-windows.html) （记录完整）
-- [Windows（x86）上部署ARM虚拟机](https://blog.csdn.net/XiaoYuHaoAiMin/article/details/140701250)
-- [VMware安装麒麟系统报错](https://blog.csdn.net/GRAGXU/article/details/152007602)
-- [Windows电脑上使用QEMU虚拟机启动龙芯Loongnix系统](https://blog.csdn.net/clancy_pinkie/article/details/135250263)
-- [Windows x86 环境 虚拟机 安装银河麒麟V10 arm架构系统](https://huaweicloud.csdn.net/6707c62ee2ce0119e0a22920.html)
+- [Windows 上使用 QEMU 创建银河麒麟 ARM64 虚拟机完全手册](https://www.cnblogs.com/mylibs/p/kylin-arm64-with-qemu-on-windows.html) （记录完整）
+- [Windows（x86）上部署 ARM 虚拟机](https://blog.csdn.net/XiaoYuHaoAiMin/article/details/140701250)
+- [VMware 安装麒麟系统报错](https://blog.csdn.net/GRAGXU/article/details/152007602)
+- [Windows 电脑上使用 QEMU 虚拟机启动龙芯 Loongnix 系统](https://blog.csdn.net/clancy_pinkie/article/details/135250263)
+- [Windows x86 环境 虚拟机 安装银河麒麟 V10 arm 架构系统](https://huaweicloud.csdn.net/6707c62ee2ce0119e0a22920.html)

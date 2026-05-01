@@ -138,17 +138,17 @@ Windows Registry Editor Version 5.00
 
 这个应该是大学时期安装 docker 跑 postgresql 需要用到，这里只贴出当时有效解决的链接：
 
-- [win10 家庭中文版没有Hyper-V，这样安装一步搞定 - CSDN](https://blog.csdn.net/weixin_37695006/article/details/91589895)
-- [解决win10没有Hyper-V - CSDN](https://blog.csdn.net/weixin_44338712/article/details/109249414)
-- [win10家庭版安装Docker - CSDN](https://blog.csdn.net/tidu2chengfo/article/details/84892915)
-- [win10家庭版安装Docker - CSDN](https://blog.csdn.net/weixin_45089791/article/details/109291834)
+- [win10 家庭中文版没有 Hyper-V，这样安装一步搞定 - CSDN](https://blog.csdn.net/weixin_37695006/article/details/91589895)
+- [解决 win10 没有 Hyper-V - CSDN](https://blog.csdn.net/weixin_44338712/article/details/109249414)
+- [win10 家庭版安装 Docker - CSDN](https://blog.csdn.net/tidu2chengfo/article/details/84892915)
+- [win10 家庭版安装 Docker - CSDN](https://blog.csdn.net/weixin_45089791/article/details/109291834)
 
 ---
 
-[^复制粘贴]: [小技能： Windows10突然不能复制粘贴谁搞鬼 - 知乎](https://zhuanlan.zhihu.com/p/287959073)
+[^复制粘贴]: [小技能：Windows10 突然不能复制粘贴谁搞鬼 - 知乎](https://zhuanlan.zhihu.com/p/287959073)
 
-[^蓝牙]: [win10蓝牙开关不见了怎么办 - 知乎](https://zhuanlan.zhihu.com/p/455663914)
+[^蓝牙]: [win10 蓝牙开关不见了怎么办 - 知乎](https://zhuanlan.zhihu.com/p/455663914)
 
 [^固定任务栏]: [老哥们求助，我应用无法固定到任务栏了 - 贴吧](https://tieba.baidu.com/p/6034731599#124930496146l)
 
-[^隐藏系统文件夹]: [Win10 隐藏硬盘上面额外的6个文件夹+3D 对象 - 知乎](https://zhuanlan.zhihu.com/p/25942015)
+[^隐藏系统文件夹]: [Win10 隐藏硬盘上面额外的 6 个文件夹 +3D 对象 - 知乎](https://zhuanlan.zhihu.com/p/25942015)

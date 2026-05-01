@@ -65,7 +65,7 @@ Smart Doc 是非侵入式的，它基于注释生成文档，这里不做过多�
 }
 ```
 
-在 IDEA 右侧 Maven 栏目中找到 `插件`->`smart-doc`，根据你所需要的执行，如 `smart-doc:openapi`，它会在 `src/main/resources/static/doc`（这是配置文件指定的）输出一个 `openapi.json` 文件，可以用支持 OpenApi3 的平台或工具（如 Apifox） 打开。
+在 IDEA 右侧 Maven 栏目中找到 `插件`->`smart-doc`，根据你所需要的执行，如 `smart-doc:openapi`，它会在 `src/main/resources/static/doc`（这是配置文件指定的）输出一个 `openapi.json` 文件，可以用支持 OpenApi3 的平台或工具（如 ApiFox）打开。
 
 下面配置静态资源路径，以允许访问 `openapi.json` 文件。
 

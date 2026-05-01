@@ -195,7 +195,7 @@ Action:
 Identify and stop the process that's listening on port 62234 or configure this application to listen on another port.
 ```
 
-这是因为之前关闭 IDEA 时的 “断开连接” 操作没有关闭运行在对应端口的进程，我们只需要手动关闭即可解决：
+这是因为之前关闭 IDEA 时的“断开连接”操作没有关闭运行在对应端口的进程，我们只需要手动关闭即可解决：
 
 ```batch
 :: 查看哪个进程占用了 62234 端口
@@ -411,12 +411,12 @@ public class MybatisPlusConfig {
 代码示例如下：
 
 ```java
-// 方式1
+// 方式 1
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 }
 
-// 方式2
+// 方式 2
 @Configuration
 public class WebConfig2 extends WebMvcConfigurationSupport {
 }
@@ -618,7 +618,7 @@ spring:
 
 如果是开发过程中切换配置文件，需要手动点击一下刷新按钮：
 
-![重新加载Maven项目](https://zedo-img.netlify.app/img/springboot/重新加载Maven项目.png)
+![重新加载 Maven 项目](https://zedo-img.netlify.app/img/springboot/重新加载Maven项目.png)
 
 避免我们重启 Application 时 profile 占位符 `@spring.profiles.active@` 没有被 Maven 替换。
 

@@ -77,7 +77,7 @@ if(typeof location != "undefined") {
 
 在微信内需要先开启 X5 内核：
 
-![微信开启X5内核 center](https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://debugmm.qq.com/?forcex5=true)
+![微信开启 X5 内核 center](https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://debugmm.qq.com/?forcex5=true)
 
 扫码后若提示 "**force use x5 switch is on**"，即开启成功。
 

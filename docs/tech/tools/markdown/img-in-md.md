@@ -19,19 +19,19 @@ tag:
 
 ## 缩放图片
 
-> 如果你使用 OSS 、图床等，通常会提供 `query` 来对图片大小进行操作，例如 [图片缩放 - 阿里云 OSS](https://help.aliyun.com/document_detail/44688.html)，那么此部分可能对你帮助不大。
+> 如果你使用 OSS、图床等，通常会提供 `query` 来对图片大小进行操作，例如 [图片缩放 - 阿里云 OSS](https://help.aliyun.com/document_detail/44688.html)，那么此部分可能对你帮助不大。
 
 ### CSS 属性的行为差异
 
 例如在 markdown 中使用这张图片：
 
 ```markdown
-![图片demo](https://zedo-img.netlify.app/img/2022-05/09190222.png)
+![图片 demo](https://zedo-img.netlify.app/img/2022-05/09190222.png)
 ```
 
 得到如下结果：
 
-![图片demo](https://zedo-img.netlify.app/img/2022-05/09190222.png)
+![图片 demo](https://zedo-img.netlify.app/img/2022-05/09190222.png)
 
 在电脑上看起来是不是有点大？
 
@@ -140,10 +140,10 @@ CSS 中除了 `width` 属性之外，还有一个与宽度相关的属性——`
 为了不破坏 markdown 既有的图片语法：
 
 ```markdown
-![图片alt](图片链接 "图片title")
+![图片 alt](图片链接 "图片title")
 
 <!-- 对应的 HTML 代码-->
-<img src="图片链接" alt="图片alt" title="图片title">
+<img src="图片链接" alt="图片 alt" title="图片 title">
 ```
 
 又想要实现对图片大小的控制，我们可以从 `图片alt` 和 `图片链接` 下手。

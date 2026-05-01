@@ -385,8 +385,8 @@ PyQt 和 PySide 的区别：前者是第三方公司的产品，而后者才是 
 
 文档地址：
 
-- PySide：<https://doc.qt.io/qtforpython/>
-- PyQt5：<https://www.riverbankcomputing.com/static/Docs/PyQt5/>
+- PySide:<https://doc.qt.io/qtforpython/>
+- PyQt5:<https://www.riverbankcomputing.com/static/Docs/PyQt5/>
 
 ```sh
 pip install PySide2  # 不区分大小写

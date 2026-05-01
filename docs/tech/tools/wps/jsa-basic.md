@@ -34,7 +34,7 @@ JS 内置对象和浏览器的内置对象是不同的，WPS 宏编辑器集成�
 
 ## 为什么不是 VBA？
 
-VBA （Visual Basic for Application）经过长期发展，功能非常强大，能够调用 ActiveX 对象和 Windows API，能够实现系统级自动化。但其缺点同样突出：
+VBA（Visual Basic for Application）经过长期发展，功能非常强大，能够调用 ActiveX 对象和 Windows API，能够实现系统级自动化。但其缺点同样突出：
 
 1. **安全性风险**：强大的功能也带来了安全隐患，许多宏病毒和木马正是利用 VBA 的底层能力进行传播和破坏。
 2. **兼容性不佳**：VBA 对运行环境依赖较强，换一台电脑或更换 Microsoft Office 版本后，原先写好的宏常常因组件版本差异或权限问题而无法正常运行。
@@ -50,7 +50,7 @@ VBA （Visual Basic for Application）经过长期发展，功能非常强大，
 
 当然，尽管现在有很多 VBA 能做的功能 JSA 尚且做不到，但对于绝大多数日常自动化、文本处理、跨平台场景，JSA 已经完全够用。
 
-如果你以前使用过 VBA，转到 JSA 可以参考官方这篇文档：[从Visual Basic 转到 JavaScript](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/go-to-js-from-vb)
+如果你以前使用过 VBA，转到 JSA 可以参考官方这篇文档：[从 Visual Basic 转到 JavaScript](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/go-to-js-from-vb)
 
 ---
 
@@ -62,9 +62,9 @@ VBA （Visual Basic for Application）经过长期发展，功能非常强大，
 
 首先任意打开一个 Word 文件，上方依次点开“**工具**”——“**开发工具**”——“**WPS 宏编辑器**”：
 
-![WPS宏编辑器](https://zedo-img.netlify.app/img/2026-04/12201926.png)
+![WPS 宏编辑器](https://zedo-img.netlify.app/img/2026-04/12201926.png)
 
-默认情况下用的是 VBA，还需要手动切换到 JS 环境： ![切换到JS环境按钮](https://zedo-img.netlify.app/img/2026-04/12201804.png)
+默认情况下用的是 VBA，还需要手动切换到 JS 环境： ![切换到 JS 环境按钮](https://zedo-img.netlify.app/img/2026-04/12201804.png)
 
 在编辑器窗口中找到 `Normal.dotm` 的代码部分，右键新建模块，然后在右侧编写、粘贴代码就行了：
 
@@ -112,7 +112,7 @@ function test3() {
 1. 当函数具有参数、或者鼠标停在函数定义以外的空行时，会弹出“宏”窗口，让你选择宏再执行。
 1. 鼠标停在 $4-9$ 行时都会弹出窗口，而不是执行函数。
 
-为了在点击“运行宏”的时候避免宏数量太多产生干扰，我就会给部分函数加了一个未使用的参数 `_`，例如 [简单公文排版](jsa-word.md#代码部分) 中的 `全文字体段落设置(_)`。
+为了在点击“运行宏”的时候避免宏数量太多产生干扰，我就会给部分函数加了一个未使用的参数 `_`，例如 [简单公文排版](jsa-word.md#格式部分) 中的 `全文字体段落设置(_)`。
 
 :::
 
@@ -121,7 +121,7 @@ function test3() {
 ## 弹窗、输出调试
 
 - `MsgBox()` 可以产生一个弹窗，有多种弹窗，详见文档
-- `Console.log()` 输出到 “立即窗口” 中，小写的 `console` 好像用不了
+- `Console.log()` 输出到“立即窗口”中，小写的 `console` 好像用不了
 - `InputBox()` 可以允许用户输入内容的对话框
 
 当然，更建议打断点调试，因为支持“快速监视”变量。
@@ -157,7 +157,7 @@ function test3() {
 function 全文设置为仿宋() {
     const doc = ActiveDocument;
     doc.Content.Font.NameFarEast = "仿宋_GB2312";
-    doc.Content.Font.Size = 16; // 三号 = 16磅
+    doc.Content.Font.Size = 16; // 三号 = 16 磅
 }
 ```
 
@@ -210,7 +210,7 @@ function 光标所在段落设为标题() {
 
 ### 什么是 Range？
 
-如果说 `ActiveDocument` 是“整本书”，`Selection` 是“读者高亮的那一行”，那么 `Range` 就是可以随心裁剪、粘贴、改写的那张“纸片”， 它是 WPS 文档自动化中最强大、最灵活的对象。
+如果说 `ActiveDocument` 是“整本书”，`Selection` 是“读者高亮的那一行”，那么 `Range` 就是可以随心裁剪、粘贴、改写的那张“纸片”，它是 WPS 文档自动化中最强大、最灵活的对象。
 
 `Range` 代表文档中一段**连续的、有起点和终点**的区域。它**不依赖于用户界面**——即使文档没有被选中任何内容，你依然可以创建、修改、删除任意范围的 `Range` 对象。
 
@@ -289,7 +289,7 @@ let newRange = oldRange.Duplicate; // 复制一份，独立修改
 function 替换文本() {
     let rng = ActiveDocument.Content;
     rng.Find.Execute("WPS", true, 1, false, false, false, true, 1, true, "金山办公", 2);
-    // 参数说明：查找文本、区分大小写、全字匹配、通配符、同音、同形、查找方向、段落区分、格式匹配、替换文本、替换个数(2=全部)
+    // 参数说明：查找文本、区分大小写、全字匹配、通配符、同音、同形、查找方向、段落区分、格式匹配、替换文本、替换个数 (2=全部)
 }
 ```
 
@@ -425,7 +425,7 @@ function CentimetersToPoints(cm) {
 
 ::: info
 
-虽然没找到专门解释三态布尔值的文档，但是文档 [表格API - Shape.Child](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/et/Shape/member/Child#说明) 提到：
+虽然没找到专门解释三态布尔值的文档，但是文档 [表格 API - Shape.Child](https://open.wps.cn/documents/app-integration-dev/wps365/client/wpsoffice/jsapi/et/Shape/member/Child#说明) 提到：
 
 - 如果选择的形状是子形状，则为 `msoTrue` 。
 - 如果选择的形状不是子形状，则为 `msoFalse` 。

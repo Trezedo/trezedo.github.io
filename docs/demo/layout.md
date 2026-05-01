@@ -11,13 +11,13 @@ tag:
 
 # 布局
 
-布局包括:
+布局包括：
 
 - [导航栏](https://theme-hope.vuejs.press/zh/guide/layout/navbar.html)
 - [侧边栏](https://theme-hope.vuejs.press/zh/guide/layout/sidebar.html)
 - [页脚](https://theme-hope.vuejs.press/zh/guide/layout/footer.html)
 
-同时每个页面包含:
+同时每个页面包含：
 
 - [路径导航](https://theme-hope.vuejs.press/zh/guide/layout/breadcrumb.html)
 - [标题和页面信息](https://theme-hope.vuejs.press/zh/guide/feature/page-info.html)
@@ -25,7 +25,7 @@ tag:
 - [贡献者、更新时间等页面元信息](https://theme-hope.vuejs.press/guide/feature/meta.html)
 - [评论](https://theme-hope.vuejs.press/zh/guide/feature/comment.html)
 
-主题也带有以下元素:
+主题也带有以下元素：
 
 - [夜间模式按钮](https://theme-hope.vuejs.press/zh/guide/interface/darkmode.html)
 - [返回顶部按钮](https://theme-hope.vuejs.press/guide/interface/others.html#返回顶部按钮)

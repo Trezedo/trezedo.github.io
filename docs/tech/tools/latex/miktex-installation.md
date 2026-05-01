@@ -56,7 +56,7 @@ tag:
 
 重新打开这个控制台，在界面中选择**启动 TexWorks 前端**：
 
-![使用TexWorks center](https://zedo-img.netlify.app/img/2022-02/04165351.png#s-80)
+![使用 TexWorks center](https://zedo-img.netlify.app/img/2022-02/04165351.png#s-80)
 
 打开后，输入以下基本的 `LaTeX` 文档结构：
 
@@ -79,7 +79,7 @@ tag:
 
 首先该编辑器会让你保存文件，保存后再次点击绿色按钮，`MiKTeX` 可能会询问是否安装一些宏包（因为使用了 `ctex` 宏包，用于支持中文），编译完成会打开一个 `pdf`，这就是编译输出的产物：
 
-![预览pdf center](https://zedo-img.netlify.app/img/2022-02/04170854.png#s-60)
+![预览 pdf center](https://zedo-img.netlify.app/img/2022-02/04170854.png#s-60)
 
 至此，我们已经完成了 LaTeX 写作的最重要的一步。
 
@@ -131,14 +131,14 @@ mpm --pick-repository-url
 
 学习 LaTeX 更多的还是看手册，看宏包的使用说明文档，比较推荐的入门书就是 [lshort-zh-cn](https://mirrors.tuna.tsinghua.edu.cn/CTAN/info/lshort/chinese/lshort-zh-cn.pdf)，这个文档译名是《一份（不太）简短的 LaTeX2e 介绍》或《112 分钟了解 LaTeX2e》，这里还有国内外各一个论坛，遇到的问题可以上来搜索和询问：[Stack Exchange](https://tex.stackexchange.com)、[LaTeX 工作室](https://www.latexstudio.net/)，提问也有其对应的要求，例如一个最小工作示例（MWE），要学习的内容还算挺多，慢慢来吧。
 
-<!-- https://www.cnblogs.com/xjtu-blacksmith/p/easymcm.html 一个简洁、易用的美赛 LaTeX 模板: easymcm
+<!-- https://www.cnblogs.com/xjtu-blacksmith/p/easymcm.html 一个简洁、易用的美赛 LaTeX 模板：easymcm
 
 https://blog.csdn.net/hebtu666/article/details/103438056
 
-latex教程详细笔记
+latex 教程详细笔记
 https://blog.csdn.net/mr_cat123/article/details/80215341
 
-LaTeX公式手册(全网最全)
+LaTeX 公式手册
 https://www.cnblogs.com/1024th/p/11623258.html
 
 %新的平行且等于

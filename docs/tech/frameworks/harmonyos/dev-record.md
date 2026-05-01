@@ -212,17 +212,17 @@ export default {
 `test` 改成如下即可：
 
 ```js
-// 第1种
+// 第 1 种
 test() {
     return this.title + "!!!";
 }
 
-// 第2种
+// 第 2 种
 test: function() {
     return this.title + "!!!";
 }
 
-// 第3种
+// 第 3 种
 test: {
     // get 方法也不能用箭头函数
     get() {
@@ -246,7 +246,7 @@ test: {
 ```js
 import http from "@ohos.net.http";
 
-// 每一个httpRequest对应一个http请求任务，不可复用
+// 每一个 httpRequest 对应一个 http 请求任务，不可复用
 let httpRequest = http.createHttp();
 ```
 
@@ -439,7 +439,7 @@ export const isPhoneValid = (phone) => /^1(3\d|5[0-3,5-9]|7[1-3,5-8]|8\d)\d{8}$/
 }
 ```
 
-在开发者文档中搜索了很多，实际测试发现如果一个项目中有多个 module ，那么在 [自定义标题栏实战](https://developer.huawei.com/consumer/cn/forum/topic/0203706295778530146?fid=0101610563345550409) 中介绍的方式（在 `module` 下添加）无效果。
+在开发者文档中搜索了很多，实际测试发现如果一个项目中有多个 module，那么在 [自定义标题栏实战](https://developer.huawei.com/consumer/cn/forum/topic/0203706295778530146?fid=0101610563345550409) 中介绍的方式（在 `module` 下添加）无效果。
 
 ### 网络权限
 

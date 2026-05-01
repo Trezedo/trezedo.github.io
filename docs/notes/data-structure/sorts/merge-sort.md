@@ -16,17 +16,17 @@ tag:
 
 基本思想：
 
-归并排序（MERGE-SORT）是建立在归并操作上的一种有效的排序算法,该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为二路归并。
+归并排序（MERGE-SORT）是建立在归并操作上的一种有效的排序算法，该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为二路归并。
 
 归并排序过程示意：
 
-![归并排序示例1](https://zedo-img.netlify.app/img/dsa/sorts/4.1-merge-example.png)
+![归并排序示例 1](https://zedo-img.netlify.app/img/dsa/sorts/4.1-merge-example.png)
 
 归并排序每次都把原数组分成两半，即分成 $[0, \frac{n}{2} - 1]$ 和 $[\frac{n}{2}, n]$ 两部分，然后再对这两部分再次二分，这就是一个“分治”的过程。
 
 对于长度不是 $2^k,k\in \mathbb{N}$ 的序列，过程也是完全类似：
 
-![归并排序示例2](https://zedo-img.netlify.app/img/dsa/sorts/4.1-merge-example.png)
+![归并排序示例 2](https://zedo-img.netlify.app/img/dsa/sorts/4.1-merge-example.png)
 
 归并排序的特性总结：
 

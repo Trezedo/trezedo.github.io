@@ -19,8 +19,8 @@ TexStudio 对于初学者是比较友好的，它是用于创建 LaTeX 文档的
 
 下载地址：
 
-- [Github](https://github.com/texstudio-org/texstudio/releases/)：官网的下载地址
-- Github Release 镜像：
+- [GitHub](https://github.com/texstudio-org/texstudio/releases/)：官网的下载地址
+- GitHub Release 镜像：
     - [北外镜像](https://mirrors.bfsu.edu.cn/github-release/texstudio-org/texstudio/LatestRelease/)
     - [清华镜像](https://mirrors.tuna.tsinghua.edu.cn/github-release/texstudio-org/texstudio/LatestRelease/)
 
@@ -36,7 +36,7 @@ TexStudio 对于初学者是比较友好的，它是用于创建 LaTeX 文档的
 
 虽然通过 LaTeX Workshop 使用 vscode 内置的 pdf 阅读器已经满足基本使用了，但我更喜欢外部的阅读器，例如 SumatraPDF，下面介绍配置其反向搜索的方法。
 
-打开 SumatraPDF ，左上角依次选择菜单 — 设置 — 选项 — 设置反向搜索命令行，输入：
+打开 SumatraPDF，左上角依次选择菜单 — 设置 — 选项 — 设置反向搜索命令行，输入：
 
 ```sh
 "D:\path to\VS Code\Code.exe" -g "%f:%l"

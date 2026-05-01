@@ -1,6 +1,6 @@
 ---
 article: false # 不在首页收录
-index: false # 不在侧边栏收录自身（sidebar配置了此路径）
+index: false # 不在侧边栏收录自身（sidebar 配置了此路径）
 icon: fluent:book-question-mark-rtl-20-filled
 date: 2022-12-01
 modified: 2026-03-23

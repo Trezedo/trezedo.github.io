@@ -51,17 +51,17 @@ minio.exe server minio-data
 
 我们可以在浏览器打开 Console 那行的地址：`http://127.0.0.1:49775`，以默认的 `minioadmin` 为账号密码登录。
 
-首先我们要创建“桶”，点击 “Create a Bucket”，在界面中填写名称然后点击 “Create Bucket”：
+首先我们要创建“桶”，点击“Create a Bucket”，在界面中填写名称然后点击“Create Bucket”：
 
 ![创建桶](https://zedo-img.netlify.app/img/minio/20230417233504.png)
 
-为了在 SpringBoot 中使用，需要创建密钥。左侧点击 “Access Keys”，然后再右侧找到 “Create access key” 即可创建：
+为了在 SpringBoot 中使用，需要创建密钥。左侧点击“Access Keys”，然后再右侧找到“Create access key”即可创建：
 
 ![创建密钥](https://zedo-img.netlify.app/img/minio/20230417233805.png)
 
 注意保存，secret key 只会显示一次，当然我们也可以重新生成密钥。
 
-侧边栏的 “Object Browser” 可以管理我们创建的桶以及文件，可以自行体验。
+侧边栏的“Object Browser”可以管理我们创建的桶以及文件，可以自行体验。
 
 > 这里有一份比较完整的中文教程（代码不一定适用于最新版）：[MinIO 教程 - 人人编程网](https://www.hxstrive.com/subject/minio/572.htm)
 
@@ -364,7 +364,7 @@ public class MinioService {
                 .object(filename)
                 .build();
         try {
-            // 以下方法首次会下载到项目根目录，之后就会抛异常: file already exists，因此上面先删文件
+            // 以下方法首次会下载到项目根目录，之后就会抛异常：file already exists，因此上面先删文件
             minioClient.downloadObject(args);
         } catch (Exception e) {
             e.printStackTrace();

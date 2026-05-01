@@ -36,7 +36,7 @@ pip install Pygments
 
 ![texstudio 设置](https://zedo-img.netlify.app/img/texstudio-config.png)
 
-下面给出一个 demo 示例:
+下面给出一个 demo 示例：
 
 ```tex
 \documentclass{article}
@@ -62,7 +62,7 @@ def boring(args = None):
 这是上述完整命令的快捷书写方式：
 \mint{python}|import re|
 
-这是一个行内的书写X\mintinline{python}{print(x**2)}X
+这是一个行内的书写 X\mintinline{python}{print(x**2)}X
 
 显示行号：
 \begin{minted}[linenos=true]{c++}

@@ -36,7 +36,7 @@ vert.x 官方提供了一个生成代码的在线工具：<https://start.vertx.i
 
 `Vert.x` 默认生成的代码默认使用的是 `JDK 11`，相信大多数开发者安装的版本还是 `JDK 1.8`（或者 `JDK 8`，两者是一个东西），因此还需要修改版本，点击 `Advanced options`，选择 `JDK 1.8`：
 
-![选择JDK](https://zedo-img.netlify.app/img/2022-02/16132246.png)
+![选择 JDK](https://zedo-img.netlify.app/img/2022-02/16132246.png)
 
 然后点击 `Generate Project` 等待生成代码完毕，随后会让你下载一个压缩包文件。
 
@@ -48,7 +48,7 @@ vert.x 官方提供了一个生成代码的在线工具：<https://start.vertx.i
 
 ### 配置文件
 
-**解压**刚才下载的压缩包到某个空目录，这样就是一个 `Vert.x` 项目了。然后用 `Java` 的 `IDE` 打开这个项目文件夹，这里我用的是 `IntelliJ IDEA`。首先需要打开的是根目录下的 `pom.xml` 文件，它是一个 `maven` 项目的配置文件，看看是否有报错，这个报错通常是正常的，因为我们还没有下载依赖。解决办法也很简单，只需要简单调整一下该文件的依赖顺序，然后右上角会出现这个按钮：![maven变更按钮 |60](https://zedo-img.netlify.app/img/2022-02/16133937.png)
+**解压**刚才下载的压缩包到某个空目录，这样就是一个 `Vert.x` 项目了。然后用 `Java` 的 `IDE` 打开这个项目文件夹，这里我用的是 `IntelliJ IDEA`。首先需要打开的是根目录下的 `pom.xml` 文件，它是一个 `maven` 项目的配置文件，看看是否有报错，这个报错通常是正常的，因为我们还没有下载依赖。解决办法也很简单，只需要简单调整一下该文件的依赖顺序，然后右上角会出现这个按钮：![maven 变更按钮 |60](https://zedo-img.netlify.app/img/2022-02/16133937.png)
 
 点击它就会**加载 `maven` 变更**，如果没有的依赖它就会自动从 `maven` 中心下载（当然，我们也可以剪切一部分依赖，然后加载变更，再把剪切掉的粘贴回来，再次加载变更即可）。
 
@@ -251,7 +251,7 @@ public void start(Promise<Void> startPromise) {
 
 简单说下代码的含义：
 
-- 第 4 行： 创建了一个类型为 `JsonObject` 的对象，这个是 `vert.x core` 中提供的类，除此之外还提供了 `JsonArray` ，这两个想必不用太多解释；
+- 第 4 行：创建了一个类型为 `JsonObject` 的对象，这个是 `vert.x core` 中提供的类，除此之外还提供了 `JsonArray` ，这两个想必不用太多解释；
 - 5-7 行：对刚刚创建的对象添加键值对（和 `Map` 类类似），这里用了 `JsonArray` 的构造方法：`JsonArray(String json)`；
 - 9-12 行：创建一个字符串列表并添加数据；
 - 第 13 行：在上面的 `json` 对象中添加一个键值对，这里用了 `JsonArray` 的构造方法：`JsonArray(List list)`；
@@ -263,7 +263,7 @@ public void start(Promise<Void> startPromise) {
 
 现在重新运行项目，打开浏览器测试一下：
 
-![测试json响应 center|440](https://zedo-img.netlify.app/img/2022-02/16194353.png)
+![测试 json 响应 center|440](https://zedo-img.netlify.app/img/2022-02/16194353.png)
 
 与我们的预期一致，尽管逻辑很简单，这就是我们的第一个接口！
 
@@ -324,7 +324,7 @@ router.route("/api/hello").handler(this::handleHello);
 
 将我们的 `vert.x` 项目打包成 `jar` 文件，这与 `SpringBoot` 项目的打包方式类似，只需要在 IDEA 右侧点击 `maven`，找到 `package`，双击即可。
 
-![打包maven项目 center](https://zedo-img.netlify.app/img/2022-02/16210750.png#s-60)
+![打包 maven 项目 center](https://zedo-img.netlify.app/img/2022-02/16210750.png#s-60)
 
 ::: warning
 
@@ -408,7 +408,7 @@ public class User {
 
 ::: details 关于注解
 
-这里的 `@Data`、`@NoArgsConstructor` 和 `@AllArgsConstructor` 都是 [`lombok`](https://mvnrepository.com/artifact/org.projectlombok/lombok) 提供的注解，分别用于自动生成 setters 和 getters ，无参构造方法和全参构造方法，这里只是为了方便，不做过多阐述。如果需要使用，添加依赖即可：
+这里的 `@Data`、`@NoArgsConstructor` 和 `@AllArgsConstructor` 都是 [`lombok`](https://mvnrepository.com/artifact/org.projectlombok/lombok) 提供的注解，分别用于自动生成 setters 和 getters，无参构造方法和全参构造方法，这里只是为了方便，不做过多阐述。如果需要使用，添加依赖即可：
 
 ```xml
 <dependency>
@@ -750,7 +750,7 @@ route.handler(ctx -> {
 });
 ```
 
-如果想让 `Route` 指定的 HTTP Method ，您也可以使用对应的 [`get`](http://vertx.io/docs/apidocs/io/vertx/ext/web/Router.html#get--)、[`post`](http://vertx.io/docs/apidocs/io/vertx/ext/web/Router.html#post--)、[`put`](http://vertx.io/docs/apidocs/io/vertx/ext/web/Router.html#put--) 等方法。下面是一个例子：
+如果想让 `Route` 指定的 HTTP Method，您也可以使用对应的 [`get`](http://vertx.io/docs/apidocs/io/vertx/ext/web/Router.html#get--)、[`post`](http://vertx.io/docs/apidocs/io/vertx/ext/web/Router.html#post--)、[`put`](http://vertx.io/docs/apidocs/io/vertx/ext/web/Router.html#put--) 等方法。下面是一个例子：
 
 ```java
 router.get().handler(ctx -> {
@@ -784,7 +784,7 @@ route.handler(ctx -> {
 
 让我们看一个 sub router 挂载到另一个 `Router` 上的例子：
 
-这个 sub router 维护了一系列处理器，对应了一个 REST API。我们会将它挂载到另一个 `Router` 上。 例子忽略了 REST API 的具体实现：
+这个 sub router 维护了一系列处理器，对应了一个 REST API。我们会将它挂载到另一个 `Router` 上。例子忽略了 REST API 的具体实现：
 
 ```java
 Router restAPI = Router.router(vertx);
@@ -825,7 +825,7 @@ mainRouter.mountSubRouter("/productsAPI", restAPI);
 
 这意味着这个 REST API 现在可以通过这种路径访问：`/productsAPI/products/product1234`。
 
-<br/>
+<br>
 
 更多内容可以查看官方文档的中文翻译，这部分内容也摘自官方文档，不过要注意这个文档是基于 `vert.x 3` 的，和 `4.x` 有细微差别。本文在 [参考](#参考) 中给出链接。
 
@@ -840,7 +840,7 @@ mainRouter.mountSubRouter("/productsAPI", restAPI);
 ```java
 // 数据库参数
 PgConnectOptions connectOptions = new PgConnectOptions()
-    .setPort(5432) // 端口号，pgsql默认为5432
+    .setPort(5432) // 端口号，pgsql 默认为 5432
     .setHost("the-host") // 主机
     .setDatabase("the-db") // 数据库名称
     .setUser("user") // 登录用户名
@@ -870,8 +870,6 @@ SqlClient client = PgPool.client(vertx, connectOptions, poolOptions);
 ```java
 client.close();
 ```
-
-<br/>
 
 要在同一个连接上执行多个操作时，需要从池中获取一个 `connection`：
 
@@ -917,7 +915,7 @@ client
             RowSet<Row> result = ar.result();
             System.out.println("获取到 " + result.size() + " 行 ");
         } else {
-            System.out.println("失败: " + ar.cause().getMessage());
+            System.out.println("失败：" + ar.cause().getMessage());
         }
         client.close(); // 释放连接
     });
@@ -935,7 +933,7 @@ client
             RowSet<Row> rows = ar.result();
             System.out.println("获取到 " + rows.size() + " 行 ");
         } else {
-            System.out.println("失败: " + ar.cause().getMessage());
+            System.out.println("失败：" + ar.cause().getMessage());
         }
     });
 ```
@@ -952,7 +950,7 @@ client
                 System.out.println("User " + row.getString(0) + " " + row.getString(1));
             }
         } else {
-            System.out.println("失败: " + ar.cause().getMessage());
+            System.out.println("失败：" + ar.cause().getMessage());
         }
     });
 ```

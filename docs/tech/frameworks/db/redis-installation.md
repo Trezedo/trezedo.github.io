@@ -27,7 +27,7 @@ Redis 是一款 key-value 存储结构的内存级 NoSQL 数据库
 
 > 尽管官方新版 Redis 已经 ![version](https://img.shields.io/github/v/release/redis/redis?label=%20) 了，但 ![win version](https://img.shields.io/github/v/release/tporadowski/redis?label=%20) 的旧版本并不影响学习和项目的使用。
 
-![redis for windows github](https://zedo-img.netlify.app/img/2023-01/redis-21133815.png)
+![Redis for Windows GitHub](https://zedo-img.netlify.app/img/2023-01/redis-21133815.png)
 
 下载 `.msi` 后缀的文件有安装界面，`.zip` 后缀的文件则要解压手动安装，这里选择前者。
 
@@ -54,7 +54,7 @@ Redis 是一款 key-value 存储结构的内存级 NoSQL 数据库
 - redis-check-dump.exe：RDB 文件修复工具；
 - redis-check-aof.exe：AOF 文件修复工具；
 - redis-benchmark.exe：性能测试工具，用以模拟同时由多个客户端发送多个查询；
-- redis.windows.conf： 配置文件，将 Redis 作为普通软件使用的配置，命令行关闭则 Redis 关闭
+- redis.windows.conf：配置文件，将 Redis 作为普通软件使用的配置，命令行关闭则 Redis 关闭
 - redis.windows-service.conf：配置文件，将 Redis 作为系统服务的配置
 
 我们打开一个 cmd，尝试启动 Redis 服务（也可以双击打开）：
@@ -63,7 +63,7 @@ Redis 是一款 key-value 存储结构的内存级 NoSQL 数据库
 redis-server
 ```
 
-![启动redis server失败](https://zedo-img.netlify.app/img/2023-01/redis-24154819.png)
+![启动 redis server 失败](https://zedo-img.netlify.app/img/2023-01/redis-24154819.png)
 
 它提示我们“在一个非套接字上尝试了一个操作”，这可能是因为安装后默认启动了服务，可以按下 <kbd>Win</kbd>+<kbd>R</kbd> 输入 `services.msc` 查看是否有 `Redis`。
 
@@ -195,7 +195,7 @@ redis> get somekey # 10 秒钟后执行
 
 Redis 还支持许多其他的数据结构，例如列表、集合、Hash 表等等，请参考文档：<https://redis.io/docs/data-types/>。
 
-在 B 站找到一个快速入门 (1h 左右) 的视频：[【Redis 入门记(完结)，Redis6 零基础快速入门教程 2022 版】](https://www.bilibili.com/video/BV1GY41187d5/)
+在 B 站找到一个快速入门 (1h 左右) 的视频：[【Redis 入门记 (完结)，Redis6 零基础快速入门教程 2022 版】](https://www.bilibili.com/video/BV1GY41187d5/)
 
 <iframe
     src="https://player.bilibili.com/player.html?aid=253491033&bvid=BV1GY41187d5&cid=493391936&page=1" scrolling="no"

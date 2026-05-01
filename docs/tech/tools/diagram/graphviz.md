@@ -588,4 +588,4 @@ digraph finite_state_machine {
 
 <https://github.com/nikeee/edotor.net>：开源项目，在线体验：<https://edotor.net/>，支持带参数分享。
 
-<https://sketchviz.com/> 支持手绘风格，似乎不是开源的，支持下载 png 格式，必须登陆 github 并保存才能分享链接。
+<https://sketchviz.com/> 支持手绘风格，似乎不是开源的，支持下载 png 格式，必须登陆 GitHub 并保存才能分享链接。

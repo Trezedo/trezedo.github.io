@@ -37,7 +37,7 @@ function speak(text) {
     speechSynthesis.speak(utter);
 }
 
-speak("你好，我是OneCore语音引擎");
+speak("你好，我是 OneCore 语音引擎");
 ```
 
 以下是一个 TTS 实例，您可以做出以下调整：
@@ -66,7 +66,7 @@ TTS 仅支持以下浏览器：
 
 微软的 Edge 浏览器自带了很多种不同语言的（在线）语音包，如 Windows 版本：
 
-![Windows上的Edge浏览器语音包](https://zedo-img.netlify.app/img/2022-03/13091116.png)
+![Windows 上的 Edge 浏览器语音包](https://zedo-img.netlify.app/img/2022-03/13091116.png)
 
 :::
 
@@ -203,7 +203,7 @@ Write-Host "`n按回车键继续..." -ForegroundColor Gray;Read-Host
 
 ## 激活语音包
 
-Windows 10 默认安装了多个 TTS 语音引擎，但部分语音可能不会出现在 SAPI 语音列表（即上方 [查询语音包](#查询语音包) 的结果）中。这些语音通常属于 **OneCore** 语音引擎，被 Edge 浏览器等 UWP 应用使用，它们通常位于：
+Windows 10 默认安装了多个 TTS 语音引擎，但部分语音可能不会出现在 SAPI 语音列表（即上方 [查询本地语音包](#查询本地语音包) 的结果）中。这些语音通常属于 **OneCore** 语音引擎，被 Edge 浏览器等 UWP 应用使用，它们通常位于：
 
 ```text
 %WinDir%\Speech_OneCore\Engines\TTS\
@@ -211,7 +211,7 @@ Windows 10 默认安装了多个 TTS 语音引擎，但部分语音可能不会�
 
 比如我们的电脑应该会是 `zh-CN` 和 `en-US` 两个文件夹，里面的内容就是语音引擎。打开 `zh-CN` 目录查看是否存在 `Hongyu` 等语音：
 
-![Hongyu语音包文件](https://zedo-img.netlify.app/img/2022-02/25221825.png)
+![Hongyu 语音包文件](https://zedo-img.netlify.app/img/2022-02/25221825.png)
 
 可以打开设置查看还有那些语音库：
 
@@ -249,7 +249,7 @@ $voices | ForEach-Object {
 
 上图可以看到多出来 6 个语音，其中三个是重复的，仅仅是名称不一样而已。
 
-### 方法二 ：手动添加注册表项
+### 方法二：手动添加注册表项
 
 若只需添加特定语音（如 `Microsoft Hongyu`），可参考以下 `.reg` 文件内容（适用于 64 位系统，32 位程序需修改路径）。但此方法较繁琐，推荐使用方法一。
 
@@ -310,7 +310,7 @@ https://fanyi.baidu.com/gettts?lan=zh&spd=5&source=web&text=文本
         src="https://fanyi.baidu.com/gettts?lan=zh&spd=5&source=web&text=%E7%99%BE%E5%BA%A6TTS%E6%B5%8B%E8%AF%95"
         type="audio/mpeg"
     />
-    您的浏览器不支持audio元素。
+    您的浏览器不支持 audio 元素。
 </audio>
 
 可以发现，以上是无法直接播放的。如果我们直接打开这个 [链接](https://fanyi.baidu.com/gettts?lan=zh&spd=5&source=web&text=%E7%99%BE%E5%BA%A6TTS%E6%B5%8B%E8%AF%95)，会发现它会让我们下载一个 `mp3` 文件，通过查看网络请求记录可以发现，它返回的 MIME 类型为 `text/html`，而手动打开时它才是下载 `mp3` 文件，导致 `audio` 无法播放。

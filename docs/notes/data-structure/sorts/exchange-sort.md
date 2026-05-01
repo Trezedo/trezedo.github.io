@@ -56,7 +56,7 @@ $9>7$，交换；$9>3$，交换；$9>2$，交换。
 
 上图中，我们将每趟冒泡“沉底”的元素用 <span style="color: #e67700"> 橘色</span> 标记（即排好序的元素），每趟冒泡发生交换的元素用 <span style="color: #087f5b">绿色</span> 标记。注意 $5$ 和 $\overline{5}$ 的相对位置没有发生改变。
 
-下面的动图来自 [github](https://github.com/hustcc/JS-Sorting-Algorithm/blob/master/res/bubbleSort.gif)，它可以更直观的体现整个冒泡排序的过程：
+下面的动图来自 [GitHub](https://github.com/hustcc/JS-Sorting-Algorithm/blob/master/res/bubbleSort.gif)，它可以更直观的体现整个冒泡排序的过程：
 
 ![冒泡排序动图示意](https://zedo-img.netlify.app/img/dsa/sorts/bubbleSort.gif)
 
@@ -308,7 +308,7 @@ int $partition_hole(int *arr, int begin, int end) {
     while (begin != end) { // begin < end
         // 坑在左边，end 从右边过来找比 key 小的数
         // ! 如果 'arr[end] >= key' 没有等号，可能会死循环！
-        // 例如： 5 1 2 5 5 8 9
+        // 例如：5 1 2 5 5 8 9
         while (begin < end && arr[end] >= key) {
             end--;
         }
@@ -776,20 +776,20 @@ void testExchangeSorts() {
     int *a4 = copy_arr(a1, n);
     print_array(a1, n);
 
-    printf("冒泡排序:\n");
+    printf("冒泡排序：\n");
     bubble_sort(a1, n);
     print_array(a1, n);
 
-    printf("快速排序(挖洞法):\n");
+    printf("快速排序（挖洞法）：\n");
     // quick_sort_hole(a1, 0, n - 1);
     quick_sort_hole2(a2, 0, n - 1);
     print_array(a2, n);
 
-    printf("快速排序(左右指针法):\n");
+    printf("快速排序（左右指针法）：\n");
     quick_sort_classic(a3, 0, n - 1);
     print_array(a3, n);
 
-    printf("快速排序(前后指针法):\n");
+    printf("快速排序（前后指针法）：\n");
     quick_sort_fb(a4, 0, n - 1);
     print_array(a4, n);
 }
@@ -799,13 +799,13 @@ void testExchangeSorts() {
 
 ```text
 4 87 79 29 63 42 43 23 47 51 43 5 100 6 39 87 7
-冒泡排序:
+冒泡排序：
 4 5 6 7 23 29 39 42 43 43 47 51 63 79 87 87 100
-快速排序(挖洞法):
+快速排序（挖洞法）：
 4 5 6 7 23 29 39 42 43 43 47 51 63 79 87 87 100
-快速排序(左右指针法):
+快速排序（左右指针法）：
 4 5 6 7 23 29 39 42 43 43 47 51 63 79 87 87 100
-快速排序(前后指针法):
+快速排序（前后指针法）：
 4 5 6 7 23 29 39 42 43 43 47 51 63 79 87 87 100
 ```
 
@@ -830,9 +830,9 @@ void compareBubbleQuick() {
     quick_sort_hole(a3, 0, n - 1);
     int tick4 = clock();
 
-    printf("冒泡排序: %d\n", tick2 - tick1);
-    printf("冒泡排序(优化): %d\n", tick3 - tick2);
-    printf("快速排序: %d\n", tick4 - tick3);
+    printf("冒泡排序：%d\n", tick2 - tick1);
+    printf("冒泡排序（优化）：%d\n", tick3 - tick2);
+    printf("快速排序：%d\n", tick4 - tick3);
 
     free(a1);
     free(a2);
@@ -843,9 +843,9 @@ void compareBubbleQuick() {
 输出结果：
 
 ```text
-冒泡排序: 30601
-冒泡排序(优化): 29173
-快速排序: 11
+冒泡排序：30601
+冒泡排序（优化）：29173
+快速排序：11
 ```
 
 可以发现，优化后的冒泡排序耗时居然比没有优化的还要高？
@@ -855,9 +855,9 @@ void compareBubbleQuick() {
 ```text
 bubble_sort_raw: 704982704
 bubble_sort: 704810126
-冒泡排序: 33363
-冒泡排序(优化): 32306
-快速排序: 11
+冒泡排序：33363
+冒泡排序（优化）：32306
+快速排序：11
 ```
 
 可以发现，$704982704-704810126=172578$，即优化后的冒泡排序只比未优化之前少了十万多趟排序，然而它的基数有七亿之多。为了优化，每趟排序都要多执行一次 `int exchange = 0`，多趟需要执行 `exchange = 1`，这就导致增加了耗时。如果我们再对一个有序序列排序，显然排序趟数能减少很多，优化的效果就会很好：
@@ -877,8 +877,8 @@ void compareBubble() {
     bubble_sort(a1, n); // 冒泡，优化
     int tick3 = clock();
 
-    printf("冒泡排序: %d\n", tick2 - tick1);
-    printf("冒泡排序(优化): %d\n", tick3 - tick2);
+    printf("冒泡排序：%d\n", tick2 - tick1);
+    printf("冒泡排序（优化）：%d\n", tick3 - tick2);
 }
 ```
 
@@ -887,8 +887,8 @@ void compareBubble() {
 ```text
 bubble_sort_raw: 704982704
 bubble_sort: 99999
-冒泡排序: 11549
-冒泡排序(优化): 1
+冒泡排序：11549
+冒泡排序 (优化): 1
 ```
 
 可见，如果优化没有减少大量的趟数，耗时可能甚至不如不优化。
@@ -910,15 +910,15 @@ void compareQuickSorts1() {
     quick_sort_hole2(a2, 0, n - 1);
     int tick3 = clock();
     printf("n: %d\n", n);
-    printf("快排(选首位数): %d\n", tick2 - tick1);
-    printf("快排(三数选中): %d\n", tick3 - tick2);
+    printf("快排（选首位数）：%d\n", tick2 - tick1);
+    printf("快排（三数选中）：%d\n", tick3 - tick2);
 }
 ```
 
 ```text
 n: 100000
-快排(选首位数): 12
-快排(三数选中): 15
+快排（选首位数）：12
+快排（三数选中）：15
 ```
 
 可见差距不是很大，有时三数取中优化耗时还要小，它的优势主要是针对有序数组，可看下面这个例子：
@@ -948,8 +948,8 @@ void compareQuickSorts2() {
 
 ```text
 n: 10000
-快排(选首位数): 102
-快排(三数选中): 0
+快排（选首位数）：102
+快排（三数选中）：0
 ```
 
 可见优化效果十分显著。
@@ -981,9 +981,9 @@ void compare_3_quick() {
     quick_sort_fb(c, 0, n - 1);
     int tick4 = clock();
 
-    printf("快排(挖坑法): %d\n", tick2 - tick1);
-    printf("快排(左右指针法): %d\n", tick3 - tick2);
-    printf("快排(前后指针法): %d\n", tick4 - tick3);
+    printf("快排（挖坑法）：%d\n", tick2 - tick1);
+    printf("快排（左右指针法）：%d\n", tick3 - tick2);
+    printf("快排（前后指针法）：%d\n", tick4 - tick3);
 
     free(a);
     free(b);
@@ -994,9 +994,9 @@ void compare_3_quick() {
 这里的快排我们统一使用三数取中优化，输出结果：
 
 ```text
-快排(挖坑法): 158
-快排(左右指针法): 152
-快排(前后指针法): 174
+快排（挖坑法）：158
+快排（左右指针法）：152
+快排（前后指针法）：174
 ```
 
 有时挖坑法耗时也会比左右指针法少。可见三种方法差距不是太大，但挖坑法和左右指针法（经典快排）的效率要比前后指针法的要高。

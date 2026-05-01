@@ -32,7 +32,7 @@ tag:
 
 :::
 
-[IntelliJ Idea](https://www.jetbrains.com/zh-cn/idea/download/)： Jet Brains 公司出品，强大的 Java IDE ~~应该没有程序员不知道吧~~。
+[IntelliJ Idea](https://www.jetbrains.com/zh-cn/idea/download/)：Jet Brains 公司出品，强大的 Java IDE ~~应该没有程序员不知道吧~~。
 
 ### 办公
 
@@ -50,7 +50,7 @@ tag:
 
 #### 文本工具
 
-[Textify](https://ramensoftware.com/textify)：一款适用于 Windows 的工具，可以从原本不允许复制文本的对话框和控件中复制文本。（比如应用程序窗口标题、VB Script 的弹窗），采用鼠键结合进行复制。Github 地址：<https://github.com/m417z/Textify>
+[Textify](https://ramensoftware.com/textify)：一款适用于 Windows 的工具，可以从原本不允许复制文本的对话框和控件中复制文本。（比如应用程序窗口标题、VB Script 的弹窗），采用鼠键结合进行复制。GitHub 地址：<https://github.com/m417z/Textify>
 
 [TextGO](https://github.com/C5H12O5/TextGO)![版本](https://img.shields.io/github/v/release/C5H12O5/TextGO?label=Release&color=blue)：TextGO 是一个跨平台的文本处理工具，能够识别文本类型并执行自定义动作，内置丰富的文本类型和处理动作，简单配置即可使用。
 
@@ -84,7 +84,7 @@ B 站外链播放器使用文档：<https://player.bilibili.com/>
 
 #### 解析下载
 
-[橙子解析](https://odown.cc/)：免费、无需注册、解析快，支持超 1000+海量视频网站的解析。缺点是不显示分辨率，但默认是最高分辨率。
+[橙子解析](https://odown.cc/)：免费、无需注册、解析快，支持超 1000+ 海量视频网站的解析。缺点是不显示分辨率，但默认是最高分辨率。
 
 [X 视频下载 - Snaplytics](https://snaplytics.io/twitter-videos-downloader/zh/)：主要是非国内社交平台视频、图片解析。支持选择不同分辨率。
 
@@ -104,7 +104,7 @@ B 站外链播放器使用文档：<https://player.bilibili.com/>
 
 [XnView MP](https://www.xnview.com/en/xnview-mp/)：图片浏览器
 
-[SVG Explorer Extension](https://github.com/tibold/svg-explorer-extension/releases) ![最新版本](https://img.shields.io/github/v/release/tibold/svg-explorer-extension)：在资源管理器中预览 svg 图片（缩略图），打不开 github 的也可以试下在 [这里](https://download.cnet.com/svg-explorer-extension/3000-2248_4-78237543.html) 下载。
+[SVG Explorer Extension](https://github.com/tibold/svg-explorer-extension/releases) ![最新版本](https://img.shields.io/github/v/release/tibold/svg-explorer-extension)：在资源管理器中预览 svg 图片（缩略图），打不开 GitHub 的也可以试下在 [这里](https://download.cnet.com/svg-explorer-extension/3000-2248_4-78237543.html) 下载。
 
 [Compressor.io](https://compressor.io/) ：图片压缩（在线工具）
 
@@ -115,13 +115,13 @@ B 站外链播放器使用文档：<https://player.bilibili.com/>
 [Everything](https://www.voidtools.com/zh-cn/) ：装机必备！快速搜索、定位文件和文件夹。
 
 > 官网右下角“开发中”有 [V1.5 Alpha](https://www.voidtools.com/zh-cn/everything-1.5a/) 版本，包含大量新特性！例如拼音搜索、全文搜索。其中还有一个新特性是支持视频按时长搜索语法：如 `*.mp4 length:01:30-3:00` 表示搜索时长介于 一分半到三分钟的 mp4 视频，还可在结果页面添加自定义列，例如视频时长（Metadata Length）属性。
-> [这篇文章](https://blog.csdn.net/axutongxue/article/details/148191317) 对新特性的介绍比较详细，自行参考。但有一点笔者认为操作可更简化，在 Advanced 中搜索 `pinyin`，然后将 `pinyin` 改为 `true`，以及 `pinyin_type` 改为 `Single Character`（首字母） 或 `QuanPin`（全拼）即可。
+> [这篇文章](https://blog.csdn.net/axutongxue/article/details/148191317) 对新特性的介绍比较详细，自行参考。但有一点笔者认为操作可更简化，在 Advanced 中搜索 `pinyin`，然后将 `pinyin` 改为 `true`，以及 `pinyin_type` 改为 `Single Character`（首字母）或 `QuanPin`（全拼）即可。
 
 <a id="Krokiet"></a>
 [Czkawka / Krokiet](https://github.com/qarmin/czkawka/releases) ![最新版本](https://img.shields.io/github/v/release/qarmin/czkawka)：由 Rust 编写，能快速查找重复文件、相似图像/视频/音频。
 Czkawka 和 Krokiet 是两套不同 GUI。`windows_czkawka_gui_gtk_412.zip` 解压后使用。krokiet 选择 `_skia_opengl.exe` 版本（打开速度比其他略快），直接双击运行。
 
-> 两者查找速度没有明显区别，Krokiet 界面看着比 Czkawka 舒服一点。但目前 ![Krokiet版本](https://img.shields.io/badge/Krokiet-v11.0.1-blue)暂不支持自定义选择，见 [issues#1761](https://github.com/qarmin/czkawka/issues/1761)，该功能还是挺方便的。
+> 两者查找速度没有明显区别，Krokiet 界面看着比 Czkawka 舒服一点。但目前 ![Krokiet 版本](https://img.shields.io/badge/Krokiet-v11.0.1-blue)暂不支持自定义选择，见 [issues#1761](https://github.com/qarmin/czkawka/issues/1761)，该功能还是挺方便的。
 > 查找相似视频需要额外安装 FFmpeg。
 
 <https://upfile.live/zh-cn/> 在线文件传输，可通过文件 ID 或链接取回文件，默认会在上传后 30 分钟自动删除，也支持手动删除。
@@ -132,7 +132,7 @@ Czkawka 和 Krokiet 是两套不同 GUI。`windows_czkawka_gui_gtk_412.zip` 解�
 
 [MobaXterm](https://mobaxterm.mobatek.net/download-home-edition.html)：通过 ssh 连接远程服务器，支持文件上传。
 
-[Obsidian](https://obsidian.md/)： 能当做 markdown 编辑器，还可以做知识管理
+[Obsidian](https://obsidian.md/)：能当做 markdown 编辑器，还可以做知识管理
 
 [微信 markdown 编辑器](https://doocs.gitee.io/md/) 在线工具，可将 markdown 内容进行排版、美化，然后复制并发布到公众号文章。
 
@@ -148,13 +148,13 @@ Czkawka 和 Krokiet 是两套不同 GUI。`windows_czkawka_gui_gtk_412.zip` 解�
 
 ```sh
 eza -?             # 查看帮助及说明
-eza ./ -T -L 3 -D  # 以树形结构显示当前目录，深度3层，仅列出目录
+eza ./ -T -L 3 -D  # 以树形结构显示当前目录，深度 3 层，仅列出目录
 # 等价于 eza ./ --tree --level 3 --only-dirs
 ```
 
 ### 系统相关
 
-[TranslucentTB](https://apps.microsoft.com/detail/9pf4kz2vn4w9)：Windows 10/11 半透明任务栏（微软商店版本和 github 上的不太一样）
+[TranslucentTB](https://apps.microsoft.com/detail/9pf4kz2vn4w9)：Windows 10/11 半透明任务栏（微软商店版本和 GitHub 上的不太一样）
 
 [Geek Uninstaller](https://geekuninstaller.com/download) ：卸载软件很方便。
 

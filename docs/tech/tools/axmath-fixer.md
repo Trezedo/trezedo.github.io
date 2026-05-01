@@ -19,7 +19,7 @@ tag:
 
 ```tex
 $$
-\text{现在开始，我们用}z=a+b\text{i来表示一个复数，并称}a\text{为}z\text{的实部，}b\text{为}z\text{的虚部，记为}a=\text{Re}z,b=\text{Im}z
+\text{现在开始，我们用}z=a+b\textrm{i}\text{来表示一个复数，并称}a\text{为}z\text{的实部，}b\text{为}z\text{的虚部，记为}a=\text{Re}z,b=\text{Im}z
 $$
 ```
 

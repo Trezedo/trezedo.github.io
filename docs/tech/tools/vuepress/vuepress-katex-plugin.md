@@ -55,7 +55,7 @@ export default defineUserConfig<DefaultThemeOptions>({
 配置文件 `config.ts` 或者 `config.js` 在 `docs/.vuepress` 目录下，两者配置方式有部分不同，详见官网的 [说明](https://v2.vuepress.vuejs.org/zh/guide/configuration.html#配置文件)，本人倾向于使用 `typescript`，因为它有更好的类型提示，本文之后也是使用 `ts` 格式的配置文件。
 :::
 
-已经成功引入的 katex 插件，除此之外，还需要引入 css 文件，同样在配置文件中加入:
+已经成功引入的 katex 插件，除此之外，还需要引入 css 文件，同样在配置文件中加入：
 
 ```ts
 head: [
@@ -70,7 +70,7 @@ head: [
 ];
 ```
 
-此外，如果你是用的是默认的 markdown-it 解析器，作者还推荐使用 [github stylesheet](https://github.com/sindresorhus/github-markdown-css)：
+此外，如果你是用的是默认的 markdown-it 解析器，作者还推荐使用 [GitHub Stylesheet](https://github.com/sindresorhus/github-markdown-css)：
 
 ```ts
 [
@@ -119,7 +119,7 @@ If this is a native custom element, make sure to exclude it from component resol
 
 查看 [官网的文档](https://v2.vuepress.vuejs.org/zh/guide/markdown.html#注意事项)，了解到是因为 Katex 在 HTML 中渲染这些公式会使用非标准标签。
 
-> 非标准的 HTML 标签不会被 Vue 模板编译器识别成原生 HTML 标签。相反，Vue 会尝试将这些标签解析为 Vue 组件，而显然这些组件通常是不存在的。 例如：
+> 非标准的 HTML 标签不会被 Vue 模板编译器识别成原生 HTML 标签。相反，Vue 会尝试将这些标签解析为 Vue 组件，而显然这些组件通常是不存在的。例如：
 >
 > - 已废弃的 HTML 标签，比如 [\<center>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/center) 和 [\<font>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/font) 等。
 > - [MathML 标签](https://developer.mozilla.org/zh-CN/docs/Web/MathML)，它们可能会被一些 markdown-it 的 LaTeX 插件用到。
@@ -131,7 +131,7 @@ If this is a native custom element, make sure to exclude it from component resol
 >     - 对于 `@bundler-webpack` ，设置 [vue.compilerOptions](https://v2.vuepress.vuejs.org/zh/reference/bundler/webpack.html#vue)
 >     - 对于 `@bundler-vite` ，设置 [vuePluginOptions.template.compilerOptions](https://v2.vuepress.vuejs.org/zh/reference/bundler/vite.html#vuepluginoptions)
 
-显然选择第二种方式更好。本人使用的是 `vite`，以下也是基于 `vite` 的配置.
+显然选择第二种方式更好。本人使用的是 `vite`，以下也是基于 `vite` 的配置。
 
 ```ts
 // config.ts
@@ -279,7 +279,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     ],
     extendsMarkdown: (md) => {
         md.use(markdownItTex, {
-            // katexOptions: {...} macros配置可以不放在里面
+            // katexOptions: {...} macros 配置可以不放在里面
             macros: {
                 "\\ds": "\\displaystyle",
                 "\\ts": "\\textstyle",

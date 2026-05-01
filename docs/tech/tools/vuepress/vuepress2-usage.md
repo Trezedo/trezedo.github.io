@@ -222,7 +222,7 @@ git reset --soft HEAD^
 
 [VuePress 博客优化之拓展 Markdown 语法](https://github.com/mqyqingfeng/Blog/issues/251)
 
-[一篇带你用 VuePress + Github Pages 搭建博客](https://github.com/mqyqingfeng/Blog/issues/235)
+[一篇带你用 VuePress + GitHub Pages 搭建博客](https://github.com/mqyqingfeng/Blog/issues/235)
 
 [从零实现一个 VuePress 插件](https://github.com/mqyqingfeng/Blog/issues/250)
 

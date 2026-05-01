@@ -243,7 +243,7 @@ Node *reverseList(Node *head) {
 1° 如果是奇数个结点，则当 `fast` 到达尾结点时，`slow` 恰好就是链表中间结点：
 
 $$
-\text{步骤1:}\quad\begin{array}{cccccc}
+\text{步骤 1:}\quad\begin{array}{cccccc}
 \text{slow} & & & \\[-4pt]
 \downarrow & & & \\
 \node1
@@ -258,7 +258,7 @@ $$
 $$
 
 $$
-\text{步骤2:}\quad\begin{array}{cccccc}
+\text{步骤 2:}\quad\begin{array}{cccccc}
  & \text{slow} & & \\[-4pt]
  & \downarrow & & \\
 \node1
@@ -273,7 +273,7 @@ $$
 $$
 
 $$
-\text{步骤3:}\quad\begin{array}{cccccc}
+\text{步骤 3:}\quad\begin{array}{cccccc}
  & & \text{slow} &\\[-4pt]
  & & \downarrow &\\
 \node1

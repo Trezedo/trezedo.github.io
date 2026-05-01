@@ -41,7 +41,7 @@ tag:
 [mysqld]
 # 设置 basedir 为你的安装路径
 basedir=E:/db/mysql-8.0.28-x64
-# 设置 datadir数据目录的位置（不要求在 mysql 目录下）
+# 设置 datadir 数据目录的位置（不要求在 mysql 目录下）
 datadir=E:/db/mysql-8.0.28-x64/data
 ```
 
@@ -83,7 +83,7 @@ $ mysqld --initialize --console
 
 > 文档地址：[Starting MySQL as a Windows Service](https://dev.mysql.com/doc/refman/8.0/en/windows-start-service.html)
 
-这里我们跳过了在命令行启动 MySQL 的步骤，因为一般都是用 DataGrip，Navicat 等工具连接对吧。同时为了能够用这些工具连接 MySQL “服务器”，需要注册 Windows 服务。
+这里我们跳过了在命令行启动 MySQL 的步骤，因为一般都是用 DataGrip，Navicat 等工具连接对吧。同时为了能够用这些工具连接 MySQL“服务器”，需要注册 Windows 服务。
 
 > 在 Windows 上，运行 MySQL 的推荐方法是将其作为 Windows 服务安装，这样，当 Windows 启动和停止时，MySQL 会自动启动和停止。作为服务安装的 MySQL 服务器也可以使用 NET 命令或图形服务实用程序从命令行进行控制。通常，要将 MySQL 安装为 Windows 服务，您应该使用具有管理员权限的帐户登录。
 

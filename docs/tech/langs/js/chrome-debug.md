@@ -5,7 +5,7 @@ modified: 2026-03-23
 author:
     - Kayce Basques
     - Sofia Emelianova
-excerpt: A reference of convenience functions available in the Chrome DevTools Console.<br/>Chrome DevTools 控制台中提供的实用功能参考
+excerpt: A reference of convenience functions available in the Chrome DevTools Console.<br>Chrome DevTools 控制台中提供的实用功能参考
 category:
     - chrome
 tag:
@@ -36,7 +36,7 @@ Console Utilities API 包含一组用于执行常见任务且方便的函数：�
 
 `$_` 返回最近求值的表达式的值。
 
-在下面的例子中，计算一个简单的表达式 (`2 + 2`)。然后计算 `$_` 属性，它包含相同的值:
+在下面的例子中，计算一个简单的表达式 (`2 + 2`)。然后计算 `$_` 属性，它包含相同的值：
 
 ![$_ 是最近求值的表达式](https://zedo-img.netlify.app/img/chrome/is-most-recently-eval-91da2e37b12ba_960.png)
 
@@ -53,7 +53,7 @@ Console Utilities API 包含一组用于执行常见任务且方便的函数：�
 `$0` 返回最近选择的元素或 JavaScript 对象，
 `$1` 返回最近选择的第二个，以此类推。
 
-在下面的例子中，Elements 面板中选择了一个 `img` 元素。在 Console 抽屉中，`$0` 已被求值并展示相同的元素:
+在下面的例子中，Elements 面板中选择了一个 `img` 元素。在 Console 抽屉中，`$0` 已被求值并展示相同的元素：
 
 ![$0 的例子](https://zedo-img.netlify.app/img/chrome/example-0-38ab0691323fe_960.png)
 
@@ -69,19 +69,19 @@ Console Utilities API 包含一组用于执行常见任务且方便的函数：�
 
 当使用一个参数调用时，此函数是 [document.querySelector()][2] 函数的别名。
 
-下面的例子返回了对文档中第一个 `<img>` 元素的引用:
+下面的例子返回了对文档中第一个 `<img>` 元素的引用：
 
 ![$('img') 的例子](https://zedo-img.netlify.app/img/chrome/example-img-b1a41e5b82a16_960.png)
 
 右键单击返回的结果，选择“Reveal in Elements Panel”，在 DOM 中找到它，或者选择“Scroll in to View”，在页面上显示它。
 
-下面的例子返回当前选定元素的引用，并显示其 `src` 属性:
+下面的例子返回当前选定元素的引用，并显示其 `src` 属性：
 
 ![$('img').src 的例子](https://zedo-img.netlify.app/img/chrome/example-imgsrc-b86ba5ef405c_960.png)
 
 这个函数还支持第二个参数 `startNode`，它指定了一个“元素”或用于搜索元素的节点。该参数的默认值是 `document`。
 
-以下示例会返回 `devsite-header-background` 的第一个后代 `img` 元素的引用，并正确地显示其 `src` 属性:
+以下示例会返回 `devsite-header-background` 的第一个后代 `img` 元素的引用，并正确地显示其 `src` 属性：
 
 ![$('img', div).src 的例子](https://zedo-img.netlify.app/img/chrome/example-img-divsr-3b8ae5c01e964_960.png)
 
@@ -95,7 +95,7 @@ Console Utilities API 包含一组用于执行常见任务且方便的函数：�
 
 `$$(selector)` 返回一个匹配给定 CSS 选择器的元素数组。这个命令等价于调用 Array.from([document.querySelectorAll()][3])。
 
-下面的例子使用 `$$()` 来创建当前文档中所有 `<img>` 元素的数组，并展示每个元素的 `src` 属性的值:
+下面的例子使用 `$$()` 来创建当前文档中所有 `<img>` 元素的数组，并展示每个元素的 `src` 属性的值：
 
 ```js
 let images = $$("img");
@@ -108,7 +108,7 @@ for (let each of images) {
 
 这个函数还支持第二个参数 `startNode`，它指定一个或多个元素，以便从中搜索元素。该参数的默认值是 `document`。
 
-这个修改后的版本使用了 `$$()` 来创建一个数组，包含所有 `<img>` 元素，这些元素出现在当前文档中选定的节点之后:
+这个修改后的版本使用了 `$$()` 来创建一个数组，包含所有 `<img>` 元素，这些元素出现在当前文档中选定的节点之后：
 
 ```js
 let images = $$("img", document.querySelector(".devsite-header-background"));
@@ -128,7 +128,7 @@ for (let each of images) {
 
 `$x(path)` 返回一个与给定 XPath 表达式匹配的 DOM 元素数组。
 
-例如，下面的代码返回页面上所有的 `<p>` 元素:
+例如，下面的代码返回页面上所有的 `<p>` 元素：
 
 ```js
 $x("//p");
@@ -136,7 +136,7 @@ $x("//p");
 
 ![使用 XPath 选择器示例](https://zedo-img.netlify.app/img/chrome/example-using-xpath-sel-9ee5cd32b60bf_960.png)
 
-以下示例会返回包含 `<a>` 元素的所有 `<p>` 元素:
+以下示例会返回包含 `<a>` 元素的所有 `<p>` 元素：
 
 ```js
 $x("//p[a]");
@@ -182,7 +182,7 @@ debug(getData);
 
 `dir(object)` 以对象的形式显示所有指定对象的属性。这个方法是 Console API 的 `console.dir()` 方法的别名。
 
-下面的例子展示了在命令行中直接计算 `document.body` 和使用 `dir()` 来显示相同元素的区别:
+下面的例子展示了在命令行中直接计算 `document.body` 和使用 `dir()` 来显示相同元素的区别：
 
 ```js
 document.body;
@@ -218,7 +218,7 @@ inspect(document.body);
 
 返回值是一个对象，包含每个已注册事件类型的数组 (例如 `click` 或 `keydown`)。
 每个数组的成员都是描述为每种类型注册的侦听器的对象。
-例如，下面列出了在 `document` 对象上注册的所有事件监听器:
+例如，下面列出了在 `document` 对象上注册的所有事件监听器：
 
 ```js
 getEventListeners(document);
@@ -227,7 +227,7 @@ getEventListeners(document);
 ![Output of using getEventListeners()](https://zedo-img.netlify.app/img/chrome/output-using-geteventlis-1e1da35bccadd_960.png)
 
 如果在指定的对象上注册了多个监听器，则数组中会包含每个监听器对应的成员。
-以下示例中，在 `document` 元素上针对 `click` 事件注册了两个事件监听器:
+以下示例中，在 `document` 元素上针对 `click` 事件注册了两个事件监听器：
 
 ![Multiple listeners](https://zedo-img.netlify.app/img/chrome/multiple-listeners-1fa07046eab1a_960.png)
 
@@ -241,7 +241,7 @@ getEventListeners(document);
 
 `keys(object)` 会返回一个数组，其中包含属于指定对象的属性的名称。如需获取相同属性的关联值，请使用 [`values()`](https://developer.chrome.com/docs/devtools/console/utilities#values-function)。
 
-例如，假设你定义了以下对象:
+例如，假设你定义了以下对象：
 
 ```js
 let player = {
@@ -252,7 +252,7 @@ let player = {
 };
 ```
 
-假设 `player` 是在全局命名空间中定义的 (为了简单起见)，在控制台中输入 `keys(player)` 和 `values(player)` 将得到以下结果:
+假设 `player` 是在全局命名空间中定义的 (为了简单起见)，在控制台中输入 `keys(player)` 和 `values(player)` 将得到以下结果：
 
 ![Example of keys() and values() methods](https://zedo-img.netlify.app/img/chrome/example-keys-values-c709a644b5168_960.png)
 
@@ -283,13 +283,13 @@ monitorEvents(window, "resize");
 
 ![Monitoring window resize events](https://zedo-img.netlify.app/img/chrome/monitoring-window-resize-6cc482b08832c_960.png)
 
-以下代码定义了一个数组，用于监控 `window` 对象上的 `resize` 和 `scroll` 事件:
+以下代码定义了一个数组，用于监控 `window` 对象上的 `resize` 和 `scroll` 事件：
 
 ```js
 monitorEvents(window, ["resize", "scroll"]);
 ```
 
-您还可以指定一个可用的事件“类型”，即映射到预定义事件集的字符串。下表列出了可用的事件类型及其关联的事件映射:
+您还可以指定一个可用的事件“类型”，即映射到预定义事件集的字符串。下表列出了可用的事件类型及其关联的事件映射：
 
 <table class="responsive">
     <thead>
@@ -378,7 +378,7 @@ profileEnd("B");
 
 ## queryObjects(Constructor) {#queryObjects-function}
 
-从控制台中调用 `queryObjects(Constructor)` 可返回使用指定构造函数创建的对象数组。例如:
+从控制台中调用 `queryObjects(Constructor)` 可返回使用指定构造函数创建的对象数组。例如：
 
 - `queryObjects(Promise)`. 返回所有的 `Promise` 实例。
 - `queryObjects(HTMLElement)`. 返回所有 HTML 元素。

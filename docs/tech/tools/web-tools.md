@@ -12,7 +12,7 @@ tag:
 
 [简历下载](https://jianlixiazai.cn/) 无需注册，免费下载简历模板
 
-[ToolHelper 工具网](https://www.toolhelper.cn/) 80+个在线小工具
+[ToolHelper 工具网](https://www.toolhelper.cn/) 80+ 个在线小工具
 
 [手绘风格 graphviz](https://sketchviz.com/new)
 
