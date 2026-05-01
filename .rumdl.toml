@@ -1,0 +1,18 @@
+# 文档：https://rumdl.dev/rules/
+# GitHub：https://github.com/rvben/rumdl/tree/main/docs
+
+[global]
+# 禁用 MD013（行长度过长）和 MD033（使用 HTML 标签时警告）
+disable = ["MD013","MD033"]
+
+[MD007]
+indent = 4 # 列表项每级缩进 4 个空格，与其他格式化器保持一致
+
+[MD009]
+br-spaces = 2                  # Number of spaces for hard line breaks (default: 2)
+strict = true                  # Remove all trailing spaces, even line breaks (default: false)
+list-item-empty-lines = false  # Allow trailing spaces in empty list item lines (default: false)
+
+[MD012]
+maximum = 2 # 最多两个连续空行
+

@@ -19,7 +19,9 @@
         "fmt:check": "oxfmt --check",
         "lint": "oxlint",
         "lint:fix": "oxlint --fix",
-        "hook": "lefthook install"
+        "hook": "lefthook install",
+        "cjk:lint": "autocorrect --lint ./docs/",
+        "cjk:fix": "autocorrect --fix ./docs/"
     },
     "dependencies": {
         "notivue": "^2.4.5"
@@ -35,6 +37,7 @@
         "@vuepress/plugin-revealjs": "2.0.0-rc.128",
         "@vuepress/plugin-slimsearch": "2.0.0-rc.129",
         "@vueuse/core": "^14.2.1",
+        "autocorrect-node": "^2.14.0",
         "cross-env": "^7.0.3",
         "flowchart.ts": "^3.0.1",
         "lefthook": "^2.1.6",
@@ -46,6 +49,7 @@
         "oxlint": "^1.62.0",
         "oxlint-tsgolint": "^0.20.0",
         "prettier": "^3.8.3",
+        "rumdl": "^0.1.85",
         "sass-embedded": "^1.99.0",
         "vue": "^3.5.33",
         "vuepress": "2.0.0-rc.28",

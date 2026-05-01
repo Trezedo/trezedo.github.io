@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=https://huacnlee.github.io/autocorrect/schema.json
+# 配置文件规则
+rules:
+    # 自动在 CJK（中日韩）字符与英文单词之间添加空格
+    # 0 - 关闭, 1 - 错误级别, 2 - 警告级别
+    space-word: 1
+    # 在某些标点符号周围添加空格
+    space-punctuation: 1
+    # 在括号 ()、方括号 [] 靠近 CJK 字符时添加空格
+    space-bracket: 1
+    # 在反引号 `` 靠近 CJK 字符时添加空格
+    space-backticks: 1
+    # 在短横线 - 周围添加空格
+    space-dash: 0
+    # 在美元符号 $ 靠近 CJK 字符时添加空格
+    space-dollar: 0
+    # 转换为全角字符
+    fullwidth: 1
+    # 移除全角字符附近的空格
+    no-space-fullwidth: 1
+    # 全角字母数字字符转换为半角
+    halfwidth-word: 1
+    # 英文中的全角标点转换为半角
+    halfwidth-punctuation: 1
+    # 拼写检查（需配合 words 列表）
+    spellcheck: 2
+
+# 在特定上下文中启用或禁用
+context:
+    # 在 Markdown 或 AsciiDoc 等格式的代码块中启用/禁用格式化
+    codeblock: 0
+
+# 针对特定文本的特殊规则（覆盖默认行为）
+textRules:
+    # 例如，希望 "Hello你好" 只警告，而 "Hi你好" 完全忽略
+    # "Hello你好": 2
+    # "Hi你好": 0
+    "c语言": 0 # 忽略 "c语言" 这条文本的检查
+
+# 文件类型关联（优先级高于默认配置）
+fileTypes:
+    "*.js": javascript
+    # ".mdx": markdown
+
+# 拼写检查的自定义单词（不区分大小写）
+spellcheck:
+    words:
+        - GitHub
+        - Node.js
+        # - nodejs = Node.js # 等号表示纠正规则：将 "nodejs" 纠正为 "Node.js"
