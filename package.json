@@ -27,6 +27,7 @@
         "notivue": "^2.4.5"
     },
     "devDependencies": {
+        "@types/three": "^0.184.0",
         "@viz-js/viz": "^3.26.0",
         "@vue/repl": "^4.7.2",
         "@vuepress/bundler-vite": "2.0.0-rc.28",
@@ -51,6 +52,7 @@
         "prettier": "^3.8.3",
         "rumdl": "^0.1.85",
         "sass-embedded": "^1.99.0",
+        "three": "^0.184.0",
         "vue": "^3.5.33",
         "vuepress": "2.0.0-rc.28",
         "vuepress-plugin-components": "2.0.0-rc.106",

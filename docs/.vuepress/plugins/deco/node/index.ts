@@ -12,7 +12,7 @@ export interface DecoOption {
 export function pluginDeco({
     img = "https://zedo-img.netlify.app/img/wallhaven-z8dg9y-lossy.png",
     excludePaths = [],
-    enableBackground = false,
+    enableBackground = true,
     enableTypingEffect = true,
     enableQQWarning = true,
 }: DecoOption = {}): (app: App) => Plugin {

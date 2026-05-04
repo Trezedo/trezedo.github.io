@@ -1,0 +1,73 @@
+// 确保背景组件在页面内容之下
+.blog-page-wrapper,
+.vp-page,
+.vp-footer-wrapper {
+    z-index: 2;
+}
+
+// 博客首页背景透明
+.vp-page.vp-blog-home {
+    --vp-c-bg: transparent;
+}
+
+// 非博客首页背景模糊
+.vp-page:not(.vp-blog-home) {
+    backdrop-filter: saturate(150%) blur(0.75rem);
+}
+
+// 在文章页面，确保侧边栏在 #main-content.vp-page 之上
+.theme-container .vp-sidebar {
+    z-index: 3;
+}
+
+/* 亮色主题变量值 */
+[data-theme="light"] {
+    --bg-primary: #fff8;
+    --bg-color-blur: #fff8; // vp-article-type-wrapper
+    --bg-table-odd: #eee8;
+}
+
+/* 暗色主题变量值 */
+[data-theme="dark"] {
+    --bg-primary: #0006;
+    --bg-color-blur: #0006;
+    --bg-table-odd: #1116;
+}
+
+.vp-article-wrapper .vp-article-item,
+.theme-container .vp-sidebar,
+#main-content.vp-page,
+.vp-page .vp-blogger-info,
+.vp-page .vp-blog-infos,
+.vp-pagination .vp-pagination-nav .vp-pagination-button,
+.vp-pagination .vp-pagination-nav input,
+.vp-pagination .vp-pagination-number div,
+.wl-panel,
+.timeline-wrapper:not(p),
+.vp-project-home,
+.back-to-top,
+.page-bg,
+.vp-footer-wrapper,
+.vp-category-list,
+.vp-tag-list {
+    background-color: var(--bg-primary);
+}
+
+tbody tr:nth-child(odd) {
+    background: var(--bg-table-odd);
+}
+
+// 时间线页面，阴影效果，更像毛玻璃卡片
+.timeline-wrapper:not(p),
+.vp-article-type-wrapper,
+.vp-category-list,
+.vp-tag-list {
+    border-radius: 8px;
+    box-shadow: 0 1px 3px 1px var(--vp-c-shadow);
+}
+
+// 补充内边距
+.vp-category-list,
+.vp-tag-list {
+    padding: 8px;
+}

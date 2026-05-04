@@ -1,0 +1,63 @@
+.vp-blog-mask {
+    z-index: 1;
+}
+.vp-blog-hero-info:not(#app),
+.vp-hero-slide-down-button:not(#app) {
+    z-index: 3;
+}
+
+/* 注册 CSS 自定义属性，使 hue 值可以平滑过渡 */
+@property --navbar-hue {
+    syntax: "<number>";
+    inherits: false;
+    initial-value: 0;
+}
+
+/* 导航栏动态背景 */
+.vp-navbar {
+    /* 动态色相，饱和度和明度根据主题自动调整 */
+    background-color: hsla(var(--navbar-hue), 70%, var(--navbar-lightness), 0.85);
+    /* 毛玻璃效果（可选，让背景更融合） */
+    backdrop-filter: blur(12px) saturate(180%);
+    /* 平滑过渡色相变化 */
+    transition: background-color 0.2s ease;
+
+    /* 确保文字可读 */
+    color: var(--vp-navbar-text, #1a1a2e);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* 色相圆周动画：360° 循环，周期 12 秒（可自行调整） */
+@keyframes hueRotate {
+    from {
+        --navbar-hue: 0;
+    }
+
+    to {
+        --navbar-hue: 360;
+    }
+}
+
+.vp-navbar {
+    animation: hueRotate 12s linear infinite;
+}
+
+/* 深色主题下的明度与饱和度调整 */
+:root[data-theme="dark"] .vp-navbar {
+    --navbar-lightness: 18%;
+    /* 暗色背景 */
+    --vp-navbar-text: #f0f0f0;
+    background-color: hsla(var(--navbar-hue), 65%, var(--navbar-lightness), 0.85);
+}
+
+/* 浅色主题下的明度与饱和度调整 */
+:root[data-theme="light"] .vp-navbar {
+    --navbar-lightness: 88%;
+    --vp-navbar-text: #1a1a2e;
+    background-color: hsla(var(--navbar-hue), 75%, var(--navbar-lightness), 0.82);
+}
+
+/* 可选：给导航栏增加轻微的底部边框，增强层次 */
+.vp-navbar {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
