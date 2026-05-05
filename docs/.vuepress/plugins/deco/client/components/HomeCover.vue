@@ -1,6 +1,10 @@
 <template>
-    <Teleport to=".vp-blog-hero">
-        <div ref="containerRef" class="cover-wrap" />
+    <Teleport to=".hero-fullscreen.vp-blog-hero">
+        <div>
+            <div class="cover-wrap">
+                <div ref="containerRef" />
+            </div>
+        </div>
     </Teleport>
 </template>
 
@@ -670,7 +674,7 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .cover-wrap {
     position: absolute;
     top: 0;
