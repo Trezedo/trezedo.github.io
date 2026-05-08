@@ -1,15 +1,16 @@
 <template>
-    <div class="bg-wrap">
+    <div v-if="showCanvas" class="bg-wrap">
         <canvas ref="bgCanvas" class="bg-canvas"></canvas>
-        <!-- 不再保留手动切换按钮 -->
     </div>
 </template>
 
 <script setup>
-import { onBeforeUnmount, onMounted, ref } from "vue";
+import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 
 // Canvas 引用
 const bgCanvas = ref(null);
+// 控制是否显示 Canvas 背景
+const showCanvas = ref(false);
 
 // 动画状态变量
 let ctx = null;
@@ -18,9 +19,21 @@ let h = 0;
 let t = 0;
 let animationId = null;
 let themeObserver = null;
+let resizeHandler = null;
 
 // 响应式主题标记（来源于 html 的 data-theme 属性）
 const isDark = ref(false);
+
+/**
+ * 检测是否为 Linux aarch64 环境（避免卡顿，跳过动画）
+ * 匹配规则：UserAgent 包含 "Linux" 且包含 "aarch64" 或 "arm64"
+ * x86_64 的国产电脑实测不卡
+ */
+const isLinuxAarch64 = () => {
+    if (typeof navigator === "undefined") return false; // 服务端安全
+    const ua = navigator.userAgent.toLowerCase();
+    return ua.includes("linux") && (ua.includes("aarch64") || ua.includes("arm64"));
+};
 
 // 从根元素读取主题并更新 isDark
 const updateThemeFromHtml = () => {
@@ -114,8 +127,10 @@ function handleResize() {
     h = canvas.height = window.innerHeight;
 }
 
-// 初始化
-onMounted(() => {
+/**
+ * 实际初始化 Canvas 动画（仅当需要显示且环境正常时调用）
+ */
+function initCanvasAnimation() {
     if (!bgCanvas.value) return;
 
     const canvas = bgCanvas.value;
@@ -125,7 +140,8 @@ onMounted(() => {
     handleResize();
 
     // 监听窗口大小变化
-    window.addEventListener("resize", handleResize);
+    resizeHandler = () => handleResize();
+    window.addEventListener("resize", resizeHandler);
 
     // 1. 初次读取 html 的 data-theme
     updateThemeFromHtml();
@@ -142,18 +158,45 @@ onMounted(() => {
 
     // 启动动画
     draw();
-});
+}
 
-// 清理动画与观察者
-onBeforeUnmount(() => {
+// 清理动画与观察者、事件
+function cleanupCanvas() {
     if (animationId) {
         cancelAnimationFrame(animationId);
         animationId = null;
     }
-    window.removeEventListener("resize", handleResize);
+    if (resizeHandler) {
+        window.removeEventListener("resize", resizeHandler);
+        resizeHandler = null;
+    }
     if (themeObserver) {
         themeObserver.disconnect();
         themeObserver = null;
+    }
+    ctx = null;
+}
+
+// 组件挂载：决定是否显示并启动 Canvas
+onMounted(async () => {
+    // 若为 Linux aarch64 环境，则直接跳过所有 Canvas 相关逻辑（不显示、不初始化）
+    if (isLinuxAarch64()) {
+        showCanvas.value = false;
+        return;
+    }
+
+    // 非卡顿环境：显示 Canvas 并等待 DOM 更新后初始化动画
+    showCanvas.value = true;
+    await nextTick(); // 确保 Canvas 元素已渲染到 DOM
+    if (bgCanvas.value) {
+        initCanvasAnimation();
+    }
+});
+
+// 组件卸载前：若已启动动画则进行清理
+onBeforeUnmount(() => {
+    if (showCanvas.value) {
+        cleanupCanvas();
     }
 });
 </script>
