@@ -50,9 +50,17 @@ tag:
 
 #### 文本工具
 
+[WinMerge](https://github.com/WinMerge/winmerge/releases/)![版本](https://img.shields.io/github/v/release/WinMerge/winmerge?label=Release&color=blue)：WinMerge 是一款适用于 Windows 的开源差异比较和合并工具。WinMerge 可以比较文件夹和文件，并将差异以易于理解和处理的可视化文本格式呈现。支持并排比较或合并 2~3 个文本文件，逐行突出显示差异，还可以显示行内的差异。
+
+我使用它来比较 Word 文档：同时拖入 2~3 个 Word 文档，默认比对二进制数据，也可以使用自带的 Word 解包插件查看肉眼可读的文本内容。
+
+[Diff Excel](https://github.com/zbuzhi/diff-excel)![版本](https://img.shields.io/github/v/release/zbuzhi/diff-excel?label=Release&color=blue)：简单高效的 Excel 差异对比工具。支持对比两个 Excel 文件的差异，支持选择多对 Sheet 同时对比，一对一映射，任意搭配。使用颜色高亮显示不同的单元格，可在差异单元格中添加备注显示原始内容。
+
 [Textify](https://ramensoftware.com/textify)：一款适用于 Windows 的工具，可以从原本不允许复制文本的对话框和控件中复制文本。（比如应用程序窗口标题、VB Script 的弹窗），采用鼠键结合进行复制。GitHub 地址：<https://github.com/m417z/Textify>
 
 [TextGO](https://github.com/C5H12O5/TextGO)![版本](https://img.shields.io/github/v/release/C5H12O5/TextGO?label=Release&color=blue)：TextGO 是一个跨平台的文本处理工具，能够识别文本类型并执行自定义动作，内置丰富的文本类型和处理动作，简单配置即可使用。
+
+我自己使用体验下来感觉并不是很好用，可能是打开方式不对。
 
 [文本对比工具 - 1K Tools](https://1ktools.com/zh-cn/tools/text/text-diff)：文本差异对比在线 Web 工具，快速找出两段文本的修改、删除、新增内容，支持代码对比和高级对比选项。网络上同类型比较好用的。
 
@@ -93,6 +101,8 @@ B 站外链播放器使用文档：<https://player.bilibili.com/>
 ### 图片工具
 
 [灵猫看图](https://lmkt.tianruo.net/)：简单清爽的看图软件，界面简洁干净，无广告，无干扰，支持 100 多种文件格式。支持 Windows 和 macOS。内置了文本识别，类似微信截图的功能，个人使用体验还不错。
+
+[小宾 AI 抠图](https://matting.20133075.xyz/)：依托开源模型 briaai/RMBG-1.4，实现精准图像抠图，兼容 Windows 与 Mac 双系统。支持单张图像拖拽、粘贴图像及链接，以及批量抠图功能。更提供多种格式的证件照制作服务，支持单张与批量图像格式转换，以及单张与批量图像压缩，满足多样化的图像处理需求。
 
 [Snipaste](https://www.snipaste.com/)：开源、免费的截图工具，使用比较方便，支持贴图等功能。
 
