@@ -124,8 +124,37 @@ B 站外链播放器使用文档：<https://player.bilibili.com/>
 
 [Everything](https://www.voidtools.com/zh-cn/) ：装机必备！快速搜索、定位文件和文件夹。
 
-> 官网右下角“开发中”有 [V1.5 Alpha](https://www.voidtools.com/zh-cn/everything-1.5a/) 版本，包含大量新特性！例如拼音搜索、全文搜索。其中还有一个新特性是支持视频按时长搜索语法：如 `*.mp4 length:01:30-3:00` 表示搜索时长介于 一分半到三分钟的 mp4 视频，还可在结果页面添加自定义列，例如视频时长（Metadata Length）属性。
+> 官网右下角“开发中”有 [V1.5 Alpha](https://www.voidtools.com/zh-cn/everything-1.5a/) 版本（2026 年 5 月 14 日发布了 beta 版本），包含大量新特性！例如拼音搜索、全文搜索。其中还有一个新特性是支持视频按时长搜索语法：如 `*.mp4 length:01:30-3:00` 表示搜索时长介于 一分半到三分钟的 mp4 视频，还可在结果页面添加自定义列，例如视频时长（Metadata Length）属性。
 > [这篇文章](https://blog.csdn.net/axutongxue/article/details/148191317) 对新特性的介绍比较详细，自行参考。但有一点笔者认为操作可更简化，在 Advanced 中搜索 `pinyin`，然后将 `pinyin` 改为 `true`，以及 `pinyin_type` 改为 `Single Character`（首字母）或 `QuanPin`（全拼）即可。
+
+::: note 备忘
+
+有天搜视频突然不正常，后来发现是因为 `typescript` 格式的文件太多了，于是改了下视频筛选搜索语法：
+
+```text
+ext:3g2;3gp;3gp2;3gpp;amv;asf;asx;avi;bdmv;bik;d2v;divx;drc;dsa;dsm;dss;dsv;evo;f4v;flc;fli;flic;flv;hdmov;ifo;ivf;m1v;m2p;m2t;m2ts;m2v;m4v;mkv;mod;mov;mp2v;mp4;mp4v;mpe;mpeg;mpg;mpls;mpv2;mpv4;mts;ogm;ogv;ogx;pss;pva;qt;ram;ratdvd;rm;rmm;rmvb;roq;rpm;smil;smk;swf;tod;tp;tpr;tts;uvu;vob;vp6;webm;wm;wmp;wmv;wmx;wvx | ext:ts !path:node_modules !path:packages !path:src !path:web !path:.vscode !path:AppData\Roaming !path:texstudio !*.d.ts !*.config*
+```
+
+这里用特定的路径和文件名可以过滤掉大多数 `typescript` 文件。
+
+中途试了试视频时长语法，以下都是可以的（可以混用）：
+
+```text
+1:24:55                # 使用冒号
+1h24m55s               # 英文缩写 h m s 分别代表时分秒（秒可以省略）
+1hour24min55second     # 完整英文（单数）
+1hours24mins55seconds  # 完整英文（复数）
+1hello24my55self       # 其实只要数字后的字母对应 h m s 就支持
+```
+
+完整示例：
+
+```text
+length:55-1m5     # 搜索时长为 55秒 至 1分零5秒 的视频
+length:1:16-1m18  # 搜索时长为 1分16秒 至 1分18秒 的视频
+```
+
+:::
 
 <a id="Krokiet"></a>
 [Czkawka / Krokiet](https://github.com/qarmin/czkawka/releases) ![最新版本](https://img.shields.io/github/v/release/qarmin/czkawka)：由 Rust 编写，能快速查找重复文件、相似图像/视频/音频。
