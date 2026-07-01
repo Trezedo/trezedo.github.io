@@ -61,5 +61,6 @@
     },
     "engines": {
         "pnpm": ">=11.0.0"
-    }
+    },
+    "packageManager": "pnpm@11.9.0"
 }
