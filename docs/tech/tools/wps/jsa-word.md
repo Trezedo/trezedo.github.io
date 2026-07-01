@@ -292,7 +292,7 @@ function 全文字体段落设置(_) {
         // 页眉页脚、文本框默认不会包含在段落中，只需另外处理嵌入型图片
         if (para.Range.Information(wdWithInTable) != 0) continue; // 在表格内，跳过该段落
         const pf = para.Range.ParagraphFormat;
-        pf.Style = ActiveDocument.Styles("公文正文"); // 应用“公文正文”样式
+        pf.Style = ActiveDocument.Styles.Item("公文正文"); // 应用“公文正文”样式
     }
 }
 
@@ -342,7 +342,7 @@ function 处理抬头(range) {
     let r = Selection.Range; // 用于取得代码类型提示
     r = range;
     // 其上一段必须是空行
-    let previousPara = r.Paragraphs(1).Previous(1);
+    let previousPara = r.Paragraphs.Item(1).Previous(1);
     if (!previousPara || previousPara.Range.Text.trim() !== "") return false;
 
     r.Style = ActiveDocument.Styles.Item("公文抬头");
@@ -486,7 +486,7 @@ function 格式化嵌入型图片() {
         pf.Space1(); // 单倍行距
         // 以下用于判断段落中是否有其他文字
         // 如果不是纯图片则跳过居中设置，其中 "/" 是图片占位符
-        if (shp.Range.Paragraphs(1).Range.Text.trim() != "/") continue;
+        if (shp.Range.Paragraphs.Item(1).Range.Text.trim() != "/") continue;
 
         pf.Alignment = wdAlignParagraphCenter;
         pf.CharacterUnitFirstLineIndent = 0;
