@@ -63,8 +63,7 @@ $coverHeight: var(--cover-height);
 // 将 main 撑高，以调整页脚位置
 .vp-page {
     min-height: calc(
-        100vh - var(--navbar-height) - 2rem /* pad bottom */ - 2rem
-            /* footer 的 margin-top */
+        100vh - var(--navbar-height) - 2rem /* pad bottom */ - 2rem /* footer 的 margin-top */
     );
 
     &.has-cover {

@@ -48,3 +48,4 @@ spellcheck:
         - GitHub
         - Node.js
         # - nodejs = Node.js # 等号表示纠正规则：将 "nodejs" 纠正为 "Node.js"
+        - QuickLook
