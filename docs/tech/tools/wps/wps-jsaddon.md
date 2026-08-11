@@ -43,10 +43,10 @@ linux：`jsplugins.xml`
 type：可选 wps、et、wpp
 大多数 WPS 版本要求 `url` 指向**解压后的文件夹路径**，而不是压缩包（官网介绍的方式）。
 
-[WPS加载项老是有个报错Main resource content verificat，有没有影响？](https://bbs.wps.cn/topic/80583#comment)
+[WPS 加载项老是有个报错 Main resource content verification failed，有没有影响？](https://bbs.wps.cn/topic/80583#comment)
 [关于加载项开发中枚举的使用方法](https://bbs.wps.cn/topic/55944#comment)
-[如何使用wdAlignPageNumberCenter常量？](https://bbs.wps.cn/topic/42280)
-[WPS加载项 中 文字API中没有Inputbox，用替代方法没？](https://bbs.wps.cn/topic/41051)
+[如何使用 wdAlignPageNumberCenter 常量？](https://bbs.wps.cn/topic/42280)
+[WPS 加载项中文字 API 中没有 InputBox，用替代方法没？](https://bbs.wps.cn/topic/41051)
 
 解压（自动覆盖旧版）：
 
@@ -104,7 +104,7 @@ win-i386\cef\globalcache\jsapi\filesystem\data.json
 
 [分享一个老毛子编的好东东 RibbonXMLEditor_9.4.3](https://club.excelhome.net/thread-1707592-2-1.html)
 
-[WPS表格加载项之CustomUI](https://blog.csdn.net/2301_76975923/article/details/149756803)
+[WPS 表格加载项之 CustomUI](https://blog.csdn.net/2301_76975923/article/details/149756803)
 
 [WPS 图标 imageMso 简单汇总（520 个）](https://club.excelhome.net/thread-1712707-1-1.html)
 [让 WPS 个人版完美显示公文排版助手图标](https://xkonglong.com/posts/wps-icon/)

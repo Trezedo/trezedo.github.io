@@ -1,6 +1,7 @@
 ---
 icon: ic:baseline-extension
 date: 2026-06-20
+modified: 2026-08-11
 category:
     - 浏览器
 tag:
@@ -19,7 +20,7 @@ tag:
 
 [OneTab](https://chromewebstore.google.com/detail/onetab/chphlpgkkbolifaimnlloiipkdnihall)：当您打开的标签页过多时，点击 OneTab 图标即可将所有标签页转换为列表。需要再次访问标签页时，您可以逐个还原，也可以一次性全部还原。
 
-[PintreeNewTab](https://chromewebstore.google.com/detail/pintreenewtab/ekfkalhnkifkoijcioheanlegfgcgnee)： 可以将书签转为导航页，方便查看和查找
+[PintreeNewTab](https://chromewebstore.google.com/detail/pintreenewtab/ekfkalhnkifkoijcioheanlegfgcgnee)：可以将书签转为导航页，方便查看和查找
 
 [Media Harvest](https://chromewebstore.google.com/detail/media-harvest-x-twitter-m/hpcgabhdlnapolkkjpejieegfpehfdok)：多媒体下载器
 
@@ -34,6 +35,6 @@ JSON Viewer：个人用起来感觉比较舒服的 JSON 美化插件：
 
 > 实测发现打开本地 json 文件不能使用该插件预览，想看预览效果的可以用在线网页 [JSON Placeholder](https://jsonplaceholder.typicode.com/) 来测试。
 
-[允许复制 +](https://chromewebstore.google.com/detail/allow-copy-+/ajhbdcgfhlhhmocddefknjjkejcfpbnj)：去除复制保护，启用文本复制，删除块选择； 允许右键单击并打开上下文菜单。
+[允许复制 +](https://chromewebstore.google.com/detail/allow-copy-+/ajhbdcgfhlhhmocddefknjjkejcfpbnj)：去除复制保护，启用文本复制，删除块选择；允许右键单击并打开上下文菜单。
 
 [标签去重助手](https://chromewebstore.google.com/detail/%E6%A0%87%E7%AD%BE%E5%8E%BB%E9%87%8D%E5%8A%A9%E6%89%8B/agfpdiijjijmjgfghlfljekcfpkjamgj)：自动去除重复标签，防止重复打开相同网页。
